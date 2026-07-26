@@ -1,6 +1,6 @@
 ---
 name: central-skill-repository-curation
-description: Erkennt wiederverwendbare Arbeitsabläufe aus Projekten und Gesprächen, konsolidiert sie als versionierte Skills und pflegt sie im zentralen Repository GithubLarsKomo/skillz einschließlich Katalog, Herkunft und Aktualisierungsregeln.
+description: Erkennt wiederverwendbare Arbeitsabläufe aus Projekten und Gesprächen, konsolidiert sie als versionierte Skills und pflegt sie im zentralen Repository GithubLarsKomo/skillz einschließlich Katalog, Herkunft und Aktualisierungsregeln. Ausdrücklich bestätigte neue oder geänderte Skills werden im selben Arbeitsgang zentral aktualisiert, geprüft, committed und gepusht.
 ---
 
 # Zentrale Skill-Repository-Pflege
@@ -20,6 +20,8 @@ Der Skill wird angewendet, wenn mindestens eine der folgenden Situationen eintri
 - In einem Projekt entsteht eine `SKILL.md`, die auch außerhalb dieses Projekts nutzbar ist.
 - Ein bestehender Skill wird fachlich erweitert, korrigiert oder durch neue Betriebserfahrung präzisiert.
 - Der Nutzer verlangt, alle bisher erzeugten Skills zentral zu pflegen.
+
+Eine ausdrückliche Bestätigung wie „lerne das“, „ergänze den Skill“, „merke dir das als Skill“ oder eine sinngleiche Formulierung ist zugleich der Auftrag, die zentrale Fassung im selben Arbeitsgang zu aktualisieren und zu veröffentlichen, sofern Repository und Schreibzugriff verfügbar sind. Eine bloße Beschreibung oder ein Vorschlag der Änderung genügt dann nicht.
 
 ## Zielstruktur
 
@@ -134,9 +136,9 @@ Die `README.md` des Repositories enthält für jeden Skill:
 - kurze Zweckbeschreibung,
 - Herkunft oder Entstehungskontext.
 
-Neue Skills und Umbenennungen müssen dort im selben Arbeitsgang eingetragen werden.
+Neue Skills und Umbenennungen müssen dort im selben Arbeitsgang eingetragen werden. Bei wesentlichen fachlichen Erweiterungen ist zusätzlich zu prüfen, ob die Kurzbeschreibung im Katalog angepasst werden muss.
 
-### 7. Versionieren
+### 7. Versionieren und veröffentlichen
 
 Commit-Nachrichten folgen bevorzugt Conventional Commits:
 
@@ -149,6 +151,18 @@ refactor(skill): consolidate overlapping skills
 
 Ein Commit soll einen logisch zusammenhängenden Skill-Schritt enthalten. Skill-Datei und zugehöriger Katalogeintrag dürfen in getrennten Commits erfolgen, müssen aber am Ende konsistent sein.
 
+Bei ausdrücklich bestätigten Skill-Lern- oder Erweiterungsaufträgen umfasst der Abschluss standardmäßig:
+
+1. zentrale Skill-Datei lesen,
+2. Änderung integrieren,
+3. Katalogkonsistenz prüfen und gegebenenfalls aktualisieren,
+4. Sicherheits- und Qualitätsprüfung durchführen,
+5. committen,
+6. auf das zentrale GitHub-Repository pushen,
+7. Commit-Hash und betroffene Dateien berichten.
+
+Es wird nicht erneut nach einer Push-Freigabe gefragt, wenn der Nutzer die Skill-Übernahme oder -Erweiterung bereits ausdrücklich beauftragt hat und Schreibzugriff vorhanden ist.
+
 ### 8. Ergebnis prüfen
 
 Vor Abschluss kontrollieren:
@@ -158,7 +172,8 @@ Vor Abschluss kontrollieren:
 - README-Link zeigt auf den richtigen Pfad,
 - keine Zugangsdaten oder vertraulichen Inhalte wurden übernommen,
 - Ablauf besitzt klare Erfolgskriterien,
-- vorhandene Skills wurden nicht widersprüchlich dupliziert.
+- vorhandene Skills wurden nicht widersprüchlich dupliziert,
+- die veröffentlichte Fassung enthält die bestätigte fachliche Änderung vollständig.
 
 ## Laufende Pflege
 
@@ -168,6 +183,8 @@ Nach jeder künftig ausdrücklich bestätigten Skill-Lernentscheidung wird gepr�
 2. ein bestehender Skill erweitert werden muss,
 3. lediglich ein projektspezifisches Beispiel ergänzt wird,
 4. der zentrale README-Katalog angepasst werden muss.
+
+Diese Prüfung ist kein rein gedanklicher Nachlauf. Liegt ein zentral relevanter Änderungsbedarf vor und besteht Schreibzugriff, wird die Änderung unmittelbar im Repository umgesetzt, committed und gepusht.
 
 Das zentrale Repository wird nicht nur als Archiv, sondern als maßgebliche, fortlaufend gepflegte Wissensbasis behandelt.
 
@@ -221,6 +238,6 @@ Die Pflege ist abgeschlossen, wenn:
 
 - der Skill im zentralen Repository angelegt oder aktualisiert ist,
 - der README-Katalog konsistent ist,
-- die Änderungen committed wurden,
+- die Änderungen committed und auf GitHub veröffentlicht wurden,
 - Commit-Hash und betroffene Dateien berichtet wurden,
 - zukünftige Anwendungen auf diesen zentralen Skill Bezug nehmen können.
