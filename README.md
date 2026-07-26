@@ -16,9 +16,9 @@ skills/
 
 | Skill | Zweck | Quelle |
 |---|---|---|
-| [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Datengetriebenes, rundenbasiertes Requirements Engineering über die Grilling-WebApp | Konsolidiert aus `GithubLarsKomo/grilling` |
+| [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Datengetriebenes, rundenbasiertes Requirements Engineering über die Grilling-WebApp; bei Softwareprojekten einschließlich verpflichtender KI-/ML-Readiness, Architekturvorbereitung, Datensammlung, Labeling und Governance | Konsolidiert aus `GithubLarsKomo/grilling` und erweitert um die verbindliche KI-/ML-Prüfung für Softwareprojekte |
 | [`openasr-offline-model-import`](skills/openasr-offline-model-import/SKILL.md) | Robuster Import lokal vorhandener OpenASR-Modelle bei nicht vertrauenswürdiger oder unerreichbarer Katalogverbindung | Aus dem erfolgreich erprobten Windows-Workflow rekonstruiert |
-| [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Erkennt wiederverwendbare Verfahren, konsolidiert sie als Skills und hält Repository, Katalog und lokale Kopien konsistent | Aus der Festlegung zur zentralen Pflege aller bisher und künftig erzeugten Skills |
+| [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Erkennt wiederverwendbare Verfahren, konsolidiert sie als Skills und veröffentlicht ausdrücklich bestätigte Ergänzungen unmittelbar im zentralen Repository | Aus der Festlegung zur zentralen Pflege aller bisher und künftig erzeugten Skills |
 
 ## Pflegeprinzipien
 
@@ -28,6 +28,7 @@ skills/
 - Ein Skill beschreibt Trigger, Voraussetzungen, Ablauf, Prüfungen, Fehlerbehandlung und Abschlusskriterien.
 - Änderungen an einem Skill werden zuerst hier eingepflegt; projektspezifische Repositories dürfen darauf verweisen oder eine bewusst fixierte Kopie verwenden.
 - Das Verfahren zur Erkennung, Konsolidierung und laufenden Pflege ist selbst im Skill `central-skill-repository-curation` festgelegt.
+- Eine ausdrücklich bestätigte Skill-Ergänzung wird bei vorhandenem Schreibzugriff im selben Arbeitsgang geprüft, committed und auf GitHub veröffentlicht.
 
 ## Namenskonvention
 
