@@ -1,6 +1,6 @@
 ---
 name: round-based-requirements-grilling
-description: Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben.
+description: Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten ist eine verpflichtende KI-/ML-Readiness-Prüfung einschließlich Einsatzpotenzial, Architekturvorbereitung, Datensammlung, Labeling und Governance Bestandteil des Grillings. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben.
 ---
 
 # Datengetriebenes Requirements Grilling
@@ -129,19 +129,109 @@ Das Cookie enthält nur einen SHA-256-Ableitungswert und muss `HttpOnly`, `Secur
 
 Der committed Token ist nur eine einfache Zugriffshürde und kein echtes Secret. In Rundendefinitionen und Reports dürfen deshalb keine vertraulichen oder personenbezogenen Inhalte veröffentlicht werden.
 
+## Verpflichtende KI-/ML-Readiness bei Softwareprojekten
+
+### Erkennung
+
+Sobald das Grilling eine Software, WebApp, mobile App, Datenplattform, Automatisierung, API, digitale Entscheidungsunterstützung oder ein softwaregestütztes Gerät betrifft, ist die KI-/ML-Readiness ein verpflichtender Bestandteil des Requirements Engineerings.
+
+Der Abschnitt darf nur dann als nicht anwendbar abgeschlossen werden, wenn nachvollziehbar dokumentiert ist, warum weder heutige noch absehbare datengetriebene Funktionen einen sinnvollen Nutzen besitzen. Eine bloße Feststellung wie „aktuell keine KI geplant“ reicht nicht aus.
+
+### Pflichtfragen
+
+Vor Erstellung einer freigabefähigen `SPEC.md` müssen mindestens folgende Themen geklärt sein:
+
+1. **KI-/ML-Relevanz**
+   - Welche Entscheidungen, Klassifikationen, Prognosen, Priorisierungen, Empfehlungen oder Inhaltsverarbeitungen könnten datengetrieben verbessert werden?
+   - Wo bietet klassische Regel- oder Statistiklogik den besseren Ansatz?
+   - Welche Entscheidungen dürfen aus Sicherheits-, Compliance- oder Haftungsgründen niemals ausschließlich durch ein Modell getroffen werden?
+
+2. **Einsatzform und Nutzen**
+   - Assistenz, Automatisierung, Vorhersage, Anomalieerkennung, Suche/RAG, Generierung, Optimierung oder Personalisierung.
+   - Erwarteter fachlicher Nutzen und messbare Zielgrößen.
+   - Geeignete Einführungsstufe: Experiment, Offline-Evaluation, Shadow Mode, Human-in-the-Loop oder produktive Teilautomatisierung.
+
+3. **Architekturvorbereitung**
+   - Trennung von Datenaufnahme, Normalisierung, Feature Engineering, Regelengine, Modellinferenz und Ergebnisdarstellung.
+   - Stabile, versionierte Schnittstellen für spätere Modelle.
+   - Austauschbarkeit von Modell, Anbieter und Laufzeitumgebung.
+   - Fallback auf deterministische oder manuelle Verfahren.
+
+4. **Datensammlung**
+   - Welche Rohdaten entstehen ohnehin?
+   - Welche zusätzlichen Daten müssen bereits im MVP erhoben werden, damit spätere Modelle trainierbar und evaluierbar sind?
+   - Welche Kontextinformationen, Zeitbezüge, Datenqualitätsmerkmale und Entscheidungsresultate müssen gemeinsam gespeichert werden?
+   - Welche Daten dürfen nicht erhoben werden?
+
+5. **Labels und Ground Truth**
+   - Welche Zielvariablen werden benötigt?
+   - Wer kann sie zuverlässig vergeben: Nutzer, Experten, nachgelagerte Prozesse oder objektive Messungen?
+   - Wie werden `nicht beurteilbar`, `nicht beobachtet`, fehlende Werte und widersprüchliche Bewertungen behandelt?
+   - Ist ein einfaches Rating ausreichend oder sind strukturierte Teilbewertungen notwendig?
+
+6. **Lernstrategie**
+   - Eignung von Supervised Learning, Active Learning, Human-in-the-Loop, Expert Review, Self-Supervised Learning oder anderen Verfahren.
+   - Maßnahmen gegen Selection Bias, Survivorship Bias, Label Leakage, Feedback Loops und unausgewogene Klassen.
+   - Strategie für seltene, sicherheitskritische oder nicht direkt beobachtbare Fälle.
+
+7. **Evaluation und Governance**
+   - Baseline und Vergleich gegen bestehende Regeln oder menschliche Bearbeitung.
+   - Qualitäts-, Sicherheits-, Fairness- und Kalibrierungsmetriken.
+   - Modell-, Prompt-, Feature- und Datensatzversionierung.
+   - Freigabe, Monitoring, Drift-Erkennung, Retraining, Rollback und Auditierbarkeit.
+   - Datenschutz, Einwilligung, Aufbewahrung, Export und Löschung.
+
+### Grundprinzipien
+
+- **KI-ready, aber nicht KI-abhängig:** Das MVP muss ohne noch unvalidierte KI sicher und fachlich nutzbar bleiben.
+- **Datensammlung vor Modellwahl:** Zuerst Ground Truth, Datenqualität und Nutzen klären; erst danach Modellfamilie oder Anbieter festlegen.
+- **Strukturierte Labels vor Sternebewertung:** Ein Sterne-Rating darf ergänzen, aber nicht automatisch als ausreichende Ground Truth gelten.
+- **Aktive Datenauswahl:** Bei begrenzter Bewertungsbereitschaft bevorzugt Active Learning informative Grenzfälle, Quellenkonflikte, seltene Situationen und Modell-Regel-Abweichungen.
+- **Shadow Mode vor Einflussnahme:** Ein neues Modell wird zunächst parallel evaluiert und darf produktive Entscheidungen erst nach dokumentierter Validierung beeinflussen.
+- **Harte Grenzen bleiben deterministisch:** Amtliche Warnungen, zwingende Compliance-Regeln und nicht übersteuerbare Sicherheitsgrenzen bleiben außerhalb der freien Modellentscheidung.
+
+### Ergebnis im Grilling-Report
+
+Jeder Software-Grilling-Report enthält einen eigenen Abschnitt `KI-/ML-Readiness` mit mindestens:
+
+- KI-/ML-Potenzial und begründeter Relevanzeinstufung,
+- geeigneten und ungeeigneten Anwendungsfällen,
+- erforderlichen Daten und Features,
+- Label- und Ground-Truth-Strategie,
+- Datensammlungs- und Aufbewahrungskonzept,
+- empfohlener Lern- und Validierungsstrategie,
+- Sicherheits-, Datenschutz- und Governance-Grenzen,
+- MVP-Vorbereitungen und späterer KI-Roadmap,
+- offenen Entscheidungen und Risiken.
+
+Die Abschlussentscheidung `SPEC.md erstellen` darf bei einem Softwareprojekt erst angeboten oder akzeptiert werden, wenn dieser Abschnitt ausreichend beantwortet ist oder eine begründete Nichtanwendbarkeit dokumentiert wurde.
+
+### Ergebnis in der SPEC.md
+
+Die finale `SPEC.md` eines Softwareprojekts enthält ein eigenständiges Kapitel `KI-/ML-Architektur und Datenstrategie`. Das Kapitel beschreibt mindestens:
+
+- Ziel und Abgrenzung der KI-/ML-Nutzung,
+- Datenquellen, Datenmodell und Feature Engineering,
+- Datensammlung, Labels und Ground Truth,
+- Regel-, Modell- und Fallback-Architektur,
+- Evaluation, Shadow Mode und Freigabekriterien,
+- Datenschutz, Governance, Monitoring und Versionierung,
+- Roadmap vom MVP bis zu einem möglichen produktiven Modellbetrieb.
+
 ## Report, SPEC und Entscheidung
 
 Wenn `SPEC.md erstellen` gewählt wird:
 
 1. Reports des betreffenden Grillings konsolidieren.
-2. `SPEC.md` vollständig im Chat als freigabefähigen Entwurf liefern; nicht im Grilling-Repository speichern.
-3. Nur dieses Grilling auf `review` und `handoffStatus: awaiting-spec-decision` setzen.
-4. Den globalen `APP_STATUS` nicht automatisch ändern, da parallele und historische Grillings weiterhin benötigt werden können.
-5. Der Nutzer entscheidet zwischen Genehmigung, Ablehnung mit neuer Runde oder Ablehnung mit Abbruch.
-6. Bei neuer Runde: Grilling wieder `active`, Beanstandungen fokussiert abfragen.
-7. Bei Abbruch: Grilling `stopped`; historische Runden bleiben erhalten.
-8. Bei Approval: Grilling `approved`, geeigneten Namen für ein separates Produkt-Repository vorschlagen.
-9. Erst nachdem der Nutzer das neue Repository angelegt und freigegeben hat, dort `SPEC.md`, README, Architektur und initiale Projektdateien erstellen und pushen.
+2. Bei Softwareprojekten prüfen, dass die verpflichtende KI-/ML-Readiness vollständig behandelt oder begründet als nicht anwendbar dokumentiert ist.
+3. `SPEC.md` vollständig im Chat als freigabefähigen Entwurf liefern; nicht im Grilling-Repository speichern.
+4. Nur dieses Grilling auf `review` und `handoffStatus: awaiting-spec-decision` setzen.
+5. Den globalen `APP_STATUS` nicht automatisch ändern, da parallele und historische Grillings weiterhin benötigt werden können.
+6. Der Nutzer entscheidet zwischen Genehmigung, Ablehnung mit neuer Runde oder Ablehnung mit Abbruch.
+7. Bei neuer Runde: Grilling wieder `active`, Beanstandungen fokussiert abfragen.
+8. Bei Abbruch: Grilling `stopped`; historische Runden bleiben erhalten.
+9. Bei Approval: Grilling `approved`, geeigneten Namen für ein separates Produkt-Repository vorschlagen.
+10. Erst nachdem der Nutzer das neue Repository angelegt und freigegeben hat, dort `SPEC.md`, README, Architektur und initiale Projektdateien erstellen und pushen.
 
 ## Abschluss
 
