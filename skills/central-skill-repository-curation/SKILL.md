@@ -1,243 +1,133 @@
 ---
 name: central-skill-repository-curation
-description: Erkennt wiederverwendbare Arbeitsabläufe aus Projekten und Gesprächen, konsolidiert sie als versionierte Skills und pflegt sie im zentralen Repository GithubLarsKomo/skillz einschließlich Katalog, Herkunft und Aktualisierungsregeln. Ausdrücklich bestätigte neue oder geänderte Skills werden im selben Arbeitsgang zentral aktualisiert, geprüft, committed und gepusht.
+description: Konsolidiert wiederverwendbare Arbeitsabläufe als persönliche Skills, pflegt deren portable Fassungen im zentralen Repository GithubLarsKomo/skillz und synchronisiert beide Bestände sicher. Verwenden, wenn der Nutzer Skills lernen, zentral speichern, installieren, inventarisieren, abgleichen oder ausdrücklich in beide Richtungen synchronisieren lassen möchte.
 ---
 
-# Zentrale Skill-Repository-Pflege
+# Zentrale Skill-Pflege
 
-## Zweck
+Pflege `GithubLarsKomo/skillz` als portablen, versionierten Katalog der persönlichen Skills des Nutzers. Behandle installierte persönliche Skills als zweite Projektion desselben Bestands.
 
-Dieses Skill beschreibt das verbindliche Vorgehen, um wiederverwendbare Arbeitsabläufe aus Projekten, erfolgreichen Problemlösungen und ausdrücklich als Skill bezeichneten Verfahren dauerhaft im Repository `GithubLarsKomo/skillz` zu sichern.
+## Grenzen
 
-Das zentrale Repository ist die maßgebliche Sammlung. Projektrepositories dürfen lokale Kopien enthalten, aber fachliche Weiterentwicklungen werden zusätzlich im zentralen Skill aktualisiert.
+- Synchronisiere nur persönliche Skills des Nutzers.
+- Kopiere keine System-, OpenAI- oder Plugin-Skills.
+- Veröffentliche keinen fremden Code ohne geklärte Lizenz.
+- Speichere keine Tokens, Schlüssel, Zugangsdaten, personenbezogenen Daten oder vertraulichen Projektinhalte.
+- Führe keine Löschung, Deinstallation oder Umbenennung automatisch auf der anderen Seite aus.
+- Ändere diesen Skill oder andere Skills nur bei ausdrücklichem Auftrag.
 
-## Auslöser
+## Identität und Struktur
 
-Der Skill wird angewendet, wenn mindestens eine der folgenden Situationen eintritt:
+Ordne Skills ausschließlich über `name` im YAML-Frontmatter zu. Interne Installations-IDs sind keine fachlichen Namen.
 
-- Der Nutzer sagt ausdrücklich, ein Vorgehen solle gelernt oder als Skill gespeichert werden.
-- Ein wiederverwendbarer Ablauf wurde erfolgreich praktisch erprobt.
-- In einem Projekt entsteht eine `SKILL.md`, die auch außerhalb dieses Projekts nutzbar ist.
-- Ein bestehender Skill wird fachlich erweitert, korrigiert oder durch neue Betriebserfahrung präzisiert.
-- Der Nutzer verlangt, alle bisher erzeugten Skills zentral zu pflegen.
-
-Eine ausdrückliche Bestätigung wie „lerne das“, „ergänze den Skill“, „merke dir das als Skill“ oder eine sinngleiche Formulierung ist zugleich der Auftrag, die zentrale Fassung im selben Arbeitsgang zu aktualisieren und zu veröffentlichen, sofern Repository und Schreibzugriff verfügbar sind. Eine bloße Beschreibung oder ein Vorschlag der Änderung genügt dann nicht.
-
-## Zielstruktur
-
-Jeder Skill erhält ein eigenes Verzeichnis:
+Verwende im zentralen Repository:
 
 ```text
 skills/
-  <skill-slug>/
+  <skill-name>/
     SKILL.md
+    references/
+    scripts/
+    assets/
 ```
 
-Optional zulässige Begleitdateien:
+Synchronisiere nur vorhandene portable Ressourcen. Erzeuge keine leeren Verzeichnisse.
 
-```text
-examples/
-templates/
-schemas/
-tests/
-CHANGELOG.md
-```
+Behandle produktseitig generierte Dateien wie `agents/openai.yaml` als lokale UI-Metadaten. Erzeuge sie bei der Installation passend, aber verwende sie nicht als kanonischen portablen Inhalt.
 
-Begleitdateien werden nur angelegt, wenn sie für die Wiederverwendung notwendig sind.
+## Skill-Kandidaten konsolidieren
 
-## Namensregeln
+Prüfe vor dem Anlegen eines Skills:
 
-- englischer, kleingeschriebener Slug
-- Wörter mit Bindestrichen trennen
-- Name beschreibt die Fähigkeit, nicht ein einzelnes Projekt
-- keine Versionsnummer im Verzeichnisnamen
-- keine Personen-, Kunden- oder Unternehmensgeheimnisse im Namen
+1. Ist der Ablauf wiederholbar?
+2. Ist er außerhalb eines einzelnen Vorfalls nützlich?
+3. Besitzt er klare Trigger und Abschlusskriterien?
+4. Existiert bereits ein Skill mit demselben Ziel?
+5. Ist der Ablauf praktisch erprobt oder belastbar begründet?
 
-## Mindestinhalt jeder SKILL.md
+Aktualisiere bei Überschneidung bevorzugt den vorhandenen Skill. Übernimm aus Projektkontexten nur allgemein gültige Regeln; kennzeichne projektspezifische Angaben als Beispiele.
 
-Jede Datei enthält YAML-Frontmatter mit mindestens:
+## Bidirektional synchronisieren
 
-```yaml
----
-name: <skill-slug>
-description: <präzise Beschreibung von Trigger, Zweck und Ergebnis>
----
-```
+### 1. Inventarisieren
 
-Der Hauptteil beschreibt mindestens:
+Lies auf beiden Seiten:
 
-1. Zweck und Abgrenzung
-2. Auslöser
-3. Voraussetzungen
-4. verbindlichen Ablauf
-5. Prüfungen und Erfolgskriterien
-6. Fehlerbehandlung
-7. Sicherheits- und Datenschutzgrenzen
-8. Abschlusszustand
+- Skill-Name und Beschreibung,
+- alle portablen Dateien,
+- SHA-256-Hash jeder Datei,
+- letzten gemeinsamen Stand aus `.skill-sync.json`, sofern vorhanden.
 
-## Konsolidierungsablauf
+Prüfe Repository und Schreibberechtigung mit einer harmlosen Leseoperation, bevor externe Änderungen beginnen.
 
-### 1. Skill-Kandidat erkennen
+### 2. Klassifizieren
 
-Prüfen, ob das Verfahren:
+Ordne jeden Skill einem Zustand zu:
 
-- wiederholbar ist,
-- über ein einzelnes Projekt hinaus nützlich ist,
-- einen klaren Auslöser und Abschluss besitzt,
-- ausreichend erprobt oder fachlich begründet ist.
+| Zustand | Aktion |
+|---|---|
+| nur zentral vorhanden | lokal installieren und validieren |
+| nur lokal vorhanden | nach Sicherheitsprüfung zentral veröffentlichen und katalogisieren |
+| auf beiden Seiten identisch | nichts ändern |
+| nur eine Seite seit dem gemeinsamen Stand geändert | neuere Änderung auf die andere Seite übertragen |
+| beide Seiten geändert | nicht überschreiben; Diff und Entscheidung anfordern |
+| gemeinsamer Stand unbekannt und Inhalte verschieden | als Konflikt behandeln |
 
-Ein einmaliger Code-Fix ohne übertragbaren Ablauf ist kein eigener Skill.
+Die bloße Abwesenheit eines Skills ist kein Löschauftrag.
 
-### 2. Quellen erfassen
+### 3. Zentral veröffentlichen
 
-Mögliche Quellen sind:
+Speichere portable Dateien unter `skills/<name>/`. Aktualisiere den README-Katalog mit Link, Zweck und Herkunft. Verwende einen logisch zusammenhängenden Commit und verifiziere anschließend die veröffentlichten Pfade und Inhalte.
 
-- bestehende `SKILL.md` in anderen Repositories,
-- erfolgreich ausgeführte Befehlsfolgen,
-- dokumentierte Troubleshooting-Verfahren,
-- Grilling-Reports und freigegebene Spezifikationen,
-- ausdrücklich bestätigte Arbeitsweisen aus dem Gespräch.
+### 4. Lokal installieren
 
-Die Herkunft wird in README, Skill oder Changelog nachvollziehbar beschrieben, ohne vertrauliche Gesprächsinhalte zu kopieren.
+Prüfe Inhalt, Trigger und Sicherheitsgrenzen. Erzeuge passende UI-Metadaten, validiere den Skill im persönlichen Skill-Verzeichnis und speichere jeden importierten Skill einzeln. Behaupte die Installation erst nach erfolgreicher Verifikation.
 
-### 3. Fachlich abstrahieren
+### 5. Manifest aktualisieren
 
-Projektgebundene Angaben werden in wiederverwendbare Regeln überführt:
+Schreibe `.skill-sync.json` erst nach erfolgreichem Abgleich beider Seiten. Speichere darin nur:
 
-- konkrete Repository-Namen nur behalten, wenn sie Teil des verbindlichen Systems sind,
-- Tokens, Passwörter, lokale Pfade und personenbezogene Daten entfernen,
-- produktspezifische Schritte als Beispiele kennzeichnen,
-- stabile Prinzipien von austauschbaren Implementierungsdetails trennen.
+- Schema-Version,
+- Synchronisationszeitpunkt,
+- Skill-Namen,
+- portable Pfade,
+- SHA-256-Hashes.
 
-### 4. Duplikate prüfen
+Speichere keine Inhalte, Zugangsdaten oder internen Installations-IDs im Manifest.
 
-Vor dem Anlegen eines neuen Skills prüfen:
+## Konflikte behandeln
 
-- existiert bereits ein Skill mit gleichem Ziel,
-- ist die neue Erkenntnis nur eine Erweiterung,
-- sollten zwei überlappende Skills zusammengeführt werden,
-- bleibt ein projektspezifischer Spezialfall besser als Unterabschnitt erhalten.
+Bei abweichenden Fassungen:
 
-Bei fachlicher Überschneidung wird bevorzugt der bestehende Skill aktualisiert statt ein nahezu identischer Skill angelegt.
+1. gemeinsamen Stand bestimmen,
+2. beide Diffs getrennt auswerten,
+3. widerspruchsfreie Ergänzungen zusammenführen,
+4. fachliche oder sicherheitsrelevante Konflikte sichtbar machen,
+5. vor dem Überschreiben eine Entscheidung des Nutzers einholen,
+6. danach erneut validieren und beide Seiten verifizieren.
 
-### 5. Skill schreiben oder aktualisieren
+Bevorzuge niemals allein aufgrund eines jüngeren Zeitstempels eine fachlich schlechtere Fassung.
 
-- neuen Skill unter `skills/<slug>/SKILL.md` anlegen,
-- bei Aktualisierung zuerst den aktuellen Stand lesen,
-- bestehende bewährte Inhalte erhalten,
-- neue Regeln widerspruchsfrei integrieren,
-- unsichere oder noch nicht erprobte Schritte ausdrücklich kennzeichnen.
+## Sicherheitsprüfung
 
-### 6. Zentralen Katalog aktualisieren
+Suche vor jeder Veröffentlichung mindestens nach:
 
-Die `README.md` des Repositories enthält für jeden Skill:
+- Token-, Passwort- und Secret-Mustern,
+- privaten Schlüsseln und Zertifikaten,
+- realen lokalen Zugangspfaden,
+- personenbezogenen oder vertraulichen Angaben,
+- destruktiven Befehlen ohne Schutzbedingungen,
+- fremden Inhalten ohne erkennbare Wiederverwendungsrechte.
 
-- Link zur `SKILL.md`,
-- kurze Zweckbeschreibung,
-- Herkunft oder Entstehungskontext.
+Stoppe bei einem Treffer und kläre oder bereinige ihn.
 
-Neue Skills und Umbenennungen müssen dort im selben Arbeitsgang eingetragen werden. Bei wesentlichen fachlichen Erweiterungen ist zusätzlich zu prüfen, ob die Kurzbeschreibung im Katalog angepasst werden muss.
+## Abschluss
 
-### 7. Versionieren und veröffentlichen
+Der Abgleich ist abgeschlossen, wenn:
 
-Commit-Nachrichten folgen bevorzugt Conventional Commits:
-
-```text
-feat(skill): add <skill-name>
-docs(skill): refine <skill-name>
-fix(skill): correct <skill-name> workflow
-refactor(skill): consolidate overlapping skills
-```
-
-Ein Commit soll einen logisch zusammenhängenden Skill-Schritt enthalten. Skill-Datei und zugehöriger Katalogeintrag dürfen in getrennten Commits erfolgen, müssen aber am Ende konsistent sein.
-
-Bei ausdrücklich bestätigten Skill-Lern- oder Erweiterungsaufträgen umfasst der Abschluss standardmäßig:
-
-1. zentrale Skill-Datei lesen,
-2. Änderung integrieren,
-3. Katalogkonsistenz prüfen und gegebenenfalls aktualisieren,
-4. Sicherheits- und Qualitätsprüfung durchführen,
-5. committen,
-6. auf das zentrale GitHub-Repository pushen,
-7. Commit-Hash und betroffene Dateien berichten.
-
-Es wird nicht erneut nach einer Push-Freigabe gefragt, wenn der Nutzer die Skill-Übernahme oder -Erweiterung bereits ausdrücklich beauftragt hat und Schreibzugriff vorhanden ist.
-
-### 8. Ergebnis prüfen
-
-Vor Abschluss kontrollieren:
-
-- YAML-Frontmatter ist gültig,
-- Verzeichnisname und `name` stimmen überein,
-- README-Link zeigt auf den richtigen Pfad,
-- keine Zugangsdaten oder vertraulichen Inhalte wurden übernommen,
-- Ablauf besitzt klare Erfolgskriterien,
-- vorhandene Skills wurden nicht widersprüchlich dupliziert,
-- die veröffentlichte Fassung enthält die bestätigte fachliche Änderung vollständig.
-
-## Laufende Pflege
-
-Nach jeder künftig ausdrücklich bestätigten Skill-Lernentscheidung wird geprüft, ob:
-
-1. ein neuer Skill angelegt werden muss,
-2. ein bestehender Skill erweitert werden muss,
-3. lediglich ein projektspezifisches Beispiel ergänzt wird,
-4. der zentrale README-Katalog angepasst werden muss.
-
-Diese Prüfung ist kein rein gedanklicher Nachlauf. Liegt ein zentral relevanter Änderungsbedarf vor und besteht Schreibzugriff, wird die Änderung unmittelbar im Repository umgesetzt, committed und gepusht.
-
-Das zentrale Repository wird nicht nur als Archiv, sondern als maßgebliche, fortlaufend gepflegte Wissensbasis behandelt.
-
-## Umgang mit lokalen Skill-Kopien
-
-Besteht ein Skill zusätzlich in einem Projektrepository:
-
-- wird die vollständigere und aktuellere Fassung ermittelt,
-- werden allgemein gültige Änderungen nach `skillz` übernommen,
-- bleiben projektspezifische Betriebsdetails im Projekt,
-- wird eine bewusste Abweichung dokumentiert,
-- werden lokale Kopien nicht ungeprüft überschrieben.
-
-## Fehlerbehandlung
-
-### Repository oder Schreibzugriff fehlt
-
-- Repository und Berechtigungen prüfen,
-- keine erfolgreiche Speicherung behaupten,
-- den fertigen Skill-Inhalt lokal oder im Chat bereitstellen, bis der Push möglich ist.
-
-### Skill existiert bereits
-
-- vorhandene Datei lesen,
-- Unterschiede fachlich bewerten,
-- aktualisieren oder bewusst nicht ändern,
-- keine parallele Dublette mit leicht verändertem Namen erzeugen.
-
-### Quellen widersprechen sich
-
-- den zuletzt erfolgreich erprobten und bestätigten Ablauf bevorzugen,
-- relevante Unterschiede transparent dokumentieren,
-- destructive oder sicherheitsrelevante Änderungen nicht stillschweigend übernehmen.
-
-## Sicherheitsgrenzen
-
-Nicht in das Repository gehören:
-
-- Passwörter, API-Schlüssel und Zugriffstokens,
-- private Schlüssel oder Zertifikate,
-- personenbezogene Daten,
-- interne vertrauliche Dokumentinhalte,
-- temporäre Zuganglinks,
-- ungeprüfte Schadcode- oder Umgehungsanweisungen.
-
-Beispielwerte müssen eindeutig als Platzhalter erkennbar sein.
-
-## Abschlusskriterien
-
-Die Pflege ist abgeschlossen, wenn:
-
-- der Skill im zentralen Repository angelegt oder aktualisiert ist,
-- der README-Katalog konsistent ist,
-- die Änderungen committed und auf GitHub veröffentlicht wurden,
-- Commit-Hash und betroffene Dateien berichtet wurden,
-- zukünftige Anwendungen auf diesen zentralen Skill Bezug nehmen können.
+- alle persönlichen Skills klassifiziert wurden,
+- konfliktfreie Änderungen auf beiden Seiten vorhanden sind,
+- importierte Skills gültig und installiert sind,
+- README und Manifest den verifizierten Bestand abbilden,
+- keine nicht autorisierte Löschung erfolgte,
+- verbleibende Konflikte mit einem konkreten nächsten Schritt berichtet sind.
