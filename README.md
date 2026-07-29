@@ -19,6 +19,7 @@ skills/
 | [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Datengetriebenes, rundenbasiertes Requirements Engineering über die Grilling-WebApp; bei Softwareprojekten einschließlich verpflichtender KI-/ML-Readiness, Architekturvorbereitung, Datensammlung, Labeling und Governance | Konsolidiert aus `GithubLarsKomo/grilling` und erweitert um die verbindliche KI-/ML-Prüfung für Softwareprojekte |
 | [`openasr-offline-model-import`](skills/openasr-offline-model-import/SKILL.md) | Robuster Import lokal vorhandener OpenASR-Modelle bei nicht vertrauenswürdiger oder unerreichbarer Katalogverbindung | Aus dem erfolgreich erprobten Windows-Workflow rekonstruiert |
 | [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Erkennt wiederverwendbare Verfahren, konsolidiert sie als Skills und veröffentlicht ausdrücklich bestätigte Ergänzungen unmittelbar im zentralen Repository | Aus der Festlegung zur zentralen Pflege aller bisher und künftig erzeugten Skills |
+| [`deferred-external-action-verification`](skills/deferred-external-action-verification/SKILL.md) | Richtet für verzögert abschließende externe Aktionen eine sichere spätere Prüfung per Cronjob, systemd-Timer oder gleichwertigem Scheduler mit Idempotenz, Retry-, Abbruch- und Verifikationsregeln ein | Aus dem wiederkehrenden Bedarf abgeleitet, CI-, Deployment- und andere externe Jobs nach einer angemessenen Wartezeit automatisch erneut zu prüfen |
 
 ## Pflegeprinzipien
 
