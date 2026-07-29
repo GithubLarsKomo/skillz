@@ -55,7 +55,7 @@ Lies auf beiden Seiten:
 
 - Skill-Name und Beschreibung,
 - alle portablen Dateien,
-- SHA-256-Hash jeder Datei,
+- SHA-256-Hash jeder Datei nach Normalisierung auf UTF-8, LF-Zeilenenden und genau einen abschließenden Zeilenumbruch,
 - letzten gemeinsamen Stand aus `.skill-sync.json`, sofern vorhanden.
 
 Prüfe Repository und Schreibberechtigung mit einer harmlosen Leseoperation, bevor externe Änderungen beginnen.
