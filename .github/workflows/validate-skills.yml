@@ -18,3 +18,5 @@ jobs:
           python-version: "3.12"
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
+      - name: Verify generated catalog
+        run: python scripts/verify_generated.py

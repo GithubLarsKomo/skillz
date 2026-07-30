@@ -20,17 +20,21 @@ Nur tatsächlich benötigte Unterverzeichnisse werden angelegt. Die übergreifen
 
 ## Enthaltene Skills
 
-| Skill | Zweck | Quelle |
-|---|---|---|
-| [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Datengetriebenes, rundenbasiertes Requirements Engineering über die Grilling-WebApp | Konsolidiert aus `GithubLarsKomo/grilling` |
-| [`openasr-offline-model-import`](skills/openasr-offline-model-import/SKILL.md) | Robuster Import lokal vorhandener OpenASR-Modelle | Aus dem erprobten Windows-Workflow rekonstruiert |
-| [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Konfliktgeschützte Konsolidierung und Synchronisierung portabler Skills | Aus der zentralen Skill-Pflege abgeleitet |
-| [`composable-skill-factory`](skills/composable-skill-factory/SKILL.md) | Entwirft, zerlegt, prüft und veröffentlicht kleine komponierbare Skills | Eigenentwicklung nach modularen Engineering-Prinzipien |
-| [`repository-skill-bootstrap`](skills/repository-skill-bootstrap/SKILL.md) | Erzeugt eine portable Arbeitsgrundlage aus Repository-Kontext | Consumer der komponierbaren Skill-Architektur |
-| [`deferred-external-action-verification`](skills/deferred-external-action-verification/SKILL.md) | Überwacht verzögert abschließende externe Aktionen und setzt Workflows fort | Aus CI- und Deployment-Überwachung abgeleitet |
-| [`iterate-software-projects`](skills/iterate-software-projects/SKILL.md) | Entwickelt Softwareprojekte in kleinen, evidenzbasierten Inkrementen weiter | Aus wiederkehrender Repository-Arbeit konsolidiert |
-| [`synapse-orchestrator`](skills/synapse-orchestrator/SKILL.md) | Orchestriert komplexe Ziele über Fach-Skills, Recherche und Automationen | Eigenentwicklung für den Professor-Synapse-Arbeitsstil |
-| [`conversation-to-spec`](skills/conversation-to-spec/SKILL.md) | Verdichtet bestätigten Gesprächs- und Repository-Kontext zu einer prüfbaren Spezifikation | Aus dem rundenbasierten Grilling-Workflow abgeleitet |
+<!-- skill-catalog:start -->
+| Skill | Zweck |
+|---|---|
+| [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Konsolidiert persönliche Skills und synchronisiert portable Inhalte konfliktgeschützt zwischen ChatGPT/Codex und diesem Repository |
+| [`composable-skill-factory`](skills/composable-skill-factory/SKILL.md) | Entwirft, zerlegt, prüft und veröffentlicht kleine Skills mit progressiver Offenlegung, deterministischen Werkzeugen, dokumentierten Übergaben und Evaluation |
+| [`conversation-to-spec`](skills/conversation-to-spec/SKILL.md) | Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll. |
+| [`deferred-external-action-verification`](skills/deferred-external-action-verification/SKILL.md) | Prüft verzögert abschließende externe Aktionen sicher per Scheduler, nimmt selbst ausgelöste CI-Läufe automatisch in die Beobachtungsliste auf und setzt den gespeicherten Workflow nach verifiziertem Erfolg fort |
+| [`iterate-software-projects`](skills/iterate-software-projects/SKILL.md) | Entwickelt bestehende Softwareprojekte in kleinen, evidenzbasiert geprüften Inkrementen weiter |
+| [`openasr-offline-model-import`](skills/openasr-offline-model-import/SKILL.md) | Robuster Import lokal vorhandener OpenASR-Modelle bei nicht vertrauenswürdiger oder unerreichbarer Katalogverbindung |
+| [`repository-skill-bootstrap`](skills/repository-skill-bootstrap/SKILL.md) | Analysiert ein Software-Repository und erzeugt eine portable Arbeitsgrundlage aus CONFIG.md, CONTEXT.md und DECISIONS.md |
+| [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Datengetriebenes, rundenbasiertes Requirements Engineering über die Grilling-WebApp; bei Softwareprojekten einschließlich verpflichtender KI-/ML-Readiness, Architekturvorbereitung, Datensammlung, Labeling und Governance |
+| [`synapse-orchestrator`](skills/synapse-orchestrator/SKILL.md) | Orchestriert komplexe Ziele über direkte Ausführung, Fach-Skills, transparente Perspektiven, Unteragenten, Recherche und Automationen |
+<!-- skill-catalog:end -->
+
+Der Katalog wird mit `python scripts/generate_catalog.py` aus dem Frontmatter der Skills erzeugt.
 
 ## Qualitäts- und Metadatenmodell
 
@@ -62,9 +66,10 @@ Lokal:
 
 ```bash
 python scripts/validate_skills.py
+python scripts/verify_generated.py
 ```
 
-GitHub Actions führt dieselbe Prüfung bei Pull Requests und Pushes auf `main` aus.
+GitHub Actions führt dieselben Prüfungen bei Pull Requests und Pushes auf `main` aus.
 
 ## Namenskonvention
 
