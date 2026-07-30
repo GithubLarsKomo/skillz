@@ -4,7 +4,7 @@
 
 - Bestehende Skills schrittweise auf das erweiterte Frontmatter migrieren.
 - Evaluations-Fixtures für die drei zentralen Skills einführen.
-- README-Katalog und Synchronisationsmanifest künftig automatisch erzeugen.
+- Synchronisationshashes für neuere Skills aktualisieren und künftig automatisch erzeugen.
 
 ## Als Nächstes
 
