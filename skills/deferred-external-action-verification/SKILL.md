@@ -1,6 +1,6 @@
 ---
 name: deferred-external-action-verification
-description: Richtet für asynchron arbeitende externe Programme, APIs und CI/CD-Systeme eine zeitversetzte, wiederholbare Ergebnisprüfung per Cronjob oder gleichwertigem Scheduler ein. Der Skill definiert Wartefenster, Statusabfrage, Idempotenz, Sperren, Retry- und Abbruchregeln, Protokollierung sowie die sichere Aufräumlogik nach Erfolg oder endgültigem Fehler.
+description: Richtet für asynchron arbeitende externe Programme, APIs und CI/CD-Systeme eine zeitversetzte, wiederholbare Ergebnisprüfung per Cronjob oder gleichwertigem Scheduler ein. Nimmt jeden vom Agenten selbst ausgelösten CI-Lauf automatisch in eine Beobachtungsliste auf und setzt den gespeicherten Arbeitsablauf nach verifiziertem Erfolg fort. Der Skill definiert Wartefenster, Statusabfrage, Idempotenz, Sperren, Retry- und Abbruchregeln, Protokollierung sowie die sichere Aufräumlogik nach Erfolg oder endgültigem Fehler.
 ---
 
 # Zeitversetzte Prüfung externer Aktionen
@@ -41,6 +41,7 @@ Der Skill wird angewendet, wenn mindestens eine der folgenden Bedingungen erfül
 - sofortige Wiederholungsabfragen würden Rate Limits, unnötige Last oder instabile Ergebnisse erzeugen,
 - der Nutzer verlangt ausdrücklich, nach einer Wartezeit erneut zu prüfen oder fortzufahren,
 - ein Workflow soll nach einem externen Zwischenschritt automatisch wieder aufgenommen werden.
+- der Agent löst CI direkt oder indirekt aus, etwa durch Push, PR-Aktualisierung, Re-Run oder `workflow_dispatch`.
 
 ## Voraussetzungen
 
@@ -53,7 +54,8 @@ Vor der Einrichtung müssen folgende Angaben soweit verfügbar bestimmt werden:
 - terminale Fehlerzustände,
 - maximal zulässige Gesamtdauer oder maximale Anzahl Prüfversuche,
 - notwendige Zugangsdaten in sicherer Ablage,
-- Ort für Status, Logs und gegebenenfalls Ergebnisartefakte.
+- Ort für Status, Logs und gegebenenfalls Ergebnisartefakte,
+- fortzusetzendes Ziel, nächster zulässiger Schritt und erforderliche Erfolgskriterien.
 
 Fehlt eine Job-ID, muss die spätere Prüfung den Vorgang durch eine stabile Kombination identifizieren, etwa Repository, Branch, Commit-SHA und Workflowname. Flüchtige Merkmale wie „letzter Job“ sind nur zulässig, wenn keine parallelen Vorgänge auftreten können.
 
@@ -86,6 +88,51 @@ Beispiel einer Zustandsdatei:
   "nextCheckAt": "2026-07-29T10:55:00+02:00"
 }
 ```
+
+### 1a. Selbst ausgelöste CI automatisch beobachten
+
+Wenn der Agent durch eine eigene Aktion einen CI-Lauf direkt oder als erwartbare Folge auslöst, gehört die Aufnahme dieses Laufs in die Beobachtungsliste verbindlich zur selben Operation. Dafür ist keine zusätzliche Aufforderung des Nutzers erforderlich.
+
+Dies gilt insbesondere für:
+
+- Pushes und PR-Aktualisierungen, die CI-Workflows starten,
+- manuell gestartete Workflows,
+- Re-Runs fehlgeschlagener Jobs oder kompletter Workflow-Läufe,
+- Commits oder Merge-Aktionen, deren Erfolg erst durch Required Checks feststeht.
+
+Unmittelbar nach der auslösenden Aktion:
+
+1. Repository, Branch, Commit-SHA, Workflow und Fortsetzungsziel erfassen.
+2. Run-ID beziehungsweise Check-Suite-ID abrufen.
+3. Ist die Run-ID noch nicht sichtbar, vorläufig über Repository, Commit-SHA und Workflow beobachten und die stabile Run-ID beim ersten Treffer ergänzen.
+4. Einen persistenten Scheduler-Eintrag oder einen Eintrag in einem bereits laufenden Dispatcher aktivieren.
+5. Prüfen, dass der Beobachtungseintrag tatsächlich aktiv ist.
+
+Die auslösende Aktion gilt erst dann als vollständig nachverfolgt, wenn dieser Eintrag verifiziert wurde. Lässt sich die Beobachtung wegen fehlender Berechtigung, nicht verfügbarem Scheduler oder fehlender Statusschnittstelle nicht einrichten, darf keine automatische Fortsetzung behauptet werden; der konkrete Blocker ist sofort zu melden.
+
+Ein CI-Beobachtungseintrag enthält mindestens:
+
+```json
+{
+  "correlationId": "repo-ci-20260730-001",
+  "repository": "owner/repository",
+  "pullRequest": 123,
+  "branch": "feature/example",
+  "commitSha": "0123456789abcdef",
+  "workflow": "CI",
+  "runId": null,
+  "triggeredAt": "2026-07-30T12:00:00Z",
+  "status": "pending",
+  "attempt": 0,
+  "maxAttempts": 12,
+  "continuationGoal": "Pull Request bis zur Merge-Bereitschaft weiterbearbeiten",
+  "nextAction": "Ergebnis prüfen und das nächste kleinste sichere Inkrement ausführen",
+  "successCriteria": ["alle Required Checks erfolgreich"],
+  "continuationKey": "owner/repository:0123456789abcdef:CI"
+}
+```
+
+Die Beobachtung muss exakt dem ausgelösten Commit zugeordnet sein. Ein pauschaler Abruf des neuesten Laufs ist unzulässig, wenn parallele Branches, Workflows oder Commits möglich sind. Bis die Run-ID bekannt ist, dienen zusätzlich Branch, Ereignistyp und Auslösezeit zur eindeutigen Zuordnung.
 
 ### 2. Erstes Wartefenster festlegen
 
@@ -176,8 +223,12 @@ CRON_TZ=Europe/Vienna
 #### `succeeded`
 
 - Ergebnisartefakte, Health-Endpunkte oder Folgebedingungen zusätzlich verifizieren,
+- bei CI alle für den gespeicherten Commit erforderlichen Checks und nicht nur einen einzelnen Job prüfen,
+- vor der Fortsetzung feststellen, ob der Branch inzwischen auf einen neueren Commit zeigt; einen veralteten Fortsetzungsschritt nicht blind ausführen,
 - lokalen Zustand terminal auf `succeeded` setzen,
-- abhängige Folgeschritte idempotent ausführen,
+- gespeichertes Fortsetzungsziel laden und den nächsten zulässigen Arbeitsschritt idempotent ausführen,
+- den Fortsetzungsschritt mit `continuationKey` oder einem atomaren Marker höchstens einmal starten,
+- erzeugt der Fortsetzungsschritt einen neuen Commit oder CI-Lauf, dafür sofort einen neuen Beobachtungseintrag anlegen,
 - weitere Prüfungen für diesen Vorgang deaktivieren oder wirkungslos machen,
 - Abschluss nachvollziehbar protokollieren.
 
@@ -188,6 +239,7 @@ Ein externer Status `success` allein genügt nicht immer. Bei Deployments sollte
 - Fehlerdetails abrufen und speichern,
 - lokalen Zustand terminal setzen,
 - keine automatische Neuauslösung vornehmen, sofern diese nicht ausdrücklich als sicher definiert wurde,
+- den gespeicherten Erfolgs-Folgeschritt nicht ausführen,
 - zuständige Stelle mit konkreter Vorgangskennung und Fehlerursache informieren.
 
 #### `unknown`
