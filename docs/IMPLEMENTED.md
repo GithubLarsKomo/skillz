@@ -6,3 +6,5 @@
 - getrennte Architektur- und Roadmap-Dokumentation
 - Evaluation- und Governance-Verträge
 - vollständiger Skill-Schlüsselbestand im Synchronisationsmanifest
+
+Offen bleiben die Migration aller bestehenden Frontmatter-Metadaten, reale Evaluations-Fixtures und die automatische Hash-Aktualisierung des Synchronisationsmanifests.
