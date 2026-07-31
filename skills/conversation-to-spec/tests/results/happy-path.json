@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "conversation-to-spec",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "classify sources and preserve confirmed decisions",
+      "passed": true,
+      "evidence": "The recorded result separates approved reports, repository documents, and assumptions before consolidating decisions."
+    },
+    {
+      "behavior": "produce traceable requirements and acceptance criteria",
+      "passed": true,
+      "evidence": "Each requirement carries an ID and each acceptance criterion references its originating requirement."
+    },
+    {
+      "behavior": "include a decision register and consistency result",
+      "passed": true,
+      "evidence": "The output includes both a decision register and an explicit consistency-check conclusion."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "repeat questions already answered by approved sources",
+      "observed": false,
+      "evidence": "No confirmed decision is turned back into a clarification question."
+    },
+    {
+      "behavior": "invent unsupported roles, APIs, or data fields",
+      "observed": false,
+      "evidence": "All roles, interfaces, and fields are traceable to approved context or clearly marked assumptions."
+    }
+  ],
+  "overall": "pass"
+}
