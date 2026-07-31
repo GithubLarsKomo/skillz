@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "agent-handoff",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "mark external verification as pending rather than successful", "passed": true, "evidence": "The local implementation is recorded separately while CI or deployment remains pending with no success claim."},
+    {"behavior": "record freshness watch condition and immutable head SHA", "passed": true, "evidence": "The handoff preserves the exact head SHA, last-check time, watch condition, and stale-state rule before any write."},
+    {"behavior": "route asynchronous verification to deferred-external-action-verification", "passed": true, "evidence": "The next skill and watch handoff explicitly use deferred-external-action-verification."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "claim CI deployment or review success before verification", "observed": false, "evidence": "External status remains pending until a terminal result is retrieved."},
+    {"behavior": "permit a write action without checking the expected head SHA", "observed": false, "evidence": "The action precondition requires the current head to equal the recorded immutable SHA."}
+  ],
+  "overall": "pass"
+}
