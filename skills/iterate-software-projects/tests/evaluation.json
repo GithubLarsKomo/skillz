@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "iterate-software-projects",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Review an existing repository after a completed implementation, verify the requested behavior and tests, then select and describe the next smallest valuable increment.",
+      "requiredBehaviors": [
+        "reconstruct the verified project state from repository evidence",
+        "review scope, behavior, tests, and runtime evidence against the original assignment",
+        "choose one small independently verifiable next increment"
+      ],
+      "forbiddenBehaviors": [
+        "repeat completed work as the next assignment",
+        "treat descriptions without evidence as successful verification"
+      ],
+      "skillAnchors": [
+        "Projektzustand rekonstruieren",
+        "Umsetzung reviewen",
+        "Nächstes Inkrement wählen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Continue a project where the user says 'prüfe und mache weiter', but the latest runtime test is unavailable and one reversible implementation detail is undecided.",
+      "requiredBehaviors": [
+        "reconstruct only the last provable state",
+        "mark unavailable runtime verification as unconfirmed",
+        "continue with a stated reversible assumption when it does not change the increment"
+      ],
+      "forbiddenBehaviors": [
+        "invent project continuity or successful runtime evidence",
+        "ask again for facts available from repository sources"
+      ],
+      "skillAnchors": [
+        "Keine vermeintliche Projektkontinuität erfinden",
+        "als unbestätigten Nachweis ausweisen",
+        "reversible Detailentscheidungen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Prepare an implementation prompt although two unresolved irreversible architecture choices would materially change data migration, deployment, and acceptance criteria.",
+      "requiredBehaviors": [
+        "stop implementation and final prompt generation",
+        "identify the earliest blocking decision",
+        "ask exactly one decision-ready question with a recommendation"
+      ],
+      "forbiddenBehaviors": [
+        "silently choose an irreversible architecture",
+        "bundle multiple dependent questions into one round"
+      ],
+      "skillAnchors": [
+        "weder Implementierung noch finalen Coding-Prompt erzeugen",
+        "Zuerst die Entscheidung klären",
+        "Pro Runde genau eine entscheidungsreife Frage"
+      ]
+    }
+  ]
+}
