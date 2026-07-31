@@ -20,3 +20,5 @@ jobs:
         run: python scripts/validate_skills.py
       - name: Verify generated catalog
         run: python scripts/verify_generated.py
+      - name: Validate executable evaluations
+        run: python scripts/run_evaluations.py
