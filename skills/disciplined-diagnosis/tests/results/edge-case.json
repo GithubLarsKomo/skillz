@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "disciplined-diagnosis",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "preserve uncertainty and mark reproduction as intermittent", "passed": true, "evidence": "The diagnosis records an intermittent reproduction rate and does not relabel it deterministic after isolated successes."},
+    {"behavior": "collect comparable telemetry across successful and failed runs", "passed": true, "evidence": "Identical targeted measurements are captured for multiple passing and failing runs so discriminating conditions can be compared."},
+    {"behavior": "report residual risk without claiming an unverified root cause", "passed": true, "evidence": "The report separates confirmed contributing conditions from open hypotheses and states the remaining uncertainty after mitigation."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "present correlation or one green retry as root-cause proof", "observed": false, "evidence": "No causal statement is made from timing correlation or a single successful rerun."},
+    {"behavior": "log credentials or sensitive environment data", "observed": false, "evidence": "Telemetry is narrowly scoped and secrets and sensitive values are masked or omitted."}
+  ],
+  "overall": "pass"
+}
