@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "bound the slice to one independently observable outcome", "passed": true, "evidence": "One acceptance criterion, trigger, public result, necessary layers, and explicit non-goals are identified."},
+    {"behavior": "record distinct reproducible Red and Green evidence", "passed": true, "evidence": "The same acceptance command is recorded failing before and passing after the smallest implementation."},
+    {"behavior": "refactor only after Green and rerun acceptance plus regression checks", "passed": true, "evidence": "Cleanup is limited to the touched path and all relevant checks are rerun."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "implement unrelated behaviors or horizontal infrastructure batches", "observed": false, "evidence": "The patch remains bounded to one outcome."},
+    {"behavior": "claim Green without rerunning the original acceptance check", "observed": false, "evidence": "Green includes the original acceptance command."}
+  ],
+  "overall": "pass"
+}
