@@ -22,3 +22,5 @@ jobs:
         run: python scripts/verify_generated.py
       - name: Validate executable evaluations
         run: python scripts/run_evaluations.py
+      - name: Score recorded evaluation results
+        run: python scripts/score_evaluation_results.py
