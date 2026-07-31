@@ -20,7 +20,21 @@ Der Runner prüft JSON-Struktur, Skill-Zuordnung, vollständige Fallabdeckung, n
 python scripts/run_evaluations.py
 ```
 
-Die Fixtures prüfen zunächst den dokumentierten Verhaltensvertrag. Eine spätere Stufe kann reale Agent-Ausgaben gegen `requiredBehaviors` und `forbiddenBehaviors` bewerten.
+## Aufgezeichnete Ergebnisbewertungen
+
+Konkrete Skill-Ausführungen können als geprüfte Baselines abgelegt werden:
+
+```text
+skills/<skill>/tests/results/<case-id>.json
+```
+
+Eine Ergebnisbewertung verweist auf einen Fall aus `evaluation.json` und dokumentiert für jedes erforderliche Verhalten `passed: true` mit Evidenz. Für jedes verbotene Verhalten wird `observed: false` mit Evidenz festgehalten. In `main` eingecheckte Baselines müssen insgesamt `overall: pass` besitzen.
+
+```bash
+python scripts/score_evaluation_results.py
+```
+
+Der Scorer stellt sicher, dass keine Erwartung ausgelassen, kein verbotenes Verhalten beobachtet und jede Bewertung nachvollziehbar belegt wurde. Die Bewertung bleibt absichtlich werkzeugunabhängig: Ein Mensch, ein regelbasierter Prüfer oder ein späterer LLM-Evaluator kann die Evidenz erzeugen, während CI den Vertrag deterministisch kontrolliert.
 
 ## Reifegrad
 
