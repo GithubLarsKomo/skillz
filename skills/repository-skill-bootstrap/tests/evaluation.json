@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "repository-skill-bootstrap",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Bootstrap a conventional existing repository with a README, package manifest, tests, CI, and no existing docs/agents directory.",
+      "requiredBehaviors": [
+        "inspect repository evidence before writing",
+        "create CONFIG.md, CONTEXT.md, and DECISIONS.md",
+        "preserve project-specific commands and constraints"
+      ],
+      "forbiddenBehaviors": [
+        "invent commands not supported by repository files",
+        "overwrite unrelated project documentation"
+      ],
+      "skillAnchors": [
+        "CONFIG.md",
+        "CONTEXT.md",
+        "DECISIONS.md"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Bootstrap a repository where docs/agents files already exist and contain manually maintained decisions that must be preserved.",
+      "requiredBehaviors": [
+        "merge conservatively with existing agent context",
+        "preserve confirmed decisions",
+        "report uncertain or conflicting findings"
+      ],
+      "forbiddenBehaviors": [
+        "replace existing decisions wholesale",
+        "erase user-maintained content"
+      ],
+      "skillAnchors": [
+        "bestehendes Software-Repository",
+        "portable Agent-Arbeitsgrundlage",
+        "wiederholbare Arbeit"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Bootstrap a directory that is not a repository and contains no reliable project files or executable evidence.",
+      "requiredBehaviors": [
+        "stop before creating misleading context",
+        "report missing repository evidence",
+        "avoid claiming successful bootstrap"
+      ],
+      "forbiddenBehaviors": [
+        "fabricate architecture or commands",
+        "create authoritative decisions from guesses"
+      ],
+      "skillAnchors": [
+        "Analysiert",
+        "Repository",
+        "CONFIG.md"
+      ]
+    }
+  ]
+}
