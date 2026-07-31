@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "round-based-requirements-grilling",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "move only the selected grilling to review", "passed": true, "evidence": "Only the chosen grilling receives review and awaiting-spec-decision status; unrelated grillings retain their own lifecycle states."},
+    {"behavior": "keep the global platform status unchanged", "passed": true, "evidence": "APP_STATUS remains independent so parallel and historical grillings stay reachable."},
+    {"behavior": "allow the handoff only when readiness is complete or justified as not applicable", "passed": true, "evidence": "The decision gate checks the required readiness topics and accepts non-applicability only with a documented rationale."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "disable the entire platform because one grilling enters review", "observed": false, "evidence": "The platform remains active for other grillings."},
+    {"behavior": "treat a bare statement that no AI is planned as sufficient", "observed": false, "evidence": "The readiness review requires analysis of current and foreseeable data-driven value."}
+  ],
+  "overall": "pass"
+}

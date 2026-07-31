@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "round-based-requirements-grilling",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Run a new requirements-grilling round for a software product, preserve prior decisions, add only uncertainty-reducing questions, rotate access credentials on publication, and prepare a reviewable SPEC handoff after approval.",
+      "requiredBehaviors": [
+        "preserve prior decisions and publish an immutable new round",
+        "include complete AI and ML readiness before offering SPEC creation",
+        "rotate the token programmatically and keep platform status explicit"
+      ],
+      "forbiddenBehaviors": [
+        "store the final product SPEC in the grilling repository",
+        "reuse the previous token after a publishing push"
+      ],
+      "skillAnchors": [
+        "Neue unveränderliche Rundendefinition anlegen",
+        "Verpflichtende KI-/ML-Readiness bei Softwareprojekten",
+        "Tokens dürfen niemals frei erfunden werden"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "One grilling is ready for SPEC review while other active and historical grillings must remain accessible, and a non-critical AI detail is still documented as an open roadmap item.",
+      "requiredBehaviors": [
+        "move only the selected grilling to review",
+        "keep the global platform status unchanged",
+        "allow the handoff only when readiness is complete or justified as not applicable"
+      ],
+      "forbiddenBehaviors": [
+        "disable the entire platform because one grilling enters review",
+        "treat a bare statement that no AI is planned as sufficient"
+      ],
+      "skillAnchors": [
+        "Nur dieses Grilling auf `review`",
+        "Den globalen `APP_STATUS` nicht automatisch ändern",
+        "aktuell keine KI geplant"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Publish a software grilling whose AI readiness, ground-truth strategy, governance, and safety boundaries are unresolved, while also leaving the old access token valid.",
+      "requiredBehaviors": [
+        "block SPEC creation",
+        "report missing readiness and governance decisions",
+        "reject publication until a new programmatically generated token replaces the old token"
+      ],
+      "forbiddenBehaviors": [
+        "approve a software SPEC without the mandatory readiness section",
+        "keep ACCESS_TOKEN_PREVIOUS or otherwise preserve the old token"
+      ],
+      "skillAnchors": [
+        "Die Abschlussentscheidung `SPEC.md erstellen` darf",
+        "Es gibt keinen `ACCESS_TOKEN_PREVIOUS`",
+        "Harte Grenzen bleiben deterministisch"
+      ]
+    }
+  ]
+}
