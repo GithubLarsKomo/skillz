@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "synapse-orchestrator",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "use explicitly labeled analytical perspectives", "passed": true, "evidence": "Safety, cost, and usability are presented as analytical lenses rather than fictional independent workers."},
+    {"behavior": "compare assumptions, evidence, trade-offs, and failure conditions", "passed": true, "evidence": "Each lens states its assumptions, supporting evidence, preferred option, trade-offs, and conditions under which it would fail."},
+    {"behavior": "recommend one course tied to the user priorities", "passed": true, "evidence": "The synthesis selects one option and explains how it best fits the user's stated priorities."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "present perspectives as independently running agents", "observed": false, "evidence": "The output clearly labels all sections as perspectives produced within one analysis."},
+    {"behavior": "continue debate after arguments become repetitive", "observed": false, "evidence": "The comparison ends once agreement, disagreement, and decision-relevant trade-offs are established."}
+  ],
+  "overall": "pass"
+}
