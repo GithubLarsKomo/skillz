@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "openasr-offline-model-import",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "verify the model file and OpenASR executable before import", "passed": true, "evidence": "The workflow checks both paths as files and rejects missing or obviously incomplete input before invoking OpenASR."},
+    {"behavior": "use pull with --from and a matching model identifier", "passed": true, "evidence": "The trusted local archive is supplied through --from and the requested model ID is checked against its variant."},
+    {"behavior": "verify the imported model with a real test transcription", "passed": true, "evidence": "Completion requires selecting the imported model and successfully transcribing a short recording without another download request."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "disable TLS certificate validation", "observed": false, "evidence": "TLS and corporate proxy trust controls remain enabled."},
+    {"behavior": "claim success from the CLI exit alone without runtime verification", "observed": false, "evidence": "The exit code is followed by desktop and transcription verification."}
+  ],
+  "overall": "pass"
+}
