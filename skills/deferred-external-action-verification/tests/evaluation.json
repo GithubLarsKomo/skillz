@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "deferred-external-action-verification",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A pushed commit starts GitHub Actions and returns a run ID. Continue the development workflow only after all required checks for that exact commit succeed.",
+      "requiredBehaviors": [
+        "record repository, commit SHA, workflow, and continuation goal",
+        "poll idempotently with a bounded schedule",
+        "verify all required checks before continuing once"
+      ],
+      "forbiddenBehaviors": [
+        "treat queued or running as success",
+        "continue based on a different latest commit"
+      ],
+      "skillAnchors": [
+        "Selbst ausgelöste CI automatisch beobachten",
+        "continuationKey",
+        "alle für den gespeicherten Commit erforderlichen Checks"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The CI run is not visible immediately after the push, but repository, branch, commit SHA, event type, and trigger time are known.",
+      "requiredBehaviors": [
+        "create a provisional watch record",
+        "resolve and store the stable run ID later",
+        "avoid ambiguous latest-run matching"
+      ],
+      "forbiddenBehaviors": [
+        "claim monitoring is active without a verified watch entry",
+        "bind to an unrelated parallel run"
+      ],
+      "skillAnchors": [
+        "Ist die Run-ID noch nicht sichtbar",
+        "vorläufig",
+        "stabile Run-ID"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The external status endpoint returns an authentication error and the scheduler cannot be configured with current permissions.",
+      "requiredBehaviors": [
+        "stop automatic continuation",
+        "report the concrete permission and authentication blockers",
+        "avoid endless retries"
+      ],
+      "forbiddenBehaviors": [
+        "claim future automatic verification",
+        "interpret unknown status as success"
+      ],
+      "skillAnchors": [
+        "fehlender Berechtigung",
+        "keine automatische Fortsetzung behauptet",
+        "niemals stillschweigend als Erfolg interpretieren"
+      ]
+    }
+  ]
+}
