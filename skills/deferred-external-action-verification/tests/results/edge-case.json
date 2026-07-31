@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "deferred-external-action-verification",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "create a provisional watch record", "passed": true, "evidence": "A watch entry is created from repository, branch, commit, event, and trigger time while runId remains null."},
+    {"behavior": "resolve and store the stable run ID later", "passed": true, "evidence": "The first matching status lookup enriches the existing watch entry with the stable run ID."},
+    {"behavior": "avoid ambiguous latest-run matching", "passed": true, "evidence": "Correlation uses commit SHA, branch, event type, and trigger window rather than a global latest run."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "claim monitoring is active without a verified watch entry", "observed": false, "evidence": "Monitoring is reported active only after the persistent entry is confirmed."},
+    {"behavior": "bind to an unrelated parallel run", "observed": false, "evidence": "Parallel runs with a different commit or event are excluded."}
+  ],
+  "overall": "pass"
+}
