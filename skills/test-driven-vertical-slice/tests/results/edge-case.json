@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "define a stable external contract and deterministic CI substitute", "passed": true, "evidence": "A stable contract and deterministic fake or fixture isolate only the unavailable service boundary."},
+    {"behavior": "retain an observable end-to-end acceptance seam", "passed": true, "evidence": "The acceptance check traverses the production path and asserts a public result."},
+    {"behavior": "defer and record real external verification explicitly", "passed": true, "evidence": "Real-service verification is marked deferred with a clear handoff."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat mock interaction alone as acceptance evidence", "observed": false, "evidence": "Observable output remains the acceptance assertion."},
+    {"behavior": "claim the real external service was verified when it was not", "observed": false, "evidence": "External verification remains explicitly incomplete."}
+  ],
+  "overall": "pass"
+}
