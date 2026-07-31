@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "repository": "GithubLarsKomo/skillz",
   "hashNormalization": "UTF-8; CRLF and CR converted to LF; exactly one trailing LF",
-  "synchronizedAt": "2026-07-31T06:58:13Z",
+  "synchronizedAt": "2026-07-31T19:59:30Z",
   "skills": {
     "central-skill-repository-curation": {
       "files": {
@@ -44,6 +44,11 @@
     "round-based-requirements-grilling": {
       "files": {
         "SKILL.md": "c2691a6884453bd1fa0f639f6c12194113e04f9cb42ddf239ba9c0e4e6b638ac"
+      }
+    },
+    "spec-to-vertical-issues": {
+      "files": {
+        "SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"
       }
     },
     "synapse-orchestrator": {
