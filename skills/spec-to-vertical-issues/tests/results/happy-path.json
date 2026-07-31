@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "spec-to-vertical-issues",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "create vertical issues that each deliver one observable end-to-end outcome", "passed": true, "evidence": "Each issue spans the necessary data, logic, interface, and verification work for one independently demonstrable outcome."},
+    {"behavior": "preserve source requirement IDs, invariants, acceptance criteria, security, migration, dependencies, and non-goals", "passed": true, "evidence": "Every generated issue carries explicit traceability and cross-cutting constraints from the approved specification."},
+    {"behavior": "produce a cycle-free order and hand off the next approved issue to iterate-software-projects", "passed": true, "evidence": "Dependency metadata is topologically ordered and the first approved slice names iterate-software-projects as its next handoff."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "split schema, API, and UI into valueless horizontal tasks", "observed": false, "evidence": "Technical layers remain grouped where they are jointly required for the vertical outcome."},
+    {"behavior": "automatically create product repository issues without authorization", "observed": false, "evidence": "The skill emits artifacts only and leaves repository creation behind an explicit authorization boundary."}
+  ],
+  "overall": "pass"
+}
