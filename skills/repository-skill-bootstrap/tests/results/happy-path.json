@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "repository-skill-bootstrap",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "inspect repository evidence before writing", "passed": true, "evidence": "README, package metadata, tests, and CI are inspected before files are generated."},
+    {"behavior": "create CONFIG.md, CONTEXT.md, and DECISIONS.md", "passed": true, "evidence": "All three canonical agent context files are produced."},
+    {"behavior": "preserve project-specific commands and constraints", "passed": true, "evidence": "Generated commands and constraints are sourced from repository evidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent commands not supported by repository files", "observed": false, "evidence": "No command appears without supporting project configuration."},
+    {"behavior": "overwrite unrelated project documentation", "observed": false, "evidence": "Only the scoped docs/agents files are created."}
+  ],
+  "overall": "pass"
+}
