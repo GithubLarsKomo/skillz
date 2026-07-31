@@ -2,8 +2,13 @@
   "schemaVersion": 2,
   "repository": "GithubLarsKomo/skillz",
   "hashNormalization": "UTF-8; CRLF and CR converted to LF; exactly one trailing LF",
-  "synchronizedAt": "2026-07-31T20:59:00Z",
+  "synchronizedAt": "2026-07-31T21:14:00Z",
   "skills": {
+    "agent-handoff": {
+      "files": {
+        "SKILL.md": "82cdd41a1e5eb2194cb0d02a4aa9e064ba71cfbe29fd8f134dd87e1a6155b77e"
+      }
+    },
     "central-skill-repository-curation": {
       "files": {
         "SKILL.md": "07c4a2bd6cf319c44a5f79f40fb5df2a16fa7fc95ac0a751e665f62bb5f3780d"
@@ -56,15 +61,15 @@
         "SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"
       }
     },
-    "test-driven-vertical-slice": {
-      "files": {
-        "SKILL.md": "ca0ddb6669fd2a7af2ea4184a2fdd3f330d6cd9d581404f959e9b578c6a9f6ec"
-      }
-    },
     "synapse-orchestrator": {
       "files": {
         "SKILL.md": "e44fc7dfd07189b2174a7b5bb1a68548c5f16f72c0026b3195264b0361b2ab57",
         "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    },
+    "test-driven-vertical-slice": {
+      "files": {
+        "SKILL.md": "ca0ddb6669fd2a7af2ea4184a2fdd3f330d6cd9d581404f959e9b578c6a9f6ec"
       }
     }
   }

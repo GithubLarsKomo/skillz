@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "agent-handoff",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Hand a completed iteration to a new agent with the exact repository state, verified evidence, accepted decisions, residual risks, and one executable next step.",
+      "requiredBehaviors": [
+        "record repository branch and immutable head SHA",
+        "separate verified facts decisions completed work and residual risks",
+        "provide exactly one executable next action with expected evidence"
+      ],
+      "forbiddenBehaviors": [
+        "repeat work already recorded as completed",
+        "replace exact evidence with a vague narrative"
+      ],
+      "skillAnchors": [
+        "Repositoryzustand sichern",
+        "Entscheidungen und erledigte Arbeit erfassen",
+        "Genau eine nächste Aktion bestimmen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Local work is complete but CI or an external deployment is still pending. Preserve the immutable head SHA, distinguish local completion from external verification, and provide the exact watch condition.",
+      "requiredBehaviors": [
+        "mark external verification as pending rather than successful",
+        "record freshness watch condition and immutable head SHA",
+        "route asynchronous verification to deferred-external-action-verification"
+      ],
+      "forbiddenBehaviors": [
+        "claim CI deployment or review success before verification",
+        "permit a write action without checking the expected head SHA"
+      ],
+      "skillAnchors": [
+        "Externe oder ausstehende Zustände",
+        "Watch-Bedingung",
+        "deferred-external-action-verification"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed handoff is vague, omits commit and branch state, mixes assumptions with facts, repeats completed work, and claims an external success without evidence.",
+      "requiredBehaviors": [
+        "reject and reconstruct the unverifiable handoff",
+        "separate facts assumptions and open verification",
+        "restore exact repository state and one bounded next action"
+      ],
+      "forbiddenBehaviors": [
+        "accept vague summaries as a sufficient handoff",
+        "carry an unsupported external success claim forward"
+      ],
+      "skillAnchors": [
+        "Lehne die Übergabe ab",
+        "Fakten, Annahmen und offene Prüfungen sind getrennt",
+        "genau eine nächste Aktion"
+      ]
+    }
+  ]
+}

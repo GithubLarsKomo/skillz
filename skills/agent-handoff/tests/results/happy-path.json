@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "agent-handoff",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "record repository branch and immutable head SHA", "passed": true, "evidence": "The handoff names the repository, base branch, working branch, clean working-tree state, and exact immutable head commit."},
+    {"behavior": "separate verified facts decisions completed work and residual risks", "passed": true, "evidence": "Facts cite evidence, accepted decisions are distinct, completed actions include commits and commands, and residual risks are listed separately."},
+    {"behavior": "provide exactly one executable next action with expected evidence", "passed": true, "evidence": "One prioritized action includes preconditions and the concrete evidence that will prove completion."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "repeat work already recorded as completed", "observed": false, "evidence": "Completed actions are paired with do-not-repeat guidance."},
+    {"behavior": "replace exact evidence with a vague narrative", "observed": false, "evidence": "Commit SHAs, commands, references, and verification results remain explicit."}
+  ],
+  "overall": "pass"
+}

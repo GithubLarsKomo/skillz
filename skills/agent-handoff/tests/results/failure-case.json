@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "agent-handoff",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject and reconstruct the unverifiable handoff", "passed": true, "evidence": "The vague handoff is rejected and rebuilt from repository state, evidence, decisions, and explicit open items."},
+    {"behavior": "separate facts assumptions and open verification", "passed": true, "evidence": "Verified facts cite evidence, assumptions include a verification method, and external claims remain open until checked."},
+    {"behavior": "restore exact repository state and one bounded next action", "passed": true, "evidence": "Repository, branch, immutable SHA, working-tree status, and one executable next action are restored."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "accept vague summaries as a sufficient handoff", "observed": false, "evidence": "The incomplete narrative is explicitly rejected."},
+    {"behavior": "carry an unsupported external success claim forward", "observed": false, "evidence": "The unsupported claim is replaced with pending or unverified status and a check condition."}
+  ],
+  "overall": "pass"
+}
