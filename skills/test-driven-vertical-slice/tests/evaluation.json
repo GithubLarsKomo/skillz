@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Implement a bounded vertical issue by first adding an executable failing acceptance check tied to one acceptance criterion, then the smallest production path that makes it pass, followed by limited behavior-preserving refactoring and the relevant verification suite.",
+      "requiredBehaviors": [
+        "bound the slice to one independently observable outcome",
+        "record distinct reproducible Red and Green evidence",
+        "refactor only after Green and rerun acceptance plus regression checks"
+      ],
+      "forbiddenBehaviors": [
+        "implement unrelated behaviors or horizontal infrastructure batches",
+        "claim Green without rerunning the original acceptance check"
+      ],
+      "skillAnchors": ["kleinsten End-to-End-Pfad", "Red → Green → Refactor", "Refactoriere erst nach belegtem Green"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The behavior crosses an external service that cannot run in CI. Introduce a stable contract and deterministic local fake or contract fixture, preserve one observable end-to-end acceptance seam, and record the remaining real-service verification.",
+      "requiredBehaviors": [
+        "define a stable external contract and deterministic CI substitute",
+        "retain an observable end-to-end acceptance seam",
+        "defer and record real external verification explicitly"
+      ],
+      "forbiddenBehaviors": [
+        "treat mock interaction alone as acceptance evidence",
+        "claim the real external service was verified when it was not"
+      ],
+      "skillAnchors": ["Externe Grenze stabilisieren", "beobachtbare End-to-End-Akzeptanznaht", "deferred-external-action-verification"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed work begins with broad framework refactoring, tests only mocks, bundles several unrelated behaviors, and marks Green without demonstrating the original acceptance criterion.",
+      "requiredBehaviors": [
+        "reject the broad speculative approach",
+        "split work back to one bounded vertical behavior",
+        "require observable Red and Green evidence for the original criterion"
+      ],
+      "forbiddenBehaviors": [
+        "disable tests or security controls to obtain Green",
+        "accept mock calls as the only evidence of value"
+      ],
+      "skillAnchors": ["Lehne den Ansatz ab", "mehrere unabhängige Verhaltensweisen", "Mock-Interaktionen allein"]
+    }
+  ]
+}
