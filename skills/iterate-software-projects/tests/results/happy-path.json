@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "iterate-software-projects",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reconstruct the verified project state from repository evidence", "passed": true, "evidence": "Repository rules, branch state, commits, diffs, tests, and runtime evidence are inspected before planning."},
+    {"behavior": "review scope, behavior, tests, and runtime evidence against the original assignment", "passed": true, "evidence": "The review traces each requested behavior to code, tests, and available runtime proof."},
+    {"behavior": "choose one small independently verifiable next increment", "passed": true, "evidence": "The next task is bounded, valuable on its own, and includes observable acceptance criteria."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "repeat completed work as the next assignment", "observed": false, "evidence": "Verified completed items are excluded from the next increment."},
+    {"behavior": "treat descriptions without evidence as successful verification", "observed": false, "evidence": "Claims without tests, logs, diffs, or API evidence remain unconfirmed."}
+  ],
+  "overall": "pass"
+}
