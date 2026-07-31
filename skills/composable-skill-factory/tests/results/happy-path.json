@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "composable-skill-factory",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "confirm the workflow is repeatable and not already covered by a small extension", "passed": true, "evidence": "The candidate is checked against repeatability criteria and the existing skill inventory before creation."},
+    {"behavior": "define one skill boundary with explicit trigger, result, and completion check", "passed": true, "evidence": "The design states one trigger, one primary result, explicit non-goals, and a verifiable done condition."},
+    {"behavior": "separate judgment guidance from deterministic tooling and publish with evaluation evidence", "passed": true, "evidence": "Decision rules remain in SKILL.md, deterministic checks are scripted, and the branch includes fixtures plus a PR."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "create a broad product process disguised as one skill", "observed": false, "evidence": "The skill owns one reusable capability rather than an end-to-end product lifecycle."},
+    {"behavior": "claim completion without verification or a reviewable change", "observed": false, "evidence": "Completion is supported by validation output and a reviewable repository diff."}
+  ],
+  "overall": "pass"
+}

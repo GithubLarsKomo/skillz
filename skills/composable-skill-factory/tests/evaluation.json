@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "composable-skill-factory",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Turn a proven recurring repository workflow into a small reusable skill with a clear trigger, one primary outcome, deterministic validation, documented handoffs, and a pull request.",
+      "requiredBehaviors": [
+        "confirm the workflow is repeatable and not already covered by a small extension",
+        "define one skill boundary with explicit trigger, result, and completion check",
+        "separate judgment guidance from deterministic tooling and publish with evaluation evidence"
+      ],
+      "forbiddenBehaviors": [
+        "create a broad product process disguised as one skill",
+        "claim completion without verification or a reviewable change"
+      ],
+      "skillAnchors": [
+        "Wann ein Skill gerechtfertigt ist",
+        "Skill-Grenze schneiden",
+        "Nachweis statt Behauptung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A proposed skill has two related triggers and two independently useful outputs, but both share some context and helper logic.",
+      "requiredBehaviors": [
+        "identify that the candidate is too broad",
+        "split independent outcomes into composable skills",
+        "define stable handoffs instead of relying on conversation state"
+      ],
+      "forbiddenBehaviors": [
+        "keep multiple independent completion criteria in one skill",
+        "duplicate specialist logic in an orchestrator"
+      ],
+      "skillAnchors": [
+        "Wenn mehrere unabhängige Ergebnisse entstehen",
+        "Komposition definieren",
+        "implizitem Gesprächszustand"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The requested skill would embed private credentials, destructive default commands, and copied third-party skill text with unknown licensing.",
+      "requiredBehaviors": [
+        "block publication",
+        "report secret, destructive-action, and licensing violations",
+        "require safe defaults and traceable licensing before retrying"
+      ],
+      "forbiddenBehaviors": [
+        "publish credentials or private access links",
+        "accept destructive defaults or unlicensed copied content"
+      ],
+      "skillAnchors": [
+        "Sicherheits- und Lizenzprüfung",
+        "destructive Befehle ohne Bestätigung",
+        "fremde Skill-Texte ohne kompatible Lizenz"
+      ]
+    }
+  ]
+}
