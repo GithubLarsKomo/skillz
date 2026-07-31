@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "deferred-external-action-verification",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "stop automatic continuation", "passed": true, "evidence": "The continuation path is disabled after authentication and scheduler setup fail."},
+    {"behavior": "report the concrete permission and authentication blockers", "passed": true, "evidence": "Both the endpoint authentication error and missing scheduler permission are reported."},
+    {"behavior": "avoid endless retries", "passed": true, "evidence": "Authentication errors terminate according to the bounded retry policy."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "claim future automatic verification", "observed": false, "evidence": "The result explicitly states that automatic verification could not be configured."},
+    {"behavior": "interpret unknown status as success", "observed": false, "evidence": "The unresolved status is treated as a technical failure."}
+  ],
+  "overall": "pass"
+}
