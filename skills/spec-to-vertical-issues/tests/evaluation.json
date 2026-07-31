@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "spec-to-vertical-issues",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Decompose an approved consistent specification into a small ordered backlog of independently demonstrable end-to-end issues while preserving traceability and acceptance evidence.",
+      "requiredBehaviors": [
+        "create vertical issues that each deliver one observable end-to-end outcome",
+        "preserve source requirement IDs, invariants, acceptance criteria, security, migration, dependencies, and non-goals",
+        "produce a cycle-free order and hand off the next approved issue to iterate-software-projects"
+      ],
+      "forbiddenBehaviors": [
+        "split schema, API, and UI into valueless horizontal tasks",
+        "automatically create product repository issues without authorization"
+      ],
+      "skillAnchors": [
+        "Vertikale Slice-Regel",
+        "Rückverfolgbarkeit bewahren",
+        "dependency-order.json"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A valuable vertical slice depends on an unresolved but reversible provider choice that can be isolated behind a stable interface.",
+      "requiredBehaviors": [
+        "keep the issue vertical and independently demonstrable",
+        "record the provider choice as a reversible assumption",
+        "define the stable interface and later decision point"
+      ],
+      "forbiddenBehaviors": [
+        "block the full decomposition for a deferrable provider choice",
+        "silently hard-code the provider as an irreversible decision"
+      ],
+      "skillAnchors": [
+        "reversible Anbieter- oder Implementierungswahl",
+        "stabile Schnittstelle",
+        "Annahme, Austauschgrenze und spätere Entscheidungsstelle"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed backlog separates database schema, API, and UI into independent tasks with no user value and also crosses an unresolved irreversible architecture decision.",
+      "requiredBehaviors": [
+        "reject the horizontal split",
+        "identify the earliest irreversible blocking decision and affected requirements",
+        "require a new vertical cut after the decision is resolved"
+      ],
+      "forbiddenBehaviors": [
+        "accept tasks that cannot be independently demonstrated",
+        "silently choose the architecture or hide migration and security work"
+      ],
+      "skillAnchors": [
+        "Keine getrennten horizontalen Issues",
+        "blockieren die betroffenen Issues",
+        "früheste blockierende Entscheidung"
+      ]
+    }
+  ]
+}

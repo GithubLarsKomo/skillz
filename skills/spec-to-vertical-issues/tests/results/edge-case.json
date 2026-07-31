@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "spec-to-vertical-issues",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "keep the issue vertical and independently demonstrable", "passed": true, "evidence": "The slice retains its complete observable value path despite the unresolved provider choice."},
+    {"behavior": "record the provider choice as a reversible assumption", "passed": true, "evidence": "The provider is documented as an assumption rather than promoted to an approved architecture decision."},
+    {"behavior": "define the stable interface and later decision point", "passed": true, "evidence": "The issue specifies an adapter boundary, compatibility contract, and the milestone at which the provider decision must be revisited."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "block the full decomposition for a deferrable provider choice", "observed": false, "evidence": "Unaffected slices and the interface-bounded slice continue through decomposition."},
+    {"behavior": "silently hard-code the provider as an irreversible decision", "observed": false, "evidence": "No provider-specific invariant leaks beyond the documented adapter boundary."}
+  ],
+  "overall": "pass"
+}
