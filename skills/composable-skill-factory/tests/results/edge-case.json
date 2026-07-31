@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "composable-skill-factory",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "identify that the candidate is too broad", "passed": true, "evidence": "Independent triggers and completion criteria are recognized as evidence that the candidate exceeds one skill boundary."},
+    {"behavior": "split independent outcomes into composable skills", "passed": true, "evidence": "The design is divided into focused skills with separate outcomes and ownership."},
+    {"behavior": "define stable handoffs instead of relying on conversation state", "passed": true, "evidence": "The resulting skills exchange explicit Markdown or JSON artifacts with stated preconditions."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "keep multiple independent completion criteria in one skill", "observed": false, "evidence": "Each completion criterion is assigned to one focused skill."},
+    {"behavior": "duplicate specialist logic in an orchestrator", "observed": false, "evidence": "The orchestration layer coordinates handoffs without reproducing specialist rules."}
+  ],
+  "overall": "pass"
+}
