@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Implement one bounded vertical issue by first adding an executable acceptance test that fails, then the smallest end-to-end production change, followed by limited behavior-preserving refactoring and all relevant checks.",
+      "requiredBehaviors": [
+        "record failing acceptance-oriented Red evidence before production changes",
+        "implement the smallest end-to-end path that makes the acceptance check Green",
+        "refactor only after Green and verify focused plus relevant regression checks"
+      ],
+      "forbiddenBehaviors": [
+        "weaken assertions or delete failing tests to obtain Green",
+        "expand into unrelated behavior or broad infrastructure work"
+      ],
+      "skillAnchors": [
+        "Red belegen",
+        "Green minimal erreichen",
+        "Refactor begrenzen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The behavior crosses an external service that cannot run in CI. Preserve one observable acceptance seam using a stable contract and deterministic local fake, and record remaining external verification.",
+      "requiredBehaviors": [
+        "introduce the smallest stable contract and deterministic local fake",
+        "preserve an observable end-to-end acceptance seam",
+        "report external verification and residual uncertainty explicitly"
+      ],
+      "forbiddenBehaviors": [
+        "treat mock interaction alone as acceptance evidence",
+        "claim the unavailable external integration is fully verified"
+      ],
+      "skillAnchors": [
+        "deterministischen lokalen Fake oder Contract-Fixture",
+        "beobachtbare End-to-End-Abnahmeseam",
+        "verbleibende externe Verifikation"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposal starts with broad framework refactoring, writes production code before Red, weakens assertions, and marks Green without demonstrating the original acceptance criterion.",
+      "requiredBehaviors": [
+        "reject production-first and broad-refactor execution",
+        "restore a bounded acceptance-oriented Red-Green-Refactor cycle",
+        "require direct evidence for the original acceptance criterion"
+      ],
+      "forbiddenBehaviors": [
+        "skip or weaken safety-relevant tests",
+        "declare Green from unrelated unit or mock-only tests"
+      ],
+      "skillAnchors": [
+        "Nicht zulässig sind",
+        "Abnahmeevidenz muss das ursprüngliche Kriterium direkt belegen",
+        "Wenn Red nicht reproduzierbar ist"
+      ]
+    }
+  ]
+}
