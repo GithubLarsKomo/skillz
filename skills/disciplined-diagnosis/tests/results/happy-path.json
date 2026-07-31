@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "disciplined-diagnosis",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reproduce and minimize the failure before changing production code", "passed": true, "evidence": "The original CI command is reproduced, then reduced to the smallest component and input that retain the same failure before the implementation is edited."},
+    {"behavior": "distinguish the verified root cause from competing hypotheses", "passed": true, "evidence": "Targeted measurements confirm one hypothesis and explicitly reject alternatives through observations that differ between them."},
+    {"behavior": "apply the smallest safe fix and verify regression plus original command", "passed": true, "evidence": "A bounded change addresses only the confirmed path; the regression test and the original CI command both pass afterward."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "perform unrelated refactors or broad dependency upgrades", "observed": false, "evidence": "The patch remains limited to the defective behavior and its regression coverage."},
+    {"behavior": "claim success without rerunning the original failing command", "observed": false, "evidence": "The original command is part of the final verification evidence."}
+  ],
+  "overall": "pass"
+}
