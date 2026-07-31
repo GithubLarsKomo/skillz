@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "deferred-external-action-verification",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "record repository, commit SHA, workflow, and continuation goal", "passed": true, "evidence": "The watch record contains all required correlation fields."},
+    {"behavior": "poll idempotently with a bounded schedule", "passed": true, "evidence": "Status checks use a stored run identity, bounded attempts, and no retriggering."},
+    {"behavior": "verify all required checks before continuing once", "passed": true, "evidence": "Continuation occurs only after every required check for the stored commit succeeds and is guarded by a continuation key."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat queued or running as success", "observed": false, "evidence": "Pending and running states schedule another check without continuation."},
+    {"behavior": "continue based on a different latest commit", "observed": false, "evidence": "The run and checks are matched to the stored commit SHA."}
+  ],
+  "overall": "pass"
+}

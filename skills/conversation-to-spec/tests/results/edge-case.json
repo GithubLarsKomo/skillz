@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "conversation-to-spec",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "classify the gap as later decidable or safely assumable", "passed": true, "evidence": "The unresolved detail is explicitly categorized as deferrable behind a stable interface."},
+    {"behavior": "state the assumption and future decision point", "passed": true, "evidence": "The output records the temporary assumption and the later decision gate."},
+    {"behavior": "continue with the consistent remainder", "passed": true, "evidence": "All unaffected requirements and acceptance criteria remain included."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "turn the non-critical gap into an artificial blocker", "observed": false, "evidence": "The open detail does not stop delivery of the consistent specification."},
+    {"behavior": "present the open detail as confirmed", "observed": false, "evidence": "The item remains marked as an assumption and future decision."}
+  ],
+  "overall": "pass"
+}
