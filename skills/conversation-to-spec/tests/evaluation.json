@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "conversation-to-spec",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a SPEC.md from three approved grilling reports and the repository agent documents. All sources agree and prior decisions must not be asked again.",
+      "requiredBehaviors": [
+        "classify sources and preserve confirmed decisions",
+        "produce traceable requirements and acceptance criteria",
+        "include a decision register and consistency result"
+      ],
+      "forbiddenBehaviors": [
+        "repeat questions already answered by approved sources",
+        "invent unsupported roles, APIs, or data fields"
+      ],
+      "skillAnchors": [
+        "Quellen inventarisieren",
+        "Entscheidungsregister",
+        "Rückverfolgbarkeit prüfen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Produce the specification although one non-critical detail is still undecided and can safely be deferred behind a stable interface.",
+      "requiredBehaviors": [
+        "classify the gap as later decidable or safely assumable",
+        "state the assumption and future decision point",
+        "continue with the consistent remainder"
+      ],
+      "forbiddenBehaviors": [
+        "turn the non-critical gap into an artificial blocker",
+        "present the open detail as confirmed"
+      ],
+      "skillAnchors": [
+        "später entscheidbar",
+        "sicher annehmbar",
+        "Erstelle keine künstlichen Blocker"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Two approved sources conflict on an authorization rule that affects compliance. Build as much of the specification as safely possible.",
+      "requiredBehaviors": [
+        "stop the conflicting requirement",
+        "document the contradiction and ADR or decision need",
+        "deliver unaffected consistent sections"
+      ],
+      "forbiddenBehaviors": [
+        "silently choose one binding source",
+        "claim the specification is fully resolved"
+      ],
+      "skillAnchors": [
+        "Zwei bindende Quellen widersprechen",
+        "Stoppe die betroffene Festlegung",
+        "liefere den übrigen konsistenten Teil weiter"
+      ]
+    }
+  ]
+}

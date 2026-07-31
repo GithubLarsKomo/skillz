@@ -6,22 +6,21 @@ Jeder neue oder wesentlich geänderte Skill wird mindestens in drei Fällen gepr
 2. **Grenzfall:** unvollständige, aber sicher behandelbare Eingaben führen zu einer transparenten Annahme oder begrenzten Teilausgabe.
 3. **Fehlerfall:** widersprüchliche, unsichere oder nicht ausführbare Eingaben werden erkannt und kontrolliert beendet.
 
-## Fixture-Struktur
+## Ausführbare Fixtures
 
 ```text
-skills/<skill>/tests/
-  happy-path/
-    input.md
-    expectations.md
-  edge-case/
-    input.md
-    expectations.md
-  failure-case/
-    input.md
-    expectations.md
+skills/<skill>/tests/evaluation.json
 ```
 
-`expectations.md` beschreibt beobachtbare Eigenschaften statt eines einzigen wortgleichen Outputs. Dazu gehören erforderliche Abschnitte, verbotene Behauptungen, Abschlussnachweise und erwartete Übergaben.
+Jede Datei enthält genau `happy-path`, `edge-case` und `failure-case`. Pro Fall werden Input, erforderliche Verhaltensmerkmale, verbotene Verhaltensmerkmale und wörtliche Anker im zugehörigen `SKILL.md` dokumentiert.
+
+Der Runner prüft JSON-Struktur, Skill-Zuordnung, vollständige Fallabdeckung, nicht leere Erwartungen und die Verankerung aller `skillAnchors` im Skilltext.
+
+```bash
+python scripts/run_evaluations.py
+```
+
+Die Fixtures prüfen zunächst den dokumentierten Verhaltensvertrag. Eine spätere Stufe kann reale Agent-Ausgaben gegen `requiredBehaviors` und `forbiddenBehaviors` bewerten.
 
 ## Reifegrad
 
