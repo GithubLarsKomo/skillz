@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "openasr-offline-model-import",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate the catalog warning from the local import result", "passed": true, "evidence": "The UnknownIssuer message is classified as an online catalog trust warning rather than automatic evidence that the local --from import failed."},
+    {"behavior": "avoid assuming unverified CLI subcommands", "passed": true, "evidence": "Only documented or directly verified commands are used for the installed OpenASR version."},
+    {"behavior": "validate through the desktop model list and transcription behavior", "passed": true, "evidence": "The model is checked in the desktop UI and through a real transcription that does not request the archive again."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat every UnknownIssuer warning as a failed local import", "observed": false, "evidence": "The warning and the import outcome are evaluated independently."},
+    {"behavior": "invent a model-list command for the installed version", "observed": false, "evidence": "No unsupported CLI listing command is assumed."}
+  ],
+  "overall": "pass"
+}
