@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject production-first and broad-refactor execution", "passed": true, "evidence": "The workflow stops before implementation because no acceptance-oriented Red evidence exists and the proposed refactor exceeds the bounded slice."},
+    {"behavior": "restore a bounded acceptance-oriented Red-Green-Refactor cycle", "passed": true, "evidence": "The plan is reset to one observable behavior, one failing acceptance check, the smallest Green change, and only then limited cleanup."},
+    {"behavior": "require direct evidence for the original acceptance criterion", "passed": true, "evidence": "Green requires the original acceptance command to pass and cannot be inferred from unrelated unit or mock-only checks."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "skip or weaken safety-relevant tests", "observed": false, "evidence": "Existing safety checks and assertions remain enabled and unchanged."},
+    {"behavior": "declare Green from unrelated unit or mock-only tests", "observed": false, "evidence": "The status remains blocked until the acceptance-oriented behavior is directly demonstrated."}
+  ],
+  "overall": "pass"
+}
