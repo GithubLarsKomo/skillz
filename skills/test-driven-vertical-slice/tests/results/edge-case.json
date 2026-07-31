@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "introduce the smallest stable contract and deterministic local fake", "passed": true, "evidence": "A narrow contract and deterministic fixture isolate the unavailable external service without broad architecture changes."},
+    {"behavior": "preserve an observable end-to-end acceptance seam", "passed": true, "evidence": "The acceptance path still exercises the user-visible behavior through the local contract seam rather than only asserting collaborator calls."},
+    {"behavior": "report external verification and residual uncertainty explicitly", "passed": true, "evidence": "The unavailable live integration, required follow-up command, and remaining uncertainty are listed in the handoff."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat mock interaction alone as acceptance evidence", "observed": false, "evidence": "Acceptance is based on observable output and state, not solely on mock invocation counts."},
+    {"behavior": "claim the unavailable external integration is fully verified", "observed": false, "evidence": "The result distinguishes deterministic local contract evidence from pending live-service verification."}
+  ],
+  "overall": "pass"
+}
