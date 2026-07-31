@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject the broad speculative approach", "passed": true, "evidence": "The framework-first plan is stopped and replaced with a bounded slice."},
+    {"behavior": "split work back to one bounded vertical behavior", "passed": true, "evidence": "Unrelated behaviors are separated into later slices with explicit non-goals."},
+    {"behavior": "require observable Red and Green evidence for the original criterion", "passed": true, "evidence": "Completion requires the original criterion to fail before and pass after implementation."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "disable tests or security controls to obtain Green", "observed": false, "evidence": "All relevant controls remain enabled."},
+    {"behavior": "accept mock calls as the only evidence of value", "observed": false, "evidence": "A public behavior assertion is required."}
+  ],
+  "overall": "pass"
+}
