@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "iterate-software-projects",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reconstruct only the last provable state", "passed": true, "evidence": "The continuation starts from repository and CI evidence rather than assumed conversational continuity."},
+    {"behavior": "mark unavailable runtime verification as unconfirmed", "passed": true, "evidence": "The missing runtime test is explicitly listed as an unconfirmed proof gap."},
+    {"behavior": "continue with a stated reversible assumption when it does not change the increment", "passed": true, "evidence": "The reversible detail is documented as an assumption while the bounded increment proceeds."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent project continuity or successful runtime evidence", "observed": false, "evidence": "No state beyond the available commit, diff, CI, and test evidence is claimed."},
+    {"behavior": "ask again for facts available from repository sources", "observed": false, "evidence": "Repository facts are retrieved directly and are not returned to the user as clarification questions."}
+  ],
+  "overall": "pass"
+}
