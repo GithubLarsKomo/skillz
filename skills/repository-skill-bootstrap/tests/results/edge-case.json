@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "repository-skill-bootstrap",
+  "caseId": "edge-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "merge conservatively with existing agent context", "passed": true, "evidence": "Existing files are read and only missing or clearly outdated sections are proposed for change."},
+    {"behavior": "preserve confirmed decisions", "passed": true, "evidence": "Manually maintained decisions remain unchanged and traceable."},
+    {"behavior": "report uncertain or conflicting findings", "passed": true, "evidence": "Ambiguous evidence is surfaced instead of silently resolved."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "replace existing decisions wholesale", "observed": false, "evidence": "The existing decision register is preserved."},
+    {"behavior": "erase user-maintained content", "observed": false, "evidence": "No manually maintained section is removed."}
+  ],
+  "overall": "pass"
+}
