@@ -16,35 +16,60 @@ skills/
     tests/        # optionale Fixtures und Prüfungen
 ```
 
-Nur tatsächlich benötigte Unterverzeichnisse werden angelegt. Die übergreifende Zielarchitektur ist in [`docs/SKILL-ARCHITECTURE.md`](docs/SKILL-ARCHITECTURE.md) beschrieben.
+Nur tatsächlich benötigte Unterverzeichnisse werden angelegt. Die übergreifende Zielarchitektur ist in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) beschrieben; geplante Erweiterungen stehen in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 ## Enthaltene Skills
 
-| Skill | Zweck | Quelle |
-|---|---|---|
-| [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Datengetriebenes, rundenbasiertes Requirements Engineering über die Grilling-WebApp; bei Softwareprojekten einschließlich verpflichtender KI-/ML-Readiness, Architekturvorbereitung, Datensammlung, Labeling und Governance | Konsolidiert aus `GithubLarsKomo/grilling` und erweitert um die verbindliche KI-/ML-Prüfung für Softwareprojekte |
-| [`openasr-offline-model-import`](skills/openasr-offline-model-import/SKILL.md) | Robuster Import lokal vorhandener OpenASR-Modelle bei nicht vertrauenswürdiger oder unerreichbarer Katalogverbindung | Aus dem erfolgreich erprobten Windows-Workflow rekonstruiert |
-| [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Konsolidiert persönliche Skills und synchronisiert portable Inhalte konfliktgeschützt zwischen ChatGPT/Codex und diesem Repository | Aus der Festlegung zur zentralen und bidirektionalen Pflege aller persönlichen Skills |
-| [`composable-skill-factory`](skills/composable-skill-factory/SKILL.md) | Entwirft, zerlegt, prüft und veröffentlicht kleine Skills mit progressiver Offenlegung, deterministischen Werkzeugen, dokumentierten Übergaben und Evaluation | Lizenzsaubere Eigenentwicklung, inspiriert von den modularen Engineering-Prinzipien aus `mattpocock/skills` |
-| [`repository-skill-bootstrap`](skills/repository-skill-bootstrap/SKILL.md) | Analysiert ein Software-Repository und erzeugt eine portable Arbeitsgrundlage aus `CONFIG.md`, `CONTEXT.md` und `DECISIONS.md` | Erster Consumer der komponierbaren Skill-Architektur; enthält einen sicheren, deterministischen Bootstrap-Generator |
-| [`deferred-external-action-verification`](skills/deferred-external-action-verification/SKILL.md) | Prüft verzögert abschließende externe Aktionen sicher per Scheduler, nimmt selbst ausgelöste CI-Läufe automatisch in die Beobachtungsliste auf und setzt den gespeicherten Workflow nach verifiziertem Erfolg fort | Aus dem wiederkehrenden Bedarf abgeleitet, CI-, Deployment- und andere externe Jobs nach einer angemessenen Wartezeit automatisch erneut zu prüfen |
-| [`iterate-software-projects`](skills/iterate-software-projects/SKILL.md) | Entwickelt bestehende Softwareprojekte in kleinen, evidenzbasiert geprüften Inkrementen weiter | Aus den wiederkehrenden Repository-, Copilot- und Coding-Agent-Iterationen konsolidiert |
-| [`synapse-orchestrator`](skills/synapse-orchestrator/SKILL.md) | Orchestriert komplexe Ziele über direkte Ausführung, Fach-Skills, transparente Perspektiven, Unteragenten, Recherche und Automationen | Lizenzsaubere Eigenentwicklung auf Basis des gewünschten Professor-Synapse-Arbeitsstils |
+<!-- skill-catalog:start -->
+| Skill | Zweck |
+|---|---|
+| [`central-skill-repository-curation`](skills/central-skill-repository-curation/SKILL.md) | Konsolidiert wiederverwendbare Arbeitsabläufe als persönliche Skills, pflegt deren portable Fassungen im zentralen Repository GithubLarsKomo/skillz und synchronisiert beide Bestände sicher. Verwenden, wenn der Nutzer Skills lernen, zentral speichern, installieren, inventarisieren, abgleichen oder ausdrücklich in beide Richtungen synchronisieren lassen möchte. |
+| [`composable-skill-factory`](skills/composable-skill-factory/SKILL.md) | Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen Hilfswerkzeugen, klaren Triggern und überprüfbaren Abschlusskriterien. Verwenden, wenn aus einem wiederholbaren Workflow ein neuer Skill werden soll oder ein bestehender Skill zu groß, unklar, fragil oder schwer kombinierbar ist. |
+| [`conversation-to-spec`](skills/conversation-to-spec/SKILL.md) | Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll. |
+| [`deferred-external-action-verification`](skills/deferred-external-action-verification/SKILL.md) | Richtet für asynchron arbeitende externe Programme, APIs und CI/CD-Systeme eine zeitversetzte, wiederholbare Ergebnisprüfung per Cronjob oder gleichwertigem Scheduler ein. Nimmt jeden vom Agenten selbst ausgelösten CI-Lauf automatisch in eine Beobachtungsliste auf und setzt den gespeicherten Arbeitsablauf nach verifiziertem Erfolg fort. Der Skill definiert Wartefenster, Statusabfrage, Idempotenz, Sperren, Retry- und Abbruchregeln, Protokollierung sowie die sichere Aufräumlogik nach Erfolg oder endgültigem Fehler. |
+| [`iterate-software-projects`](skills/iterate-software-projects/SKILL.md) | Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrenden Zyklus aus Bestandsanalyse, Klärung kritischer Produktentscheidungen, Auswahl des nächsten kleinen Inkrements, präzisem Copilot- oder Coding-Agent-Prompt und evidenzbasiertem Review. Verwenden, wenn ein Repository schrittweise fortgeführt, ein Plan vor der Umsetzung geschärft, ein nächster Implementierungsauftrag formuliert, ein Agentenergebnis geprüft, ein Docker-/KI-Service diagnostiziert oder nach einem Review die nächste Iteration geplant werden soll. |
+| [`openasr-offline-model-import`](skills/openasr-offline-model-import/SKILL.md) | Importiert ein bereits lokal vorhandenes OpenASR-Modell unter Windows robust in OpenASR Desktop, insbesondere wenn der signierte Online-Katalog wegen Proxy-, TLS- oder UnknownIssuer-Problemen nicht verwendet werden kann. |
+| [`repository-skill-bootstrap`](skills/repository-skill-bootstrap/SKILL.md) | Analysiert ein bestehendes Software-Repository und richtet eine portable Agent-Arbeitsgrundlage mit CONFIG.md, CONTEXT.md und DECISIONS.md ein. Verwenden, wenn ein Repository erstmals für wiederholbare Arbeit mit mehreren Skills, Agenten oder Sitzungen vorbereitet werden soll. |
+| [`round-based-requirements-grilling`](skills/round-based-requirements-grilling/SKILL.md) | Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten ist eine verpflichtende KI-/ML-Readiness-Prüfung einschließlich Einsatzpotenzial, Architekturvorbereitung, Datensammlung, Labeling und Governance Bestandteil des Grillings. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben. |
+| [`synapse-orchestrator`](skills/synapse-orchestrator/SKILL.md) | Orchestrate complex or ambiguous goals by aligning on the desired outcome, routing work to direct execution, existing skills and tools, transparent expert perspectives, or explicitly requested subagents, and maintaining concise progress and next steps. Use when the user invokes Professor Synapse, Synapse_CoR, /start, /save, /reason, /settings, /new, /grill-me, or /learn-skill; asks for an expert or multi-expert analysis; wants a cross-domain task decomposed; or needs help choosing the right workflow before execution. |
+<!-- skill-catalog:end -->
+
+Der Katalog wird mit `python scripts/generate_catalog.py` aus dem Frontmatter der Skills erzeugt.
+
+## Qualitäts- und Metadatenmodell
+
+Neue Skills sollen zusätzlich zu `name` und `description` folgende Frontmatter-Felder führen:
+
+- `version`: semantische Version
+- `status`: `draft`, `candidate`, `stable` oder `deprecated`
+- `owners`: verantwortliche Personen oder Teams
+- `requires`: benötigte Skills
+- `outputs`: dokumentierte Übergabeformate
+- `lastEvaluated`: Datum der letzten Evaluation
+
+Die Vorlage liegt unter [`templates/SKILL.template.md`](templates/SKILL.template.md), das Schema unter [`schemas/skill.schema.json`](schemas/skill.schema.json).
 
 ## Pflegeprinzipien
 
 - Skills sind produktunabhängig, klein und wiederverwendbar.
 - Ein Fach-Skill besitzt eine primäre Aufgabe; Orchestratoren koordinieren, ohne Fachlogik zu duplizieren.
-- Fachliche Änderungen werden im jeweiligen `SKILL.md` versioniert.
-- Umfangreiche oder selten benötigte Details werden progressiv in `references/` ausgelagert.
-- Reproduzierbare Transformationen, Validierungen und Dateiarbeit werden nach Möglichkeit in `scripts/` implementiert und getestet.
+- Umfangreiche Details werden progressiv in `references/` ausgelagert.
+- Reproduzierbare Transformationen und Validierungen werden nach Möglichkeit in `scripts/` implementiert.
 - Projektdateien, Zugangsdaten, Tokens und personenbezogene Inhalte gehören nicht in dieses Repository.
 - Ein Skill beschreibt Trigger, Voraussetzungen, Ablauf, Prüfungen, Fehlerbehandlung, Übergaben und Abschlusskriterien.
-- Änderungen an einem Skill werden zuerst hier eingepflegt; projektspezifische Repositories dürfen darauf verweisen oder eine bewusst fixierte Kopie verwenden.
-- Das Verfahren zur Erkennung, Konsolidierung und laufenden Pflege ist selbst im Skill `central-skill-repository-curation` festgelegt.
 - Neue oder wesentlich überarbeitete Skills durchlaufen Happy Path, Grenzfall und Fehlerfall.
-- Eine ausdrücklich bestätigte Skill-Ergänzung wird bei vorhandenem Schreibzugriff im selben Arbeitsgang geprüft, committed und auf GitHub veröffentlicht.
-- Portable Skill-Inhalte werden anhand des Frontmatter-Namens bidirektional mit den installierten persönlichen ChatGPT/Codex-Skills abgeglichen; System- und Plugin-Skills sowie lokale UI-Metadaten bleiben ausgeschlossen.
+- Portable Skill-Inhalte werden konfliktgeschützt über `.skill-sync.json` abgeglichen.
+
+## Validierung
+
+Lokal:
+
+```bash
+python scripts/validate_skills.py
+python scripts/verify_generated.py
+```
+
+GitHub Actions führt dieselben Prüfungen bei Pull Requests und Pushes auf `main` aus.
 
 ## Namenskonvention
 
