@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "spec-to-vertical-issues",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject the horizontal split", "passed": true, "evidence": "The proposed schema, API, and UI tasks are rejected because none can demonstrate independent user or operating value."},
+    {"behavior": "identify the earliest irreversible blocking decision and affected requirements", "passed": true, "evidence": "The first architecture choice that changes data migration and acceptance is isolated with all impacted requirement IDs."},
+    {"behavior": "require a new vertical cut after the decision is resolved", "passed": true, "evidence": "The workflow calls for re-slicing the end-to-end outcome once the blocking decision is approved."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "accept tasks that cannot be independently demonstrated", "observed": false, "evidence": "No valueless horizontal task enters the approved backlog."},
+    {"behavior": "silently choose the architecture or hide migration and security work", "observed": false, "evidence": "The architecture remains unresolved and migration and security impacts are explicit blockers."}
+  ],
+  "overall": "pass"
+}
