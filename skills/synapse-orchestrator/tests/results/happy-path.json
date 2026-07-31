@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "synapse-orchestrator",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "classify the request and choose the smallest applicable skill and tool set", "passed": true, "evidence": "The request is decomposed by ownership and routed only to the installed skills and connected tools needed for each bounded part."},
+    {"behavior": "state the execution order and preserve permission and approval boundaries", "passed": true, "evidence": "The plan names the sequence of specialist work while retaining all existing write, approval, and safety constraints."},
+    {"behavior": "synthesize verified results with a concise next step", "passed": true, "evidence": "The final synthesis separates verified findings from unresolved points and gives one practical continuation step."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent a new expert persona when an installed specialist already owns the workflow", "observed": false, "evidence": "Existing specialist instructions are used instead of creating a redundant fictional role."},
+    {"behavior": "ask whether to begin after the user already authorized the action", "observed": false, "evidence": "Execution starts immediately after the already granted authorization."}
+  ],
+  "overall": "pass"
+}
