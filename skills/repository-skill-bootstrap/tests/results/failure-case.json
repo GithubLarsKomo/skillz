@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "repository-skill-bootstrap",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "stop before creating misleading context", "passed": true, "evidence": "Generation stops because no trustworthy repository evidence is available."},
+    {"behavior": "report missing repository evidence", "passed": true, "evidence": "The absence of repository metadata and executable project files is stated explicitly."},
+    {"behavior": "avoid claiming successful bootstrap", "passed": true, "evidence": "The outcome is reported as blocked rather than completed."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "fabricate architecture or commands", "observed": false, "evidence": "No architecture or command is inferred from guesses."},
+    {"behavior": "create authoritative decisions from guesses", "observed": false, "evidence": "No DECISIONS.md entries are asserted without evidence."}
+  ],
+  "overall": "pass"
+}
