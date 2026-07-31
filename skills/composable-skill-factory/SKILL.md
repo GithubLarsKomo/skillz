@@ -1,6 +1,16 @@
 ---
 name: composable-skill-factory
 description: Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen Hilfswerkzeugen, klaren Triggern und überprüfbaren Abschlusskriterien. Verwenden, wenn aus einem wiederholbaren Workflow ein neuer Skill werden soll oder ein bestehender Skill zu groß, unklar, fragil oder schwer kombinierbar ist.
+version: 0.2.0
+status: candidate
+owners:
+  - GithubLarsKomo
+requires: []
+outputs:
+  - skills/<skill-name>/SKILL.md
+  - evaluation evidence
+  - pull request
+lastEvaluated: 2026-07-31
 ---
 
 # Composable Skill Factory

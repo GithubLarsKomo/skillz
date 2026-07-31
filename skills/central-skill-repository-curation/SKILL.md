@@ -1,6 +1,16 @@
 ---
 name: central-skill-repository-curation
 description: Konsolidiert wiederverwendbare Arbeitsabläufe als persönliche Skills, pflegt deren portable Fassungen im zentralen Repository GithubLarsKomo/skillz und synchronisiert beide Bestände sicher. Verwenden, wenn der Nutzer Skills lernen, zentral speichern, installieren, inventarisieren, abgleichen oder ausdrücklich in beide Richtungen synchronisieren lassen möchte.
+version: 1.0.0
+status: stable
+owners:
+  - GithubLarsKomo
+requires:
+  - composable-skill-factory
+outputs:
+  - updated skill repository
+  - synchronization manifest
+lastEvaluated: 2026-07-31
 ---
 
 # Zentrale Skill-Pflege

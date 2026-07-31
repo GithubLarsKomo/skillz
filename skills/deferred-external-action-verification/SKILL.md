@@ -1,6 +1,16 @@
 ---
 name: deferred-external-action-verification
 description: Richtet für asynchron arbeitende externe Programme, APIs und CI/CD-Systeme eine zeitversetzte, wiederholbare Ergebnisprüfung per Cronjob oder gleichwertigem Scheduler ein. Nimmt jeden vom Agenten selbst ausgelösten CI-Lauf automatisch in eine Beobachtungsliste auf und setzt den gespeicherten Arbeitsablauf nach verifiziertem Erfolg fort. Der Skill definiert Wartefenster, Statusabfrage, Idempotenz, Sperren, Retry- und Abbruchregeln, Protokollierung sowie die sichere Aufräumlogik nach Erfolg oder endgültigem Fehler.
+version: 1.0.0
+status: stable
+owners:
+  - GithubLarsKomo
+requires: []
+outputs:
+  - watch record
+  - verified terminal status
+  - continuation result
+lastEvaluated: 2026-07-31
 ---
 
 # Zeitversetzte Prüfung externer Aktionen

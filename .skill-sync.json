@@ -2,16 +2,55 @@
   "schemaVersion": 2,
   "repository": "GithubLarsKomo/skillz",
   "hashNormalization": "UTF-8; CRLF and CR converted to LF; exactly one trailing LF",
-  "synchronizedAt": "2026-07-30T21:56:00Z",
+  "synchronizedAt": "2026-07-31T06:58:13Z",
   "skills": {
-    "central-skill-repository-curation": {"files": {"SKILL.md": "4bd18271fc9dcfc7fc4b9a65936ffbd81d62de3028357b6e91a0d5ceadfb22e8"}},
-    "composable-skill-factory": {"files": {}, "syncStatus": "pending-hash-refresh"},
-    "conversation-to-spec": {"files": {}, "syncStatus": "pending-hash-refresh"},
-    "deferred-external-action-verification": {"files": {"SKILL.md": "04bba1157440f9472363fc5aa1253c31274c7381d5309338327d239a48b08202"}},
-    "iterate-software-projects": {"files": {"SKILL.md": "1ac2eb530453b11a279e1912d8fdcf835c0b5f2459fc34c9201ede50643c093c", "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"}},
-    "openasr-offline-model-import": {"files": {"SKILL.md": "ee4410ccf492612353b44f7386bc5eecfd215fa1d2d59182d1e5ebd1f7b01c63"}},
-    "repository-skill-bootstrap": {"files": {}, "syncStatus": "pending-hash-refresh"},
-    "round-based-requirements-grilling": {"files": {"SKILL.md": "af3f15527583e2bd7e68f0d8f5265d95ef6c1a4a291cb039eabeaf750b4517b8"}},
-    "synapse-orchestrator": {"files": {"SKILL.md": "fb7375e887a0e1637c9f4d0d892cb1500c0021fcbda1e34042bdfa93494070cb", "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"}}
+    "central-skill-repository-curation": {
+      "files": {
+        "SKILL.md": "07c4a2bd6cf319c44a5f79f40fb5df2a16fa7fc95ac0a751e665f62bb5f3780d"
+      }
+    },
+    "composable-skill-factory": {
+      "files": {
+        "SKILL.md": "b9dc3606686547a29c852ec2e911dd44117d9ca6234c4b2f8b0306185f7be4e9"
+      }
+    },
+    "conversation-to-spec": {
+      "files": {
+        "SKILL.md": "267e73de1f1d3829f9a0fac5f1d239d2c9da3457b0fdcf1f8f469348c27ca230"
+      }
+    },
+    "deferred-external-action-verification": {
+      "files": {
+        "SKILL.md": "7a09513350246ed57bc821aa309274f848d67a672b08bd714d63f0c622d3bafa"
+      }
+    },
+    "iterate-software-projects": {
+      "files": {
+        "SKILL.md": "3127c38b443d5d1220d8c8447fd2323b8436bb1d2ace2491c0679dc6ca4fc323",
+        "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
+      }
+    },
+    "openasr-offline-model-import": {
+      "files": {
+        "SKILL.md": "768318c0c16fdc54f725a5221f54067c3692df0ea56247b9de36045002ec492f"
+      }
+    },
+    "repository-skill-bootstrap": {
+      "files": {
+        "SKILL.md": "e5b06df05150de041a739712619ac3a6e3bc7795d5e095811636e1131c3473b2",
+        "scripts/bootstrap_repository_context.py": "c4804f576af6bcafea342c51cdeb4faf9825b60014938cad4ea8ad709f6cecee"
+      }
+    },
+    "round-based-requirements-grilling": {
+      "files": {
+        "SKILL.md": "c2691a6884453bd1fa0f639f6c12194113e04f9cb42ddf239ba9c0e4e6b638ac"
+      }
+    },
+    "synapse-orchestrator": {
+      "files": {
+        "SKILL.md": "e44fc7dfd07189b2174a7b5bb1a68548c5f16f72c0026b3195264b0361b2ab57",
+        "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    }
   }
 }
