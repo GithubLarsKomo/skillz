@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "round-based-requirements-grilling",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "block SPEC creation", "passed": true, "evidence": "The workflow withholds the SPEC decision because mandatory software-readiness evidence is incomplete."},
+    {"behavior": "report missing readiness and governance decisions", "passed": true, "evidence": "Ground truth, governance, validation, monitoring, and safety-boundary gaps are listed as explicit blockers."},
+    {"behavior": "reject publication until a new programmatically generated token replaces the old token", "passed": true, "evidence": "Publication remains blocked until a cryptographically generated current token is written and the old token is invalidated."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "approve a software SPEC without the mandatory readiness section", "observed": false, "evidence": "No approval or handoff occurs without the dedicated readiness and data-strategy content."},
+    {"behavior": "keep ACCESS_TOKEN_PREVIOUS or otherwise preserve the old token", "observed": false, "evidence": "Only ACCESS_TOKEN_CURRENT is supported and prior credentials are invalidated."}
+  ],
+  "overall": "pass"
+}
