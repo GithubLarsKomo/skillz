@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "round-based-requirements-grilling",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "preserve prior decisions and publish an immutable new round", "passed": true, "evidence": "The workflow reads previous reports, retains confirmed decisions, and creates a new versioned round rather than editing a published definition."},
+    {"behavior": "include complete AI and ML readiness before offering SPEC creation", "passed": true, "evidence": "The software report covers relevance, architecture, data, labels, learning, evaluation, governance, and deterministic safety boundaries before the SPEC decision."},
+    {"behavior": "rotate the token programmatically and keep platform status explicit", "passed": true, "evidence": "A cryptographically generated replacement token is committed and APP_STATUS is deliberately retained or changed as an explicit action."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "store the final product SPEC in the grilling repository", "observed": false, "evidence": "The SPEC is presented in chat and later handed to a separately approved product repository."},
+    {"behavior": "reuse the previous token after a publishing push", "observed": false, "evidence": "The previous token and derived cookies become invalid after deployment."}
+  ],
+  "overall": "pass"
+}
