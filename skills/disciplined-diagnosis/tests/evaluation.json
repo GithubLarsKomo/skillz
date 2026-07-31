@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "disciplined-diagnosis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A deterministic CI failure can be reproduced locally. Minimize it to one component, identify the root cause with distinguishing evidence, apply the smallest safe fix, and verify both a regression test and the original CI command.",
+      "requiredBehaviors": [
+        "reproduce and minimize the failure before changing production code",
+        "distinguish the verified root cause from competing hypotheses",
+        "apply the smallest safe fix and verify regression plus original command"
+      ],
+      "forbiddenBehaviors": [
+        "perform unrelated refactors or broad dependency upgrades",
+        "claim success without rerunning the original failing command"
+      ],
+      "skillAnchors": [
+        "Reproduktion herstellen und minimieren",
+        "welche Evidenz die Root Cause von konkurrierenden Hypothesen unterscheidet",
+        "Regression und Originalverifikation"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "An environment-dependent failure is intermittent and cannot yet be reproduced deterministically. Compare successful and failed runs, add discriminating telemetry, and produce only an evidence-backed mitigation.",
+      "requiredBehaviors": [
+        "preserve uncertainty and mark reproduction as intermittent",
+        "collect comparable telemetry across successful and failed runs",
+        "report residual risk without claiming an unverified root cause"
+      ],
+      "forbiddenBehaviors": [
+        "present correlation or one green retry as root-cause proof",
+        "log credentials or sensitive environment data"
+      ],
+      "skillAnchors": [
+        "Behaupte keine deterministische Reproduktion",
+        "mehrere erfolgreiche und fehlgeschlagene Läufe mit identischen Messpunkten",
+        "kennzeichne die Unsicherheit"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed diagnosis upgrades several dependencies, disables checks, edits production code before reproduction, and retries CI until it turns green.",
+      "requiredBehaviors": [
+        "reject the speculative broad-change approach",
+        "require a bounded reproduction and explicit hypotheses",
+        "preserve tests security controls and branch protections"
+      ],
+      "forbiddenBehaviors": [
+        "disable tests TLS verification or branch protections",
+        "use blind retries as verification"
+      ],
+      "skillAnchors": [
+        "Verändere Produktionscode erst",
+        "breite Dependency-Upgrades",
+        "Blind-Retries bis zu einem zufälligen grünen Lauf"
+      ]
+    }
+  ]
+}
