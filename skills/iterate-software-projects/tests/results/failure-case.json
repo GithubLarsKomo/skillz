@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "iterate-software-projects",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "stop implementation and final prompt generation", "passed": true, "evidence": "The workflow halts before implementation because unresolved irreversible choices change scope and acceptance."},
+    {"behavior": "identify the earliest blocking decision", "passed": true, "evidence": "The first architecture decision on which migration and deployment depend is isolated."},
+    {"behavior": "ask exactly one decision-ready question with a recommendation", "passed": true, "evidence": "One focused question is asked with consequences and a recommended default."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "silently choose an irreversible architecture", "observed": false, "evidence": "No architecture or migration path is selected without the user's decision."},
+    {"behavior": "bundle multiple dependent questions into one round", "observed": false, "evidence": "Dependent questions are deferred until the first blocking choice is resolved."}
+  ],
+  "overall": "pass"
+}
