@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "central-skill-repository-curation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Synchronize a locally installed personal skill and its portable repository copy after only the local copy changed, then validate both sides and update the manifest.",
+      "requiredBehaviors": [
+        "inventory both sides using normalized portable file hashes",
+        "propagate the one-sided verified change and validate both copies",
+        "update the synchronization manifest only after successful verification"
+      ],
+      "forbiddenBehaviors": [
+        "copy system or plugin skills into the personal repository",
+        "claim synchronization before verifying repository and local installation"
+      ],
+      "skillAnchors": [
+        "Hash jeder Datei nach Normalisierung",
+        "nur eine Seite seit dem gemeinsamen Stand geändert",
+        "Manifest aktualisieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The repository and local personal skill both changed since the last common manifest, and the changes overlap in a safety-relevant section.",
+      "requiredBehaviors": [
+        "classify the skill as a two-sided conflict",
+        "show both diffs and isolate the safety-relevant disagreement",
+        "request a user decision before overwriting either side"
+      ],
+      "forbiddenBehaviors": [
+        "choose the newer timestamp as authoritative",
+        "silently merge a safety-relevant conflict"
+      ],
+      "skillAnchors": [
+        "beide Seiten geändert",
+        "vor dem Überschreiben eine Entscheidung",
+        "niemals allein aufgrund eines jüngeren Zeitstempels"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Publish a locally discovered skill that contains a real token, a private access path, and copied third-party text with unknown licensing.",
+      "requiredBehaviors": [
+        "stop publication and installation",
+        "report secret, private-path, and licensing violations",
+        "require cleanup and licensing evidence before retrying"
+      ],
+      "forbiddenBehaviors": [
+        "commit credentials or confidential project content",
+        "publish third-party content without reuse rights"
+      ],
+      "skillAnchors": [
+        "Sicherheitsprüfung",
+        "Stoppe bei einem Treffer",
+        "fremden Code ohne geklärte Lizenz"
+      ]
+    }
+  ]
+}

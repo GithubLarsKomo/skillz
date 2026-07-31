@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "central-skill-repository-curation",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "inventory both sides using normalized portable file hashes", "passed": true, "evidence": "Both projections are inventoried by skill name and normalized SHA-256 hashes for every portable path."},
+    {"behavior": "propagate the one-sided verified change and validate both copies", "passed": true, "evidence": "The locally changed portable files are published centrally, then both repository and installed copies are re-read and validated."},
+    {"behavior": "update the synchronization manifest only after successful verification", "passed": true, "evidence": "The manifest is written only after the repository paths and local installation match the verified hashes."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "copy system or plugin skills into the personal repository", "observed": false, "evidence": "Inventory and synchronization remain limited to personal user-owned skills."},
+    {"behavior": "claim synchronization before verifying repository and local installation", "observed": false, "evidence": "Completion is reported only after both sides and the resulting manifest are verified."}
+  ],
+  "overall": "pass"
+}
