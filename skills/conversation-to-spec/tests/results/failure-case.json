@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "conversation-to-spec",
+  "caseId": "failure-case",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "stop the conflicting requirement", "passed": true, "evidence": "The authorization requirement is withheld from the approved specification."},
+    {"behavior": "document the contradiction and ADR or decision need", "passed": true, "evidence": "Both binding sources and the required resolution decision are recorded."},
+    {"behavior": "deliver unaffected consistent sections", "passed": true, "evidence": "Unrelated sections are completed with traceable requirements."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "silently choose one binding source", "observed": false, "evidence": "Neither source is selected without an explicit decision."},
+    {"behavior": "claim the specification is fully resolved", "observed": false, "evidence": "The compliance conflict remains an explicit blocker."}
+  ],
+  "overall": "pass"
+}
