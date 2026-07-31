@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "test-driven-vertical-slice",
+  "caseId": "happy-path",
+  "recordedAt": "2026-07-31",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "record failing acceptance-oriented Red evidence before production changes", "passed": true, "evidence": "The acceptance command, expected missing behavior, and actual failing output are captured before any production file changes."},
+    {"behavior": "implement the smallest end-to-end path that makes the acceptance check Green", "passed": true, "evidence": "Only the required layers for the single observable behavior are changed, and the original acceptance check passes."},
+    {"behavior": "refactor only after Green and verify focused plus relevant regression checks", "passed": true, "evidence": "Cleanup begins only after Green; focused, contract, and relevant regression commands remain successful."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "weaken assertions or delete failing tests to obtain Green", "observed": false, "evidence": "The original acceptance assertions remain intact and no failing test is removed or skipped."},
+    {"behavior": "expand into unrelated behavior or broad infrastructure work", "observed": false, "evidence": "The diff remains limited to the bounded vertical behavior and required verification seams."}
+  ],
+  "overall": "pass"
+}
