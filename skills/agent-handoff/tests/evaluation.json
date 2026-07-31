@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "skill": "agent-handoff",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Hand a completed repository iteration to a new agent with exact branch and commit state, verified evidence, accepted decisions, residual risks, and one executable next action.",
+      "requiredBehaviors": [
+        "record exact repository branch commit and work state",
+        "separate verified decisions and evidence from assumptions",
+        "provide one executable next action with conditions and expected evidence"
+      ],
+      "forbiddenBehaviors": [
+        "use a vague continue-working instruction",
+        "omit completed work and cause it to be repeated"
+      ],
+      "skillAnchors": ["Zustand verankern", "Evidenz klassifizieren", "genau eine ausführbare nächste Aktion"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Local work is complete but CI or deployment is pending. Preserve the immutable head SHA, freshness, watch condition, and distinction between completed work and external verification.",
+      "requiredBehaviors": [
+        "distinguish completed local work from pending external verification",
+        "record immutable head SHA freshness and exact watch condition",
+        "route pending external state to deferred verification without claiming success"
+      ],
+      "forbiddenBehaviors": [
+        "claim external success before verification",
+        "monitor an unspecified moving branch head"
+      ],
+      "skillAnchors": ["Flüchtige Zustände kennzeichnen", "Head-SHA", "deferred-external-action-verification"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed handoff is vague, omits branch and commit state, mixes assumptions with facts, repeats completed work, and claims CI succeeded without evidence.",
+      "requiredBehaviors": [
+        "reject the unverifiable handoff",
+        "reconstruct exact repository and verification state",
+        "identify completed work and one non-duplicative next action"
+      ],
+      "forbiddenBehaviors": [
+        "preserve unsupported success claims",
+        "store secrets personal data or full logs"
+      ],
+      "skillAnchors": ["Vage Formulierungen", "widersprüchliche SHAs", "Secrets, personenbezogene Inhalte"]
+    }
+  ]
+}
