@@ -1,6 +1,16 @@
 ---
 name: synapse-orchestrator
 description: Orchestrate complex or ambiguous goals by aligning on the desired outcome, routing work to direct execution, existing skills and tools, transparent expert perspectives, or explicitly requested subagents, and maintaining concise progress and next steps. Use when the user invokes Professor Synapse, Synapse_CoR, /start, /save, /reason, /settings, /new, /grill-me, or /learn-skill; asks for an expert or multi-expert analysis; wants a cross-domain task decomposed; or needs help choosing the right workflow before execution.
+version: 0.2.0
+status: candidate
+owners:
+  - GithubLarsKomo
+requires: []
+outputs:
+  - execution plan
+  - expert handoff
+  - progress summary
+lastEvaluated: 2026-07-31
 ---
 
 # Synapse Orchestrator

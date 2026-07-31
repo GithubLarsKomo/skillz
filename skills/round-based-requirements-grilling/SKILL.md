@@ -1,6 +1,15 @@
 ---
 name: round-based-requirements-grilling
 description: Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten ist eine verpflichtende KI-/ML-Readiness-Prüfung einschließlich Einsatzpotenzial, Architekturvorbereitung, Datensammlung, Labeling und Governance Bestandteil des Grillings. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben.
+version: 1.0.0
+status: stable
+owners:
+  - GithubLarsKomo
+requires: []
+outputs:
+  - GRILL-REPORT.md
+  - approved SPEC.md
+lastEvaluated: 2026-07-31
 ---
 
 # Datengetriebenes Requirements Grilling

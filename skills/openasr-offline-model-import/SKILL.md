@@ -1,6 +1,15 @@
 ---
 name: openasr-offline-model-import
 description: Importiert ein bereits lokal vorhandenes OpenASR-Modell unter Windows robust in OpenASR Desktop, insbesondere wenn der signierte Online-Katalog wegen Proxy-, TLS- oder UnknownIssuer-Problemen nicht verwendet werden kann.
+version: 0.2.0
+status: candidate
+owners:
+  - GithubLarsKomo
+requires: []
+outputs:
+  - installed OpenASR model
+  - import verification
+lastEvaluated: 2026-07-31
 ---
 
 # OpenASR Offline Model Import

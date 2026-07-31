@@ -1,6 +1,16 @@
 ---
 name: conversation-to-spec
 description: Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll.
+version: 0.1.0
+status: candidate
+owners:
+  - GithubLarsKomo
+requires: []
+outputs:
+  - SPEC.md
+  - decision register
+  - consistency report
+lastEvaluated: 2026-07-31
 ---
 
 # Conversation to Spec
