@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "merge-conflict-resolution",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject blind side selection and restore intent reconstruction", "passed": true, "evidence": "The proposed checkout of one side is rejected and both issue intents are recovered."},
+    {"behavior": "preserve accepted behavior or block for an authorized decision", "passed": true, "evidence": "The workflow blocks where product semantics conflict instead of guessing."},
+    {"behavior": "refuse weakened checks and unverified completion", "passed": true, "evidence": "Removed assertions are restored and marker removal alone is not accepted as completion."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "delete one intent without rationale", "observed": false, "evidence": "No accepted behavior is discarded without an explicit authorized decision."},
+    {"behavior": "declare success because conflict markers are gone", "observed": false, "evidence": "Completion requires behavioral and regression evidence."}
+  ],
+  "overall": "pass"
+}

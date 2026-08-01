@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "merge-conflict-resolution",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "preserve migration ordering and backward compatibility", "passed": true, "evidence": "The resolution retains additive schema compatibility and orders the data migration after the schema step."},
+    {"behavior": "use deterministic local contract evidence", "passed": true, "evidence": "A local contract fixture verifies request and response compatibility without the unavailable service."},
+    {"behavior": "defer the exact external condition against the immutable resolved head", "passed": true, "evidence": "The pending integration check names the service condition and resolved head SHA."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "claim unavailable external verification succeeded", "observed": false, "evidence": "Status remains externally-pending."},
+    {"behavior": "change migration ordering without evidence and rollback", "observed": false, "evidence": "Ordering rationale and rollback are documented."}
+  ],
+  "overall": "pass"
+}
