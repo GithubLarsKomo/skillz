@@ -1,0 +1,12 @@
+{
+  "name": "domain-model-maintenance failure case",
+  "input": "Rename concepts independently across layers, edit persisted values without migration, duplicate invariants in controllers and UI, move boundaries without authority, and accept green CI as proof of semantic equivalence.",
+  "expected": {
+    "rejectsLayerwiseRename": true,
+    "rejectsSilentDestructiveMigration": true,
+    "rejectsDuplicatedInvariants": true,
+    "requiresDecisionAuthority": true,
+    "rejectsGreenCiAsSemanticProof": true,
+    "nextActionCount": 1
+  }
+}

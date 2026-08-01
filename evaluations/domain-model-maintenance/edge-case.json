@@ -1,0 +1,11 @@
+{
+  "name": "domain-model-maintenance edge case",
+  "input": "A legacy external integration uses a conflicting term and cannot change immediately. Preserve one canonical internal concept and define a boundary-limited adapter mapping with coexistence and removal criteria.",
+  "expected": {
+    "requiresCanonicalConcepts": true,
+    "requiresBoundaryLimitedAlias": true,
+    "requiresCoexistenceStrategy": true,
+    "requiresRemovalCriteria": true,
+    "nextActionCount": 1
+  }
+}
