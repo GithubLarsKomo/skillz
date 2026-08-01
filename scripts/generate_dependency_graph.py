@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
 import sys
 from collections import defaultdict
@@ -148,6 +149,15 @@ def apply(path: Path, expected: str, check: bool) -> bool:
         return False
     if check:
         print(f"STALE: {path}", file=sys.stderr)
+        diff = difflib.unified_diff(
+            actual.splitlines(),
+            expected.splitlines(),
+            fromfile=f"{path} (committed)",
+            tofile=f"{path} (generated)",
+            lineterm="",
+        )
+        for line in diff:
+            print(line, file=sys.stderr)
         return True
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(expected, encoding="utf-8", newline="\n")
