@@ -76,18 +76,27 @@ def build_graph(root: Path) -> dict[str, object]:
         raise ValueError("dependency cycle: " + " -> ".join(cycle))
 
     producers: dict[str, list[str]] = defaultdict(list)
+    dependents: dict[str, list[str]] = defaultdict(list)
     for slug, meta in skills.items():
         for output in meta["outputs"]:
             producers[output].append(slug)
+        for dependency in meta["requires"]:
+            dependents[dependency].append(slug)
 
     output_contracts = []
+    orphan_outputs: list[str] = []
     for output in sorted(producers):
         owners = sorted(producers[output])
+        ambiguous = len(owners) > 1
+        consumer_skills = sorted(dependents.get(owners[0], [])) if not ambiguous else []
         output_contracts.append({
             "output": output,
             "producers": owners,
-            "ambiguous": len(owners) > 1,
+            "consumerSkills": consumer_skills,
+            "ambiguous": ambiguous,
         })
+        if not ambiguous and not consumer_skills:
+            orphan_outputs.append(output)
 
     return {
         "schemaVersion": 1,
@@ -105,7 +114,7 @@ def build_graph(root: Path) -> dict[str, object]:
             for dep in sorted(meta["requires"])
         ],
         "outputContracts": output_contracts,
-        "orphanOutputs": [item["output"] for item in output_contracts if len(item["producers"]) == 1],
+        "orphanOutputs": orphan_outputs,
     }
 
 
@@ -130,16 +139,26 @@ def render_markdown(graph: dict[str, object]) -> str:
             lines.append(f"  {edge['from'].replace('-', '_')} --> {edge['to'].replace('-', '_')}")
     else:
         lines.append("  no_dependencies[No hard skill dependencies]")
-    lines.extend(["```", "", "## Output contracts", "", "| Output | Producers | Status |", "|---|---|---|"])
+    lines.extend([
+        "```",
+        "",
+        "## Output contracts",
+        "",
+        "`consumerSkills` are inferred only from hard `requires` edges to a unique producer; ambiguous producers never receive inferred consumers.",
+        "",
+        "| Output | Producers | Consumer skills | Status |",
+        "|---|---|---|---|",
+    ])
     contracts = graph["outputContracts"]
     assert isinstance(contracts, list)
     for item in contracts:
         assert isinstance(item, dict)
         producers = ", ".join(f"`{x}`" for x in item["producers"])
-        status = "ambiguous" if item["ambiguous"] else "unique"
-        lines.append(f"| `{item['output']}` | {producers} | {status} |")
+        consumers = ", ".join(f"`{x}`" for x in item["consumerSkills"]) or "—"
+        status = "ambiguous" if item["ambiguous"] else ("orphan" if not item["consumerSkills"] else "unique")
+        lines.append(f"| `{item['output']}` | {producers} | {consumers} | {status} |")
     if not contracts:
-        lines.append("| — | — | no outputs declared |")
+        lines.append("| — | — | — | no outputs declared |")
     return "\n".join(lines) + "\n"
 
 
