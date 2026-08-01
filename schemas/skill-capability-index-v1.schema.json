@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "skill-capability-index-v1",
+  "type": "object",
+  "required": ["schemaVersion", "skillCount", "evaluationSuiteCount", "evaluationPassed", "evaluationErrorCount", "skills"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "skillCount": {"type": "integer"},
+    "evaluationSuiteCount": {"type": "integer"},
+    "evaluationPassed": {"type": "boolean"},
+    "evaluationErrorCount": {"type": "integer"},
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "description", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
+        "properties": {
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "requires": {"type": "array", "items": {"type": "string"}},
+          "dependents": {"type": "array", "items": {"type": "string"}},
+          "outputs": {"type": "array", "items": {"type": "string"}},
+          "outputContracts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["output", "ambiguous", "producers", "consumerSkills"],
+              "properties": {
+                "output": {"type": "string"},
+                "ambiguous": {"type": "boolean"},
+                "producers": {"type": "array", "items": {"type": "string"}},
+                "consumerSkills": {"type": "array", "items": {"type": "string"}}
+              },
+              "additionalProperties": false
+            }
+          },
+          "portableFiles": {"type": "array", "items": {"type": "string"}},
+          "evaluation": {
+            "type": "object",
+            "required": ["mode", "caseCount", "recordedResultCount", "passed"],
+            "properties": {
+              "mode": {"enum": ["rubric", "compatibility", "none"]},
+              "caseCount": {"type": "integer"},
+              "recordedResultCount": {"type": "integer"},
+              "passed": {"type": ["boolean", "null"]}
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
