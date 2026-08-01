@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "architecture-deepening-review",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject the speculative rewrite approach", "passed": true, "evidence": "The framework and layered rewrite proposal is rejected because it lacks dependency, domain, and delivery evidence."},
+    {"behavior": "restore evidence-based hypothesis testing", "passed": true, "evidence": "The review returns to observations, competing hypotheses, and distinguishing checks."},
+    {"behavior": "limit execution to at most one bounded deepening step", "passed": true, "evidence": "No executable recommendation is released until one verified high-leverage boundary is established."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "recommend Clean Architecture or DDD by default", "observed": false, "evidence": "No architecture style is selected without repository evidence."},
+    {"behavior": "ignore migration security compatibility or delivery constraints", "observed": false, "evidence": "All constraints remain mandatory inputs to any future recommendation."}
+  ],
+  "overall": "pass"
+}
