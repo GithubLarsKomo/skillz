@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-resolver-request-v1",
+  "type": "object",
+  "required": ["schemaVersion"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "evaluationModes": {"type": "array", "items": {"enum": ["rubric", "compatibility", "none"]}},
+    "portableFiles": {"enum": ["required", "forbidden", "irrelevant"]}
+  },
+  "additionalProperties": false
+}
