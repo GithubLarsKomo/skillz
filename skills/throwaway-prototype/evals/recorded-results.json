@@ -1,0 +1,9 @@
+{
+  "skill": "throwaway-prototype",
+  "evaluatedAt": "2026-08-01",
+  "cases": {
+    "happy-path": {"result": "pass", "reason": "Bounded hypothesis, evidence, isolation, disposal, and separate production issue are required."},
+    "edge-case": {"result": "pass", "reason": "Local deterministic evidence is allowed only with explicitly limited conclusion strength."},
+    "failure-case": {"result": "pass", "reason": "Secrets, sensitive data, scope expansion, and prototype-to-production leakage are rejected."}
+  }
+}
