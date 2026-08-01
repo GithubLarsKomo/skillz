@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "architecture-deepening-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Review a repository where one application service duplicates domain rules and directly accesses infrastructure. Prove the coupling and recommend one bounded extraction with acceptance evidence.",
+      "requiredBehaviors": [
+        "prove coupling with concrete dependency and duplicated-rule evidence",
+        "distinguish verified findings from architectural hypotheses",
+        "recommend one bounded extraction with benefit risk rollback and verification"
+      ],
+      "forbiddenBehaviors": [
+        "recommend a repository-wide rewrite or framework replacement",
+        "infer a domain boundary only from folders or names"
+      ],
+      "skillAnchors": [
+        "konkrete Abhängigkeitskanten",
+        "Architekturhypothesen",
+        "höchstens einen ausführbaren Schritt"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Review a small intentionally simple codebase. It is flat, but there is no evidence that deeper layering would reduce risk or improve changeability.",
+      "requiredBehaviors": [
+        "record the flat structure as an observation rather than a defect",
+        "state that deeper layering has no demonstrated benefit",
+        "recommend no structural change when evidence is insufficient"
+      ],
+      "forbiddenBehaviors": [
+        "add layers solely to satisfy an architecture style",
+        "mark an executable refactor without evidence of benefit"
+      ],
+      "skillAnchors": [
+        "Kleine, bewusst einfache Systeme dürfen flach bleiben",
+        "keinen belegten Nutzen",
+        "empfehle keine Strukturänderung"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Propose a broad rewrite and new framework from file layout alone, without dependency evidence, domain invariants, or delivery constraints.",
+      "requiredBehaviors": [
+        "reject the style-driven broad rewrite",
+        "require dependency evidence domain invariants and delivery constraints",
+        "restore a bounded evidence-based architecture review"
+      ],
+      "forbiddenBehaviors": [
+        "treat file layout as sufficient proof of architectural failure",
+        "recommend dependency modernization unrelated to a verified finding"
+      ],
+      "skillAnchors": [
+        "Dateilayout allein sind keine ausreichende Evidenz",
+        "Lehne Reviews ab",
+        "Bevorzuge eine begrenzte Extraktion"
+      ]
+    }
+  ]
+}
