@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "architecture-deepening-review",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate observations from architectural hypotheses", "passed": true, "evidence": "Direct infrastructure calls and duplicated rules are recorded as observations before a coupling hypothesis is evaluated."},
+    {"behavior": "prove coupling with dependency and domain evidence", "passed": true, "evidence": "Imports, call paths, repeated invariants, and affected tests distinguish the verified boundary problem from simple file organization."},
+    {"behavior": "recommend one bounded extraction with benefit risk rollback and verification", "passed": true, "evidence": "Only one domain-rule extraction is executable, with explicit non-goals, acceptance checks, risk, and rollback."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "recommend a repository-wide rewrite", "observed": false, "evidence": "The recommendation is limited to one affected path."},
+    {"behavior": "infer the target boundary only from folders or naming", "observed": false, "evidence": "The boundary follows domain invariants and change reasons."}
+  ],
+  "overall": "pass"
+}
