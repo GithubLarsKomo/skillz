@@ -32,6 +32,8 @@ jobs:
         run: python -m unittest tests.test_compile_capability_intent
       - name: Test capability pipeline end to end
         run: python -m unittest tests.test_capability_pipeline_e2e
+      - name: Test capability pipeline CLI
+        run: python -m unittest tests.test_run_capability_pipeline
       - name: Test metadata schema validator
         run: python -m unittest tests.test_validate_metadata_schemas
       - name: Validate metadata schema contracts
