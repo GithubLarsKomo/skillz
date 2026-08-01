@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "large-work-wayfinder",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate facts assumptions hypotheses unknowns blockers and decisions", "passed": true, "evidence": "The brief records each epistemic category independently and does not promote assumptions to facts."},
+    {"behavior": "create a minimal deduplicated set of bounded investigation issues", "passed": true, "evidence": "Only two integration investigations are created, each with a single question, evidence target, stop condition, non-goals, and output."},
+    {"behavior": "produce a dependency-aware ranked sequence and exactly one next action", "passed": true, "evidence": "The graph orders the two investigations before vertical issue slicing and selects the highest-risk integration investigation as the sole next action."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "implement the feature during exploration", "observed": false, "evidence": "No production changes are proposed."},
+    {"behavior": "choose speculative architecture before reducing critical uncertainty", "observed": false, "evidence": "Architecture remains explicitly undecided pending evidence."}
+  ],
+  "overall": "pass"
+}
