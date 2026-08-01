@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "implement-from-issue",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Implement one bounded issue with clear acceptance criteria through the smallest relevant file set, acceptance-oriented tests, focused and regression checks, and a reviewable PR tied to the issue.",
+      "requiredBehaviors": [
+        "verify repository state and bound the smallest relevant change set",
+        "preserve issue traceability through implementation and acceptance evidence",
+        "produce a reviewable immutable repository state with rollback and risks"
+      ],
+      "forbiddenBehaviors": [
+        "perform unrelated refactors or broad dependency upgrades",
+        "claim completion without verifying the original acceptance criteria"
+      ],
+      "skillAnchors": [
+        "Ausgangszustand verifizieren",
+        "Änderungsspanne begrenzen",
+        "Reviewbaren Zustand erzeugen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The issue depends on an unavailable external service or pending migration environment. Complete all locally verifiable work, preserve the immutable head SHA, and defer the exact external condition without claiming full completion.",
+      "requiredBehaviors": [
+        "separate locally verified work from pending external verification",
+        "preserve the immutable head SHA and exact watch condition",
+        "report residual risk without claiming full completion"
+      ],
+      "forbiddenBehaviors": [
+        "treat unavailable external verification as successful",
+        "change the branch after recording the verification target without updating it"
+      ],
+      "skillAnchors": [
+        "Externe Prüfung abgrenzen",
+        "unveränderlichen Head-SHA",
+        "Vollständiger Erfolg darf erst nach externer Evidenz behauptet werden"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposal broadens scope, skips acceptance evidence, changes unrelated architecture, weakens tests, and claims success from a green retry without verifying the original issue.",
+      "requiredBehaviors": [
+        "reject scope expansion and unrelated architecture changes",
+        "restore direct evidence for the original acceptance criteria",
+        "refuse weakened tests and unverified success claims"
+      ],
+      "forbiddenBehaviors": [
+        "continue implementation with silent irreversible decisions",
+        "declare success from an unrelated or blind retry"
+      ],
+      "skillAnchors": [
+        "Stoppe und begrenze neu",
+        "Akzeptanz- und Regressionsevidenz",
+        "Wiederhole Checks nicht blind"
+      ]
+    }
+  ]
+}
