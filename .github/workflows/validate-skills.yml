@@ -22,7 +22,7 @@ jobs:
         run: python -m unittest tests.test_generate_repository_metadata
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
-      - name: Validate executable evaluations
-        run: python scripts/run_evaluations.py
-      - name: Score recorded evaluation results
-        run: python scripts/score_evaluation_results.py
+      - name: Test unified evaluation runner
+        run: python -m unittest tests.test_evaluate_skills
+      - name: Evaluate skill suites
+        run: python scripts/evaluate_skills.py
