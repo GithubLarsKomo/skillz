@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "architecture-deepening-review",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "prove coupling with concrete dependency and duplicated-rule evidence", "passed": true, "evidence": "The review cites direct infrastructure imports, shared change history, and two conflicting copies of the same domain invariant."},
+    {"behavior": "distinguish verified findings from architectural hypotheses", "passed": true, "evidence": "Observed edges and duplicate rules are findings; the proposed domain boundary remains separately labeled until acceptance tests confirm it."},
+    {"behavior": "recommend one bounded extraction with benefit risk rollback and verification", "passed": true, "evidence": "Only the duplicated rule is extracted behind one interface, with expected change isolation, rollback to the prior implementation, and focused acceptance evidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "recommend a repository-wide rewrite or framework replacement", "observed": false, "evidence": "The recommendation is limited to one verified hotspot and preserves the current framework."},
+    {"behavior": "infer a domain boundary only from folders or names", "observed": false, "evidence": "The boundary is supported by invariants, dependency direction, and co-change evidence."}
+  ],
+  "overall": "pass"
+}
