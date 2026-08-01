@@ -1,0 +1,12 @@
+{
+  "name": "decision-record happy path",
+  "input": "Two viable integration approaches have different migration and operational consequences. Record the authorized decision and create the follow-up action.",
+  "expected": {
+    "state": "accepted",
+    "requiresAlternatives": true,
+    "requiresAuthority": true,
+    "requiresImmutableReferences": true,
+    "requiresRollback": true,
+    "nextActionCount": 1
+  }
+}
