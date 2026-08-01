@@ -16,10 +16,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check generated repository metadata
+        run: python scripts/generate_repository_metadata.py --check
+      - name: Test metadata generator
+        run: python -m unittest tests.test_generate_repository_metadata
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
-      - name: Verify generated catalog
-        run: python scripts/verify_generated.py
       - name: Validate executable evaluations
         run: python scripts/run_evaluations.py
       - name: Score recorded evaluation results
