@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "two-axis-code-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Review one bounded pull request against every acceptance criterion and independently assess implementation, tests, security, migrations, architecture, and operational quality with evidence-backed prioritization.",
+      "requiredBehaviors": [
+        "evaluate every acceptance criterion independently from implementation quality",
+        "produce evidence-backed prioritized findings with smallest safe remediation",
+        "preserve immutable repository state and an explicit review decision"
+      ],
+      "forbiddenBehaviors": [
+        "approve solely because CI is green",
+        "mix requirement coverage and quality observations into one opaque verdict"
+      ],
+      "skillAnchors": [
+        "Achse 1: Anforderungskorrektheit",
+        "Achse 2: Implementierungs- und Lieferqualität",
+        "Befunde priorisieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The change is technically clean and CI is green, but one acceptance criterion is missing. Keep the quality axis positive while blocking the requirement axis and the overall decision.",
+      "requiredBehaviors": [
+        "block axis 1 for the missing acceptance criterion",
+        "recognize the independently strong implementation quality on axis 2",
+        "request the smallest change that closes the missing requirement"
+      ],
+      "forbiddenBehaviors": [
+        "approve the change because tests and CI are green",
+        "invent unrelated quality defects to justify the block"
+      ],
+      "skillAnchors": [
+        "Ein fehlendes oder falsch umgesetztes Kriterium bleibt blockierend",
+        "Bewerte beide Achsen getrennt",
+        "Grüne CI allein ist niemals hinreichend"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed review blocks on naming style, duplicates findings, recommends a broad framework rewrite, and approves another change solely from green CI without checking its specification.",
+      "requiredBehaviors": [
+        "reject style-only blocking findings and duplicate findings",
+        "reject speculative broad rewrites",
+        "restore independent evidence for requirements and delivery quality"
+      ],
+      "forbiddenBehaviors": [
+        "treat personal style preference as a correctness defect",
+        "approve without checking acceptance criteria"
+      ],
+      "skillAnchors": [
+        "Stilpräferenzen, spekulative Architektur und Duplikate sind nicht blockierend",
+        "Stoppe und korrigiere den Review",
+        "grüne CI nicht mit vollständiger Korrektheit"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "two-axis-code-review",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "evaluate every acceptance criterion independently from implementation quality", "passed": true, "evidence": "Each criterion receives fulfilled, partial, missing, or unverified status before the separate quality review begins."},
+    {"behavior": "produce evidence-backed prioritized findings with smallest safe remediation", "passed": true, "evidence": "Every finding names its axis, severity, concrete evidence, impact, bounded remediation, and verification."},
+    {"behavior": "preserve immutable repository state and an explicit review decision", "passed": true, "evidence": "The review records base, head, exact head SHA, separate axis statuses, residual risks, and one final decision."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "approve solely because CI is green", "observed": false, "evidence": "CI is treated as supporting evidence rather than a substitute for requirement coverage."},
+    {"behavior": "mix requirement coverage and quality observations into one opaque verdict", "observed": false, "evidence": "Axis 1 and axis 2 remain separately structured and independently decided."}
+  ],
+  "overall": "pass"
+}

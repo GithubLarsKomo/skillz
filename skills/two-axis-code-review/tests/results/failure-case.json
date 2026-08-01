@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "two-axis-code-review",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject style-only blocking findings and duplicate findings", "passed": true, "evidence": "Naming preference is downgraded to a note and repeated findings are consolidated into one evidence-backed item."},
+    {"behavior": "reject speculative broad rewrites", "passed": true, "evidence": "The framework replacement is removed because no verified architectural defect requires it."},
+    {"behavior": "restore independent evidence for requirements and delivery quality", "passed": true, "evidence": "The corrected review maps all acceptance criteria on axis 1 and separately assesses technical delivery quality on axis 2."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat personal style preference as a correctness defect", "observed": false, "evidence": "Style preferences are non-blocking unless tied to a verified defect or repository rule."},
+    {"behavior": "approve without checking acceptance criteria", "observed": false, "evidence": "Approval is withheld until every acceptance criterion has explicit evidence."}
+  ],
+  "overall": "pass"
+}

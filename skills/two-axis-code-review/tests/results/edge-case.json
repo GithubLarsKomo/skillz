@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "two-axis-code-review",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "block axis 1 for the missing acceptance criterion", "passed": true, "evidence": "The absent behavior is marked missing and axis 1 is block despite otherwise successful checks."},
+    {"behavior": "recognize the independently strong implementation quality on axis 2", "passed": true, "evidence": "Axis 2 remains pass because code, tests, security, migration handling, and operations are independently sound."},
+    {"behavior": "request the smallest change that closes the missing requirement", "passed": true, "evidence": "The remediation adds only the missing behavior and its acceptance test, without broad cleanup."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "approve the change because tests and CI are green", "observed": false, "evidence": "The final decision is request-changes because axis 1 blocks."},
+    {"behavior": "invent unrelated quality defects to justify the block", "observed": false, "evidence": "The block is attributed only to the missing acceptance criterion while axis 2 is explicitly positive."}
+  ],
+  "overall": "pass"
+}
