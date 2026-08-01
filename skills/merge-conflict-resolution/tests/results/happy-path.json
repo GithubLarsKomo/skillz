@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "merge-conflict-resolution",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reconstruct and document both change intents before editing", "passed": true, "evidence": "The resolution records the issue, tests, and commit intent for both sides before modifying the conflicted file."},
+    {"behavior": "combine compatible behavior with the smallest relevant resolution", "passed": true, "evidence": "Only the overlapping branch logic and its focused test are changed; both accepted paths remain."},
+    {"behavior": "verify both intents and record an immutable resolved head", "passed": true, "evidence": "Focused and regression checks cover each intent and the handoff records the resolved head SHA."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "choose ours or theirs blindly", "observed": false, "evidence": "The result is a semantic combination rather than either original side."},
+    {"behavior": "perform unrelated cleanup or broad refactoring", "observed": false, "evidence": "The diff remains limited to the conflict and its acceptance test."}
+  ],
+  "overall": "pass"
+}
