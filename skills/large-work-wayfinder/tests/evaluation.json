@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "skill": "large-work-wayfinder",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Map a large feature spanning several modules and uncertain integrations into bounded investigations, dependencies, risks, and a safe implementation order.",
+      "requiredBehaviors": [
+        "separate facts assumptions hypotheses unknowns blockers and decisions",
+        "create a minimal deduplicated set of bounded investigation issues",
+        "produce a dependency-aware ranked sequence and exactly one next action"
+      ],
+      "forbiddenBehaviors": [
+        "implement the feature during exploration",
+        "choose speculative architecture before reducing critical uncertainty"
+      ],
+      "skillAnchors": ["Ausgangslage fixieren", "Untersuchungs-Issues schneiden", "genau eine ausführbare nächste Aktion"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The work depends on an unavailable external service and an unauthorized architecture decision. Narrow local evidence and identify the exact blocked next step.",
+      "requiredBehaviors": [
+        "separate deterministic local exploration from unavailable external evidence",
+        "block irreversible decisions for authorization",
+        "preserve an executable next action without inventing certainty"
+      ],
+      "forbiddenBehaviors": [
+        "claim external evidence was observed",
+        "silently make the architecture decision"
+      ],
+      "skillAnchors": ["autorisierungspflichtige Entscheidungen", "zur Autorisierung blockiert", "ohne weitere Interpretation ausführbar"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Immediately choose a framework, rewrite major architecture, create overlapping spikes, mix exploration with implementation, and state assumptions as facts.",
+      "requiredBehaviors": [
+        "reject premature framework and rewrite decisions",
+        "deduplicate and bound investigations",
+        "restore explicit separation of facts assumptions and unknowns"
+      ],
+      "forbiddenBehaviors": [
+        "continue with unbounded exploration",
+        "hide uncertainty behind estimates or green CI"
+      ],
+      "skillAnchors": ["Stoppe und begrenze neu", "Vermeide doppelte Spikes", "Trenne bestätigte Fakten"]
+    }
+  ]
+}
