@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-model-interpretation-v1",
+  "type": "object",
+  "required": ["schemaVersion", "intent", "model", "sourceRefs", "confidence", "confidenceBasis", "reviewReasons"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "intent": {"type": "object"},
+    "model": {"type": "string"},
+    "sourceRefs": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["asserted", "high", "medium", "low", "unknown"]},
+    "confidenceBasis": {"type": "array", "items": {"type": "string"}},
+    "reviewReasons": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
