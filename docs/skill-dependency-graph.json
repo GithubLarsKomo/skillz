@@ -1,0 +1,990 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "name": "agent-handoff",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "outputs": [
+        "agent-handoff.json",
+        "agent-handoff.md"
+      ]
+    },
+    {
+      "name": "architecture-deepening-review",
+      "requires": [
+        "disciplined-diagnosis",
+        "iterate-software-projects"
+      ],
+      "outputs": [
+        "architecture-review.json",
+        "architecture-review.md",
+        "next-step-handoff.json"
+      ]
+    },
+    {
+      "name": "central-skill-repository-curation",
+      "requires": [
+        "composable-skill-factory"
+      ],
+      "outputs": [
+        "synchronization manifest",
+        "updated skill repository"
+      ]
+    },
+    {
+      "name": "composable-skill-factory",
+      "requires": [],
+      "outputs": [
+        "evaluation evidence",
+        "pull request",
+        "skills/<skill-name>/SKILL.md"
+      ]
+    },
+    {
+      "name": "conversation-to-spec",
+      "requires": [],
+      "outputs": [
+        "SPEC.md",
+        "consistency report",
+        "decision register"
+      ]
+    },
+    {
+      "name": "decision-record",
+      "requires": [
+        "agent-handoff",
+        "large-work-wayfinder",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "decision-record.json",
+        "decision-record.md"
+      ]
+    },
+    {
+      "name": "deferred-external-action-verification",
+      "requires": [],
+      "outputs": [
+        "continuation result",
+        "verified terminal status",
+        "watch record"
+      ]
+    },
+    {
+      "name": "disciplined-diagnosis",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "outputs": [
+        "diagnosis-report.json",
+        "residual-risk-handoff.json",
+        "verified-fix-evidence.md"
+      ]
+    },
+    {
+      "name": "domain-model-maintenance",
+      "requires": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "decision-record",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "domain-change-plan.md",
+        "domain-model-map.json",
+        "domain-validation.json"
+      ]
+    },
+    {
+      "name": "implement-from-issue",
+      "requires": [
+        "agent-handoff",
+        "deferred-external-action-verification",
+        "disciplined-diagnosis",
+        "test-driven-vertical-slice"
+      ],
+      "outputs": [
+        "implementation-evidence.json",
+        "residual-risk-handoff.json",
+        "reviewable-change-brief.md"
+      ]
+    },
+    {
+      "name": "iterate-software-projects",
+      "requires": [],
+      "outputs": [
+        "next increment",
+        "review findings",
+        "verification evidence"
+      ]
+    },
+    {
+      "name": "large-work-wayfinder",
+      "requires": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis",
+        "spec-to-vertical-issues"
+      ],
+      "outputs": [
+        "dependency-graph.json",
+        "investigation-backlog.json",
+        "wayfinding-brief.md"
+      ]
+    },
+    {
+      "name": "merge-conflict-resolution",
+      "requires": [
+        "agent-handoff",
+        "deferred-external-action-verification",
+        "disciplined-diagnosis",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "conflict-resolution-evidence.json",
+        "residual-risk-handoff.json",
+        "resolved-change-brief.md"
+      ]
+    },
+    {
+      "name": "openasr-offline-model-import",
+      "requires": [],
+      "outputs": [
+        "import verification",
+        "installed OpenASR model"
+      ]
+    },
+    {
+      "name": "repository-skill-bootstrap",
+      "requires": [],
+      "outputs": [
+        "docs/agents/CONFIG.md",
+        "docs/agents/CONTEXT.md",
+        "docs/agents/DECISIONS.md"
+      ]
+    },
+    {
+      "name": "round-based-requirements-grilling",
+      "requires": [],
+      "outputs": [
+        "GRILL-REPORT.md",
+        "approved SPEC.md"
+      ]
+    },
+    {
+      "name": "spec-to-vertical-issues",
+      "requires": [
+        "conversation-to-spec"
+      ],
+      "outputs": [
+        "dependency-order.json",
+        "vertical-issues.json",
+        "vertical-issues.md"
+      ]
+    },
+    {
+      "name": "synapse-orchestrator",
+      "requires": [],
+      "outputs": [
+        "execution plan",
+        "expert handoff",
+        "progress summary"
+      ]
+    },
+    {
+      "name": "test-driven-vertical-slice",
+      "requires": [
+        "disciplined-diagnosis",
+        "spec-to-vertical-issues"
+      ],
+      "outputs": [
+        "residual-risk-handoff.json",
+        "verification-report.md",
+        "vertical-slice-evidence.json"
+      ]
+    },
+    {
+      "name": "throwaway-prototype",
+      "requires": [
+        "agent-handoff",
+        "disciplined-diagnosis",
+        "large-work-wayfinder",
+        "spec-to-vertical-issues"
+      ],
+      "outputs": [
+        "disposal-record.json",
+        "prototype-brief.md",
+        "prototype-evidence.json"
+      ]
+    },
+    {
+      "name": "two-axis-code-review",
+      "requires": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis",
+        "implement-from-issue"
+      ],
+      "outputs": [
+        "quality-review.json",
+        "requirement-coverage.json",
+        "review-decision.md"
+      ]
+    }
+  ],
+  "requirementEdges": [
+    {
+      "from": "agent-handoff",
+      "to": "iterate-software-projects"
+    },
+    {
+      "from": "architecture-deepening-review",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "architecture-deepening-review",
+      "to": "iterate-software-projects"
+    },
+    {
+      "from": "central-skill-repository-curation",
+      "to": "composable-skill-factory"
+    },
+    {
+      "from": "decision-record",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "decision-record",
+      "to": "large-work-wayfinder"
+    },
+    {
+      "from": "decision-record",
+      "to": "throwaway-prototype"
+    },
+    {
+      "from": "decision-record",
+      "to": "two-axis-code-review"
+    },
+    {
+      "from": "disciplined-diagnosis",
+      "to": "iterate-software-projects"
+    },
+    {
+      "from": "domain-model-maintenance",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "domain-model-maintenance",
+      "to": "architecture-deepening-review"
+    },
+    {
+      "from": "domain-model-maintenance",
+      "to": "decision-record"
+    },
+    {
+      "from": "domain-model-maintenance",
+      "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "domain-model-maintenance",
+      "to": "two-axis-code-review"
+    },
+    {
+      "from": "implement-from-issue",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "implement-from-issue",
+      "to": "deferred-external-action-verification"
+    },
+    {
+      "from": "implement-from-issue",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "implement-from-issue",
+      "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "large-work-wayfinder",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "large-work-wayfinder",
+      "to": "architecture-deepening-review"
+    },
+    {
+      "from": "large-work-wayfinder",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "large-work-wayfinder",
+      "to": "spec-to-vertical-issues"
+    },
+    {
+      "from": "merge-conflict-resolution",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "merge-conflict-resolution",
+      "to": "deferred-external-action-verification"
+    },
+    {
+      "from": "merge-conflict-resolution",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "merge-conflict-resolution",
+      "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "merge-conflict-resolution",
+      "to": "two-axis-code-review"
+    },
+    {
+      "from": "spec-to-vertical-issues",
+      "to": "conversation-to-spec"
+    },
+    {
+      "from": "test-driven-vertical-slice",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "test-driven-vertical-slice",
+      "to": "spec-to-vertical-issues"
+    },
+    {
+      "from": "throwaway-prototype",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "throwaway-prototype",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "throwaway-prototype",
+      "to": "large-work-wayfinder"
+    },
+    {
+      "from": "throwaway-prototype",
+      "to": "spec-to-vertical-issues"
+    },
+    {
+      "from": "two-axis-code-review",
+      "to": "agent-handoff"
+    },
+    {
+      "from": "two-axis-code-review",
+      "to": "architecture-deepening-review"
+    },
+    {
+      "from": "two-axis-code-review",
+      "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "two-axis-code-review",
+      "to": "implement-from-issue"
+    }
+  ],
+  "outputContracts": [
+    {
+      "output": "GRILL-REPORT.md",
+      "producers": [
+        "round-based-requirements-grilling"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "SPEC.md",
+      "producers": [
+        "conversation-to-spec"
+      ],
+      "consumerSkills": [
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "agent-handoff.json",
+      "producers": [
+        "agent-handoff"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "agent-handoff.md",
+      "producers": [
+        "agent-handoff"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "approved SPEC.md",
+      "producers": [
+        "round-based-requirements-grilling"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "architecture-review.json",
+      "producers": [
+        "architecture-deepening-review"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "large-work-wayfinder",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "architecture-review.md",
+      "producers": [
+        "architecture-deepening-review"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "large-work-wayfinder",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "conflict-resolution-evidence.json",
+      "producers": [
+        "merge-conflict-resolution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "consistency report",
+      "producers": [
+        "conversation-to-spec"
+      ],
+      "consumerSkills": [
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "continuation result",
+      "producers": [
+        "deferred-external-action-verification"
+      ],
+      "consumerSkills": [
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "decision register",
+      "producers": [
+        "conversation-to-spec"
+      ],
+      "consumerSkills": [
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "decision-record.json",
+      "producers": [
+        "decision-record"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "decision-record.md",
+      "producers": [
+        "decision-record"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "dependency-graph.json",
+      "producers": [
+        "large-work-wayfinder"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "throwaway-prototype"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "dependency-order.json",
+      "producers": [
+        "spec-to-vertical-issues"
+      ],
+      "consumerSkills": [
+        "large-work-wayfinder",
+        "test-driven-vertical-slice",
+        "throwaway-prototype"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "diagnosis-report.json",
+      "producers": [
+        "disciplined-diagnosis"
+      ],
+      "consumerSkills": [
+        "architecture-deepening-review",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "test-driven-vertical-slice",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "disposal-record.json",
+      "producers": [
+        "throwaway-prototype"
+      ],
+      "consumerSkills": [
+        "decision-record"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "docs/agents/CONFIG.md",
+      "producers": [
+        "repository-skill-bootstrap"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "docs/agents/CONTEXT.md",
+      "producers": [
+        "repository-skill-bootstrap"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "docs/agents/DECISIONS.md",
+      "producers": [
+        "repository-skill-bootstrap"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "domain-change-plan.md",
+      "producers": [
+        "domain-model-maintenance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "domain-model-map.json",
+      "producers": [
+        "domain-model-maintenance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "domain-validation.json",
+      "producers": [
+        "domain-model-maintenance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "evaluation evidence",
+      "producers": [
+        "composable-skill-factory"
+      ],
+      "consumerSkills": [
+        "central-skill-repository-curation"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "execution plan",
+      "producers": [
+        "synapse-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "expert handoff",
+      "producers": [
+        "synapse-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "implementation-evidence.json",
+      "producers": [
+        "implement-from-issue"
+      ],
+      "consumerSkills": [
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "import verification",
+      "producers": [
+        "openasr-offline-model-import"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "installed OpenASR model",
+      "producers": [
+        "openasr-offline-model-import"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "investigation-backlog.json",
+      "producers": [
+        "large-work-wayfinder"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "throwaway-prototype"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "next increment",
+      "producers": [
+        "iterate-software-projects"
+      ],
+      "consumerSkills": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "next-step-handoff.json",
+      "producers": [
+        "architecture-deepening-review"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "large-work-wayfinder",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "progress summary",
+      "producers": [
+        "synapse-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "prototype-brief.md",
+      "producers": [
+        "throwaway-prototype"
+      ],
+      "consumerSkills": [
+        "decision-record"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "prototype-evidence.json",
+      "producers": [
+        "throwaway-prototype"
+      ],
+      "consumerSkills": [
+        "decision-record"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "pull request",
+      "producers": [
+        "composable-skill-factory"
+      ],
+      "consumerSkills": [
+        "central-skill-repository-curation"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "quality-review.json",
+      "producers": [
+        "two-axis-code-review"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "domain-model-maintenance",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "requirement-coverage.json",
+      "producers": [
+        "two-axis-code-review"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "domain-model-maintenance",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "residual-risk-handoff.json",
+      "producers": [
+        "disciplined-diagnosis",
+        "implement-from-issue",
+        "merge-conflict-resolution",
+        "test-driven-vertical-slice"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true
+    },
+    {
+      "output": "resolved-change-brief.md",
+      "producers": [
+        "merge-conflict-resolution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "review findings",
+      "producers": [
+        "iterate-software-projects"
+      ],
+      "consumerSkills": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "review-decision.md",
+      "producers": [
+        "two-axis-code-review"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "domain-model-maintenance",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "reviewable-change-brief.md",
+      "producers": [
+        "implement-from-issue"
+      ],
+      "consumerSkills": [
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "skills/<skill-name>/SKILL.md",
+      "producers": [
+        "composable-skill-factory"
+      ],
+      "consumerSkills": [
+        "central-skill-repository-curation"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "synchronization manifest",
+      "producers": [
+        "central-skill-repository-curation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "updated skill repository",
+      "producers": [
+        "central-skill-repository-curation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "verification evidence",
+      "producers": [
+        "iterate-software-projects"
+      ],
+      "consumerSkills": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "verification-report.md",
+      "producers": [
+        "test-driven-vertical-slice"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "verified terminal status",
+      "producers": [
+        "deferred-external-action-verification"
+      ],
+      "consumerSkills": [
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "verified-fix-evidence.md",
+      "producers": [
+        "disciplined-diagnosis"
+      ],
+      "consumerSkills": [
+        "architecture-deepening-review",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "test-driven-vertical-slice",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "vertical-issues.json",
+      "producers": [
+        "spec-to-vertical-issues"
+      ],
+      "consumerSkills": [
+        "large-work-wayfinder",
+        "test-driven-vertical-slice",
+        "throwaway-prototype"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "vertical-issues.md",
+      "producers": [
+        "spec-to-vertical-issues"
+      ],
+      "consumerSkills": [
+        "large-work-wayfinder",
+        "test-driven-vertical-slice",
+        "throwaway-prototype"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "vertical-slice-evidence.json",
+      "producers": [
+        "test-driven-vertical-slice"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "watch record",
+      "producers": [
+        "deferred-external-action-verification"
+      ],
+      "consumerSkills": [
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "wayfinding-brief.md",
+      "producers": [
+        "large-work-wayfinder"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "throwaway-prototype"
+      ],
+      "ambiguous": false
+    }
+  ],
+  "orphanOutputs": [
+    "GRILL-REPORT.md",
+    "approved SPEC.md",
+    "conflict-resolution-evidence.json",
+    "docs/agents/CONFIG.md",
+    "docs/agents/CONTEXT.md",
+    "docs/agents/DECISIONS.md",
+    "domain-change-plan.md",
+    "domain-model-map.json",
+    "domain-validation.json",
+    "execution plan",
+    "expert handoff",
+    "import verification",
+    "installed OpenASR model",
+    "progress summary",
+    "resolved-change-brief.md",
+    "synchronization manifest",
+    "updated skill repository"
+  ]
+}

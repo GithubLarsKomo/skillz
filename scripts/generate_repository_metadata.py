@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -27,18 +28,22 @@ def parse_frontmatter(path: Path) -> dict[str, object]:
             continue
         if re.match(r"^\s+-\s+", line) and current_list:
             value = re.sub(r"^\s+-\s+", "", line).strip().strip('"\'')
-            cast = data.setdefault(current_list, [])
-            if isinstance(cast, list):
-                cast.append(value)
+            cast = data.get(current_list)
+            if not isinstance(cast, list):
+                raise ValueError(f"{path}: {current_list} muss eine YAML-Liste sein")
+            cast.append(value)
             continue
         match = re.match(r"^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$", line)
         if not match:
             raise ValueError(f"{path}: nicht unterstützte Frontmatter-Zeile: {line}")
         key, value = match.groups()
         value = value.strip()
-        if value in ("", "[]"):
-            data[key] = [] if value == "[]" else ""
+        if value == "":
+            data[key] = []
             current_list = key
+        elif value == "[]":
+            data[key] = []
+            current_list = None
         else:
             data[key] = value.strip('"\'')
             current_list = None
@@ -123,6 +128,15 @@ def run(root: Path, check: bool) -> int:
         stale = False
         stale |= apply_or_check(root / "README.md", render_readme(root), check)
         stale |= apply_or_check(root / ".skill-sync.json", render_manifest(root), check)
+        graph_script = root / "scripts" / "generate_dependency_graph.py"
+        if graph_script.exists():
+            cmd = [sys.executable, str(graph_script), "--root", str(root)]
+            if check:
+                cmd.append("--check")
+            graph_result = subprocess.run(cmd, cwd=root, check=False)
+            if graph_result.returncode == 2:
+                return 2
+            stale |= graph_result.returncode == 1
         return 1 if check and stale else 0
     except (ValueError, json.JSONDecodeError, UnicodeDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
