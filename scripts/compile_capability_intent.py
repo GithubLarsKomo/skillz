@@ -23,7 +23,7 @@ def load_json(path: str) -> dict:
     return data
 
 
-def compile_intent(intent: dict) -> dict:
+def normalize_intent(intent: dict) -> dict:
     allowed = {"schemaVersion", "desiredOutputs", "requiredDependencies", "allowedEvaluationModes", "portableFiles"}
     unknown = sorted(set(intent) - allowed)
     if unknown:
@@ -45,11 +45,22 @@ def compile_intent(intent: dict) -> dict:
         raise ValueError(f"unsupported portableFiles value: {portable!r}")
 
     return {
-        "schemaVersion": REQUEST_SCHEMA_VERSION,
-        "outputs": sorted(set(outputs)),
-        "dependencies": sorted(set(dependencies)),
-        "evaluationModes": sorted(set(modes)),
+        "schemaVersion": INTENT_SCHEMA_VERSION,
+        "desiredOutputs": sorted(set(outputs)),
+        "requiredDependencies": sorted(set(dependencies)),
+        "allowedEvaluationModes": sorted(set(modes)),
         "portableFiles": portable,
+    }
+
+
+def compile_intent(intent: dict) -> dict:
+    normalized = normalize_intent(intent)
+    return {
+        "schemaVersion": REQUEST_SCHEMA_VERSION,
+        "outputs": normalized["desiredOutputs"],
+        "dependencies": normalized["requiredDependencies"],
+        "evaluationModes": normalized["allowedEvaluationModes"],
+        "portableFiles": normalized["portableFiles"],
     }
 
 
