@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "skill": "architecture-deepening-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An overloaded application service duplicates domain rules and accesses infrastructure directly. Prove the coupling, identify a stable domain boundary, and recommend one bounded extraction with acceptance evidence.",
+      "requiredBehaviors": [
+        "separate observations from architectural hypotheses",
+        "prove coupling with dependency and domain evidence",
+        "recommend one bounded extraction with benefit risk rollback and verification"
+      ],
+      "forbiddenBehaviors": [
+        "recommend a repository-wide rewrite",
+        "infer the target boundary only from folders or naming"
+      ],
+      "skillAnchors": ["Abhängigkeiten und Verantwortungen belegen", "Domänengrenzen prüfen", "Einen Vertiefungsschritt priorisieren"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A small codebase is intentionally simple and remains easy to change. Record the flat structure, test whether deeper layering would improve changeability, and recommend no structural change when evidence is absent.",
+      "requiredBehaviors": [
+        "respect intentional simplicity",
+        "require actual change pressure before adding abstractions",
+        "allow a justified no-change recommendation"
+      ],
+      "forbiddenBehaviors": [
+        "add layers solely to match a preferred architecture style",
+        "treat flat structure alone as a defect"
+      ],
+      "skillAnchors": ["Absichtlich einfache Architektur respektieren", "leicht änderbar", "keine Strukturänderung empfohlen"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed review recommends a new framework and a broad layered rewrite based only on file layout, without dependency evidence, domain invariants, or delivery constraints.",
+      "requiredBehaviors": [
+        "reject the speculative rewrite approach",
+        "restore evidence-based hypothesis testing",
+        "limit execution to at most one bounded deepening step"
+      ],
+      "forbiddenBehaviors": [
+        "recommend Clean Architecture or DDD by default",
+        "ignore migration security compatibility or delivery constraints"
+      ],
+      "skillAnchors": ["Dateinamen, Ordner oder Framework-Konventionen allein", "Lehne Bewertungen ab", "höchstens ein nächster Schritt"]
+    }
+  ]
+}
