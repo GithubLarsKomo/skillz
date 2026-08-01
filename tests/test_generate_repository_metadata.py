@@ -69,6 +69,18 @@ class MetadataGenerationTests(unittest.TestCase):
         expected = hashlib.sha256(b"one\ntwo\n").hexdigest()
         self.assertEqual(manifest["skills"]["alpha"]["files"]["references/guide.md"], expected)
 
+    def test_frontmatter_indented_lists_are_preserved(self) -> None:
+        root = self.make_root()
+        path = root / "skills" / "alpha" / "SKILL.md"
+        path.write_text(
+            "---\nname: alpha\ndescription: A sufficiently long skill description for testing.\n"
+            "requires:\n  - beta\n  - gamma\noutputs:\n  - handoff.json\n---\n\n# alpha\n",
+            encoding="utf-8",
+        )
+        parsed = gen.parse_frontmatter(path)
+        self.assertEqual(parsed["requires"], ["beta", "gamma"])
+        self.assertEqual(parsed["outputs"], ["handoff.json"])
+
     def test_malformed_frontmatter_fails_without_writing(self) -> None:
         root = self.make_root()
         path = root / "skills" / "alpha" / "SKILL.md"
