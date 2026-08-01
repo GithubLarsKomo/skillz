@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-resolver-output-v1",
+  "type": "object",
+  "required": ["schemaVersion", "constraints", "candidateCount", "candidates", "rejections"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "constraints": {
+      "type": "object",
+      "required": ["outputs", "dependencies", "evaluationModes", "portableFiles"],
+      "properties": {
+        "outputs": {"type": "array", "items": {"type": "string"}},
+        "dependencies": {"type": "array", "items": {"type": "string"}},
+        "evaluationModes": {"type": "array", "items": {"enum": ["rubric", "compatibility", "none"]}},
+        "portableFiles": {"enum": ["required", "forbidden", "irrelevant"]}
+      },
+      "additionalProperties": false
+    },
+    "candidateCount": {"type": "integer"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "matchReasons", "matchedOutputContracts"],
+        "properties": {
+          "name": {"type": "string"},
+          "matchReasons": {"type": "array", "items": {"type": "string"}},
+          "matchedOutputContracts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["output", "ambiguous", "producers", "consumerSkills"],
+              "properties": {
+                "output": {"type": "string"},
+                "ambiguous": {"type": "boolean"},
+                "producers": {"type": "array", "items": {"type": "string"}},
+                "consumerSkills": {"type": "array", "items": {"type": "string"}}
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "rejections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "failedConstraints"],
+        "properties": {
+          "name": {"type": "string"},
+          "failedConstraints": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
