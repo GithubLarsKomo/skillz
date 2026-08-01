@@ -34,16 +34,23 @@ class DependencyGraphTests(unittest.TestCase):
             self.assertEqual(first, second)
             graph = json.loads(first)
             self.assertEqual(graph["requirementEdges"], [{"from": "b", "to": "a"}])
+            contracts = {item["output"]: item for item in graph["outputContracts"]}
+            self.assertEqual(contracts["contract-a"]["consumerSkills"], ["b"])
+            self.assertNotIn("contract-a", graph["orphanOutputs"])
+            self.assertIn("contract-b", graph["orphanOutputs"])
 
-    def test_ambiguous_output_is_recorded_without_invented_edge(self):
+    def test_ambiguous_output_is_recorded_without_invented_consumers(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             write_skill(root, "a", outputs=["shared"])
             write_skill(root, "b", outputs=["shared"])
+            write_skill(root, "c", requires=["a"])
             graph = build_graph(root)
             contract = graph["outputContracts"][0]
             self.assertTrue(contract["ambiguous"])
             self.assertEqual(contract["producers"], ["a", "b"])
+            self.assertEqual(contract["consumerSkills"], [])
+            self.assertNotIn("shared", graph["orphanOutputs"])
 
     def test_unknown_dependency_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
