@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "architecture-deepening-review",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject the style-driven broad rewrite", "passed": true, "evidence": "The review stops the rewrite because it is based on preference rather than verified architectural failure."},
+    {"behavior": "require dependency evidence domain invariants and delivery constraints", "passed": true, "evidence": "The revised review requests concrete dependency edges, invariant ownership, migration limits, and delivery constraints before recommending change."},
+    {"behavior": "restore a bounded evidence-based architecture review", "passed": true, "evidence": "The scope is reset to one hotspot and at most one reversible next step."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat file layout as sufficient proof of architectural failure", "observed": false, "evidence": "Folder structure remains an observation only."},
+    {"behavior": "recommend dependency modernization unrelated to a verified finding", "observed": false, "evidence": "No unrelated upgrade is proposed."}
+  ],
+  "overall": "pass"
+}
