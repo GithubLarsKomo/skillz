@@ -1,0 +1,9 @@
+{
+  "skill": "decision-record",
+  "evaluatedAt": "2026-08-01",
+  "results": [
+    {"case": "happy-path", "passed": true},
+    {"case": "edge-case", "passed": true},
+    {"case": "failure-case", "passed": true}
+  ]
+}
