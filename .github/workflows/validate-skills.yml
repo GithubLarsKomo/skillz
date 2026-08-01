@@ -26,6 +26,8 @@ jobs:
         run: python -m unittest tests.test_generate_capability_index
       - name: Test capability index query CLI
         run: python -m unittest tests.test_query_capabilities
+      - name: Test structured capability resolver
+        run: python -m unittest tests.test_resolve_capabilities
       - name: Test metadata schema validator
         run: python -m unittest tests.test_validate_metadata_schemas
       - name: Validate metadata schema contracts
