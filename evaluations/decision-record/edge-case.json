@@ -1,0 +1,11 @@
+{
+  "name": "decision-record edge case",
+  "input": "Evidence is incomplete and the authorized approver is unavailable. Preserve the decision safely.",
+  "expected": {
+    "state": "proposed",
+    "blocksIrreversibleExecution": true,
+    "identifiesMissingEvidence": true,
+    "identifiesMissingAuthority": true,
+    "nextActionCount": 1
+  }
+}
