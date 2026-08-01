@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "large-work-wayfinder",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject premature framework and rewrite decisions", "passed": true, "evidence": "The proposed framework choice and repository-wide rewrite are rejected until evidence demonstrates necessity."},
+    {"behavior": "deduplicate and bound investigations", "passed": true, "evidence": "Overlapping spikes are collapsed into one question per uncertainty with explicit stop conditions."},
+    {"behavior": "restore explicit separation of facts assumptions and unknowns", "passed": true, "evidence": "The corrected brief labels all unverified claims and unresolved questions explicitly."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "continue with unbounded exploration", "observed": false, "evidence": "Exploration is limited to the minimum risk-reducing set."},
+    {"behavior": "hide uncertainty behind estimates or green CI", "observed": false, "evidence": "Unknowns remain visible and are not treated as resolved by unrelated checks."}
+  ],
+  "overall": "pass"
+}
