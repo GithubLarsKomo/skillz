@@ -52,7 +52,15 @@ def normalize_review(review: dict) -> dict:
     }
 
 
+def validate_producer_policy(envelope: dict) -> None:
+    producer_kind = envelope["provenance"]["producerKind"]
+    review_required = envelope["review"]["reviewRequired"]
+    if producer_kind == "model" and not review_required:
+        raise ValueError("model-produced intent envelopes must require explicit review")
+
+
 def admit(envelope: dict, review: dict | None) -> dict:
+    validate_producer_policy(envelope)
     review_required = envelope["review"]["reviewRequired"]
     if review is not None and review["decision"] == "rejected":
         raise ValueError("review decision rejected")
@@ -77,6 +85,10 @@ def main(argv: list[str] | None = None) -> int:
             envelope = normalize_envelope(load_json(args.envelope, "intent envelope"))
         except ValueError as exc:
             raise ValueError(f"envelope validation: {exc}") from exc
+        try:
+            validate_producer_policy(envelope)
+        except ValueError as exc:
+            raise ValueError(f"producer policy: {exc}") from exc
         review = None
         if args.review:
             try:
