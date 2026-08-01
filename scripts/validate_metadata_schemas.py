@@ -10,8 +10,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INDEX_SCHEMA = ROOT / "schemas" / "skill-capability-index-v1.schema.json"
 QUERY_SCHEMA = ROOT / "schemas" / "capability-query-output-v1.schema.json"
+RESOLVER_SCHEMA = ROOT / "schemas" / "capability-resolver-output-v1.schema.json"
 INDEX_FILE = ROOT / "docs" / "skill-capability-index.json"
 QUERY_SCRIPT = ROOT / "scripts" / "query_capabilities.py"
+RESOLVER_SCRIPT = ROOT / "scripts" / "resolve_capabilities.py"
 
 
 def load_json(path: Path) -> object:
@@ -86,32 +88,49 @@ def validate_file(data_path: Path, schema_path: Path) -> list[str]:
     return validate(data, schema)
 
 
-def query_json(*args: str) -> object:
-    command = [sys.executable, str(QUERY_SCRIPT), "--json", *args]
+def script_json(script: Path, label: str, *args: str) -> object:
+    command = [sys.executable, str(script), "--json", *args]
     result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
     if result.returncode != 0:
-        raise ValueError(f"query fixture failed ({' '.join(args)}): {result.stderr.strip()}")
+        raise ValueError(f"{label} fixture failed ({' '.join(args)}): {result.stderr.strip()}")
     return json.loads(result.stdout)
 
 
 def run(root: Path) -> list[str]:
-    global ROOT, INDEX_SCHEMA, QUERY_SCHEMA, INDEX_FILE, QUERY_SCRIPT
+    global ROOT, INDEX_SCHEMA, QUERY_SCHEMA, RESOLVER_SCHEMA, INDEX_FILE, QUERY_SCRIPT, RESOLVER_SCRIPT
     ROOT = root
     INDEX_SCHEMA = root / "schemas" / "skill-capability-index-v1.schema.json"
     QUERY_SCHEMA = root / "schemas" / "capability-query-output-v1.schema.json"
+    RESOLVER_SCHEMA = root / "schemas" / "capability-resolver-output-v1.schema.json"
     INDEX_FILE = root / "docs" / "skill-capability-index.json"
     QUERY_SCRIPT = root / "scripts" / "query_capabilities.py"
+    RESOLVER_SCRIPT = root / "scripts" / "resolve_capabilities.py"
 
     errors = validate_file(INDEX_FILE, INDEX_SCHEMA)
     query_schema = load_json(QUERY_SCHEMA)
+    resolver_schema = load_json(RESOLVER_SCHEMA)
     if not isinstance(query_schema, dict):
-        return errors + [f"{QUERY_SCHEMA}: schema root must be an object"]
-    for label, payload in (
-        ("single-skill", query_json("--skill", "agent-handoff")),
-        ("list-result", query_json("--evaluation-mode", "compatibility")),
-    ):
-        for error in validate(payload, query_schema):
-            errors.append(f"query:{label}: {error}")
+        errors.append(f"{QUERY_SCHEMA}: schema root must be an object")
+    else:
+        for label, payload in (
+            ("single-skill", script_json(QUERY_SCRIPT, "query", "--skill", "agent-handoff")),
+            ("list-result", script_json(QUERY_SCRIPT, "query", "--evaluation-mode", "compatibility")),
+        ):
+            for error in validate(payload, query_schema):
+                errors.append(f"query:{label}: {error}")
+    if not isinstance(resolver_schema, dict):
+        errors.append(f"{RESOLVER_SCHEMA}: schema root must be an object")
+    else:
+        payload = script_json(
+            RESOLVER_SCRIPT,
+            "resolver",
+            "--requires",
+            "iterate-software-projects",
+            "--evaluation-mode",
+            "compatibility",
+        )
+        for error in validate(payload, resolver_schema):
+            errors.append(f"resolver:representative: {error}")
     return errors
 
 
