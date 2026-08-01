@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "implement-from-issue",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate locally verified work from pending external verification", "passed": true, "evidence": "Local implementation and checks are marked complete while the unavailable service or migration environment remains explicitly pending."},
+    {"behavior": "preserve the immutable head SHA and exact watch condition", "passed": true, "evidence": "The handoff records the exact head SHA, external condition, and verification command before scheduling follow-up."},
+    {"behavior": "report residual risk without claiming full completion", "passed": true, "evidence": "The result remains externally pending and lists the unverified integration risk."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat unavailable external verification as successful", "observed": false, "evidence": "No external success is inferred from local checks."},
+    {"behavior": "change the branch after recording the verification target without updating it", "observed": false, "evidence": "The watch remains bound to the immutable recorded SHA."}
+  ],
+  "overall": "pass"
+}
