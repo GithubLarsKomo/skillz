@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "implement-from-issue",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-01",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "verify repository state and bound the smallest relevant change set", "passed": true, "evidence": "The workflow rereads the issue and repository state, identifies only the files and test seams required by the bounded acceptance criteria, and records non-goals before editing."},
+    {"behavior": "preserve issue traceability through implementation and acceptance evidence", "passed": true, "evidence": "Each changed file and verification command is mapped back to the issue and its acceptance criteria."},
+    {"behavior": "produce a reviewable immutable repository state with rollback and risks", "passed": true, "evidence": "A narrow draft PR is created with an immutable head SHA, completed checks, rollback instructions, and residual risks."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "perform unrelated refactors or broad dependency upgrades", "observed": false, "evidence": "The diff remains limited to the required behavior and supporting tests."},
+    {"behavior": "claim completion without verifying the original acceptance criteria", "observed": false, "evidence": "Completion depends on direct acceptance evidence plus relevant regressions."}
+  ],
+  "overall": "pass"
+}
