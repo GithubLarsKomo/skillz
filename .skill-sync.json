@@ -4,26 +4,113 @@
   "hashNormalization": "UTF-8; CRLF and CR converted to LF; exactly one trailing LF",
   "synchronizedAt": "2026-08-01T04:31:00Z",
   "skills": {
-    "agent-handoff": {"files": {"SKILL.md": "82cdd41a1e5eb2194cb0d02a4aa9e064ba71cfbe29fd8f134dd87e1a6155b77e"}},
-    "architecture-deepening-review": {"files": {"SKILL.md": "a409bd7c641eb1be7914491b626217063716e270b9d150b265b75f909d4044da"}},
-    "central-skill-repository-curation": {"files": {"SKILL.md": "07c4a2bd6cf319c44a5f79f40fb5df2a16fa7fc95ac0a751e665f62bb5f3780d"}},
-    "composable-skill-factory": {"files": {"SKILL.md": "b9dc3606686547a29c852ec2e911dd44117d9ca6234c4b2f8b0306185f7be4e9"}},
-    "conversation-to-spec": {"files": {"SKILL.md": "267e73de1f1d3829f9a0fac5f1d239d2c9da3457b0fdcf1f8f469348c27ca230"}},
-    "decision-record": {"files": {"SKILL.md": "7442405a2cb5c731037878aebfe772657875706e4fab7a4b9f696c8e732677cb"}},
-    "deferred-external-action-verification": {"files": {"SKILL.md": "7a09513350246ed57bc821aa309274f848d67a672b08bd714d63f0c622d3bafa"}},
-    "disciplined-diagnosis": {"files": {"SKILL.md": "361291a180600ce47f96246c3150798325ff5e2d3e8b7daa1e66d0a07cb9148a"}},
-    "domain-model-maintenance": {"files": {"SKILL.md": "fd13a8e731a767434d44c4015d2fa84b4ffa58b2c0bf68a40e5408c676392d2a"}},
-    "implement-from-issue": {"files": {"SKILL.md": "65868653d3552aeb42ad67880d8ac884773dedee8dedea5dbbd99f6d2bda4e22"}},
-    "iterate-software-projects": {"files": {"SKILL.md": "3127c38b443d5d1220d8c8447fd2323b8436bb1d2ace2491c0679dc6ca4fc323", "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"}},
-    "large-work-wayfinder": {"files": {"SKILL.md": "7a44719f4ff7156e5f957b43b5b82f2ef6ed59bf0b0c3b8f61c53804ebedc273"}},
-    "merge-conflict-resolution": {"files": {"SKILL.md": "f4870634083039f0d967296759f4d660ac9bd44f4028ba82b78f574f653c253d"}},
-    "openasr-offline-model-import": {"files": {"SKILL.md": "768318c0c16fdc54f725a5221f54067c3692df0ea56247b9de36045002ec492f"}},
-    "repository-skill-bootstrap": {"files": {"SKILL.md": "e5b06df05150de041a739712619ac3a6e3bc7795d5e095811636e1131c3473b2", "scripts/bootstrap_repository_context.py": "c4804f576af6bcafea342c51cdeb4faf9825b60014938cad4ea8ad709f6cecee"}},
-    "round-based-requirements-grilling": {"files": {"SKILL.md": "c2691a6884453bd1fa0f639f6c12194113e04f9cb42ddf239ba9c0e4e6b638ac"}},
-    "spec-to-vertical-issues": {"files": {"SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"}},
-    "synapse-orchestrator": {"files": {"SKILL.md": "e44fc7dfd07189b2174a7b5bb1a68548c5f16f72c0026b3195264b0361b2ab57", "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"}},
-    "test-driven-vertical-slice": {"files": {"SKILL.md": "ca0ddb6669fd2a7af2ea4184a2fdd3f330d6cd9d581404f959e9b578c6a9f6ec"}},
-    "throwaway-prototype": {"files": {"SKILL.md": "effd4bf551c306c7ffb3fb4b4da308a07784930063c13743a8b8bf3852b7dd53"}},
-    "two-axis-code-review": {"files": {"SKILL.md": "a5ccb2e5ee898ca1b7fd7f69db51a23b1134a6f95247efb3ab191a3bb092fc73"}}
+    "agent-handoff": {
+      "files": {
+        "SKILL.md": "82cdd41a1e5eb2194cb0d02a4aa9e064ba71cfbe29fd8f134dd87e1a6155b77e"
+      }
+    },
+    "architecture-deepening-review": {
+      "files": {
+        "SKILL.md": "a409bd7c641eb1be7914491b626217063716e270b9d150b265b75f909d4044da"
+      }
+    },
+    "central-skill-repository-curation": {
+      "files": {
+        "SKILL.md": "07c4a2bd6cf319c44a5f79f40fb5df2a16fa7fc95ac0a751e665f62bb5f3780d"
+      }
+    },
+    "composable-skill-factory": {
+      "files": {
+        "SKILL.md": "b9dc3606686547a29c852ec2e911dd44117d9ca6234c4b2f8b0306185f7be4e9"
+      }
+    },
+    "conversation-to-spec": {
+      "files": {
+        "SKILL.md": "267e73de1f1d3829f9a0fac5f1d239d2c9da3457b0fdcf1f8f469348c27ca230"
+      }
+    },
+    "decision-record": {
+      "files": {
+        "SKILL.md": "7442405a2cb5c731037878aebfe772657875706e4fab7a4b9f696c8e732677cb"
+      }
+    },
+    "deferred-external-action-verification": {
+      "files": {
+        "SKILL.md": "7a09513350246ed57bc821aa309274f848d67a672b08bd714d63f0c622d3bafa"
+      }
+    },
+    "disciplined-diagnosis": {
+      "files": {
+        "SKILL.md": "361291a180600ce47f96246c3150798325ff5e2d3e8b7daa1e66d0a07cb9148a"
+      }
+    },
+    "domain-model-maintenance": {
+      "files": {
+        "SKILL.md": "fd13a8e731a767434d44c4015d2fa84b4ffa58b2c0bf68a40e5408c676392d2a"
+      }
+    },
+    "implement-from-issue": {
+      "files": {
+        "SKILL.md": "65868653d3552aeb42ad67880d8ac884773dedee8dedea5dbbd99f6d2bda4e22"
+      }
+    },
+    "iterate-software-projects": {
+      "files": {
+        "SKILL.md": "3127c38b443d5d1220d8c8447fd2323b8436bb1d2ace2491c0679dc6ca4fc323",
+        "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
+      }
+    },
+    "large-work-wayfinder": {
+      "files": {
+        "SKILL.md": "7a44719f4ff7156e5f957b43b5b82f2ef6ed59bf0b0c3b8f61c53804ebedc273"
+      }
+    },
+    "merge-conflict-resolution": {
+      "files": {
+        "SKILL.md": "f4870634083039f0d967296759f4d660ac9bd44f4028ba82b78f574f653c253d"
+      }
+    },
+    "openasr-offline-model-import": {
+      "files": {
+        "SKILL.md": "768318c0c16fdc54f725a5221f54067c3692df0ea56247b9de36045002ec492f"
+      }
+    },
+    "repository-skill-bootstrap": {
+      "files": {
+        "SKILL.md": "e5b06df05150de041a739712619ac3a6e3bc7795d5e095811636e1131c3473b2",
+        "scripts/bootstrap_repository_context.py": "c4804f576af6bcafea342c51cdeb4faf9825b60014938cad4ea8ad709f6cecee"
+      }
+    },
+    "round-based-requirements-grilling": {
+      "files": {
+        "SKILL.md": "c2691a6884453bd1fa0f639f6c12194113e04f9cb42ddf239ba9c0e4e6b638ac"
+      }
+    },
+    "spec-to-vertical-issues": {
+      "files": {
+        "SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"
+      }
+    },
+    "synapse-orchestrator": {
+      "files": {
+        "SKILL.md": "e44fc7dfd07189b2174a7b5bb1a68548c5f16f72c0026b3195264b0361b2ab57",
+        "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    },
+    "test-driven-vertical-slice": {
+      "files": {
+        "SKILL.md": "ca0ddb6669fd2a7af2ea4184a2fdd3f330d6cd9d581404f959e9b578c6a9f6ec"
+      }
+    },
+    "throwaway-prototype": {
+      "files": {
+        "SKILL.md": "effd4bf551c306c7ffb3fb4b4da308a07784930063c13743a8b8bf3852b7dd53"
+      }
+    },
+    "two-axis-code-review": {
+      "files": {
+        "SKILL.md": "a5ccb2e5ee898ca1b7fd7f69db51a23b1134a6f95247efb3ab191a3bb092fc73"
+      }
+    }
   }
 }
