@@ -1,0 +1,12 @@
+{
+  "name": "domain-model-maintenance happy path",
+  "input": "A domain status model gains one valid transition. Align terminology and behavior across domain code, API, persistence, events, tests, fixtures, and documentation with explicit compatibility and migration evidence.",
+  "expected": {
+    "changeClass": "additive",
+    "requiresCanonicalConcepts": true,
+    "requiresInvariantValidation": true,
+    "requiresAffectedSurfaces": true,
+    "requiresMigrationOrder": true,
+    "nextActionCount": 1
+  }
+}
