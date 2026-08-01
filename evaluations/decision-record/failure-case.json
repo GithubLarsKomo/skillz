@@ -1,0 +1,11 @@
+{
+  "name": "decision-record failure case",
+  "input": "Choose a framework from preference, omit rejected alternatives, silently approve it, overwrite the old ADR, and cite green CI as authority.",
+  "expected": {
+    "rejectsPreferenceOnlyDecision": true,
+    "rejectsSilentApproval": true,
+    "preservesHistoricalRecord": true,
+    "rejectsCiAsAuthority": true,
+    "nextActionCount": 1
+  }
+}
