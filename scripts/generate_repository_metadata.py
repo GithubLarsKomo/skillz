@@ -28,18 +28,22 @@ def parse_frontmatter(path: Path) -> dict[str, object]:
             continue
         if re.match(r"^\s+-\s+", line) and current_list:
             value = re.sub(r"^\s+-\s+", "", line).strip().strip('"\'')
-            cast = data.setdefault(current_list, [])
-            if isinstance(cast, list):
-                cast.append(value)
+            cast = data.get(current_list)
+            if not isinstance(cast, list):
+                raise ValueError(f"{path}: {current_list} muss eine YAML-Liste sein")
+            cast.append(value)
             continue
         match = re.match(r"^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$", line)
         if not match:
             raise ValueError(f"{path}: nicht unterstützte Frontmatter-Zeile: {line}")
         key, value = match.groups()
         value = value.strip()
-        if value in ("", "[]"):
-            data[key] = [] if value == "[]" else ""
+        if value == "":
+            data[key] = []
             current_list = key
+        elif value == "[]":
+            data[key] = []
+            current_list = None
         else:
             data[key] = value.strip('"\'')
             current_list = None
