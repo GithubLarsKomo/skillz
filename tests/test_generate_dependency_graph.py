@@ -12,15 +12,28 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from generate_dependency_graph import build_graph, render_json, run  # noqa: E402
 
 
-SKILL = """---\nname: {name}\ndescription: A sufficiently long description for dependency graph testing.\nrequires:\n{requires}outputs:\n{outputs}---\n\n## Trigger\nTest.\n"""
+SKILL = """---\nname: {name}\ndescription: A sufficiently long description for dependency graph testing.\n{requires_line}{requires}{outputs_line}{outputs}---\n\n## Trigger\nTest.\n"""
 
 
 def write_skill(root: Path, name: str, requires: list[str] | None = None, outputs: list[str] | None = None) -> None:
     path = root / "skills" / name / "SKILL.md"
     path.parent.mkdir(parents=True, exist_ok=True)
-    req = "".join(f"  - {item}\n" for item in (requires or [])) or "  []\n"
-    out = "".join(f"  - {item}\n" for item in (outputs or [])) or "  []\n"
-    path.write_text(SKILL.format(name=name, requires=req, outputs=out), encoding="utf-8")
+    requires = requires or []
+    outputs = outputs or []
+    requires_line = "requires:\n" if requires else "requires: []\n"
+    outputs_line = "outputs:\n" if outputs else "outputs: []\n"
+    req = "".join(f"  - {item}\n" for item in requires)
+    out = "".join(f"  - {item}\n" for item in outputs)
+    path.write_text(
+        SKILL.format(
+            name=name,
+            requires_line=requires_line,
+            requires=req,
+            outputs_line=outputs_line,
+            outputs=out,
+        ),
+        encoding="utf-8",
+    )
 
 
 class DependencyGraphTests(unittest.TestCase):
