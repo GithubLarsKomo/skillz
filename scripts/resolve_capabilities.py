@@ -8,9 +8,11 @@ from pathlib import Path
 
 SCHEMA_VERSION = 1
 INDEX_SCHEMA_VERSION = 1
+REQUEST_SCHEMA_VERSION = 1
 DEFAULT_INDEX = Path(__file__).resolve().parents[1] / "docs" / "skill-capability-index.json"
 VALID_MODES = {"rubric", "compatibility", "none"}
 VALID_PORTABLE = {"required", "forbidden", "irrelevant"}
+REQUEST_FIELDS = {"schemaVersion", "outputs", "dependencies", "evaluationModes", "portableFiles"}
 
 
 def load_index(path: Path) -> dict:
@@ -27,12 +29,7 @@ def load_index(path: Path) -> dict:
     return data
 
 
-def normalize_constraints(
-    outputs: list[str],
-    dependencies: list[str],
-    modes: list[str],
-    portable_files: str,
-) -> dict:
+def normalize_constraints(outputs: list[str], dependencies: list[str], modes: list[str], portable_files: str) -> dict:
     outputs = sorted(set(outputs))
     dependencies = sorted(set(dependencies))
     modes = sorted(set(modes))
@@ -41,23 +38,35 @@ def normalize_constraints(
         raise ValueError(f"unsupported evaluation mode(s): {', '.join(unknown_modes)}")
     if portable_files not in VALID_PORTABLE:
         raise ValueError(f"unsupported portable-files constraint: {portable_files}")
-    return {
-        "outputs": outputs,
-        "dependencies": dependencies,
-        "evaluationModes": modes,
-        "portableFiles": portable_files,
-    }
+    return {"outputs": outputs, "dependencies": dependencies, "evaluationModes": modes, "portableFiles": portable_files}
+
+
+def load_request(source: str) -> dict:
+    try:
+        text = sys.stdin.read() if source == "-" else Path(source).read_text(encoding="utf-8")
+        data = json.loads(text)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"cannot read resolver request: {exc}") from exc
+    if not isinstance(data, dict):
+        raise ValueError("resolver request root must be an object")
+    if data.get("schemaVersion") != REQUEST_SCHEMA_VERSION:
+        raise ValueError(f"unsupported resolver request schemaVersion {data.get('schemaVersion')!r}; expected {REQUEST_SCHEMA_VERSION}")
+    unknown = sorted(set(data) - REQUEST_FIELDS)
+    if unknown:
+        raise ValueError(f"unknown resolver request field(s): {', '.join(unknown)}")
+    for key in ("outputs", "dependencies", "evaluationModes"):
+        value = data.get(key, [])
+        if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+            raise ValueError(f"resolver request {key} must be an array of strings")
+    portable = data.get("portableFiles", "irrelevant")
+    if not isinstance(portable, str):
+        raise ValueError("resolver request portableFiles must be a string")
+    return normalize_constraints(data.get("outputs", []), data.get("dependencies", []), data.get("evaluationModes", []), portable)
 
 
 def validate_known_constraints(index: dict, constraints: dict) -> None:
     skill_names = {item.get("name") for item in index["skills"] if isinstance(item, dict)}
-    known_outputs = {
-        output
-        for item in index["skills"]
-        if isinstance(item, dict)
-        for output in item.get("outputs", [])
-        if isinstance(output, str)
-    }
+    known_outputs = {output for item in index["skills"] if isinstance(item, dict) for output in item.get("outputs", []) if isinstance(output, str)}
     unknown_dependencies = [name for name in constraints["dependencies"] if name not in skill_names]
     unknown_outputs = [name for name in constraints["outputs"] if name not in known_outputs]
     if unknown_dependencies:
@@ -73,7 +82,6 @@ def evaluate_skill(skill: dict, constraints: dict) -> tuple[list[str], list[str]
     skill_requires = set(skill.get("requires", []))
     mode = skill.get("evaluation", {}).get("mode")
     has_portable = bool(skill.get("portableFiles", []))
-
     for output in constraints["outputs"]:
         label = f"output:{output}"
         (reasons if output in skill_outputs else failed).append(label)
@@ -100,55 +108,32 @@ def resolve(index: dict, constraints: dict) -> dict:
         if failed:
             rejections.append({"name": skill["name"], "failedConstraints": sorted(failed)})
         else:
-            output_contracts = [
-                contract
-                for contract in skill.get("outputContracts", [])
-                if contract.get("output") in constraints["outputs"]
-            ]
-            candidates.append(
-                {
-                    "name": skill["name"],
-                    "matchReasons": sorted(reasons),
-                    "matchedOutputContracts": sorted(
-                        output_contracts, key=lambda item: item.get("output", "")
-                    ),
-                }
-            )
-    return {
-        "schemaVersion": SCHEMA_VERSION,
-        "constraints": constraints,
-        "candidateCount": len(candidates),
-        "candidates": candidates,
-        "rejections": rejections,
-    }
+            output_contracts = [contract for contract in skill.get("outputContracts", []) if contract.get("output") in constraints["outputs"]]
+            candidates.append({"name": skill["name"], "matchReasons": sorted(reasons), "matchedOutputContracts": sorted(output_contracts, key=lambda item: item.get("output", ""))})
+    return {"schemaVersion": SCHEMA_VERSION, "constraints": constraints, "candidateCount": len(candidates), "candidates": candidates, "rejections": rejections}
 
 
 def render_human(payload: dict) -> str:
     if not payload["candidates"]:
         return "No candidates match all explicit constraints."
-    lines = []
-    for candidate in payload["candidates"]:
-        reasons = ", ".join(candidate["matchReasons"]) or "no constraints"
-        lines.append(f"{candidate['name']}: {reasons}")
-    return "\n".join(lines)
+    return "\n".join(f"{candidate['name']}: {', '.join(candidate['matchReasons']) or 'no constraints'}" for candidate in payload["candidates"])
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Resolve an unranked capability candidate set from exact structured constraints.")
     parser.add_argument("--index", type=Path, default=DEFAULT_INDEX, help=argparse.SUPPRESS)
     parser.add_argument("--json", action="store_true", help="Emit stable machine-readable JSON.")
+    parser.add_argument("--request", help="Read a versioned resolver request from a JSON file, or '-' for stdin.")
     parser.add_argument("--output", action="append", default=[], help="Require an exact declared output; repeatable.")
     parser.add_argument("--requires", action="append", default=[], help="Require an exact direct skill dependency; repeatable.")
     parser.add_argument("--evaluation-mode", action="append", default=[], help="Allow an exact evaluation mode; repeatable.")
-    parser.add_argument(
-        "--portable-files",
-        choices=sorted(VALID_PORTABLE),
-        default="irrelevant",
-        help="Require, forbid, or ignore portable files.",
-    )
+    parser.add_argument("--portable-files", choices=sorted(VALID_PORTABLE), default="irrelevant", help="Require, forbid, or ignore portable files.")
     args = parser.parse_args(argv)
     try:
-        constraints = normalize_constraints(args.output, args.requires, args.evaluation_mode, args.portable_files)
+        flag_constraints_used = bool(args.output or args.requires or args.evaluation_mode or args.portable_files != "irrelevant")
+        if args.request and flag_constraints_used:
+            raise ValueError("--request cannot be combined with individual constraint flags")
+        constraints = load_request(args.request) if args.request else normalize_constraints(args.output, args.requires, args.evaluation_mode, args.portable_files)
         payload = resolve(load_index(args.index), constraints)
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
