@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "merge-conflict-resolution",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Resolve textual conflicts between two compatible changes while preserving both accepted behaviors and producing focused and regression evidence.",
+      "requiredBehaviors": [
+        "reconstruct and document both change intents before editing",
+        "combine compatible behavior with the smallest relevant resolution",
+        "verify both intents and record an immutable resolved head"
+      ],
+      "forbiddenBehaviors": [
+        "choose ours or theirs blindly",
+        "perform unrelated cleanup or broad refactoring"
+      ],
+      "skillAnchors": [
+        "Beide Änderungsabsichten rekonstruieren",
+        "Semantische Entscheidung treffen",
+        "Reviewbaren Zustand übergeben"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Resolve a conflict spanning migration ordering and an unavailable external service while preserving compatibility and deferring exact external verification.",
+      "requiredBehaviors": [
+        "preserve migration ordering and backward compatibility",
+        "use deterministic local contract evidence",
+        "defer the exact external condition against the immutable resolved head"
+      ],
+      "forbiddenBehaviors": [
+        "claim unavailable external verification succeeded",
+        "change migration ordering without evidence and rollback"
+      ],
+      "skillAnchors": [
+        "Migrationen und Sicherheit geprüft",
+        "Nicht verfügbare CI-, Deployment- oder Dienstprüfungen",
+        "resolved Head-SHA"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposal resolves markers by taking one side, deletes accepted behavior, weakens tests, and claims success without checking both intents.",
+      "requiredBehaviors": [
+        "reject blind side selection and restore intent reconstruction",
+        "preserve accepted behavior or block for an authorized decision",
+        "refuse weakened checks and unverified completion"
+      ],
+      "forbiddenBehaviors": [
+        "delete one intent without rationale",
+        "declare success because conflict markers are gone"
+      ],
+      "skillAnchors": [
+        "Stoppe und stelle den begrenzten Konfliktzustand wieder her",
+        "blockiere und fordere eine autorisierte Entscheidung",
+        "alle Konfliktmarker entfernt"
+      ]
+    }
+  ]
+}
