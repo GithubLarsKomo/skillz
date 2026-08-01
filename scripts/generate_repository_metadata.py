@@ -123,20 +123,26 @@ def apply_or_check(path: Path, expected: str, check: bool) -> bool:
     return True
 
 
+def run_subgenerator(root: Path, script_name: str, check: bool) -> int:
+    script = root / "scripts" / script_name
+    if not script.exists():
+        return 0
+    cmd = [sys.executable, str(script), "--root", str(root)]
+    if check:
+        cmd.append("--check")
+    return subprocess.run(cmd, cwd=root, check=False).returncode
+
+
 def run(root: Path, check: bool) -> int:
     try:
         stale = False
         stale |= apply_or_check(root / "README.md", render_readme(root), check)
         stale |= apply_or_check(root / ".skill-sync.json", render_manifest(root), check)
-        graph_script = root / "scripts" / "generate_dependency_graph.py"
-        if graph_script.exists():
-            cmd = [sys.executable, str(graph_script), "--root", str(root)]
-            if check:
-                cmd.append("--check")
-            graph_result = subprocess.run(cmd, cwd=root, check=False)
-            if graph_result.returncode == 2:
+        for script_name in ("generate_dependency_graph.py", "generate_capability_index.py"):
+            result = run_subgenerator(root, script_name, check)
+            if result == 2:
                 return 2
-            stale |= graph_result.returncode == 1
+            stale |= result == 1
         return 1 if check and stale else 0
     except (ValueError, json.JSONDecodeError, UnicodeDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

@@ -1,0 +1,1141 @@
+{
+  "schemaVersion": 1,
+  "skillCount": 21,
+  "evaluationSuiteCount": 18,
+  "evaluationPassed": true,
+  "evaluationErrorCount": 0,
+  "skills": [
+    {
+      "name": "agent-handoff",
+      "description": "Erzeugt einen kompakten, verifizierbaren Übergabestand für neue Sitzungen oder Agenten. Verwenden, wenn Ziel, Repositoryzustand, Entscheidungen, Evidenz, Restrisiken, blockierte Punkte und genau die nächste ausführbare Aktion ohne Informationsverlust oder doppelte Arbeit weitergegeben werden müssen.",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "dependents": [
+        "decision-record",
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "agent-handoff.json",
+        "agent-handoff.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "agent-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "agent-handoff"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "domain-model-maintenance",
+            "implement-from-issue",
+            "large-work-wayfinder",
+            "merge-conflict-resolution",
+            "throwaway-prototype",
+            "two-axis-code-review"
+          ]
+        },
+        {
+          "output": "agent-handoff.md",
+          "ambiguous": false,
+          "producers": [
+            "agent-handoff"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "domain-model-maintenance",
+            "implement-from-issue",
+            "large-work-wayfinder",
+            "merge-conflict-resolution",
+            "throwaway-prototype",
+            "two-axis-code-review"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "architecture-deepening-review",
+      "description": "Prüft bestehende Softwarearchitekturen evidenzbasiert auf flache Modulgrenzen, unbeabsichtigte Kopplung, duplizierte Domänenregeln und Infrastrukturleckage und empfiehlt höchstens einen kleinen, hochwirksamen Vertiefungsschritt. Verwenden, wenn Architekturqualität verbessert werden soll, ohne einen spekulativen Rewrite oder stilgetriebene Schichten einzuführen.",
+      "requires": [
+        "disciplined-diagnosis",
+        "iterate-software-projects"
+      ],
+      "dependents": [
+        "domain-model-maintenance",
+        "large-work-wayfinder",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "architecture-review.json",
+        "architecture-review.md",
+        "next-step-handoff.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "architecture-review.json",
+          "ambiguous": false,
+          "producers": [
+            "architecture-deepening-review"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "large-work-wayfinder",
+            "two-axis-code-review"
+          ]
+        },
+        {
+          "output": "architecture-review.md",
+          "ambiguous": false,
+          "producers": [
+            "architecture-deepening-review"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "large-work-wayfinder",
+            "two-axis-code-review"
+          ]
+        },
+        {
+          "output": "next-step-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "architecture-deepening-review"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "large-work-wayfinder",
+            "two-axis-code-review"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "central-skill-repository-curation",
+      "description": "Konsolidiert wiederverwendbare Arbeitsabläufe als persönliche Skills, pflegt deren portable Fassungen im zentralen Repository GithubLarsKomo/skillz und synchronisiert beide Bestände sicher. Verwenden, wenn der Nutzer Skills lernen, zentral speichern, installieren, inventarisieren, abgleichen oder ausdrücklich in beide Richtungen synchronisieren lassen möchte.",
+      "requires": [
+        "composable-skill-factory"
+      ],
+      "dependents": [],
+      "outputs": [
+        "synchronization manifest",
+        "updated skill repository"
+      ],
+      "outputContracts": [
+        {
+          "output": "synchronization manifest",
+          "ambiguous": false,
+          "producers": [
+            "central-skill-repository-curation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "updated skill repository",
+          "ambiguous": false,
+          "producers": [
+            "central-skill-repository-curation"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "composable-skill-factory",
+      "description": "Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen Hilfswerkzeugen, klaren Triggern und überprüfbaren Abschlusskriterien. Verwenden, wenn aus einem wiederholbaren Workflow ein neuer Skill werden soll oder ein bestehender Skill zu groß, unklar, fragil oder schwer kombinierbar ist.",
+      "requires": [],
+      "dependents": [
+        "central-skill-repository-curation"
+      ],
+      "outputs": [
+        "evaluation evidence",
+        "pull request",
+        "skills/<skill-name>/SKILL.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "evaluation evidence",
+          "ambiguous": false,
+          "producers": [
+            "composable-skill-factory"
+          ],
+          "consumerSkills": [
+            "central-skill-repository-curation"
+          ]
+        },
+        {
+          "output": "pull request",
+          "ambiguous": false,
+          "producers": [
+            "composable-skill-factory"
+          ],
+          "consumerSkills": [
+            "central-skill-repository-curation"
+          ]
+        },
+        {
+          "output": "skills/<skill-name>/SKILL.md",
+          "ambiguous": false,
+          "producers": [
+            "composable-skill-factory"
+          ],
+          "consumerSkills": [
+            "central-skill-repository-curation"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "conversation-to-spec",
+      "description": "Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll.",
+      "requires": [],
+      "dependents": [
+        "spec-to-vertical-issues"
+      ],
+      "outputs": [
+        "SPEC.md",
+        "consistency report",
+        "decision register"
+      ],
+      "outputContracts": [
+        {
+          "output": "SPEC.md",
+          "ambiguous": false,
+          "producers": [
+            "conversation-to-spec"
+          ],
+          "consumerSkills": [
+            "spec-to-vertical-issues"
+          ]
+        },
+        {
+          "output": "consistency report",
+          "ambiguous": false,
+          "producers": [
+            "conversation-to-spec"
+          ],
+          "consumerSkills": [
+            "spec-to-vertical-issues"
+          ]
+        },
+        {
+          "output": "decision register",
+          "ambiguous": false,
+          "producers": [
+            "conversation-to-spec"
+          ],
+          "consumerSkills": [
+            "spec-to-vertical-issues"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "decision-record",
+      "description": "Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.",
+      "requires": [
+        "agent-handoff",
+        "large-work-wayfinder",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "dependents": [
+        "domain-model-maintenance"
+      ],
+      "outputs": [
+        "decision-record.json",
+        "decision-record.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "decision-record.json",
+          "ambiguous": false,
+          "producers": [
+            "decision-record"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance"
+          ]
+        },
+        {
+          "output": "decision-record.md",
+          "ambiguous": false,
+          "producers": [
+            "decision-record"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "deferred-external-action-verification",
+      "description": "Richtet für asynchron arbeitende externe Programme, APIs und CI/CD-Systeme eine zeitversetzte, wiederholbare Ergebnisprüfung per Cronjob oder gleichwertigem Scheduler ein. Nimmt jeden vom Agenten selbst ausgelösten CI-Lauf automatisch in eine Beobachtungsliste auf und setzt den gespeicherten Arbeitsablauf nach verifiziertem Erfolg fort. Der Skill definiert Wartefenster, Statusabfrage, Idempotenz, Sperren, Retry- und Abbruchregeln, Protokollierung sowie die sichere Aufräumlogik nach Erfolg oder endgültigem Fehler.",
+      "requires": [],
+      "dependents": [
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "outputs": [
+        "continuation result",
+        "verified terminal status",
+        "watch record"
+      ],
+      "outputContracts": [
+        {
+          "output": "continuation result",
+          "ambiguous": false,
+          "producers": [
+            "deferred-external-action-verification"
+          ],
+          "consumerSkills": [
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
+        },
+        {
+          "output": "verified terminal status",
+          "ambiguous": false,
+          "producers": [
+            "deferred-external-action-verification"
+          ],
+          "consumerSkills": [
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
+        },
+        {
+          "output": "watch record",
+          "ambiguous": false,
+          "producers": [
+            "deferred-external-action-verification"
+          ],
+          "consumerSkills": [
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "disciplined-diagnosis",
+      "description": "Diagnostiziert Softwarefehler reproduzierbar und evidenzbasiert, minimiert den Fehlerraum, prüft konkurrierende Hypothesen, implementiert den kleinsten sicheren Fix und belegt ihn mit Regressionstest sowie ursprünglicher Verifikation. Verwenden, wenn CI, Tests, Laufzeitverhalten oder Integrationen fehlschlagen und spekulative Änderungen vermieden werden sollen.",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "dependents": [
+        "architecture-deepening-review",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "test-driven-vertical-slice",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "diagnosis-report.json",
+        "residual-risk-handoff.json",
+        "verified-fix-evidence.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "diagnosis-report.json",
+          "ambiguous": false,
+          "producers": [
+            "disciplined-diagnosis"
+          ],
+          "consumerSkills": [
+            "architecture-deepening-review",
+            "implement-from-issue",
+            "large-work-wayfinder",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice",
+            "throwaway-prototype",
+            "two-axis-code-review"
+          ]
+        },
+        {
+          "output": "residual-risk-handoff.json",
+          "ambiguous": true,
+          "producers": [
+            "disciplined-diagnosis",
+            "implement-from-issue",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "verified-fix-evidence.md",
+          "ambiguous": false,
+          "producers": [
+            "disciplined-diagnosis"
+          ],
+          "consumerSkills": [
+            "architecture-deepening-review",
+            "implement-from-issue",
+            "large-work-wayfinder",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice",
+            "throwaway-prototype",
+            "two-axis-code-review"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "domain-model-maintenance",
+      "description": "Hält Domänenbegriffe, Invarianten, Zustände, Grenzen und Repräsentationen während Softwareänderungen konsistent und steuert kompatible Migrationen über Code, Persistenz, APIs, Events, Tests und Dokumentation.",
+      "requires": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "decision-record",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "domain-change-plan.md",
+        "domain-model-map.json",
+        "domain-validation.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "domain-change-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "domain-model-maintenance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "domain-model-map.json",
+          "ambiguous": false,
+          "producers": [
+            "domain-model-maintenance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "domain-validation.json",
+          "ambiguous": false,
+          "producers": [
+            "domain-model-maintenance"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "implement-from-issue",
+      "description": "Implementiert ein klar abgegrenztes Repository-Issue vom verifizierten Ausgangszustand bis zu einem überprüfbaren Commit- oder Pull-Request-Stand mit vollständiger Rückverfolgbarkeit, Testevidenz, Sicherheits- und Migrationsbewertung sowie expliziter externer Nachverifikation. Verwenden, wenn ein umsetzungsreifes Issue sicher und ohne Scope-Ausweitung ausgeführt werden soll.",
+      "requires": [
+        "agent-handoff",
+        "deferred-external-action-verification",
+        "disciplined-diagnosis",
+        "test-driven-vertical-slice"
+      ],
+      "dependents": [
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "implementation-evidence.json",
+        "residual-risk-handoff.json",
+        "reviewable-change-brief.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "implementation-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "implement-from-issue"
+          ],
+          "consumerSkills": [
+            "two-axis-code-review"
+          ]
+        },
+        {
+          "output": "residual-risk-handoff.json",
+          "ambiguous": true,
+          "producers": [
+            "disciplined-diagnosis",
+            "implement-from-issue",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "reviewable-change-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "implement-from-issue"
+          ],
+          "consumerSkills": [
+            "two-axis-code-review"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "iterate-software-projects",
+      "description": "Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrenden Zyklus aus Bestandsanalyse, Klärung kritischer Produktentscheidungen, Auswahl des nächsten kleinen Inkrements, präzisem Copilot- oder Coding-Agent-Prompt und evidenzbasiertem Review. Verwenden, wenn ein Repository schrittweise fortgeführt, ein Plan vor der Umsetzung geschärft, ein nächster Implementierungsauftrag formuliert, ein Agentenergebnis geprüft, ein Docker-/KI-Service diagnostiziert oder nach einem Review die nächste Iteration geplant werden soll.",
+      "requires": [],
+      "dependents": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis"
+      ],
+      "outputs": [
+        "next increment",
+        "review findings",
+        "verification evidence"
+      ],
+      "outputContracts": [
+        {
+          "output": "next increment",
+          "ambiguous": false,
+          "producers": [
+            "iterate-software-projects"
+          ],
+          "consumerSkills": [
+            "agent-handoff",
+            "architecture-deepening-review",
+            "disciplined-diagnosis"
+          ]
+        },
+        {
+          "output": "review findings",
+          "ambiguous": false,
+          "producers": [
+            "iterate-software-projects"
+          ],
+          "consumerSkills": [
+            "agent-handoff",
+            "architecture-deepening-review",
+            "disciplined-diagnosis"
+          ]
+        },
+        {
+          "output": "verification evidence",
+          "ambiguous": false,
+          "producers": [
+            "iterate-software-projects"
+          ],
+          "consumerSkills": [
+            "agent-handoff",
+            "architecture-deepening-review",
+            "disciplined-diagnosis"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "references/copilot-prompt.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "large-work-wayfinder",
+      "description": "Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch evidenzbasierte Exploration, fokussierte Untersuchungs-Issues, Abhängigkeitsgraphen, Risikoreduktion und eine sichere Umsetzungsreihenfolge, ohne spekulative Architekturentscheidungen vorwegzunehmen.",
+      "requires": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis",
+        "spec-to-vertical-issues"
+      ],
+      "dependents": [
+        "decision-record",
+        "throwaway-prototype"
+      ],
+      "outputs": [
+        "dependency-graph.json",
+        "investigation-backlog.json",
+        "wayfinding-brief.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "dependency-graph.json",
+          "ambiguous": false,
+          "producers": [
+            "large-work-wayfinder"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "throwaway-prototype"
+          ]
+        },
+        {
+          "output": "investigation-backlog.json",
+          "ambiguous": false,
+          "producers": [
+            "large-work-wayfinder"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "throwaway-prototype"
+          ]
+        },
+        {
+          "output": "wayfinding-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "large-work-wayfinder"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "throwaway-prototype"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "merge-conflict-resolution",
+      "description": "Löst Git-Merge-Konflikte semantisch, rekonstruiert die Änderungsabsichten beider Seiten, bewahrt akzeptiertes Verhalten und Repository-Invarianten und erzeugt einen überprüfbaren Auflösungsstand mit Tests, Rollback und Restrisiken. Verwenden, wenn Konfliktmarker allein nicht zeigen, welche fachliche oder technische Kombination korrekt ist.",
+      "requires": [
+        "agent-handoff",
+        "deferred-external-action-verification",
+        "disciplined-diagnosis",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "conflict-resolution-evidence.json",
+        "residual-risk-handoff.json",
+        "resolved-change-brief.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "conflict-resolution-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "merge-conflict-resolution"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "residual-risk-handoff.json",
+          "ambiguous": true,
+          "producers": [
+            "disciplined-diagnosis",
+            "implement-from-issue",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "resolved-change-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "merge-conflict-resolution"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "openasr-offline-model-import",
+      "description": "Importiert ein bereits lokal vorhandenes OpenASR-Modell unter Windows robust in OpenASR Desktop, insbesondere wenn der signierte Online-Katalog wegen Proxy-, TLS- oder UnknownIssuer-Problemen nicht verwendet werden kann.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "import verification",
+        "installed OpenASR model"
+      ],
+      "outputContracts": [
+        {
+          "output": "import verification",
+          "ambiguous": false,
+          "producers": [
+            "openasr-offline-model-import"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "installed OpenASR model",
+          "ambiguous": false,
+          "producers": [
+            "openasr-offline-model-import"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "repository-skill-bootstrap",
+      "description": "Analysiert ein bestehendes Software-Repository und richtet eine portable Agent-Arbeitsgrundlage mit CONFIG.md, CONTEXT.md und DECISIONS.md ein. Verwenden, wenn ein Repository erstmals für wiederholbare Arbeit mit mehreren Skills, Agenten oder Sitzungen vorbereitet werden soll.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "docs/agents/CONFIG.md",
+        "docs/agents/CONTEXT.md",
+        "docs/agents/DECISIONS.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "docs/agents/CONFIG.md",
+          "ambiguous": false,
+          "producers": [
+            "repository-skill-bootstrap"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "docs/agents/CONTEXT.md",
+          "ambiguous": false,
+          "producers": [
+            "repository-skill-bootstrap"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "docs/agents/DECISIONS.md",
+          "ambiguous": false,
+          "producers": [
+            "repository-skill-bootstrap"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "scripts/bootstrap_repository_context.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "round-based-requirements-grilling",
+      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten ist eine verpflichtende KI-/ML-Readiness-Prüfung einschließlich Einsatzpotenzial, Architekturvorbereitung, Datensammlung, Labeling und Governance Bestandteil des Grillings. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "GRILL-REPORT.md",
+        "approved SPEC.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "GRILL-REPORT.md",
+          "ambiguous": false,
+          "producers": [
+            "round-based-requirements-grilling"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "approved SPEC.md",
+          "ambiguous": false,
+          "producers": [
+            "round-based-requirements-grilling"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "spec-to-vertical-issues",
+      "description": "Zerlegt eine freigegebene, konsistente Spezifikation in kleine, unabhängig abnehmbare vertikale Implementierungs-Issues mit vollständiger Rückverfolgbarkeit, Abnahmeevidenz, Abhängigkeiten und expliziten Nicht-Zielen. Verwenden, wenn aus SPEC.md und Entscheidungsregister eine geordnete Engineering-Backlog-Übergabe entstehen soll, ohne irreversible Architekturentscheidungen stillschweigend zu treffen.",
+      "requires": [
+        "conversation-to-spec"
+      ],
+      "dependents": [
+        "large-work-wayfinder",
+        "test-driven-vertical-slice",
+        "throwaway-prototype"
+      ],
+      "outputs": [
+        "dependency-order.json",
+        "vertical-issues.json",
+        "vertical-issues.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "dependency-order.json",
+          "ambiguous": false,
+          "producers": [
+            "spec-to-vertical-issues"
+          ],
+          "consumerSkills": [
+            "large-work-wayfinder",
+            "test-driven-vertical-slice",
+            "throwaway-prototype"
+          ]
+        },
+        {
+          "output": "vertical-issues.json",
+          "ambiguous": false,
+          "producers": [
+            "spec-to-vertical-issues"
+          ],
+          "consumerSkills": [
+            "large-work-wayfinder",
+            "test-driven-vertical-slice",
+            "throwaway-prototype"
+          ]
+        },
+        {
+          "output": "vertical-issues.md",
+          "ambiguous": false,
+          "producers": [
+            "spec-to-vertical-issues"
+          ],
+          "consumerSkills": [
+            "large-work-wayfinder",
+            "test-driven-vertical-slice",
+            "throwaway-prototype"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "synapse-orchestrator",
+      "description": "Orchestrate complex or ambiguous goals by aligning on the desired outcome, routing work to direct execution, existing skills and tools, transparent expert perspectives, or explicitly requested subagents, and maintaining concise progress and next steps. Use when the user invokes Professor Synapse, Synapse_CoR, /start, /save, /reason, /settings, /new, /grill-me, or /learn-skill; asks for an expert or multi-expert analysis; wants a cross-domain task decomposed; or needs help choosing the right workflow before execution.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "execution plan",
+        "expert handoff",
+        "progress summary"
+      ],
+      "outputContracts": [
+        {
+          "output": "execution plan",
+          "ambiguous": false,
+          "producers": [
+            "synapse-orchestrator"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "expert handoff",
+          "ambiguous": false,
+          "producers": [
+            "synapse-orchestrator"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "progress summary",
+          "ambiguous": false,
+          "producers": [
+            "synapse-orchestrator"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "references/commands.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "test-driven-vertical-slice",
+      "description": "Implementiert ein kleines, unabhängig beobachtbares End-to-End-Verhalten durch einen disziplinierten Red-Green-Refactor-Zyklus. Verwenden, wenn ein klar begrenztes vertikales Issue mit Akzeptanzkriterien über die notwendigen Schichten hinweg umgesetzt werden soll, ohne horizontale Infrastrukturpakete, spekulative Abstraktionen oder rein mock-basierte Scheinerfolge.",
+      "requires": [
+        "disciplined-diagnosis",
+        "spec-to-vertical-issues"
+      ],
+      "dependents": [
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "outputs": [
+        "residual-risk-handoff.json",
+        "verification-report.md",
+        "vertical-slice-evidence.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "residual-risk-handoff.json",
+          "ambiguous": true,
+          "producers": [
+            "disciplined-diagnosis",
+            "implement-from-issue",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "verification-report.md",
+          "ambiguous": false,
+          "producers": [
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
+        },
+        {
+          "output": "vertical-slice-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "throwaway-prototype",
+      "description": "Prüft unsichere technische oder fachliche Annahmen mit bewusst kurzlebigen, isolierten Prototypen, trennt Lernnachweise von Produktionsabnahme und verhindert die unbeabsichtigte Übernahme experimentellen Codes.",
+      "requires": [
+        "agent-handoff",
+        "disciplined-diagnosis",
+        "large-work-wayfinder",
+        "spec-to-vertical-issues"
+      ],
+      "dependents": [
+        "decision-record"
+      ],
+      "outputs": [
+        "disposal-record.json",
+        "prototype-brief.md",
+        "prototype-evidence.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "disposal-record.json",
+          "ambiguous": false,
+          "producers": [
+            "throwaway-prototype"
+          ],
+          "consumerSkills": [
+            "decision-record"
+          ]
+        },
+        {
+          "output": "prototype-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "throwaway-prototype"
+          ],
+          "consumerSkills": [
+            "decision-record"
+          ]
+        },
+        {
+          "output": "prototype-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "throwaway-prototype"
+          ],
+          "consumerSkills": [
+            "decision-record"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "two-axis-code-review",
+      "description": "Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementierungs- sowie Lieferqualität. Verwendet zwei getrennte Evidenzachsen für Spezifikationstreue, Codequalität, Architektur, Tests, Sicherheit, Migrationen und Betriebsrisiken und liefert priorisierte, kleinste sichere Abhilfen ohne stilgetriebene Blocker oder spekulative Neuschreibung.",
+      "requires": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis",
+        "implement-from-issue"
+      ],
+      "dependents": [
+        "decision-record",
+        "domain-model-maintenance",
+        "merge-conflict-resolution"
+      ],
+      "outputs": [
+        "quality-review.json",
+        "requirement-coverage.json",
+        "review-decision.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "quality-review.json",
+          "ambiguous": false,
+          "producers": [
+            "two-axis-code-review"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "domain-model-maintenance",
+            "merge-conflict-resolution"
+          ]
+        },
+        {
+          "output": "requirement-coverage.json",
+          "ambiguous": false,
+          "producers": [
+            "two-axis-code-review"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "domain-model-maintenance",
+            "merge-conflict-resolution"
+          ]
+        },
+        {
+          "output": "review-decision.md",
+          "ambiguous": false,
+          "producers": [
+            "two-axis-code-review"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "domain-model-maintenance",
+            "merge-conflict-resolution"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    }
+  ]
+}
