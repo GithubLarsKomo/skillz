@@ -1,0 +1,1 @@
+The initial committed graph artifacts are intentionally seeded before CI validation. The generator remains the source of truth and the first CI run on the implementation PR is expected to identify the exact canonical graph content required by current frontmatter.
