@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "inbox-action-triage",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Triage a bounded set of already loaded inbox threads containing a real deadline, a routine reply request, a confirmed delegation, a waiting-on-reply thread, and an FYI message. Derive explicit next actions without mutating the mailbox.",
+      "requiredBehaviors": [
+        "classify each thread from concrete message facts into one primary triage class",
+        "derive a small explicit next action and keep it pending until external execution is confirmed",
+        "preserve thread provenance while minimizing persisted message content"
+      ],
+      "forbiddenBehaviors": [
+        "perform or claim mailbox mutations",
+        "treat sender hierarchy or tone alone as urgency"
+      ],
+      "skillAnchors": [
+        "Nachrichtenfakten erfassen",
+        "Nächste Aktion formulieren",
+        "Eine Klasse ist eine **Triage-Empfehlung**, kein Mailbox-Status"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A senior sender writes in an urgent tone, but there is no explicit deadline and the previous thread context is missing. Do not overstate urgency or invent the missing context.",
+      "requiredBehaviors": [
+        "avoid urgent classification based only on tone or hierarchy",
+        "surface missing thread context explicitly",
+        "use needs-context or reduced confidence until the missing evidence is available"
+      ],
+      "forbiddenBehaviors": [
+        "invent a deadline",
+        "infer urgency solely from seniority"
+      ],
+      "skillAnchors": [
+        "Tonfall, Großschreibung oder Absenderhierarchie allein machen eine Nachricht nicht dringend",
+        "Ambiguität sichtbar halten",
+        "needs-context"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft triage marks a message urgent because the sender is senior, says an unverified delegation is complete, and claims FYI messages were archived although no mailbox action occurred.",
+      "requiredBehaviors": [
+        "reject hierarchy-only urgency",
+        "reject unverified delegated or completed status",
+        "restore mailbox mutations to pending suggestions unless externally verified"
+      ],
+      "forbiddenBehaviors": [
+        "present planned archive or reply actions as completed",
+        "mark delegation without evidence"
+      ],
+      "skillAnchors": [
+        "actionStatus` ist nicht `completed`",
+        "keine Mailbox-Mutation wird als erfolgt dargestellt",
+        "Bei unklarer Delegation nicht `delegated` setzen"
+      ]
+    }
+  ]
+}
