@@ -1,9 +1,0 @@
-{
-  "skill": "project-beta-readiness",
-  "evaluatedAt": "2026-08-02",
-  "results": [
-    {"case": "happy-path", "passed": true},
-    {"case": "edge-case", "passed": true},
-    {"case": "failure-case", "passed": true}
-  ]
-}
