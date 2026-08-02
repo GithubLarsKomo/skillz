@@ -10,7 +10,7 @@ import qualify_model_provider as qualifier
 from score_capability_interpretations import load_json
 
 REGISTRY_SCHEMA_VERSION = 1
-QUALIFICATION_SCHEMA_VERSION = 1
+QUALIFICATION_SCHEMA_VERSION = 2
 DEFAULT_REGISTRY = Path(__file__).resolve().parents[1] / "qualifications" / "index.json"
 DEFAULT_BENCHMARK = Path(__file__).resolve().parents[1] / "benchmarks" / "capability-interpretation-v1.json"
 DEFAULT_INDEX = Path(__file__).resolve().parents[1] / "docs" / "skill-capability-index.json"
@@ -55,6 +55,8 @@ def validate_qualification(artifact: object, entry: dict, benchmark: object, cap
         raise ValueError("qualification artifact root must be an object")
     if artifact.get("schemaVersion") != QUALIFICATION_SCHEMA_VERSION:
         raise ValueError("unsupported qualification artifact schemaVersion")
+    if not isinstance(artifact.get("providerConfigSha256"), str) or len(artifact["providerConfigSha256"]) != 64:
+        raise ValueError("qualification artifact providerConfigSha256 is missing or malformed")
     if artifact.get("qualified") is not True:
         raise ValueError("qualification artifact is not qualified")
     if artifact.get("providerId") != entry["providerId"]:
