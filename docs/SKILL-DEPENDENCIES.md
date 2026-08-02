@@ -31,6 +31,7 @@ graph TD
   merge_conflict_resolution --> disciplined_diagnosis
   merge_conflict_resolution --> test_driven_vertical_slice
   merge_conflict_resolution --> two_axis_code_review
+  project_beta_readiness --> iterate_software_projects
   spec_to_vertical_issues --> conversation_to_spec
   test_driven_vertical_slice --> disciplined_diagnosis
   test_driven_vertical_slice --> spec_to_vertical_issues
@@ -57,6 +58,9 @@ graph TD
 | `approved SPEC.md` | `round-based-requirements-grilling` | — | orphan |
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
+| `beta-readiness.json` | `project-beta-readiness` | — | orphan |
+| `beta-readiness.md` | `project-beta-readiness` | — | orphan |
+| `beta-runbook.md` | `project-beta-readiness` | — | orphan |
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | orphan |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | unique |
 | `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | unique |
@@ -80,7 +84,7 @@ graph TD
 | `import verification` | `openasr-offline-model-import` | — | orphan |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
-| `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis` | unique |
+| `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
 | `prototype-brief.md` | `throwaway-prototype` | `decision-record` | unique |
@@ -90,13 +94,14 @@ graph TD
 | `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
 | `residual-risk-handoff.json` | `disciplined-diagnosis`, `implement-from-issue`, `merge-conflict-resolution`, `test-driven-vertical-slice` | — | ambiguous |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | orphan |
-| `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis` | unique |
+| `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
 | `synchronization manifest` | `central-skill-repository-curation` | — | orphan |
+| `ui-prototype-plan.md` | `project-beta-readiness` | — | orphan |
 | `updated skill repository` | `central-skill-repository-curation` | — | orphan |
-| `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis` | unique |
+| `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `verification-report.md` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | unique |
 | `verified terminal status` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | unique |
 | `verified-fix-evidence.md` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | unique |
