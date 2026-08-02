@@ -60,6 +60,10 @@ jobs:
         run: python -m unittest tests.test_qualification_registry
       - name: Verify provider qualification registry
         run: python scripts/qualification_registry.py verify
+      - name: Test provider config registry
+        run: python -m unittest tests.test_provider_config_registry
+      - name: Verify provider config registry
+        run: python scripts/provider_config_registry.py verify
       - name: Test capability pipeline end to end
         run: python -m unittest tests.test_capability_pipeline_e2e
       - name: Test capability pipeline CLI
