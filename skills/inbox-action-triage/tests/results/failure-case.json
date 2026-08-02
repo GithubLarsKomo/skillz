@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "inbox-action-triage",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject hierarchy-only urgency", "passed": true, "evidence": "The skill requires concrete deadline, risk, or blocking evidence and rejects sender hierarchy as sufficient urgency evidence."},
+    {"behavior": "reject unverified delegated or completed status", "passed": true, "evidence": "Delegated requires evidence of actual transfer and completed status requires externally verified execution."},
+    {"behavior": "restore mailbox mutations to pending suggestions unless externally verified", "passed": true, "evidence": "Archive, reply, forward, and related mailbox actions remain pending suggestions until confirmed by an external tool or user."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "present planned archive or reply actions as completed", "observed": false, "evidence": "The action-status invariant blocks completed state without external evidence."},
+    {"behavior": "mark delegation without evidence", "observed": false, "evidence": "Unclear delegation must not be classified as delegated."}
+  ],
+  "overall": "pass"
+}
