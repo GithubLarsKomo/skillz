@@ -1,0 +1,14 @@
+{
+  "skill": "project-beta-readiness",
+  "caseId": "edge-case",
+  "requiredBehaviors": [
+    {"behavior": "prefer newer executable and merged evidence over stale roadmap text", "passed": true, "evidence": "The Aktualität section orders conflicting evidence with executable current code/CI and merged PR evidence ahead of roadmap and README text."},
+    {"behavior": "identify the interaction uncertainty separately from implementation completeness", "passed": true, "evidence": "The UI prototype decision is a separate step from scoring implementation and calls out interaction uncertainty as its own beta-path risk."},
+    {"behavior": "recommend a focused UI prototype only when it tests a concrete beta-path interaction hypothesis", "passed": true, "evidence": "The UI-Prototypbedarf section requires a beta-path interaction uncertainty and says the output is a hypothesis-and-test plan delegated to throwaway-prototype."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "blindly copy stale roadmap completion state", "observed": false, "evidence": "The skill explicitly instructs reviewers to mark stale roadmap entries when newer merged evidence supersedes them."},
+    {"behavior": "recommend a polished production UI as a prototype", "observed": false, "evidence": "The skill explicitly says ui-prototype-plan.md is a hypothesis and test guide, not a production implementation."}
+  ],
+  "overall": "pass"
+}
