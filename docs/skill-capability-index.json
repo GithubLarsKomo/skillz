@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 27,
-  "evaluationSuiteCount": 23,
+  "skillCount": 28,
+  "evaluationSuiteCount": 24,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -970,6 +970,41 @@
           "ambiguous": false,
           "producers": [
             "project-beta-readiness"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "project-status-brief",
+      "description": "Verdichtet bereits erhobene Repository- und Projekt-Evidenz zu einem zeitpunktbezogenen Statusbrief mit Fortschritt, Blockern, Risiken, Entscheidungen und nächsten ausführbaren Schritten. Verwenden, wenn Projektzustand belastbar an Reviews, Meetings oder weitere Skills übergeben werden soll, ohne GitHub-, GitLab-, Jira-, CI- oder Deployment-Logik zu duplizieren.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "project-status.json",
+        "project-status.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "project-status.json",
+          "ambiguous": false,
+          "producers": [
+            "project-status-brief"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "project-status.md",
+          "ambiguous": false,
+          "producers": [
+            "project-status-brief"
           ],
           "consumerSkills": []
         }

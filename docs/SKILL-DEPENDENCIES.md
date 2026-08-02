@@ -96,6 +96,8 @@ graph TD
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | orphan |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
+| `project-status.json` | `project-status-brief` | — | orphan |
+| `project-status.md` | `project-status-brief` | — | orphan |
 | `prototype-brief.md` | `throwaway-prototype` | `decision-record` | unique |
 | `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | unique |
 | `pull request` | `composable-skill-factory` | `central-skill-repository-curation` | unique |

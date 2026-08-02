@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "project-status-brief",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a project status brief from current PR, issue, CI, milestone and deployment evidence. CI is green, one review is still pending, deployment has not occurred, and two concrete next actions are known.",
+      "requiredBehaviors": [
+        "separate observed repository states from inferred project health",
+        "preserve source and as-of information for material status claims",
+        "keep deployment pending and produce concrete next actions"
+      ],
+      "forbiddenBehaviors": [
+        "claim the project was deployed or merged without external confirmation",
+        "equate green CI with unconditional release readiness"
+      ],
+      "skillAnchors": [
+        "Beobachtung und Interpretation trennen",
+        "Provenance und Aktualität erhalten",
+        "Externe Aktionen niemals erfinden"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Build a status brief where CI evidence is current but roadmap data is stale, deployment status is unknown, and two sources disagree about whether a blocker is resolved.",
+      "requiredBehaviors": [
+        "mark stale and unknown inputs explicitly",
+        "preserve the blocker disagreement under contradictions",
+        "lower confidence rather than inventing a resolved state"
+      ],
+      "forbiddenBehaviors": [
+        "silently choose one contradictory source",
+        "treat missing deployment evidence as successful deployment"
+      ],
+      "skillAnchors": [
+        "Widersprüche markieren",
+        "Fehlende Daten bedeuten `unknown`",
+        "contradictions"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft status says healthy and release-ready because CI is green, says the PR was merged although it is only mergeable, and says there are no blockers even though project evidence is incomplete.",
+      "requiredBehaviors": [
+        "reject the invented merged state",
+        "reject health inference based on a single green CI signal",
+        "represent incomplete project evidence as data gaps"
+      ],
+      "forbiddenBehaviors": [
+        "convert mergeable into merged",
+        "convert missing blocker evidence into no blockers"
+      ],
+      "skillAnchors": [
+        "Health nicht aus Einzelindikatoren ableiten",
+        "dataGaps",
+        "`executionState` nicht `done`"
+      ]
+    }
+  ]
+}
