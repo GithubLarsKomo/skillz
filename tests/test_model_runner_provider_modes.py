@@ -51,7 +51,8 @@ class ModelRunnerProviderModeTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "accepted")
         self.assertEqual(result["provider"]["kind"], "openai-compatible")
-        self.assertEqual(result["proposal"], self.proposal)
+        expected = dict(self.proposal, model=self.config["modelId"])
+        self.assertEqual(result["proposal"], expected)
 
     def test_stale_qualification_rejected_before_transport(self):
         called = False
