@@ -49,8 +49,7 @@ def parse_fixture(fixture: dict) -> tuple[str, dict]:
 
 
 def find_benchmark_case(benchmark: dict, case_id: str) -> dict:
-    cases = validate_benchmark(benchmark)
-    for case in cases:
+    for case in validate_benchmark(benchmark):
         if case["id"] == case_id:
             return case
     raise ValueError(f"unknown benchmark case id: {case_id}")
@@ -128,14 +127,44 @@ def resolve_qualification(config: dict, direct_qualification: dict | None, regis
     return registry.lookup(registry_path, config["providerId"], config["modelId"], benchmark, capability_index)
 
 
+def resolve_registry_pair(provider_registry: Path, qualification_registry: Path, provider_id: str, model_id: str, benchmark: dict, capability_index: dict) -> tuple[dict, dict]:
+    import provider_config_registry
+    return provider_config_registry.resolve_pair(
+        provider_registry,
+        qualification_registry,
+        provider_id,
+        model_id,
+        benchmark,
+        capability_index,
+    )
+
+
+def validate_registry_pair_args(args) -> bool:
+    pair_mode = args.provider_registry is not None or args.provider_id is not None or args.model_id is not None
+    if not pair_mode:
+        return False
+    if args.provider_mode != "openai-compatible":
+        raise ValueError("registry-pair mode requires --provider-mode openai-compatible")
+    if args.provider_input is not None or args.qualification is not None:
+        raise ValueError("registry-pair mode is mutually exclusive with provider input and direct qualification")
+    if args.provider_registry is None or args.qualification_registry is None or not args.provider_id or not args.model_id:
+        raise ValueError("registry-pair mode requires --provider-registry, --qualification-registry, --provider-id, and --model-id")
+    if args.benchmark is None or args.capability_index is None:
+        raise ValueError("registry-pair mode requires --benchmark and --capability-index")
+    return True
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run one capability interpretation through an explicit provider adapter.")
     parser.add_argument("request", help="Interpretation request JSON file or '-' for stdin")
-    parser.add_argument("provider_input", help="Fixture JSON or provider-config JSON file")
+    parser.add_argument("provider_input", nargs="?", help="Fixture JSON or provider-config JSON file")
     parser.add_argument("--provider-mode", choices=("fixture", "openai-compatible"), default="fixture")
     qualification_group = parser.add_mutually_exclusive_group()
     qualification_group.add_argument("--qualification", type=Path)
     qualification_group.add_argument("--qualification-registry", type=Path)
+    parser.add_argument("--provider-registry", type=Path)
+    parser.add_argument("--provider-id")
+    parser.add_argument("--model-id")
     parser.add_argument("--benchmark", type=Path)
     parser.add_argument("--capability-index", type=Path)
     parser.add_argument("--case-id")
@@ -144,29 +173,32 @@ def main(argv: list[str] | None = None) -> int:
         print("ERROR: request and provider input cannot both read from stdin", file=sys.stderr)
         return 2
     try:
-        validate_mode_args(
-            args.provider_mode,
-            args.qualification,
-            args.benchmark,
-            args.capability_index,
-            args.qualification_registry,
-        )
+        pair_mode = validate_registry_pair_args(args)
         request = read_json(args.request, "interpretation request")
-        provider_input = read_json(args.provider_input, "provider input")
         benchmark = load_benchmark_json(args.benchmark) if args.benchmark else None
-        if args.provider_mode == "fixture":
-            result = run(request, provider_input, benchmark, args.case_id)
-        else:
+        if pair_mode:
             capability_index = read_json(str(args.capability_index), "capability index")
-            direct_qualification = read_json(str(args.qualification), "qualification") if args.qualification else None
-            qualification = resolve_qualification(
-                provider_input,
-                direct_qualification,
+            config, qualification = resolve_registry_pair(
+                args.provider_registry,
                 args.qualification_registry,
+                args.provider_id,
+                args.model_id,
                 benchmark,
                 capability_index,
             )
-            result = run_openai_compatible(request, provider_input, qualification, benchmark, capability_index, case_id=args.case_id)
+            result = run_openai_compatible(request, config, qualification, benchmark, capability_index, case_id=args.case_id)
+        else:
+            if args.provider_input is None:
+                raise ValueError("provider input is required outside registry-pair mode")
+            validate_mode_args(args.provider_mode, args.qualification, args.benchmark, args.capability_index, args.qualification_registry)
+            provider_input = read_json(args.provider_input, "provider input")
+            if args.provider_mode == "fixture":
+                result = run(request, provider_input, benchmark, args.case_id)
+            else:
+                capability_index = read_json(str(args.capability_index), "capability index")
+                direct_qualification = read_json(str(args.qualification), "qualification") if args.qualification else None
+                qualification = resolve_qualification(provider_input, direct_qualification, args.qualification_registry, benchmark, capability_index)
+                result = run_openai_compatible(request, provider_input, qualification, benchmark, capability_index, case_id=args.case_id)
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
