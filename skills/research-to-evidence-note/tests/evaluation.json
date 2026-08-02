@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "skill": "research-to-evidence-note",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Synthesize a bounded research question from several current primary and strong-secondary sources into a citation-ready evidence note for a downstream decision.",
+      "requiredBehaviors": [
+        "separate atomic claims from sources and synthesis",
+        "classify source quality and freshness relative to the question",
+        "assign claim confidence from evidence quality and conflict state",
+        "produce decision-relevant open questions only"
+      ],
+      "forbiddenBehaviors": [
+        "copy long source passages instead of synthesizing claims",
+        "present recommendations or inference as direct fact"
+      ],
+      "skillAnchors": [
+        "Behandle jede belastbare Aussage als Claim",
+        "Quellenqualität",
+        "Confidence ist eine Eigenschaft des Claims"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two high-quality sources disagree because they use different definitions or dates. Preserve the disagreement and determine what evidence would resolve it.",
+      "requiredBehaviors": [
+        "keep contradictory evidence visible",
+        "test whether definition or timing explains the conflict",
+        "lower or qualify confidence when the conflict remains unresolved",
+        "identify a concrete missing observation that could resolve the conflict"
+      ],
+      "forbiddenBehaviors": [
+        "average incompatible claims into a false consensus",
+        "discard one source only because it is inconvenient"
+      ],
+      "skillAnchors": [
+        "Widersprüche sichtbar halten",
+        "Bei Quellenkonflikten mit ähnlicher Evidenzstärke bleibt der Konflikt offen",
+        "was zur Auflösung noch fehlt"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft note hides a contradictory primary source, promotes an old community claim to high confidence, and states an unsupported interpretation as a fact.",
+      "requiredBehaviors": [
+        "reject the unsupported fact claim",
+        "restore the contradictory source to the evidence record",
+        "downgrade confidence based on weak or stale evidence",
+        "separate the interpretation from direct evidence"
+      ],
+      "forbiddenBehaviors": [
+        "keep high confidence without current supporting evidence",
+        "hide the contradiction from the summary"
+      ],
+      "skillAnchors": [
+        "Fehlende Evidenz nicht durch plausible Annahmen ersetzen",
+        "keine Empfehlung wird als Fakt dargestellt",
+        "Bei veralteten Quellen"
+      ]
+    }
+  ]
+}
