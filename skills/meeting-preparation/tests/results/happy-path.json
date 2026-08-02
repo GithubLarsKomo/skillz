@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "meeting-preparation",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate confirmed meeting facts from objectives, decisions, open questions, risks, and preparation actions", "passed": true, "evidence": "The workflow fixes meeting facts first and models objectives, decisions, questions, risks, and actions as separate output sections."},
+    {"behavior": "preserve evidence-note claim provenance, confidence, and contradictions", "passed": true, "evidence": "Evidence focusing explicitly retains claim IDs, source references, confidence, and conflicts from research-to-evidence-note."},
+    {"behavior": "produce a concise immediately usable meeting brief without duplicating retrieval logic", "passed": true, "evidence": "The skill starts from confirmed connector/tool outputs and ends in a 30-second brief plus focused preparation rather than implementing retrieval."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent participant motives or unverified authority", "observed": false, "evidence": "Participant context is limited to verified meeting-relevant roles and responsibilities."},
+    {"behavior": "claim calendar, contact, or document actions were executed", "observed": false, "evidence": "Connector work remains out of scope and pending preparation actions cannot be represented as completed."}
+  ],
+  "overall": "pass"
+}

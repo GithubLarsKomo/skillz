@@ -137,6 +137,16 @@
       ]
     },
     {
+      "name": "meeting-preparation",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "meeting-prep.json",
+        "meeting-prep.md"
+      ]
+    },
+    {
       "name": "merge-conflict-resolution",
       "requires": [
         "agent-handoff",
@@ -345,6 +355,10 @@
     {
       "from": "large-work-wayfinder",
       "to": "spec-to-vertical-issues"
+    },
+    {
+      "from": "meeting-preparation",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "merge-conflict-resolution",
@@ -693,7 +707,9 @@
       "producers": [
         "research-to-evidence-note"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "meeting-preparation"
+      ],
       "ambiguous": false
     },
     {
@@ -701,7 +717,9 @@
       "producers": [
         "research-to-evidence-note"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "meeting-preparation"
+      ],
       "ambiguous": false
     },
     {
@@ -755,6 +773,22 @@
         "decision-record",
         "throwaway-prototype"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "meeting-prep.json",
+      "producers": [
+        "meeting-preparation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "meeting-prep.md",
+      "producers": [
+        "meeting-preparation"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -1056,12 +1090,12 @@
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
-    "evidence-note.json",
-    "evidence-note.md",
     "execution plan",
     "expert handoff",
     "import verification",
     "installed OpenASR model",
+    "meeting-prep.json",
+    "meeting-prep.md",
     "progress summary",
     "resolved-change-brief.md",
     "synchronization manifest",
