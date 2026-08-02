@@ -1,0 +1,15 @@
+{
+  "skill": "project-beta-readiness",
+  "caseId": "failure-case",
+  "requiredBehaviors": [
+    {"behavior": "refuse to declare beta reached", "passed": true, "evidence": "The hard-blocker and error-handling sections forbid a definitive beta declaration when current CI or the central user path is unverifiable or unsafe."},
+    {"behavior": "treat unverifiable current CI and possible core-path data loss as blockers", "passed": true, "evidence": "The hard beta blocker list names unknown current CI without replacement evidence and possible data loss in an expected core path as blockers."},
+    {"behavior": "mark missing evidence as missing rather than successful", "passed": true, "evidence": "The skill states that missing evidence is never counted as success and points are awarded only for evidenced capabilities."},
+    {"behavior": "return at most three prioritized next actions", "passed": true, "evidence": "The output contract limits nextActions to at most three steps and the not-beta branch requires a prioritized gap with at most three vertical next steps."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "infer beta readiness from documentation volume", "observed": false, "evidence": "The Beta-Gate explicitly says documentation must not outweigh merged and verified implementation evidence."},
+    {"behavior": "use an older green test to override newer unknown evidence", "observed": false, "evidence": "The verification rule explicitly states that an older green test cannot compensate for a newer red or unknown relevant state."}
+  ],
+  "overall": "pass"
+}
