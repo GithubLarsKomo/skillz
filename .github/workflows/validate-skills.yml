@@ -46,6 +46,10 @@ jobs:
         run: python -m unittest tests.test_run_model_interpretation
       - name: Test offline model capability pipeline
         run: python -m unittest tests.test_run_model_capability_pipeline
+      - name: Test provider qualification gate
+        run: python -m unittest tests.test_qualify_model_provider
+      - name: Qualify committed benchmark baseline
+        run: python scripts/qualify_model_provider.py fixture fixture-model benchmarks/capability-interpretation-v1.json benchmarks/capability-interpretation-baseline-v1.json docs/skill-capability-index.json
       - name: Test capability pipeline end to end
         run: python -m unittest tests.test_capability_pipeline_e2e
       - name: Test capability pipeline CLI
