@@ -160,6 +160,18 @@
       ]
     },
     {
+      "name": "project-beta-readiness",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "outputs": [
+        "beta-readiness.json",
+        "beta-readiness.md",
+        "beta-runbook.md",
+        "ui-prototype-plan.md"
+      ]
+    },
+    {
       "name": "repository-skill-bootstrap",
       "requires": [],
       "outputs": [
@@ -347,6 +359,10 @@
       "to": "two-axis-code-review"
     },
     {
+      "from": "project-beta-readiness",
+      "to": "iterate-software-projects"
+    },
+    {
       "from": "spec-to-vertical-issues",
       "to": "conversation-to-spec"
     },
@@ -472,6 +488,30 @@
         "large-work-wayfinder",
         "two-axis-code-review"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "beta-readiness.json",
+      "producers": [
+        "project-beta-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "beta-readiness.md",
+      "producers": [
+        "project-beta-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "beta-runbook.md",
+      "producers": [
+        "project-beta-readiness"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -701,7 +741,8 @@
       "consumerSkills": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis"
+        "disciplined-diagnosis",
+        "project-beta-readiness"
       ],
       "ambiguous": false
     },
@@ -806,7 +847,8 @@
       "consumerSkills": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis"
+        "disciplined-diagnosis",
+        "project-beta-readiness"
       ],
       "ambiguous": false
     },
@@ -851,6 +893,14 @@
       "ambiguous": false
     },
     {
+      "output": "ui-prototype-plan.md",
+      "producers": [
+        "project-beta-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "updated skill repository",
       "producers": [
         "central-skill-repository-curation"
@@ -866,7 +916,8 @@
       "consumerSkills": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis"
+        "disciplined-diagnosis",
+        "project-beta-readiness"
       ],
       "ambiguous": false
     },
@@ -971,6 +1022,9 @@
   "orphanOutputs": [
     "GRILL-REPORT.md",
     "approved SPEC.md",
+    "beta-readiness.json",
+    "beta-readiness.md",
+    "beta-runbook.md",
     "conflict-resolution-evidence.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
@@ -985,6 +1039,7 @@
     "progress summary",
     "resolved-change-brief.md",
     "synchronization manifest",
+    "ui-prototype-plan.md",
     "updated skill repository"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "skillCount": 21,
-  "evaluationSuiteCount": 18,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "skillCount": 22,
+  "evaluationSuiteCount": 19,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 3,
   "skills": [
     {
       "name": "agent-handoff",
@@ -560,7 +560,8 @@
       "dependents": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis"
+        "disciplined-diagnosis",
+        "project-beta-readiness"
       ],
       "outputs": [
         "next increment",
@@ -577,7 +578,8 @@
           "consumerSkills": [
             "agent-handoff",
             "architecture-deepening-review",
-            "disciplined-diagnosis"
+            "disciplined-diagnosis",
+            "project-beta-readiness"
           ]
         },
         {
@@ -589,7 +591,8 @@
           "consumerSkills": [
             "agent-handoff",
             "architecture-deepening-review",
-            "disciplined-diagnosis"
+            "disciplined-diagnosis",
+            "project-beta-readiness"
           ]
         },
         {
@@ -601,7 +604,8 @@
           "consumerSkills": [
             "agent-handoff",
             "architecture-deepening-review",
-            "disciplined-diagnosis"
+            "disciplined-diagnosis",
+            "project-beta-readiness"
           ]
         }
       ],
@@ -762,6 +766,61 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "project-beta-readiness",
+      "description": "Bewertet genau ein Softwareprojekt evidenzbasiert auf den Weg zur ersten nutzbaren Beta, quantifiziert den Reifegrad, benennt Beta-Blocker und erzeugt bei erreichter Beta einen Betriebsleitfaden beziehungsweise bei ungeklärter Bedienbarkeit eine gezielte UI-Prototyp-Empfehlung. Verwenden, wenn ein einzelnes Repository anhand von Commits, PRs, Issues, CI/Actions, Tests, Roadmap und ausführbaren Nutzerpfaden auf Beta-Reife geprüft werden soll; für Portfolios den Skill pro Projekt wiederholt ausführen und Ergebnisse erst danach aggregieren.",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "dependents": [],
+      "outputs": [
+        "beta-readiness.json",
+        "beta-readiness.md",
+        "beta-runbook.md",
+        "ui-prototype-plan.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "beta-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "project-beta-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "beta-readiness.md",
+          "ambiguous": false,
+          "producers": [
+            "project-beta-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "beta-runbook.md",
+          "ambiguous": false,
+          "producers": [
+            "project-beta-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ui-prototype-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "project-beta-readiness"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
       }
     },
     {
