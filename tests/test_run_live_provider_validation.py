@@ -37,7 +37,7 @@ class LiveProviderValidationTests(unittest.TestCase):
         }
         return json.dumps(response).encode("utf-8")
 
-    def run(self, mode="qualify", case_id=None, transport=None, environ=None):
+    def run_live_case(self, mode="qualify", case_id=None, transport=None, environ=None):
         return live.run_live(
             mode,
             "live-test-provider",
@@ -49,11 +49,11 @@ class LiveProviderValidationTests(unittest.TestCase):
             api_key_env="TEST_PROVIDER_KEY",
             timeout_seconds=30,
             transport=transport or self.transport,
-            environ=environ or {"TEST_PROVIDER_KEY": "top-secret-token"},
+            environ={"TEST_PROVIDER_KEY": "top-secret-token"} if environ is None else environ,
         )
 
     def test_full_baseline_qualifies(self):
-        summary, qualification = self.run()
+        summary, qualification = self.run_live_case()
         self.assertEqual(summary["status"], "qualified")
         self.assertTrue(summary["qualified"])
         self.assertEqual(summary["caseCount"], 5)
@@ -62,7 +62,7 @@ class LiveProviderValidationTests(unittest.TestCase):
         self.assertTrue(qualification["qualified"])
 
     def test_smoke_only_runs_one_case_without_qualification(self):
-        summary, qualification = self.run("smoke-only", "exact-review-output")
+        summary, qualification = self.run_live_case("smoke-only", "exact-review-output")
         self.assertEqual(summary["status"], "passed")
         self.assertIsNone(summary["qualified"])
         self.assertEqual(summary["completedCaseIds"], ["exact-review-output"])
@@ -72,14 +72,14 @@ class LiveProviderValidationTests(unittest.TestCase):
         def broken_transport(endpoint, body, headers, timeout):
             raise ValueError("provider HTTP error: 503")
 
-        summary, qualification = self.run(transport=broken_transport)
+        summary, qualification = self.run_live_case(transport=broken_transport)
         self.assertEqual(summary["status"], "failed")
         self.assertEqual(summary["failedStage"], "provider-collection")
         self.assertIn("503", summary["error"])
         self.assertIsNone(qualification)
 
     def test_missing_secret_fails_without_exposing_secret_name_value(self):
-        summary, qualification = self.run(environ={})
+        summary, qualification = self.run_live_case(environ={})
         self.assertEqual(summary["failedStage"], "provider-collection")
         rendered = live.canonical_json(summary)
         self.assertNotIn("top-secret-token", rendered)
@@ -87,7 +87,7 @@ class LiveProviderValidationTests(unittest.TestCase):
         self.assertIsNone(qualification)
 
     def test_summary_never_contains_response_or_secret(self):
-        summary, _ = self.run()
+        summary, _ = self.run_live_case()
         rendered = live.canonical_json(summary)
         self.assertNotIn("top-secret-token", rendered)
         self.assertNotIn("choices", rendered)
@@ -95,8 +95,8 @@ class LiveProviderValidationTests(unittest.TestCase):
         self.assertNotIn("proposal", rendered)
 
     def test_repeated_summary_is_byte_stable(self):
-        first = live.canonical_json(self.run()[0])
-        second = live.canonical_json(self.run()[0])
+        first = live.canonical_json(self.run_live_case()[0])
+        second = live.canonical_json(self.run_live_case()[0])
         self.assertEqual(first, second)
 
 
