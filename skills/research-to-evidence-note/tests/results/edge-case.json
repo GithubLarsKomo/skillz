@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "research-to-evidence-note",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "keep contradictory evidence visible", "passed": true, "evidence": "The workflow requires contradictory sources to remain explicit in claim contradictions and the conflicts section."},
+    {"behavior": "test whether definition or timing explains the conflict", "passed": true, "evidence": "Conflict handling explicitly checks different definitions, dates or populations before drawing a conclusion."},
+    {"behavior": "lower or qualify confidence when the conflict remains unresolved", "passed": true, "evidence": "Unresolved source conflict is an explicit reason not to assign high confidence."},
+    {"behavior": "identify a concrete missing observation that could resolve the conflict", "passed": true, "evidence": "The workflow requires recording what evidence is missing to resolve a conflict and limits open questions to decision-relevant gaps."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "average incompatible claims into a false consensus", "observed": false, "evidence": "The skill explicitly forbids averaging contradictory evidence into an artificial consensus."},
+    {"behavior": "discard one source only because it is inconvenient", "observed": false, "evidence": "Conflict resolution is based on relevance, timing, definitions and evidence strength rather than convenience."}
+  ],
+  "overall": "pass"
+}
