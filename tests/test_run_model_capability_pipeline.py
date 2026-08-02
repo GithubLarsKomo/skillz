@@ -13,13 +13,13 @@ import run_model_capability_pipeline as pipeline
 
 
 class ModelCapabilityPipelineTests(unittest.TestCase):
-    def proposal(self, output: str = "review-decision.md") -> dict:
+    def proposal(self, output: str = "review-decision.md", dependencies: list[str] | None = None) -> dict:
         return {
             "schemaVersion": 1,
             "intent": {
                 "schemaVersion": 1,
                 "desiredOutputs": [output],
-                "requiredDependencies": [],
+                "requiredDependencies": dependencies or [],
                 "allowedEvaluationModes": [],
                 "portableFiles": "irrelevant",
             },
@@ -80,10 +80,14 @@ class ModelCapabilityPipelineTests(unittest.TestCase):
         self.assertIsNone(result["admission"])
         self.assertIsNone(result["resolverOutput"])
 
-    def test_valid_unknown_output_resolves_to_zero_candidates(self):
+    def test_valid_conflicting_constraints_resolve_to_zero_candidates(self):
+        proposal = self.proposal(
+            "review-decision.md",
+            dependencies=["central-skill-repository-curation"],
+        )
         result = pipeline.run(
-            "Use a capability that does not exist.",
-            self.fixture("definitely-unknown-output.xyz"),
+            "Require a review decision from a capability that also depends on central repository curation.",
+            self.fixture(response=proposal),
             self.review(),
             pipeline.DEFAULT_INDEX,
         )
