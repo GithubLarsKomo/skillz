@@ -37,8 +37,8 @@
       ],
       "skillAnchors": [
         "Wenn die notwendige Beobachtung nicht legal, sicher oder technisch möglich ist",
-        "missing capabilities werden als Blocker dokumentiert",
-        "confirmed, rejected oder open",
+        "Fehlende Fähigkeiten werden als Blocker dokumentiert",
+        "Status `confirmed`, `rejected` oder `open`",
         "unknown"
       ]
     },
