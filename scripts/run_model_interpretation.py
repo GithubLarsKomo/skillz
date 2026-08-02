@@ -106,13 +106,26 @@ def run_openai_compatible(request: dict, config: dict, qualification: dict, benc
         return _result(request, "openai-compatible", provider_id, proposal, str(exc), finding)
 
 
-def validate_mode_args(mode: str, qualification, benchmark, capability_index) -> None:
+def validate_mode_args(mode: str, qualification, benchmark, capability_index, qualification_registry=None) -> None:
     if mode == "fixture":
-        if qualification is not None or capability_index is not None:
-            raise ValueError("fixture mode does not accept qualification or capability-index arguments")
+        if qualification is not None or qualification_registry is not None or capability_index is not None:
+            raise ValueError("fixture mode does not accept qualification, qualification-registry, or capability-index arguments")
         return
-    if qualification is None or benchmark is None or capability_index is None:
-        raise ValueError("openai-compatible mode requires --qualification, --benchmark, and --capability-index")
+    if benchmark is None or capability_index is None:
+        raise ValueError("openai-compatible mode requires --benchmark and --capability-index")
+    if (qualification is None) == (qualification_registry is None):
+        raise ValueError("openai-compatible mode requires exactly one of --qualification or --qualification-registry")
+
+
+def resolve_qualification(config: dict, direct_qualification: dict | None, registry_path: Path | None, benchmark: dict, capability_index: dict) -> dict:
+    if direct_qualification is not None:
+        return direct_qualification
+    if registry_path is None:
+        raise ValueError("qualification source is required")
+    import openai_compatible_provider as provider
+    import qualification_registry as registry
+    config = provider.validate_config(config)
+    return registry.lookup(registry_path, config["providerId"], config["modelId"], benchmark, capability_index)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -120,7 +133,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("request", help="Interpretation request JSON file or '-' for stdin")
     parser.add_argument("provider_input", help="Fixture JSON or provider-config JSON file")
     parser.add_argument("--provider-mode", choices=("fixture", "openai-compatible"), default="fixture")
-    parser.add_argument("--qualification", type=Path)
+    qualification_group = parser.add_mutually_exclusive_group()
+    qualification_group.add_argument("--qualification", type=Path)
+    qualification_group.add_argument("--qualification-registry", type=Path)
     parser.add_argument("--benchmark", type=Path)
     parser.add_argument("--capability-index", type=Path)
     parser.add_argument("--case-id")
@@ -129,15 +144,28 @@ def main(argv: list[str] | None = None) -> int:
         print("ERROR: request and provider input cannot both read from stdin", file=sys.stderr)
         return 2
     try:
-        validate_mode_args(args.provider_mode, args.qualification, args.benchmark, args.capability_index)
+        validate_mode_args(
+            args.provider_mode,
+            args.qualification,
+            args.benchmark,
+            args.capability_index,
+            args.qualification_registry,
+        )
         request = read_json(args.request, "interpretation request")
         provider_input = read_json(args.provider_input, "provider input")
         benchmark = load_benchmark_json(args.benchmark) if args.benchmark else None
         if args.provider_mode == "fixture":
             result = run(request, provider_input, benchmark, args.case_id)
         else:
-            qualification = read_json(str(args.qualification), "qualification")
             capability_index = read_json(str(args.capability_index), "capability index")
+            direct_qualification = read_json(str(args.qualification), "qualification") if args.qualification else None
+            qualification = resolve_qualification(
+                provider_input,
+                direct_qualification,
+                args.qualification_registry,
+                benchmark,
+                capability_index,
+            )
             result = run_openai_compatible(request, provider_input, qualification, benchmark, capability_index, case_id=args.case_id)
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
