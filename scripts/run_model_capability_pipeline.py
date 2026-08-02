@@ -12,9 +12,11 @@ import build_model_interpretation_request as request_builder
 import compile_capability_intent as compiler
 import resolve_capabilities as resolver
 import run_model_interpretation as model_runner
+from score_capability_interpretations import load_json as load_benchmark_json
 
 SCHEMA_VERSION = 1
 DEFAULT_INDEX = Path(__file__).resolve().parents[1] / "docs" / "skill-capability-index.json"
+PROVIDER_MODES = ("fixture", "openai-compatible")
 
 
 def canonical_json(value: object) -> str:
@@ -45,7 +47,20 @@ def resolve_admitted_intent(intent: dict, index_path: Path) -> dict:
     return resolver.resolve(resolver.load_index(index_path), constraints)
 
 
-def run(source_text: str, fixture: dict, review: dict | None, index_path: Path = DEFAULT_INDEX) -> dict:
+def run(
+    source_text: str,
+    provider_input: dict,
+    review: dict | None,
+    index_path: Path = DEFAULT_INDEX,
+    *,
+    provider_mode: str = "fixture",
+    qualification: dict | None = None,
+    benchmark: dict | None = None,
+    transport=None,
+    environ=None,
+) -> dict:
+    if provider_mode not in PROVIDER_MODES:
+        return failed("provider-run", f"unsupported provider mode: {provider_mode}")
     try:
         index = request_builder.load_index(index_path)
         interpretation_request = request_builder.build_request(source_text, index)
@@ -53,9 +68,24 @@ def run(source_text: str, fixture: dict, review: dict | None, index_path: Path =
         return failed("request", str(exc))
 
     request_id = interpretation_request["requestId"]
-    model_run = model_runner.run(interpretation_request, fixture)
+    if provider_mode == "fixture":
+        if qualification is not None:
+            return failed("provider-run", "fixture mode does not accept qualification", request_id)
+        model_run = model_runner.run(interpretation_request, provider_input, benchmark)
+    else:
+        if qualification is None or benchmark is None:
+            return failed("provider-run", "openai-compatible mode requires qualification and benchmark", request_id)
+        model_run = model_runner.run_openai_compatible(
+            interpretation_request,
+            provider_input,
+            qualification,
+            benchmark,
+            index,
+            transport=transport,
+            environ=environ,
+        )
     if model_run["status"] != "accepted" or model_run["proposal"] is None:
-        return failed("model-run", model_run.get("validationError") or "model run rejected", request_id, model_run)
+        return failed("provider-run", model_run.get("validationError") or "provider run rejected", request_id, model_run)
 
     try:
         envelope = model_adapter.adapt(model_run["proposal"])
@@ -103,18 +133,41 @@ def read_text(path: str) -> str:
         raise ValueError(f"cannot read source text: {exc}") from exc
 
 
+def validate_cli_args(args) -> None:
+    if args.provider_mode == "fixture":
+        if args.qualification is not None:
+            raise ValueError("fixture mode does not accept --qualification")
+        return
+    if args.qualification is None or args.benchmark is None:
+        raise ValueError("openai-compatible mode requires --qualification and --benchmark")
+
+
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Run the complete offline model-to-capability pipeline with explicit review admission.")
+    parser = argparse.ArgumentParser(description="Run the complete model-to-capability pipeline with explicit provider mode and review admission.")
     parser.add_argument("source", help="Source text file or '-' for stdin")
-    parser.add_argument("fixture", help="Fixture provider JSON file")
+    parser.add_argument("provider_input", help="Fixture provider JSON or provider-config JSON file")
+    parser.add_argument("--provider-mode", choices=PROVIDER_MODES, default="fixture")
+    parser.add_argument("--qualification", type=Path)
+    parser.add_argument("--benchmark", type=Path)
     parser.add_argument("--review", help="Explicit capability-intent-review-v1 JSON file")
     parser.add_argument("--index", type=Path, default=DEFAULT_INDEX, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     try:
+        validate_cli_args(args)
         source_text = read_text(args.source)
-        fixture = read_json(args.fixture, "fixture provider")
+        provider_input = read_json(args.provider_input, "provider input")
         review = read_json(args.review, "review") if args.review else None
-        result = run(source_text, fixture, review, args.index)
+        qualification = read_json(str(args.qualification), "qualification") if args.qualification else None
+        benchmark = load_benchmark_json(args.benchmark) if args.benchmark else None
+        result = run(
+            source_text,
+            provider_input,
+            review,
+            args.index,
+            provider_mode=args.provider_mode,
+            qualification=qualification,
+            benchmark=benchmark,
+        )
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
