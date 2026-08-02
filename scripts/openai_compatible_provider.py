@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -16,6 +17,28 @@ from score_capability_interpretations import load_json
 
 CONFIG_SCHEMA_VERSION = 1
 QUALIFICATION_SCHEMA_VERSION = 2
+
+
+def validate_endpoint(endpoint: str) -> str:
+    try:
+        parsed = urllib.parse.urlsplit(endpoint)
+    except ValueError as exc:
+        raise ValueError(f"provider config endpoint is invalid: {exc}") from exc
+    if parsed.scheme not in {"http", "https"}:
+        raise ValueError("provider config endpoint must use http or https")
+    if not parsed.hostname:
+        raise ValueError("provider config endpoint must include a hostname")
+    if parsed.username is not None or parsed.password is not None:
+        raise ValueError("provider config endpoint must not contain URL credentials")
+    if parsed.query:
+        raise ValueError("provider config endpoint must not contain query parameters")
+    if parsed.fragment:
+        raise ValueError("provider config endpoint must not contain a fragment")
+    try:
+        parsed.port
+    except ValueError as exc:
+        raise ValueError(f"provider config endpoint has invalid port: {exc}") from exc
+    return endpoint
 
 
 def validate_config(config: object) -> dict:
@@ -31,8 +54,7 @@ def validate_config(config: object) -> dict:
         raise ValueError("provider config apiKeyEnv must be null or a non-empty string")
     if not isinstance(config["timeoutSeconds"], int) or isinstance(config["timeoutSeconds"], bool) or config["timeoutSeconds"] < 1:
         raise ValueError("provider config timeoutSeconds must be a positive integer")
-    if not config["endpoint"].startswith(("http://", "https://")):
-        raise ValueError("provider config endpoint must use http or https")
+    validate_endpoint(config["endpoint"])
     return config
 
 
