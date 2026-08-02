@@ -185,6 +185,17 @@
       ]
     },
     {
+      "name": "memory-sync-reconciliation",
+      "requires": [
+        "communication-memory-governance"
+      ],
+      "outputs": [
+        "communication-profile.merged.json",
+        "memory-ledger.merged.json",
+        "memory-reconciliation-plan.json"
+      ]
+    },
+    {
       "name": "merge-conflict-resolution",
       "requires": [
         "agent-handoff",
@@ -432,6 +443,10 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "memory-sync-reconciliation",
+      "to": "communication-memory-governance"
+    },
+    {
       "from": "merge-conflict-resolution",
       "to": "agent-handoff"
     },
@@ -611,6 +626,16 @@
       "output": "communication-profile.json",
       "producers": [
         "communication-memory-governance"
+      ],
+      "consumerSkills": [
+        "memory-sync-reconciliation"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "communication-profile.merged.json",
+      "producers": [
+        "memory-sync-reconciliation"
       ],
       "consumerSkills": [],
       "ambiguous": false
@@ -914,6 +939,24 @@
       "output": "memory-ledger.json",
       "producers": [
         "communication-memory-governance"
+      ],
+      "consumerSkills": [
+        "memory-sync-reconciliation"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "memory-ledger.merged.json",
+      "producers": [
+        "memory-sync-reconciliation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "memory-reconciliation-plan.json",
+      "producers": [
+        "memory-sync-reconciliation"
       ],
       "consumerSkills": [],
       "ambiguous": false
@@ -1274,7 +1317,7 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
-    "communication-profile.json",
+    "communication-profile.merged.json",
     "conflict-resolution-evidence.json",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
@@ -1288,7 +1331,8 @@
     "expert handoff",
     "import verification",
     "installed OpenASR model",
-    "memory-ledger.json",
+    "memory-ledger.merged.json",
+    "memory-reconciliation-plan.json",
     "opaque-analysis-evidence.md",
     "progress summary",
     "recovered-system-model.json",

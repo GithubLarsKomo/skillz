@@ -31,6 +31,7 @@ graph TD
   large_work_wayfinder --> disciplined_diagnosis
   large_work_wayfinder --> spec_to_vertical_issues
   meeting_preparation --> research_to_evidence_note
+  memory_sync_reconciliation --> communication_memory_governance
   merge_conflict_resolution --> agent_handoff
   merge_conflict_resolution --> deferred_external_action_verification
   merge_conflict_resolution --> disciplined_diagnosis
@@ -66,7 +67,8 @@ graph TD
 | `beta-readiness.json` | `project-beta-readiness` | — | orphan |
 | `beta-readiness.md` | `project-beta-readiness` | — | orphan |
 | `beta-runbook.md` | `project-beta-readiness` | — | orphan |
-| `communication-profile.json` | `communication-memory-governance` | — | orphan |
+| `communication-profile.json` | `communication-memory-governance` | `memory-sync-reconciliation` | unique |
+| `communication-profile.merged.json` | `memory-sync-reconciliation` | — | orphan |
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | orphan |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | unique |
 | `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | unique |
@@ -98,7 +100,9 @@ graph TD
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
 | `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
-| `memory-ledger.json` | `communication-memory-governance` | — | orphan |
+| `memory-ledger.json` | `communication-memory-governance` | `memory-sync-reconciliation` | unique |
+| `memory-ledger.merged.json` | `memory-sync-reconciliation` | — | orphan |
+| `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | orphan |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | orphan |

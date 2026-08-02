@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 30,
-  "evaluationSuiteCount": 27,
+  "skillCount": 31,
+  "evaluationSuiteCount": 28,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -170,7 +170,9 @@
       "name": "communication-memory-governance",
       "description": "Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Einträge getrennt von transientem Gesprächs-, Projekt- und Agentenzustand. Verwenden, wenn wiederkehrende User-Präferenzen, dauerhafte Fakten oder Korrekturen nachvollziehbar, scope-begrenzt und datenschutzsicher über Sitzungen hinweg verfügbar bleiben sollen, ohne Agent-Handoff, Decision Records oder Projektstatus zu duplizieren.",
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "memory-sync-reconciliation"
+      ],
       "outputs": [
         "communication-profile.json",
         "memory-ledger.json"
@@ -182,7 +184,9 @@
           "producers": [
             "communication-memory-governance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "memory-sync-reconciliation"
+          ]
         },
         {
           "output": "memory-ledger.json",
@@ -190,7 +194,9 @@
           "producers": [
             "communication-memory-governance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "memory-sync-reconciliation"
+          ]
         }
       ],
       "portableFiles": [],
@@ -871,6 +877,52 @@
           "consumerSkills": [
             "decision-and-follow-up-tracker"
           ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "memory-sync-reconciliation",
+      "description": "Gleicht mehrere bereits governance-konforme Kommunikationsprofile und Memory-Ledger deterministisch ab, propagiert Forget/Supersession/Expiry sicher und legt echte Konflikte zur Auflösung vor. Verwenden, wenn Memory-Stände aus unterschiedlichen Sitzungen, Clients oder Persistenzkanälen konvergieren sollen, ohne neue Memories zu erfinden.",
+      "requires": [
+        "communication-memory-governance"
+      ],
+      "dependents": [],
+      "outputs": [
+        "communication-profile.merged.json",
+        "memory-ledger.merged.json",
+        "memory-reconciliation-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "communication-profile.merged.json",
+          "ambiguous": false,
+          "producers": [
+            "memory-sync-reconciliation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "memory-ledger.merged.json",
+          "ambiguous": false,
+          "producers": [
+            "memory-sync-reconciliation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "memory-reconciliation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "memory-sync-reconciliation"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [],
