@@ -200,6 +200,14 @@
       ]
     },
     {
+      "name": "project-status-brief",
+      "requires": [],
+      "outputs": [
+        "project-status.json",
+        "project-status.md"
+      ]
+    },
+    {
       "name": "repository-skill-bootstrap",
       "requires": [],
       "outputs": [
@@ -867,6 +875,22 @@
       "ambiguous": false
     },
     {
+      "output": "project-status.json",
+      "producers": [
+        "project-status-brief"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "project-status.md",
+      "producers": [
+        "project-status-brief"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "prototype-brief.md",
       "producers": [
         "throwaway-prototype"
@@ -1155,6 +1179,8 @@
     "meeting-prep.json",
     "meeting-prep.md",
     "progress summary",
+    "project-status.json",
+    "project-status.md",
     "resolved-change-brief.md",
     "review-brief.json",
     "review-brief.md",
