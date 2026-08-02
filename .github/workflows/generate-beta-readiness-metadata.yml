@@ -5,27 +5,27 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Generate canonical repository metadata
         run: python scripts/generate_repository_metadata.py
-      - name: Upload generated metadata
-        uses: actions/upload-artifact@v4
-        with:
-          name: beta-readiness-generated-metadata
-          include-hidden-files: true
-          path: |
-            README.md
-            .skill-sync.json
-            docs/skill-dependency-graph.json
-            docs/SKILL-DEPENDENCIES.md
-            docs/skill-capability-index.json
-          if-no-files-found: error
+      - name: Commit generated metadata and remove helper workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md .skill-sync.json docs/skill-dependency-graph.json docs/SKILL-DEPENDENCIES.md docs/skill-capability-index.json
+          git rm .github/workflows/generate-beta-readiness-metadata.yml
+          git commit -m "chore: synchronize beta readiness skill metadata"
+          git push origin HEAD:${{ github.head_ref }}
