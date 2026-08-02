@@ -181,6 +181,14 @@
       ]
     },
     {
+      "name": "research-to-evidence-note",
+      "requires": [],
+      "outputs": [
+        "evidence-note.json",
+        "evidence-note.md"
+      ]
+    },
+    {
       "name": "round-based-requirements-grilling",
       "requires": [],
       "outputs": [
@@ -681,6 +689,22 @@
       "ambiguous": false
     },
     {
+      "output": "evidence-note.json",
+      "producers": [
+        "research-to-evidence-note"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "evidence-note.md",
+      "producers": [
+        "research-to-evidence-note"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "execution plan",
       "producers": [
         "synapse-orchestrator"
@@ -1032,6 +1056,8 @@
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
+    "evidence-note.json",
+    "evidence-note.md",
     "execution plan",
     "expert handoff",
     "import verification",

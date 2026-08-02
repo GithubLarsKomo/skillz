@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 22,
-  "evaluationSuiteCount": 19,
+  "skillCount": 23,
+  "evaluationSuiteCount": 20,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -862,6 +862,41 @@
       "portableFiles": [
         "scripts/bootstrap_repository_context.py"
       ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "research-to-evidence-note",
+      "description": "Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu einer zitierfähigen Evidenznotiz mit expliziter Quellenqualität, Aktualität, Widersprüchen, Unsicherheit und offenen Punkten. Verwenden, wenn Rechercheergebnisse belastbar an Meeting-Prep, Projektstatus, Dokumentproduktion oder Knowledge-Ingestion übergeben werden sollen, ohne Retrieval-, Connector- oder Drafting-Logik zu duplizieren.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "evidence-note.json",
+        "evidence-note.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "evidence-note.json",
+          "ambiguous": false,
+          "producers": [
+            "research-to-evidence-note"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "evidence-note.md",
+          "ambiguous": false,
+          "producers": [
+            "research-to-evidence-note"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,

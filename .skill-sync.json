@@ -86,6 +86,11 @@
         "scripts/bootstrap_repository_context.py": "c4804f576af6bcafea342c51cdeb4faf9825b60014938cad4ea8ad709f6cecee"
       }
     },
+    "research-to-evidence-note": {
+      "files": {
+        "SKILL.md": "d7bc76df1ada9eea29b75ab577fb363c09145fbaf7cfcfc92a655559692eefd4"
+      }
+    },
     "round-based-requirements-grilling": {
       "files": {
         "SKILL.md": "c2691a6884453bd1fa0f639f6c12194113e04f9cb42ddf239ba9c0e4e6b638ac"

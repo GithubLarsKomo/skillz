@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "research-to-evidence-note",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject the unsupported fact claim", "passed": true, "evidence": "The skill requires every direct or derived claim to reference evidence and treats unsupported interpretations as unknown/open rather than fact."},
+    {"behavior": "restore the contradictory source to the evidence record", "passed": true, "evidence": "Contradictory evidence must remain visible and cannot be silently removed from claim conflicts or the conflict section."},
+    {"behavior": "downgrade confidence based on weak or stale evidence", "passed": true, "evidence": "Weak, outdated or only contextual evidence maps to low confidence and cannot independently justify high confidence."},
+    {"behavior": "separate the interpretation from direct evidence", "passed": true, "evidence": "The basis field distinguishes direct, derived and unknown claims and requires a traceable evidence chain for derived claims."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "keep high confidence without current supporting evidence", "observed": false, "evidence": "High confidence requires current, directly relevant evidence with major conflicts resolved."},
+    {"behavior": "hide the contradiction from the summary", "observed": false, "evidence": "The pre-handoff checks require contradictory evidence to remain visible rather than being suppressed in synthesis."}
+  ],
+  "overall": "pass"
+}
