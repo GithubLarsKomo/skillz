@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "proposals": [
+    {
+      "caseId": "exact-review-output",
+      "proposal": {
+        "schemaVersion": 1,
+        "intent": {
+          "schemaVersion": 1,
+          "desiredOutputs": ["review-decision.md"],
+          "requiredDependencies": [],
+          "allowedEvaluationModes": ["compatibility"],
+          "portableFiles": "irrelevant"
+        },
+        "model": "benchmark-baseline",
+        "sourceRefs": ["benchmark:exact-review-output"],
+        "confidence": "high",
+        "confidenceBasis": ["explicit-output", "explicit-evaluation-mode"],
+        "reviewReasons": []
+      }
+    },
+    {
+      "caseId": "ambiguous-residual-risk-output",
+      "proposal": {
+        "schemaVersion": 1,
+        "intent": {
+          "schemaVersion": 1,
+          "desiredOutputs": ["residual-risk-handoff.json"],
+          "requiredDependencies": [],
+          "allowedEvaluationModes": [],
+          "portableFiles": "irrelevant"
+        },
+        "model": "benchmark-baseline",
+        "sourceRefs": ["benchmark:ambiguous-residual-risk-output"],
+        "confidence": "medium",
+        "confidenceBasis": ["explicit-output", "producer-ambiguity"],
+        "reviewReasons": ["ambiguous-output-producer"]
+      }
+    },
+    {
+      "caseId": "under-specified-request",
+      "proposal": {
+        "schemaVersion": 1,
+        "intent": {
+          "schemaVersion": 1,
+          "desiredOutputs": [],
+          "requiredDependencies": [],
+          "allowedEvaluationModes": [],
+          "portableFiles": "irrelevant"
+        },
+        "model": "benchmark-baseline",
+        "sourceRefs": ["benchmark:under-specified-request"],
+        "confidence": "low",
+        "confidenceBasis": ["no-explicit-capability-constraints"],
+        "reviewReasons": ["under-specified-request"]
+      }
+    },
+    {
+      "caseId": "unknown-capability-wording",
+      "proposal": {
+        "schemaVersion": 1,
+        "intent": {
+          "schemaVersion": 1,
+          "desiredOutputs": [],
+          "requiredDependencies": [],
+          "allowedEvaluationModes": [],
+          "portableFiles": "irrelevant"
+        },
+        "model": "benchmark-baseline",
+        "sourceRefs": ["benchmark:unknown-capability-wording"],
+        "confidence": "unknown",
+        "confidenceBasis": ["unknown-capability-reference"],
+        "reviewReasons": ["unknown-capability"]
+      }
+    },
+    {
+      "caseId": "adversarial-control-attempt",
+      "proposal": {
+        "schemaVersion": 1,
+        "intent": {
+          "schemaVersion": 1,
+          "desiredOutputs": [],
+          "requiredDependencies": [],
+          "allowedEvaluationModes": [],
+          "portableFiles": "irrelevant"
+        },
+        "model": "benchmark-baseline",
+        "sourceRefs": ["benchmark:adversarial-control-attempt"],
+        "confidence": "low",
+        "confidenceBasis": ["control-injection-attempt"],
+        "reviewReasons": ["adversarial-control-request"]
+      }
+    }
+  ]
+}
