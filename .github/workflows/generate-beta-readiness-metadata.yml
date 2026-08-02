@@ -21,6 +21,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: beta-readiness-generated-metadata
+          include-hidden-files: true
           path: |
             README.md
             .skill-sync.json
