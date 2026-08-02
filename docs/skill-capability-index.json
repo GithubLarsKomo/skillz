@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 28,
-  "evaluationSuiteCount": 25,
+  "skillCount": 29,
+  "evaluationSuiteCount": 26,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -154,6 +154,41 @@
           "ambiguous": false,
           "producers": [
             "central-skill-repository-curation"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "communication-memory-governance",
+      "description": "Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Einträge getrennt von transientem Gesprächs-, Projekt- und Agentenzustand. Verwenden, wenn wiederkehrende User-Präferenzen, dauerhafte Fakten oder Korrekturen nachvollziehbar, scope-begrenzt und datenschutzsicher über Sitzungen hinweg verfügbar bleiben sollen, ohne Agent-Handoff, Decision Records oder Projektstatus zu duplizieren.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "communication-profile.json",
+        "memory-ledger.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "communication-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "communication-memory-governance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "memory-ledger.json",
+          "ambiguous": false,
+          "producers": [
+            "communication-memory-governance"
           ],
           "consumerSkills": []
         }

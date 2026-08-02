@@ -34,6 +34,14 @@
       ]
     },
     {
+      "name": "communication-memory-governance",
+      "requires": [],
+      "outputs": [
+        "communication-profile.json",
+        "memory-ledger.json"
+      ]
+    },
+    {
       "name": "composable-skill-factory",
       "requires": [],
       "outputs": [
@@ -591,6 +599,14 @@
       "ambiguous": false
     },
     {
+      "output": "communication-profile.json",
+      "producers": [
+        "communication-memory-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "conflict-resolution-evidence.json",
       "producers": [
         "merge-conflict-resolution"
@@ -883,6 +899,14 @@
       "consumerSkills": [
         "decision-and-follow-up-tracker"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "memory-ledger.json",
+      "producers": [
+        "communication-memory-governance"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -1217,6 +1241,7 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "communication-profile.json",
     "conflict-resolution-evidence.json",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
@@ -1230,6 +1255,7 @@
     "expert handoff",
     "import verification",
     "installed OpenASR model",
+    "memory-ledger.json",
     "progress summary",
     "resolved-change-brief.md",
     "synchronization manifest",
