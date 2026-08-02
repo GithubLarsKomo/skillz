@@ -26,11 +26,7 @@ def sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def load_index(path: Path) -> dict:
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise ValueError(f"cannot read capability index: {exc}") from exc
+def validate_index(data: object) -> dict:
     if not isinstance(data, dict):
         raise ValueError("capability index root must be an object")
     if data.get("schemaVersion") != INDEX_SCHEMA_VERSION:
@@ -47,9 +43,18 @@ def load_index(path: Path) -> dict:
     return data
 
 
+def load_index(path: Path) -> dict:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"cannot read capability index: {exc}") from exc
+    return validate_index(data)
+
+
 def build_request(source_text: str, index: dict) -> dict:
     if not isinstance(source_text, str) or not source_text.strip():
         raise ValueError("source text must be non-empty")
+    index = validate_index(index)
     skills = index["skills"]
     capability_names = sorted({skill["name"] for skill in skills})
     outputs = sorted({output for skill in skills for output in skill["outputs"]})
