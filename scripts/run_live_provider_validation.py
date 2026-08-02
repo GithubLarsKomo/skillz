@@ -69,9 +69,9 @@ def run_live(
     capability_index = request_builder.validate_index(capability_index)
     config = provider_config(provider_id, endpoint, model_id, api_key_env, timeout_seconds)
 
-    selected = [_case_by_id(benchmark, case_id)] if mode == "smoke-only" else benchmark_cases
     if mode == "smoke-only" and not case_id:
         raise ValueError("smoke-only mode requires a benchmark case id")
+    selected = [_case_by_id(benchmark, case_id)] if mode == "smoke-only" else benchmark_cases
 
     proposal_rows: list[dict] = []
     completed_ids: list[str] = []
@@ -160,7 +160,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--endpoint", required=True)
     parser.add_argument("--model-id", required=True)
     parser.add_argument("--case-id")
-    parser.add_argument("--api-key-env", default="CAPABILITY_PROVIDER_API_KEY")
+    auth = parser.add_mutually_exclusive_group()
+    auth.add_argument("--api-key-env", default="CAPABILITY_PROVIDER_API_KEY")
+    auth.add_argument("--no-auth", action="store_true")
     parser.add_argument("--timeout-seconds", type=int, default=60)
     parser.add_argument("--benchmark", type=Path, default=DEFAULT_BENCHMARK)
     parser.add_argument("--capability-index", type=Path, default=DEFAULT_INDEX)
@@ -178,7 +180,7 @@ def main(argv: list[str] | None = None) -> int:
             benchmark,
             capability_index,
             case_id=args.case_id,
-            api_key_env=args.api_key_env,
+            api_key_env=None if args.no_auth else args.api_key_env,
             timeout_seconds=args.timeout_seconds,
             environ=os.environ,
         )
