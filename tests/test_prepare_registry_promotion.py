@@ -26,7 +26,7 @@ class PrepareRegistryPromotionTests(unittest.TestCase):
         cls.index = scorer.load_json(ROOT / "docs/skill-capability-index.json")
         cls.proposals = scorer.load_json(ROOT / "benchmarks/capability-interpretation-baseline-v1.json")
 
-    def make_repo_and_bundle(self):
+    def make_repo_and_bundle(self, provider_id="promotion-test", model_id="promotion-model"):
         temp = tempfile.TemporaryDirectory()
         root = Path(temp.name)
         repo = root / "repo"
@@ -41,9 +41,9 @@ class PrepareRegistryPromotionTests(unittest.TestCase):
         shutil.copy2(ROOT / "docs/skill-capability-index.json", repo / "docs" / "skill-capability-index.json")
         config = {
             "schemaVersion": 1,
-            "providerId": "promotion-test",
+            "providerId": provider_id,
             "endpoint": "https://provider.example/v1/chat/completions",
-            "modelId": "promotion-model",
+            "modelId": model_id,
             "apiKeyEnv": "CAPABILITY_PROVIDER_API_KEY",
             "timeoutSeconds": 60,
         }
@@ -97,11 +97,21 @@ class PrepareRegistryPromotionTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "capability-index fingerprint"):
                 promotion.prepare(bundle_dir, repo)
 
-    def test_unsafe_identity_is_rejected(self):
-        with self.assertRaisesRegex(ValueError, "providerId must match"):
-            promotion.safe_identity("provider/escape", "providerId")
-        with self.assertRaisesRegex(ValueError, "modelId must match"):
-            promotion.safe_identity("../model", "modelId")
+    def test_special_character_identity_promotes_without_normalization(self):
+        provider_id = "openai-compatible:test"
+        model_id = "hf.co/example/model:Q4_K_M"
+        temp, repo, bundle_dir = self.make_repo_and_bundle(provider_id, model_id)
+        with temp:
+            plan = promotion.prepare(bundle_dir, repo)
+            self.assertEqual(plan["providerId"], provider_id)
+            self.assertEqual(plan["modelId"], model_id)
+            self.assertNotIn(provider_id, plan["providerPath"])
+            self.assertNotIn(model_id, plan["providerPath"])
+            self.assertEqual(plan["providerPath"], f"providers/{plan['identityKey']}.json")
+            self.assertEqual(plan["qualificationPath"], f"qualifications/{plan['identityKey']}.json")
+            result = promotion.apply(plan, repo)
+            self.assertEqual(result["providerId"], provider_id)
+            self.assertEqual(result["modelId"], model_id)
 
     def test_post_write_failure_rolls_back_all_four_files(self):
         temp, repo, bundle_dir = self.make_repo_and_bundle()
