@@ -99,6 +99,11 @@ class OpenAICompatibleProviderTests(unittest.TestCase):
         second = provider.canonical_json(provider.parse_provider_response(self.response_bytes()))
         self.assertEqual(first, second)
 
+    def test_model_identity_is_bound_to_provider_config(self):
+        spoofed = dict(self.proposal, model="spoofed-model")
+        bound = provider.bind_model_identity(provider.parse_provider_response(self.response_bytes(spoofed)), self.config["modelId"])
+        self.assertEqual(bound["model"], self.config["modelId"])
+
     def test_invoke_passes_expected_transport_contract(self):
         captured = {}
         def transport(endpoint, body, headers, timeout):
@@ -108,7 +113,8 @@ class OpenAICompatibleProviderTests(unittest.TestCase):
             self.request, self.config, self.qualification, self.benchmark, self.index,
             transport=transport, environ={}
         )
-        self.assertEqual(proposal, self.proposal)
+        expected = dict(self.proposal, model=self.config["modelId"])
+        self.assertEqual(proposal, expected)
         self.assertEqual(captured["endpoint"], self.config["endpoint"])
         self.assertEqual(captured["timeout"], 5)
         self.assertEqual(captured["headers"]["Content-Type"], "application/json")
