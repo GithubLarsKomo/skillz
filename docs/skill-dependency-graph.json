@@ -34,6 +34,14 @@
       ]
     },
     {
+      "name": "communication-memory-governance",
+      "requires": [],
+      "outputs": [
+        "communication-profile.json",
+        "memory-ledger.json"
+      ]
+    },
+    {
       "name": "composable-skill-factory",
       "requires": [],
       "outputs": [
@@ -59,6 +67,18 @@
       "outputs": [
         "review-brief.json",
         "review-brief.md"
+      ]
+    },
+    {
+      "name": "decision-and-follow-up-tracker",
+      "requires": [
+        "daily-and-weekly-review",
+        "meeting-preparation",
+        "project-status-brief"
+      ],
+      "outputs": [
+        "decision-follow-up-register.json",
+        "decision-follow-up-register.md"
       ]
     },
     {
@@ -324,6 +344,18 @@
       "to": "inbox-action-triage"
     },
     {
+      "from": "decision-and-follow-up-tracker",
+      "to": "daily-and-weekly-review"
+    },
+    {
+      "from": "decision-and-follow-up-tracker",
+      "to": "meeting-preparation"
+    },
+    {
+      "from": "decision-and-follow-up-tracker",
+      "to": "project-status-brief"
+    },
+    {
       "from": "decision-record",
       "to": "agent-handoff"
     },
@@ -576,6 +608,14 @@
       "ambiguous": false
     },
     {
+      "output": "communication-profile.json",
+      "producers": [
+        "communication-memory-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "conflict-resolution-evidence.json",
       "producers": [
         "merge-conflict-resolution"
@@ -612,6 +652,22 @@
       "consumerSkills": [
         "spec-to-vertical-issues"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "decision-follow-up-register.json",
+      "producers": [
+        "decision-and-follow-up-tracker"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "decision-follow-up-register.md",
+      "producers": [
+        "decision-and-follow-up-tracker"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -839,13 +895,25 @@
       "producers": [
         "meeting-preparation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
       "output": "meeting-prep.md",
       "producers": [
         "meeting-preparation"
+      ],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "memory-ledger.json",
+      "producers": [
+        "communication-memory-governance"
       ],
       "consumerSkills": [],
       "ambiguous": false
@@ -896,7 +964,9 @@
       "producers": [
         "project-status-brief"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -904,7 +974,9 @@
       "producers": [
         "project-status-brief"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -1014,7 +1086,9 @@
       "producers": [
         "daily-and-weekly-review"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -1022,7 +1096,9 @@
       "producers": [
         "daily-and-weekly-review"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -1198,7 +1274,10 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "communication-profile.json",
     "conflict-resolution-evidence.json",
+    "decision-follow-up-register.json",
+    "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -1209,17 +1288,12 @@
     "expert handoff",
     "import verification",
     "installed OpenASR model",
-    "meeting-prep.json",
-    "meeting-prep.md",
+    "memory-ledger.json",
     "opaque-analysis-evidence.md",
     "progress summary",
-    "project-status.json",
-    "project-status.md",
     "recovered-system-model.json",
     "remaining-unknowns.json",
     "resolved-change-brief.md",
-    "review-brief.json",
-    "review-brief.md",
     "synchronization manifest",
     "ui-prototype-plan.md",
     "updated skill repository"

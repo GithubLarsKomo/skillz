@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "communication-memory-governance",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "The user explicitly confirms a stable response-format preference and a durable non-sensitive working constraint that should apply across future sessions. Build the communication profile and memory ledger.",
+      "requiredBehaviors": [
+        "separate communication preferences from durable facts or constraints",
+        "activate explicitly confirmed non-sensitive entries with provenance and scope",
+        "keep current project/session state outside durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "persist raw conversation transcripts",
+        "store secrets or sensitive personal categories"
+      ],
+      "skillAnchors": [
+        "Zwei getrennte Speicherbereiche",
+        "Aktivierungsregeln",
+        "Datenschutzgrenzen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A user casually expresses a possible preference once, then later gives a conflicting preference without explicitly saying which should be durable. There is also a stale durable fact with no recent confirmation.",
+      "requiredBehaviors": [
+        "keep the one-off ambiguous preference as candidate or conflict rather than active",
+        "surface the conflicting preferences instead of silently choosing one",
+        "mark the stale durable fact expired or due for review rather than treating it as current"
+      ],
+      "forbiddenBehaviors": [
+        "assume the latest ambiguous statement is automatically permanent",
+        "reuse stale memory as current fact without review"
+      ],
+      "skillAnchors": [
+        "Eine einzelne mehrdeutige Aussage reicht nicht",
+        "Konflikten gilt nicht automatisch",
+        "expired"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A proposed memory profile stores an API token, health details, a speculative personality judgment, a temporary PR state, and ignores the user's correction of an old preference.",
+      "requiredBehaviors": [
+        "reject secrets and sensitive personal information from durable memory",
+        "reject speculative personality profiling and temporary project state",
+        "apply the user's correction so the old preference is no longer active"
+      ],
+      "forbiddenBehaviors": [
+        "retain the API token or sensitive profile",
+        "keep superseded preference active"
+      ],
+      "skillAnchors": [
+        "Niemals persistieren",
+        "Korrektur, Vergessen und Supersession",
+        "transienter Kontext"
+      ]
+    }
+  ]
+}

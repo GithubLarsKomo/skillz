@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "decision-and-follow-up-tracker",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Consolidate confirmed decisions, commitments, waiting items and follow-ups from meeting prep, project status and weekly review. Preserve owners, due dates and source references exactly as confirmed.",
+      "requiredBehaviors": [
+        "separate decisions, commitments, follow-ups, waiting, delegated and blocker records",
+        "preserve source artifact provenance and confirmation timestamps",
+        "retain confirmed ownership and due dates without inventing missing values"
+      ],
+      "forbiddenBehaviors": [
+        "mark pending external actions complete",
+        "convert a proposal into a confirmed decision"
+      ],
+      "skillAnchors": [
+        "Provenance bleibt erhalten",
+        "Status nur aus Evidenz",
+        "Ownership und Fristen nicht erfinden"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two upstream artifacts describe similar follow-ups but disagree on owner and due date; a third says the item is waiting on an external response. Build the register without hiding the conflict.",
+      "requiredBehaviors": [
+        "detect likely overlap without silently merging conflicting records",
+        "surface owner and due-date disagreement explicitly",
+        "preserve the waiting state from confirmed upstream evidence"
+      ],
+      "forbiddenBehaviors": [
+        "choose an owner by seniority or context",
+        "replace conflicting deadlines with an invented compromise"
+      ],
+      "skillAnchors": [
+        "Duplikate vorsichtig behandeln",
+        "Konflikt sichtbar",
+        "waiting"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft register marks suggested email, scheduling and issue-closing actions done, assigns an owner from job title, and records a meeting proposal as an approved decision.",
+      "requiredBehaviors": [
+        "restore unverified actions to pending",
+        "remove inferred ownership and mark it unknown",
+        "move the unconfirmed meeting proposal out of confirmed decisions"
+      ],
+      "forbiddenBehaviors": [
+        "invent completed external execution",
+        "infer ownership or approval without evidence"
+      ],
+      "skillAnchors": [
+        "Status nur aus Evidenz",
+        "Ownership und Fristen nicht erfinden",
+        "Entscheidungen nicht rückwirkend umdeuten"
+      ]
+    }
+  ]
+}

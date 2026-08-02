@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 28,
-  "evaluationSuiteCount": 24,
+  "skillCount": 30,
+  "evaluationSuiteCount": 26,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -167,6 +167,41 @@
       }
     },
     {
+      "name": "communication-memory-governance",
+      "description": "Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Einträge getrennt von transientem Gesprächs-, Projekt- und Agentenzustand. Verwenden, wenn wiederkehrende User-Präferenzen, dauerhafte Fakten oder Korrekturen nachvollziehbar, scope-begrenzt und datenschutzsicher über Sitzungen hinweg verfügbar bleiben sollen, ohne Agent-Handoff, Decision Records oder Projektstatus zu duplizieren.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "communication-profile.json",
+        "memory-ledger.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "communication-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "communication-memory-governance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "memory-ledger.json",
+          "ambiguous": false,
+          "producers": [
+            "communication-memory-governance"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "composable-skill-factory",
       "description": "Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen Hilfswerkzeugen, klaren Triggern und überprüfbaren Abschlusskriterien. Verwenden, wenn aus einem wiederholbaren Workflow ein neuer Skill werden soll oder ein bestehender Skill zu groß, unklar, fragil oder schwer kombinierbar ist.",
       "requires": [],
@@ -276,7 +311,9 @@
       "requires": [
         "inbox-action-triage"
       ],
-      "dependents": [],
+      "dependents": [
+        "decision-and-follow-up-tracker"
+      ],
       "outputs": [
         "review-brief.json",
         "review-brief.md"
@@ -288,13 +325,56 @@
           "producers": [
             "daily-and-weekly-review"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "decision-and-follow-up-tracker"
+          ]
         },
         {
           "output": "review-brief.md",
           "ambiguous": false,
           "producers": [
             "daily-and-weekly-review"
+          ],
+          "consumerSkills": [
+            "decision-and-follow-up-tracker"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "decision-and-follow-up-tracker",
+      "description": "Konsolidiert bestätigte Entscheidungen, Commitments, Follow-ups, Waiting- und Delegationszustände aus Meeting-, Projekt- und Review-Artefakten zu einem auditierten Register. Verwenden, wenn offene Schleifen und Entscheidungspflichten über mehrere Arbeitskontexte hinweg nachvollziehbar gehalten werden sollen, ohne Task-, Kalender-, Mail- oder Issue-Systeme selbst zu verändern.",
+      "requires": [
+        "daily-and-weekly-review",
+        "meeting-preparation",
+        "project-status-brief"
+      ],
+      "dependents": [],
+      "outputs": [
+        "decision-follow-up-register.json",
+        "decision-follow-up-register.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "decision-follow-up-register.json",
+          "ambiguous": false,
+          "producers": [
+            "decision-and-follow-up-tracker"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "decision-follow-up-register.md",
+          "ambiguous": false,
+          "producers": [
+            "decision-and-follow-up-tracker"
           ],
           "consumerSkills": []
         }
@@ -764,7 +844,9 @@
       "requires": [
         "research-to-evidence-note"
       ],
-      "dependents": [],
+      "dependents": [
+        "decision-and-follow-up-tracker"
+      ],
       "outputs": [
         "meeting-prep.json",
         "meeting-prep.md"
@@ -776,7 +858,9 @@
           "producers": [
             "meeting-preparation"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "decision-and-follow-up-tracker"
+          ]
         },
         {
           "output": "meeting-prep.md",
@@ -784,7 +868,9 @@
           "producers": [
             "meeting-preparation"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "decision-and-follow-up-tracker"
+          ]
         }
       ],
       "portableFiles": [],
@@ -986,7 +1072,9 @@
       "name": "project-status-brief",
       "description": "Verdichtet bereits erhobene Repository- und Projekt-Evidenz zu einem zeitpunktbezogenen Statusbrief mit Fortschritt, Blockern, Risiken, Entscheidungen und nächsten ausführbaren Schritten. Verwenden, wenn Projektzustand belastbar an Reviews, Meetings oder weitere Skills übergeben werden soll, ohne GitHub-, GitLab-, Jira-, CI- oder Deployment-Logik zu duplizieren.",
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "decision-and-follow-up-tracker"
+      ],
       "outputs": [
         "project-status.json",
         "project-status.md"
@@ -998,7 +1086,9 @@
           "producers": [
             "project-status-brief"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "decision-and-follow-up-tracker"
+          ]
         },
         {
           "output": "project-status.md",
@@ -1006,7 +1096,9 @@
           "producers": [
             "project-status-brief"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "decision-and-follow-up-tracker"
+          ]
         }
       ],
       "portableFiles": [],
