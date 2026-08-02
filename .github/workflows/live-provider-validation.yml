@@ -71,6 +71,7 @@ jobs:
             --model-id "$MODEL_ID"
             --timeout-seconds "$TIMEOUT_SECONDS"
             --qualification-out "$RUNNER_TEMP/provider-qualification.json"
+            --provider-config-out "$RUNNER_TEMP/provider-config.json"
           )
           if [[ "$MODE" == "smoke-only" ]]; then
             args+=(--case-id "$CASE_ID")
@@ -94,4 +95,21 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+          if [[ "$rc" -eq 0 && "$MODE" == "qualify" ]]; then
+            python scripts/build_provider_promotion_bundle.py \
+              "$RUNNER_TEMP/provider-config.json" \
+              "$RUNNER_TEMP/provider-qualification.json" \
+              "$RUNNER_TEMP/provider-promotion-bundle" \
+              > "$RUNNER_TEMP/promotion-manifest-summary.json"
+          fi
+
           exit "$rc"
+
+      - name: Upload reviewed-promotion input bundle
+        if: ${{ success() && inputs.mode == 'qualify' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: provider-promotion-${{ inputs.provider_id }}-${{ inputs.model_id }}
+          path: ${{ runner.temp }}/provider-promotion-bundle
+          if-no-files-found: error
+          retention-days: 7

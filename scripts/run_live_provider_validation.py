@@ -173,11 +173,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--benchmark", type=Path, default=DEFAULT_BENCHMARK)
     parser.add_argument("--capability-index", type=Path, default=DEFAULT_INDEX)
     parser.add_argument("--qualification-out", type=Path)
+    parser.add_argument("--provider-config-out", type=Path)
     args = parser.parse_args(argv)
 
     try:
         benchmark = load_json(args.benchmark)
         capability_index = load_json(args.capability_index)
+        config = provider_config(
+            args.provider_id,
+            args.endpoint,
+            args.model_id,
+            None if args.no_auth else args.api_key_env,
+            args.timeout_seconds,
+        )
         summary, qualification = run_live(
             args.mode,
             args.provider_id,
@@ -186,12 +194,14 @@ def main(argv: list[str] | None = None) -> int:
             benchmark,
             capability_index,
             case_id=args.case_id,
-            api_key_env=None if args.no_auth else args.api_key_env,
+            api_key_env=config["apiKeyEnv"],
             timeout_seconds=args.timeout_seconds,
             environ=os.environ,
         )
         if qualification is not None and args.qualification_out is not None:
             args.qualification_out.write_text(canonical_json(qualification) + "\n", encoding="utf-8")
+        if qualification is not None and args.provider_config_out is not None:
+            args.provider_config_out.write_text(canonical_json(config) + "\n", encoding="utf-8")
     except (OSError, ValueError) as exc:
         print(canonical_json({
             "schemaVersion": SCHEMA_VERSION,
