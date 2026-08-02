@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "inbox-action-triage",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "classify each thread from concrete message facts into one primary triage class", "passed": true, "evidence": "The workflow fixes message facts first and requires exactly one primary class per thread from explicit action, deadline, delegation, waiting, FYI, or context evidence."},
+    {"behavior": "derive a small explicit next action and keep it pending until external execution is confirmed", "passed": true, "evidence": "Next actions are explicit and the contract keeps actionStatus pending until an external tool or user confirms execution."},
+    {"behavior": "preserve thread provenance while minimizing persisted message content", "passed": true, "evidence": "Thread references, sender, time, subject, and minimal facts are retained while full message bodies and raw connector payloads remain run-only."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "perform or claim mailbox mutations", "observed": false, "evidence": "Mailbox mutations are out of scope and the skill explicitly prohibits representing them as completed."},
+    {"behavior": "treat sender hierarchy or tone alone as urgency", "observed": false, "evidence": "Urgent requires concrete deadline, risk, or blocking evidence."}
+  ],
+  "overall": "pass"
+}
