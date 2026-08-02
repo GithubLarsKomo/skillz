@@ -45,7 +45,7 @@ def collect_case(case: dict, index: dict, config: dict, *, transport=provider.de
     body = canonical_json(provider.render_request_body(request, config)).encode("utf-8")
     headers = provider.build_headers(config, environ)
     raw = transport(config["endpoint"], body, headers, config["timeoutSeconds"])
-    proposal = provider.parse_provider_response(raw)
+    proposal = provider.bind_model_identity(provider.parse_provider_response(raw), config["modelId"])
     return {"caseId": case["id"], "proposal": proposal}
 
 
