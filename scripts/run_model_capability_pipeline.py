@@ -146,24 +146,30 @@ def read_text(path: str) -> str:
 
 
 def validate_cli_args(args) -> bool:
-    pair_mode = args.provider_registry is not None or args.provider_id is not None or args.model_id is not None
+    provider_registry = getattr(args, "provider_registry", None)
+    provider_id = getattr(args, "provider_id", None)
+    model_id = getattr(args, "model_id", None)
+    provider_input = getattr(args, "provider_input", None)
+    qualification = getattr(args, "qualification", None)
+    qualification_registry = getattr(args, "qualification_registry", None)
+    pair_mode = provider_registry is not None or provider_id is not None or model_id is not None
     if args.provider_mode == "fixture":
-        if args.provider_input is None:
+        if provider_input is None:
             raise ValueError("fixture mode requires provider input")
-        if args.qualification is not None or args.qualification_registry is not None or pair_mode:
+        if qualification is not None or qualification_registry is not None or pair_mode:
             raise ValueError("fixture mode does not accept qualification or registry-pair sources")
         return False
     if args.benchmark is None:
         raise ValueError("openai-compatible mode requires --benchmark")
     if pair_mode:
-        if args.provider_input is not None or args.qualification is not None:
+        if provider_input is not None or qualification is not None:
             raise ValueError("registry-pair mode is mutually exclusive with direct provider/qualification sources")
-        if args.provider_registry is None or args.qualification_registry is None or not args.provider_id or not args.model_id:
+        if provider_registry is None or qualification_registry is None or not provider_id or not model_id:
             raise ValueError("registry-pair mode requires --provider-registry, --qualification-registry, --provider-id, and --model-id")
         return True
-    if args.provider_input is None:
+    if provider_input is None:
         raise ValueError("provider input is required outside registry-pair mode")
-    if (args.qualification is None) == (args.qualification_registry is None):
+    if (qualification is None) == (qualification_registry is None):
         raise ValueError("openai-compatible mode requires exactly one of --qualification or --qualification-registry")
     return False
 
