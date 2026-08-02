@@ -101,6 +101,7 @@ graph TD
 | `memory-ledger.json` | `communication-memory-governance` | — | orphan |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
+| `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | orphan |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker` | unique |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker` | unique |
@@ -108,6 +109,8 @@ graph TD
 | `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | unique |
 | `pull request` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
 | `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
+| `recovered-system-model.json` | `opaque-system-analysis` | — | orphan |
+| `remaining-unknowns.json` | `opaque-system-analysis` | — | orphan |
 | `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
 | `residual-risk-handoff.json` | `disciplined-diagnosis`, `implement-from-issue`, `merge-conflict-resolution`, `test-driven-vertical-slice` | — | ambiguous |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | orphan |

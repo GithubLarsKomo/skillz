@@ -200,6 +200,15 @@
       ]
     },
     {
+      "name": "opaque-system-analysis",
+      "requires": [],
+      "outputs": [
+        "opaque-analysis-evidence.md",
+        "recovered-system-model.json",
+        "remaining-unknowns.json"
+      ]
+    },
+    {
       "name": "openasr-offline-model-import",
       "requires": [],
       "outputs": [
@@ -935,6 +944,14 @@
       "ambiguous": false
     },
     {
+      "output": "opaque-analysis-evidence.md",
+      "producers": [
+        "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "progress summary",
       "producers": [
         "synapse-orchestrator"
@@ -1002,6 +1019,22 @@
         "domain-model-maintenance",
         "merge-conflict-resolution"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "recovered-system-model.json",
+      "producers": [
+        "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "remaining-unknowns.json",
+      "producers": [
+        "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -1256,7 +1289,10 @@
     "import verification",
     "installed OpenASR model",
     "memory-ledger.json",
+    "opaque-analysis-evidence.md",
     "progress summary",
+    "recovered-system-model.json",
+    "remaining-unknowns.json",
     "resolved-change-brief.md",
     "synchronization manifest",
     "ui-prototype-plan.md",
