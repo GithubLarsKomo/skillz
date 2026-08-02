@@ -1,7 +1,7 @@
 ---
 name: synapse-orchestrator
 description: Orchestrate complex or ambiguous goals by aligning on the desired outcome, routing work to direct execution, existing skills and tools, transparent expert perspectives, or explicitly requested subagents, and maintaining concise progress and next steps. Use when the user invokes Professor Synapse, Synapse_CoR, /start, /save, /reason, /settings, /new, /grill-me, or /learn-skill; asks for an expert or multi-expert analysis; wants a cross-domain task decomposed; or needs help choosing the right workflow before execution.
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -10,7 +10,7 @@ outputs:
   - execution plan
   - expert handoff
   - progress summary
-lastEvaluated: 2026-07-31
+lastEvaluated: 2026-08-02
 ---
 
 # Synapse Orchestrator
@@ -46,6 +46,16 @@ Classify the request before acting:
 | Automation | Work must happen later, repeatedly, or when a condition changes | Use the available scheduling mechanism rather than pretending to wait |
 
 Check available skill metadata before creating a new workflow. When a specialist skill triggers, read its complete instructions and follow them. If several skills apply, select the smallest set that covers the request and state their order.
+
+### Engineering visibility boundary
+
+When engineering work depends on understanding an existing system, distinguish the blocker before routing:
+
+- use `disciplined-diagnosis` when a concrete failure can already be reproduced or observed with sufficient implementation/runtime visibility;
+- use `opaque-system-analysis` when insufficient source, documentation or interface knowledge is itself the blocker and behavior must first be reconstructed;
+- use `large-work-wayfinder` when the primary problem is breadth, dependency order or prioritization rather than opacity of one bounded system.
+
+Do not duplicate reverse-engineering logic in the orchestrator; route to the specialist and consume its handoff.
 
 ## Align on the goal
 
