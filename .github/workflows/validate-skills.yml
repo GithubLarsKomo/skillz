@@ -56,6 +56,10 @@ jobs:
         run: python -m unittest tests.test_openai_compatible_provider
       - name: Test live provider validation runner offline
         run: python -m unittest tests.test_run_live_provider_validation
+      - name: Test provider qualification registry
+        run: python -m unittest tests.test_qualification_registry
+      - name: Verify provider qualification registry
+        run: python scripts/qualification_registry.py verify
       - name: Test capability pipeline end to end
         run: python -m unittest tests.test_capability_pipeline_e2e
       - name: Test capability pipeline CLI
