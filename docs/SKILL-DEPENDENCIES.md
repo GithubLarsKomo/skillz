@@ -9,6 +9,9 @@ graph TD
   architecture_deepening_review --> iterate_software_projects
   central_skill_repository_curation --> composable_skill_factory
   daily_and_weekly_review --> inbox_action_triage
+  decision_and_follow_up_tracker --> daily_and_weekly_review
+  decision_and_follow_up_tracker --> meeting_preparation
+  decision_and_follow_up_tracker --> project_status_brief
   decision_record --> agent_handoff
   decision_record --> large_work_wayfinder
   decision_record --> throwaway_prototype
@@ -67,6 +70,8 @@ graph TD
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | unique |
 | `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | unique |
 | `decision register` | `conversation-to-spec` | `spec-to-vertical-issues` | unique |
+| `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | — | orphan |
+| `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | — | orphan |
 | `decision-record.json` | `decision-record` | `domain-model-maintenance` | unique |
 | `decision-record.md` | `decision-record` | `domain-model-maintenance` | unique |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
@@ -90,13 +95,13 @@ graph TD
 | `inbox-triage.md` | `inbox-action-triage` | `daily-and-weekly-review` | unique |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
-| `meeting-prep.json` | `meeting-preparation` | — | orphan |
-| `meeting-prep.md` | `meeting-preparation` | — | orphan |
+| `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
+| `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
-| `project-status.json` | `project-status-brief` | — | orphan |
-| `project-status.md` | `project-status-brief` | — | orphan |
+| `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker` | unique |
+| `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker` | unique |
 | `prototype-brief.md` | `throwaway-prototype` | `decision-record` | unique |
 | `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | unique |
 | `pull request` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
@@ -105,8 +110,8 @@ graph TD
 | `residual-risk-handoff.json` | `disciplined-diagnosis`, `implement-from-issue`, `merge-conflict-resolution`, `test-driven-vertical-slice` | — | ambiguous |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | orphan |
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
-| `review-brief.json` | `daily-and-weekly-review` | — | orphan |
-| `review-brief.md` | `daily-and-weekly-review` | — | orphan |
+| `review-brief.json` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | unique |
+| `review-brief.md` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | unique |
 | `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
