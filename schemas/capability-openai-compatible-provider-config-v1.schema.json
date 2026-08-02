@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-openai-compatible-provider-config-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "providerId", "endpoint", "modelId", "apiKeyEnv", "timeoutSeconds"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "providerId": {"type": "string", "minLength": 1},
+    "endpoint": {"type": "string", "minLength": 1},
+    "modelId": {"type": "string", "minLength": 1},
+    "apiKeyEnv": {"anyOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+    "timeoutSeconds": {"type": "integer", "minimum": 1}
+  }
+}
