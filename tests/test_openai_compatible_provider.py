@@ -31,7 +31,8 @@ class OpenAICompatibleProviderTests(unittest.TestCase):
             "timeoutSeconds": 5,
         }
         cls.qualification = qualifier.qualify(
-            cls.config["providerId"], cls.config["modelId"], cls.benchmark, cls.proposals, cls.index
+            cls.config["providerId"], cls.config["modelId"], cls.benchmark, cls.proposals, cls.index,
+            provider_config=cls.config,
         )
         cls.request = request_builder.build_request("Create the review decision artifact.", cls.index)
         cls.proposal = cls.proposals["proposals"][0]["proposal"]
@@ -72,6 +73,22 @@ class OpenAICompatibleProviderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "modelId does not match"):
             provider.invoke(self.request, self.config, bad, self.benchmark, self.index, transport=transport, environ={})
         self.assertFalse(called)
+
+    def test_endpoint_drift_blocks_transport(self):
+        called = False
+        def transport(*args):
+            nonlocal called
+            called = True
+            return self.response_bytes()
+        changed = dict(self.config, endpoint="http://localhost:9999/v1/chat/completions")
+        with self.assertRaisesRegex(ValueError, "provider-config fingerprint"):
+            provider.invoke(self.request, changed, self.qualification, self.benchmark, self.index, transport=transport, environ={})
+        self.assertFalse(called)
+
+    def test_timeout_drift_blocks_transport(self):
+        changed = dict(self.config, timeoutSeconds=6)
+        with self.assertRaisesRegex(ValueError, "provider-config fingerprint"):
+            provider.verify_qualification(changed, self.qualification, self.benchmark, self.index)
 
     def test_stale_index_qualification_blocks_transport(self):
         stale_index = json.loads(json.dumps(self.index))

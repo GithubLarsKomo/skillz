@@ -10,11 +10,12 @@ from pathlib import Path
 from adapt_model_interpretation import adapt
 from build_model_interpretation_request import validate_index
 from model_interpretation_request_contract import canonical_json, validate_request
+from provider_qualification_config import fingerprint as provider_config_fingerprint
 from qualify_model_provider import fingerprint
 from score_capability_interpretations import load_json
 
 CONFIG_SCHEMA_VERSION = 1
-QUALIFICATION_SCHEMA_VERSION = 1
+QUALIFICATION_SCHEMA_VERSION = 2
 
 
 def validate_config(config: object) -> dict:
@@ -48,6 +49,9 @@ def verify_qualification(config: dict, qualification: object, benchmark: object,
         raise ValueError("qualification providerId does not match provider config")
     if qualification.get("modelId") != config["modelId"]:
         raise ValueError("qualification modelId does not match provider config")
+    expected_config_sha = provider_config_fingerprint(config["providerId"], config["modelId"], config)
+    if qualification.get("providerConfigSha256") != expected_config_sha:
+        raise ValueError("qualification provider-config fingerprint is stale or mismatched")
     if qualification.get("benchmarkSha256") != fingerprint(benchmark):
         raise ValueError("qualification benchmark fingerprint is stale or mismatched")
     if qualification.get("capabilityIndexSha256") != fingerprint(capability_index):

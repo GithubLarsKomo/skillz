@@ -10,6 +10,7 @@ from pathlib import Path
 import build_model_interpretation_request as request_builder
 import openai_compatible_provider as provider
 import qualify_model_provider as qualifier
+from provider_qualification_config import fingerprint as provider_config_fingerprint
 from score_capability_interpretations import load_json, validate_benchmark
 
 SCHEMA_VERSION = 1
@@ -68,6 +69,7 @@ def run_live(
     benchmark_cases = validate_benchmark(benchmark)
     capability_index = request_builder.validate_index(capability_index)
     config = provider_config(provider_id, endpoint, model_id, api_key_env, timeout_seconds)
+    config_sha = provider_config_fingerprint(provider_id, model_id, config)
 
     if mode == "smoke-only" and not case_id:
         raise ValueError("smoke-only mode requires a benchmark case id")
@@ -87,6 +89,7 @@ def run_live(
             "failedStage": "provider-collection",
             "providerId": provider_id,
             "modelId": model_id,
+            "providerConfigSha256": config_sha,
             "benchmarkSha256": qualifier.fingerprint(benchmark),
             "capabilityIndexSha256": qualifier.fingerprint(capability_index),
             "caseCount": len(selected),
@@ -105,6 +108,7 @@ def run_live(
             "failedStage": None,
             "providerId": provider_id,
             "modelId": model_id,
+            "providerConfigSha256": config_sha,
             "benchmarkSha256": qualifier.fingerprint(benchmark),
             "capabilityIndexSha256": qualifier.fingerprint(capability_index),
             "caseCount": 1,
@@ -115,7 +119,7 @@ def run_live(
         }, None
 
     try:
-        qualification = qualifier.qualify(provider_id, model_id, benchmark, proposals, capability_index)
+        qualification = qualifier.qualify(provider_id, model_id, benchmark, proposals, capability_index, provider_config=config)
     except ValueError as exc:
         return {
             "schemaVersion": SCHEMA_VERSION,
@@ -124,6 +128,7 @@ def run_live(
             "failedStage": "qualification",
             "providerId": provider_id,
             "modelId": model_id,
+            "providerConfigSha256": config_sha,
             "benchmarkSha256": qualifier.fingerprint(benchmark),
             "capabilityIndexSha256": qualifier.fingerprint(capability_index),
             "caseCount": len(selected),
@@ -140,6 +145,7 @@ def run_live(
         "failedStage": None if qualification["qualified"] else "qualification",
         "providerId": provider_id,
         "modelId": model_id,
+        "providerConfigSha256": qualification["providerConfigSha256"],
         "benchmarkSha256": qualification["benchmarkSha256"],
         "capabilityIndexSha256": qualification["capabilityIndexSha256"],
         "caseCount": qualification["caseCount"],

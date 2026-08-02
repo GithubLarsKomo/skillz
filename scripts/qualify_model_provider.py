@@ -8,16 +8,17 @@ import sys
 from pathlib import Path
 
 from build_model_interpretation_request import canonical_json, validate_index
+from provider_qualification_config import fingerprint as provider_config_fingerprint
 from score_capability_interpretations import SCHEMA_VERSION as SCORER_SCHEMA_VERSION, load_json, score
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 def fingerprint(value: object) -> str:
     return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
 
 
-def qualify(provider_id: str, model_id: str, benchmark: dict, proposals: dict, capability_index: dict) -> dict:
+def qualify(provider_id: str, model_id: str, benchmark: dict, proposals: dict, capability_index: dict, provider_config: dict | None = None) -> dict:
     if not isinstance(provider_id, str) or not provider_id.strip():
         raise ValueError("provider id must be non-empty")
     if not isinstance(model_id, str) or not model_id.strip():
@@ -28,6 +29,7 @@ def qualify(provider_id: str, model_id: str, benchmark: dict, proposals: dict, c
         "schemaVersion": SCHEMA_VERSION,
         "providerId": provider_id,
         "modelId": model_id,
+        "providerConfigSha256": provider_config_fingerprint(provider_id, model_id, provider_config),
         "benchmarkSha256": fingerprint(benchmark),
         "proposalSetSha256": fingerprint(proposals),
         "capabilityIndexSha256": fingerprint(capability_index),
