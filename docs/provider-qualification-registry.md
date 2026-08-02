@@ -28,6 +28,12 @@ python scripts/prepare_registry_promotion.py /path/to/extracted/provider-promoti
 
 Any change to the committed interpretation benchmark or capability index invalidates previously registered evidence. Changing the bound secrets-free provider configuration (including endpoint, timeout, auth mode/environment-variable name, provider id, or model id) also invalidates the qualification. Credential values themselves are never part of the fingerprint.
 
+## Secrets-free endpoint constraint
+
+The shared OpenAI-compatible provider config validator only accepts `http` or `https` endpoints with a hostname and optional port/path. Endpoint URLs may not contain URL userinfo, query parameters, or fragments. This keeps credential-bearing strings such as `https://user:password@host/...` or `...?api_key=...` out of live requests, qualification fingerprints, promotion bundles, and reviewed registries.
+
+Providers that genuinely require query parameters are not represented by embedding those parameters in `endpoint`; they need an explicit future adapter/config extension with its own secrets-free contract and tests.
+
 ## Registry format
 
 ```json
