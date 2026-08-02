@@ -78,6 +78,8 @@ graph TD
 | `domain-model-map.json` | `domain-model-maintenance` | — | orphan |
 | `domain-validation.json` | `domain-model-maintenance` | — | orphan |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
+| `evidence-note.json` | `research-to-evidence-note` | — | orphan |
+| `evidence-note.md` | `research-to-evidence-note` | — | orphan |
 | `execution plan` | `synapse-orchestrator` | — | orphan |
 | `expert handoff` | `synapse-orchestrator` | — | orphan |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | unique |
