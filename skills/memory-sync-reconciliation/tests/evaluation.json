@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "memory-sync-reconciliation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Reconcile two governed memory snapshots. One contains two active non-conflicting entries. The other contains the same two entries plus a third independent active communication preference. Preserve IDs and produce a deterministic no-conflict merge.",
+      "requiredBehaviors": [
+        "preserve existing ledger IDs, provenance, scope and lifecycle",
+        "treat the third independent preference as a compatible additive record",
+        "produce a merged profile only from active conflict-free preference entries"
+      ],
+      "forbiddenBehaviors": [
+        "invent a new combined memory statement",
+        "renumber existing ledger entries"
+      ],
+      "skillAnchors": [
+        "Compatible additive",
+        "Communication Profile ableiten",
+        "Keine synthetischen Memories"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Snapshot A has memory M1 active. Snapshot B contains the same M1 lineage explicitly deactivated by a user forget request, while A was synced later but is stale semantically. Reconcile them safely.",
+      "requiredBehaviors": [
+        "propagate the forget/deactivation lifecycle across the merged result",
+        "prevent the stale active copy from reactivating M1",
+        "remove M1 from the active communication profile while minimizing repetition of forgotten content"
+      ],
+      "forbiddenBehaviors": [
+        "use last-write-wins to make M1 active",
+        "restate unnecessary forgotten content in the reconciliation plan"
+      ],
+      "skillAnchors": [
+        "Tombstone propagation",
+        "Forget ist eine Sicherheitsinvariante",
+        "Kein generelles Last-write-wins"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Two snapshots contain different active statements in the same scope with no supersession lineage and equally valid provenance. A draft merge silently keeps the newer timestamp and drops the other statement.",
+      "requiredBehaviors": [
+        "classify the competing active statements as a hard conflict",
+        "keep both records auditable and require human resolution",
+        "withhold the conflicting preference from the conflict-free merged profile"
+      ],
+      "forbiddenBehaviors": [
+        "resolve the conflict solely by latest timestamp",
+        "silently delete one conflicting record"
+      ],
+      "skillAnchors": [
+        "Hard conflict",
+        "resolutionState: human-required",
+        "Solange der Konflikt offen ist"
+      ]
+    }
+  ]
+}
