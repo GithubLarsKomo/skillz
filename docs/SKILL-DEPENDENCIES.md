@@ -26,6 +26,7 @@ graph TD
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
   large_work_wayfinder --> spec_to_vertical_issues
+  meeting_preparation --> research_to_evidence_note
   merge_conflict_resolution --> agent_handoff
   merge_conflict_resolution --> deferred_external_action_verification
   merge_conflict_resolution --> disciplined_diagnosis
@@ -78,14 +79,16 @@ graph TD
 | `domain-model-map.json` | `domain-model-maintenance` | — | orphan |
 | `domain-validation.json` | `domain-model-maintenance` | — | orphan |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
-| `evidence-note.json` | `research-to-evidence-note` | — | orphan |
-| `evidence-note.md` | `research-to-evidence-note` | — | orphan |
+| `evidence-note.json` | `research-to-evidence-note` | `meeting-preparation` | unique |
+| `evidence-note.md` | `research-to-evidence-note` | `meeting-preparation` | unique |
 | `execution plan` | `synapse-orchestrator` | — | orphan |
 | `expert handoff` | `synapse-orchestrator` | — | orphan |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `import verification` | `openasr-offline-model-import` | — | orphan |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
+| `meeting-prep.json` | `meeting-preparation` | — | orphan |
+| `meeting-prep.md` | `meeting-preparation` | — | orphan |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
