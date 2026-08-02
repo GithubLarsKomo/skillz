@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 25,
-  "evaluationSuiteCount": 22,
+  "skillCount": 26,
+  "evaluationSuiteCount": 23,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -260,6 +260,43 @@
           "consumerSkills": [
             "spec-to-vertical-issues"
           ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "daily-and-weekly-review",
+      "description": "Verdichtet bestätigte Kalender-, Aufgaben-, Projekt- und Inbox-Triage-Daten zu einem priorisierten Tages- oder Wochenreview mit Commitments, Follow-ups, Blockern und nächsten Schritten. Verwenden, wenn aus mehreren Arbeitskontexten eine belastbare Review-Sicht entstehen soll, ohne Kalender-, Mail-, Task- oder Projekt-Systeme selbst zu verändern.",
+      "requires": [
+        "inbox-action-triage"
+      ],
+      "dependents": [],
+      "outputs": [
+        "review-brief.json",
+        "review-brief.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "review-brief.json",
+          "ambiguous": false,
+          "producers": [
+            "daily-and-weekly-review"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "review-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "daily-and-weekly-review"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [],
@@ -557,7 +594,9 @@
       "name": "inbox-action-triage",
       "description": "Klassifiziert eine abgegrenzte Menge bereits geladener Nachrichten nach Dringlichkeit und Handlungsbedarf und leitet überprüfbare nächste Aktionen ab. Verwenden, wenn Inbox-Nachrichten in urgent, reply-soon, waiting, delegated, FYI/archive oder needs-context geordnet werden sollen, ohne Gmail-/Outlook-Connectorlogik oder Mailbox-Mutationen zu duplizieren.",
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "daily-and-weekly-review"
+      ],
       "outputs": [
         "inbox-triage.json",
         "inbox-triage.md"
@@ -569,7 +608,9 @@
           "producers": [
             "inbox-action-triage"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "daily-and-weekly-review"
+          ]
         },
         {
           "output": "inbox-triage.md",
@@ -577,7 +618,9 @@
           "producers": [
             "inbox-action-triage"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "daily-and-weekly-review"
+          ]
         }
       ],
       "portableFiles": [],

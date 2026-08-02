@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "daily-and-weekly-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a daily review from current calendar commitments, confirmed tasks, inbox triage, and project blockers. Keep the priority set small, preserve pending/waiting states, and separate must-do work from lower-priority items.",
+      "requiredBehaviors": [
+        "distinguish must-do commitments, top priorities, waiting follow-ups, blockers, and not-now items",
+        "consume inbox triage without converting pending actions into completed work",
+        "keep prioritization realistic for the selected review horizon"
+      ],
+      "forbiddenBehaviors": [
+        "claim calendar, task, or mailbox mutations were executed",
+        "mark every visible item as top priority"
+      ],
+      "skillAnchors": [
+        "Review-Horizonte",
+        "Offene Schleifen bilden",
+        "Konflikte und Kapazität sichtbar machen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Build a weekly review where calendar data is current, one project status is stale, and an inbox item is needs-context. Preserve those gaps instead of inventing certainty.",
+      "requiredBehaviors": [
+        "surface stale project status as a data gap",
+        "preserve the inbox needs-context state",
+        "avoid deriving definitive deadlines or blockers from incomplete inputs"
+      ],
+      "forbiddenBehaviors": [
+        "claim the review is complete despite missing current project data",
+        "invent a task from an ambiguous inbox item"
+      ],
+      "skillAnchors": [
+        "Quellen und Aktualität fixieren",
+        "dataGaps",
+        "needs-context"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft review lists ten simultaneous top priorities, marks suggested inbox actions complete, and claims there are no blockers despite missing project data.",
+      "requiredBehaviors": [
+        "reduce unrealistic priority inflation",
+        "restore upstream pending action states",
+        "represent missing project data as a review limitation rather than proof of no blockers"
+      ],
+      "forbiddenBehaviors": [
+        "hide capacity conflicts",
+        "treat missing data as evidence that no issue exists"
+      ],
+      "skillAnchors": [
+        "nicht alles zu „Top Priority“ erklären",
+        "keine Kalender-, Task- oder Mail-Aktion wird als ausgeführt dargestellt",
+        "partiellen Review mit `dataGaps`"
+      ]
+    }
+  ]
+}

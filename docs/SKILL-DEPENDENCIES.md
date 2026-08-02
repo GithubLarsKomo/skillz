@@ -8,6 +8,7 @@ graph TD
   architecture_deepening_review --> disciplined_diagnosis
   architecture_deepening_review --> iterate_software_projects
   central_skill_repository_curation --> composable_skill_factory
+  daily_and_weekly_review --> inbox_action_triage
   decision_record --> agent_handoff
   decision_record --> large_work_wayfinder
   decision_record --> throwaway_prototype
@@ -85,8 +86,8 @@ graph TD
 | `expert handoff` | `synapse-orchestrator` | — | orphan |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `import verification` | `openasr-offline-model-import` | — | orphan |
-| `inbox-triage.json` | `inbox-action-triage` | — | orphan |
-| `inbox-triage.md` | `inbox-action-triage` | — | orphan |
+| `inbox-triage.json` | `inbox-action-triage` | `daily-and-weekly-review` | unique |
+| `inbox-triage.md` | `inbox-action-triage` | `daily-and-weekly-review` | unique |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
 | `meeting-prep.json` | `meeting-preparation` | — | orphan |
@@ -102,6 +103,8 @@ graph TD
 | `residual-risk-handoff.json` | `disciplined-diagnosis`, `implement-from-issue`, `merge-conflict-resolution`, `test-driven-vertical-slice` | — | ambiguous |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | orphan |
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
+| `review-brief.json` | `daily-and-weekly-review` | — | orphan |
+| `review-brief.md` | `daily-and-weekly-review` | — | orphan |
 | `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
