@@ -1,0 +1,97 @@
+name: Live provider validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Validation mode
+        required: true
+        type: choice
+        options:
+          - smoke-only
+          - qualify
+        default: smoke-only
+      provider_id:
+        description: Stable provider identifier used by qualification artifacts
+        required: true
+        type: string
+      endpoint:
+        description: OpenAI-compatible chat-completions endpoint
+        required: true
+        type: string
+      model_id:
+        description: Exact model identifier sent to the provider
+        required: true
+        type: string
+      case_id:
+        description: Benchmark case for smoke-only mode
+        required: false
+        type: string
+        default: exact-review-output
+      use_api_key:
+        description: Read bearer token from CAPABILITY_PROVIDER_API_KEY secret
+        required: true
+        type: boolean
+        default: true
+      timeout_seconds:
+        description: Per-request timeout in seconds
+        required: true
+        type: string
+        default: "60"
+
+permissions:
+  contents: read
+
+jobs:
+  live-validation:
+    runs-on: ubuntu-latest
+    env:
+      MODE: ${{ inputs.mode }}
+      PROVIDER_ID: ${{ inputs.provider_id }}
+      ENDPOINT: ${{ inputs.endpoint }}
+      MODEL_ID: ${{ inputs.model_id }}
+      CASE_ID: ${{ inputs.case_id }}
+      USE_API_KEY: ${{ inputs.use_api_key }}
+      TIMEOUT_SECONDS: ${{ inputs.timeout_seconds }}
+      CAPABILITY_PROVIDER_API_KEY: ${{ secrets.CAPABILITY_PROVIDER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run manual live validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(
+            --mode "$MODE"
+            --provider-id "$PROVIDER_ID"
+            --endpoint "$ENDPOINT"
+            --model-id "$MODEL_ID"
+            --timeout-seconds "$TIMEOUT_SECONDS"
+            --qualification-out "$RUNNER_TEMP/provider-qualification.json"
+          )
+          if [[ "$MODE" == "smoke-only" ]]; then
+            args+=(--case-id "$CASE_ID")
+          fi
+          if [[ "$USE_API_KEY" == "true" ]]; then
+            args+=(--api-key-env CAPABILITY_PROVIDER_API_KEY)
+          else
+            args+=(--no-auth)
+          fi
+
+          set +e
+          python scripts/run_live_provider_validation.py "${args[@]}" > "$RUNNER_TEMP/live-summary.json"
+          rc=$?
+          set -e
+
+          cat "$RUNNER_TEMP/live-summary.json"
+          {
+            echo '### Live provider validation'
+            echo '```json'
+            cat "$RUNNER_TEMP/live-summary.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          exit "$rc"
