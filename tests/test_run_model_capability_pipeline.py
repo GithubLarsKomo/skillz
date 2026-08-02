@@ -66,7 +66,10 @@ class ModelCapabilityPipelineTests(unittest.TestCase):
         benchmark = json.loads(BENCHMARK.read_text(encoding="utf-8"))
         proposals = json.loads(BASELINE.read_text(encoding="utf-8"))
         index = json.loads(pipeline.DEFAULT_INDEX.read_text(encoding="utf-8"))
-        qualification = qualifier.qualify("local-openai", "fixture-model", benchmark, proposals, index)
+        config = self.provider_config()
+        qualification = qualifier.qualify(
+            "local-openai", "fixture-model", benchmark, proposals, index, provider_config=config
+        )
         return benchmark, qualification
 
     def registry(self, qualification: dict | None):
