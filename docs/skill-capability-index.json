@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 24,
-  "evaluationSuiteCount": 21,
+  "skillCount": 25,
+  "evaluationSuiteCount": 22,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -543,6 +543,41 @@
           "consumerSkills": [
             "two-axis-code-review"
           ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "inbox-action-triage",
+      "description": "Klassifiziert eine abgegrenzte Menge bereits geladener Nachrichten nach Dringlichkeit und Handlungsbedarf und leitet überprüfbare nächste Aktionen ab. Verwenden, wenn Inbox-Nachrichten in urgent, reply-soon, waiting, delegated, FYI/archive oder needs-context geordnet werden sollen, ohne Gmail-/Outlook-Connectorlogik oder Mailbox-Mutationen zu duplizieren.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "inbox-triage.json",
+        "inbox-triage.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "inbox-triage.json",
+          "ambiguous": false,
+          "producers": [
+            "inbox-action-triage"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "inbox-triage.md",
+          "ambiguous": false,
+          "producers": [
+            "inbox-action-triage"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [],

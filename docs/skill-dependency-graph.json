@@ -114,6 +114,14 @@
       ]
     },
     {
+      "name": "inbox-action-triage",
+      "requires": [],
+      "outputs": [
+        "inbox-triage.json",
+        "inbox-triage.md"
+      ]
+    },
+    {
       "name": "iterate-software-projects",
       "requires": [],
       "outputs": [
@@ -757,6 +765,22 @@
       "ambiguous": false
     },
     {
+      "output": "inbox-triage.json",
+      "producers": [
+        "inbox-action-triage"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "inbox-triage.md",
+      "producers": [
+        "inbox-action-triage"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "installed OpenASR model",
       "producers": [
         "openasr-offline-model-import"
@@ -1093,6 +1117,8 @@
     "execution plan",
     "expert handoff",
     "import verification",
+    "inbox-triage.json",
+    "inbox-triage.md",
     "installed OpenASR model",
     "meeting-prep.json",
     "meeting-prep.md",
