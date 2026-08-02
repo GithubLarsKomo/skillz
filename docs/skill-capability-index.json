@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 26,
+  "skillCount": 27,
   "evaluationSuiteCount": 23,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -846,6 +846,50 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "opaque-system-analysis",
+      "description": "Rekonstruiert das kleinste evidenzbasierte Verhaltens- und Schnittstellenmodell eines opaken oder unzureichend dokumentierten Systems, Artefakts, Protokolls oder Dateiformats, wenn Quellcode oder belastbare Dokumentation für die nächste Engineering-Entscheidung nicht ausreichen. Verwenden, bevor Diagnose oder Implementierung beginnt, wenn erst beobachtbares Verhalten, Zustände, Inputs, Outputs oder Verträge erschlossen werden müssen; nicht für Exploit-Entwicklung, allgemeine Fehlersuche mit ausreichender Sichtbarkeit oder breite Projektplanung.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "opaque-analysis-evidence.md",
+        "recovered-system-model.json",
+        "remaining-unknowns.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "opaque-analysis-evidence.md",
+          "ambiguous": false,
+          "producers": [
+            "opaque-system-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "recovered-system-model.json",
+          "ambiguous": false,
+          "producers": [
+            "opaque-system-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "remaining-unknowns.json",
+          "ambiguous": false,
+          "producers": [
+            "opaque-system-analysis"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
