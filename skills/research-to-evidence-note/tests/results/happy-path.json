@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "research-to-evidence-note",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate atomic claims from sources and synthesis", "passed": true, "evidence": "The skill defines claim records with source references and requires the prose summary to be backed by those claims."},
+    {"behavior": "classify source quality and freshness relative to the question", "passed": true, "evidence": "Source records carry sourceClass, date, freshness and limitations, and quality is explicitly relative to the research question."},
+    {"behavior": "assign claim confidence from evidence quality and conflict state", "passed": true, "evidence": "Confidence is defined at claim level with high/medium/low criteria tied to directness, freshness, limitations and unresolved conflicts."},
+    {"behavior": "produce decision-relevant open questions only", "passed": true, "evidence": "Open questions are restricted to gaps that could change the decision or confidence of a relevant claim."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "copy long source passages instead of synthesizing claims", "observed": false, "evidence": "The workflow explicitly instructs atomic claims and rejects long copied passages."},
+    {"behavior": "present recommendations or inference as direct fact", "observed": false, "evidence": "Direct, derived and unknown bases are separated and recommendations must expose their evidence and value/risk premise."}
+  ],
+  "overall": "pass"
+}
