@@ -113,12 +113,21 @@ def parse_provider_response(raw: bytes | str) -> dict:
     return proposal
 
 
+def bind_model_identity(proposal: dict, model_id: str) -> dict:
+    if not isinstance(model_id, str) or not model_id.strip():
+        raise ValueError("model id must be non-empty")
+    bound = dict(proposal)
+    bound["model"] = model_id
+    adapt(bound)
+    return bound
+
+
 def invoke(request: dict, config: dict, qualification: dict, benchmark: dict, capability_index: dict, *, transport=default_transport, environ: dict[str, str] | None = None) -> dict:
     verify_qualification(config, qualification, benchmark, capability_index)
     body = canonical_json(render_request_body(request, config)).encode("utf-8")
     headers = build_headers(config, environ)
     raw = transport(config["endpoint"], body, headers, config["timeoutSeconds"])
-    return parse_provider_response(raw)
+    return bind_model_identity(parse_provider_response(raw), config["modelId"])
 
 
 def load(path: Path) -> dict:
