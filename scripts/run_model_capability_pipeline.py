@@ -167,10 +167,10 @@ def validate_cli_args(args) -> bool:
         if provider_registry is None or qualification_registry is None or not provider_id or not model_id:
             raise ValueError("registry-pair mode requires --provider-registry, --qualification-registry, --provider-id, and --model-id")
         return True
-    if provider_input is None:
-        raise ValueError("provider input is required outside registry-pair mode")
     if (qualification is None) == (qualification_registry is None):
         raise ValueError("openai-compatible mode requires exactly one of --qualification or --qualification-registry")
+    if provider_input is None:
+        raise ValueError("provider input is required outside registry-pair mode")
     return False
 
 
