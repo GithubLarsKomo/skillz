@@ -5,7 +5,7 @@ The `qualifications/` directory is the reviewed persistence layer for provider/m
 ## Promotion flow
 
 1. Run the manual **Live provider validation** workflow in `qualify` mode, or invoke `scripts/run_live_provider_validation.py --mode qualify` locally with both `--qualification-out` and `--provider-config-out`.
-2. A successful GitHub workflow uploads a short-lived `provider-promotion-<provider>-<model>` artifact. It contains exactly `provider-config.json`, `qualification.json`, and `manifest.json`.
+2. A successful GitHub workflow uploads a short-lived `provider-promotion-<identity-key>` artifact. The opaque 24-hex-character identity key is derived deterministically from the exact `providerId` + `modelId` pair; the exact identities themselves remain unchanged inside the bundle. The artifact contains exactly `provider-config.json`, `qualification.json`, and `manifest.json`.
 3. Download and inspect the artifact. It contains the secrets-free provider configuration and qualification-v2 evidence only; it must contain no credential value, Authorization header, provider response, proposal body, or source prompt transcript.
 4. From the repository root, dry-run the local promotion preparer:
 
@@ -21,12 +21,18 @@ The dry run validates the bundle manifest, exact provider/model identity, provid
 python scripts/prepare_registry_promotion.py /path/to/extracted/provider-promotion-bundle --apply
 ```
 
-`--apply` writes the provider config, qualification artifact, `providers/index.json`, and `qualifications/index.json`. It then verifies both complete registries and resolves the exact provider/model pair. If post-write verification fails, all four files are restored to their pre-apply state.
+`--apply` writes the provider config and qualification artifact under opaque identity-key filenames, plus `providers/index.json` and `qualifications/index.json`. It then verifies both complete registries and resolves the exact provider/model pair. If post-write verification fails, all four files are restored to their pre-apply state.
 
 6. Inspect the resulting local diff and open a normal pull request. The preparer never commits, pushes, opens a PR, calls a provider, or accesses credentials.
 7. Normal offline CI verifies both registries and the `providerConfigSha256` binding. Only after review and merge is the provider/model pair considered registered.
 
 Any change to the committed interpretation benchmark or capability index invalidates previously registered evidence. Changing the bound secrets-free provider configuration (including endpoint, timeout, auth mode/environment-variable name, provider id, or model id) also invalidates the qualification. Credential values themselves are never part of the fingerprint.
+
+## Identity keys and filenames
+
+Provider and model identifiers are canonical data, not filenames. They may contain characters such as `:`, `/`, dots, or provider-specific model tags. `scripts/provider_identity_key.py` derives a deterministic 24-hex-character key from the exact identity pair. Promotion artifact names and provider/qualification filenames use only that key; registry entries and runtime lookup continue to use the exact original `providerId` and `modelId`.
+
+The key is never used as an alias or lookup fallback. Changing either exact identity changes the key and the qualification binding.
 
 ## Secrets-free endpoint constraint
 
@@ -42,8 +48,8 @@ Providers that genuinely require query parameters are not represented by embeddi
   "entries": [
     {
       "providerId": "example-provider",
-      "modelId": "example-model",
-      "path": "qualifications/example-provider--example-model.json"
+      "modelId": "org/example-model:tag",
+      "path": "qualifications/<identity-key>.json"
     }
   ]
 }
@@ -60,10 +66,10 @@ python scripts/qualification_registry.py verify
 Exact lookup:
 
 ```bash
-python scripts/qualification_registry.py lookup example-provider example-model
+python scripts/qualification_registry.py lookup example-provider 'org/example-model:tag'
 ```
 
-Lookup is exact only. There are no aliases, ranking, provider fallback, or model fallback.
+Lookup is exact only. There are no aliases, ranking, provider fallback, model fallback, or identity-key lookup.
 
 ## Promotion bundle builder
 

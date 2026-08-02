@@ -3,16 +3,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
 import build_provider_promotion_bundle as bundle_builder
 import provider_config_registry
+import provider_identity_key
 import qualification_registry
 from score_capability_interpretations import load_json
 
-SAFE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
 EXPECTED_BUNDLE_FILES = {"manifest.json", "provider-config.json", "qualification.json"}
 
 
@@ -31,12 +30,6 @@ def read_json(path: Path, label: str) -> dict:
         raise ValueError(f"cannot read {label}: {exc}") from exc
     if not isinstance(value, dict):
         raise ValueError(f"{label} root must be an object")
-    return value
-
-
-def safe_identity(value: object, label: str) -> str:
-    if not isinstance(value, str) or not SAFE_ID.fullmatch(value):
-        raise ValueError(f"{label} must match {SAFE_ID.pattern[:-2]}")
     return value
 
 
@@ -71,9 +64,10 @@ def prepare(bundle_dir: Path, repo_root: Path) -> dict:
     bundle = load_bundle(bundle_dir)
     config = bundle["providerConfig"]
     qualification = bundle["qualification"]
-    provider_id = safe_identity(config["providerId"], "providerId")
-    model_id = safe_identity(config["modelId"], "modelId")
-    stem = f"{provider_id}--{model_id}.json"
+    provider_id = config["providerId"]
+    model_id = config["modelId"]
+    identity_key = provider_identity_key.identity_key(provider_id, model_id)
+    stem = f"{identity_key}.json"
 
     provider_registry_path = repo_root / "providers" / "index.json"
     qualification_registry_path = repo_root / "qualifications" / "index.json"
@@ -97,6 +91,7 @@ def prepare(bundle_dir: Path, repo_root: Path) -> dict:
 
     return {
         "schemaVersion": 1,
+        "identityKey": identity_key,
         "providerId": provider_id,
         "modelId": model_id,
         "providerPath": provider_rel,
@@ -115,6 +110,7 @@ def public_plan(plan: dict, applied: bool) -> dict:
     return {
         "schemaVersion": 1,
         "status": "applied" if applied else "dry-run",
+        "identityKey": plan["identityKey"],
         "providerId": plan["providerId"],
         "modelId": plan["modelId"],
         "writes": [

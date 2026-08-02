@@ -61,6 +61,7 @@ jobs:
           python-version: "3.12"
 
       - name: Run manual live validation
+        id: live_validation
         shell: bash
         run: |
           set -euo pipefail
@@ -101,6 +102,8 @@ jobs:
               "$RUNNER_TEMP/provider-qualification.json" \
               "$RUNNER_TEMP/provider-promotion-bundle" \
               > "$RUNNER_TEMP/promotion-manifest-summary.json"
+            identity_key="$(python scripts/provider_identity_key.py "$PROVIDER_ID" "$MODEL_ID")"
+            echo "artifact_name=provider-promotion-$identity_key" >> "$GITHUB_OUTPUT"
           fi
 
           exit "$rc"
@@ -109,7 +112,7 @@ jobs:
         if: ${{ success() && inputs.mode == 'qualify' }}
         uses: actions/upload-artifact@v4
         with:
-          name: provider-promotion-${{ inputs.provider_id }}-${{ inputs.model_id }}
+          name: ${{ steps.live_validation.outputs.artifact_name }}
           path: ${{ runner.temp }}/provider-promotion-bundle
           if-no-files-found: error
           retention-days: 7
