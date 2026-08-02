@@ -4,15 +4,15 @@ The `qualifications/` directory is the reviewed persistence layer for provider/m
 
 ## Promotion flow
 
-1. Run the manual live provider validation in `qualify` mode or invoke `scripts/run_live_provider_validation.py --mode qualify` locally.
-2. Inspect the resulting qualification JSON. It must contain no credentials, endpoint, provider responses, or proposal bodies.
-3. Add the qualification JSON under `qualifications/` with a stable file name.
-4. Add exactly one matching entry to `qualifications/index.json` containing `providerId`, `modelId`, and the qualification artifact path.
-5. Open a normal pull request.
-6. `python scripts/qualification_registry.py verify` runs in normal offline CI and rejects stale or malformed evidence.
-7. Only after review and merge is the qualification considered registered.
+1. Run the manual **Live provider validation** workflow in `qualify` mode, or invoke `scripts/run_live_provider_validation.py --mode qualify` locally with both `--qualification-out` and `--provider-config-out`.
+2. A successful GitHub workflow uploads a short-lived `provider-promotion-<provider>-<model>` artifact. It contains exactly `provider-config.json`, `qualification.json`, and `manifest.json`.
+3. Download and inspect the artifact. It contains the secrets-free provider configuration and qualification-v2 evidence only; it must contain no credential value, Authorization header, provider response, proposal body, or source prompt transcript.
+4. Copy the provider config to `providers/` and add its exact `providerId` + `modelId` entry to `providers/index.json`.
+5. Copy the qualification to `qualifications/` and add its matching entry to `qualifications/index.json`.
+6. Open a normal pull request. Do not automate registry mutation from the live workflow.
+7. Normal offline CI verifies both registries and the `providerConfigSha256` binding. Only after review and merge is the provider/model pair considered registered.
 
-Any change to the committed interpretation benchmark or capability index changes its fingerprint and therefore invalidates previously registered evidence until the provider/model is requalified.
+Any change to the committed interpretation benchmark or capability index invalidates previously registered evidence. Changing the bound secrets-free provider configuration (including endpoint, timeout, auth mode/environment-variable name, provider id, or model id) also invalidates the qualification. Credential values themselves are never part of the fingerprint.
 
 ## Registry format
 
@@ -29,7 +29,7 @@ Any change to the committed interpretation benchmark or capability index changes
 }
 ```
 
-Paths must remain under `qualifications/`. Provider/model identity must be unique. The artifact itself must be a successful `capability-model-provider-qualification-v1` result whose provider/model identity and benchmark/index fingerprints exactly match the registry and current repository state.
+Paths must remain under `qualifications/`. Provider/model identity must be unique. The artifact itself must be a successful qualification schema v2 result whose provider/model identity, provider-config fingerprint, benchmark fingerprint, and capability-index fingerprint match the reviewed repository state.
 
 ## Verification and lookup
 
@@ -45,6 +45,17 @@ python scripts/qualification_registry.py lookup example-provider example-model
 
 Lookup is exact only. There are no aliases, ranking, provider fallback, or model fallback.
 
+## Promotion bundle builder
+
+For a local successful qualification:
+
+```bash
+python scripts/build_provider_promotion_bundle.py \
+  provider-config.json qualification.json provider-promotion-bundle
+```
+
+The builder rejects unqualified evidence, identity mismatch, or provider-config fingerprint drift before writing files.
+
 ## Data intentionally excluded
 
-The registry never requires or stores API keys, endpoint URLs, provider response bodies, prompt transcripts, or proposal sets. It stores only qualification evidence needed to prove that a specific provider/model pair passed the pinned benchmark against the pinned capability index.
+The qualification registry never stores API keys, provider response bodies, prompt transcripts, or proposal sets. Endpoint and other secrets-free runtime configuration live separately in the reviewed `providers/` registry and are bound cryptographically to qualification-v2 evidence through `providerConfigSha256`.
