@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "capabilities": {
+    "archive-extraction": {"providers": ["7z", "7zz", "unzip", "tar"]},
+    "binary-inspection": {"providers": ["objdump", "llvm-objdump", "readelf", "otool", "dumpbin"]},
+    "container-runtime": {"providers": ["docker", "podman"]},
+    "file-identification": {"providers": ["file"]},
+    "http-observation": {"providers": ["curl", "mitmproxy", "mitmdump"]},
+    "javascript-runtime": {"providers": ["node"]},
+    "network-capture": {"providers": ["tshark", "tcpdump", "dumpcap"]},
+    "process-inspection": {"providers": ["ps", "tasklist"]},
+    "python-runtime": {"providers": ["python3", "python"]},
+    "runtime-tracing": {"providers": ["strace", "dtruss", "procmon", "ltrace"]},
+    "string-extraction": {"providers": ["strings"]},
+    "structured-text": {"providers": ["jq", "python3", "python"]},
+    "version-control": {"providers": ["git"]}
+  },
+  "versionArgs": {
+    "dumpbin": ["/?"],
+    "procmon": ["/?"],
+    "tar": ["--version"],
+    "unzip": ["-v"]
+  },
+  "profiles": {
+    "disciplined-diagnosis": [
+      "container-runtime",
+      "http-observation",
+      "process-inspection",
+      "runtime-tracing",
+      "structured-text",
+      "version-control"
+    ],
+    "merge-conflict-resolution": ["version-control"],
+    "opaque-system-analysis": [
+      "archive-extraction",
+      "binary-inspection",
+      "file-identification",
+      "http-observation",
+      "network-capture",
+      "runtime-tracing",
+      "string-extraction",
+      "structured-text"
+    ],
+    "repository-engineering": [
+      "container-runtime",
+      "javascript-runtime",
+      "python-runtime",
+      "structured-text",
+      "version-control"
+    ]
+  }
+}
