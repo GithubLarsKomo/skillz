@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "meeting-preparation",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "keep the participant decision role explicitly unknown", "passed": true, "evidence": "The prerequisites and participant-context rules prohibit inferring authority from context and preserve missing role information as unknown."},
+    {"behavior": "preserve the evidence conflict and carry it into meeting risks", "passed": true, "evidence": "Conflicting Evidence Note claims remain visible and are explicitly promoted into meeting risks rather than resolved by averaging."},
+    {"behavior": "turn unresolved high-impact uncertainty into a concrete clarification question", "passed": true, "evidence": "Open questions are prioritized by influence on the meeting objective and decision and converted into concrete preparation questions."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "assign decision authority from job title or context alone", "observed": false, "evidence": "Decision authority must be confirmed; otherwise it stays open."},
+    {"behavior": "average or silently choose between contradictory evidence claims", "observed": false, "evidence": "Evidence conflicts remain explicit with original confidence and provenance."}
+  ],
+  "overall": "pass"
+}
