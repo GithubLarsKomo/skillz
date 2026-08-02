@@ -62,6 +62,18 @@
       ]
     },
     {
+      "name": "decision-and-follow-up-tracker",
+      "requires": [
+        "daily-and-weekly-review",
+        "meeting-preparation",
+        "project-status-brief"
+      ],
+      "outputs": [
+        "decision-follow-up-register.json",
+        "decision-follow-up-register.md"
+      ]
+    },
+    {
       "name": "decision-record",
       "requires": [
         "agent-handoff",
@@ -313,6 +325,18 @@
     {
       "from": "daily-and-weekly-review",
       "to": "inbox-action-triage"
+    },
+    {
+      "from": "decision-and-follow-up-tracker",
+      "to": "daily-and-weekly-review"
+    },
+    {
+      "from": "decision-and-follow-up-tracker",
+      "to": "meeting-preparation"
+    },
+    {
+      "from": "decision-and-follow-up-tracker",
+      "to": "project-status-brief"
     },
     {
       "from": "decision-record",
@@ -606,6 +630,22 @@
       "ambiguous": false
     },
     {
+      "output": "decision-follow-up-register.json",
+      "producers": [
+        "decision-and-follow-up-tracker"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "decision-follow-up-register.md",
+      "producers": [
+        "decision-and-follow-up-tracker"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "decision-record.json",
       "producers": [
         "decision-record"
@@ -830,7 +870,9 @@
       "producers": [
         "meeting-preparation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -838,7 +880,9 @@
       "producers": [
         "meeting-preparation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -879,7 +923,9 @@
       "producers": [
         "project-status-brief"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -887,7 +933,9 @@
       "producers": [
         "project-status-brief"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -981,7 +1029,9 @@
       "producers": [
         "daily-and-weekly-review"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -989,7 +1039,9 @@
       "producers": [
         "daily-and-weekly-review"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "decision-and-follow-up-tracker"
+      ],
       "ambiguous": false
     },
     {
@@ -1166,6 +1218,8 @@
     "beta-readiness.md",
     "beta-runbook.md",
     "conflict-resolution-evidence.json",
+    "decision-follow-up-register.json",
+    "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -1176,14 +1230,8 @@
     "expert handoff",
     "import verification",
     "installed OpenASR model",
-    "meeting-prep.json",
-    "meeting-prep.md",
     "progress summary",
-    "project-status.json",
-    "project-status.md",
     "resolved-change-brief.md",
-    "review-brief.json",
-    "review-brief.md",
     "synchronization manifest",
     "ui-prototype-plan.md",
     "updated skill repository"
