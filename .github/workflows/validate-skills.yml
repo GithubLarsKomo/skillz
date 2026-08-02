@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Test skillz bootstrap installer
+        run: python -m unittest tests.test_bootstrap_skillz
       - name: Check generated repository metadata
         run: python scripts/generate_repository_metadata.py --check
       - name: Test metadata generator
