@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-model-provider-qualification-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "providerId",
+    "modelId",
+    "benchmarkSha256",
+    "proposalSetSha256",
+    "capabilityIndexSha256",
+    "scorerSchemaVersion",
+    "caseCount",
+    "passedCount",
+    "failedCount",
+    "qualified"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "providerId": {"type": "string", "minLength": 1},
+    "modelId": {"type": "string", "minLength": 1},
+    "benchmarkSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "proposalSetSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "capabilityIndexSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "scorerSchemaVersion": {"const": 1},
+    "caseCount": {"type": "integer", "minimum": 1},
+    "passedCount": {"type": "integer", "minimum": 0},
+    "failedCount": {"type": "integer", "minimum": 0},
+    "qualified": {"type": "boolean"}
+  }
+}
