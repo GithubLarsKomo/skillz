@@ -64,6 +64,8 @@ jobs:
         run: python -m unittest tests.test_provider_config_registry
       - name: Verify provider config registry
         run: python scripts/provider_config_registry.py verify
+      - name: Test exact registry-pair runner flow
+        run: python -m unittest tests.test_runner_registry_pair
       - name: Test capability pipeline end to end
         run: python -m unittest tests.test_capability_pipeline_e2e
       - name: Test capability pipeline CLI
