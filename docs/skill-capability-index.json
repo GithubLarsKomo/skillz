@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "skillCount": 30,
-  "evaluationSuiteCount": 26,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationSuiteCount": 27,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 2,
   "skills": [
     {
       "name": "agent-handoff",
@@ -972,10 +972,10 @@
       ],
       "portableFiles": [],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": false
       }
     },
     {
