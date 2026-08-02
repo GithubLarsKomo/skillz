@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-interpretation-benchmark-v1",
+  "type": "object",
+  "required": ["schemaVersion", "cases"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "sourceText", "expectedIntent", "forbiddenConstraints", "allowedConfidenceLevels", "requiredReviewReasons", "forbiddenReviewReasons"],
+        "properties": {
+          "id": {"type": "string"},
+          "sourceText": {"type": "string"},
+          "expectedIntent": {"type": "object"},
+          "forbiddenConstraints": {
+            "type": "object",
+            "required": ["desiredOutputs", "requiredDependencies", "allowedEvaluationModes"],
+            "properties": {
+              "desiredOutputs": {"type": "array", "items": {"type": "string"}},
+              "requiredDependencies": {"type": "array", "items": {"type": "string"}},
+              "allowedEvaluationModes": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          },
+          "allowedConfidenceLevels": {"type": "array", "items": {"type": "string"}},
+          "requiredReviewReasons": {"type": "array", "items": {"type": "string"}},
+          "forbiddenReviewReasons": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
