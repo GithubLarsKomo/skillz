@@ -52,6 +52,16 @@
       ]
     },
     {
+      "name": "daily-and-weekly-review",
+      "requires": [
+        "inbox-action-triage"
+      ],
+      "outputs": [
+        "review-brief.json",
+        "review-brief.md"
+      ]
+    },
+    {
       "name": "decision-record",
       "requires": [
         "agent-handoff",
@@ -291,6 +301,10 @@
     {
       "from": "central-skill-repository-curation",
       "to": "composable-skill-factory"
+    },
+    {
+      "from": "daily-and-weekly-review",
+      "to": "inbox-action-triage"
     },
     {
       "from": "decision-record",
@@ -769,7 +783,9 @@
       "producers": [
         "inbox-action-triage"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "daily-and-weekly-review"
+      ],
       "ambiguous": false
     },
     {
@@ -777,7 +793,9 @@
       "producers": [
         "inbox-action-triage"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "daily-and-weekly-review"
+      ],
       "ambiguous": false
     },
     {
@@ -932,6 +950,22 @@
         "disciplined-diagnosis",
         "project-beta-readiness"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "review-brief.json",
+      "producers": [
+        "daily-and-weekly-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "review-brief.md",
+      "producers": [
+        "daily-and-weekly-review"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -1117,13 +1151,13 @@
     "execution plan",
     "expert handoff",
     "import verification",
-    "inbox-triage.json",
-    "inbox-triage.md",
     "installed OpenASR model",
     "meeting-prep.json",
     "meeting-prep.md",
     "progress summary",
     "resolved-change-brief.md",
+    "review-brief.json",
+    "review-brief.md",
     "synchronization manifest",
     "ui-prototype-plan.md",
     "updated skill repository"
