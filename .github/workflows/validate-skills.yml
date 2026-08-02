@@ -44,6 +44,8 @@ jobs:
         run: python -m unittest tests.test_build_model_interpretation_request
       - name: Test model interpretation runner
         run: python -m unittest tests.test_run_model_interpretation
+      - name: Test offline model capability pipeline
+        run: python -m unittest tests.test_run_model_capability_pipeline
       - name: Test capability pipeline end to end
         run: python -m unittest tests.test_capability_pipeline_e2e
       - name: Test capability pipeline CLI
