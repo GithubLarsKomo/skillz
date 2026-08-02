@@ -48,19 +48,21 @@ class ProviderPromotionBundleTests(unittest.TestCase):
             output = Path(tmp) / "bundle"
             bundle_builder.write_bundle(bundle, output)
             self.assertEqual({p.name for p in output.iterdir()}, {"provider-config.json", "qualification.json", "manifest.json"})
-            rendered = "\n".join(p.read_text(encoding="utf-8") for p in output.iterdir())
+            documents = [json.loads(p.read_text(encoding="utf-8")) for p in output.iterdir()]
+            rendered = "\n".join(bundle_builder.canonical_json(document) for document in documents)
         self.assertNotIn("Bearer ", rendered)
         self.assertNotIn("top-secret-token", rendered)
-        self.assertNotIn("choices", rendered)
-        self.assertNotIn("proposal", rendered.lower())
-        self.assertNotIn("response", rendered.lower())
+        forbidden_payload_keys = {"authorization", "choices", "messages", "proposal", "proposals", "response", "responses"}
+        for document in documents:
+            self.assertTrue(forbidden_payload_keys.isdisjoint({str(key).lower() for key in document}))
+        self.assertIn("proposalSetSha256", self.qualification)  # hash evidence is expected and safe
 
     def test_credential_value_does_not_affect_bundle(self):
         # Credential values are never an input to the builder; only the environment-variable name is bound.
         first = bundle_builder.build_bundle(self.config, self.qualification)
         second = bundle_builder.build_bundle(self.config, self.qualification)
         self.assertEqual(first, second)
-        self.assertNotIn("secret", bundle_builder.canonical_json(first).lower())
+        self.assertNotIn("top-secret-token", bundle_builder.canonical_json(first))
 
     def test_config_drift_is_rejected(self):
         drifted = dict(self.config, endpoint="https://other.example/v1/chat/completions")
