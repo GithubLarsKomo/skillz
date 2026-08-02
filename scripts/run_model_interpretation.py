@@ -7,16 +7,11 @@ import sys
 from pathlib import Path
 
 from adapt_model_interpretation import adapt
+from model_interpretation_request_contract import canonical_json, validate_request
 from score_capability_interpretations import load_json as load_benchmark_json, score_case, validate_benchmark
 
 SCHEMA_VERSION = 1
-REQUEST_SCHEMA_VERSION = 1
-REQUEST_RESPONSE_SCHEMA = "capability-model-interpretation-v1"
 FIXTURE_SCHEMA_VERSION = 1
-
-
-def canonical_json(value: object) -> str:
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
 
 def read_json(path: str, label: str) -> dict:
@@ -28,22 +23,6 @@ def read_json(path: str, label: str) -> dict:
     if not isinstance(data, dict):
         raise ValueError(f"{label} root must be an object")
     return data
-
-
-def validate_request(request: dict) -> dict:
-    required = {
-        "schemaVersion", "requestId", "sourceText", "capabilityIndex",
-        "availableCapabilities", "availableOutputs", "responseSchema", "controlRules",
-    }
-    if set(request) != required:
-        raise ValueError("interpretation request has invalid fields")
-    if request.get("schemaVersion") != REQUEST_SCHEMA_VERSION:
-        raise ValueError(f"unsupported interpretation request schemaVersion {request.get('schemaVersion')!r}")
-    if not isinstance(request.get("requestId"), str) or not request["requestId"]:
-        raise ValueError("requestId must be a non-empty string")
-    if request.get("responseSchema") != REQUEST_RESPONSE_SCHEMA:
-        raise ValueError(f"responseSchema must be {REQUEST_RESPONSE_SCHEMA!r}")
-    return request
 
 
 def parse_fixture(fixture: dict) -> tuple[str, dict]:
@@ -77,30 +56,13 @@ def find_benchmark_case(benchmark: dict, case_id: str) -> dict:
     raise ValueError(f"unknown benchmark case id: {case_id}")
 
 
-def run(request: dict, fixture: dict, benchmark: dict | None = None, case_id: str | None = None) -> dict:
-    request = validate_request(request)
-    provider_id = "unknown"
-    proposal: dict | None = None
-    validation_error: str | None = None
-    adapter_compatible = False
-    benchmark_finding = None
-    try:
-        provider_id, proposal = parse_fixture(fixture)
-        adapt(proposal)
-        adapter_compatible = True
-        if benchmark is not None or case_id is not None:
-            if benchmark is None or case_id is None:
-                raise ValueError("benchmark and case id must be provided together")
-            benchmark_finding = score_case(find_benchmark_case(benchmark, case_id), proposal)
-    except ValueError as exc:
-        validation_error = str(exc)
-
-    accepted = adapter_compatible and validation_error is None
+def _result(request: dict, kind: str, provider_id: str, proposal: dict | None, validation_error: str | None, benchmark_finding=None) -> dict:
+    adapter_compatible = proposal is not None and validation_error is None
     return {
         "schemaVersion": SCHEMA_VERSION,
         "requestId": request["requestId"],
-        "provider": {"kind": "fixture", "id": provider_id},
-        "status": "accepted" if accepted else "rejected",
+        "provider": {"kind": kind, "id": provider_id},
+        "status": "accepted" if adapter_compatible else "rejected",
         "proposal": proposal,
         "adapterCompatible": adapter_compatible,
         "validationError": validation_error,
@@ -108,21 +70,75 @@ def run(request: dict, fixture: dict, benchmark: dict | None = None, case_id: st
     }
 
 
+def run(request: dict, fixture: dict, benchmark: dict | None = None, case_id: str | None = None) -> dict:
+    request = validate_request(request)
+    provider_id = "unknown"
+    proposal = None
+    finding = None
+    try:
+        provider_id, proposal = parse_fixture(fixture)
+        adapt(proposal)
+        if benchmark is not None or case_id is not None:
+            if benchmark is None or case_id is None:
+                raise ValueError("benchmark and case id must be provided together")
+            finding = score_case(find_benchmark_case(benchmark, case_id), proposal)
+        return _result(request, "fixture", provider_id, proposal, None, finding)
+    except ValueError as exc:
+        return _result(request, "fixture", provider_id, proposal, str(exc), finding)
+
+
+def run_openai_compatible(request: dict, config: dict, qualification: dict, benchmark: dict, capability_index: dict, *, case_id: str | None = None, transport=None, environ=None) -> dict:
+    request = validate_request(request)
+    provider_id = config.get("providerId", "unknown") if isinstance(config, dict) else "unknown"
+    proposal = None
+    finding = None
+    try:
+        import openai_compatible_provider as provider
+        kwargs = {"environ": environ}
+        if transport is not None:
+            kwargs["transport"] = transport
+        proposal = provider.invoke(request, config, qualification, benchmark, capability_index, **kwargs)
+        provider_id = config["providerId"]
+        if case_id is not None:
+            finding = score_case(find_benchmark_case(benchmark, case_id), proposal)
+        return _result(request, "openai-compatible", provider_id, proposal, None, finding)
+    except ValueError as exc:
+        return _result(request, "openai-compatible", provider_id, proposal, str(exc), finding)
+
+
+def validate_mode_args(mode: str, qualification, benchmark, capability_index) -> None:
+    if mode == "fixture":
+        if qualification is not None or capability_index is not None:
+            raise ValueError("fixture mode does not accept qualification or capability-index arguments")
+        return
+    if qualification is None or benchmark is None or capability_index is None:
+        raise ValueError("openai-compatible mode requires --qualification, --benchmark, and --capability-index")
+
+
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Run one capability interpretation through a provider-neutral fixture adapter.")
+    parser = argparse.ArgumentParser(description="Run one capability interpretation through an explicit provider adapter.")
     parser.add_argument("request", help="Interpretation request JSON file or '-' for stdin")
-    parser.add_argument("fixture", help="Fixture provider JSON file")
+    parser.add_argument("provider_input", help="Fixture JSON or provider-config JSON file")
+    parser.add_argument("--provider-mode", choices=("fixture", "openai-compatible"), default="fixture")
+    parser.add_argument("--qualification", type=Path)
     parser.add_argument("--benchmark", type=Path)
+    parser.add_argument("--capability-index", type=Path)
     parser.add_argument("--case-id")
     args = parser.parse_args(argv)
-    if args.request == "-" and args.fixture == "-":
-        print("ERROR: request and fixture cannot both read from stdin", file=sys.stderr)
+    if args.request == "-" and args.provider_input == "-":
+        print("ERROR: request and provider input cannot both read from stdin", file=sys.stderr)
         return 2
     try:
+        validate_mode_args(args.provider_mode, args.qualification, args.benchmark, args.capability_index)
         request = read_json(args.request, "interpretation request")
-        fixture = read_json(args.fixture, "fixture provider")
+        provider_input = read_json(args.provider_input, "provider input")
         benchmark = load_benchmark_json(args.benchmark) if args.benchmark else None
-        result = run(request, fixture, benchmark, args.case_id)
+        if args.provider_mode == "fixture":
+            result = run(request, provider_input, benchmark, args.case_id)
+        else:
+            qualification = read_json(str(args.qualification), "qualification")
+            capability_index = read_json(str(args.capability_index), "capability index")
+            result = run_openai_compatible(request, provider_input, qualification, benchmark, capability_index, case_id=args.case_id)
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2

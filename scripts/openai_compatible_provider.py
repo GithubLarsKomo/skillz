@@ -8,9 +8,9 @@ import urllib.request
 from pathlib import Path
 
 from adapt_model_interpretation import adapt
-from build_model_interpretation_request import canonical_json, validate_index
+from build_model_interpretation_request import validate_index
+from model_interpretation_request_contract import canonical_json, validate_request
 from qualify_model_provider import fingerprint
-from run_model_interpretation import validate_request
 from score_capability_interpretations import load_json
 
 CONFIG_SCHEMA_VERSION = 1
@@ -58,17 +58,10 @@ def verify_qualification(config: dict, qualification: object, benchmark: object,
 def render_request_body(request: dict, config: dict) -> dict:
     request = validate_request(request)
     config = validate_config(config)
-    return {
-        "model": config["modelId"],
-        "temperature": 0,
-        "messages": [
-            {
-                "role": "system",
-                "content": "Return exactly one JSON object matching capability-model-interpretation-v1. Do not add prose or provenance/admission controls.",
-            },
-            {"role": "user", "content": canonical_json(request)},
-        ],
-    }
+    return {"model": config["modelId"], "temperature": 0, "messages": [
+        {"role": "system", "content": "Return exactly one JSON object matching capability-model-interpretation-v1. Do not add prose or provenance/admission controls."},
+        {"role": "user", "content": canonical_json(request)},
+    ]}
 
 
 def build_headers(config: dict, environ: dict[str, str] | None = None) -> dict[str, str]:
