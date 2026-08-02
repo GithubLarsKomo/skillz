@@ -55,6 +55,7 @@ def run(
     *,
     provider_mode: str = "fixture",
     qualification: dict | None = None,
+    qualification_registry: Path | None = None,
     benchmark: dict | None = None,
     transport=None,
     environ=None,
@@ -69,16 +70,32 @@ def run(
 
     request_id = interpretation_request["requestId"]
     if provider_mode == "fixture":
-        if qualification is not None:
-            return failed("provider-run", "fixture mode does not accept qualification", request_id)
+        if qualification is not None or qualification_registry is not None:
+            return failed("provider-run", "fixture mode does not accept qualification sources", request_id)
         model_run = model_runner.run(interpretation_request, provider_input, benchmark)
     else:
-        if qualification is None or benchmark is None:
-            return failed("provider-run", "openai-compatible mode requires qualification and benchmark", request_id)
+        if benchmark is None:
+            return failed("provider-run", "openai-compatible mode requires benchmark", request_id)
+        if (qualification is None) == (qualification_registry is None):
+            return failed(
+                "provider-run",
+                "openai-compatible mode requires exactly one qualification source",
+                request_id,
+            )
+        try:
+            resolved_qualification = model_runner.resolve_qualification(
+                provider_input,
+                qualification,
+                qualification_registry,
+                benchmark,
+                index,
+            )
+        except ValueError as exc:
+            return failed("provider-run", str(exc), request_id)
         model_run = model_runner.run_openai_compatible(
             interpretation_request,
             provider_input,
-            qualification,
+            resolved_qualification,
             benchmark,
             index,
             transport=transport,
@@ -135,11 +152,13 @@ def read_text(path: str) -> str:
 
 def validate_cli_args(args) -> None:
     if args.provider_mode == "fixture":
-        if args.qualification is not None:
-            raise ValueError("fixture mode does not accept --qualification")
+        if args.qualification is not None or args.qualification_registry is not None:
+            raise ValueError("fixture mode does not accept qualification sources")
         return
-    if args.qualification is None or args.benchmark is None:
-        raise ValueError("openai-compatible mode requires --qualification and --benchmark")
+    if args.benchmark is None:
+        raise ValueError("openai-compatible mode requires --benchmark")
+    if (args.qualification is None) == (args.qualification_registry is None):
+        raise ValueError("openai-compatible mode requires exactly one of --qualification or --qualification-registry")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -147,7 +166,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("source", help="Source text file or '-' for stdin")
     parser.add_argument("provider_input", help="Fixture provider JSON or provider-config JSON file")
     parser.add_argument("--provider-mode", choices=PROVIDER_MODES, default="fixture")
-    parser.add_argument("--qualification", type=Path)
+    qualification_group = parser.add_mutually_exclusive_group()
+    qualification_group.add_argument("--qualification", type=Path)
+    qualification_group.add_argument("--qualification-registry", type=Path)
     parser.add_argument("--benchmark", type=Path)
     parser.add_argument("--review", help="Explicit capability-intent-review-v1 JSON file")
     parser.add_argument("--index", type=Path, default=DEFAULT_INDEX, help=argparse.SUPPRESS)
@@ -166,6 +187,7 @@ def main(argv: list[str] | None = None) -> int:
             args.index,
             provider_mode=args.provider_mode,
             qualification=qualification,
+            qualification_registry=args.qualification_registry,
             benchmark=benchmark,
         )
     except ValueError as exc:
