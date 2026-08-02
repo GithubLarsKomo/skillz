@@ -34,7 +34,8 @@ class ModelRunnerProviderModeTests(unittest.TestCase):
             "timeoutSeconds": 5,
         }
         cls.qualification = qualifier.qualify(
-            cls.config["providerId"], cls.config["modelId"], cls.benchmark, cls.proposals, cls.index
+            cls.config["providerId"], cls.config["modelId"], cls.benchmark, cls.proposals, cls.index,
+            provider_config=cls.config,
         )
 
     def fake_transport(self, *args):
