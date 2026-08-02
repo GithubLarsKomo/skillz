@@ -85,6 +85,8 @@ graph TD
 | `expert handoff` | `synapse-orchestrator` | — | orphan |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `import verification` | `openasr-offline-model-import` | — | orphan |
+| `inbox-triage.json` | `inbox-action-triage` | — | orphan |
+| `inbox-triage.md` | `inbox-action-triage` | — | orphan |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
 | `meeting-prep.json` | `meeting-preparation` | — | orphan |
