@@ -1,0 +1,15 @@
+{
+  "skill": "project-beta-readiness",
+  "caseId": "happy-path",
+  "requiredBehaviors": [
+    {"behavior": "define the first-beta scope independently from the full roadmap", "passed": true, "evidence": "The Beta-Scope section requires a one-sentence first-beta definition centered on the intended user and primary path rather than the whole roadmap."},
+    {"behavior": "score only evidenced beta-scope capabilities across the six dimensions", "passed": true, "evidence": "The Beta-Gate defines six weighted dimensions and explicitly says to award points only for evidenced capabilities in the first-beta scope."},
+    {"behavior": "declare beta reached at 100 percent without penalizing explicitly post-beta features", "passed": true, "evidence": "The percentage and Beta-Status sections state that post-beta roadmap features do not reduce readiness and beta is reached at 100 points with no hard blocker."},
+    {"behavior": "produce a beta runbook", "passed": true, "evidence": "The Beta-Runbook section requires beta-runbook.md whenever beta reaches 100 percent."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat the full product roadmap as the beta denominator", "observed": false, "evidence": "The skill explicitly excludes later roadmap work from the readiness denominator."},
+    {"behavior": "aggregate unrelated repositories into the same assessment", "observed": false, "evidence": "The purpose and boundary section mandates exactly one repository per execution and aggregation only after repeated per-project runs."}
+  ],
+  "overall": "pass"
+}
