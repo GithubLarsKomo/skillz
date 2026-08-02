@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "meeting-preparation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Prepare an upcoming decision meeting from confirmed calendar facts, confirmed participant roles, and two current evidence notes. Preserve claim provenance and confidence while focusing only on decisions, risks, open questions, and concrete preparation.",
+      "requiredBehaviors": [
+        "separate confirmed meeting facts from objectives, decisions, open questions, risks, and preparation actions",
+        "preserve evidence-note claim provenance, confidence, and contradictions",
+        "produce a concise immediately usable meeting brief without duplicating retrieval logic"
+      ],
+      "forbiddenBehaviors": [
+        "invent participant motives or unverified authority",
+        "claim calendar, contact, or document actions were executed"
+      ],
+      "skillAnchors": [
+        "Meeting-Fakten fixieren",
+        "Evidenz fokussieren",
+        "Brief erstellen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A participant is confirmed but their decision authority is unclear, and two high-quality evidence claims conflict. Prepare the meeting without resolving either uncertainty by assumption.",
+      "requiredBehaviors": [
+        "keep the participant decision role explicitly unknown",
+        "preserve the evidence conflict and carry it into meeting risks",
+        "turn unresolved high-impact uncertainty into a concrete clarification question"
+      ],
+      "forbiddenBehaviors": [
+        "assign decision authority from job title or context alone",
+        "average or silently choose between contradictory evidence claims"
+      ],
+      "skillAnchors": [
+        "Teilnehmerkontext begrenzen",
+        "Fragen und Risiken priorisieren",
+        "Konflikt sichtbar"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft meeting prep infers that one attendee is resistant, upgrades a low-confidence claim to certain, and says missing documents have already been requested although no connector action occurred.",
+      "requiredBehaviors": [
+        "reject speculative attendee profiling",
+        "restore the original evidence confidence and provenance",
+        "represent unexecuted preparation work as a pending action rather than a completed fact"
+      ],
+      "forbiddenBehaviors": [
+        "persist speculative personal motives",
+        "present unexecuted connector actions as completed"
+      ],
+      "skillAnchors": [
+        "Keine Persönlichkeitsprofile",
+        "Confidence und Konflikte wurden nicht hochgestuft",
+        "Keine Aktion vortäuschen"
+      ]
+    }
+  ]
+}
