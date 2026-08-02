@@ -7,9 +7,23 @@ The `qualifications/` directory is the reviewed persistence layer for provider/m
 1. Run the manual **Live provider validation** workflow in `qualify` mode, or invoke `scripts/run_live_provider_validation.py --mode qualify` locally with both `--qualification-out` and `--provider-config-out`.
 2. A successful GitHub workflow uploads a short-lived `provider-promotion-<provider>-<model>` artifact. It contains exactly `provider-config.json`, `qualification.json`, and `manifest.json`.
 3. Download and inspect the artifact. It contains the secrets-free provider configuration and qualification-v2 evidence only; it must contain no credential value, Authorization header, provider response, proposal body, or source prompt transcript.
-4. Copy the provider config to `providers/` and add its exact `providerId` + `modelId` entry to `providers/index.json`.
-5. Copy the qualification to `qualifications/` and add its matching entry to `qualifications/index.json`.
-6. Open a normal pull request. Do not automate registry mutation from the live workflow.
+4. From the repository root, dry-run the local promotion preparer:
+
+```bash
+python scripts/prepare_registry_promotion.py /path/to/extracted/provider-promotion-bundle
+```
+
+The dry run validates the bundle manifest, exact provider/model identity, provider-config fingerprint, current benchmark fingerprint, current capability-index fingerprint, target paths, and duplicate registry identities. It prints the four files that would change without modifying the repository.
+
+5. After inspection, apply the prepared change explicitly:
+
+```bash
+python scripts/prepare_registry_promotion.py /path/to/extracted/provider-promotion-bundle --apply
+```
+
+`--apply` writes the provider config, qualification artifact, `providers/index.json`, and `qualifications/index.json`. It then verifies both complete registries and resolves the exact provider/model pair. If post-write verification fails, all four files are restored to their pre-apply state.
+
+6. Inspect the resulting local diff and open a normal pull request. The preparer never commits, pushes, opens a PR, calls a provider, or accesses credentials.
 7. Normal offline CI verifies both registries and the `providerConfigSha256` binding. Only after review and merge is the provider/model pair considered registered.
 
 Any change to the committed interpretation benchmark or capability index invalidates previously registered evidence. Changing the bound secrets-free provider configuration (including endpoint, timeout, auth mode/environment-variable name, provider id, or model id) also invalidates the qualification. Credential values themselves are never part of the fingerprint.
