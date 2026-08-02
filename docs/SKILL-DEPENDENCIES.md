@@ -66,6 +66,7 @@ graph TD
 | `beta-readiness.json` | `project-beta-readiness` | — | orphan |
 | `beta-readiness.md` | `project-beta-readiness` | — | orphan |
 | `beta-runbook.md` | `project-beta-readiness` | — | orphan |
+| `communication-profile.json` | `communication-memory-governance` | — | orphan |
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | orphan |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | unique |
 | `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | unique |
@@ -97,6 +98,7 @@ graph TD
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
 | `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
+| `memory-ledger.json` | `communication-memory-governance` | — | orphan |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
