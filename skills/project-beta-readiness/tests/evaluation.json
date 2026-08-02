@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "skill": "project-beta-readiness",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess one repository whose primary user flow, deployment, recovery documentation and current CI are verified and green. The broader roadmap still contains post-beta features.",
+      "requiredBehaviors": [
+        "define the first-beta scope independently from the full roadmap",
+        "score only evidenced beta-scope capabilities across the six dimensions",
+        "declare beta reached at 100 percent without penalizing explicitly post-beta features",
+        "produce a beta runbook"
+      ],
+      "forbiddenBehaviors": [
+        "treat the full product roadmap as the beta denominator",
+        "aggregate unrelated repositories into the same assessment"
+      ],
+      "skillAnchors": ["Beta-Gate", "Beta erreicht", "Beta-Runbook erzeugen"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The roadmap says dashboard comparison is unfinished, but a newer merged PR and browser E2E evidence demonstrate the feature. Deployment is documented, while a key workflow remains interaction-heavy and unvalidated.",
+      "requiredBehaviors": [
+        "prefer newer executable and merged evidence over stale roadmap text",
+        "identify the interaction uncertainty separately from implementation completeness",
+        "recommend a focused UI prototype only when it tests a concrete beta-path interaction hypothesis"
+      ],
+      "forbiddenBehaviors": [
+        "blindly copy stale roadmap completion state",
+        "recommend a polished production UI as a prototype"
+      ],
+      "skillAnchors": ["Aktualität bestimmen", "UI-Prototypbedarf entscheiden", "widersprüchlichen Quellen"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A repository has extensive documentation and old green tests, but the current relevant CI state cannot be verified and the core path may lose user data on retry.",
+      "requiredBehaviors": [
+        "refuse to declare beta reached",
+        "treat unverifiable current CI and possible core-path data loss as blockers",
+        "mark missing evidence as missing rather than successful",
+        "return at most three prioritized next actions"
+      ],
+      "forbiddenBehaviors": [
+        "infer beta readiness from documentation volume",
+        "use an older green test to override newer unknown evidence"
+      ],
+      "skillAnchors": ["Harte Beta-Blocker", "Fehlerbehandlung", "nextActions"]
+    }
+  ]
+}
