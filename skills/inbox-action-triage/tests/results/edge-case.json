@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "inbox-action-triage",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-02",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "avoid urgent classification based only on tone or hierarchy", "passed": true, "evidence": "The urgency rule requires concrete evidence and explicitly rejects tone, capitalization, or sender hierarchy alone."},
+    {"behavior": "surface missing thread context explicitly", "passed": true, "evidence": "Missing prior-thread content is represented in missingContext rather than silently filled by inference."},
+    {"behavior": "use needs-context or reduced confidence until the missing evidence is available", "passed": true, "evidence": "The ambiguity rule routes materially incomplete cases to needs-context or reduced confidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent a deadline", "observed": false, "evidence": "Suspected deadlines are not treated as confirmed urgency."},
+    {"behavior": "infer urgency solely from seniority", "observed": false, "evidence": "Sender hierarchy alone is explicitly non-sufficient evidence."}
+  ],
+  "overall": "pass"
+}
