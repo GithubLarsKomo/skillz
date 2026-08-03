@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GithubLarsKomo/skillz/schemas/knowledge-view-v1.schema.json",
+  "title": "Knowledge View v1",
+  "type": "object",
+  "required": ["schemaVersion", "id", "sourceScopes", "filters", "includeStates", "artifactIds", "rows", "asOf"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "sourceScopes": {"type": "array", "items": {"type": "string"}},
+    "filters": {"type": "array", "items": {"type": "object"}},
+    "sort": {"type": "array", "items": {"type": "object"}},
+    "groupBy": {"type": ["array", "string", "null"]},
+    "fields": {"type": "array", "items": {"type": "string"}},
+    "derivedFields": {"type": "array", "items": {"type": "object"}},
+    "includeStates": {"type": "array", "items": {"enum": ["active", "superseded", "expired", "rejected", "transient"]}},
+    "artifactIds": {"type": "array", "items": {"type": "string"}},
+    "rows": {"type": "array", "items": {"type": "object"}},
+    "asOf": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GithubLarsKomo/skillz/schemas/knowledge-map-v1.schema.json",
+  "title": "Knowledge Map v1",
+  "type": "object",
+  "required": ["schemaVersion", "nodes", "edges", "groups"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label", "sourceRefs"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "type": {"type": "string", "minLength": 1},
+          "label": {"type": "string"},
+          "sourceRefs": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "from", "to", "type", "sourceRefs"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "from": {"type": "string", "minLength": 1},
+          "to": {"type": "string", "minLength": 1},
+          "type": {"type": "string", "minLength": 1},
+          "sourceRefs": {"type": "array", "items": {"type": "string"}},
+          "externalTarget": {"type": "boolean"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "groups": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}

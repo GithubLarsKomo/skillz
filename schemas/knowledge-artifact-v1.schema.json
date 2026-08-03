@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GithubLarsKomo/skillz/schemas/knowledge-artifact-v1.schema.json",
+  "title": "Structured Knowledge Artifact v1",
+  "type": "object",
+  "required": ["schemaVersion", "id", "artifactType", "title", "content", "metadata", "links", "provenance", "lifecycle"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "artifactType": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "content": {"type": "string"},
+    "metadata": {"type": "object"},
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "targetId"],
+        "properties": {
+          "type": {"enum": ["supports", "contradicts", "supersedes", "superseded-by", "relates-to", "derived-from", "part-of", "references"]},
+          "targetId": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sourceRef"],
+        "properties": {
+          "sourceRef": {"type": "string", "minLength": 1},
+          "observedAt": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {"enum": ["active", "superseded", "expired", "rejected", "transient"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
