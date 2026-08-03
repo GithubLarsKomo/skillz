@@ -26,6 +26,8 @@ graph TD
   implement_from_issue --> deferred_external_action_verification
   implement_from_issue --> disciplined_diagnosis
   implement_from_issue --> test_driven_vertical_slice
+  knowledge_map_generator --> structured_knowledge_artifact
+  knowledge_view --> structured_knowledge_artifact
   large_work_wayfinder --> agent_handoff
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
@@ -98,6 +100,10 @@ graph TD
 | `inbox-triage.md` | `inbox-action-triage` | `daily-and-weekly-review` | unique |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
+| `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view` | unique |
+| `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view` | unique |
+| `knowledge-map.json` | `knowledge-map-generator` | — | orphan |
+| `knowledge-view.json` | `knowledge-view` | — | orphan |
 | `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `memory-ledger.json` | `communication-memory-governance` | `memory-sync-reconciliation` | unique |

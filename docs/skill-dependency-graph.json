@@ -161,6 +161,24 @@
       ]
     },
     {
+      "name": "knowledge-map-generator",
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "outputs": [
+        "knowledge-map.json"
+      ]
+    },
+    {
+      "name": "knowledge-view",
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "outputs": [
+        "knowledge-view.json"
+      ]
+    },
+    {
       "name": "large-work-wayfinder",
       "requires": [
         "agent-handoff",
@@ -281,6 +299,14 @@
         "dependency-order.json",
         "vertical-issues.json",
         "vertical-issues.md"
+      ]
+    },
+    {
+      "name": "structured-knowledge-artifact",
+      "requires": [],
+      "outputs": [
+        "knowledge-artifact.json",
+        "knowledge-artifact.md"
       ]
     },
     {
@@ -421,6 +447,14 @@
     {
       "from": "implement-from-issue",
       "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "knowledge-map-generator",
+      "to": "structured-knowledge-artifact"
+    },
+    {
+      "from": "knowledge-view",
+      "to": "structured-knowledge-artifact"
     },
     {
       "from": "large-work-wayfinder",
@@ -916,6 +950,44 @@
       "ambiguous": false
     },
     {
+      "output": "knowledge-artifact.json",
+      "producers": [
+        "structured-knowledge-artifact"
+      ],
+      "consumerSkills": [
+        "knowledge-map-generator",
+        "knowledge-view"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "knowledge-artifact.md",
+      "producers": [
+        "structured-knowledge-artifact"
+      ],
+      "consumerSkills": [
+        "knowledge-map-generator",
+        "knowledge-view"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "knowledge-map.json",
+      "producers": [
+        "knowledge-map-generator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "knowledge-view.json",
+      "producers": [
+        "knowledge-view"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "meeting-prep.json",
       "producers": [
         "meeting-preparation"
@@ -1331,6 +1403,8 @@
     "expert handoff",
     "import verification",
     "installed OpenASR model",
+    "knowledge-map.json",
+    "knowledge-view.json",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
     "opaque-analysis-evidence.md",
