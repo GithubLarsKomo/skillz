@@ -1,0 +1,27 @@
+{
+  "name": "skillz",
+  "version": "0.1.0-beta.1",
+  "description": "Portable engineering, productivity, knowledge, communication, and memory workflow skills from GithubLarsKomo/skillz.",
+  "author": {
+    "name": "GithubLarsKomo",
+    "url": "https://github.com/GithubLarsKomo"
+  },
+  "homepage": "https://github.com/GithubLarsKomo/skillz",
+  "repository": "https://github.com/GithubLarsKomo/skillz",
+  "keywords": ["skills", "engineering", "productivity", "knowledge", "memory", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Skillz",
+    "shortDescription": "Reusable engineering and productivity skills",
+    "longDescription": "A versioned collection of portable, evaluated workflow skills for engineering, research, productivity, knowledge, communication, and memory tasks.",
+    "developerName": "GithubLarsKomo",
+    "category": "Productivity",
+    "capabilities": ["Skills"],
+    "websiteURL": "https://github.com/GithubLarsKomo/skillz",
+    "defaultPrompt": [
+      "Use the best matching Skillz workflow for this task.",
+      "Review this repository with the Skillz engineering workflows.",
+      "Turn this context into a structured, evidence-aware workflow."
+    ]
+  }
+}

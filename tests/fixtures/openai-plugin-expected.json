@@ -1,0 +1,7 @@
+{
+  "name": "skillz",
+  "skillsPath": "./skills/",
+  "frontmatterKeys": ["name", "description"],
+  "forbid": ["apps", "mcpServers"],
+  "distributionManifest": "skillz-distribution-manifest.json"
+}
