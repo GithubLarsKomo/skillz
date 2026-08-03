@@ -1,0 +1,58 @@
+{
+  "$id": "https://github.com/GithubLarsKomo/skillz/contracts/regulated-product-baseline-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clinicalPerformance": {
+      "type": "object"
+    },
+    "intendedPurpose": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "markets": {
+      "type": "array"
+    },
+    "openQuestions": {
+      "type": "array"
+    },
+    "product": {
+      "type": "object"
+    },
+    "qms": {
+      "type": "object"
+    },
+    "riskSafety": {
+      "type": "object"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "securityPrivacy": {
+      "type": "object"
+    },
+    "softwareAi": {
+      "type": "object"
+    },
+    "sourceRefs": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "product",
+    "intendedPurpose",
+    "markets",
+    "lifecycle",
+    "qms",
+    "riskSafety",
+    "clinicalPerformance",
+    "softwareAi",
+    "securityPrivacy",
+    "openQuestions"
+  ],
+  "title": "Regulated Product Baseline v1",
+  "type": "object"
+}

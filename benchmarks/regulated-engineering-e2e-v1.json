@@ -1,0 +1,73 @@
+{
+  "scenarios": [
+    {
+      "id": "new-eu-ivd",
+      "mustPreserve": [
+        "ivdr-not-mdr",
+        "classification-hypothesis",
+        "source-freshness",
+        "unknowns"
+      ],
+      "sequence": [
+        "round-based-requirements-grilling",
+        "regulated-product-context",
+        "eu-mdr-ivdr-regulatory-specialist",
+        "medical-device-risk-management-iso14971",
+        "medical-device-qms-iso13485",
+        "large-work-wayfinder",
+        "conversation-to-spec"
+      ]
+    },
+    {
+      "id": "audit-capa-loop",
+      "mustPreserve": [
+        "objective-evidence",
+        "root-cause-status",
+        "effectiveness-evidence",
+        "risk-feedback"
+      ],
+      "sequence": [
+        "iso13485-qms-audit",
+        "evidence-based-causal-investigation",
+        "medical-device-capa",
+        "medical-device-risk-management-iso14971",
+        "medical-device-qms-iso13485",
+        "qms-management-review-governance"
+      ]
+    },
+    {
+      "id": "connected-ai-ivd",
+      "mustPreserve": [
+        "ai-readiness",
+        "security-privacy-separation",
+        "risk-traceability"
+      ],
+      "sequence": [
+        "round-based-requirements-grilling",
+        "regulated-product-context",
+        "medical-device-risk-management-iso14971",
+        "medical-device-isms-governance",
+        "medical-device-privacy-gdpr-bdsg",
+        "eu-mdr-ivdr-regulatory-specialist",
+        "conversation-to-spec",
+        "two-axis-code-review"
+      ]
+    },
+    {
+      "id": "us-eu-dual-market",
+      "mustPreserve": [
+        "separate-jurisdiction-evidence",
+        "evidence-reuse",
+        "volatile-planning-inputs"
+      ],
+      "sequence": [
+        "regulated-product-context",
+        "eu-mdr-ivdr-regulatory-specialist",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "medical-device-regulatory-strategy",
+        "large-work-wayfinder"
+      ]
+    }
+  ],
+  "schemaVersion": 1
+}

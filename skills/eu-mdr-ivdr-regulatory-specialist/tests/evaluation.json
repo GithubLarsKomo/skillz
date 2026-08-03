@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "forbiddenBehaviors": [
+        "invent authority approval or certification",
+        "convert missing evidence into compliance"
+      ],
+      "id": "happy-path",
+      "input": "Use eu-mdr-ivdr-regulatory-specialist with complete current source evidence and a confirmed product context.",
+      "requiredBehaviors": [
+        "preserve regulatory source class and freshness",
+        "produce the declared domain outputs without duplicating orchestration",
+        "hand off only genuine critical uncertainty"
+      ],
+      "skillAnchors": [
+        "MDR 2017/745 und IVDR 2017/746 werden nie vermischt",
+        "Zeitabhängige regulatorische Fakten benötigen `asOf`",
+        "Fehlende Evidenz ist kein positiver Compliance-Nachweis"
+      ]
+    },
+    {
+      "forbiddenBehaviors": [
+        "use last-write-wins for regulatory evidence",
+        "hide an unresolved high-impact decision"
+      ],
+      "id": "edge-case",
+      "input": "Use eu-mdr-ivdr-regulatory-specialist when one material source is stale, another contradicts it, and a key classification/decision remains unresolved.",
+      "requiredBehaviors": [
+        "keep stale/contradictory evidence visible",
+        "mark the decision unknown or hypothesis rather than final",
+        "produce a bounded Wayfinder-compatible investigation"
+      ],
+      "skillAnchors": [
+        "PMCF und PMPF werden nicht synonym",
+        "bleibt der Punkt `unknown`",
+        "Wayfinder-kompatible Übergabe"
+      ]
+    },
+    {
+      "forbiddenBehaviors": [
+        "simulate regulatory authority",
+        "invent universal thresholds or timelines"
+      ],
+      "id": "failure-case",
+      "input": "A draft using eu-mdr-ivdr-regulatory-specialist applies fixed industry rules without sources and declares the product compliant/approved from a checklist.",
+      "requiredBehaviors": [
+        "reject unsourced universal rules",
+        "reject checklist-only compliance or approval",
+        "restore explicit source/evidence boundaries"
+      ],
+      "skillAnchors": [
+        "Klassifikation ist eine evidenzbasierte Hypothese",
+        "menschliche/behördliche Autorität nicht simuliert",
+        "Compliance Traceability"
+      ]
+    }
+  ],
+  "schemaVersion": 1,
+  "skill": "eu-mdr-ivdr-regulatory-specialist"
+}
