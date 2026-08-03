@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "source-to-context",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Normalize an already-downloaded two-page report into source context while preserving page locators, source URL, retrieved time and exact text segments.",
+      "requiredBehaviors": [
+        "preserve stable source identity and page locators",
+        "create deterministic segment identities and ordering",
+        "compute digests over the normalized text without creating research claims"
+      ],
+      "forbiddenBehaviors": [
+        "summarize or paraphrase source text as if it were original",
+        "treat the source URL as proof of authority"
+      ],
+      "skillAnchors": [
+        "Segment-IDs sind deterministisch",
+        "Originale Seiten-, Abschnitts-, Absatz-, Tabellen-, Block- oder Datensatzgrenzen",
+        "erzeugt **keine Claims**"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Normalize OCR output where page 3 is partially unreadable, the input was truncated after page 5 and the document metadata may be stale.",
+      "requiredBehaviors": [
+        "mark the affected segment partial or unreadable",
+        "record known extraction gaps and lossy normalization",
+        "set truncation and stale state explicitly without inventing missing text"
+      ],
+      "forbiddenBehaviors": [
+        "repair unreadable words by guessing",
+        "hide truncation or stale metadata from downstream research"
+      ],
+      "skillAnchors": [
+        "partial`, `unreadable` oder `unknown`",
+        "`truncated=true`",
+        "`stale=true`"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A context draft translates a German source into English, fills a missing table cell from surrounding context, merges all pages into one segment and labels the publisher authoritative.",
+      "requiredBehaviors": [
+        "reject translation as silent normalization",
+        "reject invented table content",
+        "reject destruction of source locators and authority inference"
+      ],
+      "forbiddenBehaviors": [
+        "emit translated text as the original source",
+        "infer missing source content or credibility"
+      ],
+      "skillAnchors": [
+        "Nicht zulässig sind stilles Paraphrasieren, Zusammenfassen, Übersetzen",
+        "keine fehlenden Zeichen, Wörter, Tabellenzellen oder Abschnitte erfinden",
+        "keine Aussage über inhaltliche Autorität"
+      ]
+    }
+  ]
+}

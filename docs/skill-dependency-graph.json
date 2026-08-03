@@ -291,6 +291,14 @@
       ]
     },
     {
+      "name": "source-to-context",
+      "requires": [],
+      "outputs": [
+        "source-context.json",
+        "source-context.md"
+      ]
+    },
+    {
       "name": "spec-to-vertical-issues",
       "requires": [
         "conversation-to-spec"
@@ -1249,6 +1257,22 @@
       "ambiguous": false
     },
     {
+      "output": "source-context.json",
+      "producers": [
+        "source-to-context"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "source-context.md",
+      "producers": [
+        "source-to-context"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "synchronization manifest",
       "producers": [
         "central-skill-repository-curation"
@@ -1412,6 +1436,8 @@
     "recovered-system-model.json",
     "remaining-unknowns.json",
     "resolved-change-brief.md",
+    "source-context.json",
+    "source-context.md",
     "synchronization manifest",
     "ui-prototype-plan.md",
     "updated skill repository"

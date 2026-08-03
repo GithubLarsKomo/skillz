@@ -130,6 +130,8 @@ graph TD
 | `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | unique |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
+| `source-context.json` | `source-to-context` | — | orphan |
+| `source-context.md` | `source-to-context` | — | orphan |
 | `synchronization manifest` | `central-skill-repository-curation` | — | orphan |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | orphan |
 | `updated skill repository` | `central-skill-repository-curation` | — | orphan |
