@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 34,
-  "evaluationSuiteCount": 31,
+  "skillCount": 35,
+  "evaluationSuiteCount": 32,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1327,6 +1327,41 @@
           "ambiguous": false,
           "producers": [
             "round-based-requirements-grilling"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "source-to-context",
+      "description": "Normalisiert bereits geladene Quelleninhalte in einen provider-neutralen, provenance-erhaltenden Kontextvertrag mit stabilen Segmentgrenzen, Digests, Extraktionshinweisen und expliziten Datenlücken. Verwenden, wenn Web-, Datei-, OCR-, PDF-, Datenbank- oder Connector-Inhalte vor Research, Evidence-Synthese oder Knowledge-Artifacts vereinheitlicht werden sollen, ohne Retrieval oder fachliche Schlussfolgerungen zu duplizieren.",
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "source-context.json",
+        "source-context.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "source-context.json",
+          "ambiguous": false,
+          "producers": [
+            "source-to-context"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "source-context.md",
+          "ambiguous": false,
+          "producers": [
+            "source-to-context"
           ],
           "consumerSkills": []
         }

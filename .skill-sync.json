@@ -146,6 +146,11 @@
         "SKILL.md": "c2691a6884453bd1fa0f639f6c12194113e04f9cb42ddf239ba9c0e4e6b638ac"
       }
     },
+    "source-to-context": {
+      "files": {
+        "SKILL.md": "23584c0736f51ac64767b43abd4d87182cdf51e5223dc2337fbd5c8aa4cf728f"
+      }
+    },
     "spec-to-vertical-issues": {
       "files": {
         "SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"
