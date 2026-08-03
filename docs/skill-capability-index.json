@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 35,
-  "evaluationSuiteCount": 32,
+  "skillCount": 36,
+  "evaluationSuiteCount": 33,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -789,7 +789,9 @@
       "requires": [
         "structured-knowledge-artifact"
       ],
-      "dependents": [],
+      "dependents": [
+        "obsidian-adapter"
+      ],
       "outputs": [
         "knowledge-map.json"
       ],
@@ -800,7 +802,9 @@
           "producers": [
             "knowledge-map-generator"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "obsidian-adapter"
+          ]
         }
       ],
       "portableFiles": [],
@@ -817,7 +821,9 @@
       "requires": [
         "structured-knowledge-artifact"
       ],
-      "dependents": [],
+      "dependents": [
+        "obsidian-adapter"
+      ],
       "outputs": [
         "knowledge-view.json"
       ],
@@ -828,7 +834,9 @@
           "producers": [
             "knowledge-view"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "obsidian-adapter"
+          ]
         }
       ],
       "portableFiles": [],
@@ -1030,6 +1038,63 @@
           "ambiguous": false,
           "producers": [
             "merge-conflict-resolution"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "obsidian-adapter",
+      "description": "Rendert provider-neutrale Knowledge Artifacts, Views und Maps in Obsidian-kompatible Markdown-, Bases- und JSON-Canvas-Artefakte und liest optional editierte Obsidian-Artefakte ausschließlich als nicht-kanonische Kandidaten zurück. Verwenden, wenn der bestehende Knowledge-Layer in einen Obsidian Vault projiziert oder aus Obsidian sicher zur vorgelagerten Governance/Reconciliation zurückgeführt werden soll; Obsidian bleibt Adapter, nicht semantische Quelle.",
+      "requires": [
+        "knowledge-map-generator",
+        "knowledge-view",
+        "structured-knowledge-artifact"
+      ],
+      "dependents": [],
+      "outputs": [
+        "obsidian-candidate.json",
+        "obsidian-map.canvas",
+        "obsidian-note.md",
+        "obsidian-view.base"
+      ],
+      "outputContracts": [
+        {
+          "output": "obsidian-candidate.json",
+          "ambiguous": false,
+          "producers": [
+            "obsidian-adapter"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "obsidian-map.canvas",
+          "ambiguous": false,
+          "producers": [
+            "obsidian-adapter"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "obsidian-note.md",
+          "ambiguous": false,
+          "producers": [
+            "obsidian-adapter"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "obsidian-view.base",
+          "ambiguous": false,
+          "producers": [
+            "obsidian-adapter"
           ],
           "consumerSkills": []
         }
@@ -1442,7 +1507,8 @@
       "requires": [],
       "dependents": [
         "knowledge-map-generator",
-        "knowledge-view"
+        "knowledge-view",
+        "obsidian-adapter"
       ],
       "outputs": [
         "knowledge-artifact.json",
@@ -1457,7 +1523,8 @@
           ],
           "consumerSkills": [
             "knowledge-map-generator",
-            "knowledge-view"
+            "knowledge-view",
+            "obsidian-adapter"
           ]
         },
         {
@@ -1468,7 +1535,8 @@
           ],
           "consumerSkills": [
             "knowledge-map-generator",
-            "knowledge-view"
+            "knowledge-view",
+            "obsidian-adapter"
           ]
         }
       ],

@@ -229,6 +229,20 @@
       ]
     },
     {
+      "name": "obsidian-adapter",
+      "requires": [
+        "knowledge-map-generator",
+        "knowledge-view",
+        "structured-knowledge-artifact"
+      ],
+      "outputs": [
+        "obsidian-candidate.json",
+        "obsidian-map.canvas",
+        "obsidian-note.md",
+        "obsidian-view.base"
+      ]
+    },
+    {
       "name": "opaque-system-analysis",
       "requires": [],
       "outputs": [
@@ -507,6 +521,18 @@
     {
       "from": "merge-conflict-resolution",
       "to": "two-axis-code-review"
+    },
+    {
+      "from": "obsidian-adapter",
+      "to": "knowledge-map-generator"
+    },
+    {
+      "from": "obsidian-adapter",
+      "to": "knowledge-view"
+    },
+    {
+      "from": "obsidian-adapter",
+      "to": "structured-knowledge-artifact"
     },
     {
       "from": "project-beta-readiness",
@@ -964,7 +990,8 @@
       ],
       "consumerSkills": [
         "knowledge-map-generator",
-        "knowledge-view"
+        "knowledge-view",
+        "obsidian-adapter"
       ],
       "ambiguous": false
     },
@@ -975,7 +1002,8 @@
       ],
       "consumerSkills": [
         "knowledge-map-generator",
-        "knowledge-view"
+        "knowledge-view",
+        "obsidian-adapter"
       ],
       "ambiguous": false
     },
@@ -984,7 +1012,9 @@
       "producers": [
         "knowledge-map-generator"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "obsidian-adapter"
+      ],
       "ambiguous": false
     },
     {
@@ -992,7 +1022,9 @@
       "producers": [
         "knowledge-view"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "obsidian-adapter"
+      ],
       "ambiguous": false
     },
     {
@@ -1064,6 +1096,38 @@
         "large-work-wayfinder",
         "two-axis-code-review"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "obsidian-candidate.json",
+      "producers": [
+        "obsidian-adapter"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "obsidian-map.canvas",
+      "producers": [
+        "obsidian-adapter"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "obsidian-note.md",
+      "producers": [
+        "obsidian-adapter"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "obsidian-view.base",
+      "producers": [
+        "obsidian-adapter"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -1427,10 +1491,12 @@
     "expert handoff",
     "import verification",
     "installed OpenASR model",
-    "knowledge-map.json",
-    "knowledge-view.json",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
+    "obsidian-candidate.json",
+    "obsidian-map.canvas",
+    "obsidian-note.md",
+    "obsidian-view.base",
     "opaque-analysis-evidence.md",
     "progress summary",
     "recovered-system-model.json",

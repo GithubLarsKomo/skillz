@@ -39,6 +39,9 @@ graph TD
   merge_conflict_resolution --> disciplined_diagnosis
   merge_conflict_resolution --> test_driven_vertical_slice
   merge_conflict_resolution --> two_axis_code_review
+  obsidian_adapter --> knowledge_map_generator
+  obsidian_adapter --> knowledge_view
+  obsidian_adapter --> structured_knowledge_artifact
   project_beta_readiness --> iterate_software_projects
   spec_to_vertical_issues --> conversation_to_spec
   test_driven_vertical_slice --> disciplined_diagnosis
@@ -100,10 +103,10 @@ graph TD
 | `inbox-triage.md` | `inbox-action-triage` | `daily-and-weekly-review` | unique |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | orphan |
 | `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `throwaway-prototype` | unique |
-| `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view` | unique |
-| `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view` | unique |
-| `knowledge-map.json` | `knowledge-map-generator` | — | orphan |
-| `knowledge-view.json` | `knowledge-view` | — | orphan |
+| `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | unique |
+| `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | unique |
+| `knowledge-map.json` | `knowledge-map-generator` | `obsidian-adapter` | unique |
+| `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | unique |
 | `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | unique |
 | `memory-ledger.json` | `communication-memory-governance` | `memory-sync-reconciliation` | unique |
@@ -111,6 +114,10 @@ graph TD
 | `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | orphan |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | unique |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | unique |
+| `obsidian-candidate.json` | `obsidian-adapter` | — | orphan |
+| `obsidian-map.canvas` | `obsidian-adapter` | — | orphan |
+| `obsidian-note.md` | `obsidian-adapter` | — | orphan |
+| `obsidian-view.base` | `obsidian-adapter` | — | orphan |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | orphan |
 | `progress summary` | `synapse-orchestrator` | — | orphan |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker` | unique |
