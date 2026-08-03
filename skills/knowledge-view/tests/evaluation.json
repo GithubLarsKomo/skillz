@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "knowledge-view",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Project active decision and status knowledge artifacts from one approved scope into a deterministic view sorted by updated time, preserving IDs and source references.",
+      "requiredBehaviors": [
+        "apply lifecycle filtering before content filters",
+        "produce a deterministic projection with stable artifact IDs and source references",
+        "derive fields only from existing values"
+      ],
+      "forbiddenBehaviors": [
+        "mutate source artifacts",
+        "create new domain claims while computing derived fields"
+      ],
+      "skillAnchors": [
+        "Wende Lifecycle-Filter vor inhaltlichen Filtern an",
+        "Filtere und sortiere deterministisch",
+        "keine neuen fachlichen Claims"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Create a view where two active artifacts in the same scope carry an unresolved conflict, while an expired artifact would otherwise satisfy the requested filter.",
+      "requiredBehaviors": [
+        "exclude the expired artifact under the default lifecycle policy",
+        "preserve visibility of the unresolved active conflict",
+        "keep drill-down to both conflicting source artifact IDs"
+      ],
+      "forbiddenBehaviors": [
+        "filter away conflict context so the view appears uniquely true",
+        "silently include expired state without an explicit caller request"
+      ],
+      "skillAnchors": [
+        "standardmäßig nur `active`",
+        "Offene Konflikte dürfen nicht durch Filterung als scheinbar eindeutige Wahrheit präsentiert werden",
+        "Artifact-IDs und SourceRefs"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft view joins artifacts from a second private scope not requested by the caller, changes a source item to mark it reviewed, and resolves a conflict by keeping the newest timestamp.",
+      "requiredBehaviors": [
+        "reject the unapproved cross-scope join",
+        "reject source mutation",
+        "reject timestamp-based conflict resolution"
+      ],
+      "forbiddenBehaviors": [
+        "perform last-write-wins",
+        "silently join scopes the caller did not authorize"
+      ],
+      "skillAnchors": [
+        "Keine stillen Joins über Scopes",
+        "Kein Last-write-wins oder Conflict Resolution",
+        "ohne Mutation der Quellen"
+      ]
+    }
+  ]
+}
