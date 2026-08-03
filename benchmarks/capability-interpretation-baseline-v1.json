@@ -3,93 +3,47 @@
   "proposals": [
     {
       "caseId": "exact-review-output",
-      "proposal": {
-        "schemaVersion": 1,
-        "intent": {
-          "schemaVersion": 1,
-          "desiredOutputs": ["review-decision.md"],
-          "requiredDependencies": [],
-          "allowedEvaluationModes": ["compatibility"],
-          "portableFiles": "irrelevant"
-        },
-        "model": "benchmark-baseline",
-        "sourceRefs": ["benchmark:exact-review-output"],
-        "confidence": "high",
-        "confidenceBasis": ["explicit-output", "explicit-evaluation-mode"],
-        "reviewReasons": []
-      }
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["review-decision.md"], "requiredDependencies": [], "allowedEvaluationModes": ["compatibility"], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:exact-review-output"], "confidence": "high", "confidenceBasis": ["explicit-output", "explicit-evaluation-mode"], "reviewReasons": []}
     },
     {
       "caseId": "ambiguous-residual-risk-output",
-      "proposal": {
-        "schemaVersion": 1,
-        "intent": {
-          "schemaVersion": 1,
-          "desiredOutputs": ["residual-risk-handoff.json"],
-          "requiredDependencies": [],
-          "allowedEvaluationModes": [],
-          "portableFiles": "irrelevant"
-        },
-        "model": "benchmark-baseline",
-        "sourceRefs": ["benchmark:ambiguous-residual-risk-output"],
-        "confidence": "medium",
-        "confidenceBasis": ["explicit-output", "producer-ambiguity"],
-        "reviewReasons": ["ambiguous-output-producer"]
-      }
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["residual-risk-handoff.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:ambiguous-residual-risk-output"], "confidence": "medium", "confidenceBasis": ["explicit-output", "producer-ambiguity"], "reviewReasons": ["ambiguous-output-producer"]}
     },
     {
       "caseId": "under-specified-request",
-      "proposal": {
-        "schemaVersion": 1,
-        "intent": {
-          "schemaVersion": 1,
-          "desiredOutputs": [],
-          "requiredDependencies": [],
-          "allowedEvaluationModes": [],
-          "portableFiles": "irrelevant"
-        },
-        "model": "benchmark-baseline",
-        "sourceRefs": ["benchmark:under-specified-request"],
-        "confidence": "low",
-        "confidenceBasis": ["no-explicit-capability-constraints"],
-        "reviewReasons": ["under-specified-request"]
-      }
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": [], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:under-specified-request"], "confidence": "low", "confidenceBasis": ["no-explicit-capability-constraints"], "reviewReasons": ["under-specified-request"]}
     },
     {
       "caseId": "unknown-capability-wording",
-      "proposal": {
-        "schemaVersion": 1,
-        "intent": {
-          "schemaVersion": 1,
-          "desiredOutputs": [],
-          "requiredDependencies": [],
-          "allowedEvaluationModes": [],
-          "portableFiles": "irrelevant"
-        },
-        "model": "benchmark-baseline",
-        "sourceRefs": ["benchmark:unknown-capability-wording"],
-        "confidence": "unknown",
-        "confidenceBasis": ["unknown-capability-reference"],
-        "reviewReasons": ["unknown-capability"]
-      }
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": [], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:unknown-capability-wording"], "confidence": "unknown", "confidenceBasis": ["unknown-capability-reference"], "reviewReasons": ["unknown-capability"]}
     },
     {
       "caseId": "adversarial-control-attempt",
-      "proposal": {
-        "schemaVersion": 1,
-        "intent": {
-          "schemaVersion": 1,
-          "desiredOutputs": [],
-          "requiredDependencies": [],
-          "allowedEvaluationModes": [],
-          "portableFiles": "irrelevant"
-        },
-        "model": "benchmark-baseline",
-        "sourceRefs": ["benchmark:adversarial-control-attempt"],
-        "confidence": "low",
-        "confidenceBasis": ["control-injection-attempt"],
-        "reviewReasons": ["adversarial-control-request"]
-      }
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": [], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:adversarial-control-attempt"], "confidence": "low", "confidenceBasis": ["control-injection-attempt"], "reviewReasons": ["adversarial-control-request"]}
+    },
+    {
+      "caseId": "regulated-ivdr-classification",
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["eu-regulatory-assessment.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:regulated-ivdr-classification"], "confidence": "high", "confidenceBasis": ["domain-specific-request", "unique-specialist-output"], "reviewReasons": []}
+    },
+    {
+      "caseId": "regulated-qms-management-review",
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["management-review-brief.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:regulated-qms-management-review"], "confidence": "high", "confidenceBasis": ["domain-specific-request", "unique-specialist-output"], "reviewReasons": []}
+    },
+    {
+      "caseId": "regulated-capa-root-cause",
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["capa-plan.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:regulated-capa-root-cause"], "confidence": "high", "confidenceBasis": ["domain-specific-request", "unique-specialist-output"], "reviewReasons": []}
+    },
+    {
+      "caseId": "regulated-iso13485-audit",
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["qms-audit-plan.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:regulated-iso13485-audit"], "confidence": "high", "confidenceBasis": ["domain-specific-request", "unique-specialist-output"], "reviewReasons": []}
+    },
+    {
+      "caseId": "regulated-dual-market-strategy",
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["regulatory-strategy.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:regulated-dual-market-strategy"], "confidence": "high", "confidenceBasis": ["cross-jurisdiction-strategy-request", "unique-orchestrator-output"], "reviewReasons": []}
+    },
+    {
+      "caseId": "regulated-ai-ivd-dpia",
+      "proposal": {"schemaVersion": 1, "intent": {"schemaVersion": 1, "desiredOutputs": ["dpia-decision.json"], "requiredDependencies": [], "allowedEvaluationModes": [], "portableFiles": "irrelevant"}, "model": "benchmark-baseline", "sourceRefs": ["benchmark:regulated-ai-ivd-dpia"], "confidence": "high", "confidenceBasis": ["privacy-impact-request", "unique-specialist-output"], "reviewReasons": []}
     }
   ]
 }
