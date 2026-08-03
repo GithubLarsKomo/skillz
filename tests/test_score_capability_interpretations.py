@@ -112,7 +112,7 @@ class InterpretationBenchmarkScorerTests(unittest.TestCase):
         proposals = json.loads((ROOT / "benchmarks" / "capability-interpretation-baseline-v1.json").read_text(encoding="utf-8"))
         result = scorer.score(benchmark, proposals)
         self.assertTrue(result["passed"])
-        self.assertEqual(result["caseCount"], 5)
+        self.assertEqual(result["caseCount"], len(benchmark["cases"]))
 
 
 if __name__ == "__main__":

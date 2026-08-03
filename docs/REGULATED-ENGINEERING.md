@@ -8,6 +8,21 @@ This extension adds a clean-room Medical Device & Quality domain layer to the ex
 
 Wayfinder remains the owner of exploration, dependencies and sequencing. Grilling remains the owner of iterative requirements elicitation. Domain skills own only their regulated semantics.
 
+## Regulated Product Grilling pack
+
+The reusable six-round source pack is maintained in `GithubLarsKomo/grilling` at `site/packs/regulated-product-baseline-v1/`. It is deliberately not registered as an active grilling. A concrete project can instantiate immutable round definitions with:
+
+```bash
+python scripts/instantiate_regulated_product_pack.py \
+  --project-id my-device \
+  --project-title "My Device" \
+  --output-dir /tmp/my-device-rounds
+```
+
+Instantiation verifies the committed template hashes and produces project-specific round IDs and definition hashes, but never mutates `site/catalog.json`. Catalog registration remains a separate explicit project action. The pack covers Product/Intended Purpose, markets and classification hypotheses, QMS/design/production/suppliers, risk/post-market, clinical/performance evidence, and software/cybersecurity/privacy/AI. Its AI section supplements rather than replaces the generic AI/ML-readiness rules in `round-based-requirements-grilling`.
+
+The pack's output groups map to `contracts/regulated-product-baseline-v1.schema.json`; `regulated-product-context` then normalizes confirmed results for downstream domain skills.
+
 ## Current regulatory anchors (as of 2026-08-04)
 
 - FDA QMSR: https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr — effective 2026-02-02; Part 820 incorporates ISO 13485:2016 by reference.
