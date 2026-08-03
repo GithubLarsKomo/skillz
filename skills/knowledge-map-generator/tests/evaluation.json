@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "knowledge-map-generator",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Generate a provider-neutral graph from three structured knowledge artifacts and two explicit typed links, then hand it to a renderer.",
+      "requiredBehaviors": [
+        "reuse artifact IDs as node identities",
+        "create edges only from explicit or producer-confirmed relations",
+        "validate referential integrity before rendering"
+      ],
+      "forbiddenBehaviors": [
+        "invent a relation because two artifacts look related",
+        "make renderer layout fields part of canonical semantics"
+      ],
+      "skillAnchors": [
+        "Node-IDs sollen Artifact-IDs wiederverwenden",
+        "Übernimm nur explizite oder vom fachlichen Producer bestätigte Relationen",
+        "Validiere referenzielle Integrität"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Generate a graph with one explicit unresolved conflicting relation and one external target that is intentionally not present in the local snapshot.",
+      "requiredBehaviors": [
+        "preserve the unresolved/conflicting relation state instead of flattening it",
+        "allow the missing target only when explicitly represented as external",
+        "retain source references on edges"
+      ],
+      "forbiddenBehaviors": [
+        "turn the conflict into a normal definitive edge",
+        "silently create a local node for an unloaded external target"
+      ],
+      "skillAnchors": [
+        "Markiere unresolved/conflicting Relationen statt sie zu glätten",
+        "außer sie sind explizit als externe Targets markiert",
+        "Jede Edge besitzt nachvollziehbare Herkunft"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A graph draft adds an inferred dependency edge, drops sourceRefs, and changes relation types while converting to JSON Canvas for nicer visualization.",
+      "requiredBehaviors": [
+        "reject the inferred dependency edge",
+        "reject loss of provenance/source references",
+        "require relation types to survive rendering round-trip"
+      ],
+      "forbiddenBehaviors": [
+        "hallucinate missing relations",
+        "allow a renderer to change domain semantics"
+      ],
+      "skillAnchors": [
+        "Keine Halluzination fehlender Relationen",
+        "Render-/Round-trip-Transformation erhält IDs und Relationstypen",
+        "Darstellungsattribute dürfen die fachliche Semantik nicht verändern"
+      ]
+    }
+  ]
+}
