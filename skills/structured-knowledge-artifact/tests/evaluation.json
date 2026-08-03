@@ -35,7 +35,7 @@
       "skillAnchors": [
         "transient artifacts are not promoted to durable memory",
         "provenance is not lost",
-        "stable identity"
+        "identity is stable across representations"
       ]
     },
     {
