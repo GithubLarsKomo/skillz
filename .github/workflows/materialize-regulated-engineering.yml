@@ -1,6 +1,7 @@
 name: Materialize regulated engineering extension
 
 on:
+  pull_request:
   push:
     branches: [agent/regulated-engineering-extension]
   workflow_dispatch:
