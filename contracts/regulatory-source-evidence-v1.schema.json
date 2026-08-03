@@ -1,0 +1,120 @@
+{
+  "$id": "https://github.com/GithubLarsKomo/skillz/contracts/regulatory-source-evidence-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "asOf": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "claim": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "claimClass": {
+      "enum": [
+        "regulation-law",
+        "standard",
+        "guidance",
+        "organizational-policy",
+        "interpretation"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ]
+    },
+    "id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jurisdiction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observedAt": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reference": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sourceType": {
+          "enum": [
+            "official-regulation",
+            "official-authority",
+            "standard",
+            "guidance",
+            "organizational-record",
+            "secondary",
+            "other"
+          ]
+        },
+        "versionEdition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "authority",
+        "reference",
+        "sourceType",
+        "observedAt"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "current",
+        "superseded",
+        "stale",
+        "unknown"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "claim",
+    "claimClass",
+    "source",
+    "asOf",
+    "status"
+  ],
+  "title": "Regulatory Source Evidence v1",
+  "type": "object"
+}

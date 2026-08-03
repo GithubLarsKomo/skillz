@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "expectedSkill": "eu-mdr-ivdr-regulatory-specialist",
+      "id": "ivdr-classification",
+      "notPrimary": [
+        "medical-device-regulatory-strategy",
+        "medical-device-qms-iso13485"
+      ],
+      "sourceText": "Determine the IVDR class and evidence gaps for a new quantitative IVD assay."
+    },
+    {
+      "expectedSkill": "qms-management-review-governance",
+      "id": "management-review",
+      "notPrimary": [
+        "medical-device-qms-iso13485",
+        "iso13485-qms-audit"
+      ],
+      "sourceText": "Prepare the ISO 13485 management review with audit, CAPA, complaint and prior action inputs."
+    },
+    {
+      "companionSkills": [
+        "evidence-based-causal-investigation"
+      ],
+      "expectedSkill": "medical-device-capa",
+      "id": "audit-root-cause",
+      "sourceText": "Investigate the root cause behind a recurring supplier audit finding and prepare CAPA inputs."
+    },
+    {
+      "expectedSkill": "iso13485-qms-audit",
+      "id": "qms-audit",
+      "notPrimary": [
+        "medical-device-qms-iso13485"
+      ],
+      "sourceText": "Audit the design-control and CAPA processes against ISO 13485 with objective evidence."
+    },
+    {
+      "companionSkills": [
+        "eu-mdr-ivdr-regulatory-specialist",
+        "fda-medical-device-ivd-regulatory-specialist"
+      ],
+      "expectedSkill": "medical-device-regulatory-strategy",
+      "id": "dual-market-strategy",
+      "sourceText": "Create a coordinated US and EU regulatory strategy for an IVD, including sequencing and evidence reuse."
+    },
+    {
+      "expectedSkill": "medical-device-privacy-gdpr-bdsg",
+      "id": "ai-ivd-dpia",
+      "notPrimary": [
+        "medical-device-isms-governance"
+      ],
+      "sourceText": "Assess whether a DPIA is required for an AI-enabled IVD processing patient data in Germany."
+    }
+  ],
+  "schemaVersion": 1
+}

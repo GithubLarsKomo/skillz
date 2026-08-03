@@ -1,0 +1,108 @@
+{
+  "$id": "https://github.com/GithubLarsKomo/skillz/contracts/compliance-traceability-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contradictions": {
+      "type": "array"
+    },
+    "dataGaps": {
+      "type": "array"
+    },
+    "links": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "relation": {
+            "enum": [
+              "derives",
+              "addresses",
+              "controls",
+              "verified-by",
+              "evidenced-by",
+              "status-of",
+              "relates-to"
+            ]
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "relation"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sourceRefs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "statement": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "confirmed",
+              "partial",
+              "gap",
+              "unknown",
+              "not-applicable"
+            ]
+          },
+          "type": {
+            "enum": [
+              "obligation",
+              "product-requirement",
+              "risk-rationale",
+              "implementation-control",
+              "verification",
+              "evidence",
+              "status"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "statement",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "scope": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "scope",
+    "nodes",
+    "links"
+  ],
+  "title": "Compliance Traceability v1",
+  "type": "object"
+}

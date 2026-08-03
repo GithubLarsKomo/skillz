@@ -29,6 +29,11 @@
         "SKILL.md": "b9dc3606686547a29c852ec2e911dd44117d9ca6234c4b2f8b0306185f7be4e9"
       }
     },
+    "controlled-quality-documentation": {
+      "files": {
+        "SKILL.md": "3699a0fcefae5190e1034deca9b2a956bf91de975f2118072f26a0ecddbeb470"
+      }
+    },
     "conversation-to-spec": {
       "files": {
         "SKILL.md": "267e73de1f1d3829f9a0fac5f1d239d2c9da3457b0fdcf1f8f469348c27ca230"
@@ -64,6 +69,21 @@
         "SKILL.md": "fd13a8e731a767434d44c4015d2fa84b4ffa58b2c0bf68a40e5408c676392d2a"
       }
     },
+    "eu-mdr-ivdr-regulatory-specialist": {
+      "files": {
+        "SKILL.md": "a3007846c99a36e062d7d4b356e277d5afe47db78f56fc7e2ac549cd8e45786c"
+      }
+    },
+    "evidence-based-causal-investigation": {
+      "files": {
+        "SKILL.md": "468a23ae7a7f42c4c43a2f455087373eece25cc0e61b49ee54cdc9bff0672245"
+      }
+    },
+    "fda-medical-device-ivd-regulatory-specialist": {
+      "files": {
+        "SKILL.md": "4abb845e7d3411e29302a7f153e064264fb01a312718b94457316e54d9d6c9e9"
+      }
+    },
     "implement-from-issue": {
       "files": {
         "SKILL.md": "65868653d3552aeb42ad67880d8ac884773dedee8dedea5dbbd99f6d2bda4e22"
@@ -72,6 +92,16 @@
     "inbox-action-triage": {
       "files": {
         "SKILL.md": "95bac846135149dc5c5032eb43edd2817e48fd1a94966526cba412612b2c1214"
+      }
+    },
+    "iso13485-qms-audit": {
+      "files": {
+        "SKILL.md": "e66585e84834f182e8717a9ef4b13fd8c093ceb388649807d973d470d1450cef"
+      }
+    },
+    "iso27001-isms-audit": {
+      "files": {
+        "SKILL.md": "47a58cb47c4fddd4ec68d481c3ac74c877c96532b3309347e9b2a9768228b339"
       }
     },
     "iterate-software-projects": {
@@ -93,6 +123,36 @@
     "large-work-wayfinder": {
       "files": {
         "SKILL.md": "7a44719f4ff7156e5f957b43b5b82f2ef6ed59bf0b0c3b8f61c53804ebedc273"
+      }
+    },
+    "medical-device-capa": {
+      "files": {
+        "SKILL.md": "610ea2f31c4983db6f153159f8d9ca9564a06d75bb0706e64b97ae3990ad098f"
+      }
+    },
+    "medical-device-isms-governance": {
+      "files": {
+        "SKILL.md": "7a75e3e853e433b76f31986b0c37629c94d4a6cd3a46ecd047f7ace4aa902f0c"
+      }
+    },
+    "medical-device-privacy-gdpr-bdsg": {
+      "files": {
+        "SKILL.md": "285d4e642120bc49e60a4f03ba53f2d53380fa3dcecfdc5ae1e4748926927f18"
+      }
+    },
+    "medical-device-qms-iso13485": {
+      "files": {
+        "SKILL.md": "79d8e38c1e53743af8534498cc892482a88ab4132efde0521eaaf11389b61076"
+      }
+    },
+    "medical-device-regulatory-strategy": {
+      "files": {
+        "SKILL.md": "132b3dd642f90181c742616879c971f3fa5915c6854e1c842f164d31a56abd22"
+      }
+    },
+    "medical-device-risk-management-iso14971": {
+      "files": {
+        "SKILL.md": "f4a8991eb5cd98479884eb44f1655abd155530c5d88418dceb8ee030ce50b3ad"
       }
     },
     "meeting-preparation": {
@@ -133,6 +193,16 @@
     "project-status-brief": {
       "files": {
         "SKILL.md": "0376c146271c18c1eda463de2868ea856fc68b123c277be174fbe6ec4569c6b8"
+      }
+    },
+    "qms-management-review-governance": {
+      "files": {
+        "SKILL.md": "ad16d511f80fe87c0e0b5a19cbaf85d5f450dba63104c02829b2e705cf6a177f"
+      }
+    },
+    "regulated-product-context": {
+      "files": {
+        "SKILL.md": "e62c938bb0207345500d710c922a4e508451064a8f1a57adfe75a4c3b69779c9"
       }
     },
     "repository-skill-bootstrap": {
@@ -185,6 +255,11 @@
     "two-axis-code-review": {
       "files": {
         "SKILL.md": "a5ccb2e5ee898ca1b7fd7f69db51a23b1134a6f95247efb3ab191a3bb092fc73"
+      }
+    },
+    "two-axis-compliance-review": {
+      "files": {
+        "SKILL.md": "7805f72b557fb138abfd9095965e5a20a492ff9df9a24df1436983524db0b6ce"
       }
     }
   }

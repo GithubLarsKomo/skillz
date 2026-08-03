@@ -51,6 +51,18 @@
       ]
     },
     {
+      "name": "controlled-quality-documentation",
+      "requires": [
+        "regulated-product-context",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "change-impact-assessment.json",
+        "controlled-document-plan.md",
+        "document-control-assessment.json"
+      ]
+    },
+    {
       "name": "conversation-to-spec",
       "requires": [],
       "outputs": [
@@ -130,6 +142,42 @@
       ]
     },
     {
+      "name": "eu-mdr-ivdr-regulatory-specialist",
+      "requires": [
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "eu-regulatory-assessment.json",
+        "eu-regulatory-assessment.md",
+        "eu-regulatory-investigations.json"
+      ]
+    },
+    {
+      "name": "evidence-based-causal-investigation",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "causal-investigation.json",
+        "causal-investigation.md"
+      ]
+    },
+    {
+      "name": "fda-medical-device-ivd-regulatory-specialist",
+      "requires": [
+        "medical-device-qms-iso13485",
+        "regulated-product-context",
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "fda-regulatory-assessment.json",
+        "fda-regulatory-assessment.md",
+        "fda-regulatory-investigations.json"
+      ]
+    },
+    {
       "name": "implement-from-issue",
       "requires": [
         "agent-handoff",
@@ -149,6 +197,30 @@
       "outputs": [
         "inbox-triage.json",
         "inbox-triage.md"
+      ]
+    },
+    {
+      "name": "iso13485-qms-audit",
+      "requires": [
+        "medical-device-qms-iso13485",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "qms-audit-findings.json",
+        "qms-audit-plan.json",
+        "qms-audit-report.md"
+      ]
+    },
+    {
+      "name": "iso27001-isms-audit",
+      "requires": [
+        "medical-device-isms-governance",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "isms-audit-findings.json",
+        "isms-audit-plan.json",
+        "isms-audit-report.md"
       ]
     },
     {
@@ -190,6 +262,83 @@
         "dependency-graph.json",
         "investigation-backlog.json",
         "wayfinding-brief.md"
+      ]
+    },
+    {
+      "name": "medical-device-capa",
+      "requires": [
+        "evidence-based-causal-investigation",
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971"
+      ],
+      "outputs": [
+        "capa-effectiveness-plan.json",
+        "capa-plan.json",
+        "capa-status.md"
+      ]
+    },
+    {
+      "name": "medical-device-isms-governance",
+      "requires": [
+        "regulated-product-context",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "isms-governance-assessment.json",
+        "isms-governance.md",
+        "isms-risk-treatment-context.json"
+      ]
+    },
+    {
+      "name": "medical-device-privacy-gdpr-bdsg",
+      "requires": [
+        "regulated-product-context",
+        "research-to-evidence-note",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "dpia-decision.json",
+        "privacy-assessment.json",
+        "privacy-governance.md"
+      ]
+    },
+    {
+      "name": "medical-device-qms-iso13485",
+      "requires": [
+        "regulated-product-context",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "qms-gap-analysis.json",
+        "qms-process-map.json",
+        "qms-readiness.md"
+      ]
+    },
+    {
+      "name": "medical-device-regulatory-strategy",
+      "requires": [
+        "eu-mdr-ivdr-regulatory-specialist",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "large-work-wayfinder",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context"
+      ],
+      "outputs": [
+        "regulatory-strategy.json",
+        "regulatory-strategy.md",
+        "regulatory-wayfinding-handoff.json"
+      ]
+    },
+    {
+      "name": "medical-device-risk-management-iso14971",
+      "requires": [
+        "regulated-product-context",
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "risk-management-analysis.json",
+        "risk-management-analysis.md",
+        "risk-wayfinding-handoff.json"
       ]
     },
     {
@@ -277,6 +426,28 @@
       "outputs": [
         "project-status.json",
         "project-status.md"
+      ]
+    },
+    {
+      "name": "qms-management-review-governance",
+      "requires": [
+        "iso13485-qms-audit",
+        "medical-device-capa",
+        "medical-device-qms-iso13485",
+        "project-status-brief"
+      ],
+      "outputs": [
+        "management-review-actions.json",
+        "management-review-brief.json",
+        "management-review-brief.md"
+      ]
+    },
+    {
+      "name": "regulated-product-context",
+      "requires": [],
+      "outputs": [
+        "regulated-product-context.json",
+        "regulated-product-context.md"
       ]
     },
     {
@@ -379,6 +550,17 @@
         "requirement-coverage.json",
         "review-decision.md"
       ]
+    },
+    {
+      "name": "two-axis-compliance-review",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "compliance-evidence-effectiveness.json",
+        "compliance-requirement-coverage.json",
+        "compliance-review-decision.md"
+      ]
     }
   ],
   "requirementEdges": [
@@ -397,6 +579,14 @@
     {
       "from": "central-skill-repository-curation",
       "to": "composable-skill-factory"
+    },
+    {
+      "from": "controlled-quality-documentation",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "controlled-quality-documentation",
+      "to": "two-axis-compliance-review"
     },
     {
       "from": "daily-and-weekly-review",
@@ -455,6 +645,34 @@
       "to": "two-axis-code-review"
     },
     {
+      "from": "eu-mdr-ivdr-regulatory-specialist",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "eu-mdr-ivdr-regulatory-specialist",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "eu-mdr-ivdr-regulatory-specialist",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "evidence-based-causal-investigation",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "fda-medical-device-ivd-regulatory-specialist",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "fda-medical-device-ivd-regulatory-specialist",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "fda-medical-device-ivd-regulatory-specialist",
+      "to": "research-to-evidence-note"
+    },
+    {
       "from": "implement-from-issue",
       "to": "agent-handoff"
     },
@@ -469,6 +687,22 @@
     {
       "from": "implement-from-issue",
       "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "iso13485-qms-audit",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "iso13485-qms-audit",
+      "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "iso27001-isms-audit",
+      "to": "medical-device-isms-governance"
+    },
+    {
+      "from": "iso27001-isms-audit",
+      "to": "two-axis-compliance-review"
     },
     {
       "from": "knowledge-map-generator",
@@ -493,6 +727,74 @@
     {
       "from": "large-work-wayfinder",
       "to": "spec-to-vertical-issues"
+    },
+    {
+      "from": "medical-device-capa",
+      "to": "evidence-based-causal-investigation"
+    },
+    {
+      "from": "medical-device-capa",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "medical-device-capa",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-isms-governance",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-isms-governance",
+      "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "medical-device-privacy-gdpr-bdsg",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-privacy-gdpr-bdsg",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "medical-device-privacy-gdpr-bdsg",
+      "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "medical-device-qms-iso13485",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-qms-iso13485",
+      "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "medical-device-regulatory-strategy",
+      "to": "eu-mdr-ivdr-regulatory-specialist"
+    },
+    {
+      "from": "medical-device-regulatory-strategy",
+      "to": "fda-medical-device-ivd-regulatory-specialist"
+    },
+    {
+      "from": "medical-device-regulatory-strategy",
+      "to": "large-work-wayfinder"
+    },
+    {
+      "from": "medical-device-regulatory-strategy",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-regulatory-strategy",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-risk-management-iso14971",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-risk-management-iso14971",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "meeting-preparation",
@@ -539,6 +841,22 @@
       "to": "iterate-software-projects"
     },
     {
+      "from": "qms-management-review-governance",
+      "to": "iso13485-qms-audit"
+    },
+    {
+      "from": "qms-management-review-governance",
+      "to": "medical-device-capa"
+    },
+    {
+      "from": "qms-management-review-governance",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "qms-management-review-governance",
+      "to": "project-status-brief"
+    },
+    {
       "from": "spec-to-vertical-issues",
       "to": "conversation-to-spec"
     },
@@ -581,6 +899,10 @@
     {
       "from": "two-axis-code-review",
       "to": "implement-from-issue"
+    },
+    {
+      "from": "two-axis-compliance-review",
+      "to": "research-to-evidence-note"
     }
   ],
   "outputContracts": [
@@ -691,6 +1013,64 @@
       "ambiguous": false
     },
     {
+      "output": "capa-effectiveness-plan.json",
+      "producers": [
+        "medical-device-capa"
+      ],
+      "consumerSkills": [
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "capa-plan.json",
+      "producers": [
+        "medical-device-capa"
+      ],
+      "consumerSkills": [
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "capa-status.md",
+      "producers": [
+        "medical-device-capa"
+      ],
+      "consumerSkills": [
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "causal-investigation.json",
+      "producers": [
+        "evidence-based-causal-investigation"
+      ],
+      "consumerSkills": [
+        "medical-device-capa"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "causal-investigation.md",
+      "producers": [
+        "evidence-based-causal-investigation"
+      ],
+      "consumerSkills": [
+        "medical-device-capa"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "change-impact-assessment.json",
+      "producers": [
+        "controlled-quality-documentation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "communication-profile.json",
       "producers": [
         "communication-memory-governance"
@@ -706,6 +1086,51 @@
         "memory-sync-reconciliation"
       ],
       "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "compliance-evidence-effectiveness.json",
+      "producers": [
+        "two-axis-compliance-review"
+      ],
+      "consumerSkills": [
+        "controlled-quality-documentation",
+        "iso13485-qms-audit",
+        "iso27001-isms-audit",
+        "medical-device-isms-governance",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-qms-iso13485"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "compliance-requirement-coverage.json",
+      "producers": [
+        "two-axis-compliance-review"
+      ],
+      "consumerSkills": [
+        "controlled-quality-documentation",
+        "iso13485-qms-audit",
+        "iso27001-isms-audit",
+        "medical-device-isms-governance",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-qms-iso13485"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "compliance-review-decision.md",
+      "producers": [
+        "two-axis-compliance-review"
+      ],
+      "consumerSkills": [
+        "controlled-quality-documentation",
+        "iso13485-qms-audit",
+        "iso27001-isms-audit",
+        "medical-device-isms-governance",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-qms-iso13485"
+      ],
       "ambiguous": false
     },
     {
@@ -735,6 +1160,14 @@
         "implement-from-issue",
         "merge-conflict-resolution"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "controlled-document-plan.md",
+      "producers": [
+        "controlled-quality-documentation"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -790,6 +1223,7 @@
       ],
       "consumerSkills": [
         "decision-record",
+        "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
       "ambiguous": false
@@ -857,6 +1291,14 @@
       "ambiguous": false
     },
     {
+      "output": "document-control-assessment.json",
+      "producers": [
+        "controlled-quality-documentation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "domain-change-plan.md",
       "producers": [
         "domain-model-maintenance"
@@ -881,6 +1323,44 @@
       "ambiguous": false
     },
     {
+      "output": "dpia-decision.json",
+      "producers": [
+        "medical-device-privacy-gdpr-bdsg"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "eu-regulatory-assessment.json",
+      "producers": [
+        "eu-mdr-ivdr-regulatory-specialist"
+      ],
+      "consumerSkills": [
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "eu-regulatory-assessment.md",
+      "producers": [
+        "eu-mdr-ivdr-regulatory-specialist"
+      ],
+      "consumerSkills": [
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "eu-regulatory-investigations.json",
+      "producers": [
+        "eu-mdr-ivdr-regulatory-specialist"
+      ],
+      "consumerSkills": [
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
       "output": "evaluation evidence",
       "producers": [
         "composable-skill-factory"
@@ -896,7 +1376,13 @@
         "research-to-evidence-note"
       ],
       "consumerSkills": [
-        "meeting-preparation"
+        "eu-mdr-ivdr-regulatory-specialist",
+        "evidence-based-causal-investigation",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-risk-management-iso14971",
+        "meeting-preparation",
+        "two-axis-compliance-review"
       ],
       "ambiguous": false
     },
@@ -906,7 +1392,13 @@
         "research-to-evidence-note"
       ],
       "consumerSkills": [
-        "meeting-preparation"
+        "eu-mdr-ivdr-regulatory-specialist",
+        "evidence-based-causal-investigation",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-risk-management-iso14971",
+        "meeting-preparation",
+        "two-axis-compliance-review"
       ],
       "ambiguous": false
     },
@@ -924,6 +1416,36 @@
         "synapse-orchestrator"
       ],
       "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "fda-regulatory-assessment.json",
+      "producers": [
+        "fda-medical-device-ivd-regulatory-specialist"
+      ],
+      "consumerSkills": [
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "fda-regulatory-assessment.md",
+      "producers": [
+        "fda-medical-device-ivd-regulatory-specialist"
+      ],
+      "consumerSkills": [
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "fda-regulatory-investigations.json",
+      "producers": [
+        "fda-medical-device-ivd-regulatory-specialist"
+      ],
+      "consumerSkills": [
+        "medical-device-regulatory-strategy"
+      ],
       "ambiguous": false
     },
     {
@@ -979,7 +1501,62 @@
       ],
       "consumerSkills": [
         "decision-record",
+        "medical-device-regulatory-strategy",
         "throwaway-prototype"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "isms-audit-findings.json",
+      "producers": [
+        "iso27001-isms-audit"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "isms-audit-plan.json",
+      "producers": [
+        "iso27001-isms-audit"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "isms-audit-report.md",
+      "producers": [
+        "iso27001-isms-audit"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "isms-governance-assessment.json",
+      "producers": [
+        "medical-device-isms-governance"
+      ],
+      "consumerSkills": [
+        "iso27001-isms-audit"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "isms-governance.md",
+      "producers": [
+        "medical-device-isms-governance"
+      ],
+      "consumerSkills": [
+        "iso27001-isms-audit"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "isms-risk-treatment-context.json",
+      "producers": [
+        "medical-device-isms-governance"
+      ],
+      "consumerSkills": [
+        "iso27001-isms-audit"
       ],
       "ambiguous": false
     },
@@ -1025,6 +1602,30 @@
       "consumerSkills": [
         "obsidian-adapter"
       ],
+      "ambiguous": false
+    },
+    {
+      "output": "management-review-actions.json",
+      "producers": [
+        "qms-management-review-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "management-review-brief.json",
+      "producers": [
+        "qms-management-review-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "management-review-brief.md",
+      "producers": [
+        "qms-management-review-governance"
+      ],
+      "consumerSkills": [],
       "ambiguous": false
     },
     {
@@ -1139,6 +1740,22 @@
       "ambiguous": false
     },
     {
+      "output": "privacy-assessment.json",
+      "producers": [
+        "medical-device-privacy-gdpr-bdsg"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "privacy-governance.md",
+      "producers": [
+        "medical-device-privacy-gdpr-bdsg"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "progress summary",
       "producers": [
         "synapse-orchestrator"
@@ -1152,7 +1769,8 @@
         "project-status-brief"
       ],
       "consumerSkills": [
-        "decision-and-follow-up-tracker"
+        "decision-and-follow-up-tracker",
+        "qms-management-review-governance"
       ],
       "ambiguous": false
     },
@@ -1162,7 +1780,8 @@
         "project-status-brief"
       ],
       "consumerSkills": [
-        "decision-and-follow-up-tracker"
+        "decision-and-follow-up-tracker",
+        "qms-management-review-governance"
       ],
       "ambiguous": false
     },
@@ -1197,6 +1816,75 @@
       "ambiguous": false
     },
     {
+      "output": "qms-audit-findings.json",
+      "producers": [
+        "iso13485-qms-audit"
+      ],
+      "consumerSkills": [
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "qms-audit-plan.json",
+      "producers": [
+        "iso13485-qms-audit"
+      ],
+      "consumerSkills": [
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "qms-audit-report.md",
+      "producers": [
+        "iso13485-qms-audit"
+      ],
+      "consumerSkills": [
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "qms-gap-analysis.json",
+      "producers": [
+        "medical-device-qms-iso13485"
+      ],
+      "consumerSkills": [
+        "fda-medical-device-ivd-regulatory-specialist",
+        "iso13485-qms-audit",
+        "medical-device-capa",
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "qms-process-map.json",
+      "producers": [
+        "medical-device-qms-iso13485"
+      ],
+      "consumerSkills": [
+        "fda-medical-device-ivd-regulatory-specialist",
+        "iso13485-qms-audit",
+        "medical-device-capa",
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "qms-readiness.md",
+      "producers": [
+        "medical-device-qms-iso13485"
+      ],
+      "consumerSkills": [
+        "fda-medical-device-ivd-regulatory-specialist",
+        "iso13485-qms-audit",
+        "medical-device-capa",
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false
+    },
+    {
       "output": "quality-review.json",
       "producers": [
         "two-axis-code-review"
@@ -1212,6 +1900,64 @@
       "output": "recovered-system-model.json",
       "producers": [
         "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "regulated-product-context.json",
+      "producers": [
+        "regulated-product-context"
+      ],
+      "consumerSkills": [
+        "controlled-quality-documentation",
+        "eu-mdr-ivdr-regulatory-specialist",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "medical-device-isms-governance",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-qms-iso13485",
+        "medical-device-regulatory-strategy",
+        "medical-device-risk-management-iso14971"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "regulated-product-context.md",
+      "producers": [
+        "regulated-product-context"
+      ],
+      "consumerSkills": [
+        "controlled-quality-documentation",
+        "eu-mdr-ivdr-regulatory-specialist",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "medical-device-isms-governance",
+        "medical-device-privacy-gdpr-bdsg",
+        "medical-device-qms-iso13485",
+        "medical-device-regulatory-strategy",
+        "medical-device-risk-management-iso14971"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "regulatory-strategy.json",
+      "producers": [
+        "medical-device-regulatory-strategy"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "regulatory-strategy.md",
+      "producers": [
+        "medical-device-regulatory-strategy"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "regulatory-wayfinding-handoff.json",
+      "producers": [
+        "medical-device-regulatory-strategy"
       ],
       "consumerSkills": [],
       "ambiguous": false
@@ -1307,6 +2053,42 @@
       ],
       "consumerSkills": [
         "two-axis-code-review"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "risk-management-analysis.json",
+      "producers": [
+        "medical-device-risk-management-iso14971"
+      ],
+      "consumerSkills": [
+        "eu-mdr-ivdr-regulatory-specialist",
+        "medical-device-capa",
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "risk-management-analysis.md",
+      "producers": [
+        "medical-device-risk-management-iso14971"
+      ],
+      "consumerSkills": [
+        "eu-mdr-ivdr-regulatory-specialist",
+        "medical-device-capa",
+        "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false
+    },
+    {
+      "output": "risk-wayfinding-handoff.json",
+      "producers": [
+        "medical-device-risk-management-iso14971"
+      ],
+      "consumerSkills": [
+        "eu-mdr-ivdr-regulatory-specialist",
+        "medical-device-capa",
+        "medical-device-regulatory-strategy"
       ],
       "ambiguous": false
     },
@@ -1466,6 +2248,7 @@
       ],
       "consumerSkills": [
         "decision-record",
+        "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
       "ambiguous": false
@@ -1477,20 +2260,30 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "change-impact-assessment.json",
     "communication-profile.merged.json",
     "conflict-resolution-evidence.json",
+    "controlled-document-plan.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
+    "document-control-assessment.json",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
+    "dpia-decision.json",
     "execution plan",
     "expert handoff",
     "import verification",
     "installed OpenASR model",
+    "isms-audit-findings.json",
+    "isms-audit-plan.json",
+    "isms-audit-report.md",
+    "management-review-actions.json",
+    "management-review-brief.json",
+    "management-review-brief.md",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
     "obsidian-candidate.json",
@@ -1498,8 +2291,13 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "privacy-assessment.json",
+    "privacy-governance.md",
     "progress summary",
     "recovered-system-model.json",
+    "regulatory-strategy.json",
+    "regulatory-strategy.md",
+    "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
     "resolved-change-brief.md",
     "source-context.json",
