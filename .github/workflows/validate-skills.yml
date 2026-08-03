@@ -94,6 +94,10 @@ jobs:
         run: python -m unittest tests.test_knowledge_schemas
       - name: Validate metadata schema contracts
         run: python scripts/validate_metadata_schemas.py
+      - name: Test regulated engineering contracts
+        run: python -m unittest tests.test_regulated_engineering_contracts
+      - name: Test regulated engineering end-to-end contracts
+        run: python -m unittest tests.test_regulated_engineering_e2e
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
       - name: Test unified evaluation runner
