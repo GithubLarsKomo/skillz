@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "obsidian-adapter",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Render one structured knowledge artifact, one knowledge view and one knowledge map into an Obsidian note, Base and Canvas while preserving stable IDs and explicit relation types.",
+      "requiredBehaviors": [
+        "preserve stable artifact IDs across all rendered representations",
+        "render only relations that already exist in the provider-neutral inputs",
+        "keep layout and view settings non-canonical"
+      ],
+      "forbiddenBehaviors": [
+        "derive a new domain relation from wikilinks or canvas proximity",
+        "treat filenames as canonical identity"
+      ],
+      "skillAnchors": [
+        "Renames oder Folder Moves dürfen daher die `id` nicht verändern",
+        "Wikilinks sind Renderings vorhandener Relationen",
+        "Layout, Farbe, Größe, Gruppen und Position sind nicht-kanonisch"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A user renames a note, moves it to another folder and draws a new Canvas edge between two existing nodes before candidate import.",
+      "requiredBehaviors": [
+        "retain the original stable artifact identity despite file and folder changes",
+        "treat the newly drawn edge only as an untrusted candidate relation",
+        "emit a non-canonical candidate artifact for upstream review"
+      ],
+      "forbiddenBehaviors": [
+        "promote the manual edge directly to canonical knowledge",
+        "change artifact ID due to note rename"
+      ],
+      "skillAnchors": [
+        "Renames oder Folder Moves dürfen daher die `id` nicht verändern",
+        "Manuell hinzugefügte lokale Edges werden bei Rückimport nur als untrusted candidate relations gekennzeichnet",
+        "Ergebnis ausschließlich als `obsidian-candidate.json` ausgeben"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "An old Obsidian mirror still contains an active memory that is now superseded canonically; an import draft proposes last-write-wins because the mirror file has a newer filesystem timestamp.",
+      "requiredBehaviors": [
+        "reject filesystem timestamp based last-write-wins",
+        "prevent stale projection from reactivating superseded state",
+        "route any semantic difference through the governed candidate/reconciliation path"
+      ],
+      "forbiddenBehaviors": [
+        "write canonical state directly from Obsidian",
+        "resurrect superseded or removed memory"
+      ],
+      "skillAnchors": [
+        "kein Last-write-wins",
+        "stale Notes dürfen superseded/rejected/expired/removed Zustände nicht reaktivieren",
+        "durch Governance, Reconciliation, optionales Approval und den kanonischen Apply-Pfad laufen"
+      ]
+    }
+  ]
+}
