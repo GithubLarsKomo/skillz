@@ -80,6 +80,16 @@
         "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
       }
     },
+    "knowledge-map-generator": {
+      "files": {
+        "SKILL.md": "e1f86695d24e67c74a841c36d6ac2e7000a78bb040bdfb618c98c58cbd35b60f"
+      }
+    },
+    "knowledge-view": {
+      "files": {
+        "SKILL.md": "ca36d9a50c6413df1b7fcca2fa4d98b5453fbf91059ddee598f10cc47acb786d"
+      }
+    },
     "large-work-wayfinder": {
       "files": {
         "SKILL.md": "7a44719f4ff7156e5f957b43b5b82f2ef6ed59bf0b0c3b8f61c53804ebedc273"
@@ -139,6 +149,11 @@
     "spec-to-vertical-issues": {
       "files": {
         "SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"
+      }
+    },
+    "structured-knowledge-artifact": {
+      "files": {
+        "SKILL.md": "3eb051eea30220dc3b8c0882acfb4950955404b4000236f48526c7a3ff8f5c53"
       }
     },
     "synapse-orchestrator": {

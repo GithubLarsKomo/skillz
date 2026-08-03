@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 31,
-  "evaluationSuiteCount": 28,
+  "skillCount": 34,
+  "evaluationSuiteCount": 31,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -784,6 +784,62 @@
       }
     },
     {
+      "name": "knowledge-map-generator",
+      "description": "Projiziert vorhandene strukturierte Wissensartefakte und explizite Relationen in einen provider-neutralen Graphen aus Nodes, Edges und optionalen Groups. Verwenden, wenn Projekt-, Architektur-, Decision-, Domain- oder Memory-Zusammenhänge visualisiert oder an JSON Canvas, Mermaid, Graphviz, Neo4j oder andere Renderer übergeben werden sollen; der Skill erfindet keine fehlenden Beziehungen.",
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "dependents": [],
+      "outputs": [
+        "knowledge-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "knowledge-map.json",
+          "ambiguous": false,
+          "producers": [
+            "knowledge-map-generator"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "knowledge-view",
+      "description": "Erzeugt deterministische, schreibgeschützte Sichten auf strukturierte Wissensartefakte anhand expliziter Filter, Sortierungen, Gruppierungen und abgeleiteter Felder. Verwenden, wenn aktive Entscheidungen, offene Fragen, Memory-Einträge, Projektartefakte oder andere Knowledge Artifacts selektiv als Kontext oder Übersicht projiziert werden sollen; verändert weder Quellen noch löst der Skill Konflikte.",
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "dependents": [],
+      "outputs": [
+        "knowledge-view.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "knowledge-view.json",
+          "ambiguous": false,
+          "producers": [
+            "knowledge-view"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "large-work-wayfinder",
       "description": "Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch evidenzbasierte Exploration, fokussierte Untersuchungs-Issues, Abhängigkeitsgraphen, Risikoreduktion und eine sichere Umsetzungsreihenfolge, ohne spekulative Architekturentscheidungen vorwegzunehmen.",
       "requires": [
@@ -1334,6 +1390,50 @@
             "large-work-wayfinder",
             "test-driven-vertical-slice",
             "throwaway-prototype"
+          ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "structured-knowledge-artifact",
+      "description": "Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adressierbares Wissensartefakt mit stabiler Identität, Metadaten, typisierten Links und Provenance. Verwenden, wenn Ergebnisse aus Decision Records, Memory Governance, Research, Domain Models oder anderen Skills dauerhaft referenzierbar und zwischen Markdown-, JSON-, Graph- oder Obsidian-Adaptern austauschbar werden sollen; bestimmt selbst weder Memory-Persistenz noch fachliche Wahrheit.",
+      "requires": [],
+      "dependents": [
+        "knowledge-map-generator",
+        "knowledge-view"
+      ],
+      "outputs": [
+        "knowledge-artifact.json",
+        "knowledge-artifact.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "knowledge-artifact.json",
+          "ambiguous": false,
+          "producers": [
+            "structured-knowledge-artifact"
+          ],
+          "consumerSkills": [
+            "knowledge-map-generator",
+            "knowledge-view"
+          ]
+        },
+        {
+          "output": "knowledge-artifact.md",
+          "ambiguous": false,
+          "producers": [
+            "structured-knowledge-artifact"
+          ],
+          "consumerSkills": [
+            "knowledge-map-generator",
+            "knowledge-view"
           ]
         }
       ],

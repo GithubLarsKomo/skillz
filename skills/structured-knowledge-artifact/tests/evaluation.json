@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "structured-knowledge-artifact",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Package an already-approved decision record into a portable knowledge artifact with stable identity, provenance and one explicit relates-to link, plus a Markdown mirror.",
+      "requiredBehaviors": [
+        "reuse the producer's stable logical identity across JSON and Markdown representations",
+        "preserve provenance, lifecycle and explicit typed links",
+        "avoid adding any new decision or memory semantics"
+      ],
+      "forbiddenBehaviors": [
+        "promote transient content to durable memory",
+        "reinterpret producer metadata or invent a relation"
+      ],
+      "skillAnchors": [
+        "Reuse an existing stable ID",
+        "Preserve source references and lifecycle semantics",
+        "add only explicit, evidence-backed typed links"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Package a transient project handoff that references an external target which is not loaded and contains provenance from two sources with different timestamps.",
+      "requiredBehaviors": [
+        "keep lifecycle transient rather than turning the artifact into durable memory",
+        "preserve both provenance records without collapsing them",
+        "represent the external link without inventing target content"
+      ],
+      "forbiddenBehaviors": [
+        "silently resolve or fabricate the unloaded external target",
+        "drop provenance to simplify the mirror"
+      ],
+      "skillAnchors": [
+        "transient artifacts are not promoted to durable memory",
+        "provenance is not lost",
+        "identity is stable across representations"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A packaging draft changes the artifact ID in Markdown, creates a supports link because the notes seem related, and removes superseded lifecycle state for readability.",
+      "requiredBehaviors": [
+        "reject identity drift between representations",
+        "reject an inferred supports relation that was not supplied by the producer",
+        "retain supersession lifecycle semantics"
+      ],
+      "forbiddenBehaviors": [
+        "accept format-specific IDs",
+        "treat presentation simplification as permission to change semantics"
+      ],
+      "skillAnchors": [
+        "identity is stable across representations",
+        "no new domain claim was invented while packaging",
+        "lifecycle/supersession semantics survive conversion"
+      ]
+    }
+  ]
+}
