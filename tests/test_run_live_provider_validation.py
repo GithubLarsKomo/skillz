@@ -54,10 +54,11 @@ class LiveProviderValidationTests(unittest.TestCase):
 
     def test_full_baseline_qualifies(self):
         summary, qualification = self.run_live_case()
+        expected_count = len(self.benchmark["cases"])
         self.assertEqual(summary["status"], "qualified")
         self.assertTrue(summary["qualified"])
-        self.assertEqual(summary["caseCount"], 5)
-        self.assertEqual(summary["passedCount"], 5)
+        self.assertEqual(summary["caseCount"], expected_count)
+        self.assertEqual(summary["passedCount"], expected_count)
         self.assertEqual(summary["failedCount"], 0)
         self.assertTrue(qualification["qualified"])
 
