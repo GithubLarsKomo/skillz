@@ -1,6 +1,8 @@
 ---
 name: medical-device-risk-management-iso14971
 description: Führt Medical-Device- und IVD-Risikomanagement nach dem Prozessmodell von ISO 14971 evidenzbasiert durch, ohne eine bestimmte Risikomatrix, RPN-Schwelle oder ALARP-Regel als Normvorgabe zu erfinden.
+userFacing: true
+category: regulated-engineering
 version: 0.1.0
 status: candidate
 owners:

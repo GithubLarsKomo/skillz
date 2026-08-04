@@ -1,6 +1,8 @@
 ---
 name: structured-knowledge-artifact
 description: Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adressierbares Wissensartefakt mit stabiler Identität, Metadaten, typisierten Links und Provenance. Verwenden, wenn Ergebnisse aus Decision Records, Memory Governance, Research, Domain Models oder anderen Skills dauerhaft referenzierbar und zwischen Markdown-, JSON-, Graph- oder Obsidian-Adaptern austauschbar werden sollen; bestimmt selbst weder Memory-Persistenz noch fachliche Wahrheit.
+userFacing: true
+category: research-knowledge
 version: 0.1.0
 status: candidate
 owners:

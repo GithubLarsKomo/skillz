@@ -1,6 +1,8 @@
 ---
 name: decision-and-follow-up-tracker
 description: Konsolidiert bestätigte Entscheidungen, Commitments, Follow-ups, Waiting- und Delegationszustände aus Meeting-, Projekt- und Review-Artefakten zu einem auditierten Register. Verwenden, wenn offene Schleifen und Entscheidungspflichten über mehrere Arbeitskontexte hinweg nachvollziehbar gehalten werden sollen, ohne Task-, Kalender-, Mail- oder Issue-Systeme selbst zu verändern.
+userFacing: true
+category: productivity
 version: 0.1.0
 status: candidate
 owners:

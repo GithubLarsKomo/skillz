@@ -1,6 +1,8 @@
 ---
 name: medical-device-qms-iso13485
 description: Bewertet und strukturiert ein Medical-Device-/IVD-QMS gegen ISO 13485 sowie anwendbare regulatorische Ergänzungen, ohne Zertifizierung, FDA-Compliance oder feste Organisationsprozesse zu erfinden.
+userFacing: true
+category: regulated-engineering
 version: 0.1.0
 status: candidate
 owners:

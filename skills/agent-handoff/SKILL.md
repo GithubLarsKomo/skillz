@@ -1,6 +1,8 @@
 ---
 name: agent-handoff
 description: Erzeugt einen kompakten, verifizierbaren Übergabestand für neue Sitzungen oder Agenten. Verwenden, wenn Ziel, Repositoryzustand, Entscheidungen, Evidenz, Restrisiken, blockierte Punkte und genau die nächste ausführbare Aktion ohne Informationsverlust oder doppelte Arbeit weitergegeben werden müssen.
+userFacing: true
+category: engineering
 version: 0.1.0
 status: candidate
 owners:

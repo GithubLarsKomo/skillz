@@ -1,6 +1,8 @@
 ---
 name: medical-device-isms-governance
 description: Strukturiert ISO-27001-orientierte ISMS-Governance für MedTech/IVD-Organisationen und koppelt Informationssicherheitsrisiken, Controls, Supplier/Cloud, Incidents und Product-Cybersecurity-Schnittstellen ohne technische Security-Tests zu duplizieren.
+userFacing: true
+category: regulated-engineering
 version: 0.1.0
 status: candidate
 owners:

@@ -1,6 +1,8 @@
 ---
 name: iso27001-isms-audit
 description: Plant und bewertet ISO-27001-ISMS-Audits mit Scope-/SoA-Kontext, unabhängiger Control-Evidence und nachvollziehbarem Sampling, ohne Zertifiziererrolle oder universelle Sample-/Finding-Regeln zu erfinden.
+userFacing: true
+category: regulated-engineering
 version: 0.1.0
 status: candidate
 owners:

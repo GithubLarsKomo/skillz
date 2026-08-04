@@ -1,6 +1,8 @@
 ---
 name: research-to-evidence-note
 description: Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu einer zitierfähigen Evidenznotiz mit expliziter Quellenqualität, Aktualität, Widersprüchen, Unsicherheit und offenen Punkten. Verwenden, wenn Rechercheergebnisse belastbar an Meeting-Prep, Projektstatus, Dokumentproduktion oder Knowledge-Ingestion übergeben werden sollen, ohne Retrieval-, Connector- oder Drafting-Logik zu duplizieren.
+userFacing: true
+category: research-knowledge
 version: 0.1.0
 status: candidate
 owners:

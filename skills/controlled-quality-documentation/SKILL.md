@@ -1,6 +1,8 @@
 ---
 name: controlled-quality-documentation
 description: Prüft und entwirft kontrollierte QMS-Dokument- und Record-Lifecycles mit Change Impact, Approval Evidence, Effective/Superseded State und Traceability, ohne eine feste Nummerierung oder DMS-Implementierung vorzuschreiben.
+userFacing: true
+category: regulated-engineering
 version: 0.1.0
 status: candidate
 owners:

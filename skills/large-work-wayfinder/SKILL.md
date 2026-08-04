@@ -1,6 +1,8 @@
 ---
 name: large-work-wayfinder
 description: Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch evidenzbasierte Exploration, fokussierte Untersuchungs-Issues, Abhängigkeitsgraphen, Risikoreduktion und eine sichere Umsetzungsreihenfolge, ohne spekulative Architekturentscheidungen vorwegzunehmen.
+userFacing: true
+category: engineering
 version: 0.1.0
 status: candidate
 owners:
