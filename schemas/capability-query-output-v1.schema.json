@@ -13,10 +13,19 @@
     },
     {
       "type": "object",
-      "required": ["name", "description", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
+      "required": ["name", "description", "invocation", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
       "properties": {
         "name": {"type": "string"},
         "description": {"type": "string"},
+        "invocation": {
+          "type": "object",
+          "required": ["userFacing", "category"],
+          "properties": {
+            "userFacing": {"type": "boolean"},
+            "category": {"type": ["string", "null"]}
+          },
+          "additionalProperties": false
+        },
         "requires": {"type": "array", "items": {"type": "string"}},
         "dependents": {"type": "array", "items": {"type": "string"}},
         "outputs": {"type": "array", "items": {"type": "string"}},
@@ -45,6 +54,41 @@
             "passed": {"type": ["boolean", "null"]}
           },
           "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["schemaVersion", "mode", "query", "count", "categories"],
+      "properties": {
+        "schemaVersion": {"const": 1},
+        "mode": {"enum": ["entrypoints", "all"]},
+        "query": {"type": ["string", "null"]},
+        "count": {"type": "integer"},
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["category", "skills"],
+            "properties": {
+              "category": {"type": "string"},
+              "skills": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "description", "userFacing"],
+                  "properties": {
+                    "name": {"type": "string"},
+                    "description": {"type": "string"},
+                    "userFacing": {"type": "boolean"}
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
         }
       },
       "additionalProperties": false
