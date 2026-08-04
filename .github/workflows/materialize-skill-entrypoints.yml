@@ -1,6 +1,7 @@
 name: Materialize skill entrypoints
 
 on:
+  pull_request:
   push:
     branches: [agent/skill-entrypoint-discovery]
   workflow_dispatch:
