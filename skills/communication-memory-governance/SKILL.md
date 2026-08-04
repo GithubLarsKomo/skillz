@@ -1,6 +1,8 @@
 ---
 name: communication-memory-governance
 description: Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Einträge getrennt von transientem Gesprächs-, Projekt- und Agentenzustand. Verwenden, wenn wiederkehrende User-Präferenzen, dauerhafte Fakten oder Korrekturen nachvollziehbar, scope-begrenzt und datenschutzsicher über Sitzungen hinweg verfügbar bleiben sollen, ohne Agent-Handoff, Decision Records oder Projektstatus zu duplizieren.
+userFacing: true
+category: communication-memory
 version: 0.1.0
 status: candidate
 owners:

@@ -53,6 +53,27 @@ class MetadataSchemaTests(unittest.TestCase):
     def test_query_single_skill_shape_validates(self):
         self.assertEqual([], module.validate(self.index["skills"][0], self.query_schema))
 
+    def test_skill_discovery_shape_validates(self):
+        payload = {
+            "schemaVersion": 1,
+            "mode": "entrypoints",
+            "query": "medical",
+            "count": 1,
+            "categories": [
+                {
+                    "category": "regulated-engineering",
+                    "skills": [
+                        {
+                            "name": "medical-device-regulatory-strategy",
+                            "description": "Regulatory strategy entrypoint",
+                            "userFacing": True,
+                        }
+                    ],
+                }
+            ],
+        }
+        self.assertEqual([], module.validate(payload, self.query_schema))
+
 
 if __name__ == "__main__":
     unittest.main()

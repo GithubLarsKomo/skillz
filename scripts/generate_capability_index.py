@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import difflib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from generate_dependency_graph import build_graph
 from generate_repository_metadata import parse_frontmatter, skill_files
 
 INDEX_JSON = "docs/skill-capability-index.json"
+CATEGORY_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
 def portable_files(skill_dir: Path) -> list[str]:
@@ -20,6 +22,30 @@ def portable_files(skill_dir: Path) -> list[str]:
         for path in skill_files(skill_dir)
         if path.name != "SKILL.md"
     )
+
+
+def invocation_metadata(frontmatter: dict[str, object], path: Path) -> dict[str, object]:
+    raw_user_facing = frontmatter.get("userFacing", "false")
+    if isinstance(raw_user_facing, list):
+        raise ValueError(f"{path}: userFacing muss true oder false sein")
+    normalized = str(raw_user_facing).strip().lower()
+    if normalized not in {"true", "false"}:
+        raise ValueError(f"{path}: userFacing muss true oder false sein")
+    user_facing = normalized == "true"
+
+    raw_category = frontmatter.get("category")
+    if isinstance(raw_category, list):
+        raise ValueError(f"{path}: category muss ein einzelner Slug sein")
+    category = str(raw_category).strip() if raw_category is not None else None
+    if category == "":
+        category = None
+    if category is not None and not CATEGORY_RE.fullmatch(category):
+        raise ValueError(f"{path}: category muss ein kebab-case Slug sein")
+    if user_facing and category is None:
+        raise ValueError(f"{path}: userFacing=true erfordert category")
+    if not user_facing and category is not None:
+        raise ValueError(f"{path}: category ist nur zusammen mit userFacing=true erlaubt")
+    return {"userFacing": user_facing, "category": category}
 
 
 def build_index(root: Path) -> dict[str, object]:
@@ -64,6 +90,7 @@ def build_index(root: Path) -> dict[str, object]:
         skills.append({
             "name": slug,
             "description": str(fm.get("description", "")),
+            "invocation": invocation_metadata(fm, skill_md),
             "requires": graph_meta["requires"],
             "dependents": sorted(reverse[slug]),
             "outputs": graph_meta["outputs"],
@@ -72,9 +99,13 @@ def build_index(root: Path) -> dict[str, object]:
             "evaluation": evaluation,
         })
 
+    entrypoint_skills = [skill for skill in skills if skill["invocation"]["userFacing"]]
+    entrypoint_categories = sorted({str(skill["invocation"]["category"]) for skill in entrypoint_skills})
     return {
         "schemaVersion": 1,
         "skillCount": len(skills),
+        "entrypointCount": len(entrypoint_skills),
+        "entrypointCategories": entrypoint_categories,
         "evaluationSuiteCount": evaluation_summary["suiteCount"],
         "evaluationPassed": evaluation_summary["passed"],
         "evaluationErrorCount": len(evaluation_errors),

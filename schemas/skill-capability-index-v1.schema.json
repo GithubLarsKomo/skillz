@@ -2,10 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "skill-capability-index-v1",
   "type": "object",
-  "required": ["schemaVersion", "skillCount", "evaluationSuiteCount", "evaluationPassed", "evaluationErrorCount", "skills"],
+  "required": ["schemaVersion", "skillCount", "entrypointCount", "entrypointCategories", "evaluationSuiteCount", "evaluationPassed", "evaluationErrorCount", "skills"],
   "properties": {
     "schemaVersion": {"const": 1},
     "skillCount": {"type": "integer"},
+    "entrypointCount": {"type": "integer"},
+    "entrypointCategories": {"type": "array", "items": {"type": "string"}},
     "evaluationSuiteCount": {"type": "integer"},
     "evaluationPassed": {"type": "boolean"},
     "evaluationErrorCount": {"type": "integer"},
@@ -13,10 +15,19 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name", "description", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
+        "required": ["name", "description", "invocation", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
         "properties": {
           "name": {"type": "string"},
           "description": {"type": "string"},
+          "invocation": {
+            "type": "object",
+            "required": ["userFacing", "category"],
+            "properties": {
+              "userFacing": {"type": "boolean"},
+              "category": {"type": ["string", "null"]}
+            },
+            "additionalProperties": false
+          },
           "requires": {"type": "array", "items": {"type": "string"}},
           "dependents": {"type": "array", "items": {"type": "string"}},
           "outputs": {"type": "array", "items": {"type": "string"}},

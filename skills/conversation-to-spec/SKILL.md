@@ -1,6 +1,8 @@
 ---
 name: conversation-to-spec
 description: Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll.
+userFacing: true
+category: engineering
 version: 0.1.0
 status: candidate
 owners:

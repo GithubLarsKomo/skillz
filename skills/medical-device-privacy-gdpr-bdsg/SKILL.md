@@ -1,6 +1,8 @@
 ---
 name: medical-device-privacy-gdpr-bdsg
 description: Bewertet Datenschutz für Medical-Device-/IVD- und Health-Software-Kontexte unter GDPR/DSGVO und deutschem BDSG mit Data Inventory, Rollen, Legal Basis, Art.-9-Kontext, DPIA, Rights, Retention, Transfers und Breach Governance.
+userFacing: true
+category: regulated-engineering
 version: 0.1.0
 status: candidate
 owners:

@@ -1,6 +1,8 @@
 ---
 name: meeting-preparation
 description: Verdichtet einen bestätigten Termin, Teilnehmerkontext und verfügbare Evidence Notes zu einem kompakten, entscheidungsorientierten Meeting-Prep-Brief. Verwenden, wenn vor einem Meeting Ziele, Entscheidungen, belegte Fakten, offene Fragen, Risiken und konkrete Vorbereitung strukturiert werden sollen, ohne Kalender-, Kontakt-, Dokument- oder Retrieval-Logik zu duplizieren.
+userFacing: true
+category: productivity
 version: 0.1.0
 status: candidate
 owners:

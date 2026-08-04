@@ -1,6 +1,8 @@
 ---
 name: daily-and-weekly-review
 description: Verdichtet bestätigte Kalender-, Aufgaben-, Projekt- und Inbox-Triage-Daten zu einem priorisierten Tages- oder Wochenreview mit Commitments, Follow-ups, Blockern und nächsten Schritten. Verwenden, wenn aus mehreren Arbeitskontexten eine belastbare Review-Sicht entstehen soll, ohne Kalender-, Mail-, Task- oder Projekt-Systeme selbst zu verändern.
+userFacing: true
+category: productivity
 version: 0.1.0
 status: candidate
 owners:

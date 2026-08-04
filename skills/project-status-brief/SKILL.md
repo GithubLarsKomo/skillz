@@ -1,6 +1,8 @@
 ---
 name: project-status-brief
 description: Verdichtet bereits erhobene Repository- und Projekt-Evidenz zu einem zeitpunktbezogenen Statusbrief mit Fortschritt, Blockern, Risiken, Entscheidungen und nächsten ausführbaren Schritten. Verwenden, wenn Projektzustand belastbar an Reviews, Meetings oder weitere Skills übergeben werden soll, ohne GitHub-, GitLab-, Jira-, CI- oder Deployment-Logik zu duplizieren.
+userFacing: true
+category: productivity
 version: 0.1.0
 status: candidate
 owners:

@@ -6,47 +6,47 @@
   "skills": {
     "agent-handoff": {
       "files": {
-        "SKILL.md": "82cdd41a1e5eb2194cb0d02a4aa9e064ba71cfbe29fd8f134dd87e1a6155b77e"
+        "SKILL.md": "109628fc3fd79b7630e52627d293f67c8003197ec2ad980f90c098e8fc2178f5"
       }
     },
     "architecture-deepening-review": {
       "files": {
-        "SKILL.md": "a409bd7c641eb1be7914491b626217063716e270b9d150b265b75f909d4044da"
+        "SKILL.md": "ac805f957e4644d9eb79cf48b379be3734188ce52e31956e6051d92ff9f395b7"
       }
     },
     "central-skill-repository-curation": {
       "files": {
-        "SKILL.md": "07c4a2bd6cf319c44a5f79f40fb5df2a16fa7fc95ac0a751e665f62bb5f3780d"
+        "SKILL.md": "0ec89427d579e04ba636e1c5f167f6743624a686f32fbf43b2c9584d33544572"
       }
     },
     "communication-memory-governance": {
       "files": {
-        "SKILL.md": "4973ae7a5cf3bb72fcec5077a7b9c5a84592fc2c7418385d094241c0da6f09e2"
+        "SKILL.md": "3c12c80fe07eb6b42de3f5281e855c92a5e381079a858e484aafbc120a4db192"
       }
     },
     "composable-skill-factory": {
       "files": {
-        "SKILL.md": "b9dc3606686547a29c852ec2e911dd44117d9ca6234c4b2f8b0306185f7be4e9"
+        "SKILL.md": "9b076f949b6fb7d987200a2e5ed85d9689d0a684f901d994b91377bcfb5bdc90"
       }
     },
     "controlled-quality-documentation": {
       "files": {
-        "SKILL.md": "3699a0fcefae5190e1034deca9b2a956bf91de975f2118072f26a0ecddbeb470"
+        "SKILL.md": "522883f706446b82904889ffcd34e3de7b9e4d0dd371552749db19c9d520153f"
       }
     },
     "conversation-to-spec": {
       "files": {
-        "SKILL.md": "267e73de1f1d3829f9a0fac5f1d239d2c9da3457b0fdcf1f8f469348c27ca230"
+        "SKILL.md": "48c6f324d06f367c4cc1a91efaec0625618653876ab8a2d8c3fc12d1c92549c2"
       }
     },
     "daily-and-weekly-review": {
       "files": {
-        "SKILL.md": "1a86a860b6ddf6a96c156f5164399df588a13eb24abf89e30b4df9b32f864338"
+        "SKILL.md": "bdfd2432a560e3cfa98b16a0571ab9a00ad224b75e814451973ea7233736c9ce"
       }
     },
     "decision-and-follow-up-tracker": {
       "files": {
-        "SKILL.md": "f3b87ca42c668f7b9c430a6e3e44549b62ce4a011f807af3eaa9289f137facd1"
+        "SKILL.md": "63d3a39b7dca8e3dce1c50786d24f8c73701f5f166bbac6d0c868229a427dbf7"
       }
     },
     "decision-record": {
@@ -61,7 +61,7 @@
     },
     "disciplined-diagnosis": {
       "files": {
-        "SKILL.md": "361291a180600ce47f96246c3150798325ff5e2d3e8b7daa1e66d0a07cb9148a"
+        "SKILL.md": "afc5505aace9ea6e857033b89a422f4966d32f69783efd00a705709108163bb2"
       }
     },
     "domain-model-maintenance": {
@@ -71,7 +71,7 @@
     },
     "eu-mdr-ivdr-regulatory-specialist": {
       "files": {
-        "SKILL.md": "a3007846c99a36e062d7d4b356e277d5afe47db78f56fc7e2ac549cd8e45786c"
+        "SKILL.md": "281ed17e7e22e4f753939d46ca7068cf9a58b4c00e111aa5fba46d11a44e1633"
       }
     },
     "evidence-based-causal-investigation": {
@@ -81,32 +81,32 @@
     },
     "fda-medical-device-ivd-regulatory-specialist": {
       "files": {
-        "SKILL.md": "4abb845e7d3411e29302a7f153e064264fb01a312718b94457316e54d9d6c9e9"
+        "SKILL.md": "dcafcaecca0e13e69d2591e00da1b0d6398e4c7f7ca0d7322f44c6b5101a860f"
       }
     },
     "implement-from-issue": {
       "files": {
-        "SKILL.md": "65868653d3552aeb42ad67880d8ac884773dedee8dedea5dbbd99f6d2bda4e22"
+        "SKILL.md": "104ad98d84d7af83eefc17baf10704d0ac968b0939d6b4075f22751e20913451"
       }
     },
     "inbox-action-triage": {
       "files": {
-        "SKILL.md": "95bac846135149dc5c5032eb43edd2817e48fd1a94966526cba412612b2c1214"
+        "SKILL.md": "df9d2d9b41f8e09512a65715d57040cd024e2ae2fbb43dd43c47f456fb53b5b4"
       }
     },
     "iso13485-qms-audit": {
       "files": {
-        "SKILL.md": "e66585e84834f182e8717a9ef4b13fd8c093ceb388649807d973d470d1450cef"
+        "SKILL.md": "1093fa622d270c8b3849b9f8954961ea5afd10775d5582a29f8679e130f46714"
       }
     },
     "iso27001-isms-audit": {
       "files": {
-        "SKILL.md": "47a58cb47c4fddd4ec68d481c3ac74c877c96532b3309347e9b2a9768228b339"
+        "SKILL.md": "88b95bac91153c98d5b5ce738fe958fd1d8ef38a60db1e85c26c55f0e54c6398"
       }
     },
     "iterate-software-projects": {
       "files": {
-        "SKILL.md": "3127c38b443d5d1220d8c8447fd2323b8436bb1d2ace2491c0679dc6ca4fc323",
+        "SKILL.md": "36cd33d042cd7c4399b914078ef18906de67d5e383967a89f55c9af547b6ae7a",
         "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
       }
     },
@@ -122,42 +122,42 @@
     },
     "large-work-wayfinder": {
       "files": {
-        "SKILL.md": "7a44719f4ff7156e5f957b43b5b82f2ef6ed59bf0b0c3b8f61c53804ebedc273"
+        "SKILL.md": "b76ef3f60123e31a3cd0a5fccc40ff7cd702cff146d4f190e66ee8480342e65b"
       }
     },
     "medical-device-capa": {
       "files": {
-        "SKILL.md": "610ea2f31c4983db6f153159f8d9ca9564a06d75bb0706e64b97ae3990ad098f"
+        "SKILL.md": "ba4664bf70df07e72f69f5977c24e9f20b63c5cb8e33170097707a110bdd5682"
       }
     },
     "medical-device-isms-governance": {
       "files": {
-        "SKILL.md": "7a75e3e853e433b76f31986b0c37629c94d4a6cd3a46ecd047f7ace4aa902f0c"
+        "SKILL.md": "f94a4c1d1316c757ad48f1d070a78d4b857d88706435d88824f7f59745c6de58"
       }
     },
     "medical-device-privacy-gdpr-bdsg": {
       "files": {
-        "SKILL.md": "285d4e642120bc49e60a4f03ba53f2d53380fa3dcecfdc5ae1e4748926927f18"
+        "SKILL.md": "6f7f3db3f3924b399f778ba067eb001a912fe882b7a61f9e66212034f8fc202f"
       }
     },
     "medical-device-qms-iso13485": {
       "files": {
-        "SKILL.md": "79d8e38c1e53743af8534498cc892482a88ab4132efde0521eaaf11389b61076"
+        "SKILL.md": "045c705011704344134572db76b6a6fadd0fb2cb3b56a43a1bf865f925f47aba"
       }
     },
     "medical-device-regulatory-strategy": {
       "files": {
-        "SKILL.md": "132b3dd642f90181c742616879c971f3fa5915c6854e1c842f164d31a56abd22"
+        "SKILL.md": "226228b7800a1d5b3824c880f23ce5e0c3efb564047b9c0894c42414d88072d7"
       }
     },
     "medical-device-risk-management-iso14971": {
       "files": {
-        "SKILL.md": "f4a8991eb5cd98479884eb44f1655abd155530c5d88418dceb8ee030ce50b3ad"
+        "SKILL.md": "23cc2fa6184eb48f07b1eaf11a87395a0c22107adc1bcc61657953006c0b0108"
       }
     },
     "meeting-preparation": {
       "files": {
-        "SKILL.md": "a3d1e0a08acf6a38acb7c6a2edb349735510dbce22612ddb8321e72df9e67850"
+        "SKILL.md": "f0876f7d25800b73b1f4652420855211afca4536d89354c93e3797d66745fe98"
       }
     },
     "memory-sync-reconciliation": {
@@ -187,17 +187,17 @@
     },
     "project-beta-readiness": {
       "files": {
-        "SKILL.md": "a5cd192de669de1f5376c4fa1d55fb30cae3445e5481f124e1292b6146b90515"
+        "SKILL.md": "d3e537a0c5c8d7885d95b56a5cc7d680d71e1832b8e6d70cf1aa3b47887856b8"
       }
     },
     "project-status-brief": {
       "files": {
-        "SKILL.md": "0376c146271c18c1eda463de2868ea856fc68b123c277be174fbe6ec4569c6b8"
+        "SKILL.md": "37fdb0014e3396d0605de3692d51484587a5aa345a51999d0125d8c1a08b5c1e"
       }
     },
     "qms-management-review-governance": {
       "files": {
-        "SKILL.md": "ad16d511f80fe87c0e0b5a19cbaf85d5f450dba63104c02829b2e705cf6a177f"
+        "SKILL.md": "b9ca9044572bdc68c9f5784fb32b4ed10531e2f60c5523eba55035da9d8cdf2e"
       }
     },
     "regulated-product-context": {
@@ -207,13 +207,13 @@
     },
     "repository-skill-bootstrap": {
       "files": {
-        "SKILL.md": "e5b06df05150de041a739712619ac3a6e3bc7795d5e095811636e1131c3473b2",
+        "SKILL.md": "4a947911baf09a98a65c6f67cf451598b34eb237d95a3a98db2dfa8041a2f736",
         "scripts/bootstrap_repository_context.py": "c4804f576af6bcafea342c51cdeb4faf9825b60014938cad4ea8ad709f6cecee"
       }
     },
     "research-to-evidence-note": {
       "files": {
-        "SKILL.md": "d7bc76df1ada9eea29b75ab577fb363c09145fbaf7cfcfc92a655559692eefd4"
+        "SKILL.md": "0789c45d6ddfd34fe465e73656e47cc2cf422c168d9b313e342b0339fc4350d7"
       }
     },
     "round-based-requirements-grilling": {
@@ -228,12 +228,12 @@
     },
     "spec-to-vertical-issues": {
       "files": {
-        "SKILL.md": "06896591a49a11e89dd09e8b256b80e4360ee9dad7053b6266d74102e0724213"
+        "SKILL.md": "6de82d275e4155668b65f8a4991ec537d227d6d1a491e41866a06b1e185599df"
       }
     },
     "structured-knowledge-artifact": {
       "files": {
-        "SKILL.md": "3eb051eea30220dc3b8c0882acfb4950955404b4000236f48526c7a3ff8f5c53"
+        "SKILL.md": "4bd6d0f01b0fcbb4ff9a59ce45e9f2c205b19e2814a2a105397dd8eeb3ce1e11"
       }
     },
     "synapse-orchestrator": {
@@ -249,12 +249,12 @@
     },
     "throwaway-prototype": {
       "files": {
-        "SKILL.md": "effd4bf551c306c7ffb3fb4b4da308a07784930063c13743a8b8bf3852b7dd53"
+        "SKILL.md": "219f4fb07b4c9c0fd50135fbf720f78c7135b7acd380f5479f0674dc7370f9c7"
       }
     },
     "two-axis-code-review": {
       "files": {
-        "SKILL.md": "a5ccb2e5ee898ca1b7fd7f69db51a23b1134a6f95247efb3ab191a3bb092fc73"
+        "SKILL.md": "446420b6b5563b3fba4cbc9739233e28eb7e3aeeb443dd7e98dcf2a9a36f1399"
       }
     },
     "two-axis-compliance-review": {
