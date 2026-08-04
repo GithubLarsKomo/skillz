@@ -83,15 +83,74 @@ def names(items: list[dict]) -> list[str]:
     return [item["name"] for item in items]
 
 
+def invocation(skill: dict) -> dict:
+    value = skill.get("invocation", {})
+    return value if isinstance(value, dict) else {}
+
+
+def query_skill_listing(index: dict, query: str | None) -> tuple[str, list[dict]]:
+    normalized = (query or "").strip().casefold()
+    include_all = normalized == "all"
+    terms = [] if include_all else [term for term in normalized.split() if term]
+    matches: list[dict] = []
+    for skill in index["skills"]:
+        meta = invocation(skill)
+        if not include_all and not bool(meta.get("userFacing", False)):
+            continue
+        category = str(meta.get("category") or "internal")
+        haystack = " ".join((skill.get("name", ""), skill.get("description", ""), category)).casefold()
+        if terms and not all(term in haystack for term in terms):
+            continue
+        matches.append(skill)
+    return ("all" if include_all else "entrypoints"), sorted(
+        matches,
+        key=lambda item: (str(invocation(item).get("category") or "internal"), item["name"]),
+    )
+
+
+def listing_payload(mode: str, query: str | None, skills: list[dict]) -> dict:
+    categories: dict[str, list[dict]] = {}
+    for skill in skills:
+        meta = invocation(skill)
+        category = str(meta.get("category") or "internal")
+        categories.setdefault(category, []).append({
+            "name": skill["name"],
+            "description": skill.get("description", ""),
+            "userFacing": bool(meta.get("userFacing", False)),
+        })
+    return {
+        "schemaVersion": 1,
+        "mode": mode,
+        "query": None if not query or query.strip().casefold() == "all" else query.strip(),
+        "count": len(skills),
+        "categories": [
+            {"category": category, "skills": categories[category]}
+            for category in sorted(categories)
+        ],
+    }
+
+
 def render_human(kind: str, value: object) -> str:
     if kind == "skill":
         assert isinstance(value, dict)
+        meta = invocation(value)
         lines = [value["name"], f"description: {value.get('description', '')}"]
+        lines.append(f"userFacing: {str(bool(meta.get('userFacing', False))).lower()}")
+        lines.append(f"category: {meta.get('category') or '—'}")
         lines.append("requires: " + (", ".join(value.get("requires", [])) or "—"))
         lines.append("dependents: " + (", ".join(value.get("dependents", [])) or "—"))
         lines.append("outputs: " + (", ".join(value.get("outputs", [])) or "—"))
         lines.append(f"evaluation: {value.get('evaluation', {}).get('mode', 'none')}")
         return "\n".join(lines)
+    if kind == "skills":
+        assert isinstance(value, dict)
+        lines: list[str] = []
+        for group in value["categories"]:
+            lines.append(f"[{group['category']}]")
+            for skill in group["skills"]:
+                suffix = "" if skill["userFacing"] else " [internal]"
+                lines.append(f"- {skill['name']}{suffix} — {skill['description']}")
+        return "\n".join(lines) if lines else "(no matches)"
     assert isinstance(value, list)
     return "\n".join(value) if value else "(no matches)"
 
@@ -102,6 +161,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--json", action="store_true", help="Emit stable JSON output.")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--skill")
+    group.add_argument("--skills", nargs="?", const="", metavar="QUERY", help="List user-facing entrypoints; use 'all' for every skill.")
     group.add_argument("--requires")
     group.add_argument("--output")
     group.add_argument("--evaluation-mode", choices=sorted(VALID_MODES))
@@ -116,6 +176,9 @@ def main(argv: list[str] | None = None) -> int:
         kind = "list"
         if args.skill:
             kind, result = "skill", get_skill(index, args.skill)
+        elif args.skills is not None:
+            mode, matches = query_skill_listing(index, args.skills)
+            kind, result = "skills", listing_payload(mode, args.skills, matches)
         elif args.requires:
             result = names(query_requires(index, args.requires))
         elif args.output:
@@ -135,7 +198,10 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     if args.json:
-        payload = result if kind == "skill" else {"matches": result, "count": len(result)}
+        if kind == "skill" or kind == "skills":
+            payload = result
+        else:
+            payload = {"matches": result, "count": len(result)}
         print(json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
     else:
         print(render_human(kind, result))
