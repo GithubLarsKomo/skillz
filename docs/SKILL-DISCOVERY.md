@@ -33,32 +33,32 @@ The index also records `entrypointCount` and `entrypointCategories`.
 
 ## Deterministic CLI
 
-The capability query CLI mirrors the intended slash-command semantics and also exposes deterministic routing:
+The existing capability query CLI mirrors the intended slash-command semantics:
 
 ```bash
 python scripts/query_capabilities.py --skills
 python scripts/query_capabilities.py --skills all
 python scripts/query_capabilities.py --skills medical
 python scripts/query_capabilities.py --skill large-work-wayfinder
-python scripts/query_capabilities.py --route "plan a large regulatory software change"
 ```
 
 - `--skills` lists only deliberate user-facing entrypoints, grouped by category.
 - `--skills all` lists every skill and marks non-entrypoints as internal.
 - `--skills <query>` deterministically filters user-facing entrypoints by tokens appearing in skill name, description, or category.
 - `--skill <name>` shows description, invocation metadata, dependencies, dependents, outputs, and evaluation mode.
-- `--route <goal>` ranks user-facing entrypoints for a natural-language goal and returns their declared prerequisites, likely downstream skills, and outputs. Routing is advisory only: it never executes a skill or treats a dependency edge as an instruction to run every dependency first.
 
 Use `--json` for stable machine-readable output.
 
-### Inventory versus routing
+## Discovery, exact resolution, and natural-language interpretation
 
-Keep these two operations separate:
+Keep the repository's existing boundaries intact instead of adding a second hand-written router:
 
-- **Inventory** answers “what skills exist?” and is served by `/skills` / `--skills`.
-- **Routing** answers “which current entrypoint best fits this goal?” and is served by `/skill-route <goal>` / `--route <goal>`.
+- **Discovery** answers “what user-facing entrypoints exist?” Use `/skills` or `scripts/query_capabilities.py`.
+- **Exact capability resolution** answers “which skills satisfy these explicit declared constraints?” Use `scripts/resolve_capabilities.py`. It performs deterministic intersection and deliberately does not interpret prose.
+- **Natural-language interpretation** converts an unstructured goal into an admitted capability intent before deterministic resolution. Use the existing model-capability pipeline (`scripts/run_model_capability_pipeline.py`) with its provider qualification, review/admission, and resolver stages when machine routing is required.
+- **Conversational orientation** may recommend one or a few current entrypoints after reading the capability index, but the recommendation is advisory until the user asks to execute a skill. It must not invent a skill or maintain a separate catalog.
 
-The distinction prevents a stale hand-written router from becoming a second source of truth. Routing derives from the same committed capability metadata used by discovery, and the user or calling agent remains responsible for choosing whether to execute the recommendation.
+This preserves one capability source of truth while keeping probabilistic interpretation outside deterministic query/resolver primitives.
 
 ## System-prompt convention
 
@@ -79,11 +79,6 @@ that is absent from the index.
 
 `/skill <name>` shows that indexed skill's purpose, category, dependencies,
 outputs, and likely downstream skills. Listing a skill does not execute it.
-
-`/skill-route <goal>` ranks the current user-facing entrypoints for the goal
-using the capability index. Show the best match first, explain the matching
-terms and declared dependency/downstream context, and keep the result
-advisory until the user asks to execute a skill.
 ```
 
 This is a prompt-level command convention. A client may additionally expose the same commands as native UI/autocomplete actions, but the repository contract does not depend on a particular client.
@@ -114,5 +109,7 @@ Adding a new category requires at least one explicit `userFacing: true` skill an
 
 ## Related guidance
 
+- [`CAPABILITY-QUERY.md`](CAPABILITY-QUERY.md) defines the deterministic query boundary.
+- [`capability-resolver.md`](capability-resolver.md) defines exact deterministic resolution.
 - [`OPENAI-PLUGIN-DISTRIBUTION.md`](OPENAI-PLUGIN-DISTRIBUTION.md) explains harness-specific invocation metadata without changing canonical skill content.
 - [`AIHERO-V1.2.2-COMPLEMENTARY-PATTERNS.md`](AIHERO-V1.2.2-COMPLEMENTARY-PATTERNS.md) records the complementary patterns adopted from the v1.2.2 comparison and the patterns intentionally not duplicated as new skills.
