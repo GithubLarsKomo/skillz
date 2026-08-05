@@ -3,18 +3,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
 SCHEMA_VERSION = 1
 DEFAULT_INDEX = Path(__file__).resolve().parents[1] / "docs" / "skill-capability-index.json"
 VALID_MODES = {"rubric", "compatibility", "none"}
-ROUTE_STOPWORDS = {
-    "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "how", "i", "in", "is", "it", "of", "on",
-    "or", "the", "this", "to", "with", "und", "oder", "der", "die", "das", "ein", "eine", "einer", "eines", "einen",
-    "einem", "für", "mit", "von", "zu", "zur", "zum", "ich", "möchte", "will", "soll", "sollen", "wie", "was",
-}
 
 
 def load_index(path: Path) -> dict:
@@ -136,69 +130,6 @@ def listing_payload(mode: str, query: str | None, skills: list[dict]) -> dict:
     }
 
 
-def route_terms(query: str) -> list[str]:
-    tokens = re.findall(r"[\wäöüß-]+", query.casefold(), flags=re.UNICODE)
-    return [token for token in tokens if len(token) > 1 and token not in ROUTE_STOPWORDS]
-
-
-def route_capabilities(index: dict, query: str, limit: int = 5) -> list[dict]:
-    terms = route_terms(query)
-    if not terms:
-        raise ValueError("route query contains no meaningful terms")
-    ranked: list[dict] = []
-    for skill in index["skills"]:
-        meta = invocation(skill)
-        if not bool(meta.get("userFacing", False)):
-            continue
-        name = str(skill.get("name", "")).casefold()
-        category = str(meta.get("category") or "").casefold()
-        description = str(skill.get("description", "")).casefold()
-        outputs = " ".join(str(value) for value in skill.get("outputs", [])).casefold()
-        matched: list[str] = []
-        score = 0
-        for term in terms:
-            term_score = 0
-            if term == name or term in name.split("-"):
-                term_score = max(term_score, 8)
-            elif term in name:
-                term_score = max(term_score, 6)
-            if term in category:
-                term_score = max(term_score, 4)
-            if term in description:
-                term_score = max(term_score, 3)
-            if term in outputs:
-                term_score = max(term_score, 2)
-            if term_score:
-                matched.append(term)
-                score += term_score
-        if not matched:
-            continue
-        ranked.append({
-            "name": skill["name"],
-            "category": meta.get("category"),
-            "description": skill.get("description", ""),
-            "score": score,
-            "matchedTerms": matched,
-            "coverage": len(set(matched)) / len(set(terms)),
-            "requires": list(skill.get("requires", [])),
-            "likelyNext": list(skill.get("dependents", [])),
-            "outputs": list(skill.get("outputs", [])),
-        })
-    ranked.sort(key=lambda item: (-item["coverage"], -item["score"], item["name"]))
-    return ranked[:limit]
-
-
-def route_payload(query: str, recommendations: list[dict]) -> dict:
-    return {
-        "schemaVersion": 1,
-        "mode": "route",
-        "query": query.strip(),
-        "count": len(recommendations),
-        "recommendations": recommendations,
-        "executionPolicy": "advisory-only",
-    }
-
-
 def render_human(kind: str, value: object) -> str:
     if kind == "skill":
         assert isinstance(value, dict)
@@ -220,15 +151,6 @@ def render_human(kind: str, value: object) -> str:
                 suffix = "" if skill["userFacing"] else " [internal]"
                 lines.append(f"- {skill['name']}{suffix} — {skill['description']}")
         return "\n".join(lines) if lines else "(no matches)"
-    if kind == "route":
-        assert isinstance(value, dict)
-        lines: list[str] = []
-        for position, item in enumerate(value["recommendations"], start=1):
-            lines.append(f"{position}. {item['name']} [{item.get('category') or 'internal'}] score={item['score']}")
-            lines.append(f"   matched: {', '.join(item['matchedTerms'])}")
-            lines.append("   requires: " + (", ".join(item["requires"]) or "—"))
-            lines.append("   likely-next: " + (", ".join(item["likelyNext"]) or "—"))
-        return "\n".join(lines) if lines else "(no route matches)"
     assert isinstance(value, list)
     return "\n".join(value) if value else "(no matches)"
 
@@ -240,7 +162,6 @@ def main(argv: list[str] | None = None) -> int:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--skill")
     group.add_argument("--skills", nargs="?", const="", metavar="QUERY", help="List user-facing entrypoints; use 'all' for every skill.")
-    group.add_argument("--route", metavar="QUERY", help="Rank user-facing entrypoints for a natural-language goal without executing them.")
     group.add_argument("--requires")
     group.add_argument("--output")
     group.add_argument("--evaluation-mode", choices=sorted(VALID_MODES))
@@ -258,8 +179,6 @@ def main(argv: list[str] | None = None) -> int:
         elif args.skills is not None:
             mode, matches = query_skill_listing(index, args.skills)
             kind, result = "skills", listing_payload(mode, args.skills, matches)
-        elif args.route:
-            kind, result = "route", route_payload(args.route, route_capabilities(index, args.route))
         elif args.requires:
             result = names(query_requires(index, args.requires))
         elif args.output:
@@ -279,7 +198,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     if args.json:
-        if kind in {"skill", "skills", "route"}:
+        if kind == "skill" or kind == "skills":
             payload = result
         else:
             payload = {"matches": result, "count": len(result)}
