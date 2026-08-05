@@ -14,7 +14,7 @@ Do **not** mirror the external catalog. `skillz` already has stronger capability
 
 The useful additions are therefore cross-cutting operating rules rather than duplicate skills:
 
-1. deterministic goal-to-entrypoint routing derived from the capability index,
+1. clearer routing ergonomics without creating a second capability router,
 2. explicit separation of discovery from model-implicit invocation,
 3. cheaper and clearer phase-boundary choices before creating a handoff,
 4. stronger writing rules for documents consumed by agents,
@@ -41,29 +41,22 @@ The following external concepts already have a natural home in `skillz`:
 
 Creating aliases for these names would raise cognitive load, split evaluation evidence, and create routing ambiguity without adding capability.
 
-## 1. Deterministic router instead of a hand-maintained router skill
+## 1. Router ergonomics without another router
 
-AI Hero's `ask-matt` is valuable because humans forget which tool to use. `skillz` already has a richer canonical index, so the complementary move is to route **from the index**, not maintain another prose list.
+AI Hero's `ask-matt` is valuable because humans forget which workflow fits. `skillz` already has a richer routing stack, so adding a new name-based scorer to `query_capabilities.py` would weaken rather than improve the architecture.
 
-Implemented interface:
+Keep the existing layers explicit:
 
-```bash
-python scripts/query_capabilities.py --route "plan a large regulatory software change"
-python scripts/query_capabilities.py --route "debug failing CI" --json
-```
+- `query_capabilities.py` — deterministic inventory and exact metadata lookup; no natural-language routing.
+- `resolve_capabilities.py` — deterministic intersection of explicit capability constraints; no semantic interpretation.
+- `run_model_capability_pipeline.py` — natural-language interpretation through a qualified provider, review/admission, then deterministic resolution.
+- conversational `/skills` orientation — a human-facing discovery surface over the current capability index, not a new canonical router.
 
-The route result:
-
-- ranks only deliberate user-facing entrypoints,
-- shows the matched query terms,
-- exposes declared `requires`, `dependents`, and `outputs`,
-- remains advisory and never executes a skill.
-
-This keeps `/skills`, `/skill`, routing, dependency inspection, and generated UI grounded in one source of truth.
+The complementary lesson from `ask-matt` is therefore **orientation quality**, not another routing implementation. A conversational assistant may recommend the most relevant current entrypoint, explain why it fits and mention likely adjacent skills, but it should read the capability index first and keep the recommendation advisory until execution is requested.
 
 ### Routing rule
 
-A router should orient, not work. Once an entrypoint is chosen, hand control to that skill. Never let a router silently accumulate specialist logic.
+A router should orient, not work. Once an entrypoint is chosen, hand control to that skill. Never let a router silently accumulate specialist logic or become a second catalog.
 
 ## 2. Discovery and implicit invocation are different axes
 
@@ -87,7 +80,7 @@ Important distinction:
 - `userFacing` answers **should this appear as a deliberate entrypoint?**
 - `implicitInvocation` answers **may this harness choose it automatically?**
 
-Do not derive one from the other. A regulatory specialist can be user-facing and still legitimately model-invokable; a destructive or commitment-forming orchestrator may be user-facing but require explicit invocation.
+Do not derive one from the other. A specialist can be user-facing and still legitimately model-invokable; a commitment-forming or surprising orchestrator may be user-facing but require explicit invocation.
 
 ## 3. Phase boundaries: use the cheapest safe transition
 
@@ -100,11 +93,11 @@ Use this order at a phase boundary:
 3. **Compact in place** — same harness/workspace continues but context pressure is material.
 4. **Handoff** — state must travel to a different session, harness, workspace, repository context, person, or independently resumed branch.
 
-`agent-handoff` remains the stronger portable artifact when portability is actually needed. The new rule prevents paying its structural cost when nothing has to travel.
+`agent-handoff` remains the stronger portable artifact when portability is actually needed. The rule prevents paying its structural cost when nothing has to travel.
 
 ## 4. Writing for agents: treat pointers and instructions as executable interfaces
 
-The most reusable idea in AI Hero v1.2.2 is that an agent-facing document is not prose for a human reader; it is part of an execution interface.
+The most reusable idea in AI Hero v1.2.2 is that an agent-facing document is not merely prose for a human reader; it is part of an execution interface.
 
 Apply these rules when editing `SKILL.md`, `AGENTS.md`, system-prompt snippets, or documents reached by them.
 
@@ -166,8 +159,8 @@ Do not immediately create a new `skillz` skill for this. First use the following
 4. Mark each value as secret/public and its destination (`.env`, secret store, nowhere).
 5. Open or link the exact authoritative location before asking for a value.
 6. Require confirmation immediately before irreversible actions.
-7. Never echo secrets or put them into logs, generated Markdown, or command history.
-8. Verify generated scripts statically; do not pretend to have completed interactive browser work.
+7. Keep secrets out of logs, generated Markdown, and command history.
+8. Verify generated scripts statically; do not claim interactive browser work was completed by the agent.
 9. Commit a helper only when the procedure is repeatable and belongs in the repository; otherwise keep it ephemeral.
 
 This pattern is a good future candidate for `human-procedure-wizard` if it repeats across projects.
@@ -207,10 +200,11 @@ The disposal state therefore has three legitimate outcomes: deleted, archived ev
 When reviewing another skill repository:
 
 1. Compare **capabilities**, not names.
-2. Prefer strengthening an existing skill, query surface, schema, or distribution adapter over adding an alias.
-3. Add a new skill only when the `composable-skill-factory` boundary test passes.
-4. Keep harness-specific metadata generated from canonical portable sources.
-5. Preserve provenance and license notes for substantial borrowed ideas.
-6. Add tests around the new behavior before promoting it as a stable entrypoint.
+2. Prefer strengthening an existing skill, schema, distribution adapter, or documented boundary over adding an alias.
+3. Preserve deliberate boundaries between deterministic query, exact resolution, and probabilistic interpretation.
+4. Add a new skill only when the `composable-skill-factory` boundary test passes.
+5. Keep harness-specific metadata generated from canonical portable sources.
+6. Preserve provenance and license notes for substantial borrowed ideas.
+7. Add tests around new behavior before promoting it as a stable entrypoint.
 
 This keeps `skillz` smaller at the user-facing surface while increasing what the system can reliably do.
