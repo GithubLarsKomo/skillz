@@ -36,7 +36,7 @@ def load_json(path: Path) -> dict[str, Any]:
     return value
 
 
-def render_openai_skill(source: Path) -> bytes:
+def parse_skill_document(source: Path) -> tuple[dict[str, str], str]:
     text = normalized_bytes(source).decode("utf-8")
     lines = text.splitlines()
     if not lines or lines[0] != "---":
@@ -49,13 +49,43 @@ def render_openai_skill(source: Path) -> bytes:
     for line in lines[1:end]:
         if ":" in line and not line.startswith((" ", "\t", "-")):
             key, value = line.split(":", 1)
-            if key in {"name", "description"}:
-                metadata[key] = value.strip()
+            metadata[key] = value.strip()
+    body = "\n".join(lines[end + 1 :]).lstrip("\n").rstrip("\n")
+    return metadata, body
+
+
+def render_openai_skill(source: Path) -> bytes:
+    metadata, body = parse_skill_document(source)
     if not metadata.get("name") or not metadata.get("description"):
         raise ValueError(f"{source}: name and description are required")
-    body = "\n".join(lines[end + 1 :]).lstrip("\n").rstrip("\n")
     rendered = f"---\nname: {metadata['name']}\ndescription: {metadata['description']}\n---\n\n{body}\n"
     return rendered.encode("utf-8")
+
+
+def _yaml_quote(value: str) -> str:
+    return json.dumps(value, ensure_ascii=False)
+
+
+def render_openai_agent_metadata(source: Path) -> bytes:
+    metadata, _ = parse_skill_document(source)
+    name = metadata.get("name")
+    description = metadata.get("description")
+    if not name or not description:
+        raise ValueError(f"{source}: name and description are required")
+    display_name = " ".join(part.capitalize() for part in name.split("-") if part)
+    short_description = description if len(description) <= 120 else description[:117].rstrip() + "..."
+    lines = [
+        "interface:",
+        f"  display_name: {_yaml_quote(display_name)}",
+        f"  short_description: {_yaml_quote(short_description)}",
+    ]
+    implicit = metadata.get("implicitInvocation")
+    if implicit is not None:
+        normalized = implicit.casefold()
+        if normalized not in {"true", "false"}:
+            raise ValueError(f"{source}: implicitInvocation must be true or false")
+        lines.extend(["policy:", f"  allow_implicit_invocation: {normalized}"])
+    return ("\n".join(lines) + "\n").encode("utf-8")
 
 
 def validate_plugin_manifest(value: dict[str, Any], expected_version: str) -> None:
@@ -103,6 +133,7 @@ def build(output: Path) -> dict[str, Any]:
         if not isinstance(files, dict) or not files:
             raise ValueError(f"skill {name}: no portable files")
         bundle_files: dict[str, Any] = {}
+        skill_source: Path | None = None
         for rel, expected in sorted(files.items()):
             source = ROOT / "skills" / name / rel
             if not source.is_file():
@@ -115,6 +146,19 @@ def build(output: Path) -> dict[str, Any]:
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(data)
             bundle_files[rel] = {"sourceSha256": actual, "bundleSha256": sha256_bytes(data)}
+            if rel == "SKILL.md":
+                skill_source = source
+        if skill_source is None:
+            raise ValueError(f"skill {name}: SKILL.md is required")
+        agent_metadata = render_openai_agent_metadata(skill_source)
+        agent_metadata_rel = "agents/openai.yaml"
+        agent_metadata_dest = output / "skills" / name / agent_metadata_rel
+        agent_metadata_dest.parent.mkdir(parents=True, exist_ok=True)
+        agent_metadata_dest.write_bytes(agent_metadata)
+        bundle_files[agent_metadata_rel] = {
+            "generated": True,
+            "bundleSha256": sha256_bytes(agent_metadata),
+        }
         skills_manifest[name] = {"files": bundle_files}
 
     manifest = {
@@ -147,6 +191,9 @@ def validate_bundle(output: Path, manifest: dict[str, Any] | None = None) -> Non
         keys = [line.split(":", 1)[0] for line in lines[1:end] if ":" in line]
         if keys != ["name", "description"]:
             raise ValueError(f"packaged SKILL.md frontmatter must contain only name+description: {name}")
+        agent_metadata = output / "skills" / name / "agents" / "openai.yaml"
+        if not agent_metadata.is_file():
+            raise ValueError(f"bundle missing skills/{name}/agents/openai.yaml")
         for rel, hashes in spec["files"].items():
             path = output / "skills" / name / rel
             if sha256_bytes(path.read_bytes()) != hashes["bundleSha256"]:
