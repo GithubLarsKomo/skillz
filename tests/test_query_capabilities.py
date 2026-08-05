@@ -21,9 +21,6 @@ from query_capabilities import (  # noqa: E402
     query_portable,
     query_requires,
     query_skill_listing,
-    route_capabilities,
-    route_payload,
-    route_terms,
 )
 
 
@@ -56,7 +53,7 @@ INDEX = {
             "invocation": {"userFacing": True, "category": "regulated-engineering"},
             "requires": [],
             "dependents": [],
-            "outputs": ["regulatory assessment"],
+            "outputs": [],
             "portableFiles": [],
             "evaluation": {"mode": "none", "passed": None},
         },
@@ -116,27 +113,6 @@ class CapabilityQueryTests(unittest.TestCase):
         internal = next(group for group in payload["categories"] if group["category"] == "internal")
         self.assertEqual(internal["skills"], [{"name": "beta", "description": "Beta internal helper", "userFacing": False}])
 
-    def test_route_terms_drop_common_prompt_noise(self):
-        self.assertEqual(route_terms("Ich möchte medical regulatory Hilfe"), ["medical", "regulatory", "hilfe"])
-
-    def test_route_ranks_user_facing_skills_and_keeps_internal_helpers_out(self):
-        matches = route_capabilities(INDEX, "medical regulatory")
-        self.assertEqual([item["name"] for item in matches], ["medical-device-example"])
-        self.assertEqual(matches[0]["matchedTerms"], ["medical", "regulatory"])
-        self.assertNotIn("beta", [item["name"] for item in matches])
-        payload = route_payload("medical regulatory", matches)
-        self.assertEqual(payload["executionPolicy"], "advisory-only")
-
-    def test_route_surfaces_dependency_and_downstream_context_without_executing(self):
-        matches = route_capabilities(INDEX, "alpha engineering")
-        self.assertEqual(matches[0]["name"], "alpha")
-        self.assertEqual(matches[0]["likelyNext"], ["beta"])
-        self.assertEqual(matches[0]["requires"], [])
-
-    def test_route_rejects_only_stopwords(self):
-        with self.assertRaisesRegex(ValueError, "no meaningful terms"):
-            route_capabilities(INDEX, "ich und die")
-
     def test_unsupported_schema_fails(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -152,8 +128,6 @@ class CapabilityQueryTests(unittest.TestCase):
             self.assertEqual(main(["--index", str(path), "--skills", "--json"]), 0)
             self.assertEqual(main(["--index", str(path), "--skills", "medical", "--json"]), 0)
             self.assertEqual(main(["--index", str(path), "--skills", "all", "--json"]), 0)
-            self.assertEqual(main(["--index", str(path), "--route", "medical regulatory", "--json"]), 0)
-            self.assertEqual(main(["--index", str(path), "--route", "ich und die", "--json"]), 2)
 
 
 if __name__ == "__main__":
