@@ -74,17 +74,17 @@ def render_openai_agent_metadata(source: Path) -> bytes:
         raise ValueError(f"{source}: name and description are required")
     display_name = " ".join(part.capitalize() for part in name.split("-") if part)
     short_description = description if len(description) <= 120 else description[:117].rstrip() + "..."
+    implicit = metadata.get("implicitInvocation", "true")
+    normalized = implicit.casefold()
+    if normalized not in {"true", "false"}:
+        raise ValueError(f"{source}: implicitInvocation must be true or false")
     lines = [
         "interface:",
         f"  display_name: {_yaml_quote(display_name)}",
         f"  short_description: {_yaml_quote(short_description)}",
+        "policy:",
+        f"  allow_implicit_invocation: {normalized}",
     ]
-    implicit = metadata.get("implicitInvocation")
-    if implicit is not None:
-        normalized = implicit.casefold()
-        if normalized not in {"true", "false"}:
-            raise ValueError(f"{source}: implicitInvocation must be true or false")
-        lines.extend(["policy:", f"  allow_implicit_invocation: {normalized}"])
     return ("\n".join(lines) + "\n").encode("utf-8")
 
 
@@ -133,7 +133,17 @@ def build(output: Path) -> dict[str, Any]:
         if not isinstance(files, dict) or not files:
             raise ValueError(f"skill {name}: no portable files")
         bundle_files: dict[str, Any] = {}
-        skill_source: Path | None = None
+        skill_source = ROOT / "skills" / name / "SKILL.md"
+        agent_source = ROOT / "skills" / name / "agents" / "openai.yaml"
+        if "SKILL.md" not in files:
+            raise ValueError(f"skill {name}: SKILL.md is required")
+        if "agents/openai.yaml" not in files:
+            raise ValueError(f"skill {name}: canonical agents/openai.yaml is required")
+        expected_agent_metadata = render_openai_agent_metadata(skill_source)
+        if not agent_source.is_file():
+            raise ValueError(f"missing canonical OpenAI metadata: {agent_source}")
+        if normalized_bytes(agent_source) != expected_agent_metadata:
+            raise ValueError(f"canonical OpenAI metadata drift: skills/{name}/agents/openai.yaml")
         for rel, expected in sorted(files.items()):
             source = ROOT / "skills" / name / rel
             if not source.is_file():
@@ -146,19 +156,6 @@ def build(output: Path) -> dict[str, Any]:
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(data)
             bundle_files[rel] = {"sourceSha256": actual, "bundleSha256": sha256_bytes(data)}
-            if rel == "SKILL.md":
-                skill_source = source
-        if skill_source is None:
-            raise ValueError(f"skill {name}: SKILL.md is required")
-        agent_metadata = render_openai_agent_metadata(skill_source)
-        agent_metadata_rel = "agents/openai.yaml"
-        agent_metadata_dest = output / "skills" / name / agent_metadata_rel
-        agent_metadata_dest.parent.mkdir(parents=True, exist_ok=True)
-        agent_metadata_dest.write_bytes(agent_metadata)
-        bundle_files[agent_metadata_rel] = {
-            "generated": True,
-            "bundleSha256": sha256_bytes(agent_metadata),
-        }
         skills_manifest[name] = {"files": bundle_files}
 
     manifest = {
