@@ -19,6 +19,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Normalize residual-risk output contracts
+        shell: python
+        run: |
+          from pathlib import Path
+          mapping = {
+              "disciplined-diagnosis": "diagnosis-residual-risk-handoff.json",
+              "implement-from-issue": "implementation-residual-risk-handoff.json",
+              "merge-conflict-resolution": "conflict-residual-risk-handoff.json",
+              "test-driven-vertical-slice": "vertical-slice-residual-risk-handoff.json",
+          }
+          for slug, replacement in mapping.items():
+              path = Path("skills") / slug / "SKILL.md"
+              text = path.read_text(encoding="utf-8")
+              text = text.replace("residual-risk-handoff.json", replacement)
+              path.write_text(text, encoding="utf-8", newline="\n")
       - name: Materialize per-skill OpenAI metadata
         run: python scripts/materialize_openai_agent_metadata.py
       - name: Regenerate repository metadata
