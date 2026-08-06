@@ -13,7 +13,7 @@
   ],
   "evaluationSuiteCount": 53,
   "evaluationPassed": false,
-  "evaluationErrorCount": 4,
+  "evaluationErrorCount": 3,
   "skills": [
     {
       "name": "agent-handoff",
@@ -749,7 +749,7 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
+        "recordedResultCount": 1,
         "passed": false
       }
     },
