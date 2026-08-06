@@ -74,6 +74,16 @@ class MetadataSchemaTests(unittest.TestCase):
         }
         self.assertEqual([], module.validate(payload, self.query_schema))
 
+    def test_min_length_is_enforced(self):
+        errors = module.validate("", {"type": "string", "minLength": 1})
+        self.assertTrue(any("minLength 1" in item for item in errors))
+        self.assertEqual([], module.validate("x", {"type": "string", "minLength": 1}))
+
+    def test_min_items_is_enforced(self):
+        errors = module.validate([], {"type": "array", "minItems": 1, "items": {"type": "string"}})
+        self.assertTrue(any("minItems 1" in item for item in errors))
+        self.assertEqual([], module.validate(["x"], {"type": "array", "minItems": 1, "items": {"type": "string"}}))
+
 
 if __name__ == "__main__":
     unittest.main()
