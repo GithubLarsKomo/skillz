@@ -18,7 +18,7 @@ The useful additions are therefore cross-cutting operating rules rather than dup
 2. explicit separation of discovery from model-implicit invocation,
 3. cheaper and clearer phase-boundary choices before creating a handoff,
 4. stronger writing rules for documents consumed by agents,
-5. patterns for human-only procedures and external questionnaires,
+5. dedicated skills for human-only procedures and external stakeholder questionnaires,
 6. preserving useful prototype evidence without promoting prototype code to production.
 
 ## Existing overlap — do not duplicate
@@ -147,11 +147,11 @@ Avoid vague completion states such as “understood”, “cleaned up”, or “
 
 State the target behavior directly. Use prohibitions only for genuine guardrails, and pair them with the desired alternative. Repeated negative examples can accidentally prime the behavior they are meant to suppress.
 
-## 5. Human-only procedure pattern
+## 5. Human-only procedure pattern → `human-procedure-wizard`
 
 AI Hero's `wizard` addresses a real gap: some engineering work is blocked by steps an agent cannot perform safely or at all — dashboard clicks, approvals, credential reveal, physical confirmation, or irreversible cutover gates.
 
-Do not immediately create a new `skillz` skill for this. First use the following candidate pattern and promote it only after repeated use proves a stable workflow:
+This pattern is now implemented as `human-procedure-wizard`. The dedicated skill owns the transition from an identified human-only execution boundary back to a verifiable agent workflow. Its core rules are:
 
 1. Inspect the repository and authoritative vendor documentation before asking the human.
 2. Separate agent-executable work from genuinely human-only work.
@@ -160,26 +160,26 @@ Do not immediately create a new `skillz` skill for this. First use the following
 5. Open or link the exact authoritative location before asking for a value.
 6. Require confirmation immediately before irreversible actions.
 7. Keep secrets out of logs, generated Markdown, and command history.
-8. Verify generated scripts statically; do not claim interactive browser work was completed by the agent.
-9. Commit a helper only when the procedure is repeatable and belongs in the repository; otherwise keep it ephemeral.
+8. Verify the resulting state independently when possible; do not claim interactive browser work was completed without evidence.
+9. Return a machine-readable verification/result contract to the original workflow.
 
-This pattern is a good future candidate for `human-procedure-wizard` if it repeats across projects.
+The skill deliberately does not replace domain decisions, diagnosis, requirements elicitation, or `agent-handoff`.
 
-## 6. External questionnaire pattern
+## 6. External questionnaire pattern → `external-stakeholder-questionnaire`
 
 A second useful gap is a decision that the current user cannot answer because another stakeholder holds the knowledge.
 
-Do not grill the user about facts they have already said they do not know. Instead gather only:
+This pattern is now implemented as `external-stakeholder-questionnaire`. It is used when the current user has already established that the missing fact or decision belongs to another knowledge holder. The dedicated skill:
 
-- who the recipient is and what context they have,
-- what concrete facts or decisions must come back,
-- deadline and response constraints.
+- identifies the confirmed recipient or role and known authority,
+- asks one information or decision gap per question,
+- puts the highest-value and blocking questions first,
+- allows explicit `unknown` and partial answers,
+- avoids leading or incomplete answer options,
+- never invents a deadline,
+- records how each answer will be used downstream.
 
-Then write questions directly against the gap. Put the highest-value questions first, keep one decision per question, allow explicit “unknown”, and state how the answers will be used.
-
-This is complementary to `meeting-preparation` and `decision-and-follow-up-tracker`: the questionnaire acquires missing stakeholder evidence; those skills prepare and track work around the resulting decision.
-
-Promote this to a dedicated skill only when the workflow proves recurrent enough to justify another user-facing entrypoint.
+It remains complementary to `meeting-preparation` and `decision-and-follow-up-tracker`: the questionnaire acquires missing stakeholder evidence; those skills prepare meetings or track the resulting commitments and open loops. It also remains distinct from `round-based-requirements-grilling`, which elicites structured requirements from the current user rather than routing a known knowledge gap to an external holder.
 
 ## 7. Prototype evidence: throw away code, not learning
 
