@@ -1,14 +1,15 @@
 {
   "schemaVersion": 1,
-  "skillCount": 51,
-  "entrypointCount": 34,
+  "skillCount": 52,
+  "entrypointCount": 35,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
     "productivity",
     "regulated-engineering",
     "research-knowledge",
-    "skill-system"
+    "skill-system",
+    "workflow"
   ],
   "evaluationSuiteCount": 48,
   "evaluationPassed": true,
@@ -891,6 +892,45 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "human-procedure-wizard",
+      "description": "Führt sicher durch unvermeidbare menschliche Schritte in ansonsten agentengesteuerten Workflows, etwa Dashboard-Aktionen, Freigaben, Secret-Eingaben, physische Bestätigungen oder irreversible Cutover-Gates. Verwenden, wenn ein Agent den nächsten Schritt nicht selbst ausführen darf oder kann und danach verifizierbar weiterarbeiten soll; nicht für normale Anforderungsklärung oder reine Übergaben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "human-procedure-plan.md",
+        "human-procedure-result.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "human-procedure-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "human-procedure-wizard"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "human-procedure-result.json",
+          "ambiguous": false,
+          "producers": [
+            "human-procedure-wizard"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {

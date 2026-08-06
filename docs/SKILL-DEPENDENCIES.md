@@ -150,6 +150,8 @@ graph TD
 | `fda-regulatory-assessment.json` | `fda-medical-device-ivd-regulatory-specialist` | `medical-device-regulatory-strategy` | unique |
 | `fda-regulatory-assessment.md` | `fda-medical-device-ivd-regulatory-specialist` | `medical-device-regulatory-strategy` | unique |
 | `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `medical-device-regulatory-strategy` | unique |
+| `human-procedure-plan.md` | `human-procedure-wizard` | — | orphan |
+| `human-procedure-result.json` | `human-procedure-wizard` | — | orphan |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | unique |
 | `import verification` | `openasr-offline-model-import` | — | orphan |
 | `inbox-triage.json` | `inbox-action-triage` | `daily-and-weekly-review` | unique |

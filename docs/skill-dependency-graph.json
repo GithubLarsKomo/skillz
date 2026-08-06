@@ -178,6 +178,14 @@
       ]
     },
     {
+      "name": "human-procedure-wizard",
+      "requires": [],
+      "outputs": [
+        "human-procedure-plan.md",
+        "human-procedure-result.json"
+      ]
+    },
+    {
       "name": "implement-from-issue",
       "requires": [
         "agent-handoff",
@@ -1449,6 +1457,22 @@
       "ambiguous": false
     },
     {
+      "output": "human-procedure-plan.md",
+      "producers": [
+        "human-procedure-wizard"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "human-procedure-result.json",
+      "producers": [
+        "human-procedure-wizard"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "implementation-evidence.json",
       "producers": [
         "implement-from-issue"
@@ -2276,6 +2300,8 @@
     "dpia-decision.json",
     "execution plan",
     "expert handoff",
+    "human-procedure-plan.md",
+    "human-procedure-result.json",
     "import verification",
     "installed OpenASR model",
     "isms-audit-findings.json",
