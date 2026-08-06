@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 52,
-  "entrypointCount": 35,
+  "skillCount": 53,
+  "entrypointCount": 36,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 49,
+  "evaluationSuiteCount": 50,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -824,6 +824,45 @@
           "consumerSkills": [
             "medical-device-capa"
           ]
+        }
+      ],
+      "portableFiles": [],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "external-stakeholder-questionnaire",
+      "description": "Erzeugt fokussierte, priorisierte Fragen für einen externen Wissensinhaber, wenn der aktuelle Nutzer eine notwendige Information oder Entscheidung nicht selbst liefern kann. Verwenden, wenn fehlende Fakten gezielt bei Stakeholdern beschafft werden müssen; nicht für allgemeines Requirements-Grilling, Meeting-Vorbereitung oder das Nachverfolgen bereits zugesagter Antworten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "productivity"
+      },
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "stakeholder-questionnaire.json",
+        "stakeholder-questionnaire.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "stakeholder-questionnaire.json",
+          "ambiguous": false,
+          "producers": [
+            "external-stakeholder-questionnaire"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "stakeholder-questionnaire.md",
+          "ambiguous": false,
+          "producers": [
+            "external-stakeholder-questionnaire"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [],

@@ -165,6 +165,14 @@
       ]
     },
     {
+      "name": "external-stakeholder-questionnaire",
+      "requires": [],
+      "outputs": [
+        "stakeholder-questionnaire.json",
+        "stakeholder-questionnaire.md"
+      ]
+    },
+    {
       "name": "fda-medical-device-ivd-regulatory-specialist",
       "requires": [
         "medical-device-qms-iso13485",
@@ -2143,6 +2151,22 @@
       "ambiguous": false
     },
     {
+      "output": "stakeholder-questionnaire.json",
+      "producers": [
+        "external-stakeholder-questionnaire"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
+      "output": "stakeholder-questionnaire.md",
+      "producers": [
+        "external-stakeholder-questionnaire"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false
+    },
+    {
       "output": "synchronization manifest",
       "producers": [
         "central-skill-repository-curation"
@@ -2328,6 +2352,8 @@
     "resolved-change-brief.md",
     "source-context.json",
     "source-context.md",
+    "stakeholder-questionnaire.json",
+    "stakeholder-questionnaire.md",
     "synchronization manifest",
     "ui-prototype-plan.md",
     "updated skill repository"

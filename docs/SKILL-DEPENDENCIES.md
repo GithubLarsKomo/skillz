@@ -219,6 +219,8 @@ graph TD
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | unique |
 | `source-context.json` | `source-to-context` | — | orphan |
 | `source-context.md` | `source-to-context` | — | orphan |
+| `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | orphan |
+| `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | orphan |
 | `synchronization manifest` | `central-skill-repository-curation` | — | orphan |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | orphan |
 | `updated skill repository` | `central-skill-repository-curation` | — | orphan |
