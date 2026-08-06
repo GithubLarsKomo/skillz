@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Device Classification"
+  short_description: "Erstellt für ein IVD eine evidenzgebundene IVDR-Qualifikations- und Klassifikationshypothese nach Artikel 47/Anhang V..."
+policy:
+  allow_implicit_invocation: false
