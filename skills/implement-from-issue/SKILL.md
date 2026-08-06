@@ -16,7 +16,7 @@ requires:
 outputs:
   - implementation-evidence.json
   - reviewable-change-brief.md
-  - residual-risk-handoff.json
+  - implementation-residual-risk-handoff.json
 lastEvaluated: 2026-08-01
 ---
 

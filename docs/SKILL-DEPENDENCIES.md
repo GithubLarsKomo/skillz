@@ -118,6 +118,7 @@ graph TD
 | `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
 | `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
 | `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
+| `conflict-residual-risk-handoff.json` | `merge-conflict-resolution` | — | unconsumed |
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | unconsumed |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
@@ -130,6 +131,7 @@ graph TD
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `diagnosis-report.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
+| `diagnosis-residual-risk-handoff.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `disposal-record.json` | `throwaway-prototype` | `decision-record` | inferred |
 | `docs/agents/CONFIG.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/CONTEXT.md` | `repository-skill-bootstrap` | — | unconsumed |
@@ -153,6 +155,7 @@ graph TD
 | `human-procedure-plan.md` | `human-procedure-wizard` | — | unconsumed |
 | `human-procedure-result.json` | `human-procedure-wizard` | — | unconsumed |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | inferred |
+| `implementation-residual-risk-handoff.json` | `implement-from-issue` | `two-axis-code-review` | inferred |
 | `import verification` | `openasr-offline-model-import` | — | unconsumed |
 | `inbox-triage.json` | `inbox-action-triage` | `daily-and-weekly-review` | inferred |
 | `inbox-triage.md` | `inbox-action-triage` | `daily-and-weekly-review` | inferred |
@@ -206,7 +209,6 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
 | `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
-| `residual-risk-handoff.json` | `disciplined-diagnosis`, `implement-from-issue`, `merge-conflict-resolution`, `test-driven-vertical-slice` | — | ambiguous |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `review-brief.json` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
@@ -231,5 +233,6 @@ graph TD
 | `vertical-issues.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-issues.md` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-slice-evidence.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `watch record` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |

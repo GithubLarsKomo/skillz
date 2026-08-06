@@ -122,7 +122,7 @@
       ],
       "outputs": [
         "diagnosis-report.json",
-        "residual-risk-handoff.json",
+        "diagnosis-residual-risk-handoff.json",
         "verified-fix-evidence.md"
       ]
     },
@@ -203,7 +203,7 @@
       ],
       "outputs": [
         "implementation-evidence.json",
-        "residual-risk-handoff.json",
+        "implementation-residual-risk-handoff.json",
         "reviewable-change-brief.md"
       ]
     },
@@ -388,8 +388,8 @@
         "two-axis-code-review"
       ],
       "outputs": [
+        "conflict-residual-risk-handoff.json",
         "conflict-resolution-evidence.json",
-        "residual-risk-handoff.json",
         "resolved-change-brief.md"
       ]
     },
@@ -534,9 +534,9 @@
         "spec-to-vertical-issues"
       ],
       "outputs": [
-        "residual-risk-handoff.json",
         "verification-report.md",
-        "vertical-slice-evidence.json"
+        "vertical-slice-evidence.json",
+        "vertical-slice-residual-risk-handoff.json"
       ]
     },
     {
@@ -1171,6 +1171,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "conflict-residual-risk-handoff.json",
+      "producers": [
+        "merge-conflict-resolution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "conflict-resolution-evidence.json",
       "producers": [
         "merge-conflict-resolution"
@@ -1290,6 +1299,23 @@
     },
     {
       "output": "diagnosis-report.json",
+      "producers": [
+        "disciplined-diagnosis"
+      ],
+      "consumerSkills": [
+        "architecture-deepening-review",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "test-driven-vertical-slice",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "diagnosis-residual-risk-handoff.json",
       "producers": [
         "disciplined-diagnosis"
       ],
@@ -1537,6 +1563,17 @@
     },
     {
       "output": "implementation-evidence.json",
+      "producers": [
+        "implement-from-issue"
+      ],
+      "consumerSkills": [
+        "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "implementation-residual-risk-handoff.json",
       "producers": [
         "implement-from-issue"
       ],
@@ -2124,18 +2161,6 @@
       "consumptionStatus": "inferred"
     },
     {
-      "output": "residual-risk-handoff.json",
-      "producers": [
-        "disciplined-diagnosis",
-        "implement-from-issue",
-        "merge-conflict-resolution",
-        "test-driven-vertical-slice"
-      ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
-    },
-    {
       "output": "resolved-change-brief.md",
       "producers": [
         "merge-conflict-resolution"
@@ -2413,6 +2438,19 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "vertical-slice-residual-risk-handoff.json",
+      "producers": [
+        "test-driven-vertical-slice"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "watch record",
       "producers": [
         "deferred-external-action-verification"
@@ -2446,6 +2484,7 @@
     "beta-runbook.md",
     "change-impact-assessment.json",
     "communication-profile.merged.json",
+    "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "controlled-document-plan.md",
     "decision-follow-up-register.json",
@@ -2502,6 +2541,7 @@
     "beta-runbook.md",
     "change-impact-assessment.json",
     "communication-profile.merged.json",
+    "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "controlled-document-plan.md",
     "decision-follow-up-register.json",

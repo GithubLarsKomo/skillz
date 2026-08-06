@@ -9,8 +9,8 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Evaluation suites: **53**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
-- Ambiguous outputs (multiple producers): **1**
-- Outputs without inferred hard-requires consumers: **54**
+- Ambiguous outputs (multiple producers): **0**
+- Outputs without inferred hard-requires consumers: **55**
 
 ## Evaluation gaps
 
@@ -22,7 +22,7 @@ None.
 
 ## Ambiguous outputs
 
-- `residual-risk-handoff.json` — producers: `disciplined-diagnosis`, `implement-from-issue`, `merge-conflict-resolution`, `test-driven-vertical-slice`
+None.
 
 ## Outputs without inferred consumers
 
@@ -35,6 +35,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-runbook.md` — producer: `project-beta-readiness`
 - `change-impact-assessment.json` — producer: `controlled-quality-documentation`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
+- `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `controlled-document-plan.md` — producer: `controlled-quality-documentation`
 - `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`

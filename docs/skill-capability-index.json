@@ -639,7 +639,7 @@
       ],
       "outputs": [
         "diagnosis-report.json",
-        "residual-risk-handoff.json",
+        "diagnosis-residual-risk-handoff.json",
         "verified-fix-evidence.md"
       ],
       "outputContracts": [
@@ -660,15 +660,20 @@
           ]
         },
         {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
+          "output": "diagnosis-residual-risk-handoff.json",
+          "ambiguous": false,
           "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
+            "disciplined-diagnosis"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "architecture-deepening-review",
+            "implement-from-issue",
+            "large-work-wayfinder",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice",
+            "throwaway-prototype",
+            "two-axis-code-review"
+          ]
         },
         {
           "output": "verified-fix-evidence.md",
@@ -1026,7 +1031,7 @@
       ],
       "outputs": [
         "implementation-evidence.json",
-        "residual-risk-handoff.json",
+        "implementation-residual-risk-handoff.json",
         "reviewable-change-brief.md"
       ],
       "outputContracts": [
@@ -1041,15 +1046,14 @@
           ]
         },
         {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
+          "output": "implementation-residual-risk-handoff.json",
+          "ambiguous": false,
           "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
+            "implement-from-issue"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "two-axis-code-review"
+          ]
         },
         {
           "output": "reviewable-change-brief.md",
@@ -1943,13 +1947,13 @@
       ],
       "dependents": [],
       "outputs": [
+        "conflict-residual-risk-handoff.json",
         "conflict-resolution-evidence.json",
-        "residual-risk-handoff.json",
         "resolved-change-brief.md"
       ],
       "outputContracts": [
         {
-          "output": "conflict-resolution-evidence.json",
+          "output": "conflict-residual-risk-handoff.json",
           "ambiguous": false,
           "producers": [
             "merge-conflict-resolution"
@@ -1957,13 +1961,10 @@
           "consumerSkills": []
         },
         {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
+          "output": "conflict-resolution-evidence.json",
+          "ambiguous": false,
           "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
+            "merge-conflict-resolution"
           ],
           "consumerSkills": []
         },
@@ -2761,22 +2762,11 @@
         "merge-conflict-resolution"
       ],
       "outputs": [
-        "residual-risk-handoff.json",
         "verification-report.md",
-        "vertical-slice-evidence.json"
+        "vertical-slice-evidence.json",
+        "vertical-slice-residual-risk-handoff.json"
       ],
       "outputContracts": [
-        {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
-          "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
-          ],
-          "consumerSkills": []
-        },
         {
           "output": "verification-report.md",
           "ambiguous": false,
@@ -2791,6 +2781,18 @@
         },
         {
           "output": "vertical-slice-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
+        },
+        {
+          "output": "vertical-slice-residual-risk-handoff.json",
           "ambiguous": false,
           "producers": [
             "test-driven-vertical-slice"

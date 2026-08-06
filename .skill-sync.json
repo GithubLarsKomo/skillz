@@ -72,7 +72,7 @@
     },
     "disciplined-diagnosis": {
       "files": {
-        "SKILL.md": "7a7b8a302d85ac9f5a56fbc2225292db898b70bdbed25324d26f5d1c0b87bcfd",
+        "SKILL.md": "d20066417f5f56ad24b5494c5c87b345f06a28ebc57441e16090b9c589139fd1",
         "agents/openai.yaml": "f419aee4c4793c6472bc35119d3e0a22c855336f712df05172ca29f39d84cbdc"
       }
     },
@@ -114,7 +114,7 @@
     },
     "implement-from-issue": {
       "files": {
-        "SKILL.md": "677924a890193014f72d46dc4c2106b3fa19324636dbb4260452b217597003f9",
+        "SKILL.md": "2d346e3dda2ee1903b4aff6ee32b18668d3d39b362275ff8e86c3536bb408d07",
         "agents/openai.yaml": "9717365c618747d1819c9b8af8856b6d8de38f7256e2ec15ac53d09684a60182"
       }
     },
@@ -211,7 +211,7 @@
     },
     "merge-conflict-resolution": {
       "files": {
-        "SKILL.md": "8dd8227cb89a49dba8667a6f6fbb6ca22580ee08ca0feac260291bfdb5bc4269",
+        "SKILL.md": "32c26cb84f2d14b68dff03771a6a58fed7c4b82f003610af7aef35e120e8da57",
         "agents/openai.yaml": "4e33f90720dcc3c29a67bea5a37964bae3a1ec239c7878882ea5405a249044b3"
       }
     },
@@ -303,7 +303,7 @@
     },
     "test-driven-vertical-slice": {
       "files": {
-        "SKILL.md": "124793801cc1c6f2621a029e1e4b934ebe9d9c8acd6e5389893fdf611d8e3879",
+        "SKILL.md": "fd3f3598d995f46fb2d5d6219b1851be05933a1b47983f66c89f089abe4a0685",
         "agents/openai.yaml": "e9ee826a7ef665a7636dc6676ad2722dfc1173e63384f5deae9129769b6d6080"
       }
     },

@@ -13,7 +13,7 @@ requires:
 outputs:
   - diagnosis-report.json
   - verified-fix-evidence.md
-  - residual-risk-handoff.json
+  - diagnosis-residual-risk-handoff.json
 lastEvaluated: 2026-07-31
 ---
 
