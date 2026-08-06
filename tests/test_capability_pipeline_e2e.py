@@ -59,21 +59,30 @@ class CapabilityPipelineE2ETests(unittest.TestCase):
         self.assertEqual(payload["candidateCount"], 0)
         self.assertEqual(payload["candidates"], [])
 
-    def test_ambiguous_output_contract_is_preserved(self):
-        _, payload = self.compile_and_resolve({
-            "schemaVersion": 1,
-            "desiredOutputs": ["residual-risk-handoff.json"],
-        })
-        self.assertGreaterEqual(payload["candidateCount"], 2)
-        contracts = [
-            contract
-            for candidate in payload["candidates"]
-            for contract in candidate["matchedOutputContracts"]
-            if contract["output"] == "residual-risk-handoff.json"
-        ]
-        self.assertTrue(contracts)
-        self.assertTrue(all(contract["ambiguous"] for contract in contracts))
-        self.assertTrue(all(len(contract["producers"]) > 1 for contract in contracts))
+    def test_residual_risk_output_contracts_are_uniquely_namespaced(self):
+        expectations = {
+            "diagnosis-residual-risk-handoff.json": "disciplined-diagnosis",
+            "implementation-residual-risk-handoff.json": "implement-from-issue",
+            "conflict-residual-risk-handoff.json": "merge-conflict-resolution",
+            "vertical-slice-residual-risk-handoff.json": "test-driven-vertical-slice",
+        }
+        for output, producer in expectations.items():
+            with self.subTest(output=output):
+                _, payload = self.compile_and_resolve({
+                    "schemaVersion": 1,
+                    "desiredOutputs": [output],
+                })
+                self.assertEqual(payload["candidateCount"], 1)
+                candidate = payload["candidates"][0]
+                self.assertEqual(candidate["name"], producer)
+                contracts = [
+                    contract
+                    for contract in candidate["matchedOutputContracts"]
+                    if contract["output"] == output
+                ]
+                self.assertEqual(len(contracts), 1)
+                self.assertFalse(contracts[0]["ambiguous"])
+                self.assertEqual(contracts[0]["producers"], [producer])
 
     def test_duplicate_normalization_and_repeated_execution_are_byte_stable(self):
         intent = {
