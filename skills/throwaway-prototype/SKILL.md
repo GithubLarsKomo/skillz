@@ -2,6 +2,7 @@
 name: throwaway-prototype
 description: Prüft unsichere technische oder fachliche Annahmen mit bewusst kurzlebigen, isolierten Prototypen, trennt Lernnachweise von Produktionsabnahme und verhindert die unbeabsichtigte Übernahme experimentellen Codes.
 userFacing: true
+implicitInvocation: true
 category: engineering
 version: 0.2.0
 status: candidate

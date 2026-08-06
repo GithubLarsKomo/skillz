@@ -2,6 +2,7 @@
 name: human-procedure-wizard
 description: Führt sicher durch unvermeidbare menschliche Schritte in ansonsten agentengesteuerten Workflows, etwa Dashboard-Aktionen, Freigaben, Secret-Eingaben, physische Bestätigungen oder irreversible Cutover-Gates. Verwenden, wenn ein Agent den nächsten Schritt nicht selbst ausführen darf oder kann und danach verifizierbar weiterarbeiten soll; nicht für normale Anforderungsklärung oder reine Übergaben.
 userFacing: true
+implicitInvocation: true
 category: workflow
 version: 0.1.0
 status: candidate

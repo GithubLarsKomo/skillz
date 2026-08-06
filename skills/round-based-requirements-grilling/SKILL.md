@@ -10,6 +10,7 @@ outputs:
   - GRILL-REPORT.md
   - approved SPEC.md
 lastEvaluated: 2026-07-31
+implicitInvocation: false
 ---
 
 # Datengetriebenes Requirements Grilling

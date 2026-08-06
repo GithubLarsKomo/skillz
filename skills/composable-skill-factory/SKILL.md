@@ -2,6 +2,7 @@
 name: composable-skill-factory
 description: Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen Hilfswerkzeugen, klaren Triggern und überprüfbaren Abschlusskriterien. Verwenden, wenn aus einem wiederholbaren Workflow ein neuer Skill werden soll oder ein bestehender Skill zu groß, unklar, fragil oder schwer kombinierbar ist.
 userFacing: true
+implicitInvocation: false
 category: skill-system
 version: 0.2.0
 status: candidate

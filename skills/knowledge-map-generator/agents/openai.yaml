@@ -1,0 +1,5 @@
+interface:
+  display_name: "Knowledge Map Generator"
+  short_description: "Projiziert vorhandene strukturierte Wissensartefakte und explizite Relationen in einen provider-neutralen Graphen aus..."
+policy:
+  allow_implicit_invocation: true

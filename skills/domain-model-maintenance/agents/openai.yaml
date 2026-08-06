@@ -1,0 +1,5 @@
+interface:
+  display_name: "Domain Model Maintenance"
+  short_description: "Hält Domänenbegriffe, Invarianten, Zustände, Grenzen und Repräsentationen während Softwareänderungen konsistent und s..."
+policy:
+  allow_implicit_invocation: true

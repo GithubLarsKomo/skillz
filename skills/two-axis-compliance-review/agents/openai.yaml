@@ -1,0 +1,5 @@
+interface:
+  display_name: "Two Axis Compliance Review"
+  short_description: "Prüft regulierte Anforderungen getrennt nach Anwendbarkeit/Abdeckung und nach Evidenz/Wirksamkeit, damit fehlende Nac..."
+policy:
+  allow_implicit_invocation: true

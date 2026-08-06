@@ -2,6 +2,7 @@
 name: medical-device-capa
 description: Strukturiert CAPA von Signal/Problem Statement über evidenzbasierte Kausalinvestigation, Action Plan und Effectiveness Verification bis zur kontrollierten Closure und Rückkopplung in Risk/QMS.
 userFacing: true
+implicitInvocation: true
 category: regulated-engineering
 version: 0.1.0
 status: candidate

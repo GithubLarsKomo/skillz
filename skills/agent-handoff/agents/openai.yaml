@@ -1,0 +1,5 @@
+interface:
+  display_name: "Agent Handoff"
+  short_description: "Erzeugt einen kompakten, verifizierbaren Übergabestand für neue Sitzungen oder Agenten. Verwenden, wenn Ziel, Reposit..."
+policy:
+  allow_implicit_invocation: true

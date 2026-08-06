@@ -2,6 +2,7 @@
 name: two-axis-code-review
 description: Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementierungs- sowie Lieferqualität. Verwendet zwei getrennte Evidenzachsen für Spezifikationstreue, Codequalität, Architektur, Tests, Sicherheit, Migrationen und Betriebsrisiken und liefert priorisierte, kleinste sichere Abhilfen ohne stilgetriebene Blocker oder spekulative Neuschreibung.
 userFacing: true
+implicitInvocation: true
 category: engineering
 version: 0.1.0
 status: candidate

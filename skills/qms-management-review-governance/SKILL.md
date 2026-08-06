@@ -2,6 +2,7 @@
 name: qms-management-review-governance
 description: Bereitet Medical-Device-/IVD-QMS-Management-Reviews aus bestätigten QMS-, Audit-, CAPA-, Complaint-, Risk-, Supplier- und Performance-Evidenzen vor und trennt Inputs, Decisions, Actions und offene Datenlücken.
 userFacing: true
+implicitInvocation: true
 category: regulated-engineering
 version: 0.1.0
 status: candidate

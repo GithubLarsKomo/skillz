@@ -11,6 +11,7 @@ outputs:
   - opaque-analysis-evidence.md
   - remaining-unknowns.json
 lastEvaluated: 2026-08-02
+implicitInvocation: true
 ---
 
 # Opaque System Analysis

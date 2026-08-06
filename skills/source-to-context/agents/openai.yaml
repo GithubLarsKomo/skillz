@@ -1,0 +1,5 @@
+interface:
+  display_name: "Source To Context"
+  short_description: "Normalisiert bereits geladene Quelleninhalte in einen provider-neutralen, provenance-erhaltenden Kontextvertrag mit s..."
+policy:
+  allow_implicit_invocation: true

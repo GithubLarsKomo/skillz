@@ -2,6 +2,7 @@
 name: eu-mdr-ivdr-regulatory-specialist
 description: Bewertet EU-Market-Access für Medical Devices und IVDs getrennt nach MDR 2017/745 und IVDR 2017/746 mit evidenzgebundener Klassifikationshypothese, Technical Documentation, Clinical/Performance Evaluation und Post-Market-Pflichten.
 userFacing: true
+implicitInvocation: true
 category: regulated-engineering
 version: 0.1.0
 status: candidate

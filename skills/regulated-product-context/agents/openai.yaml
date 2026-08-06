@@ -1,0 +1,5 @@
+interface:
+  display_name: "Regulated Product Context"
+  short_description: "Normalisiert bestätigten Produkt-, Intended-Purpose-, Markt-, Lifecycle-, QMS-, Risiko-, Software-, AI-, Privacy- und..."
+policy:
+  allow_implicit_invocation: true

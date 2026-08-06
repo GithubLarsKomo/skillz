@@ -16,6 +16,7 @@ outputs:
   - domain-change-plan.md
   - domain-validation.json
 lastEvaluated: 2026-08-01
+implicitInvocation: true
 ---
 
 # Domain Model Maintenance

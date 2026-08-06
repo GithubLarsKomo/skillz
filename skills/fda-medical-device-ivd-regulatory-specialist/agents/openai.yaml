@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Medical Device Ivd Regulatory Specialist"
+  short_description: "Bewertet US-FDA-Regulatory-Pathways für Medical Devices und IVDs einschließlich 510(k), De Novo, PMA, Exemption/Class..."
+policy:
+  allow_implicit_invocation: true

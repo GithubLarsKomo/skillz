@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Qms Iso13485"
+  short_description: "Bewertet und strukturiert ein Medical-Device-/IVD-QMS gegen ISO 13485 sowie anwendbare regulatorische Ergänzungen, oh..."
+policy:
+  allow_implicit_invocation: true

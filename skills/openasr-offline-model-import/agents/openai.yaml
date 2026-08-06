@@ -1,0 +1,5 @@
+interface:
+  display_name: "Openasr Offline Model Import"
+  short_description: "Importiert ein bereits lokal vorhandenes OpenASR-Modell unter Windows robust in OpenASR Desktop, insbesondere wenn de..."
+policy:
+  allow_implicit_invocation: true

@@ -10,6 +10,7 @@ requires:
 outputs:
   - knowledge-map.json
 lastEvaluated: 2026-08-02
+implicitInvocation: true
 ---
 
 # Knowledge Map Generator

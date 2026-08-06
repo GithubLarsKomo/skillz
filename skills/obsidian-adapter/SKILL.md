@@ -15,6 +15,7 @@ outputs:
   - obsidian-map.canvas
   - obsidian-candidate.json
 lastEvaluated: 2026-08-03
+implicitInvocation: true
 ---
 
 # Obsidian Adapter

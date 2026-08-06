@@ -16,6 +16,7 @@ outputs:
   - resolved-change-brief.md
   - residual-risk-handoff.json
 lastEvaluated: 2026-08-01
+implicitInvocation: true
 ---
 
 # Merge Conflict Resolution

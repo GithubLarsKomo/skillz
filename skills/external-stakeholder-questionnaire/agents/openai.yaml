@@ -1,0 +1,5 @@
+interface:
+  display_name: "External Stakeholder Questionnaire"
+  short_description: "Erzeugt fokussierte, priorisierte Fragen für einen externen Wissensinhaber, wenn der aktuelle Nutzer eine notwendige..."
+policy:
+  allow_implicit_invocation: true

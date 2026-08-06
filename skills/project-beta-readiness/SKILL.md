@@ -2,6 +2,7 @@
 name: project-beta-readiness
 description: Bewertet genau ein Softwareprojekt evidenzbasiert auf den Weg zur ersten nutzbaren Beta, quantifiziert den Reifegrad, benennt Beta-Blocker und erzeugt bei erreichter Beta einen Betriebsleitfaden beziehungsweise bei ungeklärter Bedienbarkeit eine gezielte UI-Prototyp-Empfehlung. Verwenden, wenn ein einzelnes Repository anhand von Commits, PRs, Issues, CI/Actions, Tests, Roadmap und ausführbaren Nutzerpfaden auf Beta-Reife geprüft werden soll; für Portfolios den Skill pro Projekt wiederholt ausführen und Ergebnisse erst danach aggregieren.
 userFacing: true
+implicitInvocation: true
 category: engineering
 version: 0.1.0
 status: candidate

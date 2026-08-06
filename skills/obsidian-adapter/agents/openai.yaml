@@ -1,0 +1,5 @@
+interface:
+  display_name: "Obsidian Adapter"
+  short_description: "Rendert provider-neutrale Knowledge Artifacts, Views und Maps in Obsidian-kompatible Markdown-, Bases- und JSON-Canva..."
+policy:
+  allow_implicit_invocation: true

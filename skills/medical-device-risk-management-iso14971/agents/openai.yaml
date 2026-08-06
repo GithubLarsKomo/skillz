@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Risk Management Iso14971"
+  short_description: "Führt Medical-Device- und IVD-Risikomanagement nach dem Prozessmodell von ISO 14971 evidenzbasiert durch, ohne eine b..."
+policy:
+  allow_implicit_invocation: true

@@ -2,6 +2,7 @@
 name: fda-medical-device-ivd-regulatory-specialist
 description: Bewertet US-FDA-Regulatory-Pathways für Medical Devices und IVDs einschließlich 510(k), De Novo, PMA, Exemption/Classification, IVD-spezifischer Controls und QMSR-Readiness mit aktueller FDA-Evidenz.
 userFacing: true
+implicitInvocation: true
 category: regulated-engineering
 version: 0.1.0
 status: candidate

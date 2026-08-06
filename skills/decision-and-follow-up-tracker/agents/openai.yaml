@@ -1,0 +1,5 @@
+interface:
+  display_name: "Decision And Follow Up Tracker"
+  short_description: "Konsolidiert bestätigte Entscheidungen, Commitments, Follow-ups, Waiting- und Delegationszustände aus Meeting-, Proje..."
+policy:
+  allow_implicit_invocation: true

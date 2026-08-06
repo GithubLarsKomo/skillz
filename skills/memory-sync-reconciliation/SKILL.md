@@ -12,6 +12,7 @@ outputs:
   - communication-profile.merged.json
   - memory-ledger.merged.json
 lastEvaluated: 2026-08-02
+implicitInvocation: true
 ---
 
 # Memory Sync Reconciliation

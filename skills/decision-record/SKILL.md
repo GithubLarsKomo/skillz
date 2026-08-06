@@ -14,6 +14,7 @@ outputs:
   - decision-record.md
   - decision-record.json
 lastEvaluated: 2026-08-01
+implicitInvocation: true
 ---
 
 # Decision Record

@@ -2,6 +2,7 @@
 name: architecture-deepening-review
 description: Prüft bestehende Softwarearchitekturen evidenzbasiert auf flache Modulgrenzen, unbeabsichtigte Kopplung, duplizierte Domänenregeln und Infrastrukturleckage und empfiehlt höchstens einen kleinen, hochwirksamen Vertiefungsschritt. Verwenden, wenn Architekturqualität verbessert werden soll, ohne einen spekulativen Rewrite oder stilgetriebene Schichten einzuführen.
 userFacing: true
+implicitInvocation: true
 category: engineering
 version: 0.1.0
 status: candidate
