@@ -1,0 +1,5 @@
+interface:
+  display_name: "Synapse Orchestrator"
+  short_description: "Orchestrate complex or ambiguous goals by aligning on the desired outcome, routing work to direct execution, existing..."
+policy:
+  allow_implicit_invocation: false

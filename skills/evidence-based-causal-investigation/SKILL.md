@@ -11,6 +11,7 @@ outputs:
   - causal-investigation.json
   - causal-investigation.md
 lastEvaluated: 2026-08-04
+implicitInvocation: true
 ---
 
 # evidence-based-causal-investigation

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Spec To Vertical Issues"
+  short_description: "Zerlegt eine freigegebene, konsistente Spezifikation in kleine, unabhängig abnehmbare vertikale Implementierungs-Issu..."
+policy:
+  allow_implicit_invocation: true

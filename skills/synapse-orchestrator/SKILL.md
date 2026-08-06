@@ -11,6 +11,7 @@ outputs:
   - expert handoff
   - progress summary
 lastEvaluated: 2026-07-31
+implicitInvocation: false
 ---
 
 # Synapse Orchestrator

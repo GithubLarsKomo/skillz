@@ -1,0 +1,5 @@
+interface:
+  display_name: "Inbox Action Triage"
+  short_description: "Klassifiziert eine abgegrenzte Menge bereits geladener Nachrichten nach Dringlichkeit und Handlungsbedarf und leitet..."
+policy:
+  allow_implicit_invocation: true

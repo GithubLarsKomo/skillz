@@ -1,0 +1,5 @@
+interface:
+  display_name: "Opaque System Analysis"
+  short_description: "Rekonstruiert das kleinste evidenzbasierte Verhaltens- und Schnittstellenmodell eines opaken oder unzureichend dokume..."
+policy:
+  allow_implicit_invocation: true

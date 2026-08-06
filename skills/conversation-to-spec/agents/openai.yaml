@@ -1,0 +1,5 @@
+interface:
+  display_name: "Conversation To Spec"
+  short_description: "Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, oh..."
+policy:
+  allow_implicit_invocation: true

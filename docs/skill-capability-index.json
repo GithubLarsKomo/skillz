@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 51,
+  "evaluationSuiteCount": 53,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -72,7 +72,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -139,7 +141,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -180,7 +184,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -225,7 +231,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -281,7 +289,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -332,7 +342,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -388,7 +400,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -435,7 +449,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -478,7 +494,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -528,12 +546,14 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -588,7 +608,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -617,7 +639,7 @@
       ],
       "outputs": [
         "diagnosis-report.json",
-        "residual-risk-handoff.json",
+        "diagnosis-residual-risk-handoff.json",
         "verified-fix-evidence.md"
       ],
       "outputContracts": [
@@ -638,15 +660,20 @@
           ]
         },
         {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
+          "output": "diagnosis-residual-risk-handoff.json",
+          "ambiguous": false,
           "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
+            "disciplined-diagnosis"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "architecture-deepening-review",
+            "implement-from-issue",
+            "large-work-wayfinder",
+            "merge-conflict-resolution",
+            "test-driven-vertical-slice",
+            "throwaway-prototype",
+            "two-axis-code-review"
+          ]
         },
         {
           "output": "verified-fix-evidence.md",
@@ -665,7 +692,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -719,12 +748,14 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -779,7 +810,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -826,7 +859,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -865,7 +900,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -925,7 +962,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -964,7 +1003,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -990,7 +1031,7 @@
       ],
       "outputs": [
         "implementation-evidence.json",
-        "residual-risk-handoff.json",
+        "implementation-residual-risk-handoff.json",
         "reviewable-change-brief.md"
       ],
       "outputContracts": [
@@ -1005,15 +1046,14 @@
           ]
         },
         {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
+          "output": "implementation-residual-risk-handoff.json",
+          "ambiguous": false,
           "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
+            "implement-from-issue"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "two-axis-code-review"
+          ]
         },
         {
           "output": "reviewable-change-brief.md",
@@ -1026,7 +1066,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1071,7 +1113,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1130,7 +1174,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1181,7 +1227,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1250,6 +1298,7 @@
         }
       ],
       "portableFiles": [
+        "agents/openai.yaml",
         "references/copilot-prompt.md"
       ],
       "evaluation": {
@@ -1287,7 +1336,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1323,7 +1374,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1392,7 +1445,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1452,7 +1507,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1511,7 +1568,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1563,7 +1622,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1634,7 +1695,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1688,7 +1751,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1755,7 +1820,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1802,7 +1869,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1852,7 +1921,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1876,13 +1947,13 @@
       ],
       "dependents": [],
       "outputs": [
+        "conflict-residual-risk-handoff.json",
         "conflict-resolution-evidence.json",
-        "residual-risk-handoff.json",
         "resolved-change-brief.md"
       ],
       "outputContracts": [
         {
-          "output": "conflict-resolution-evidence.json",
+          "output": "conflict-residual-risk-handoff.json",
           "ambiguous": false,
           "producers": [
             "merge-conflict-resolution"
@@ -1890,13 +1961,10 @@
           "consumerSkills": []
         },
         {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
+          "output": "conflict-resolution-evidence.json",
+          "ambiguous": false,
           "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
+            "merge-conflict-resolution"
           ],
           "consumerSkills": []
         },
@@ -1909,7 +1977,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -1970,7 +2040,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2018,7 +2090,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2057,7 +2131,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2116,7 +2192,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2164,7 +2242,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2217,7 +2297,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2283,7 +2365,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2332,6 +2416,7 @@
         }
       ],
       "portableFiles": [
+        "agents/openai.yaml",
         "scripts/bootstrap_repository_context.py"
       ],
       "evaluation": {
@@ -2396,7 +2481,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2435,7 +2522,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2474,7 +2563,9 @@
           "consumerSkills": []
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2540,7 +2631,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2591,7 +2684,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2640,6 +2735,7 @@
         }
       ],
       "portableFiles": [
+        "agents/openai.yaml",
         "references/commands.md"
       ],
       "evaluation": {
@@ -2666,22 +2762,11 @@
         "merge-conflict-resolution"
       ],
       "outputs": [
-        "residual-risk-handoff.json",
         "verification-report.md",
-        "vertical-slice-evidence.json"
+        "vertical-slice-evidence.json",
+        "vertical-slice-residual-risk-handoff.json"
       ],
       "outputContracts": [
-        {
-          "output": "residual-risk-handoff.json",
-          "ambiguous": true,
-          "producers": [
-            "disciplined-diagnosis",
-            "implement-from-issue",
-            "merge-conflict-resolution",
-            "test-driven-vertical-slice"
-          ],
-          "consumerSkills": []
-        },
         {
           "output": "verification-report.md",
           "ambiguous": false,
@@ -2705,9 +2790,23 @@
             "implement-from-issue",
             "merge-conflict-resolution"
           ]
+        },
+        {
+          "output": "vertical-slice-residual-risk-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "test-driven-vertical-slice"
+          ],
+          "consumerSkills": [
+            "domain-model-maintenance",
+            "implement-from-issue",
+            "merge-conflict-resolution"
+          ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2768,7 +2867,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2837,7 +2938,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
@@ -2915,7 +3018,9 @@
           ]
         }
       ],
-      "portableFiles": [],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,

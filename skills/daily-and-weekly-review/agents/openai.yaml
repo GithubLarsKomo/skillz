@@ -1,0 +1,5 @@
+interface:
+  display_name: "Daily And Weekly Review"
+  short_description: "Verdichtet bestätigte Kalender-, Aufgaben-, Projekt- und Inbox-Triage-Daten zu einem priorisierten Tages- oder Wochen..."
+policy:
+  allow_implicit_invocation: true

@@ -2,6 +2,7 @@
 name: iso13485-qms-audit
 description: Plant und bewertet risikobasierte ISO-13485-QMS-Audits mit unabhängiger Evidenz, nachvollziehbarem Sampling und findingspezifischer Traceability, ohne fixe Frequenzen, Samplegrößen oder Schweregrade als Norm zu erfinden.
 userFacing: true
+implicitInvocation: true
 category: regulated-engineering
 version: 0.1.0
 status: candidate

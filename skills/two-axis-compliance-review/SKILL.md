@@ -12,6 +12,7 @@ outputs:
   - compliance-evidence-effectiveness.json
   - compliance-review-decision.md
 lastEvaluated: 2026-08-04
+implicitInvocation: true
 ---
 
 # two-axis-compliance-review

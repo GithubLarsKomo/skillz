@@ -2,6 +2,7 @@
 name: external-stakeholder-questionnaire
 description: Erzeugt fokussierte, priorisierte Fragen für einen externen Wissensinhaber, wenn der aktuelle Nutzer eine notwendige Information oder Entscheidung nicht selbst liefern kann. Verwenden, wenn fehlende Fakten gezielt bei Stakeholdern beschafft werden müssen; nicht für allgemeines Requirements-Grilling, Meeting-Vorbereitung oder das Nachverfolgen bereits zugesagter Antworten.
 userFacing: true
+implicitInvocation: true
 category: productivity
 version: 0.1.0
 status: candidate

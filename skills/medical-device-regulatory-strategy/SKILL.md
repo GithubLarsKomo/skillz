@@ -2,6 +2,7 @@
 name: medical-device-regulatory-strategy
 description: Orchestriert evidenzbasierte Multi-Market-Regulatory-Strategie für Medical Devices und IVDs aus bestätigtem Produktkontext und spezialisierten EU/FDA-Assessments, ohne deren Fachanalyse oder Wayfinder zu duplizieren.
 userFacing: true
+implicitInvocation: true
 category: regulated-engineering
 version: 0.1.0
 status: candidate

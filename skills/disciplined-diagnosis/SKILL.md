@@ -2,6 +2,7 @@
 name: disciplined-diagnosis
 description: Diagnostiziert Softwarefehler reproduzierbar und evidenzbasiert, minimiert den Fehlerraum, prüft konkurrierende Hypothesen, implementiert den kleinsten sicheren Fix und belegt ihn mit Regressionstest sowie ursprünglicher Verifikation. Verwenden, wenn CI, Tests, Laufzeitverhalten oder Integrationen fehlschlagen und spekulative Änderungen vermieden werden sollen.
 userFacing: true
+implicitInvocation: true
 category: engineering
 version: 0.1.0
 status: candidate
@@ -12,7 +13,7 @@ requires:
 outputs:
   - diagnosis-report.json
   - verified-fix-evidence.md
-  - residual-risk-handoff.json
+  - diagnosis-residual-risk-handoff.json
 lastEvaluated: 2026-07-31
 ---
 

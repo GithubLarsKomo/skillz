@@ -10,6 +10,7 @@ outputs:
   - regulated-product-context.json
   - regulated-product-context.md
 lastEvaluated: 2026-08-04
+implicitInvocation: true
 ---
 
 # regulated-product-context

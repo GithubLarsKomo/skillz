@@ -2,6 +2,7 @@
 name: repository-skill-bootstrap
 description: Analysiert ein bestehendes Software-Repository und richtet eine portable Agent-Arbeitsgrundlage mit CONFIG.md, CONTEXT.md und DECISIONS.md ein. Verwenden, wenn ein Repository erstmals für wiederholbare Arbeit mit mehreren Skills, Agenten oder Sitzungen vorbereitet werden soll.
 userFacing: true
+implicitInvocation: true
 category: skill-system
 version: 0.2.0
 status: candidate

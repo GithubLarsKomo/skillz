@@ -9,6 +9,7 @@ outputs:
   - source-context.json
   - source-context.md
 lastEvaluated: 2026-08-03
+implicitInvocation: true
 ---
 
 # Source to Context

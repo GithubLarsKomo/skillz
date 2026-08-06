@@ -14,8 +14,9 @@ requires:
 outputs:
   - conflict-resolution-evidence.json
   - resolved-change-brief.md
-  - residual-risk-handoff.json
+  - conflict-residual-risk-handoff.json
 lastEvaluated: 2026-08-01
+implicitInvocation: true
 ---
 
 # Merge Conflict Resolution

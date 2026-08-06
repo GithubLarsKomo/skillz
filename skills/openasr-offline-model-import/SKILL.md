@@ -10,6 +10,7 @@ outputs:
   - installed OpenASR model
   - import verification
 lastEvaluated: 2026-07-31
+implicitInvocation: true
 ---
 
 # OpenASR Offline Model Import

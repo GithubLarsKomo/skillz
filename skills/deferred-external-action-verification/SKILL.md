@@ -11,6 +11,7 @@ outputs:
   - verified terminal status
   - continuation result
 lastEvaluated: 2026-07-31
+implicitInvocation: true
 ---
 
 # Zeitversetzte Prüfung externer Aktionen

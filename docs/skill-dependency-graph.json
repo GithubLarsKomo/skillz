@@ -122,7 +122,7 @@
       ],
       "outputs": [
         "diagnosis-report.json",
-        "residual-risk-handoff.json",
+        "diagnosis-residual-risk-handoff.json",
         "verified-fix-evidence.md"
       ]
     },
@@ -203,7 +203,7 @@
       ],
       "outputs": [
         "implementation-evidence.json",
-        "residual-risk-handoff.json",
+        "implementation-residual-risk-handoff.json",
         "reviewable-change-brief.md"
       ]
     },
@@ -388,8 +388,8 @@
         "two-axis-code-review"
       ],
       "outputs": [
+        "conflict-residual-risk-handoff.json",
         "conflict-resolution-evidence.json",
-        "residual-risk-handoff.json",
         "resolved-change-brief.md"
       ]
     },
@@ -534,9 +534,9 @@
         "spec-to-vertical-issues"
       ],
       "outputs": [
-        "residual-risk-handoff.json",
         "verification-report.md",
-        "vertical-slice-evidence.json"
+        "vertical-slice-evidence.json",
+        "vertical-slice-residual-risk-handoff.json"
       ]
     },
     {
@@ -928,7 +928,8 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "SPEC.md",
@@ -938,7 +939,8 @@
       "consumerSkills": [
         "spec-to-vertical-issues"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "agent-handoff.json",
@@ -954,7 +956,8 @@
         "throwaway-prototype",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "agent-handoff.md",
@@ -970,7 +973,8 @@
         "throwaway-prototype",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "approved SPEC.md",
@@ -978,7 +982,8 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "architecture-review.json",
@@ -990,7 +995,8 @@
         "large-work-wayfinder",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "architecture-review.md",
@@ -1002,7 +1008,8 @@
         "large-work-wayfinder",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "beta-readiness.json",
@@ -1010,7 +1017,8 @@
         "project-beta-readiness"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "beta-readiness.md",
@@ -1018,7 +1026,8 @@
         "project-beta-readiness"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "beta-runbook.md",
@@ -1026,7 +1035,8 @@
         "project-beta-readiness"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "capa-effectiveness-plan.json",
@@ -1036,7 +1046,8 @@
       "consumerSkills": [
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "capa-plan.json",
@@ -1046,7 +1057,8 @@
       "consumerSkills": [
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "capa-status.md",
@@ -1056,7 +1068,8 @@
       "consumerSkills": [
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "causal-investigation.json",
@@ -1066,7 +1079,8 @@
       "consumerSkills": [
         "medical-device-capa"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "causal-investigation.md",
@@ -1076,7 +1090,8 @@
       "consumerSkills": [
         "medical-device-capa"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "change-impact-assessment.json",
@@ -1084,7 +1099,8 @@
         "controlled-quality-documentation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "communication-profile.json",
@@ -1094,7 +1110,8 @@
       "consumerSkills": [
         "memory-sync-reconciliation"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "communication-profile.merged.json",
@@ -1102,7 +1119,8 @@
         "memory-sync-reconciliation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "compliance-evidence-effectiveness.json",
@@ -1117,7 +1135,8 @@
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "compliance-requirement-coverage.json",
@@ -1132,7 +1151,8 @@
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "compliance-review-decision.md",
@@ -1147,7 +1167,17 @@
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "conflict-residual-risk-handoff.json",
+      "producers": [
+        "merge-conflict-resolution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "conflict-resolution-evidence.json",
@@ -1155,7 +1185,8 @@
         "merge-conflict-resolution"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "consistency report",
@@ -1165,7 +1196,8 @@
       "consumerSkills": [
         "spec-to-vertical-issues"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "continuation result",
@@ -1176,7 +1208,8 @@
         "implement-from-issue",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "controlled-document-plan.md",
@@ -1184,7 +1217,8 @@
         "controlled-quality-documentation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "decision register",
@@ -1194,7 +1228,8 @@
       "consumerSkills": [
         "spec-to-vertical-issues"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "decision-follow-up-register.json",
@@ -1202,7 +1237,8 @@
         "decision-and-follow-up-tracker"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "decision-follow-up-register.md",
@@ -1210,7 +1246,8 @@
         "decision-and-follow-up-tracker"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "decision-record.json",
@@ -1220,7 +1257,8 @@
       "consumerSkills": [
         "domain-model-maintenance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "decision-record.md",
@@ -1230,7 +1268,8 @@
       "consumerSkills": [
         "domain-model-maintenance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "dependency-graph.json",
@@ -1242,7 +1281,8 @@
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "dependency-order.json",
@@ -1254,7 +1294,8 @@
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "diagnosis-report.json",
@@ -1270,7 +1311,25 @@
         "throwaway-prototype",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "diagnosis-residual-risk-handoff.json",
+      "producers": [
+        "disciplined-diagnosis"
+      ],
+      "consumerSkills": [
+        "architecture-deepening-review",
+        "implement-from-issue",
+        "large-work-wayfinder",
+        "merge-conflict-resolution",
+        "test-driven-vertical-slice",
+        "throwaway-prototype",
+        "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "disposal-record.json",
@@ -1280,7 +1339,8 @@
       "consumerSkills": [
         "decision-record"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "docs/agents/CONFIG.md",
@@ -1288,7 +1348,8 @@
         "repository-skill-bootstrap"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "docs/agents/CONTEXT.md",
@@ -1296,7 +1357,8 @@
         "repository-skill-bootstrap"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "docs/agents/DECISIONS.md",
@@ -1304,7 +1366,8 @@
         "repository-skill-bootstrap"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "document-control-assessment.json",
@@ -1312,7 +1375,8 @@
         "controlled-quality-documentation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "domain-change-plan.md",
@@ -1320,7 +1384,8 @@
         "domain-model-maintenance"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "domain-model-map.json",
@@ -1328,7 +1393,8 @@
         "domain-model-maintenance"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "domain-validation.json",
@@ -1336,7 +1402,8 @@
         "domain-model-maintenance"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "dpia-decision.json",
@@ -1344,7 +1411,8 @@
         "medical-device-privacy-gdpr-bdsg"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "eu-regulatory-assessment.json",
@@ -1354,7 +1422,8 @@
       "consumerSkills": [
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "eu-regulatory-assessment.md",
@@ -1364,7 +1433,8 @@
       "consumerSkills": [
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "eu-regulatory-investigations.json",
@@ -1374,7 +1444,8 @@
       "consumerSkills": [
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "evaluation evidence",
@@ -1384,7 +1455,8 @@
       "consumerSkills": [
         "central-skill-repository-curation"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "evidence-note.json",
@@ -1400,7 +1472,8 @@
         "meeting-preparation",
         "two-axis-compliance-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "evidence-note.md",
@@ -1416,7 +1489,8 @@
         "meeting-preparation",
         "two-axis-compliance-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "execution plan",
@@ -1424,7 +1498,8 @@
         "synapse-orchestrator"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "expert handoff",
@@ -1432,7 +1507,8 @@
         "synapse-orchestrator"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "fda-regulatory-assessment.json",
@@ -1442,7 +1518,8 @@
       "consumerSkills": [
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "fda-regulatory-assessment.md",
@@ -1452,7 +1529,8 @@
       "consumerSkills": [
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "fda-regulatory-investigations.json",
@@ -1462,7 +1540,8 @@
       "consumerSkills": [
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "human-procedure-plan.md",
@@ -1470,7 +1549,8 @@
         "human-procedure-wizard"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "human-procedure-result.json",
@@ -1478,7 +1558,8 @@
         "human-procedure-wizard"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "implementation-evidence.json",
@@ -1488,7 +1569,19 @@
       "consumerSkills": [
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "implementation-residual-risk-handoff.json",
+      "producers": [
+        "implement-from-issue"
+      ],
+      "consumerSkills": [
+        "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "import verification",
@@ -1496,7 +1589,8 @@
         "openasr-offline-model-import"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "inbox-triage.json",
@@ -1506,7 +1600,8 @@
       "consumerSkills": [
         "daily-and-weekly-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "inbox-triage.md",
@@ -1516,7 +1611,8 @@
       "consumerSkills": [
         "daily-and-weekly-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "installed OpenASR model",
@@ -1524,7 +1620,8 @@
         "openasr-offline-model-import"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "investigation-backlog.json",
@@ -1536,7 +1633,8 @@
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "isms-audit-findings.json",
@@ -1544,7 +1642,8 @@
         "iso27001-isms-audit"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "isms-audit-plan.json",
@@ -1552,7 +1651,8 @@
         "iso27001-isms-audit"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "isms-audit-report.md",
@@ -1560,7 +1660,8 @@
         "iso27001-isms-audit"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "isms-governance-assessment.json",
@@ -1570,7 +1671,8 @@
       "consumerSkills": [
         "iso27001-isms-audit"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "isms-governance.md",
@@ -1580,7 +1682,8 @@
       "consumerSkills": [
         "iso27001-isms-audit"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "isms-risk-treatment-context.json",
@@ -1590,7 +1693,8 @@
       "consumerSkills": [
         "iso27001-isms-audit"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "knowledge-artifact.json",
@@ -1602,7 +1706,8 @@
         "knowledge-view",
         "obsidian-adapter"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "knowledge-artifact.md",
@@ -1614,7 +1719,8 @@
         "knowledge-view",
         "obsidian-adapter"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "knowledge-map.json",
@@ -1624,7 +1730,8 @@
       "consumerSkills": [
         "obsidian-adapter"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "knowledge-view.json",
@@ -1634,7 +1741,8 @@
       "consumerSkills": [
         "obsidian-adapter"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "management-review-actions.json",
@@ -1642,7 +1750,8 @@
         "qms-management-review-governance"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "management-review-brief.json",
@@ -1650,7 +1759,8 @@
         "qms-management-review-governance"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "management-review-brief.md",
@@ -1658,7 +1768,8 @@
         "qms-management-review-governance"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "meeting-prep.json",
@@ -1668,7 +1779,8 @@
       "consumerSkills": [
         "decision-and-follow-up-tracker"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "meeting-prep.md",
@@ -1678,7 +1790,8 @@
       "consumerSkills": [
         "decision-and-follow-up-tracker"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "memory-ledger.json",
@@ -1688,7 +1801,8 @@
       "consumerSkills": [
         "memory-sync-reconciliation"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "memory-ledger.merged.json",
@@ -1696,7 +1810,8 @@
         "memory-sync-reconciliation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "memory-reconciliation-plan.json",
@@ -1704,7 +1819,8 @@
         "memory-sync-reconciliation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "next increment",
@@ -1717,7 +1833,8 @@
         "disciplined-diagnosis",
         "project-beta-readiness"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "next-step-handoff.json",
@@ -1729,7 +1846,8 @@
         "large-work-wayfinder",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "obsidian-candidate.json",
@@ -1737,7 +1855,8 @@
         "obsidian-adapter"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "obsidian-map.canvas",
@@ -1745,7 +1864,8 @@
         "obsidian-adapter"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "obsidian-note.md",
@@ -1753,7 +1873,8 @@
         "obsidian-adapter"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "obsidian-view.base",
@@ -1761,7 +1882,8 @@
         "obsidian-adapter"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "opaque-analysis-evidence.md",
@@ -1769,7 +1891,8 @@
         "opaque-system-analysis"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "privacy-assessment.json",
@@ -1777,7 +1900,8 @@
         "medical-device-privacy-gdpr-bdsg"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "privacy-governance.md",
@@ -1785,7 +1909,8 @@
         "medical-device-privacy-gdpr-bdsg"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "progress summary",
@@ -1793,7 +1918,8 @@
         "synapse-orchestrator"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "project-status.json",
@@ -1804,7 +1930,8 @@
         "decision-and-follow-up-tracker",
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "project-status.md",
@@ -1815,7 +1942,8 @@
         "decision-and-follow-up-tracker",
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "prototype-brief.md",
@@ -1825,7 +1953,8 @@
       "consumerSkills": [
         "decision-record"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "prototype-evidence.json",
@@ -1835,7 +1964,8 @@
       "consumerSkills": [
         "decision-record"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "pull request",
@@ -1845,7 +1975,8 @@
       "consumerSkills": [
         "central-skill-repository-curation"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qms-audit-findings.json",
@@ -1855,7 +1986,8 @@
       "consumerSkills": [
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qms-audit-plan.json",
@@ -1865,7 +1997,8 @@
       "consumerSkills": [
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qms-audit-report.md",
@@ -1875,7 +2008,8 @@
       "consumerSkills": [
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qms-gap-analysis.json",
@@ -1888,7 +2022,8 @@
         "medical-device-capa",
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qms-process-map.json",
@@ -1901,7 +2036,8 @@
         "medical-device-capa",
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qms-readiness.md",
@@ -1914,7 +2050,8 @@
         "medical-device-capa",
         "qms-management-review-governance"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "quality-review.json",
@@ -1926,7 +2063,8 @@
         "domain-model-maintenance",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "recovered-system-model.json",
@@ -1934,7 +2072,8 @@
         "opaque-system-analysis"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "regulated-product-context.json",
@@ -1951,7 +2090,8 @@
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "regulated-product-context.md",
@@ -1968,7 +2108,8 @@
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "regulatory-strategy.json",
@@ -1976,7 +2117,8 @@
         "medical-device-regulatory-strategy"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "regulatory-strategy.md",
@@ -1984,7 +2126,8 @@
         "medical-device-regulatory-strategy"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "regulatory-wayfinding-handoff.json",
@@ -1992,7 +2135,8 @@
         "medical-device-regulatory-strategy"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "remaining-unknowns.json",
@@ -2000,7 +2144,8 @@
         "opaque-system-analysis"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "requirement-coverage.json",
@@ -2012,18 +2157,8 @@
         "domain-model-maintenance",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
-    },
-    {
-      "output": "residual-risk-handoff.json",
-      "producers": [
-        "disciplined-diagnosis",
-        "implement-from-issue",
-        "merge-conflict-resolution",
-        "test-driven-vertical-slice"
-      ],
-      "consumerSkills": [],
-      "ambiguous": true
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "resolved-change-brief.md",
@@ -2031,7 +2166,8 @@
         "merge-conflict-resolution"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "review findings",
@@ -2044,7 +2180,8 @@
         "disciplined-diagnosis",
         "project-beta-readiness"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "review-brief.json",
@@ -2054,7 +2191,8 @@
       "consumerSkills": [
         "decision-and-follow-up-tracker"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "review-brief.md",
@@ -2064,7 +2202,8 @@
       "consumerSkills": [
         "decision-and-follow-up-tracker"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "review-decision.md",
@@ -2076,7 +2215,8 @@
         "domain-model-maintenance",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "reviewable-change-brief.md",
@@ -2086,7 +2226,8 @@
       "consumerSkills": [
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "risk-management-analysis.json",
@@ -2098,7 +2239,8 @@
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "risk-management-analysis.md",
@@ -2110,7 +2252,8 @@
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "risk-wayfinding-handoff.json",
@@ -2122,7 +2265,8 @@
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "skills/<skill-name>/SKILL.md",
@@ -2132,7 +2276,8 @@
       "consumerSkills": [
         "central-skill-repository-curation"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "source-context.json",
@@ -2140,7 +2285,8 @@
         "source-to-context"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "source-context.md",
@@ -2148,7 +2294,8 @@
         "source-to-context"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "stakeholder-questionnaire.json",
@@ -2156,7 +2303,8 @@
         "external-stakeholder-questionnaire"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "stakeholder-questionnaire.md",
@@ -2164,7 +2312,8 @@
         "external-stakeholder-questionnaire"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "synchronization manifest",
@@ -2172,7 +2321,8 @@
         "central-skill-repository-curation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "ui-prototype-plan.md",
@@ -2180,7 +2330,8 @@
         "project-beta-readiness"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "updated skill repository",
@@ -2188,7 +2339,8 @@
         "central-skill-repository-curation"
       ],
       "consumerSkills": [],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "verification evidence",
@@ -2201,7 +2353,8 @@
         "disciplined-diagnosis",
         "project-beta-readiness"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "verification-report.md",
@@ -2213,7 +2366,8 @@
         "implement-from-issue",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "verified terminal status",
@@ -2224,7 +2378,8 @@
         "implement-from-issue",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "verified-fix-evidence.md",
@@ -2240,7 +2395,8 @@
         "throwaway-prototype",
         "two-axis-code-review"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "vertical-issues.json",
@@ -2252,7 +2408,8 @@
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "vertical-issues.md",
@@ -2264,7 +2421,8 @@
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "vertical-slice-evidence.json",
@@ -2276,7 +2434,21 @@
         "implement-from-issue",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "vertical-slice-residual-risk-handoff.json",
+      "producers": [
+        "test-driven-vertical-slice"
+      ],
+      "consumerSkills": [
+        "domain-model-maintenance",
+        "implement-from-issue",
+        "merge-conflict-resolution"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "watch record",
@@ -2287,7 +2459,8 @@
         "implement-from-issue",
         "merge-conflict-resolution"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "wayfinding-brief.md",
@@ -2299,8 +2472,66 @@
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
-      "ambiguous": false
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     }
+  ],
+  "unconsumedOutputs": [
+    "GRILL-REPORT.md",
+    "approved SPEC.md",
+    "beta-readiness.json",
+    "beta-readiness.md",
+    "beta-runbook.md",
+    "change-impact-assessment.json",
+    "communication-profile.merged.json",
+    "conflict-residual-risk-handoff.json",
+    "conflict-resolution-evidence.json",
+    "controlled-document-plan.md",
+    "decision-follow-up-register.json",
+    "decision-follow-up-register.md",
+    "docs/agents/CONFIG.md",
+    "docs/agents/CONTEXT.md",
+    "docs/agents/DECISIONS.md",
+    "document-control-assessment.json",
+    "domain-change-plan.md",
+    "domain-model-map.json",
+    "domain-validation.json",
+    "dpia-decision.json",
+    "execution plan",
+    "expert handoff",
+    "human-procedure-plan.md",
+    "human-procedure-result.json",
+    "import verification",
+    "installed OpenASR model",
+    "isms-audit-findings.json",
+    "isms-audit-plan.json",
+    "isms-audit-report.md",
+    "management-review-actions.json",
+    "management-review-brief.json",
+    "management-review-brief.md",
+    "memory-ledger.merged.json",
+    "memory-reconciliation-plan.json",
+    "obsidian-candidate.json",
+    "obsidian-map.canvas",
+    "obsidian-note.md",
+    "obsidian-view.base",
+    "opaque-analysis-evidence.md",
+    "privacy-assessment.json",
+    "privacy-governance.md",
+    "progress summary",
+    "recovered-system-model.json",
+    "regulatory-strategy.json",
+    "regulatory-strategy.md",
+    "regulatory-wayfinding-handoff.json",
+    "remaining-unknowns.json",
+    "resolved-change-brief.md",
+    "source-context.json",
+    "source-context.md",
+    "stakeholder-questionnaire.json",
+    "stakeholder-questionnaire.md",
+    "synchronization manifest",
+    "ui-prototype-plan.md",
+    "updated skill repository"
   ],
   "orphanOutputs": [
     "GRILL-REPORT.md",
@@ -2310,6 +2541,7 @@
     "beta-runbook.md",
     "change-impact-assessment.json",
     "communication-profile.merged.json",
+    "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "controlled-document-plan.md",
     "decision-follow-up-register.json",

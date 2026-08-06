@@ -2,6 +2,7 @@
 name: inbox-action-triage
 description: Klassifiziert eine abgegrenzte Menge bereits geladener Nachrichten nach Dringlichkeit und Handlungsbedarf und leitet überprüfbare nächste Aktionen ab. Verwenden, wenn Inbox-Nachrichten in urgent, reply-soon, waiting, delegated, FYI/archive oder needs-context geordnet werden sollen, ohne Gmail-/Outlook-Connectorlogik oder Mailbox-Mutationen zu duplizieren.
 userFacing: true
+implicitInvocation: true
 category: productivity
 version: 0.1.0
 status: candidate

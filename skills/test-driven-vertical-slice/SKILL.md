@@ -11,8 +11,9 @@ requires:
 outputs:
   - vertical-slice-evidence.json
   - verification-report.md
-  - residual-risk-handoff.json
+  - vertical-slice-residual-risk-handoff.json
 lastEvaluated: 2026-07-31
+implicitInvocation: true
 ---
 
 # Test-Driven Vertical Slice

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Meeting Preparation"
+  short_description: "Verdichtet einen bestätigten Termin, Teilnehmerkontext und verfügbare Evidence Notes zu einem kompakten, entscheidung..."
+policy:
+  allow_implicit_invocation: true
