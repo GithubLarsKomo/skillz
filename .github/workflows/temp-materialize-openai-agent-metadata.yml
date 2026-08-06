@@ -25,11 +25,11 @@ jobs:
         run: python scripts/generate_repository_metadata.py
       - name: Commit generated metadata
         run: |
-          if git diff --quiet; then
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard docs/CAPABILITY-HEALTH.md)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add skills README.md .skill-sync.json docs/SKILL-DEPENDENCIES.md docs/skill-dependency-graph.json docs/skill-capability-index.json
+          git config user.email "41898282+41898282@users.noreply.github.com"
+          git add skills README.md .skill-sync.json docs/SKILL-DEPENDENCIES.md docs/skill-dependency-graph.json docs/skill-capability-index.json docs/CAPABILITY-HEALTH.md
           git commit -m "Materialize per-skill OpenAI metadata [openai metadata generated]"
           git push origin HEAD:agent/capability-index-openai-policy-audit
