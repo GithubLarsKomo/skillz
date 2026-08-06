@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "domain-model-maintenance",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Rename a canonical domain concept across persistence, API, events, tests and documentation while preserving compatibility with a temporary external alias and a verified rollback path.",
+      "requiredBehaviors": ["map the canonical concept and all affected representations", "classify compatibility and migration order before implementation", "verify invariants aliases rollback and cross-surface consistency"],
+      "forbiddenBehaviors": ["rename only one technical layer", "treat passing type checks as proof of semantic equivalence"],
+      "skillAnchors": ["Aktuelles Modell verifizieren", "Kompatibilität und Migration planen", "Grüne CI allein beweist keine semantische Gleichwertigkeit"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Move an entity boundary while an external integration still uses the legacy identifier and a destructive migration would otherwise be tempting.",
+      "requiredBehaviors": ["classify the boundary move as requiring explicit decision authority", "preserve a scoped compatibility alias for the external integration", "plan coexistence rollback and removal criteria"],
+      "forbiddenBehaviors": ["perform a silent destructive migration", "duplicate the invariant in both old and new boundaries indefinitely"],
+      "skillAnchors": ["Destruktive oder irreversible Änderungen benötigen", "Externe Aliase bleiben auf benannte Grenzen beschränkt", "Koexistenz, Adapter, Backfill, Rollback und Entfernungskriterien"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A patch changes a database column and API field independently, leaves events and fixtures untouched, and declares success because CI is green.",
+      "requiredBehaviors": ["reject the layer-by-layer partial rename", "identify event fixture and documentation drift", "require semantic validation beyond green CI"],
+      "forbiddenBehaviors": ["accept a fragmented domain rename", "assume green CI proves the domain model remains correct"],
+      "skillAnchors": ["layerweisen Einzelumbenennungen", "Fixture- und Dokumentationsauswirkungen", "grüne CI beweise semantische Korrektheit"]
+    }
+  ]
+}
