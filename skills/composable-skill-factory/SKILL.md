@@ -4,7 +4,7 @@ description: Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Sk
 userFacing: true
 implicitInvocation: false
 category: skill-system
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -13,7 +13,7 @@ outputs:
   - skills/<skill-name>/SKILL.md
   - evaluation evidence
   - pull request
-lastEvaluated: 2026-07-31
+lastEvaluated: 2026-08-06
 ---
 
 # Composable Skill Factory
@@ -28,6 +28,7 @@ Erzeuge Skills als kleine, klar begrenzte Werkzeuge. Ein Skill soll eine wiederk
 - **Repo-Kontext statt Annahmen:** Projektabhängige Pfade, Tracker, Labels, Dokumentationsorte und Befehle werden aus einer lokalen Konfiguration gelesen oder vor Verwendung ermittelt.
 - **Nachweis statt Behauptung:** Ein Skill ist erst fertig, wenn sein Ergebnis geprüft wurde.
 - **Portabel und lizenzsauber:** Produkt-, Anbieter- und Agent-spezifische Details bleiben Adapter oder Beispiele. Fremde Inhalte werden nur mit geklärter Lizenz übernommen.
+- **Governed Memory:** Jeder neue oder materiell geänderte Skill besitzt einen expliziten `## Memory Path` nach `docs/MEMORY-PATH-CONTRACT.md`; der Fach-Skill darf Lernen kandidieren, aber dauerhafte Persistenz weder selbst durchführen noch behaupten.
 
 ## Wann ein Skill gerechtfertigt ist
 
@@ -46,7 +47,7 @@ Wenn mehrere unabhängige Ergebnisse entstehen, zerlege den Kandidaten in mehrer
 
 ```text
 skills/<skill-name>/
-  SKILL.md                 # Trigger, Grenzen, Kernworkflow, Abschluss
+  SKILL.md                 # Trigger, Grenzen, Kernworkflow, Abschluss, Memory Path
   references/              # ausführliche Regeln, Formate, Beispiele
   scripts/                 # deterministische Hilfsprogramme
   assets/                  # Vorlagen oder statische Ressourcen
@@ -67,7 +68,8 @@ Rekonstruiere den tatsächlich verwendeten Ablauf:
 - eingesetzte Werkzeuge,
 - erzeugte Artefakte oder Zustandsänderungen,
 - Fehlerbilder und Wiederanlauf,
-- Nachweise für Erfolg.
+- Nachweise für Erfolg,
+- wiederverwendbare Learnings gegenüber rein transientem Laufzustand.
 
 Unterscheide zwischen bewährtem Verhalten und noch ungetesteten Vorschlägen.
 
@@ -105,7 +107,16 @@ Vermeide allgemeine Beschreibungen wie „hilft bei Projekten“ oder „macht E
 4. Entscheidungspunkte,
 5. Sicherheits- und Qualitätsregeln,
 6. Fehlerbehandlung und Wiederaufnahme,
-7. überprüfbare Abschlusskriterien.
+7. überprüfbare Abschlusskriterien,
+8. einen expliziten `## Memory Path`.
+
+Der Memory Path benennt mindestens:
+
+- welche bestätigten, langlebigen und nicht-sensitiven Learnings als Memory Candidates geeignet sind,
+- was zwingend run-only bleibt,
+- welche Provenance-/Freshness-Felder erforderlich sind,
+- die Übergabe über `memory-candidate-handoff-v1` an `communication-memory-governance`,
+- dass der produzierende Skill Persistenz nicht besitzt und nicht als erfolgreich behauptet.
 
 Lagere selten benötigte Details in `references/` aus und verlinke sie an der Stelle, an der sie gebraucht werden.
 
@@ -140,6 +151,8 @@ Bevorzuge stabile Markdown-, JSON- oder Repository-Artefakte gegenüber implizit
 
 Ein Orchestrator darf Fach-Skills koordinieren, aber deren Fachlogik nicht duplizieren.
 
+Der Memory-Handoff ist davon getrennt: `memory-candidate-handoff-v1` ist ein ephemerer Governance-Pfad und kein fachlicher Ersatz für normale Output-/Dependency-Verträge.
+
 ### 7. Evaluation entwerfen
 
 Prüfe mindestens drei Fälle:
@@ -155,6 +168,7 @@ Bewerte:
 - Ist das Ergebnis reproduzierbar und überprüfbar?
 - Bleiben Sicherheitsgrenzen erhalten?
 - Kann ein anderer Skill das Ergebnis ohne mündliche Zusatzinformation übernehmen?
+- Werden nur geeignete Learnings in den Memory Path gegeben und transiente/sensitive Inhalte ausgeschlossen?
 
 ### 8. Veröffentlichen
 
@@ -163,10 +177,12 @@ Vor dem Commit:
 1. YAML-Frontmatter und Namen validieren.
 2. Links und referenzierte Pfade prüfen.
 3. Secret-, PII- und Lizenzprüfung durchführen.
-4. README-Katalog ergänzen.
-5. Änderungen in einem fokussierten Branch veröffentlichen.
-6. Diff und erzeugte Dateien erneut lesen.
-7. Einen Pull Request mit Zweck, Testnachweisen und offenen Grenzen erstellen.
+4. `## Memory Path` gegen `docs/MEMORY-PATH-CONTRACT.md` prüfen.
+5. `agents/openai.yaml` und Invocation-Policy materialisieren bzw. validieren.
+6. README-Katalog und generierte Repository-Metadaten aktualisieren.
+7. Änderungen in einem fokussierten Branch veröffentlichen.
+8. Diff und erzeugte Dateien erneut lesen.
+9. Einen Pull Request mit Zweck, Testnachweisen und offenen Grenzen erstellen.
 
 ## Überarbeitung bestehender Skills
 
@@ -181,6 +197,8 @@ Teile einen Skill auf, wenn mindestens eines zutrifft:
 
 Bewahre bei einer Aufteilung die bisherigen Trigger durch einen kleinen Migrations- oder Orchestrator-Skill, wenn bestehende Workflows sonst brechen würden.
 
+Materiell geänderte Skills werden bei derselben Überarbeitung auf einen expliziten Memory Path migriert; eine rein kosmetische Textänderung erzwingt dagegen keine unnötige fachliche Neufassung.
+
 ## Sicherheits- und Lizenzprüfung
 
 Veröffentliche nicht:
@@ -189,9 +207,14 @@ Veröffentliche nicht:
 - personenbezogene oder vertrauliche Projektinhalte,
 - destructive Befehle ohne Bestätigung und Schutzbedingungen,
 - fremde Skill-Texte ohne kompatible Lizenz und Herkunftsnachweis,
-- agentenspezifische Metadaten als kanonische Quelle, wenn ein portabler Standard möglich ist.
+- agentenspezifische Metadaten als kanonische Quelle, wenn ein portabler Standard möglich ist,
+- Memory-Regeln, die Secrets, sensitive Profile, ungeprüfte Hypothesen oder volatile Fakten ohne Freshness-Grenze dauerhaft machen.
 
 Übernimm aus fremden Repositories bevorzugt Prinzipien und eigene Formulierungen. Halte direkte Ableitungen und Lizenzen nachvollziehbar fest.
+
+## Memory Path
+
+Der Factory-Skill selbst kandidiert nur bestätigte, wiederverwendbare Erkenntnisse über Skill-Grenzen, Evaluation-Failure-Patterns, Routing-Konflikte oder Authoring-Regeln, wenn sie über die aktuelle Erstellung hinaus stabil nützlich sind. Temporäre Branch-/PR-/CI-Zustände, einmalige Repository-Pfade und ungeprüfte Designideen bleiben run-only. Kandidaten nutzen `memory-candidate-handoff-v1` mit Provenance und gegebenenfalls `reviewAfter` und gehen an `communication-memory-governance`. Die Factory schreibt niemals selbst in dauerhaftes Memory und behandelt fehlende Persistenzbestätigung nicht als Erfolg.
 
 ## Abschluss
 
@@ -200,7 +223,8 @@ Die Aufgabe ist abgeschlossen, wenn:
 - Skill-Grenze, Trigger und Nicht-Ziele eindeutig sind,
 - Anleitung und deterministische Werkzeuge sinnvoll getrennt sind,
 - Übergaben zu anderen Skills dokumentiert sind,
+- ein expliziter, governance-konformer Memory Path vorhanden ist,
 - Happy Path, Grenzfall und Fehlerfall geprüft wurden,
-- README und portable Ressourcen aktualisiert sind,
+- README, `agents/openai.yaml` und portable Ressourcen aktualisiert sind,
 - Sicherheits- und Lizenzprüfung bestanden sind,
 - Branch oder Pull Request mit verifizierbarem Änderungsstand existiert.
