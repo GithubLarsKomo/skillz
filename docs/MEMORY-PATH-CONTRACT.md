@@ -1,6 +1,19 @@
 # Memory Path Contract
 
-Every skill has a memory path. The memory path is a governed handoff, not an additional durable output owned by the skill.
+Every skill has a memory path. The repository-level contract below is the default inherited path for all existing skills; new or materially revised skills must also state a tailored `## Memory Path` section in their own `SKILL.md`. The memory path is a governed handoff, not an additional durable output owned by the producing skill.
+
+## Default inherited path
+
+Unless a skill contains a stricter tailored `## Memory Path`, it inherits this behavior:
+
+1. At completion, identify only confirmed, reusable, non-sensitive learnings that remain useful beyond the current run.
+2. Keep current task status, open follow-ups, repository/tool snapshots, speculative hypotheses, secrets, sensitive personal data and raw connector payloads run-only.
+3. Encode eligible learnings as an ephemeral `memory-candidate-handoff-v1` payload.
+4. Preserve source provenance and freshness semantics.
+5. Pass the handoff to `communication-memory-governance` for the actual persistence decision.
+6. Never claim persistence succeeded unless the memory layer confirms it.
+
+A tailored skill section may narrow what is eligible or add stronger provenance rules, but it may not bypass `communication-memory-governance` or weaken the privacy/freshness constraints in this contract.
 
 ## Principle
 
@@ -50,7 +63,10 @@ The handoff conforms to `schemas/memory-candidate-handoff-v1.schema.json` and is
       "scope": "project-family:example-ivd",
       "sourceRefs": ["classification-assessment:sha256:..."],
       "confidence": "high",
-      "reviewAfter": null
+      "authorityClass": "interpretation",
+      "observedAt": "2026-08-06T20:00:00Z",
+      "reviewAfter": null,
+      "expiresAt": null
     }
   ],
   "rejectedRunOnly": []
