@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "external-stakeholder-questionnaire",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "The project needs three policy facts from the information security owner, and the current user has already said they do not know the answers.",
+      "requiredBehaviors": [
+        "route the missing knowledge to the external stakeholder instead of re-asking the current user",
+        "separate the three policy gaps into distinct prioritized questions",
+        "state downstream use and allow unknown without inventing a deadline"
+      ],
+      "forbiddenBehaviors": [
+        "guess the stakeholder answers",
+        "invent a response deadline or contact address"
+      ],
+      "skillAnchors": [
+        "Nicht weitergrillen, wenn der Wissensinhaber extern ist",
+        "Eine Entscheidung pro Frage",
+        "Keine Frist erfinden"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A policy answer is required, but responsibility may sit with either Security or Legal and the actual decision authority has not been confirmed.",
+      "requiredBehaviors": [
+        "treat recipient authority as unresolved",
+        "reduce the first external question to responsibility clarification",
+        "avoid treating later domain questions as authoritative until ownership is known"
+      ],
+      "forbiddenBehaviors": [
+        "address a full authoritative questionnaire to a random stakeholder",
+        "infer decision authority from job-title assumptions"
+      ],
+      "skillAnchors": [
+        "Ist nicht klar, wer die Information besitzt",
+        "authority\": \"confirmed|partial|unknown",
+        "Autorität des Empfängers unklar"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft asks one stakeholder to choose the preferred vendor, confirm the budget and approve deployment in one question, offers only the favored vendor and says replies are due tomorrow without a stated deadline.",
+      "requiredBehaviors": [
+        "split independent decisions into separate questions",
+        "remove leading or incomplete answer options",
+        "leave the response deadline open when it was not confirmed"
+      ],
+      "forbiddenBehaviors": [
+        "preserve a compound multi-decision question",
+        "retain an invented deadline or suggestive option set"
+      ],
+      "skillAnchors": [
+        "mehrere unabhängige Entscheidungen in einer Frage vermischt",
+        "Optionen eine bevorzugte Antwort suggerieren",
+        "Fehlt sie, bleibt sie offen"
+      ]
+    }
+  ]
+}
