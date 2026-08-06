@@ -1,0 +1,5 @@
+interface:
+  display_name: "Regulatory Evidence Traceability"
+  short_description: "Verwandelt regulatorische Quellen, Verpflichtungen und ausdrücklich markierte Interpretationen in stabile Requirement..."
+policy:
+  allow_implicit_invocation: true
