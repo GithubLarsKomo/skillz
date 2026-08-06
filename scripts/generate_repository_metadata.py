@@ -11,7 +11,7 @@ from pathlib import Path
 
 START = "<!-- skill-catalog:start -->"
 END = "<!-- skill-catalog:end -->"
-PORTABLE_DIRS = {"references", "scripts", "assets"}
+PORTABLE_DIRS = {"references", "scripts", "assets", "agents"}
 
 
 def parse_frontmatter(path: Path) -> dict[str, object]:
