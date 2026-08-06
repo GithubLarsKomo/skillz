@@ -6,15 +6,15 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 - Skills: **53**
 - User-facing entrypoints: **36**
-- Evaluation suites: **52**
-- Skills without evaluation suite: **1**
+- Evaluation suites: **53**
+- Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **1**
 - Outputs without inferred hard-requires consumers: **54**
 
 ## Evaluation gaps
 
-- `domain-model-maintenance`
+None.
 
 ### User-facing evaluation gaps
 

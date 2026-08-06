@@ -11,9 +11,9 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 52,
+  "evaluationSuiteCount": 53,
   "evaluationPassed": false,
-  "evaluationErrorCount": 1,
+  "evaluationErrorCount": 4,
   "skills": [
     {
       "name": "agent-handoff",
@@ -747,10 +747,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
+        "mode": "compatibility",
+        "caseCount": 3,
         "recordedResultCount": 0,
-        "passed": null
+        "passed": false
       }
     },
     {
