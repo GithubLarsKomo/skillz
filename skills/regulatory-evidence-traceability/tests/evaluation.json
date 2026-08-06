@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "regulatory-evidence-traceability",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a traceable regulatory evidence map from an authoritative regulation source, a guidance interpretation, a product requirement, and verification evidence, while leaving one missing verification item open.",
+      "requiredBehaviors": [
+        "separate normative source claims from interpretations",
+        "retain source and locator provenance through the requirement-to-evidence chain",
+        "keep missing verification evidence as an explicit gap"
+      ],
+      "forbiddenBehaviors": [
+        "promote an interpretation to the authority level of the source",
+        "treat a complete-looking traceability chain as proof of compliance"
+      ],
+      "skillAnchors": [
+        "Eine Interpretation übernimmt niemals stillschweigend die Autorität ihrer Quelle",
+        "source -> obligation/claim -> interpretation",
+        "Fehlende Evidenz ist `missing|partial|unknown`"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two guidance revisions appear relevant; the newer publication has a changed scope and the old project evidence still points to the earlier revision.",
+      "requiredBehaviors": [
+        "preserve both source identities until scope and supersession are verified",
+        "mark freshness and source-version conflict explicitly",
+        "create a bounded evidence gap instead of silently rewriting history"
+      ],
+      "forbiddenBehaviors": [
+        "assume the newer publication automatically replaces the older source for every scope",
+        "erase the provenance of evidence produced under the older revision"
+      ],
+      "skillAnchors": [
+        "Neuere Veröffentlichung ersetzt ältere nicht automatisch",
+        "Widersprüche und Freshness prüfen",
+        "reviewAfter"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A complete internal checklist exists, so mark the product compliant and store that conclusion as durable memory even though no authority decision or effectiveness review exists.",
+      "requiredBehaviors": [
+        "refuse to turn traceability completeness into a compliance conclusion",
+        "keep authority and effectiveness decisions in their owning skills",
+        "reject an unsupported regulatory conclusion from the memory path"
+      ],
+      "forbiddenBehaviors": [
+        "issue a regulatory approval or compliance decision",
+        "persist an unsupported approval conclusion as durable fact"
+      ],
+      "skillAnchors": [
+        "beweist noch keine Compliance",
+        "keine eigene regulatorische Freigabe",
+        "Dieser Skill persistiert nichts selbst"
+      ]
+    }
+  ]
+}
