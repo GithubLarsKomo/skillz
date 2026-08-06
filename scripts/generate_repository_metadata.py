@@ -138,7 +138,7 @@ def run(root: Path, check: bool) -> int:
         stale = False
         stale |= apply_or_check(root / "README.md", render_readme(root), check)
         stale |= apply_or_check(root / ".skill-sync.json", render_manifest(root), check)
-        for script_name in ("generate_dependency_graph.py", "generate_capability_index.py"):
+        for script_name in ("generate_dependency_graph.py", "generate_capability_index.py", "generate_capability_health.py"):
             result = run_subgenerator(root, script_name, check)
             if result == 2:
                 return 2
