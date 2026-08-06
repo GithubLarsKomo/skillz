@@ -42,6 +42,8 @@ class OpenAIPluginDistributionTests(unittest.TestCase):
             agent_metadata = (one / "skills" / "communication-memory-governance" / "agents" / "openai.yaml").read_text(encoding="utf-8")
             self.assertIn('display_name: "Communication Memory Governance"', agent_metadata)
             self.assertIn("short_description:", agent_metadata)
+            self.assertIn("allow_implicit_invocation: true", agent_metadata)
+            self.assertIn("sourceSha256", first["skills"]["communication-memory-governance"]["files"]["agents/openai.yaml"])
 
     def test_openai_metadata_can_disable_implicit_invocation_without_changing_portable_skill_contract(self):
         with tempfile.TemporaryDirectory() as td:
@@ -106,7 +108,9 @@ class OpenAIPluginDistributionTests(unittest.TestCase):
             self.assertEqual(original, sync["skills"]["agent-handoff"]["files"]["SKILL.md"])
             bad = dict(sync)
             bad["skills"] = dict(sync["skills"])
-            bad["skills"]["agent-handoff"] = {"files": {"SKILL.md": "0" * 64}}
+            bad_files = dict(sync["skills"]["agent-handoff"]["files"])
+            bad_files["SKILL.md"] = "0" * 64
+            bad["skills"]["agent-handoff"] = {"files": bad_files}
             old_load = mod.load_json
             try:
                 mod.load_json = lambda path: bad if path == mod.SYNC else old_load(path)
