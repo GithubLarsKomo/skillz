@@ -181,19 +181,27 @@ This pattern is now implemented as `external-stakeholder-questionnaire`. It is u
 
 It remains complementary to `meeting-preparation` and `decision-and-follow-up-tracker`: the questionnaire acquires missing stakeholder evidence; those skills prepare meetings or track the resulting commitments and open loops. It also remains distinct from `round-based-requirements-grilling`, which elicites structured requirements from the current user rather than routing a known knowledge gap to an external holder.
 
-## 7. Prototype evidence: throw away code, not learning
+## 7. Prototype evidence → refined `throwaway-prototype`
 
-`throwaway-prototype` correctly prevents experimental code from silently becoming production code. AI Hero v1.2.2 adds a useful nuance: the runnable prototype can remain findable as primary evidence even when it never belongs on the production branch.
+The useful AI Hero nuance is now implemented by strengthening the existing `throwaway-prototype` capability rather than adding another prototype skill.
 
-Recommended refinement when the prototype is useful to reviewers or non-developers:
+The skill now distinguishes three explicit disposal states:
 
-- prefer a self-contained artifact when feasible, especially a single HTML file for state/interaction exploration,
-- keep the experiment isolated from the production branch,
-- retain the artifact on an explicitly experimental branch or archive when future replay has value,
-- record the validated decision in the durable issue/ADR/spec,
-- never treat prototype behavior as production acceptance evidence without a separate implementation and review.
+- `deleted` — remove experimental code but preserve the durable learning and decision evidence,
+- `archived-evidence` — retain the experimental artifact only as findable primary evidence for replay or audit,
+- `promoted-to-new-task` — create a fresh bounded production implementation task; do not evolve the prototype itself into production.
 
-The disposal state therefore has three legitimate outcomes: deleted, archived evidence, or explicitly authorized conversion into a new implementation task.
+`prototype-evidence.json` now supports a durable `evidenceReference` that can point to an immutable commit, experimental branch, artifact, archive, issue, or decision record. The reference exists only to reconstruct or replay the learning; it never establishes production acceptance.
+
+The strengthened rules preserve the original isolation boundary:
+
+- keep experiments isolated from production branches and production secrets,
+- retain enough inputs, observations, shortcuts, limitations and references to reconstruct the learning,
+- never treat prototype behavior as production acceptance evidence,
+- never merge a successful prototype directly as the production implementation,
+- require a fresh implementation task, production tests and review when an experiment justifies product work.
+
+This closes the AI Hero prototype-evidence gap without adding another user-facing entrypoint.
 
 ## 8. Adoption policy for external skill systems
 
