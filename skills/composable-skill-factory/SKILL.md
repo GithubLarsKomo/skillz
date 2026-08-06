@@ -204,3 +204,8 @@ Die Aufgabe ist abgeschlossen, wenn:
 - README und portable Ressourcen aktualisiert sind,
 - Sicherheits- und Lizenzprüfung bestanden sind,
 - Branch oder Pull Request mit verifizierbarem Änderungsstand existiert.
+
+## Memory Path
+
+Every skill created or materially revised by this factory must include a `## Memory Path` section and follow `docs/MEMORY-PATH-CONTRACT.md`. The author must specify eligible durable learnings, run-only information, provenance/freshness requirements, the ephemeral `memory-candidate-handoff-v1` handoff to `communication-memory-governance`, and the rule that the producing skill does not own or assume persistence. Missing Memory Path is an incomplete skill contract.
+

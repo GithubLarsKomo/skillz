@@ -26,6 +26,7 @@ New skills should implement narrower regulatory state transitions or produce dis
 8. **Front doors stay broad; workers stay narrow**: EU/FDA/QMS specialists decide which specialist is needed and aggregate results. Narrow skills must not independently re-run the complete market-access assessment.
 9. **Regulatory authority is never simulated**: classification, clearance, approval, certification or legal determinations remain evidence-backed assessments until the required human/authority decision exists.
 10. **Invocation defaults**: specialist evidence workers may be implicit when their trigger is unambiguous; pathway selection, irreversible regulatory strategy and external submission/commitment skills default to explicit invocation.
+11. **Governed memory path**: every skill exposes only confirmed reusable learnings through `memory-candidate-handoff-v1` to `communication-memory-governance`; transient run state stays run-only and volatile regulatory facts require source, `asOf` and review/expiry semantics.
 
 ## Shared flow
 

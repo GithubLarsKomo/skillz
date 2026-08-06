@@ -53,3 +53,8 @@ Der Output enthält:
 ## Qualitätsgate
 
 Die gleiche View-Spezifikation auf demselben Snapshot muss dasselbe Ergebnis liefern. Jede Zeile muss auf ihre Quellartefakte zurückführbar sein. Offene Konflikte dürfen nicht durch Filterung als scheinbar eindeutige Wahrheit präsentiert werden.
+
+## Memory Path
+
+At completion, extract only confirmed, reusable, non-sensitive learnings that remain useful beyond the current run. Current task state, open follow-ups, tool snapshots, speculative hypotheses, secrets, sensitive personal data and raw connector payloads remain run-only. Encode eligible candidates using `memory-candidate-handoff-v1` from `docs/MEMORY-PATH-CONTRACT.md`, preserve provenance and freshness, and pass the ephemeral handoff to `communication-memory-governance`. The producing skill does not persist memory and never claims persistence succeeded without confirmation from the memory layer.
+

@@ -135,3 +135,8 @@ Bestanden nur wenn:
 - Korrekturen/Supersession alte Werte deaktivieren,
 - Ambiguität nicht als dauerhafte Präferenz ausgelegt wird,
 - Memory niemals aktuelle Repository-, Kalender-, Inbox- oder Toolzustände ersetzt.
+
+## Memory Path
+
+This skill is the terminal governance owner for memory candidates. It validates `memory-candidate-handoff-v1`, applies durability, sensitivity, scope, provenance, confirmation, conflict, supersession, expiry and forget rules, and only then updates the communication profile or memory ledger. It does not re-handoff candidates to itself and never treats current task state or volatile unreviewed regulatory snapshots as durable memory.
+

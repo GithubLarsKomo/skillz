@@ -124,3 +124,8 @@ Issues nicht automatisch in einem Produkt-Repository anlegen, solange der Nutzer
 ## Abschluss
 
 Abgeschlossen ist die Zerlegung, wenn alle Anforderungen eindeutig in unabhängigen vertikalen Issues oder transparenten Blockern abgebildet sind, die Reihenfolge zyklenfrei ist und jedes freigegebene Issue durch beobachtbare Evidenz separat abgenommen werden kann.
+
+## Memory Path
+
+At completion, extract only confirmed, reusable, non-sensitive learnings that remain useful beyond the current run. Current task state, open follow-ups, tool snapshots, speculative hypotheses, secrets, sensitive personal data and raw connector payloads remain run-only. Encode eligible candidates using `memory-candidate-handoff-v1` from `docs/MEMORY-PATH-CONTRACT.md`, preserve provenance and freshness, and pass the ephemeral handoff to `communication-memory-governance`. The producing skill does not persist memory and never claims persistence succeeded without confirmation from the memory layer.
+

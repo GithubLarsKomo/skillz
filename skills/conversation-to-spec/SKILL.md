@@ -154,3 +154,8 @@ Der Skill ist abgeschlossen, wenn:
 - Annahmen und offene Punkte sichtbar getrennt sind,
 - Architektur- und Sicherheitsinvarianten konsistent bleiben,
 - der nächste Umsetzungsschritt eindeutig ableitbar ist.
+
+## Memory Path
+
+At completion, extract only confirmed, reusable, non-sensitive learnings that remain useful beyond the current run. Current task state, open follow-ups, tool snapshots, speculative hypotheses, secrets, sensitive personal data and raw connector payloads remain run-only. Encode eligible candidates using `memory-candidate-handoff-v1` from `docs/MEMORY-PATH-CONTRACT.md`, preserve provenance and freshness, and pass the ephemeral handoff to `communication-memory-governance`. The producing skill does not persist memory and never claims persistence succeeded without confirmation from the memory layer.
+

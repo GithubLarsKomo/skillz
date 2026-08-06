@@ -70,3 +70,8 @@ Pass only if:
 - lifecycle/supersession semantics survive conversion,
 - transient artifacts are not promoted to durable memory by this skill,
 - an adapter can consume the output without hidden conversational context.
+
+## Memory Path
+
+At completion, extract only confirmed, reusable, non-sensitive learnings that remain useful beyond the current run. Current task state, open follow-ups, tool snapshots, speculative hypotheses, secrets, sensitive personal data and raw connector payloads remain run-only. Encode eligible candidates using `memory-candidate-handoff-v1` from `docs/MEMORY-PATH-CONTRACT.md`, preserve provenance and freshness, and pass the ephemeral handoff to `communication-memory-governance`. The producing skill does not persist memory and never claims persistence succeeded without confirmation from the memory layer.
+
