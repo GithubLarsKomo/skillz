@@ -84,19 +84,21 @@ def build_graph(root: Path) -> dict[str, object]:
             dependents[dependency].append(slug)
 
     output_contracts = []
-    orphan_outputs: list[str] = []
+    unconsumed_outputs: list[str] = []
     for output in sorted(producers):
         owners = sorted(producers[output])
         ambiguous = len(owners) > 1
         consumer_skills = sorted(dependents.get(owners[0], [])) if not ambiguous else []
+        consumption_status = "ambiguous" if ambiguous else ("inferred" if consumer_skills else "unconsumed")
         output_contracts.append({
             "output": output,
             "producers": owners,
             "consumerSkills": consumer_skills,
             "ambiguous": ambiguous,
+            "consumptionStatus": consumption_status,
         })
-        if not ambiguous and not consumer_skills:
-            orphan_outputs.append(output)
+        if consumption_status == "unconsumed":
+            unconsumed_outputs.append(output)
 
     return {
         "schemaVersion": 1,
@@ -114,7 +116,8 @@ def build_graph(root: Path) -> dict[str, object]:
             for dep in sorted(meta["requires"])
         ],
         "outputContracts": output_contracts,
-        "orphanOutputs": orphan_outputs,
+        "unconsumedOutputs": unconsumed_outputs,
+        "orphanOutputs": unconsumed_outputs,
     }
 
 
@@ -144,7 +147,7 @@ def render_markdown(graph: dict[str, object]) -> str:
         "",
         "## Output contracts",
         "",
-        "`consumerSkills` are inferred only from hard `requires` edges to a unique producer; ambiguous producers never receive inferred consumers.",
+        "`consumerSkills` are inferred only from hard `requires` edges to a unique producer; ambiguous producers never receive inferred consumers. A missing inferred consumer is reported as `unconsumed`, not as an orphan verdict: terminal user-facing artifacts are valid outputs.",
         "",
         "| Output | Producers | Consumer skills | Status |",
         "|---|---|---|---|",
@@ -155,7 +158,7 @@ def render_markdown(graph: dict[str, object]) -> str:
         assert isinstance(item, dict)
         producers = ", ".join(f"`{x}`" for x in item["producers"])
         consumers = ", ".join(f"`{x}`" for x in item["consumerSkills"]) or "—"
-        status = "ambiguous" if item["ambiguous"] else ("orphan" if not item["consumerSkills"] else "unique")
+        status = str(item["consumptionStatus"])
         lines.append(f"| `{item['output']}` | {producers} | {consumers} | {status} |")
     if not contracts:
         lines.append("| — | — | — | no outputs declared |")
