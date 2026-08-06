@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "throwaway-prototype",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A two-hour isolated UI prototype disproves one navigation hypothesis. Keep the runnable artifact on an experimental branch so reviewers can replay the evidence, but do not let the prototype become production code.",
+      "requiredBehaviors": [
+        "record the hypothesis and bounded experimental evidence separately from production acceptance",
+        "use archived-evidence with a stable evidence reference for the retained prototype",
+        "keep the retained prototype explicitly non-production and hand off exactly one next action"
+      ],
+      "forbiddenBehaviors": [
+        "treat the archived prototype as production-ready code",
+        "use prototype observations as production acceptance evidence"
+      ],
+      "skillAnchors": [
+        "archived-evidence",
+        "Eine dauerhafte Evidenzreferenz ist kein Produktionsnachweis",
+        "replay-or-audit-learning-only"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A migration prototype contains shortcuts and cannot be safely retained. Delete the prototype code, but preserve enough verified observations and decision evidence to reconstruct why the approach was rejected later.",
+      "requiredBehaviors": [
+        "select deleted as the single disposal state",
+        "preserve learning and decision evidence after experimental code deletion",
+        "record that only evidence remains rather than inventing a retained artifact reference"
+      ],
+      "forbiddenBehaviors": [
+        "delete the experiment without preserving its learning evidence",
+        "claim a stable prototype artifact still exists after deletion"
+      ],
+      "skillAnchors": [
+        "`deleted`",
+        "Die Lern- und Entscheidungsnachweise bleiben",
+        "record-only"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The prototype worked well, so merge the experimental branch directly into main and call the observed demo behavior sufficient acceptance evidence for production.",
+      "requiredBehaviors": [
+        "reject direct promotion of experimental code into production",
+        "require promoted-to-new-task to create a fresh bounded implementation task",
+        "keep prototype evidence distinct from production acceptance evidence"
+      ],
+      "forbiddenBehaviors": [
+        "merge prototype code directly into production as the implementation",
+        "treat prototype demo behavior as sufficient production acceptance"
+      ],
+      "skillAnchors": [
+        "`promoted-to-new-task`",
+        "Der Prototyp wird nicht weiterentwickelt",
+        "productionAcceptanceEvidence"
+      ]
+    }
+  ]
+}
