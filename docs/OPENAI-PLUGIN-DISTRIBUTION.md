@@ -16,12 +16,41 @@ The generated bundle contains:
 skillz/
 ├── .codex-plugin/plugin.json
 ├── skillz-distribution-manifest.json
-└── skills/<skill-name>/...
+└── skills/<skill-name>/
+    ├── SKILL.md
+    ├── agents/openai.yaml
+    └── ...portable files...
 ```
 
-The builder verifies every canonical portable file against `.skill-sync.json`. For `SKILL.md`, it deterministically projects the canonical frontmatter to the OpenAI Agent Skill trigger contract (`name` + `description`) while preserving the instruction body. The distribution manifest records both source and packaged SHA-256 values.
+The builder verifies every canonical portable file against `.skill-sync.json`. For `SKILL.md`, it deterministically projects the canonical frontmatter to the OpenAI Agent Skill trigger contract (`name` + `description`) while preserving the instruction body. It also generates `agents/openai.yaml` for every packaged skill so display metadata and invocation policy remain harness-specific rather than becoming a second canonical skill source. The distribution manifest records source and packaged SHA-256 values, including generated metadata.
 
 `VERSION` is the canonical plugin version. The committed plugin manifest template must match it.
+
+## Discovery versus implicit invocation
+
+These are deliberately separate concerns:
+
+- `userFacing: true` controls whether the skill appears as a deliberate entrypoint in the repository capability index and `/skills` discovery.
+- `implicitInvocation` controls whether an OpenAI/Codex harness may select the skill automatically when the skill is packaged.
+
+A skill may therefore be easy to discover while still requiring an explicit user choice, or may remain an internal/model-oriented helper without being promoted as a user-facing entrypoint.
+
+The optional canonical frontmatter field is:
+
+```yaml
+implicitInvocation: false
+```
+
+During packaging it becomes:
+
+```yaml
+policy:
+  allow_implicit_invocation: false
+```
+
+If `implicitInvocation` is absent, the builder emits no policy override and leaves the harness default intact. Use `false` only for workflows where silent automatic execution would be surprising or where an explicit human choice is part of the contract. Do not infer this setting from `userFacing`; discovery and execution policy must remain independently evolvable.
+
+The generated `agents/openai.yaml` also contains deterministic `interface.display_name` and `interface.short_description` values derived from the canonical skill name and description. These are presentation metadata only.
 
 ## Local skill installation in Codex
 
@@ -49,4 +78,4 @@ In a ChatGPT environment that supports installing the resulting plugin package, 
 python -m unittest tests.test_build_openai_plugin
 ```
 
-Normal repository CI also builds the distribution twice and proves deterministic output, version alignment, OpenAI-compatible packaged frontmatter and source-hash enforcement.
+Normal repository CI also builds the distribution twice and proves deterministic output, version alignment, OpenAI-compatible packaged frontmatter, generated OpenAI metadata, optional implicit-invocation policy projection, and source-hash enforcement.

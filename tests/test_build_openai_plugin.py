@@ -39,6 +39,43 @@ class OpenAIPluginDistributionTests(unittest.TestCase):
             self.assertIn("description:", frontmatter)
             self.assertNotIn("version:", frontmatter)
             self.assertNotIn("owners:", frontmatter)
+            agent_metadata = (one / "skills" / "communication-memory-governance" / "agents" / "openai.yaml").read_text(encoding="utf-8")
+            self.assertIn('display_name: "Communication Memory Governance"', agent_metadata)
+            self.assertIn("short_description:", agent_metadata)
+
+    def test_openai_metadata_can_disable_implicit_invocation_without_changing_portable_skill_contract(self):
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td) / "SKILL.md"
+            source.write_text(
+                "---\n"
+                "name: deliberate-router\n"
+                "description: Route a user deliberately to the right workflow.\n"
+                "userFacing: true\n"
+                "implicitInvocation: false\n"
+                "---\n\n"
+                "# Deliberate Router\n",
+                encoding="utf-8",
+            )
+            packaged = mod.render_openai_skill(source).decode("utf-8")
+            self.assertNotIn("implicitInvocation", packaged)
+            metadata = mod.render_openai_agent_metadata(source).decode("utf-8")
+            self.assertIn("allow_implicit_invocation: false", metadata)
+            self.assertIn('display_name: "Deliberate Router"', metadata)
+
+    def test_openai_metadata_rejects_invalid_implicit_invocation_value(self):
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td) / "SKILL.md"
+            source.write_text(
+                "---\n"
+                "name: broken\n"
+                "description: Broken test skill.\n"
+                "implicitInvocation: sometimes\n"
+                "---\n\n"
+                "# Broken\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "implicitInvocation must be true or false"):
+                mod.render_openai_agent_metadata(source)
 
     def test_plugin_version_matches_repository_version(self):
         with tempfile.TemporaryDirectory() as td:
