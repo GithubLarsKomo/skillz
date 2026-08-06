@@ -7,7 +7,7 @@
       "input": "Record an architectural decision with verified alternatives, an authorized approver, immutable repository evidence, explicit consequences, rollback, and one next action.",
       "requiredBehaviors": ["separate facts assumptions constraints and alternatives", "verify decision authority before accepted status", "preserve immutable references consequences rollback and one next action"],
       "forbiddenBehaviors": ["treat green CI as decision authority", "overwrite an existing accepted decision record"],
-      "skillAnchors": ["Autorität prüfen", "Bestehende akzeptierte Records werden nie überschrieben", "genau eine ausführbare nächste Aktion"]
+      "skillAnchors": ["Autorität prüfen", "Bestehende akzeptierte Records werden nie überschrieben", "genau einer ausführbaren nächsten Aktion"]
     },
     {
       "id": "edge-case",
