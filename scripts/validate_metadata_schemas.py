@@ -62,6 +62,22 @@ def validate(value: object, schema: dict, path: str = "$") -> list[str]:
             errors.append(f"{path}: expected type {allowed!r}, got {type(value).__name__}")
             return errors
 
+    if isinstance(value, str) and "minLength" in schema:
+        minimum = schema["minLength"]
+        if not isinstance(minimum, int) or isinstance(minimum, bool) or minimum < 0:
+            errors.append(f"{path}: schema minLength must be a non-negative integer")
+            return errors
+        if len(value) < minimum:
+            errors.append(f"{path}: string length {len(value)} is less than minLength {minimum}")
+
+    if isinstance(value, list) and "minItems" in schema:
+        minimum = schema["minItems"]
+        if not isinstance(minimum, int) or isinstance(minimum, bool) or minimum < 0:
+            errors.append(f"{path}: schema minItems must be a non-negative integer")
+            return errors
+        if len(value) < minimum:
+            errors.append(f"{path}: array length {len(value)} is less than minItems {minimum}")
+
     if isinstance(value, dict):
         required = schema.get("required", [])
         for key in required:
@@ -76,7 +92,7 @@ def validate(value: object, schema: dict, path: str = "$") -> list[str]:
                 errors.append(f"{child}: unknown property")
     elif isinstance(value, list) and "items" in schema:
         for idx, item in enumerate(value):
-            errors.extend(validate(item, schema["items"], f"{path}[{idx}]"))
+            errors.extend(validate(item, schema["items"], f"{path}[{idx}]") )
     return errors
 
 

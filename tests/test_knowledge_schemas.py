@@ -74,6 +74,36 @@ class KnowledgeSchemaTests(unittest.TestCase):
         bad["edges"] = [{"id": "E1", "from": "D1", "type": "supports", "sourceRefs": ["D1"]}]
         self.assertInvalid(bad, "knowledge-map-v1.schema.json")
 
+    def test_memory_candidate_handoff_contract(self):
+        good = {
+            "schemaVersion": 1,
+            "sourceSkill": "ivdr-device-classification",
+            "asOf": "2026-08-06T20:00:00Z",
+            "candidates": [
+                {
+                    "kind": "validated-pattern",
+                    "statement": "Fix specimen type before applying the classification rule tree.",
+                    "scope": "project-family:example-ivd",
+                    "sourceRefs": ["classification-assessment:sha256:abc"],
+                    "confidence": "high",
+                    "authorityClass": "interpretation",
+                    "observedAt": "2026-08-06T20:00:00Z",
+                    "reviewAfter": "2027-02-06",
+                    "expiresAt": None,
+                }
+            ],
+            "rejectedRunOnly": [],
+        }
+        self.assertValid(good, "memory-candidate-handoff-v1.schema.json")
+
+        missing_provenance = json.loads(json.dumps(good))
+        missing_provenance["candidates"][0]["sourceRefs"] = []
+        self.assertInvalid(missing_provenance, "memory-candidate-handoff-v1.schema.json")
+
+        invented_kind = json.loads(json.dumps(good))
+        invented_kind["candidates"][0]["kind"] = "current-task-status"
+        self.assertInvalid(invented_kind, "memory-candidate-handoff-v1.schema.json")
+
 
 if __name__ == "__main__":
     unittest.main()
