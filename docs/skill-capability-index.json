@@ -11,9 +11,9 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 48,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationSuiteCount": 49,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 3,
   "skills": [
     {
       "name": "agent-handoff",
@@ -927,10 +927,10 @@
       ],
       "portableFiles": [],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
+        "mode": "compatibility",
+        "caseCount": 3,
         "recordedResultCount": 0,
-        "passed": null
+        "passed": false
       }
     },
     {
