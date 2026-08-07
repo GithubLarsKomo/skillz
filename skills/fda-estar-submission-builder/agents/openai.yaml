@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Estar Submission Builder"
+  short_description: "Assembliert 510(k)- oder De-Novo-Evidenz pathway-aware in eine aktuelle FDA-eSTAR-Content-Map und Readiness-Struktur,..."
+policy:
+  allow_implicit_invocation: false
