@@ -527,6 +527,12 @@
         "agents/openai.yaml": "cd3cdf2aa83572f5799f67493f28f620a29063267bfe4069654db4ea9ca7a996"
       }
     },
+    "regulatory-change-monitoring": {
+      "files": {
+        "SKILL.md": "b9f22dcec3784335a0f870c43f29a53034d53e12abfed0ada279d9dbeca809fd",
+        "agents/openai.yaml": "d76e81b626be4b642b6aad4ef03135c43d641c2ac66b1d20bc4a5553a8b5ce17"
+      }
+    },
     "regulatory-claims-consistency": {
       "files": {
         "SKILL.md": "6e51b381acffc5278e2280b8b53b6805c6f99de24ff5a082d3b21adda478c708",

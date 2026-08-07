@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **101**
-- User-facing entrypoints: **83**
-- Evaluation suites: **101**
+- Skills: **102**
+- User-facing entrypoints: **84**
+- Evaluation suites: **102**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **130**
+- Outputs without inferred hard-requires consumers: **133**
 
 ## Evaluation gaps
 
@@ -135,7 +135,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
+- `regulatory-change-events.json` — producer: `regulatory-change-monitoring`
 - `regulatory-change-route-map.json` — producer: `regulatory-change-impact-orchestrator`
+- `regulatory-change-watch-status.json` — producer: `regulatory-change-monitoring`
+- `regulatory-source-register.json` — producer: `regulatory-change-monitoring`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
