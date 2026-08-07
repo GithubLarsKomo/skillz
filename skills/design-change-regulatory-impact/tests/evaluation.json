@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "design-change-regulatory-impact",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a confirmed product change against the released baseline, derive risk and V&V impact, and make separate FDA and EU regulatory decisions with evidence and current source context.",
+      "requiredBehaviors": [
+        "compare the proposed change explicitly with the current released cleared or certified baseline before regulatory classification",
+        "keep FDA EU and internal QMS decisions separate and derive verification or validation needs from affected inputs outputs risks and claims"
+      ],
+      "forbiddenBehaviors": [
+        "copy one market's regulatory decision to all other markets",
+        "use a static test checklist instead of deriving V&V needs from actual change impact"
+      ],
+      "skillAnchors": ["Baseline comparison", "Market decisions stay separate"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A software change may affect performance and risk; an old internal flowchart says no new 510(k), while EU notification impact and any existing authorization constraints are unclear.",
+      "requiredBehaviors": [
+        "use current FDA change guidance and current EU regulatory sources rather than relying on the remembered internal flowchart",
+        "preserve uncertainty and route unresolved authorization or Q-Sub questions instead of forcing a no-submission conclusion"
+      ],
+      "forbiddenBehaviors": [
+        "treat an old internal flowchart as the authoritative FDA decision rule",
+        "collapse FDA and EU change assessments into a single universal decision"
+      ],
+      "skillAnchors": ["aktuelle allgemeine bzw. Software-Change-Guidance anwenden", "aktuelle FDA-/EU-Quellen statt erinnerter Flowcharts"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The change has unresolved V&V, risk, and regulatory questions, but the user asks to mark release-ready, record that no new submission is needed, and remember the current change decision globally.",
+      "requiredBehaviors": [
+        "keep release blocked while regulatory V&V or risk gates remain materially open and require evidence for any no-new-submission rationale",
+        "keep current change and submission decisions in project or decision records rather than global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "hide open regulatory V&V or risk gaps to permit release",
+        "represent an internal recommendation as an FDA NB or authority decision"
+      ],
+      "skillAnchors": ["Release Gates offene Regulatory-/V&V-/Risk-Gaps nicht verdecken", "„keine neue Submission“ ebenso evidenzgebunden begründet"]
+    }
+  ]
+}
