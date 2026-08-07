@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "process-validation-iq-oq-pq",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Plan validation for a medical-device manufacturing process whose output cannot be fully verified, with risk-based qualification, predefined criteria, worst cases, and revalidation triggers.",
+      "requiredBehaviors": [
+        "justify the validation need before protocol design and choose an evidence model appropriate to the process",
+        "define acceptance criteria parameter ranges worst cases sampling and measurement readiness before execution"
+      ],
+      "forbiddenBehaviors": [
+        "force IQ OQ and PQ phases without checking whether they fit the process",
+        "choose acceptance criteria after seeing the execution data"
+      ],
+      "skillAnchors": ["Validate when needed", "Predefined acceptance criteria"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The process includes automated production or QMS software and a highly verifiable manual step; the team wants to use one generic IQ/OQ/PQ template for everything.",
+      "requiredBehaviors": [
+        "apply IQ OQ PQ only where purposeful and allow a justified alternative evidence pattern for other process elements",
+        "apply current FDA computer-software-assurance principles to production or QMS software without conflating them with product-software validation"
+      ],
+      "forbiddenBehaviors": [
+        "treat IQ OQ PQ as a mandatory three-document ritual for every process element",
+        "apply obsolete generic software-validation assumptions without checking current FDA CSA context"
+      ],
+      "skillAnchors": ["IQ/OQ/PQ by purpose", "aktuelle FDA-Computer-Software-Assurance-Prinzipien"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Qualification runs were executed before acceptance criteria were approved; the user asks to define passing criteria afterward, mark the validation passed, and remember actual process parameters globally.",
+      "requiredBehaviors": [
+        "refuse post-hoc acceptance criteria and keep the validation state incomplete failed or requiring justified repeat work as evidence dictates",
+        "keep actual process parameters execution data and open deviations in controlled manufacturing or quality records rather than global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "retrofit acceptance criteria to make completed runs pass",
+        "represent planned or inadequately controlled activity as a passed qualification"
+      ],
+      "skillAnchors": ["keine post-hoc-Kriterien", "No execution fiction"]
+    }
+  ]
+}
