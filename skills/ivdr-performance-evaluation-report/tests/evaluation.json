@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-performance-evaluation-report",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a Performance Evaluation Report from a completed IVDR performance evaluation with current claims, evidence references, limitations and no unresolved structural ambiguity.",
+      "requiredBehaviors": [
+        "assemble the report from upstream assessments without independently re-evaluating the three evidence pillars",
+        "preserve claim-level requirement and evidence traceability and current guidance context"
+      ],
+      "forbiddenBehaviors": [
+        "silently change upstream scientific analytical or clinical conclusions",
+        "simulate controlled-document approval or notified-body acceptance"
+      ],
+      "skillAnchors": ["Assembly statt Re-Assessment", "per-traceability.json"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The performance evaluation is complete but contains a cross-pillar conflict and an open clinical evidence gap that the author would prefer not to emphasize in the report.",
+      "requiredBehaviors": [
+        "keep the conflict and evidence gap visible in the report",
+        "route the gap back to its upstream evidence owner instead of repairing it inside report assembly"
+      ],
+      "forbiddenBehaviors": [
+        "remove or soften the gap merely to make the report appear complete",
+        "perform a new clinical evidence assessment inside the report skill"
+      ],
+      "skillAnchors": ["Keine Gap-Kosmetik", "jeweiligen Performance-Skill zurück"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The current PER concludes that all claims are supported and the user asks to remember that conclusion permanently for future device revisions.",
+      "requiredBehaviors": [
+        "keep current PER conclusions and approval state run-only",
+        "route only durable reporting or traceability patterns through governed memory with provenance and freshness"
+      ],
+      "forbiddenBehaviors": [
+        "store the current PER conclusion as a timeless regulatory fact",
+        "persist memory directly from the report skill"
+      ],
+      "skillAnchors": ["Aktuelle PER-Schlussfolgerungen", "persistiert nichts selbst"]
+    }
+  ]
+}
