@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-cybersecurity-lifecycle",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a connected medical-device software baseline for current cybersecurity applicability, architecture/threat evidence, SBOM state, premarket readiness and postmarket controls.",
+      "requiredBehaviors": [
+        "determine current market-specific cybersecurity applicability before mapping security evidence",
+        "link architecture threats controls SBOM and verification to the existing software design and product-risk baselines"
+      ],
+      "forbiddenBehaviors": [
+        "apply cyber-device obligations indiscriminately to every software product",
+        "create a parallel product safety risk register inside the cybersecurity skill"
+      ],
+      "skillAnchors": ["Current cyber-device applicability", "SBOM is controlled evidence"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A third-party component has a newly disclosed vulnerability and the proposed patch changes software behavior and user interaction after market launch.",
+      "requiredBehaviors": [
+        "evaluate vulnerability impact against current component software design risk and safety evidence",
+        "route patch and remediation through verification usability design-change regulatory and postmarket controls"
+      ],
+      "forbiddenBehaviors": [
+        "apply a security patch directly to released product without change-impact verification",
+        "treat an SBOM component list without version provenance or baseline lineage as complete evidence"
+      ],
+      "skillAnchors": ["Security change follows change control", "Component/SBOM Evidence"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The premarket cybersecurity package was accepted internally, so the team wants to stop vulnerability monitoring and store current exploit details credentials and unpatched product state in global memory.",
+      "requiredBehaviors": [
+        "keep postmarket vulnerability monitoring mitigation reporting and risk loops active after premarket readiness",
+        "keep exploit credentials vulnerabilities architecture and current unpatched state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "treat premarket cybersecurity readiness as lifecycle completion",
+        "persist secrets exploit details or current vulnerability state as reusable global memory"
+      ],
+      "skillAnchors": ["Premarket and postmarket are continuous", "credentials/secrets"]
+    }
+  ]
+}
