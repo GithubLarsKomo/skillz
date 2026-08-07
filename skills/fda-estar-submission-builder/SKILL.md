@@ -1,10 +1,10 @@
 ---
 name: fda-estar-submission-builder
-description: Assembliert 510(k)- oder De-Novo-Evidenz pathway-aware in eine aktuelle FDA-eSTAR-Content-Map und Readiness-Struktur, ohne die Submission extern einzureichen.
+description: Assembliert 510(k)-, De-Novo- oder Dual-CLIA-Evidenz pathway-aware in eine aktuelle FDA-eSTAR-Content-Map ohne extern einzureichen.
 userFacing: true
 implicitInvocation: false
 category: regulated-engineering
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -21,9 +21,9 @@ lastEvaluated: 2026-08-07
 
 ## Zweck und Grenze
 
-Dieser Skill assembliert vorhandene, fachlich bewertete Evidence-/Regulatory-Artefakte für **genau einen** FDA-Premarket-Pfad in eine aktuelle eSTAR-orientierte Content Map. Unterstützte Modi sind zunächst `510k` und `de-novo`. Er prüft, welche Inhalte in die aktuelle FDA-eSTAR-Struktur gehören, wo Evidenz fehlt, welche Cross-References verwendet werden und welche Artefakte noch nicht submission-ready sind.
+Dieser Skill assembliert vorhandene, fachlich bewertete Evidence-/Regulatory-Artefakte für **genau einen** FDA-Premarket-Pfad in eine aktuelle eSTAR-orientierte Content Map. Unterstützte Modi sind `510k`, `de-novo` und `dual-510k-clia`. Er prüft, welche Inhalte in die aktuelle FDA-eSTAR-Struktur gehören, wo Evidenz fehlt, welche Cross-References verwendet werden und welche Artefakte noch nicht submission-ready sind.
 
-Er führt **keine FDA-Einreichung** durch, erzeugt keine FDA-Receipt-Bestätigung und bewertet fachliche 510(k)-SE- oder De-Novo-Strategie nicht neu. Die aktuelle eSTAR-Version, FDA-Template-Struktur, Portal-/Electronic-Submission-Anforderungen und etwaige Ausnahmen werden vor jeder Ausführung aus aktuellen offiziellen FDA-Quellen ermittelt statt im Skill festgeschrieben.
+Er führt **keine FDA-Einreichung** durch, erzeugt keine FDA-Receipt-Bestätigung und bewertet fachliche 510(k)-SE-, De-Novo- oder CLIA-Waiver-Strategie nicht neu. Die aktuelle eSTAR-Version, FDA-Template-Struktur, Portal-/Electronic-Submission-Anforderungen und etwaige Ausnahmen werden vor jeder Ausführung aus aktuellen offiziellen FDA-Quellen ermittelt statt im Skill festgeschrieben.
 
 ## Pathway Contract
 
@@ -43,13 +43,20 @@ Erwartete fachliche Inputs umfassen mindestens:
 - `special-controls-matrix.json`, soweit für die Strategy relevant,
 - zugehörige Safety-/Performance-/Risk-Evidenz.
 
-Der Skill besitzt bewusst **keine harten Dependencies auf beide Pathway-Skills**, damit 510(k) und De Novo nicht gegenseitig künstlich erforderlich werden. Der aktive Modus muss jedoch seine pathway-spezifischen Input-Verträge erfüllen.
+### `dual-510k-clia`
+Erwartete fachliche Inputs umfassen mindestens:
+- `dual-evidence-package.json`,
+- die referenzierten 510(k)-SE-Artefakte,
+- `clia-waiver-strategy.json`,
+- zugehörige shared/510k-only/clia-only Study-/Performance-/Risk-Evidenz.
+
+Der Skill besitzt bewusst **keine harten Dependencies auf alle Pathway-Skills**, damit die Pfade sich nicht gegenseitig künstlich erforderlich machen. Der aktive Modus muss jedoch seine pathway-spezifischen Input-Verträge erfüllen.
 
 ## Kernprinzipien
 
 - **Current eSTAR first:** Template-/Version-/Formatregeln werden aus der aktuellen FDA-eSTAR-Quelle geladen.
 - **Assembly statt Re-Assessment:** fachliche Schlussfolgerungen bleiben Eigentum ihrer Upstream-Skills.
-- **One pathway per package:** 510(k) und De Novo werden nicht in ein hybrides Submission-Paket vermischt.
+- **One pathway per package:** 510(k), De Novo und Dual 510(k)/CLIA werden als getrennte Modi behandelt; Dual ist ein eigener koordinierter FDA-Pfad und kein zufälliges Hybridpaket.
 - **Evidence reuse statt Duplikation:** gleiche Evidenz wird über stabile Cross-References wiederverwendet, nicht inkonsistent mehrfach erzählt.
 - **Omission ist eine Entscheidung:** fehlende oder nicht anwendbare Inhalte werden mit Requirement/Reason dokumentiert; leere Abschnitte gelten nicht automatisch als zulässig.
 - **External action boundary:** CDRH-Portal-/eSTAR-Upload und tatsächliche Submission bleiben autorisierte Human-/External-Actions.
@@ -58,11 +65,11 @@ Der Skill besitzt bewusst **keine harten Dependencies auf beide Pathway-Skills**
 
 ### 1. Pathway und Current FDA Context fixieren
 
-Setze `pathway: 510k|de-novo`. Ermittle aktuelle eSTAR-Version/Downloadquelle, relevante elektronische Submission-Anforderungen, aktuelle FDA-Hinweise und `asOf`. Ein historisches lokales Template wird nicht ungeprüft weiterverwendet.
+Setze `pathway: 510k|de-novo|dual-510k-clia`. Ermittle aktuelle eSTAR-Version/Downloadquelle, relevante elektronische Submission-Anforderungen, aktuelle FDA-Hinweise und `asOf`. Ein historisches lokales Template wird nicht ungeprüft weiterverwendet.
 
 ### 2. Fachliche Inputs validieren
 
-Prüfe, ob die pathway-spezifischen Upstream-Artefakte vorhanden, aktuell, widerspruchsfrei und ausreichend referenziert sind. Ein internes SE-/De-Novo-Resultat bleibt als Hypothese/Strategy gekennzeichnet; der Builder macht daraus keine FDA-Entscheidung.
+Prüfe, ob die pathway-spezifischen Upstream-Artefakte vorhanden, aktuell, widerspruchsfrei und ausreichend referenziert sind. Ein internes SE-/De-Novo-/CLIA-Resultat bleibt als Hypothese/Strategy gekennzeichnet; der Builder macht daraus keine FDA-Entscheidung.
 
 ### 3. Content Map erzeugen
 
@@ -82,7 +89,8 @@ Suche insbesondere nach:
 - widersprüchlichem Intended Use/Indications,
 - inkonsistenten Device-/Product-Code-/Classification-Angaben,
 - nicht synchronen Risk-/Performance-Schlussfolgerungen,
-- Predicate-/SE- oder De-Novo-Control-Aussagen ohne Source Evidence,
+- Predicate-/SE-, De-Novo-Control- oder Dual-CLIA-Aussagen ohne Source Evidence,
+- bei Dual nach widersprüchlicher shared-vs-pathway-specific Evidence-Zuordnung,
 - doppelten Inhalten mit abweichender Aussage,
 - veralteten Template-/Guidance-Annahmen.
 
@@ -92,7 +100,7 @@ Suche insbesondere nach:
 
 ### 6. Handoff
 
-Übergib die Content Map an `fda-acceptance-readiness`. Fachliche Gaps gehen zurück an den jeweiligen Evidence-/Risk-/SE-/De-Novo-Skill. Externe Submission geht an `human-procedure-wizard` oder den autorisierten Regulatory-Prozess und benötigt anschließend verifizierte Receipt-/Submission-Evidenz.
+Übergib die Content Map an `fda-acceptance-readiness`. Fachliche Gaps gehen zurück an den jeweiligen Evidence-/Risk-/SE-/De-Novo-/CLIA-Skill. Externe Submission geht an `human-procedure-wizard` oder den autorisierten Regulatory-Prozess und benötigt anschließend verifizierte Receipt-/Submission-Evidenz.
 
 ## Output-Verträge
 
