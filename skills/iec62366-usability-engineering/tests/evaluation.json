@@ -39,7 +39,7 @@
         "modify acceptance criteria after seeing unfavorable study results",
         "persist participant or unreleased UI test details as reusable global memory"
       ],
-      "skillAnchors": ["vor Ergebnisbewertung", "Konkrete Participant-/User-Daten"]
+      "skillAnchors": ["Analysis Rationale", "Konkrete Participant-/User-Daten"]
     }
   ]
 }
