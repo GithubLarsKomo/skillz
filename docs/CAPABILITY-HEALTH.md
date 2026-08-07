@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **88**
-- User-facing entrypoints: **70**
-- Evaluation suites: **88**
+- Skills: **91**
+- User-facing entrypoints: **73**
+- Evaluation suites: **91**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **99**
+- Outputs without inferred hard-requires consumers: **105**
 
 ## Evaluation gaps
 
@@ -45,6 +45,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
+- `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
+- `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
+- `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
 - `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`
 - `decision-follow-up-register.md` — producer: `decision-and-follow-up-tracker`
@@ -126,6 +129,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `trend-signal-set.json` — producer: `ivdr-pms-vigilance`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
 - `updated skill repository` — producer: `central-skill-repository-curation`
+- `usability-engineering-assessment.json` — producer: `iec62366-usability-engineering`
+- `usability-evidence-gaps.json` — producer: `iec62366-usability-engineering`
+- `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
 - `vigilance-decision-log.json` — producer: `ivdr-pms-vigilance`
 
 ## Interpretation

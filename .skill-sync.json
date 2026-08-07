@@ -214,6 +214,18 @@
         "agents/openai.yaml": "99124c09d6e8d0b142e9339489e6fe659283eef8bfbc19344f767a0cb88d21ef"
       }
     },
+    "iec62304-software-lifecycle": {
+      "files": {
+        "SKILL.md": "4d9bcede99f94c1198c4a0badf4b1fa535c16a43ff1a4ae3a49ba5f637a88cf5",
+        "agents/openai.yaml": "a04fb6b594795f863be01ab342d696ff9070848c3482175fbb7f105e04bfb966"
+      }
+    },
+    "iec62366-usability-engineering": {
+      "files": {
+        "SKILL.md": "548c578b411eb27f5554c3796bd2aa451a9f196f183e0d401f3ba01f1d879a5b",
+        "agents/openai.yaml": "f1b0d9737682ab4d8323df45e75f84b6ff8c7a227c55621714fca365d0d0924b"
+      }
+    },
     "implement-from-issue": {
       "files": {
         "SKILL.md": "2d346e3dda2ee1903b4aff6ee32b18668d3d39b362275ff8e86c3536bb408d07",
@@ -333,6 +345,12 @@
       "files": {
         "SKILL.md": "2a8c705cd4caf873b12c6532df11b7136dfb79e259bc6c98a5ba7e571d87472b",
         "agents/openai.yaml": "cfd77da4fa39913ad09a67e3e0562645e217fec81fafa75b6c302171a8cd6cc1"
+      }
+    },
+    "medical-device-cybersecurity-lifecycle": {
+      "files": {
+        "SKILL.md": "39ed9c9fd908cae16ca0c45980f2f401aa08a819159c6851661c72f3c4546cef",
+        "agents/openai.yaml": "6dd59514962a976193422768f3499556014f41aa2af7326a946bd9f4a1813694"
       }
     },
     "medical-device-isms-governance": {
