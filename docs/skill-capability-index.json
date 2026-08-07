@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 60,
-  "entrypointCount": 42,
+  "skillCount": 63,
+  "entrypointCount": 45,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 60,
+  "evaluationSuiteCount": 63,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1491,7 +1491,10 @@
         "ivdr-scientific-validity",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf"
+      ],
       "outputs": [
         "ivdr-performance-evaluation-gaps.json",
         "ivdr-performance-evaluation.json"
@@ -1503,13 +1506,175 @@
           "producers": [
             "ivdr-performance-evaluation"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "ivdr-performance-evaluation-report",
+            "ivdr-pmpf"
+          ]
         },
         {
           "output": "ivdr-performance-evaluation.json",
           "ambiguous": false,
           "producers": [
             "ivdr-performance-evaluation"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation-report",
+            "ivdr-pmpf"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-performance-evaluation-report",
+      "description": "Erstellt aus einer abgeschlossenen IVDR-Performance-Evaluation einen rückverfolgbaren Performance Evaluation Report, ohne die Evidenzsäulen neu zu bewerten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "ivdr-performance-evaluation",
+        "mdcg-guidance-navigator",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "per-traceability.json",
+        "performance-evaluation-report.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "per-traceability.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-performance-evaluation-report"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "performance-evaluation-report.md",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-performance-evaluation-report"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-pmpf",
+      "description": "Plant und bewertet IVDR-Post-Market Performance Follow-up claim-, risiko- und evidenzgebunden und führt Signale in Performance Evaluation und Risikomanagement zurück.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "ivdr-performance-evaluation",
+        "mdcg-guidance-navigator",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "pmpf-evaluation-report.md",
+        "pmpf-plan.json",
+        "pmpf-signals.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "pmpf-evaluation-report.md",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-pmpf"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "pmpf-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-pmpf"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "pmpf-signals.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-pmpf"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-pms-vigilance",
+      "description": "Bewertet IVDR-Post-Market-Signale und Vigilance-Fragen evidenzgebunden, zeitkritisch und mit klarer Rückkopplung in Risk, CAPA, PMPF und Performance Evaluation.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "mdcg-guidance-navigator",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "ivdr-pms-assessment.json",
+        "trend-signal-set.json",
+        "vigilance-decision-log.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "ivdr-pms-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-pms-vigilance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "trend-signal-set.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-pms-vigilance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "vigilance-decision-log.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-pms-vigilance"
           ],
           "consumerSkills": []
         }
@@ -1736,7 +1901,10 @@
       ],
       "dependents": [
         "ivdr-clinical-performance-study",
-        "ivdr-device-classification"
+        "ivdr-device-classification",
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance"
       ],
       "outputs": [
         "mdcg-guidance-changes.json",
@@ -1751,7 +1919,10 @@
           ],
           "consumerSkills": [
             "ivdr-clinical-performance-study",
-            "ivdr-device-classification"
+            "ivdr-device-classification",
+            "ivdr-performance-evaluation-report",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance"
           ]
         },
         {
@@ -1762,7 +1933,10 @@
           ],
           "consumerSkills": [
             "ivdr-clinical-performance-study",
-            "ivdr-device-classification"
+            "ivdr-device-classification",
+            "ivdr-performance-evaluation-report",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance"
           ]
         }
       ],
@@ -2097,6 +2271,8 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -2116,6 +2292,8 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance",
             "medical-device-capa",
             "medical-device-regulatory-strategy"
           ]
@@ -2130,6 +2308,8 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance",
             "medical-device-capa",
             "medical-device-regulatory-strategy"
           ]
@@ -2144,6 +2324,8 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance",
             "medical-device-capa",
             "medical-device-regulatory-strategy"
           ]
@@ -2651,6 +2833,7 @@
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
@@ -2678,6 +2861,7 @@
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-isms-governance",
@@ -2701,6 +2885,7 @@
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-isms-governance",
@@ -2738,6 +2923,9 @@
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-performance-evaluation",
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator"
       ],
@@ -2757,6 +2945,9 @@
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-performance-evaluation",
+            "ivdr-performance-evaluation-report",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator"
           ]
@@ -2772,6 +2963,9 @@
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-performance-evaluation",
+            "ivdr-performance-evaluation-report",
+            "ivdr-pmpf",
+            "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator"
           ]
@@ -3383,6 +3577,7 @@
         "controlled-quality-documentation",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
+        "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
@@ -3403,6 +3598,7 @@
             "controlled-quality-documentation",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
+            "ivdr-pms-vigilance",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485"
@@ -3418,6 +3614,7 @@
             "controlled-quality-documentation",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
+            "ivdr-pms-vigilance",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485"
@@ -3433,6 +3630,7 @@
             "controlled-quality-documentation",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
+            "ivdr-pms-vigilance",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485"

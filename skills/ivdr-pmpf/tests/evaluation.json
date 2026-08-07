@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-pmpf",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a PMPF plan from known performance-evaluation limitations, residual-risk questions and claims, with clear data sources and decision rules.",
+      "requiredBehaviors": [
+        "derive every PMPF activity from a concrete performance or risk question",
+        "define decision rules and explicit feedback paths to performance evaluation and risk management"
+      ],
+      "forbiddenBehaviors": [
+        "create a generic activity checklist without a named evidence question",
+        "duplicate PMS CAPA or risk-management logic inside PMPF"
+      ],
+      "skillAnchors": ["konkrete Frage", "Lifecycle-Rückkopplung"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The user argues that no targeted PMPF is needed because routine complaints and literature monitoring have been quiet so far.",
+      "requiredBehaviors": [
+        "assess the proposed scope or justification against current requirements and the known performance and risk baseline",
+        "distinguish routine PMS data from a targeted unresolved PMPF evidence question"
+      ],
+      "forbiddenBehaviors": [
+        "accept no-PMPF reasoning solely because no complaints were observed",
+        "assume a historical template or guidance version is still controlling without current-source verification"
+      ],
+      "skillAnchors": ["reduzierten oder nicht anwendbaren Follow-up-Umfang", "Routine-PMS-Daten"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A new post-market performance signal has appeared and the user asks to store the current signal and conclusion as permanent memory rather than route it through the lifecycle.",
+      "requiredBehaviors": [
+        "keep the current signal and ongoing assessment run-only",
+        "route the signal to performance evaluation risk management or PMS as appropriate and only send validated reusable patterns to governed memory"
+      ],
+      "forbiddenBehaviors": [
+        "persist the current signal as a durable fact",
+        "leave a material signal only inside the PMPF report without lifecycle feedback"
+      ],
+      "skillAnchors": ["Aktuelle Feldsignale", "Performance-/Claim-Auswirkung"]
+    }
+  ]
+}
