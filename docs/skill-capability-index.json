@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 78,
-  "entrypointCount": 60,
+  "skillCount": 81,
+  "entrypointCount": 63,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 78,
+  "evaluationSuiteCount": 81,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -310,7 +310,9 @@
         "regulated-product-context",
         "two-axis-compliance-review"
       ],
-      "dependents": [],
+      "dependents": [
+        "quality-record-integrity"
+      ],
       "outputs": [
         "change-impact-assessment.json",
         "controlled-document-plan.md",
@@ -323,7 +325,9 @@
           "producers": [
             "controlled-quality-documentation"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "quality-record-integrity"
+          ]
         },
         {
           "output": "controlled-document-plan.md",
@@ -331,7 +335,9 @@
           "producers": [
             "controlled-quality-documentation"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "quality-record-integrity"
+          ]
         },
         {
           "output": "document-control-assessment.json",
@@ -339,7 +345,9 @@
           "producers": [
             "controlled-quality-documentation"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "quality-record-integrity"
+          ]
         }
       ],
       "portableFiles": [
@@ -2640,6 +2648,60 @@
       }
     },
     {
+      "name": "measurement-system-validation",
+      "description": "Bewertet Medical-Device-Mess- und Prüfsysteme risikobasiert auf Eignung, Kalibrierung, Auflösung, Bias, Stabilität und Wiederhol-/Reproduzierbarkeit.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "measurement-capability-study.json",
+        "measurement-evidence-gaps.json",
+        "measurement-system-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "measurement-capability-study.json",
+          "ambiguous": false,
+          "producers": [
+            "measurement-system-validation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "measurement-evidence-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "measurement-system-validation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "measurement-system-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "measurement-system-validation"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "medical-device-capa",
       "description": "Strukturiert CAPA von Signal/Problem Statement über evidenzbasierte Kausalinvestigation, Action Plan und Effectiveness Verification bis zur kontrollierten Closure und Rückkopplung in Risk/QMS.",
       "invocation": {
@@ -2831,9 +2893,12 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
+        "measurement-system-validation",
         "medical-device-capa",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "qms-management-review-governance",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "outputs": [
@@ -2852,9 +2917,12 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
+            "measurement-system-validation",
             "medical-device-capa",
+            "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
             "qms-management-review-governance",
+            "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
         },
@@ -2868,9 +2936,12 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
+            "measurement-system-validation",
             "medical-device-capa",
+            "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
             "qms-management-review-governance",
+            "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
         },
@@ -2884,9 +2955,12 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
+            "measurement-system-validation",
             "medical-device-capa",
+            "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
             "qms-management-review-governance",
+            "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
         }
@@ -2979,8 +3053,10 @@
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-capa",
         "medical-device-regulatory-strategy",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "supplier-quality-medical-device"
       ],
@@ -3007,8 +3083,10 @@
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
+            "measurement-system-validation",
             "medical-device-capa",
             "medical-device-regulatory-strategy",
+            "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
             "supplier-quality-medical-device"
           ]
@@ -3030,8 +3108,10 @@
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
+            "measurement-system-validation",
             "medical-device-capa",
             "medical-device-regulatory-strategy",
+            "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
             "supplier-quality-medical-device"
           ]
@@ -3053,8 +3133,10 @@
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
+            "measurement-system-validation",
             "medical-device-capa",
             "medical-device-regulatory-strategy",
+            "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
             "supplier-quality-medical-device"
           ]
@@ -3213,6 +3295,60 @@
           "ambiguous": false,
           "producers": [
             "merge-conflict-resolution"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "nonconformance-mrb-disposition",
+      "description": "Strukturiert Medical-Device-Nichtkonformitäten von Containment und Impact Assessment bis risikobasierter MRB-Disposition, Rework-Evidenz und CAPA-Routing.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "containment-actions.json",
+        "mrb-disposition-decision.json",
+        "nonconformance-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "containment-actions.json",
+          "ambiguous": false,
+          "producers": [
+            "nonconformance-mrb-disposition"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "mrb-disposition-decision.json",
+          "ambiguous": false,
+          "producers": [
+            "nonconformance-mrb-disposition"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "nonconformance-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "nonconformance-mrb-disposition"
           ],
           "consumerSkills": []
         }
@@ -3587,6 +3723,60 @@
           "ambiguous": false,
           "producers": [
             "qms-management-review-governance"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "quality-record-integrity",
+      "description": "Prüft Medical-Device-Qualitätsaufzeichnungen auf Integrität, Attribution, Zeitbezug, Version/Quelle, Korrekturen, Audit Trail, Zugriff und verlässliche Retrieval-Evidenz.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "controlled-quality-documentation",
+        "medical-device-qms-iso13485",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "quality-record-integrity-assessment.json",
+        "record-integrity-gaps.json",
+        "record-retrieval-index.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "quality-record-integrity-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "quality-record-integrity"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "record-integrity-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "quality-record-integrity"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "record-retrieval-index.json",
+          "ambiguous": false,
+          "producers": [
+            "quality-record-integrity"
           ],
           "consumerSkills": []
         }
@@ -4470,9 +4660,12 @@
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
+        "nonconformance-mrb-disposition",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "outputs": [
@@ -4496,9 +4689,12 @@
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
+            "measurement-system-validation",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485",
+            "nonconformance-mrb-disposition",
+            "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
         },
@@ -4517,9 +4713,12 @@
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
+            "measurement-system-validation",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485",
+            "nonconformance-mrb-disposition",
+            "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
         },
@@ -4538,9 +4737,12 @@
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
+            "measurement-system-validation",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485",
+            "nonconformance-mrb-disposition",
+            "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
         }

@@ -560,6 +560,19 @@
       ]
     },
     {
+      "name": "measurement-system-validation",
+      "requires": [
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "measurement-capability-study.json",
+        "measurement-evidence-gaps.json",
+        "measurement-system-assessment.json"
+      ]
+    },
+    {
       "name": "medical-device-capa",
       "requires": [
         "evidence-based-causal-investigation",
@@ -673,6 +686,19 @@
       ]
     },
     {
+      "name": "nonconformance-mrb-disposition",
+      "requires": [
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "containment-actions.json",
+        "mrb-disposition-decision.json",
+        "nonconformance-assessment.json"
+      ]
+    },
+    {
       "name": "obsidian-adapter",
       "requires": [
         "knowledge-map-generator",
@@ -748,6 +774,19 @@
         "management-review-actions.json",
         "management-review-brief.json",
         "management-review-brief.md"
+      ]
+    },
+    {
+      "name": "quality-record-integrity",
+      "requires": [
+        "controlled-quality-documentation",
+        "medical-device-qms-iso13485",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "quality-record-integrity-assessment.json",
+        "record-integrity-gaps.json",
+        "record-retrieval-index.json"
       ]
     },
     {
@@ -1353,6 +1392,18 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "measurement-system-validation",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "measurement-system-validation",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "measurement-system-validation",
+      "to": "two-axis-compliance-review"
+    },
+    {
       "from": "medical-device-capa",
       "to": "evidence-based-causal-investigation"
     },
@@ -1449,6 +1500,18 @@
       "to": "two-axis-code-review"
     },
     {
+      "from": "nonconformance-mrb-disposition",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "nonconformance-mrb-disposition",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "nonconformance-mrb-disposition",
+      "to": "two-axis-compliance-review"
+    },
+    {
       "from": "obsidian-adapter",
       "to": "knowledge-map-generator"
     },
@@ -1491,6 +1554,18 @@
     {
       "from": "qms-management-review-governance",
       "to": "project-status-brief"
+    },
+    {
+      "from": "quality-record-integrity",
+      "to": "controlled-quality-documentation"
+    },
+    {
+      "from": "quality-record-integrity",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "quality-record-integrity",
+      "to": "two-axis-compliance-review"
     },
     {
       "from": "regulatory-evidence-traceability",
@@ -1780,9 +1855,11 @@
       "producers": [
         "controlled-quality-documentation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "quality-record-integrity"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "change-verification-needs.json",
@@ -1849,9 +1926,12 @@
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
+        "nonconformance-mrb-disposition",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "ambiguous": false,
@@ -1871,9 +1951,12 @@
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
+        "nonconformance-mrb-disposition",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "ambiguous": false,
@@ -1893,9 +1976,12 @@
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
+        "nonconformance-mrb-disposition",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "ambiguous": false,
@@ -1931,6 +2017,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "containment-actions.json",
+      "producers": [
+        "nonconformance-mrb-disposition"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "continuation result",
       "producers": [
         "deferred-external-action-verification"
@@ -1947,9 +2042,11 @@
       "producers": [
         "controlled-quality-documentation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "quality-record-integrity"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "de-novo-evidence-gaps.json",
@@ -2175,9 +2272,11 @@
       "producers": [
         "controlled-quality-documentation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "quality-record-integrity"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "domain-change-plan.md",
@@ -2742,6 +2841,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "measurement-capability-study.json",
+      "producers": [
+        "measurement-system-validation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "measurement-evidence-gaps.json",
+      "producers": [
+        "measurement-system-validation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "measurement-system-assessment.json",
+      "producers": [
+        "measurement-system-validation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "meeting-prep.json",
       "producers": [
         "meeting-preparation"
@@ -2793,6 +2919,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "mrb-disposition-decision.json",
+      "producers": [
+        "nonconformance-mrb-disposition"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "next increment",
       "producers": [
         "iterate-software-projects"
@@ -2818,6 +2953,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "nonconformance-assessment.json",
+      "producers": [
+        "nonconformance-mrb-disposition"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "obsidian-candidate.json",
@@ -3098,9 +3242,12 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
+        "measurement-system-validation",
         "medical-device-capa",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "qms-management-review-governance",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "ambiguous": false,
@@ -3115,9 +3262,12 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
+        "measurement-system-validation",
         "medical-device-capa",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "qms-management-review-governance",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "ambiguous": false,
@@ -3132,9 +3282,12 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
+        "measurement-system-validation",
         "medical-device-capa",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "qms-management-review-governance",
+        "quality-record-integrity",
         "supplier-quality-medical-device"
       ],
       "ambiguous": false,
@@ -3199,6 +3352,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "quality-record-integrity-assessment.json",
+      "producers": [
+        "quality-record-integrity"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "quality-review.json",
       "producers": [
         "two-axis-code-review"
@@ -3210,6 +3372,24 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "record-integrity-gaps.json",
+      "producers": [
+        "quality-record-integrity"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "record-retrieval-index.json",
+      "producers": [
+        "quality-record-integrity"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "recovered-system-model.json",
@@ -3490,8 +3670,10 @@
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-capa",
         "medical-device-regulatory-strategy",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "supplier-quality-medical-device"
       ],
@@ -3514,8 +3696,10 @@
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-capa",
         "medical-device-regulatory-strategy",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "supplier-quality-medical-device"
       ],
@@ -3538,8 +3722,10 @@
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
+        "measurement-system-validation",
         "medical-device-capa",
         "medical-device-regulatory-strategy",
+        "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
         "supplier-quality-medical-device"
       ],
@@ -3876,12 +4062,11 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
-    "change-impact-assessment.json",
     "change-verification-needs.json",
     "communication-profile.merged.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
-    "controlled-document-plan.md",
+    "containment-actions.json",
     "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
@@ -3889,7 +4074,6 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-control-assessment.json",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
@@ -3913,8 +4097,13 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
+    "measurement-capability-study.json",
+    "measurement-evidence-gaps.json",
+    "measurement-system-assessment.json",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
+    "mrb-disposition-decision.json",
+    "nonconformance-assessment.json",
     "obsidian-candidate.json",
     "obsidian-map.canvas",
     "obsidian-note.md",
@@ -3935,6 +4124,9 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
+    "quality-record-integrity-assessment.json",
+    "record-integrity-gaps.json",
+    "record-retrieval-index.json",
     "recovered-system-model.json",
     "regulatory-change-decisions.json",
     "regulatory-strategy.json",
@@ -3967,12 +4159,11 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
-    "change-impact-assessment.json",
     "change-verification-needs.json",
     "communication-profile.merged.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
-    "controlled-document-plan.md",
+    "containment-actions.json",
     "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
@@ -3980,7 +4171,6 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-control-assessment.json",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
@@ -4004,8 +4194,13 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
+    "measurement-capability-study.json",
+    "measurement-evidence-gaps.json",
+    "measurement-system-assessment.json",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
+    "mrb-disposition-decision.json",
+    "nonconformance-assessment.json",
     "obsidian-candidate.json",
     "obsidian-map.canvas",
     "obsidian-note.md",
@@ -4026,6 +4221,9 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
+    "quality-record-integrity-assessment.json",
+    "record-integrity-gaps.json",
+    "record-retrieval-index.json",
     "recovered-system-model.json",
     "regulatory-change-decisions.json",
     "regulatory-strategy.json",
