@@ -1,5 +1,5 @@
 interface:
   display_name: "Ivdr Pms Vigilance"
-  short_description: "Bewertet IVDR-Post-Market-Signale und Vigilance-Fragen evidenzgebunden, zeitkritisch und mit klarer Rückkopplung in R..."
+  short_description: "Bewertet IVDR-Post-Market-Signale und Vigilance-Fragen evidenzgebunden, zeitkritisch und mit klarer Rückkopplung in P..."
 policy:
   allow_implicit_invocation: false
