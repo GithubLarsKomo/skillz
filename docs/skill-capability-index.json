@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 103,
-  "entrypointCount": 85,
+  "skillCount": 104,
+  "entrypointCount": 86,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 103,
+  "evaluationSuiteCount": 104,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -723,6 +723,7 @@
       },
       "requires": [],
       "dependents": [
+        "engineering-delivery-followup",
         "implement-from-issue",
         "merge-conflict-resolution",
         "qms-management-review-action-followup"
@@ -740,6 +741,7 @@
             "deferred-external-action-verification"
           ],
           "consumerSkills": [
+            "engineering-delivery-followup",
             "implement-from-issue",
             "merge-conflict-resolution",
             "qms-management-review-action-followup"
@@ -752,6 +754,7 @@
             "deferred-external-action-verification"
           ],
           "consumerSkills": [
+            "engineering-delivery-followup",
             "implement-from-issue",
             "merge-conflict-resolution",
             "qms-management-review-action-followup"
@@ -764,6 +767,7 @@
             "deferred-external-action-verification"
           ],
           "consumerSkills": [
+            "engineering-delivery-followup",
             "implement-from-issue",
             "merge-conflict-resolution",
             "qms-management-review-action-followup"
@@ -1035,6 +1039,59 @@
           "ambiguous": false,
           "producers": [
             "domain-model-maintenance"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "engineering-delivery-followup",
+      "description": "Verfolgt eine reviewte Softwareänderung vom immutable Review-Head über externe CI-/Merge-Prüfung bis zu verifizierter Merge-, Issue- und Requirement-Closure, ohne Code Review, Implementierung oder Deployment zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "engineering"
+      },
+      "requires": [
+        "deferred-external-action-verification",
+        "two-axis-code-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "engineering-closure-gaps.json",
+        "engineering-delivery-status.json",
+        "engineering-iteration-return-input.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "engineering-closure-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "engineering-delivery-followup"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "engineering-delivery-status.json",
+          "ambiguous": false,
+          "producers": [
+            "engineering-delivery-followup"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "engineering-iteration-return-input.json",
+          "ambiguous": false,
+          "producers": [
+            "engineering-delivery-followup"
           ],
           "consumerSkills": []
         }
@@ -2627,11 +2684,25 @@
         "project-beta-readiness"
       ],
       "outputs": [
+        "engineering-iteration-state.json",
         "next increment",
         "review findings",
         "verification evidence"
       ],
       "outputContracts": [
+        {
+          "output": "engineering-iteration-state.json",
+          "ambiguous": false,
+          "producers": [
+            "iterate-software-projects"
+          ],
+          "consumerSkills": [
+            "agent-handoff",
+            "architecture-deepening-review",
+            "disciplined-diagnosis",
+            "project-beta-readiness"
+          ]
+        },
         {
           "output": "next increment",
           "ambiguous": false,
@@ -6094,14 +6165,29 @@
       "dependents": [
         "decision-record",
         "domain-model-maintenance",
+        "engineering-delivery-followup",
         "merge-conflict-resolution"
       ],
       "outputs": [
+        "delivery-review-handoff.json",
         "quality-review.json",
         "requirement-coverage.json",
         "review-decision.md"
       ],
       "outputContracts": [
+        {
+          "output": "delivery-review-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "two-axis-code-review"
+          ],
+          "consumerSkills": [
+            "decision-record",
+            "domain-model-maintenance",
+            "engineering-delivery-followup",
+            "merge-conflict-resolution"
+          ]
+        },
         {
           "output": "quality-review.json",
           "ambiguous": false,
@@ -6111,6 +6197,7 @@
           "consumerSkills": [
             "decision-record",
             "domain-model-maintenance",
+            "engineering-delivery-followup",
             "merge-conflict-resolution"
           ]
         },
@@ -6123,6 +6210,7 @@
           "consumerSkills": [
             "decision-record",
             "domain-model-maintenance",
+            "engineering-delivery-followup",
             "merge-conflict-resolution"
           ]
         },
@@ -6135,6 +6223,7 @@
           "consumerSkills": [
             "decision-record",
             "domain-model-maintenance",
+            "engineering-delivery-followup",
             "merge-conflict-resolution"
           ]
         }

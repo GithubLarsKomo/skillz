@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **103**
-- User-facing entrypoints: **85**
-- Evaluation suites: **103**
+- Skills: **104**
+- User-facing entrypoints: **86**
+- Evaluation suites: **104**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **128**
+- Outputs without inferred hard-requires consumers: **131**
 
 ## Evaluation gaps
 
@@ -68,6 +68,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`
+- `engineering-closure-gaps.json` — producer: `engineering-delivery-followup`
+- `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
+- `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
 - `execution plan` — producer: `synapse-orchestrator`
 - `expert handoff` — producer: `synapse-orchestrator`

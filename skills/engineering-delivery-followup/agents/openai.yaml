@@ -1,5 +1,5 @@
 interface:
   display_name: "Engineering Delivery Followup"
-  short_description: "Verfolgt reviewte Änderungen evidenzbasiert über CI, Merge, Deployment und Issue-/Requirement-Closure bis zum nächsten Iterationszustand."
+  short_description: "Verfolgt eine reviewte Softwareänderung vom immutable Review-Head über externe CI-/Merge-Prüfung bis zu verifizierter..."
 policy:
   allow_implicit_invocation: true
