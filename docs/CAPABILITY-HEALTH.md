@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **81**
-- User-facing entrypoints: **63**
-- Evaluation suites: **81**
+- Skills: **84**
+- User-facing entrypoints: **66**
+- Evaluation suites: **84**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **95**
+- Outputs without inferred hard-requires consumers: **97**
 
 ## Evaluation gaps
 
@@ -35,7 +35,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
 - `change-verification-needs.json` — producer: `design-change-regulatory-impact`
+- `claim-conflicts.json` — producer: `regulatory-claims-consistency`
+- `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
+- `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
+- `complaint-regulatory-actions.json` — producer: `fda-complaint-mdr-reportability`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
@@ -69,6 +73,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
+- `mdr-reportability-assessment.json` — producer: `fda-complaint-mdr-reportability`
 - `measurement-capability-study.json` — producer: `measurement-system-validation`
 - `measurement-evidence-gaps.json` — producer: `measurement-system-validation`
 - `measurement-system-assessment.json` — producer: `measurement-system-validation`
@@ -96,9 +101,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
-- `quality-record-integrity-assessment.json` — producer: `quality-record-integrity`
-- `record-integrity-gaps.json` — producer: `quality-record-integrity`
-- `record-retrieval-index.json` — producer: `quality-record-integrity`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
 - `regulatory-change-decisions.json` — producer: `design-change-regulatory-impact`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
