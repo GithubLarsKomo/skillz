@@ -160,10 +160,22 @@
         "agents/openai.yaml": "f221ae3334989c069554bee1bc5ea56b7d57325fd9377cf6c61b398135ca39d4"
       }
     },
+    "fda-dual-510k-clia-waiver": {
+      "files": {
+        "SKILL.md": "a160759f129cfc4950684aac4a79404deaa2b147062c7d7635e87748242c2ff7",
+        "agents/openai.yaml": "4aa2a7eb98c346221768ada815fbd926f93a492a146d00404e2f15b419507545"
+      }
+    },
     "fda-estar-submission-builder": {
       "files": {
-        "SKILL.md": "aa57111d2a5bd773e9a151503e4fd7515b30fe9d85fe3cef60b78ed79f8a6f9f",
-        "agents/openai.yaml": "01e316a1cbef70db1781be1bc33a9e01ba2da51523cac04b2b96b3d268e70178"
+        "SKILL.md": "c244f16ace38f7a5f1c8747c7ba3412f5490abf9e4dea56d65cd34545e91af92",
+        "agents/openai.yaml": "da09f4bd57bcc5115c37d25aae42b634deacb2841abb542c32ec27ef900085a7"
+      }
+    },
+    "fda-ivd-clia-waiver": {
+      "files": {
+        "SKILL.md": "16ab2a35f1984bcf2dfa8ed7f089a1eb3f9bdecec4e2bc5e0acba2d0c0e15998",
+        "agents/openai.yaml": "4d83e7deba2f23a81a1eed36cb94896f76effdbb2b1da918855c404ef76aaa3e"
       }
     },
     "fda-medical-device-ivd-regulatory-specialist": {

@@ -300,6 +300,19 @@
       ]
     },
     {
+      "name": "fda-dual-510k-clia-waiver",
+      "requires": [
+        "fda-510k-substantial-equivalence",
+        "fda-ivd-clia-waiver",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "dual-510k-clia-strategy.json",
+        "dual-evidence-package.json",
+        "dual-study-evidence-map.json"
+      ]
+    },
+    {
       "name": "fda-estar-submission-builder",
       "requires": [
         "fda-medical-device-ivd-regulatory-specialist",
@@ -308,6 +321,20 @@
       "outputs": [
         "estar-content-map.json",
         "submission-readiness.json"
+      ]
+    },
+    {
+      "name": "fda-ivd-clia-waiver",
+      "requires": [
+        "fda-device-classification-product-code",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "clia-evidence-gaps.json",
+        "clia-waiver-strategy.json",
+        "flex-study-needs.json"
       ]
     },
     {
@@ -1208,11 +1235,39 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "fda-dual-510k-clia-waiver",
+      "to": "fda-510k-substantial-equivalence"
+    },
+    {
+      "from": "fda-dual-510k-clia-waiver",
+      "to": "fda-ivd-clia-waiver"
+    },
+    {
+      "from": "fda-dual-510k-clia-waiver",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "fda-estar-submission-builder",
       "to": "fda-medical-device-ivd-regulatory-specialist"
     },
     {
       "from": "fda-estar-submission-builder",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "fda-ivd-clia-waiver",
+      "to": "fda-device-classification-product-code"
+    },
+    {
+      "from": "fda-ivd-clia-waiver",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "fda-ivd-clia-waiver",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "fda-ivd-clia-waiver",
       "to": "regulatory-evidence-traceability"
     },
     {
@@ -1982,6 +2037,28 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "clia-evidence-gaps.json",
+      "producers": [
+        "fda-ivd-clia-waiver"
+      ],
+      "consumerSkills": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "clia-waiver-strategy.json",
+      "producers": [
+        "fda-ivd-clia-waiver"
+      ],
+      "consumerSkills": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "clinical-performance-evidence.json",
       "producers": [
         "ivdr-clinical-performance-study"
@@ -2437,6 +2514,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "dual-510k-clia-strategy.json",
+      "producers": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "dual-evidence-package.json",
+      "producers": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "dual-study-evidence-map.json",
+      "producers": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "estar-content-map.json",
       "producers": [
         "fda-estar-submission-builder"
@@ -2570,7 +2674,8 @@
       ],
       "consumerSkills": [
         "fda-510k-predicate-strategy",
-        "fda-de-novo-strategy"
+        "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2582,7 +2687,8 @@
       ],
       "consumerSkills": [
         "fda-510k-predicate-strategy",
-        "fda-de-novo-strategy"
+        "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2643,6 +2749,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "flex-study-needs.json",
+      "producers": [
+        "fda-ivd-clia-waiver"
+      ],
+      "consumerSkills": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "human-procedure-plan.md",
@@ -3583,6 +3700,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -3615,6 +3733,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -3658,7 +3777,9 @@
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-dual-510k-clia-waiver",
         "fda-estar-submission-builder",
+        "fda-ivd-clia-waiver",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
@@ -3691,7 +3812,9 @@
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-dual-510k-clia-waiver",
         "fda-estar-submission-builder",
+        "fda-ivd-clia-waiver",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
@@ -3849,6 +3972,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -3877,6 +4001,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -3905,6 +4030,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -3947,9 +4073,11 @@
       "producers": [
         "fda-510k-substantial-equivalence"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-dual-510k-clia-waiver"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "skills/<skill-name>/SKILL.md",
@@ -4024,18 +4152,22 @@
       "producers": [
         "fda-510k-substantial-equivalence"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-dual-510k-clia-waiver"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "substantial-equivalence-matrix.md",
       "producers": [
         "fda-510k-substantial-equivalence"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-dual-510k-clia-waiver"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "supplier-control-plan.json",
@@ -4270,6 +4402,9 @@
     "domain-model-map.json",
     "domain-validation.json",
     "dpia-decision.json",
+    "dual-510k-clia-strategy.json",
+    "dual-evidence-package.json",
+    "dual-study-evidence-map.json",
     "execution plan",
     "expert handoff",
     "fda-acceptance-preflight.json",
@@ -4325,14 +4460,11 @@
     "remaining-unknowns.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
-    "se-evidence-gaps.json",
     "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
-    "substantial-equivalence-assessment.json",
-    "substantial-equivalence-matrix.md",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
@@ -4369,6 +4501,9 @@
     "domain-model-map.json",
     "domain-validation.json",
     "dpia-decision.json",
+    "dual-510k-clia-strategy.json",
+    "dual-evidence-package.json",
+    "dual-study-evidence-map.json",
     "execution plan",
     "expert handoff",
     "fda-acceptance-preflight.json",
@@ -4424,14 +4559,11 @@
     "remaining-unknowns.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
-    "se-evidence-gaps.json",
     "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
-    "substantial-equivalence-assessment.json",
-    "substantial-equivalence-matrix.md",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
