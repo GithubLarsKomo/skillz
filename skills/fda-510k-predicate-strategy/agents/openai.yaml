@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda 510k Predicate Strategy"
+  short_description: "Findet und bewertet 510(k)-Predicate-Kandidaten evidenzgebunden auf rechtliche Vermarktbarkeit, Intended Use, Technol..."
+policy:
+  allow_implicit_invocation: false
