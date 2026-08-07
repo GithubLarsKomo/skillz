@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **75**
-- User-facing entrypoints: **57**
-- Evaluation suites: **75**
+- Skills: **78**
+- User-facing entrypoints: **60**
+- Evaluation suites: **78**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **83**
+- Outputs without inferred hard-requires consumers: **89**
 
 ## Evaluation gaps
 
@@ -60,6 +60,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
 - `import verification` — producer: `openasr-offline-model-import`
+- `inspection-evidence-index.json` — producer: `fda-qmsr-inspection-readiness`
 - `installed OpenASR model` — producer: `openasr-offline-model-import`
 - `isms-audit-findings.json` — producer: `iso27001-isms-audit`
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
@@ -84,9 +85,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
+- `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`
+- `process-validation-protocol.md` — producer: `process-validation-iq-oq-pq`
+- `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
 - `progress summary` — producer: `synapse-orchestrator`
-- `qmsr-gap-assessment.md` — producer: `fda-qmsr-iso13485-gap`
-- `qmsr-iso13485-delta.json` — producer: `fda-qmsr-iso13485-gap`
+- `qmsr-inspection-readiness.json` — producer: `fda-qmsr-inspection-readiness`
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
@@ -106,6 +109,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
 - `substantial-equivalence-assessment.json` — producer: `fda-510k-substantial-equivalence`
 - `substantial-equivalence-matrix.md` — producer: `fda-510k-substantial-equivalence`
+- `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
+- `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
+- `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
 - `trend-signal-set.json` — producer: `ivdr-pms-vigilance`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`

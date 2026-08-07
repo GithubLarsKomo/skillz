@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Qmsr Inspection Readiness"
+  short_description: "Bereitet Medical-Device-QMS-Evidenz auf aktuelle FDA-QMSR-Inspektionen vor, identifiziert Retrieval-, Record-, Eviden..."
+policy:
+  allow_implicit_invocation: false

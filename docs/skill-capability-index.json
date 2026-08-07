@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 75,
-  "entrypointCount": 57,
+  "skillCount": 78,
+  "entrypointCount": 60,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 75,
+  "evaluationSuiteCount": 78,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -695,7 +695,8 @@
         "two-axis-compliance-review"
       ],
       "dependents": [
-        "design-change-regulatory-impact"
+        "design-change-regulatory-impact",
+        "process-validation-iq-oq-pq"
       ],
       "outputs": [
         "design-control-traceability.json",
@@ -709,7 +710,8 @@
             "design-control-traceability"
           ],
           "consumerSkills": [
-            "design-change-regulatory-impact"
+            "design-change-regulatory-impact",
+            "process-validation-iq-oq-pq"
           ]
         },
         {
@@ -719,7 +721,8 @@
             "design-control-traceability"
           ],
           "consumerSkills": [
-            "design-change-regulatory-impact"
+            "design-change-regulatory-impact",
+            "process-validation-iq-oq-pq"
           ]
         }
       ],
@@ -1505,6 +1508,51 @@
       }
     },
     {
+      "name": "fda-qmsr-inspection-readiness",
+      "description": "Bereitet Medical-Device-QMS-Evidenz auf aktuelle FDA-QMSR-Inspektionen vor, identifiziert Retrieval-, Record-, Evidence- und Remediation-Gaps und vermeidet QSIT-Legacy.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-qmsr-iso13485-gap",
+        "iso13485-qms-audit",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "inspection-evidence-index.json",
+        "qmsr-inspection-readiness.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "inspection-evidence-index.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-qmsr-inspection-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "qmsr-inspection-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-qmsr-inspection-readiness"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fda-qmsr-iso13485-gap",
       "description": "Trennt ISO-13485-QMS-Evidenz von aktuellen FDA-QMSR-spezifischen Pflichten, Inspection-Impacts und Gaps, ohne ein zweites QMS-Prozessmodell zu erzeugen.",
       "invocation": {
@@ -1516,7 +1564,9 @@
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
-      "dependents": [],
+      "dependents": [
+        "fda-qmsr-inspection-readiness"
+      ],
       "outputs": [
         "qmsr-gap-assessment.md",
         "qmsr-iso13485-delta.json"
@@ -1528,7 +1578,9 @@
           "producers": [
             "fda-qmsr-iso13485-gap"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-qmsr-inspection-readiness"
+          ]
         },
         {
           "output": "qmsr-iso13485-delta.json",
@@ -1536,7 +1588,9 @@
           "producers": [
             "fda-qmsr-iso13485-gap"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-qmsr-inspection-readiness"
+          ]
         }
       ],
       "portableFiles": [
@@ -1766,6 +1820,7 @@
         "two-axis-compliance-review"
       ],
       "dependents": [
+        "fda-qmsr-inspection-readiness",
         "qms-management-review-governance"
       ],
       "outputs": [
@@ -1781,6 +1836,7 @@
             "iso13485-qms-audit"
           ],
           "consumerSkills": [
+            "fda-qmsr-inspection-readiness",
             "qms-management-review-governance"
           ]
         },
@@ -1791,6 +1847,7 @@
             "iso13485-qms-audit"
           ],
           "consumerSkills": [
+            "fda-qmsr-inspection-readiness",
             "qms-management-review-governance"
           ]
         },
@@ -1801,6 +1858,7 @@
             "iso13485-qms-audit"
           ],
           "consumerSkills": [
+            "fda-qmsr-inspection-readiness",
             "qms-management-review-governance"
           ]
         }
@@ -2774,7 +2832,9 @@
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "medical-device-capa",
-        "qms-management-review-governance"
+        "process-validation-iq-oq-pq",
+        "qms-management-review-governance",
+        "supplier-quality-medical-device"
       ],
       "outputs": [
         "qms-gap-analysis.json",
@@ -2793,7 +2853,9 @@
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
             "medical-device-capa",
-            "qms-management-review-governance"
+            "process-validation-iq-oq-pq",
+            "qms-management-review-governance",
+            "supplier-quality-medical-device"
           ]
         },
         {
@@ -2807,7 +2869,9 @@
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
             "medical-device-capa",
-            "qms-management-review-governance"
+            "process-validation-iq-oq-pq",
+            "qms-management-review-governance",
+            "supplier-quality-medical-device"
           ]
         },
         {
@@ -2821,7 +2885,9 @@
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
             "medical-device-capa",
-            "qms-management-review-governance"
+            "process-validation-iq-oq-pq",
+            "qms-management-review-governance",
+            "supplier-quality-medical-device"
           ]
         }
       ],
@@ -2914,7 +2980,9 @@
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "medical-device-capa",
-        "medical-device-regulatory-strategy"
+        "medical-device-regulatory-strategy",
+        "process-validation-iq-oq-pq",
+        "supplier-quality-medical-device"
       ],
       "outputs": [
         "risk-management-analysis.json",
@@ -2940,7 +3008,9 @@
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "medical-device-capa",
-            "medical-device-regulatory-strategy"
+            "medical-device-regulatory-strategy",
+            "process-validation-iq-oq-pq",
+            "supplier-quality-medical-device"
           ]
         },
         {
@@ -2961,7 +3031,9 @@
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "medical-device-capa",
-            "medical-device-regulatory-strategy"
+            "medical-device-regulatory-strategy",
+            "process-validation-iq-oq-pq",
+            "supplier-quality-medical-device"
           ]
         },
         {
@@ -2982,7 +3054,9 @@
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "medical-device-capa",
-            "medical-device-regulatory-strategy"
+            "medical-device-regulatory-strategy",
+            "process-validation-iq-oq-pq",
+            "supplier-quality-medical-device"
           ]
         }
       ],
@@ -3293,6 +3367,60 @@
           "ambiguous": false,
           "producers": [
             "openasr-offline-model-import"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "process-validation-iq-oq-pq",
+      "description": "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierten Kriterien, Revalidierung und Change-Traceability.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "design-control-traceability",
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971"
+      ],
+      "dependents": [],
+      "outputs": [
+        "process-validation-assessment.json",
+        "process-validation-protocol.md",
+        "process-validation-strategy.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "process-validation-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "process-validation-iq-oq-pq"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "process-validation-protocol.md",
+          "ambiguous": false,
+          "producers": [
+            "process-validation-iq-oq-pq"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "process-validation-strategy.json",
+          "ambiguous": false,
+          "producers": [
+            "process-validation-iq-oq-pq"
           ],
           "consumerSkills": []
         }
@@ -4016,6 +4144,60 @@
       }
     },
     {
+      "name": "supplier-quality-medical-device",
+      "description": "Steuert Medical-Device-Lieferanten risikobasiert von Auswahl und Qualifizierung über Qualitätsvereinbarung, Monitoring und Change Notification bis SCAR/CAPA-Routing.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "supplier-control-plan.json",
+        "supplier-quality-assessment.json",
+        "supplier-signal-set.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "supplier-control-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "supplier-quality-medical-device"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "supplier-quality-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "supplier-quality-medical-device"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "supplier-signal-set.json",
+          "ambiguous": false,
+          "producers": [
+            "supplier-quality-medical-device"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "synapse-orchestrator",
       "description": "Orchestrate complex or ambiguous goals by aligning on the desired outcome, routing work to direct execution, existing skills and tools, transparent expert perspectives, or explicitly requested subagents, and maintaining concise progress and next steps. Use when the user invokes Professor Synapse, Synapse_CoR, /start, /save, /reason, /settings, /new, /grill-me, or /learn-skill; asks for an expert or multi-expert analysis; wants a cross-domain task decomposed; or needs help choosing the right workflow before execution.",
       "invocation": {
@@ -4283,13 +4465,15 @@
         "controlled-quality-documentation",
         "design-control-traceability",
         "fda-acceptance-readiness",
+        "fda-qmsr-inspection-readiness",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
-        "medical-device-qms-iso13485"
+        "medical-device-qms-iso13485",
+        "supplier-quality-medical-device"
       ],
       "outputs": [
         "compliance-evidence-effectiveness.json",
@@ -4307,13 +4491,15 @@
             "controlled-quality-documentation",
             "design-control-traceability",
             "fda-acceptance-readiness",
+            "fda-qmsr-inspection-readiness",
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
-            "medical-device-qms-iso13485"
+            "medical-device-qms-iso13485",
+            "supplier-quality-medical-device"
           ]
         },
         {
@@ -4326,13 +4512,15 @@
             "controlled-quality-documentation",
             "design-control-traceability",
             "fda-acceptance-readiness",
+            "fda-qmsr-inspection-readiness",
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
-            "medical-device-qms-iso13485"
+            "medical-device-qms-iso13485",
+            "supplier-quality-medical-device"
           ]
         },
         {
@@ -4345,13 +4533,15 @@
             "controlled-quality-documentation",
             "design-control-traceability",
             "fda-acceptance-readiness",
+            "fda-qmsr-inspection-readiness",
             "fda-qmsr-iso13485-gap",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
-            "medical-device-qms-iso13485"
+            "medical-device-qms-iso13485",
+            "supplier-quality-medical-device"
           ]
         }
       ],

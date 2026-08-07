@@ -1,0 +1,5 @@
+interface:
+  display_name: "Process Validation Iq Oq Pq"
+  short_description: "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierte..."
+policy:
+  allow_implicit_invocation: true
