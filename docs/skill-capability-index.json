@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 63,
-  "entrypointCount": 45,
+  "skillCount": 66,
+  "entrypointCount": 48,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 63,
+  "evaluationSuiteCount": 66,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -898,6 +898,163 @@
             "external-stakeholder-questionnaire"
           ],
           "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-510k-predicate-strategy",
+      "description": "Findet und bewertet 510(k)-Predicate-Kandidaten evidenzgebunden auf rechtliche Vermarktbarkeit, Intended Use, Technologie, Safety/Performance und aktuelle FDA-Quellen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-device-classification-product-code",
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "fda-510k-substantial-equivalence"
+      ],
+      "outputs": [
+        "predicate-candidate-set.json",
+        "predicate-strategy.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "predicate-candidate-set.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-510k-predicate-strategy"
+          ],
+          "consumerSkills": [
+            "fda-510k-substantial-equivalence"
+          ]
+        },
+        {
+          "output": "predicate-strategy.md",
+          "ambiguous": false,
+          "producers": [
+            "fda-510k-predicate-strategy"
+          ],
+          "consumerSkills": [
+            "fda-510k-substantial-equivalence"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-510k-substantial-equivalence",
+      "description": "Baut eine evidenzgebundene 510(k)-Substantial-Equivalence-Bewertung aus Intended Use, technologischen Merkmalen, Safety/Effectiveness-Fragen und Performance-Daten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-510k-predicate-strategy",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "se-evidence-gaps.json",
+        "substantial-equivalence-assessment.json",
+        "substantial-equivalence-matrix.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "se-evidence-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-510k-substantial-equivalence"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "substantial-equivalence-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-510k-substantial-equivalence"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "substantial-equivalence-matrix.md",
+          "ambiguous": false,
+          "producers": [
+            "fda-510k-substantial-equivalence"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-device-classification-product-code",
+      "description": "Ermittelt FDA-Geräteklasse, Regulation Number, Product Code und Premarket-Kontext evidenzgebunden aus aktuellen offiziellen Quellen, ohne eine FDA-Entscheidung zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "fda-510k-predicate-strategy"
+      ],
+      "outputs": [
+        "fda-device-classification.json",
+        "fda-product-code-evidence.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fda-device-classification.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-device-classification-product-code"
+          ],
+          "consumerSkills": [
+            "fda-510k-predicate-strategy"
+          ]
+        },
+        {
+          "output": "fda-product-code-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-device-classification-product-code"
+          ],
+          "consumerSkills": [
+            "fda-510k-predicate-strategy"
+          ]
         }
       ],
       "portableFiles": [
@@ -2269,6 +2426,7 @@
       ],
       "dependents": [
         "eu-mdr-ivdr-regulatory-specialist",
+        "fda-510k-substantial-equivalence",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -2290,6 +2448,7 @@
           ],
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
+            "fda-510k-substantial-equivalence",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -2306,6 +2465,7 @@
           ],
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
+            "fda-510k-substantial-equivalence",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -2322,6 +2482,7 @@
           ],
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
+            "fda-510k-substantial-equivalence",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -2829,6 +2990,8 @@
       "dependents": [
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
+        "fda-510k-predicate-strategy",
+        "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -2857,6 +3020,8 @@
           "consumerSkills": [
             "controlled-quality-documentation",
             "eu-mdr-ivdr-regulatory-specialist",
+            "fda-510k-predicate-strategy",
+            "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
@@ -2881,6 +3046,8 @@
           "consumerSkills": [
             "controlled-quality-documentation",
             "eu-mdr-ivdr-regulatory-specialist",
+            "fda-510k-predicate-strategy",
+            "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
@@ -2919,6 +3086,9 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "fda-510k-predicate-strategy",
+        "fda-510k-substantial-equivalence",
+        "fda-device-classification-product-code",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
@@ -2941,6 +3111,9 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "fda-510k-predicate-strategy",
+            "fda-510k-substantial-equivalence",
+            "fda-device-classification-product-code",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
@@ -2959,6 +3132,9 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "fda-510k-predicate-strategy",
+            "fda-510k-substantial-equivalence",
+            "fda-device-classification-product-code",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
@@ -3043,6 +3219,8 @@
       "dependents": [
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
+        "fda-510k-predicate-strategy",
+        "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
@@ -3066,6 +3244,8 @@
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
+            "fda-510k-predicate-strategy",
+            "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
@@ -3085,6 +3265,8 @@
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
+            "fda-510k-predicate-strategy",
+            "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
