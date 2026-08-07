@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-510k-substantial-equivalence",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess substantial equivalence for a new device and a legally marketed predicate with the same intended use, known technological differences and performance evidence addressing those differences.",
+      "requiredBehaviors": [
+        "treat intended use as a separate gate before technological comparison",
+        "map each material technological difference to safety and effectiveness questions and supporting performance evidence"
+      ],
+      "forbiddenBehaviors": [
+        "treat product-code equality or predicate clearance alone as proof of substantial equivalence",
+        "claim FDA clearance from an internal positive assessment"
+      ],
+      "skillAnchors": ["Same Intended Use ist ein eigener Gate-Schritt", "Different-Questions-Analyse"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The new device has the same intended use as the predicate but introduces a materially different technology whose safety and effectiveness questions are not yet fully understood.",
+      "requiredBehaviors": [
+        "identify potential different questions of safety and effectiveness rather than treating any difference as automatically acceptable or automatically NSE",
+        "keep the SE assessment blocked or inconclusive until the different-questions issue and evidence needs are resolved"
+      ],
+      "forbiddenBehaviors": [
+        "assume same intended use is sufficient for a positive SE conclusion",
+        "treat every technological difference as automatically not substantially equivalent"
+      ],
+      "skillAnchors": ["Unterschiede sind nicht automatisch NSE", "potential-different-question"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The internal matrix currently supports SE, but FDA has not reviewed the submission; the user asks to call the device FDA cleared and remember that conclusion permanently.",
+      "requiredBehaviors": [
+        "label the positive result only as an internal SE hypothesis until FDA issues an actual SE order",
+        "keep current SE hypotheses and unconfirmed FDA interpretations out of durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "claim FDA clearance or a final FDA substantial-equivalence determination",
+        "persist the current internal SE hypothesis as timeless regulatory fact"
+      ],
+      "skillAnchors": ["SE-hypothesis", "Aktuelle SE-Hypothesen"]
+    }
+  ]
+}
