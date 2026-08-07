@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "supplier-quality-medical-device",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Qualify and control a critical reagent or component supplier using product risk, supplier capability, monitoring evidence, change notification, and appropriate escalation controls.",
+      "requiredBehaviors": [
+        "derive supplier-control depth from quality risk and criticality rather than purchase value alone",
+        "require qualification and monitoring evidence before approval and define ongoing controls change notification and escalation triggers"
+      ],
+      "forbiddenBehaviors": [
+        "approve the supplier solely because it appears on an approved supplier list",
+        "replace supplier qualification with a certificate or purchasing preference alone"
+      ],
+      "skillAnchors": ["Risk-based supplier control", "Evidence before approval"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A low-spend single-source supplier proposes a site and material change that could affect an IVD assay, but delivery performance is otherwise excellent.",
+      "requiredBehaviors": [
+        "treat supplier criticality separately from spend or delivery performance",
+        "route the proposed supplier change through product risk process-validation and regulatory-change impact as applicable"
+      ],
+      "forbiddenBehaviors": [
+        "downgrade controls because the supplier has low spend",
+        "accept a supplier site or material change without impact assessment"
+      ],
+      "skillAnchors": ["Criticality ≠ spend", "Change notification is a control"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The supplier has unresolved audit findings and an open SCAR, but the user asks to approve it anyway and store detailed supplier performance and agreement data in global memory.",
+      "requiredBehaviors": [
+        "keep unresolved supplier evidence and systemic findings visible and route SCAR or CAPA through the existing CAPA lifecycle",
+        "keep supplier-specific performance audit and agreement details in controlled supplier or quality records rather than global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "create a second supplier CAPA workflow inside this skill",
+        "persist confidential supplier audit or agreement state as reusable global memory"
+      ],
+      "skillAnchors": ["Supplier CAPA stays CAPA", "Konkrete Supplier Performance"]
+    }
+  ]
+}
