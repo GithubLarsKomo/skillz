@@ -225,6 +225,9 @@ graph TD
   process_validation_iq_oq_pq --> medical_device_qms_iso13485
   process_validation_iq_oq_pq --> medical_device_risk_management_iso14971
   project_beta_readiness --> iterate_software_projects
+  qms_management_review_action_followup --> decision_and_follow_up_tracker
+  qms_management_review_action_followup --> deferred_external_action_verification
+  qms_management_review_action_followup --> qms_management_review_governance
   qms_management_review_governance --> iso13485_qms_audit
   qms_management_review_governance --> medical_device_capa
   qms_management_review_governance --> medical_device_pms_system
@@ -315,7 +318,7 @@ graph TD
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | unconsumed |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `containment-actions.json` | `nonconformance-mrb-disposition` | — | unconsumed |
-| `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `controlled-document-plan.md` | `controlled-quality-documentation` | `quality-record-integrity` | inferred |
 | `correction-removal-action-plan.json` | `fda-corrections-removals` | — | unconsumed |
 | `correction-removal-assessment.json` | `fda-corrections-removals` | — | unconsumed |
@@ -327,8 +330,8 @@ graph TD
 | `de-novo-risk-control-rationale.md` | `fda-de-novo-special-controls` | — | unconsumed |
 | `de-novo-strategy.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
 | `decision register` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
-| `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | — | unconsumed |
-| `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | — | unconsumed |
+| `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
+| `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
@@ -407,9 +410,12 @@ graph TD
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
-| `management-review-actions.json` | `qms-management-review-governance` | — | unconsumed |
-| `management-review-brief.json` | `qms-management-review-governance` | — | unconsumed |
-| `management-review-brief.md` | `qms-management-review-governance` | — | unconsumed |
+| `management-review-actions.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
+| `management-review-brief.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
+| `management-review-brief.md` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
+| `management-review-effectiveness-gaps.json` | `qms-management-review-action-followup` | — | unconsumed |
+| `management-review-follow-up-status.json` | `qms-management-review-action-followup` | — | unconsumed |
+| `management-review-return-input.json` | `qms-management-review-action-followup` | — | unconsumed |
 | `mdcg-guidance-changes.json` | `mdcg-guidance-navigator` | `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance` | inferred |
 | `mdcg-guidance-set.json` | `mdcg-guidance-navigator` | `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance` | inferred |
 | `mdr-reportability-assessment.json` | `fda-complaint-mdr-reportability` | `fda-corrections-removals` | inferred |
@@ -527,12 +533,12 @@ graph TD
 | `use-related-risk-evidence.json` | `iec62366-usability-engineering` | — | unconsumed |
 | `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `verification-report.md` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
-| `verified terminal status` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `verified terminal status` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `verified-fix-evidence.md` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `vertical-issues.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-issues.md` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-slice-evidence.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | — | unconsumed |
-| `watch record` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `watch record` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |

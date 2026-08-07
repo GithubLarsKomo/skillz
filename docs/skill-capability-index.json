@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 102,
-  "entrypointCount": 84,
+  "skillCount": 103,
+  "entrypointCount": 85,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 102,
+  "evaluationSuiteCount": 103,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -587,7 +587,9 @@
         "meeting-preparation",
         "project-status-brief"
       ],
-      "dependents": [],
+      "dependents": [
+        "qms-management-review-action-followup"
+      ],
       "outputs": [
         "decision-follow-up-register.json",
         "decision-follow-up-register.md"
@@ -599,7 +601,9 @@
           "producers": [
             "decision-and-follow-up-tracker"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "qms-management-review-action-followup"
+          ]
         },
         {
           "output": "decision-follow-up-register.md",
@@ -607,7 +611,9 @@
           "producers": [
             "decision-and-follow-up-tracker"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "qms-management-review-action-followup"
+          ]
         }
       ],
       "portableFiles": [
@@ -718,7 +724,8 @@
       "requires": [],
       "dependents": [
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "qms-management-review-action-followup"
       ],
       "outputs": [
         "continuation result",
@@ -734,7 +741,8 @@
           ],
           "consumerSkills": [
             "implement-from-issue",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "qms-management-review-action-followup"
           ]
         },
         {
@@ -745,7 +753,8 @@
           ],
           "consumerSkills": [
             "implement-from-issue",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "qms-management-review-action-followup"
           ]
         },
         {
@@ -756,7 +765,8 @@
           ],
           "consumerSkills": [
             "implement-from-issue",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "qms-management-review-action-followup"
           ]
         }
       ],
@@ -4849,6 +4859,60 @@
       }
     },
     {
+      "name": "qms-management-review-action-followup",
+      "description": "Verfolgt Management-Review-Actions evidenzbasiert über Routing, Implementierung, Wirksamkeit und Closure bis zum Folgereview.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-and-follow-up-tracker",
+        "deferred-external-action-verification",
+        "qms-management-review-governance"
+      ],
+      "dependents": [],
+      "outputs": [
+        "management-review-effectiveness-gaps.json",
+        "management-review-follow-up-status.json",
+        "management-review-return-input.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "management-review-effectiveness-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "qms-management-review-action-followup"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "management-review-follow-up-status.json",
+          "ambiguous": false,
+          "producers": [
+            "qms-management-review-action-followup"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "management-review-return-input.json",
+          "ambiguous": false,
+          "producers": [
+            "qms-management-review-action-followup"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "qms-management-review-governance",
       "description": "Bereitet Medical-Device-/IVD-QMS-Management-Reviews aus bestätigten QMS-, Audit-, CAPA-, PMS-, Vigilance-, Complaint-, Risk-, Supplier- und Performance-Evidenzen vor und trennt Inputs, Decisions, Actions und offene Datenlücken.",
       "invocation": {
@@ -4862,7 +4926,9 @@
         "medical-device-qms-iso13485",
         "project-status-brief"
       ],
-      "dependents": [],
+      "dependents": [
+        "qms-management-review-action-followup"
+      ],
       "outputs": [
         "management-review-actions.json",
         "management-review-brief.json",
@@ -4875,7 +4941,9 @@
           "producers": [
             "qms-management-review-governance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "qms-management-review-action-followup"
+          ]
         },
         {
           "output": "management-review-brief.json",
@@ -4883,7 +4951,9 @@
           "producers": [
             "qms-management-review-governance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "qms-management-review-action-followup"
+          ]
         },
         {
           "output": "management-review-brief.md",
@@ -4891,7 +4961,9 @@
           "producers": [
             "qms-management-review-governance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "qms-management-review-action-followup"
+          ]
         }
       ],
       "portableFiles": [

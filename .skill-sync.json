@@ -503,9 +503,15 @@
         "agents/openai.yaml": "c744dd4a46f7f5979bd0af2d7716655547c12ab529230ddc192d5f16dc67a5d1"
       }
     },
+    "qms-management-review-action-followup": {
+      "files": {
+        "SKILL.md": "ac0f8bf2a2179b1daa6270bc36ca4bb872d3bfa8455dba1b178e02e961bca791",
+        "agents/openai.yaml": "e667980c92ec15a5445cf7e47fd5577379fe0df01ef4d98783dd5aca4113e1df"
+      }
+    },
     "qms-management-review-governance": {
       "files": {
-        "SKILL.md": "b302c7a53c04521453bb0b21fdbb17046c9afb2fa9e4dd67f5878e1674895d82",
+        "SKILL.md": "dabf7ab31ac13e7e898b9fbd83a4f83af57d6d88752c9a7ba4c3260805c423dc",
         "agents/openai.yaml": "4a508e8f3565a34f2f6384deba5099cb7fad3b8407889df2f7c4cc3bb48a1768"
       }
     },

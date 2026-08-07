@@ -1011,6 +1011,19 @@
       ]
     },
     {
+      "name": "qms-management-review-action-followup",
+      "requires": [
+        "decision-and-follow-up-tracker",
+        "deferred-external-action-verification",
+        "qms-management-review-governance"
+      ],
+      "outputs": [
+        "management-review-effectiveness-gaps.json",
+        "management-review-follow-up-status.json",
+        "management-review-return-input.json"
+      ]
+    },
+    {
       "name": "qms-management-review-governance",
       "requires": [
         "iso13485-qms-audit",
@@ -2108,6 +2121,18 @@
       "to": "iterate-software-projects"
     },
     {
+      "from": "qms-management-review-action-followup",
+      "to": "decision-and-follow-up-tracker"
+    },
+    {
+      "from": "qms-management-review-action-followup",
+      "to": "deferred-external-action-verification"
+    },
+    {
+      "from": "qms-management-review-action-followup",
+      "to": "qms-management-review-governance"
+    },
+    {
       "from": "qms-management-review-governance",
       "to": "iso13485-qms-audit"
     },
@@ -2795,7 +2820,8 @@
       ],
       "consumerSkills": [
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "qms-management-review-action-followup"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2912,18 +2938,22 @@
       "producers": [
         "decision-and-follow-up-tracker"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "qms-management-review-action-followup"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "decision-follow-up-register.md",
       "producers": [
         "decision-and-follow-up-tracker"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "qms-management-review-action-followup"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "decision-record.json",
@@ -3830,23 +3860,56 @@
       "producers": [
         "qms-management-review-governance"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "qms-management-review-action-followup"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "management-review-brief.json",
       "producers": [
         "qms-management-review-governance"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "qms-management-review-action-followup"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "management-review-brief.md",
       "producers": [
         "qms-management-review-governance"
+      ],
+      "consumerSkills": [
+        "qms-management-review-action-followup"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "management-review-effectiveness-gaps.json",
+      "producers": [
+        "qms-management-review-action-followup"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "management-review-follow-up-status.json",
+      "producers": [
+        "qms-management-review-action-followup"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "management-review-return-input.json",
+      "producers": [
+        "qms-management-review-action-followup"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -5317,7 +5380,8 @@
       ],
       "consumerSkills": [
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "qms-management-review-action-followup"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5407,7 +5471,8 @@
       ],
       "consumerSkills": [
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "qms-management-review-action-followup"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5457,8 +5522,6 @@
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
-    "decision-follow-up-register.json",
-    "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -5494,9 +5557,9 @@
     "ivd-udi-data-set.json",
     "ivdr-pms-assessment.json",
     "lifecycle-impact-gates.json",
-    "management-review-actions.json",
-    "management-review-brief.json",
-    "management-review-brief.md",
+    "management-review-effectiveness-gaps.json",
+    "management-review-follow-up-status.json",
+    "management-review-return-input.json",
     "mdsap-audit-scope.json",
     "mdsap-evidence-gaps.json",
     "mdsap-task-readiness.json",
@@ -5589,8 +5652,6 @@
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
-    "decision-follow-up-register.json",
-    "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -5626,9 +5687,9 @@
     "ivd-udi-data-set.json",
     "ivdr-pms-assessment.json",
     "lifecycle-impact-gates.json",
-    "management-review-actions.json",
-    "management-review-brief.json",
-    "management-review-brief.md",
+    "management-review-effectiveness-gaps.json",
+    "management-review-follow-up-status.json",
+    "management-review-return-input.json",
     "mdsap-audit-scope.json",
     "mdsap-evidence-gaps.json",
     "mdsap-task-readiness.json",
