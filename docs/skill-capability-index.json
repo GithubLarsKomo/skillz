@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 56,
-  "entrypointCount": 38,
+  "skillCount": 60,
+  "entrypointCount": 42,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 56,
+  "evaluationSuiteCount": 60,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1309,6 +1309,131 @@
       }
     },
     {
+      "name": "ivdr-analytical-performance",
+      "description": "Bewertet analytische IVD-Leistungsmerkmale evidenzgebunden, verknüpft Methoden, Akzeptanzkriterien, Ergebnisse und Gaps.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [
+        "ivdr-performance-evaluation"
+      ],
+      "outputs": [
+        "analytical-performance-assessment.json",
+        "analytical-performance-plan.json",
+        "analytical-performance-report.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "analytical-performance-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-analytical-performance"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        },
+        {
+          "output": "analytical-performance-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-analytical-performance"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        },
+        {
+          "output": "analytical-performance-report.md",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-analytical-performance"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-clinical-performance-study",
+      "description": "Plant klinische IVD-Performance-Evidenz nach IVDR/ISO 20916 mit Risiko-, Bias-, Endpunkt- und Gap-Kontrolle.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "mdcg-guidance-navigator",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [
+        "ivdr-performance-evaluation"
+      ],
+      "outputs": [
+        "clinical-performance-evidence.json",
+        "clinical-performance-study-plan.json",
+        "performance-study-gaps.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "clinical-performance-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-clinical-performance-study"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        },
+        {
+          "output": "clinical-performance-study-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-clinical-performance-study"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        },
+        {
+          "output": "performance-study-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-clinical-performance-study"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "ivdr-device-classification",
       "description": "Erstellt für ein IVD eine evidenzgebundene IVDR-Qualifikations- und Klassifikationshypothese nach Artikel 47/Anhang VIII mit expliziter Regelbegründung, konkurrierenden Regeln, Unsicherheiten und aktueller MDCG-Guidance. Verwenden für Class A/B/C/D Assessments; keine endgültige Behörden-/NB-Entscheidung simulieren.",
       "invocation": {
@@ -1341,6 +1466,103 @@
             "ivdr-device-classification"
           ],
           "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-performance-evaluation",
+      "description": "Orchestriert wissenschaftliche Validität, analytische und klinische Performance zu einer IVDR-Gesamtbewertung mit Gaps.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
+        "ivdr-scientific-validity",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "ivdr-performance-evaluation-gaps.json",
+        "ivdr-performance-evaluation.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "ivdr-performance-evaluation-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-performance-evaluation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ivdr-performance-evaluation.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-performance-evaluation"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-scientific-validity",
+      "description": "Bewertet die wissenschaftliche Validität eines IVD evidenzgebunden und trennt Association, Claim, Evidenzstärke und Gap.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "ivdr-performance-evaluation"
+      ],
+      "outputs": [
+        "scientific-validity-assessment.json",
+        "scientific-validity-report.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "scientific-validity-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-scientific-validity"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
+        },
+        {
+          "output": "scientific-validity-report.md",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-scientific-validity"
+          ],
+          "consumerSkills": [
+            "ivdr-performance-evaluation"
+          ]
         }
       ],
       "portableFiles": [
@@ -1513,6 +1735,7 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification"
       ],
       "outputs": [
@@ -1527,6 +1750,7 @@
             "mdcg-guidance-navigator"
           ],
           "consumerSkills": [
+            "ivdr-clinical-performance-study",
             "ivdr-device-classification"
           ]
         },
@@ -1537,6 +1761,7 @@
             "mdcg-guidance-navigator"
           ],
           "consumerSkills": [
+            "ivdr-clinical-performance-study",
             "ivdr-device-classification"
           ]
         }
@@ -1870,6 +2095,8 @@
       ],
       "dependents": [
         "eu-mdr-ivdr-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -1887,6 +2114,8 @@
           ],
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "medical-device-capa",
             "medical-device-regulatory-strategy"
           ]
@@ -1899,6 +2128,8 @@
           ],
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "medical-device-capa",
             "medical-device-regulatory-strategy"
           ]
@@ -1911,6 +2142,8 @@
           ],
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "medical-device-capa",
             "medical-device-regulatory-strategy"
           ]
@@ -2415,7 +2648,10 @@
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-medical-device-ivd-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
@@ -2439,7 +2675,10 @@
             "controlled-quality-documentation",
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-medical-device-ivd-regulatory-specialist",
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
@@ -2459,7 +2698,10 @@
             "controlled-quality-documentation",
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-medical-device-ivd-regulatory-specialist",
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-isms-governance",
             "medical-device-privacy-gdpr-bdsg",
@@ -2492,7 +2734,11 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-performance-evaluation",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator"
       ],
       "outputs": [
@@ -2507,7 +2753,11 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-performance-evaluation",
+            "ivdr-scientific-validity",
             "mdcg-guidance-navigator"
           ]
         },
@@ -2518,7 +2768,11 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "ivdr-analytical-performance",
+            "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-performance-evaluation",
+            "ivdr-scientific-validity",
             "mdcg-guidance-navigator"
           ]
         }
@@ -2596,6 +2850,7 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-medical-device-ivd-regulatory-specialist",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
@@ -2618,6 +2873,7 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-medical-device-ivd-regulatory-specialist",
+            "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
@@ -2636,6 +2892,7 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-medical-device-ivd-regulatory-specialist",
+            "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",

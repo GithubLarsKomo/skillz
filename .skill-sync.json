@@ -143,10 +143,34 @@
         "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
       }
     },
+    "ivdr-analytical-performance": {
+      "files": {
+        "SKILL.md": "2e1510408505360360e2687c403ecaca923689ec23e55d2058b68a5a31d3dfd5",
+        "agents/openai.yaml": "de8801b3c9f2e9ff8686256c1b236d6a20c106fef5ba45d45a7c7ce20dbfa4b6"
+      }
+    },
+    "ivdr-clinical-performance-study": {
+      "files": {
+        "SKILL.md": "d7e2ef526fc9d6a21c0eacc2f42f3bc6019281e6852eea927818503e4c1a065b",
+        "agents/openai.yaml": "96fd51129628742dd1660234d10e00a82d939b79c41373e812f0e8502ecc047b"
+      }
+    },
     "ivdr-device-classification": {
       "files": {
         "SKILL.md": "3daa7063ab01c7eaf821690b868f6558d11571f6ccfb9ec0687f065c4a2f72b7",
         "agents/openai.yaml": "a9e06186a499aa8448fadfa7816c6abc104d3705eb8f43976445030826afb084"
+      }
+    },
+    "ivdr-performance-evaluation": {
+      "files": {
+        "SKILL.md": "a5e912579b0bb99b1054c294d9d4137872e016d3a06f7804907a94e7ec721b2d",
+        "agents/openai.yaml": "2a2ebb29daa9e518f257a18a36f230c95e6ec5e07741a9e21155f5224a4754e2"
+      }
+    },
+    "ivdr-scientific-validity": {
+      "files": {
+        "SKILL.md": "e6ef29a6faab636c2309666d3e4b6d6db2dad2fac2112beff890b0b54bf69e1b",
+        "agents/openai.yaml": "3dc85d29b239777aad454613479074eb32aaac4b286acfa65bedadf559830d8a"
       }
     },
     "knowledge-map-generator": {

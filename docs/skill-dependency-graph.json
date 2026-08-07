@@ -249,6 +249,33 @@
       ]
     },
     {
+      "name": "ivdr-analytical-performance",
+      "requires": [
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "analytical-performance-assessment.json",
+        "analytical-performance-plan.json",
+        "analytical-performance-report.md"
+      ]
+    },
+    {
+      "name": "ivdr-clinical-performance-study",
+      "requires": [
+        "mdcg-guidance-navigator",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "clinical-performance-evidence.json",
+        "clinical-performance-study-plan.json",
+        "performance-study-gaps.json"
+      ]
+    },
+    {
       "name": "ivdr-device-classification",
       "requires": [
         "mdcg-guidance-navigator",
@@ -258,6 +285,31 @@
       "outputs": [
         "ivdr-classification-assessment.json",
         "ivdr-classification-rationale.md"
+      ]
+    },
+    {
+      "name": "ivdr-performance-evaluation",
+      "requires": [
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
+        "ivdr-scientific-validity",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "ivdr-performance-evaluation-gaps.json",
+        "ivdr-performance-evaluation.json"
+      ]
+    },
+    {
+      "name": "ivdr-scientific-validity",
+      "requires": [
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "scientific-validity-assessment.json",
+        "scientific-validity-report.md"
       ]
     },
     {
@@ -756,6 +808,34 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "ivdr-analytical-performance",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "ivdr-analytical-performance",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-analytical-performance",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-clinical-performance-study",
+      "to": "mdcg-guidance-navigator"
+    },
+    {
+      "from": "ivdr-clinical-performance-study",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "ivdr-clinical-performance-study",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-clinical-performance-study",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "ivdr-device-classification",
       "to": "mdcg-guidance-navigator"
     },
@@ -766,6 +846,34 @@
     {
       "from": "ivdr-device-classification",
       "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-performance-evaluation",
+      "to": "ivdr-analytical-performance"
+    },
+    {
+      "from": "ivdr-performance-evaluation",
+      "to": "ivdr-clinical-performance-study"
+    },
+    {
+      "from": "ivdr-performance-evaluation",
+      "to": "ivdr-scientific-validity"
+    },
+    {
+      "from": "ivdr-performance-evaluation",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-scientific-validity",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-scientific-validity",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-scientific-validity",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "knowledge-map-generator",
@@ -1044,6 +1152,39 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "analytical-performance-assessment.json",
+      "producers": [
+        "ivdr-analytical-performance"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "analytical-performance-plan.json",
+      "producers": [
+        "ivdr-analytical-performance"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "analytical-performance-report.md",
+      "producers": [
+        "ivdr-analytical-performance"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "approved SPEC.md",
       "producers": [
         "round-based-requirements-grilling"
@@ -1168,6 +1309,28 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "clinical-performance-evidence.json",
+      "producers": [
+        "ivdr-clinical-performance-study"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "clinical-performance-study-plan.json",
+      "producers": [
+        "ivdr-clinical-performance-study"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "communication-profile.json",
@@ -1534,6 +1697,7 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-medical-device-ivd-regulatory-specialist",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
@@ -1553,6 +1717,7 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-medical-device-ivd-regulatory-specialist",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
@@ -1786,6 +1951,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "ivdr-performance-evaluation-gaps.json",
+      "producers": [
+        "ivdr-performance-evaluation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "ivdr-performance-evaluation.json",
+      "producers": [
+        "ivdr-performance-evaluation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "knowledge-artifact.json",
       "producers": [
         "structured-knowledge-artifact"
@@ -1866,6 +2049,7 @@
         "mdcg-guidance-navigator"
       ],
       "consumerSkills": [
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification"
       ],
       "ambiguous": false,
@@ -1877,6 +2061,7 @@
         "mdcg-guidance-navigator"
       ],
       "consumerSkills": [
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification"
       ],
       "ambiguous": false,
@@ -2004,6 +2189,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "performance-study-gaps.json",
+      "producers": [
+        "ivdr-clinical-performance-study"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "privacy-assessment.json",
@@ -2195,7 +2391,10 @@
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-medical-device-ivd-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
@@ -2216,7 +2415,10 @@
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-medical-device-ivd-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
@@ -2234,7 +2436,11 @@
         "regulatory-evidence-traceability"
       ],
       "consumerSkills": [
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-performance-evaluation",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator"
       ],
       "ambiguous": false,
@@ -2246,7 +2452,11 @@
         "regulatory-evidence-traceability"
       ],
       "consumerSkills": [
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-performance-evaluation",
+        "ivdr-scientific-validity",
         "mdcg-guidance-navigator"
       ],
       "ambiguous": false,
@@ -2377,6 +2587,8 @@
       ],
       "consumerSkills": [
         "eu-mdr-ivdr-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -2390,6 +2602,8 @@
       ],
       "consumerSkills": [
         "eu-mdr-ivdr-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -2403,8 +2617,32 @@
       ],
       "consumerSkills": [
         "eu-mdr-ivdr-regulatory-specialist",
+        "ivdr-analytical-performance",
+        "ivdr-clinical-performance-study",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "scientific-validity-assessment.json",
+      "producers": [
+        "ivdr-scientific-validity"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "scientific-validity-report.md",
+      "producers": [
+        "ivdr-scientific-validity"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2649,6 +2887,8 @@
     "isms-audit-report.md",
     "ivdr-classification-assessment.json",
     "ivdr-classification-rationale.md",
+    "ivdr-performance-evaluation-gaps.json",
+    "ivdr-performance-evaluation.json",
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
@@ -2708,6 +2948,8 @@
     "isms-audit-report.md",
     "ivdr-classification-assessment.json",
     "ivdr-classification-rationale.md",
+    "ivdr-performance-evaluation-gaps.json",
+    "ivdr-performance-evaluation.json",
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
