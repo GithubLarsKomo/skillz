@@ -100,6 +100,12 @@
         "agents/openai.yaml": "7c17cd5fb038a41f12318e4ee78700ba7cfa23b03ba1e1c4743fdfb156209981"
       }
     },
+    "eudamed-udi-ivd": {
+      "files": {
+        "SKILL.md": "6af48c583e39dfaf95fb594116d08c321edab3f19951978d5d5a94f25bc3e916",
+        "agents/openai.yaml": "ec7fcd13b486a1f7e606feea64a9caa2577d098671cf4f2e1b513e2843dba793"
+      }
+    },
     "evidence-based-causal-investigation": {
       "files": {
         "SKILL.md": "62bfca7b569694b234b1692fdaffb4e4f8c44d7fca9d767d0865666b484cf1d2",
@@ -243,6 +249,12 @@
       "files": {
         "SKILL.md": "2e1510408505360360e2687c403ecaca923689ec23e55d2058b68a5a31d3dfd5",
         "agents/openai.yaml": "de8801b3c9f2e9ff8686256c1b236d6a20c106fef5ba45d45a7c7ce20dbfa4b6"
+      }
+    },
+    "ivdr-class-d-conformity": {
+      "files": {
+        "SKILL.md": "8d71140ac44b5edf249cdcc76e89920e4359a873d08f1e2bdacdf28b9b6aa08f",
+        "agents/openai.yaml": "162b4cc2f1f343c1e76887d7a9ae45a38d051400609e87596f78fd3cfb8e06d2"
       }
     },
     "ivdr-clinical-performance-study": {
