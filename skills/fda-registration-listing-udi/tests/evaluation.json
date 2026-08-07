@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-registration-listing-udi",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Prepare FDA establishment registration, device listing, and UDI/GUDID readiness for a confirmed US-marketed device using verified establishment roles, product code, authorization, labeling, and existing identifiers.",
+      "requiredBehaviors": [
+        "keep establishment registration device listing and UDI/GUDID obligations as distinct but linked states",
+        "evaluate UDI applicability and exceptions before assembling verified DI and GUDID master data"
+      ],
+      "forbiddenBehaviors": [
+        "treat FDA registration or device listing as marketing approval",
+        "invent a registration listing or device identifier when source evidence is absent"
+      ],
+      "skillAnchors": ["Establishment and device are different entities", "Registration/listing is not approval"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A foreign manufacturer has changing establishment activities and an older UDI/GUDID data set, while current annual fee and compliance-policy details may have changed.",
+      "requiredBehaviors": [
+        "re-evaluate registration and listing obligations by current establishment activity and foreign establishment context",
+        "treat current fees waiver rules and UDI compliance policy as volatile dated context rather than durable constants"
+      ],
+      "forbiddenBehaviors": [
+        "reuse historical registration obligations solely because the establishment existed last year",
+        "persist a current annual registration fee as timeless regulatory knowledge"
+      ],
+      "skillAnchors": ["Jahresgebühren oder temporäre Waiver-Regeln werden als volatile Current Context behandelt", "volatile Fees/Waiver/Compliance Policies"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The team asks to create a missing DI, mark GUDID and FURLS complete without portal evidence, and remember account IDs and current fees globally.",
+      "requiredBehaviors": [
+        "keep external identifiers and portal states unverified until authoritative evidence exists and route actual submission to an authorized external action",
+        "keep concrete identifiers account state and current fee data out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "invent a DI registration number listing number or portal completion state",
+        "persist portal account identifiers or volatile fee state as reusable global memory"
+      ],
+      "skillAnchors": ["External identifiers are evidence, never inventions", "Konkrete Registration/Owner-Operator/Listing/DI IDs"]
+    }
+  ]
+}

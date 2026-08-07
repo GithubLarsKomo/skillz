@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **91**
-- User-facing entrypoints: **73**
-- Evaluation suites: **91**
+- Skills: **94**
+- User-facing entrypoints: **76**
+- Evaluation suites: **94**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **105**
+- Outputs without inferred hard-requires consumers: **109**
 
 ## Evaluation gaps
 
@@ -34,24 +34,24 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
-- `change-verification-needs.json` — producer: `design-change-regulatory-impact`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
 - `class-d-conformity-plan.json` — producer: `ivdr-class-d-conformity`
 - `class-d-external-dependencies.json` — producer: `ivdr-class-d-conformity`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
-- `complaint-regulatory-actions.json` — producer: `fda-complaint-mdr-reportability`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
+- `correction-removal-action-plan.json` — producer: `fda-corrections-removals`
+- `correction-removal-assessment.json` — producer: `fda-corrections-removals`
+- `correction-removal-reporting-state.json` — producer: `fda-corrections-removals`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
 - `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`
 - `decision-follow-up-register.md` — producer: `decision-and-follow-up-tracker`
-- `design-change-impact.json` — producer: `design-change-regulatory-impact`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -66,8 +66,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `execution plan` — producer: `synapse-orchestrator`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
+- `fda-device-listing-readiness.json` — producer: `fda-registration-listing-udi`
+- `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
+- `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
 - `import verification` — producer: `openasr-offline-model-import`
@@ -81,7 +84,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
-- `mdr-reportability-assessment.json` — producer: `fda-complaint-mdr-reportability`
 - `measurement-capability-study.json` — producer: `measurement-system-validation`
 - `measurement-evidence-gaps.json` — producer: `measurement-system-validation`
 - `measurement-system-assessment.json` — producer: `measurement-system-validation`
@@ -94,6 +96,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `obsidian-note.md` — producer: `obsidian-adapter`
 - `obsidian-view.base` — producer: `obsidian-adapter`
 - `opaque-analysis-evidence.md` — producer: `opaque-system-analysis`
+- `pccp-applicability.json` — producer: `fda-pccp-change-control`
+- `pccp-change-evidence.json` — producer: `fda-pccp-change-control`
+- `pccp-deviation-routing.json` — producer: `fda-pccp-change-control`
 - `per-traceability.json` — producer: `ivdr-performance-evaluation-report`
 - `performance-evaluation-report.md` — producer: `ivdr-performance-evaluation-report`
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
@@ -110,7 +115,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
-- `regulatory-change-decisions.json` — producer: `design-change-regulatory-impact`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`

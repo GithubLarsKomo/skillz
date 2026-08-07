@@ -148,6 +148,12 @@
         "agents/openai.yaml": "2fa5c3b326f2a9599186cb3c7468a5a3accb11e552b37f1f6e446b5ce4c58ad8"
       }
     },
+    "fda-corrections-removals": {
+      "files": {
+        "SKILL.md": "258e36504095c462364b474e47b91da5ae768767068f73ddae1e7332dc4841c3",
+        "agents/openai.yaml": "937e4aeddfc6b1c8b5475e9aa7237d0bb5c4bc760fb474cd3ecc9d29384025ec"
+      }
+    },
     "fda-de-novo-special-controls": {
       "files": {
         "SKILL.md": "afcd552bdd509f14114301122868bcf0003bd1d58682c3111c1b15d44c2a73fd",
@@ -190,6 +196,12 @@
         "agents/openai.yaml": "12aa69158097cc75fcb368ddfe8292791529a37999f99506752265a69fd675a6"
       }
     },
+    "fda-pccp-change-control": {
+      "files": {
+        "SKILL.md": "0ff1dfa20a341a582e46b4229278645d60d1ed7afefcc62885ce36240b381d9e",
+        "agents/openai.yaml": "3a19b5309b3a9c47aaacb606bd91e16108e40776433faf82ae89fee4759db2f3"
+      }
+    },
     "fda-qmsr-inspection-readiness": {
       "files": {
         "SKILL.md": "a02e58e83c9a667f6e889c4b36b93ec2a133aae4659c0e006fab67175c3750f3",
@@ -206,6 +218,12 @@
       "files": {
         "SKILL.md": "5d87b5520bf85622e233853298834a55510c8339cdfe84d2c3064aaf913a5ed2",
         "agents/openai.yaml": "b1b5fc0ffc5767036f3cdc0e13d7f446f32b6972b7464a8c3f1493e3e20236da"
+      }
+    },
+    "fda-registration-listing-udi": {
+      "files": {
+        "SKILL.md": "071f15ce4dddcc24311e133470154a42ffd4f53043279c4408ed714294838902",
+        "agents/openai.yaml": "dd9beb6ddda6a7128aa7851eb59822d8e45e9ca809397e1b2fe12d4fde4f722c"
       }
     },
     "human-procedure-wizard": {

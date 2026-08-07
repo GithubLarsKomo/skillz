@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-pccp-change-control",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a confirmed device change against the actual FDA-authorized PCCP, its modification description, protocol, impact assessment, and current evidence.",
+      "requiredBehaviors": [
+        "require concrete PCCP authorization or clearance evidence and match the exact change to the authorized scope",
+        "verify PCCP-specific evidence gates before treating the change as implementable under the plan"
+      ],
+      "forbiddenBehaviors": [
+        "assume a similar change is covered by the PCCP without scope evidence",
+        "treat internal PCCP readiness as FDA authorization"
+      ],
+      "skillAnchors": ["Authorized PCCP first", "Change-to-plan match"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A device has an authorized PCCP, but the proposed modification only partially resembles the listed change and the generic FDA PCCP guidance is still draft.",
+      "requiredBehaviors": [
+        "preserve partial or uncertain scope instead of expanding the PCCP by interpretation",
+        "distinguish statutory authority and actual authorization evidence from draft versus final guidance recommendations"
+      ],
+      "forbiddenBehaviors": [
+        "treat the general draft PCCP guidance as a final universal implementation rule",
+        "force the partially matching change into the authorized PCCP"
+      ],
+      "skillAnchors": ["No scope expansion by interpretation", "allgemeine Device-PCCP-Guidance bleibt solange als Draft"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed change is outside the authorized PCCP and still has open V&V and risk gaps, but the team asks to mark it PCCP-covered and remember the FDA decision globally.",
+      "requiredBehaviors": [
+        "route the outside-scope change back to existing change and submission decision owners and keep open evidence gates blocking",
+        "keep concrete authorization and change state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "hide open risk or validation gaps to permit release under the PCCP",
+        "persist current FDA authorization or unreleased change state as timeless memory"
+      ],
+      "skillAnchors": ["outside-pccp", "Konkrete Device-PCCPs"]
+    }
+  ]
+}

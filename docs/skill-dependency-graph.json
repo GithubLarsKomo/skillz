@@ -276,6 +276,20 @@
       ]
     },
     {
+      "name": "fda-corrections-removals",
+      "requires": [
+        "decision-record",
+        "fda-complaint-mdr-reportability",
+        "medical-device-capa",
+        "medical-device-risk-management-iso14971"
+      ],
+      "outputs": [
+        "correction-removal-action-plan.json",
+        "correction-removal-assessment.json",
+        "correction-removal-reporting-state.json"
+      ]
+    },
+    {
       "name": "fda-de-novo-special-controls",
       "requires": [
         "fda-de-novo-strategy",
@@ -364,6 +378,20 @@
       ]
     },
     {
+      "name": "fda-pccp-change-control",
+      "requires": [
+        "decision-record",
+        "design-change-regulatory-impact",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "pccp-applicability.json",
+        "pccp-change-evidence.json",
+        "pccp-deviation-routing.json"
+      ]
+    },
+    {
       "name": "fda-qmsr-inspection-readiness",
       "requires": [
         "fda-qmsr-iso13485-gap",
@@ -398,6 +426,20 @@
         "qsub-briefing-package.md",
         "qsub-commitments.json",
         "qsub-question-set.json"
+      ]
+    },
+    {
+      "name": "fda-registration-listing-udi",
+      "requires": [
+        "decision-record",
+        "medical-device-labeling-ifu",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "fda-device-listing-readiness.json",
+        "fda-registration-readiness.json",
+        "gudid-udi-readiness.json"
       ]
     },
     {
@@ -1279,6 +1321,22 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "fda-corrections-removals",
+      "to": "decision-record"
+    },
+    {
+      "from": "fda-corrections-removals",
+      "to": "fda-complaint-mdr-reportability"
+    },
+    {
+      "from": "fda-corrections-removals",
+      "to": "medical-device-capa"
+    },
+    {
+      "from": "fda-corrections-removals",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
       "from": "fda-de-novo-special-controls",
       "to": "fda-de-novo-strategy"
     },
@@ -1367,6 +1425,22 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "fda-pccp-change-control",
+      "to": "decision-record"
+    },
+    {
+      "from": "fda-pccp-change-control",
+      "to": "design-change-regulatory-impact"
+    },
+    {
+      "from": "fda-pccp-change-control",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "fda-pccp-change-control",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "fda-qmsr-inspection-readiness",
       "to": "fda-qmsr-iso13485-gap"
     },
@@ -1400,6 +1474,22 @@
     },
     {
       "from": "fda-qsub-strategy",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "fda-registration-listing-udi",
+      "to": "decision-record"
+    },
+    {
+      "from": "fda-registration-listing-udi",
+      "to": "medical-device-labeling-ifu"
+    },
+    {
+      "from": "fda-registration-listing-udi",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "fda-registration-listing-udi",
       "to": "regulatory-evidence-traceability"
     },
     {
@@ -2088,6 +2178,7 @@
         "medical-device-capa"
       ],
       "consumerSkills": [
+        "fda-corrections-removals",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -2099,6 +2190,7 @@
         "medical-device-capa"
       ],
       "consumerSkills": [
+        "fda-corrections-removals",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -2110,6 +2202,7 @@
         "medical-device-capa"
       ],
       "consumerSkills": [
+        "fda-corrections-removals",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -2153,9 +2246,11 @@
       "producers": [
         "design-change-regulatory-impact"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-pccp-change-control"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "claim-conflicts.json",
@@ -2271,9 +2366,11 @@
       "producers": [
         "fda-complaint-mdr-reportability"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-corrections-removals"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "compliance-evidence-effectiveness.json",
@@ -2412,6 +2509,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "correction-removal-action-plan.json",
+      "producers": [
+        "fda-corrections-removals"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "correction-removal-assessment.json",
+      "producers": [
+        "fda-corrections-removals"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "correction-removal-reporting-state.json",
+      "producers": [
+        "fda-corrections-removals"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "cybersecurity-evidence-map.json",
       "producers": [
         "medical-device-cybersecurity-lifecycle"
@@ -2507,7 +2631,10 @@
         "design-change-regulatory-impact",
         "domain-model-maintenance",
         "fda-additional-information-response",
-        "fda-qsub-strategy"
+        "fda-corrections-removals",
+        "fda-pccp-change-control",
+        "fda-qsub-strategy",
+        "fda-registration-listing-udi"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2521,7 +2648,10 @@
         "design-change-regulatory-impact",
         "domain-model-maintenance",
         "fda-additional-information-response",
-        "fda-qsub-strategy"
+        "fda-corrections-removals",
+        "fda-pccp-change-control",
+        "fda-qsub-strategy",
+        "fda-registration-listing-udi"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2557,9 +2687,11 @@
       "producers": [
         "design-change-regulatory-impact"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-pccp-change-control"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "design-control-traceability.json",
@@ -2889,6 +3021,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "fda-device-listing-readiness.json",
+      "producers": [
+        "fda-registration-listing-udi"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "fda-product-code-evidence.json",
       "producers": [
         "fda-device-classification-product-code"
@@ -2900,6 +3041,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "fda-registration-readiness.json",
+      "producers": [
+        "fda-registration-listing-udi"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "fda-regulatory-assessment.json",
@@ -2970,6 +3120,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "gudid-udi-readiness.json",
+      "producers": [
+        "fda-registration-listing-udi"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "human-procedure-plan.md",
       "producers": [
         "human-procedure-wizard"
@@ -2994,6 +3153,7 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
+        "fda-registration-listing-udi",
         "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
@@ -3267,6 +3427,7 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
+        "fda-registration-listing-udi",
         "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
@@ -3280,6 +3441,7 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
+        "fda-registration-listing-udi",
         "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
@@ -3350,9 +3512,11 @@
       "producers": [
         "fda-complaint-mdr-reportability"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-corrections-removals"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "measurement-capability-study.json",
@@ -3517,6 +3681,33 @@
       "output": "opaque-analysis-evidence.md",
       "producers": [
         "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pccp-applicability.json",
+      "producers": [
+        "fda-pccp-change-control"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pccp-change-evidence.json",
+      "producers": [
+        "fda-pccp-change-control"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pccp-deviation-routing.json",
+      "producers": [
+        "fda-pccp-change-control"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -3939,6 +4130,7 @@
         "fda-device-classification-product-code",
         "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
+        "fda-registration-listing-udi",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -3976,6 +4168,7 @@
         "fda-device-classification-product-code",
         "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
+        "fda-registration-listing-udi",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -4002,9 +4195,11 @@
       "producers": [
         "design-change-regulatory-impact"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-pccp-change-control"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "regulatory-evidence-gaps.json",
@@ -4025,8 +4220,10 @@
         "fda-dual-510k-clia-waiver",
         "fda-estar-submission-builder",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
+        "fda-registration-listing-udi",
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
@@ -4062,8 +4259,10 @@
         "fda-dual-510k-clia-waiver",
         "fda-estar-submission-builder",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
+        "fda-registration-listing-udi",
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
@@ -4218,9 +4417,11 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
         "fda-complaint-mdr-reportability",
+        "fda-corrections-removals",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -4250,9 +4451,11 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
         "fda-complaint-mdr-reportability",
+        "fda-corrections-removals",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -4282,9 +4485,11 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
         "fda-complaint-mdr-reportability",
+        "fda-corrections-removals",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -4699,24 +4904,24 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
-    "change-verification-needs.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
     "class-d-external-dependencies.json",
     "communication-profile.merged.json",
-    "complaint-regulatory-actions.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
+    "correction-removal-action-plan.json",
+    "correction-removal-assessment.json",
+    "correction-removal-reporting-state.json",
     "cybersecurity-evidence-map.json",
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
-    "design-change-impact.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -4731,8 +4936,11 @@
     "execution plan",
     "expert handoff",
     "fda-acceptance-preflight.json",
+    "fda-device-listing-readiness.json",
+    "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
@@ -4746,7 +4954,6 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
-    "mdr-reportability-assessment.json",
     "measurement-capability-study.json",
     "measurement-evidence-gaps.json",
     "measurement-system-assessment.json",
@@ -4759,6 +4966,9 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "pccp-applicability.json",
+    "pccp-change-evidence.json",
+    "pccp-deviation-routing.json",
     "per-traceability.json",
     "performance-evaluation-report.md",
     "pmpf-evaluation-report.md",
@@ -4775,7 +4985,6 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
-    "regulatory-change-decisions.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
@@ -4806,24 +5015,24 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
-    "change-verification-needs.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
     "class-d-external-dependencies.json",
     "communication-profile.merged.json",
-    "complaint-regulatory-actions.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
+    "correction-removal-action-plan.json",
+    "correction-removal-assessment.json",
+    "correction-removal-reporting-state.json",
     "cybersecurity-evidence-map.json",
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
-    "design-change-impact.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -4838,8 +5047,11 @@
     "execution plan",
     "expert handoff",
     "fda-acceptance-preflight.json",
+    "fda-device-listing-readiness.json",
+    "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
@@ -4853,7 +5065,6 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
-    "mdr-reportability-assessment.json",
     "measurement-capability-study.json",
     "measurement-evidence-gaps.json",
     "measurement-system-assessment.json",
@@ -4866,6 +5077,9 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "pccp-applicability.json",
+    "pccp-change-evidence.json",
+    "pccp-deviation-routing.json",
     "per-traceability.json",
     "performance-evaluation-report.md",
     "pmpf-evaluation-report.md",
@@ -4882,7 +5096,6 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
-    "regulatory-change-decisions.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",

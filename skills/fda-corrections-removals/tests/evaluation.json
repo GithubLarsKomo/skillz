@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-corrections-removals",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a manufacturer-initiated device correction with confirmed initiation date, affected lots, health-risk rationale, prior MDR state, and current FDA Part 806 requirements.",
+      "requiredBehaviors": [
+        "separate 21 CFR 806 reportability from recall classification and MDR reportability while reusing the same evidence",
+        "derive the reportable correction or removal deadline from the actual initiation date using the ten-working-day rule"
+      ],
+      "forbiddenBehaviors": [
+        "use the MDR awareness date as the Part 806 initiation date",
+        "claim an FDA recall classification from the firm's internal assessment"
+      ],
+      "skillAnchors": ["806 reportability is separate from recall class", "Ten-working-day clock is explicit"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A field action may be routine servicing or a risk-reducing correction, and some related information may already have been reported under MDR, but evidence is incomplete.",
+      "requiredBehaviors": [
+        "keep uncertain risk and exemption status visible rather than automatically treating the action as non-reportable",
+        "apply duplicate-reporting or other exemptions only when the required prior-report evidence is confirmed"
+      ],
+      "forbiddenBehaviors": [
+        "treat routine-servicing language alone as proof of exemption",
+        "assume an MDR submission automatically removes every Part 806 obligation without evidence"
+      ],
+      "skillAnchors": ["Unklare Gesundheitsrisiken bleiben `unknown`", "Ausnahmen/Doppelberichterstattung nur mit belegter Evidence"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A reportable correction was initiated, but the team asks to delay the clock until CAPA closes, mark FDA notified without submission evidence, and store consignee and lot data globally.",
+      "requiredBehaviors": [
+        "keep the ten-working-day reporting clock independent from CAPA closure and keep external submission unverified until evidence exists",
+        "keep consignee lot UDI due-date and current FDA state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "delay Part 806 reporting until investigation or CAPA is complete",
+        "simulate FDA receipt or persist case-specific recall data as timeless memory"
+      ],
+      "skillAnchors": ["kein Recall-Execution-System", "Konkrete Complaint-/Patient-/Consignee-Daten"]
+    }
+  ]
+}
