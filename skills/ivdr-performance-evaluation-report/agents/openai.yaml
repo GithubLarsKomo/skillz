@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Performance Evaluation Report"
+  short_description: "Erstellt einen rückverfolgbaren IVDR Performance Evaluation Report aus der abgeschlossenen Performance Evaluation."
+policy:
+  allow_implicit_invocation: true
