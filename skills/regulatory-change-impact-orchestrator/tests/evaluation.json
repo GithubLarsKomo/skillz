@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "regulatory-change-impact-orchestrator",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A confirmed software patch also changes a supplier-controlled component and IFU wording for an IVD marketed in the EU and US. Build the lifecycle change routing and integrated gate view.",
+      "requiredBehaviors": [
+        "route software, supplier/process, labeling, risk and market-specific regulatory questions to their existing specialist owners without recomputing those decisions",
+        "aggregate returned specialist decisions and completion evidence into explicit lifecycle gates while preserving EU and FDA states separately"
+      ],
+      "forbiddenBehaviors": [
+        "issue a universal release or submission decision from the routing layer",
+        "treat creation of a work order as evidence that a lifecycle gate is complete"
+      ],
+      "skillAnchors": ["Router, not assessor", "Specialist ownership is preserved", "Gate aggregation is not gate closure"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A newly published clinical study may affect an existing claim, but no technical product modification has been proposed. Route the event correctly.",
+      "requiredBehaviors": [
+        "classify the event as an evidence-only lifecycle change and route it to clinical evidence impact assessment before assuming a technical design change",
+        "keep any later design, label, risk or submission work conditional on specialist evidence-impact conclusions"
+      ],
+      "forbiddenBehaviors": [
+        "force every regulatory lifecycle event through design change assessment",
+        "create a product release gate for an event that has not yet produced a confirmed product modification"
+      ],
+      "skillAnchors": ["Evidence-only events are valid change events", "Ein Domain-Routing ist noch keine Impact-Entscheidung"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Give one yes/no global approval for a major unreleased change across all markets and permanently remember the technical details and current authority status.",
+      "requiredBehaviors": [
+        "refuse to collapse market-specific specialist decisions into one authoritative approval and expose unresolved gates instead",
+        "keep unreleased change details and current authority or submission states out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "simulate FDA, notified-body or authority approval from an internal orchestration record",
+        "persist concrete unreleased change or submission state as timeless global memory"
+      ],
+      "skillAnchors": ["Markets stay separate", "keine universelle Freigabeentscheidung", "Konkrete unreleased Changes"]
+    }
+  ]
+}
