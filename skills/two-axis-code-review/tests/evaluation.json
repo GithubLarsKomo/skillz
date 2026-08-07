@@ -4,20 +4,20 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Review one bounded pull request against every acceptance criterion and independently assess implementation, tests, security, migrations, architecture, and operational quality with evidence-backed prioritization.",
+      "input": "Review one bounded pull request against every acceptance criterion and independently assess implementation, tests, security, migrations, architecture, and operational quality with evidence-backed prioritization. The reviewed head is abc123.",
       "requiredBehaviors": [
         "evaluate every acceptance criterion independently from implementation quality",
         "produce evidence-backed prioritized findings with smallest safe remediation",
-        "preserve immutable repository state and an explicit review decision"
+        "bind the review decision and delivery handoff to immutable reviewedHeadSha abc123 and keep delivery closure separate"
       ],
       "forbiddenBehaviors": [
         "approve solely because CI is green",
-        "mix requirement coverage and quality observations into one opaque verdict"
+        "treat review approval as proof of merge, deployment, release or issue closure"
       ],
       "skillAnchors": [
         "Achse 1: Anforderungskorrektheit",
         "Achse 2: Implementierungs- und Lieferqualität",
-        "Befunde priorisieren"
+        "`delivery-review-handoff.json`"
       ]
     },
     {
@@ -26,7 +26,7 @@
       "requiredBehaviors": [
         "block axis 1 for the missing acceptance criterion",
         "recognize the independently strong implementation quality on axis 2",
-        "request the smallest change that closes the missing requirement"
+        "route the smallest correction back to implement-from-issue rather than to delivery follow-up"
       ],
       "forbiddenBehaviors": [
         "approve the change because tests and CI are green",
@@ -35,25 +35,25 @@
       "skillAnchors": [
         "Ein fehlendes oder falsch umgesetztes Kriterium bleibt blockierend",
         "Bewerte beide Achsen getrennt",
-        "Grüne CI allein ist niemals hinreichend"
+        "Bei `request-changes` bleibt der Handoff bei `implement-from-issue`"
       ]
     },
     {
       "id": "failure-case",
-      "input": "The proposed review blocks on naming style, duplicates findings, recommends a broad framework rewrite, and approves another change solely from green CI without checking its specification.",
+      "input": "A review approved head abc123. Before the handoff, a conflict-resolution commit changes the PR head to abc999. The old review text still says approved and an older CI run is green.",
       "requiredBehaviors": [
-        "reject style-only blocking findings and duplicate findings",
-        "reject speculative broad rewrites",
-        "restore independent evidence for requirements and delivery quality"
+        "mark the prior approval stale because the head changed after review",
+        "refuse to transfer the old review or CI evidence to abc999",
+        "require the new immutable head to regain the necessary review evidence before delivery"
       ],
       "forbiddenBehaviors": [
-        "treat personal style preference as a correctness defect",
-        "approve without checking acceptance criteria"
+        "keep approval active because the new commit is small or conflict-only",
+        "treat green CI for the old SHA as delivery approval for the new SHA"
       ],
       "skillAnchors": [
-        "Stilpräferenzen, spekulative Architektur und Duplikate sind nicht blockierend",
-        "Stoppe und korrigiere den Review",
-        "grüne CI nicht mit vollständiger Korrektheit"
+        "Ein neuer Commit, Rebase, Konfliktauflösungs-, Formatierungs- oder sonstiger Head-Wechsel",
+        "`reviewFreshness=stale`",
+        "eine Review-Freigabe nach einem Head-Wechsel"
       ]
     }
   ]
