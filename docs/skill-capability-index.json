@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 66,
-  "entrypointCount": 48,
+  "skillCount": 69,
+  "entrypointCount": 51,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 66,
+  "evaluationSuiteCount": 69,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -518,7 +518,8 @@
         "two-axis-code-review"
       ],
       "dependents": [
-        "domain-model-maintenance"
+        "domain-model-maintenance",
+        "fda-qsub-strategy"
       ],
       "outputs": [
         "decision-record.json",
@@ -532,7 +533,8 @@
             "decision-record"
           ],
           "consumerSkills": [
-            "domain-model-maintenance"
+            "domain-model-maintenance",
+            "fda-qsub-strategy"
           ]
         },
         {
@@ -542,7 +544,8 @@
             "decision-record"
           ],
           "consumerSkills": [
-            "domain-model-maintenance"
+            "domain-model-maintenance",
+            "fda-qsub-strategy"
           ]
         }
       ],
@@ -1017,6 +1020,103 @@
       }
     },
     {
+      "name": "fda-de-novo-special-controls",
+      "description": "Entwickelt vorgeschlagene FDA-De-Novo-Special-Controls aus Risiko- und Evidenzlücken und trennt interne Control-Hypothesen strikt von später von FDA etablierten Controls.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-de-novo-strategy",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "de-novo-risk-control-rationale.md",
+        "special-controls-matrix.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "de-novo-risk-control-rationale.md",
+          "ambiguous": false,
+          "producers": [
+            "fda-de-novo-special-controls"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "special-controls-matrix.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-de-novo-special-controls"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-de-novo-strategy",
+      "description": "Entwickelt eine evidenzgebundene FDA-De-Novo-Strategie für neuartige Low-/Moderate-Risk-Devices ohne tragfähigen Predicate und verbindet Risiko, Controls, Evidenz und offene FDA-Fragen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-device-classification-product-code",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [
+        "fda-de-novo-special-controls"
+      ],
+      "outputs": [
+        "de-novo-evidence-gaps.json",
+        "de-novo-strategy.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "de-novo-evidence-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-de-novo-strategy"
+          ],
+          "consumerSkills": [
+            "fda-de-novo-special-controls"
+          ]
+        },
+        {
+          "output": "de-novo-strategy.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-de-novo-strategy"
+          ],
+          "consumerSkills": [
+            "fda-de-novo-special-controls"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fda-device-classification-product-code",
       "description": "Ermittelt FDA-Geräteklasse, Regulation Number, Product Code und Premarket-Kontext evidenzgebunden aus aktuellen offiziellen Quellen, ohne eine FDA-Entscheidung zu simulieren.",
       "invocation": {
@@ -1029,7 +1129,8 @@
         "research-to-evidence-note"
       ],
       "dependents": [
-        "fda-510k-predicate-strategy"
+        "fda-510k-predicate-strategy",
+        "fda-de-novo-strategy"
       ],
       "outputs": [
         "fda-device-classification.json",
@@ -1043,7 +1144,8 @@
             "fda-device-classification-product-code"
           ],
           "consumerSkills": [
-            "fda-510k-predicate-strategy"
+            "fda-510k-predicate-strategy",
+            "fda-de-novo-strategy"
           ]
         },
         {
@@ -1053,7 +1155,8 @@
             "fda-device-classification-product-code"
           ],
           "consumerSkills": [
-            "fda-510k-predicate-strategy"
+            "fda-510k-predicate-strategy",
+            "fda-de-novo-strategy"
           ]
         }
       ],
@@ -1080,6 +1183,7 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
       "outputs": [
@@ -1095,6 +1199,7 @@
             "fda-medical-device-ivd-regulatory-specialist"
           ],
           "consumerSkills": [
+            "fda-qsub-strategy",
             "medical-device-regulatory-strategy"
           ]
         },
@@ -1105,6 +1210,7 @@
             "fda-medical-device-ivd-regulatory-specialist"
           ],
           "consumerSkills": [
+            "fda-qsub-strategy",
             "medical-device-regulatory-strategy"
           ]
         },
@@ -1115,8 +1221,63 @@
             "fda-medical-device-ivd-regulatory-specialist"
           ],
           "consumerSkills": [
+            "fda-qsub-strategy",
             "medical-device-regulatory-strategy"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-qsub-strategy",
+      "description": "Strukturiert FDA-Q-Submission-Fragen, Briefing Package, gewünschtes Feedback und Commitments evidenzgebunden, ohne externe FDA-Interaktion oder Zustimmung zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "qsub-briefing-package.md",
+        "qsub-commitments.json",
+        "qsub-question-set.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "qsub-briefing-package.md",
+          "ambiguous": false,
+          "producers": [
+            "fda-qsub-strategy"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "qsub-commitments.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-qsub-strategy"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "qsub-question-set.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-qsub-strategy"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -2427,6 +2588,8 @@
       "dependents": [
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -2449,6 +2612,8 @@
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-substantial-equivalence",
+            "fda-de-novo-special-controls",
+            "fda-de-novo-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -2466,6 +2631,8 @@
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-substantial-equivalence",
+            "fda-de-novo-special-controls",
+            "fda-de-novo-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -2483,6 +2650,8 @@
           "consumerSkills": [
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-substantial-equivalence",
+            "fda-de-novo-special-controls",
+            "fda-de-novo-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -2991,6 +3160,7 @@
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-predicate-strategy",
+        "fda-de-novo-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
@@ -3021,6 +3191,7 @@
             "controlled-quality-documentation",
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-predicate-strategy",
+            "fda-de-novo-strategy",
             "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-analytical-performance",
@@ -3047,6 +3218,7 @@
             "controlled-quality-documentation",
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-predicate-strategy",
+            "fda-de-novo-strategy",
             "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-analytical-performance",
@@ -3088,7 +3260,10 @@
       "dependents": [
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-qsub-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
@@ -3113,7 +3288,10 @@
           "consumerSkills": [
             "fda-510k-predicate-strategy",
             "fda-510k-substantial-equivalence",
+            "fda-de-novo-special-controls",
+            "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-qsub-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
@@ -3134,7 +3312,10 @@
           "consumerSkills": [
             "fda-510k-predicate-strategy",
             "fda-510k-substantial-equivalence",
+            "fda-de-novo-special-controls",
+            "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-qsub-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Qsub Strategy"
+  short_description: "Strukturiert FDA-Q-Submission-Fragen, Briefing Package, gewünschtes Feedback und Commitments evidenzgebunden, ohne ex..."
+policy:
+  allow_implicit_invocation: false

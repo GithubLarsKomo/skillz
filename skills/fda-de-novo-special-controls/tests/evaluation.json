@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-de-novo-special-controls",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Develop proposed special controls for a De Novo Class II hypothesis using known hazards, failure modes, existing general controls and evidence needs.",
+      "requiredBehaviors": [
+        "link each proposed special control to a concrete risk failure mode or claim and define verification or evidence",
+        "keep general controls proposed special controls and verification activities as distinct regulatory layers"
+      ],
+      "forbiddenBehaviors": [
+        "label an internally proposed control as an FDA-established special control",
+        "create controls without a traceable risk or performance objective"
+      ],
+      "skillAnchors": ["vorgeschlagene", "General Controls, proposed Special Controls und Verification"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The proposed control set addresses several risks, but one high-impact failure mode remains without a credible verification method or residual-risk rationale.",
+      "requiredBehaviors": [
+        "classify the control set as partial insufficient or unknown rather than plausibly sufficient",
+        "route the unresolved risk or evidence issue back to De Novo strategy and risk management"
+      ],
+      "forbiddenBehaviors": [
+        "hide the uncontrolled failure mode to preserve a class II narrative",
+        "treat an unverified control objective as effective risk mitigation"
+      ],
+      "skillAnchors": ["Sufficiency prüfen", "Unbeherrschte Risk Story"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The internal matrix proposes a labeling and performance control, and the user asks to remember that FDA requires these exact special controls before any De Novo grant exists.",
+      "requiredBehaviors": [
+        "refuse to convert internal proposed controls into FDA-established requirements without authoritative evidence",
+        "keep current proposed controls run-only unless later superseded by an evidenced FDA-established control"
+      ],
+      "forbiddenBehaviors": [
+        "persist an internal control proposal as a timeless FDA requirement",
+        "claim FDA acceptance of the proposed control set"
+      ],
+      "skillAnchors": ["tatsächlich etablierter Control", "Aktuelle proposed Special Controls"]
+    }
+  ]
+}

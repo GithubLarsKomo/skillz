@@ -35,12 +35,22 @@ graph TD
   fda_510k_substantial_equivalence --> fda_510k_predicate_strategy
   fda_510k_substantial_equivalence --> medical_device_risk_management_iso14971
   fda_510k_substantial_equivalence --> regulatory_evidence_traceability
+  fda_de_novo_special_controls --> fda_de_novo_strategy
+  fda_de_novo_special_controls --> medical_device_risk_management_iso14971
+  fda_de_novo_special_controls --> regulatory_evidence_traceability
+  fda_de_novo_strategy --> fda_device_classification_product_code
+  fda_de_novo_strategy --> medical_device_risk_management_iso14971
+  fda_de_novo_strategy --> regulated_product_context
+  fda_de_novo_strategy --> regulatory_evidence_traceability
   fda_device_classification_product_code --> regulated_product_context
   fda_device_classification_product_code --> regulatory_evidence_traceability
   fda_device_classification_product_code --> research_to_evidence_note
   fda_medical_device_ivd_regulatory_specialist --> medical_device_qms_iso13485
   fda_medical_device_ivd_regulatory_specialist --> regulated_product_context
   fda_medical_device_ivd_regulatory_specialist --> research_to_evidence_note
+  fda_qsub_strategy --> decision_record
+  fda_qsub_strategy --> fda_medical_device_ivd_regulatory_specialist
+  fda_qsub_strategy --> regulatory_evidence_traceability
   implement_from_issue --> agent_handoff
   implement_from_issue --> deferred_external_action_verification
   implement_from_issue --> disciplined_diagnosis
@@ -172,11 +182,14 @@ graph TD
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `controlled-document-plan.md` | `controlled-quality-documentation` | — | unconsumed |
+| `de-novo-evidence-gaps.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
+| `de-novo-risk-control-rationale.md` | `fda-de-novo-special-controls` | — | unconsumed |
+| `de-novo-strategy.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
 | `decision register` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | — | unconsumed |
 | `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | — | unconsumed |
-| `decision-record.json` | `decision-record` | `domain-model-maintenance` | inferred |
-| `decision-record.md` | `decision-record` | `domain-model-maintenance` | inferred |
+| `decision-record.json` | `decision-record` | `domain-model-maintenance`, `fda-qsub-strategy` | inferred |
+| `decision-record.md` | `decision-record` | `domain-model-maintenance`, `fda-qsub-strategy` | inferred |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `diagnosis-report.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
@@ -198,11 +211,11 @@ graph TD
 | `evidence-note.md` | `research-to-evidence-note` | `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `regulatory-evidence-traceability`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
-| `fda-device-classification.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy` | inferred |
-| `fda-product-code-evidence.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy` | inferred |
-| `fda-regulatory-assessment.json` | `fda-medical-device-ivd-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
-| `fda-regulatory-assessment.md` | `fda-medical-device-ivd-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
-| `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
+| `fda-device-classification.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy`, `fda-de-novo-strategy` | inferred |
+| `fda-product-code-evidence.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy`, `fda-de-novo-strategy` | inferred |
+| `fda-regulatory-assessment.json` | `fda-medical-device-ivd-regulatory-specialist` | `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
+| `fda-regulatory-assessment.md` | `fda-medical-device-ivd-regulatory-specialist` | `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
+| `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
 | `human-procedure-plan.md` | `human-procedure-wizard` | — | unconsumed |
 | `human-procedure-result.json` | `human-procedure-wizard` | — | unconsumed |
 | `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | inferred |
@@ -266,12 +279,15 @@ graph TD
 | `qms-gap-analysis.json` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `iso13485-qms-audit`, `medical-device-capa`, `qms-management-review-governance` | inferred |
 | `qms-process-map.json` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `iso13485-qms-audit`, `medical-device-capa`, `qms-management-review-governance` | inferred |
 | `qms-readiness.md` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `iso13485-qms-audit`, `medical-device-capa`, `qms-management-review-governance` | inferred |
+| `qsub-briefing-package.md` | `fda-qsub-strategy` | — | unconsumed |
+| `qsub-commitments.json` | `fda-qsub-strategy` | — | unconsumed |
+| `qsub-question-set.json` | `fda-qsub-strategy` | — | unconsumed |
 | `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
 | `recovered-system-model.json` | `opaque-system-analysis` | — | unconsumed |
-| `regulated-product-context.json` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
-| `regulated-product-context.md` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
-| `regulatory-evidence-gaps.json` | `regulatory-evidence-traceability` | `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-device-classification-product-code`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
-| `regulatory-evidence-map.json` | `regulatory-evidence-traceability` | `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-device-classification-product-code`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
+| `regulated-product-context.json` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-predicate-strategy`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
+| `regulated-product-context.md` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-predicate-strategy`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
+| `regulatory-evidence-gaps.json` | `regulatory-evidence-traceability` | `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-qsub-strategy`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
+| `regulatory-evidence-map.json` | `regulatory-evidence-traceability` | `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-qsub-strategy`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
 | `regulatory-strategy.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-strategy.md` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
@@ -283,15 +299,16 @@ graph TD
 | `review-brief.md` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
 | `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | inferred |
-| `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
-| `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
-| `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
+| `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
+| `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
+| `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `se-evidence-gaps.json` | `fda-510k-substantial-equivalence` | — | unconsumed |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
 | `source-context.json` | `source-to-context` | — | unconsumed |
 | `source-context.md` | `source-to-context` | — | unconsumed |
+| `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | — | unconsumed |
