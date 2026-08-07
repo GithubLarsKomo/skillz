@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-labeling-ifu",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build an IVD labeling and IFU content map from confirmed intended use, analytical/clinical evidence, risk controls and current market requirements.",
+      "requiredBehaviors": [
+        "map labeling content to confirmed product context regulatory sources evidence and risk controls",
+        "route controlled approval and cross-artifact claim checking to the existing specialist skills"
+      ],
+      "forbiddenBehaviors": [
+        "invent unsupported performance or clinical claims",
+        "treat a draft IFU structure as approved effective labeling"
+      ],
+      "skillAnchors": ["Claims need evidence", "Labeling draft ≠ approved labeling"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A common global IFU exists, but the FDA IVD insert and EU labeling requirements differ and one limitation is supported only for one market configuration.",
+      "requiredBehaviors": [
+        "separate market-specific requirements and wording while reusing genuinely common content",
+        "keep unsupported or market-limited statements as explicit gaps or scoped claims"
+      ],
+      "forbiddenBehaviors": [
+        "copy one market labeling package unchanged into every market",
+        "hide an evidence gap by softening wording without traceable justification"
+      ],
+      "skillAnchors": ["Market-specific structure", "Unbelegte oder widersprüchliche Aussagen"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Marketing asks to add a stronger diagnostic performance claim before supporting evidence is approved and to remember the draft claim globally for future products.",
+      "requiredBehaviors": [
+        "block the unsupported claim and route the evidence or regulatory gap to the appropriate existing owner",
+        "keep concrete draft claims and unpublished evidence out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "approve or normalize an unsupported claim because marketing requested it",
+        "persist current product labeling or unpublished performance data as reusable global memory"
+      ],
+      "skillAnchors": ["unbelegte Claims/Gaps", "Konkrete Produktclaims"]
+    }
+  ]
+}
