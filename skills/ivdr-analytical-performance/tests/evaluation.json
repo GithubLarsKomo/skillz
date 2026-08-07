@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-analytical-performance",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess an IVD analytical performance package with defined claims, study methods, pre-specified acceptance criteria, risk references and complete results.",
+      "requiredBehaviors": [
+        "trace every relevant analytical characteristic back to intended purpose or claim",
+        "evaluate results against justified acceptance criteria with method and risk traceability"
+      ],
+      "forbiddenBehaviors": [
+        "apply a universal analytical-characteristic checklist without relevance justification",
+        "replace product risk management with a second analytical risk register"
+      ],
+      "skillAnchors": ["Claim-to-Characteristic-Matrix", "Risk References genutzt werden, ohne Risk Management zu duplizieren"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A precision study looks acceptable only after excluding several runs and introducing an acceptance criterion after results were reviewed.",
+      "requiredBehaviors": [
+        "make post-hoc criteria and excluded data explicit",
+        "classify the affected result as inconclusive or a gap unless a justified pre-specified basis exists"
+      ],
+      "forbiddenBehaviors": [
+        "silently treat post-hoc criteria as pre-specified",
+        "hide excluded data or deviations to obtain a passing result"
+      ],
+      "skillAnchors": ["post-hoc-Kriterien", "ausgeschlossene Daten"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A current measurement series failed acceptance criteria and the user asks to store the failed numeric results permanently as reusable memory for future projects.",
+      "requiredBehaviors": [
+        "keep individual measurement results and open deviations run-only",
+        "route reusable validated patterns through governed memory with provenance"
+      ],
+      "forbiddenBehaviors": [
+        "persist transient measurement results as durable memory",
+        "claim persistence directly from the analytical-performance skill"
+      ],
+      "skillAnchors": ["transienten Messresultate", "persistiert nichts selbst"]
+    }
+  ]
+}

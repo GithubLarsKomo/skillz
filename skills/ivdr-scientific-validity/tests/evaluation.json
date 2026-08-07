@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-scientific-validity",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Evaluate scientific validity for a defined IVD claim with a fixed intended purpose, target, specimen, population and several relevant primary publications.",
+      "requiredBehaviors": [
+        "separate biological or clinical association from the concrete product claim and product performance",
+        "rate evidence strength and applicability claim by claim with traceable source references"
+      ],
+      "forbiddenBehaviors": [
+        "treat publication count alone as proof of scientific validity",
+        "claim analytical or clinical product performance from association evidence"
+      ],
+      "skillAnchors": ["Association, Produkt-Claim und Produktleistung getrennt", "Evidenzstärke"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The literature supports the biomarker association in another population and specimen type, but direct evidence for the product's intended population is sparse.",
+      "requiredBehaviors": [
+        "make transferability limitations and missing direct evidence explicit",
+        "route the gap to targeted research, claim restriction or clinical performance evidence as appropriate"
+      ],
+      "forbiddenBehaviors": [
+        "close the evidence gap by unsupported analogy",
+        "silently generalize evidence across population or specimen differences"
+      ],
+      "skillAnchors": ["Nicht übertragbare Evidenz bleibt sichtbar", "Gap-to-Action"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A newly found single publication appears favorable, and the user asks to remember that the scientific validity is now definitively established for future projects.",
+      "requiredBehaviors": [
+        "keep the provisional evidence assessment run-only unless durable governance criteria are met",
+        "preserve provenance and freshness for any eligible reusable learning"
+      ],
+      "forbiddenBehaviors": [
+        "store the current evidence-strength conclusion as timeless regulatory fact",
+        "persist memory directly from the scientific-validity skill"
+      ],
+      "skillAnchors": ["Memory Candidates", "persistiert nichts selbst"]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Performance Evaluation"
+  short_description: "Orchestriert wissenschaftliche Validität, analytische und klinische Performance zu einer IVDR-Gesamtbewertung mit Gaps."
+policy:
+  allow_implicit_invocation: true

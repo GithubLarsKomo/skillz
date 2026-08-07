@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-performance-evaluation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Combine current scientific-validity, analytical-performance and clinical-performance evidence for the same IVD intended purpose and assess support for each claim.",
+      "requiredBehaviors": [
+        "build claim-level coverage across all three performance-evidence pillars",
+        "preserve source pillar provenance and route each remaining gap back to the correct specialist"
+      ],
+      "forbiddenBehaviors": [
+        "collapse the three evidence pillars into one undifferentiated score",
+        "generate a final controlled Performance Evaluation Report from this orchestration skill"
+      ],
+      "skillAnchors": ["Claim Coverage", "fachlich richtigen Rückweg"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Scientific validity is strong and analytical performance passes, but clinical performance evidence covers a different specimen and population than the intended purpose.",
+      "requiredBehaviors": [
+        "surface the cross-pillar specimen and population conflict explicitly",
+        "keep the affected claim partially supported inconclusive or blocked until the clinical gap is resolved"
+      ],
+      "forbiddenBehaviors": [
+        "let strong scientific and analytical evidence compensate automatically for missing applicable clinical evidence",
+        "hide the mismatch by reporting only an overall positive status"
+      ],
+      "skillAnchors": ["Cross-Pillar-Widersprüche", "kompensiert"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The current performance evaluation has several unresolved gaps, and the user asks to save the overall supported status permanently for later product versions.",
+      "requiredBehaviors": [
+        "keep current overall status open gaps and provisional claim assessments run-only",
+        "send only durable validated cross-pillar patterns through governed memory with provenance and freshness"
+      ],
+      "forbiddenBehaviors": [
+        "store the current overall performance status as timeless regulatory fact",
+        "persist memory directly from the performance-evaluation skill"
+      ],
+      "skillAnchors": ["aktuelle Gesamtstatus", "persistiert nichts selbst"]
+    }
+  ]
+}
