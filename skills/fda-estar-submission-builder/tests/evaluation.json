@@ -40,6 +40,19 @@
         "persist volatile eSTAR or submission-state data as timeless memory"
       ],
       "skillAnchors": ["External action boundary", "Aktuelle eSTAR-Versionen"]
+    },
+    {
+      "id": "dual-path",
+      "input": "Assemble a current FDA eSTAR package for a Dual 510(k)/CLIA Waiver using a completed dual-evidence-package with shared, 510(k)-only and CLIA-only evidence plus unresolved gaps.",
+      "requiredBehaviors": [
+        "accept dual-510k-clia as one explicit pathway and require the dual evidence package plus its referenced SE and CLIA inputs",
+        "preserve shared versus pathway-specific evidence and unresolved gaps without re-deciding SE or CLIA waiver conclusions"
+      ],
+      "forbiddenBehaviors": [
+        "flatten unresolved CLIA gaps into the 510(k) evidence package",
+        "treat Dual assembly as two unrelated external submissions"
+      ],
+      "skillAnchors": ["dual-510k-clia", "Dual ist ein eigener koordinierter FDA-Pfad"]
     }
   ]
 }

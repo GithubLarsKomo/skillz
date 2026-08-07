@@ -4,9 +4,9 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **84**
-- User-facing entrypoints: **66**
-- Evaluation suites: **84**
+- Skills: **86**
+- User-facing entrypoints: **68**
+- Evaluation suites: **86**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
@@ -54,6 +54,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `domain-model-map.json` — producer: `domain-model-maintenance`
 - `domain-validation.json` — producer: `domain-model-maintenance`
 - `dpia-decision.json` — producer: `medical-device-privacy-gdpr-bdsg`
+- `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
+- `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
+- `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`
 - `execution plan` — producer: `synapse-orchestrator`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
@@ -109,14 +112,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
-- `se-evidence-gaps.json` — producer: `fda-510k-substantial-equivalence`
 - `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
-- `substantial-equivalence-assessment.json` — producer: `fda-510k-substantial-equivalence`
-- `substantial-equivalence-matrix.md` — producer: `fda-510k-substantial-equivalence`
 - `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`

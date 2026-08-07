@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 84,
-  "entrypointCount": 66,
+  "skillCount": 86,
+  "entrypointCount": 68,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 84,
+  "evaluationSuiteCount": 86,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1103,7 +1103,9 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "fda-dual-510k-clia-waiver"
+      ],
       "outputs": [
         "se-evidence-gaps.json",
         "substantial-equivalence-assessment.json",
@@ -1116,7 +1118,9 @@
           "producers": [
             "fda-510k-substantial-equivalence"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-dual-510k-clia-waiver"
+          ]
         },
         {
           "output": "substantial-equivalence-assessment.json",
@@ -1124,7 +1128,9 @@
           "producers": [
             "fda-510k-substantial-equivalence"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-dual-510k-clia-waiver"
+          ]
         },
         {
           "output": "substantial-equivalence-matrix.md",
@@ -1132,7 +1138,9 @@
           "producers": [
             "fda-510k-substantial-equivalence"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-dual-510k-clia-waiver"
+          ]
         }
       ],
       "portableFiles": [
@@ -1401,7 +1409,8 @@
       ],
       "dependents": [
         "fda-510k-predicate-strategy",
-        "fda-de-novo-strategy"
+        "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver"
       ],
       "outputs": [
         "fda-device-classification.json",
@@ -1416,7 +1425,8 @@
           ],
           "consumerSkills": [
             "fda-510k-predicate-strategy",
-            "fda-de-novo-strategy"
+            "fda-de-novo-strategy",
+            "fda-ivd-clia-waiver"
           ]
         },
         {
@@ -1427,7 +1437,8 @@
           ],
           "consumerSkills": [
             "fda-510k-predicate-strategy",
-            "fda-de-novo-strategy"
+            "fda-de-novo-strategy",
+            "fda-ivd-clia-waiver"
           ]
         }
       ],
@@ -1442,8 +1453,62 @@
       }
     },
     {
+      "name": "fda-dual-510k-clia-waiver",
+      "description": "Orchestriert 510(k)-SE- und CLIA-Waiver-Evidence zu einer konsistenten Dual-Submission-Strategie ohne Reviews zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-510k-substantial-equivalence",
+        "fda-ivd-clia-waiver",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "dual-510k-clia-strategy.json",
+        "dual-evidence-package.json",
+        "dual-study-evidence-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "dual-510k-clia-strategy.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-dual-510k-clia-waiver"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "dual-evidence-package.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-dual-510k-clia-waiver"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "dual-study-evidence-map.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-dual-510k-clia-waiver"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fda-estar-submission-builder",
-      "description": "Assembliert 510(k)- oder De-Novo-Evidenz pathway-aware in eine aktuelle FDA-eSTAR-Content-Map und Readiness-Struktur, ohne die Submission extern einzureichen.",
+      "description": "Assembliert 510(k)-, De-Novo- oder Dual-CLIA-Evidenz pathway-aware in eine aktuelle FDA-eSTAR-Content-Map ohne extern einzureichen.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
@@ -1481,6 +1546,69 @@
           "consumerSkills": [
             "fda-acceptance-readiness",
             "fda-additional-information-response"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-ivd-clia-waiver",
+      "description": "Bewertet IVDs auf FDA-CLIA-Waiver-Eignung und erzeugt Flex-/User-Study- sowie Evidence-Gaps ohne Submission zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-device-classification-product-code",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [
+        "fda-dual-510k-clia-waiver"
+      ],
+      "outputs": [
+        "clia-evidence-gaps.json",
+        "clia-waiver-strategy.json",
+        "flex-study-needs.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "clia-evidence-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-ivd-clia-waiver"
+          ],
+          "consumerSkills": [
+            "fda-dual-510k-clia-waiver"
+          ]
+        },
+        {
+          "output": "clia-waiver-strategy.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-ivd-clia-waiver"
+          ],
+          "consumerSkills": [
+            "fda-dual-510k-clia-waiver"
+          ]
+        },
+        {
+          "output": "flex-study-needs.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-ivd-clia-waiver"
+          ],
+          "consumerSkills": [
+            "fda-dual-510k-clia-waiver"
           ]
         }
       ],
@@ -3161,6 +3289,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
+        "fda-ivd-clia-waiver",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -3193,6 +3322,7 @@
             "fda-complaint-mdr-reportability",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
+            "fda-ivd-clia-waiver",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -3220,6 +3350,7 @@
             "fda-complaint-mdr-reportability",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
+            "fda-ivd-clia-waiver",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -3247,6 +3378,7 @@
             "fda-complaint-mdr-reportability",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
+            "fda-ivd-clia-waiver",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
             "ivdr-pmpf",
@@ -3934,6 +4066,7 @@
         "fda-complaint-mdr-reportability",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -3969,6 +4102,7 @@
             "fda-complaint-mdr-reportability",
             "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-ivd-clia-waiver",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
@@ -4000,6 +4134,7 @@
             "fda-complaint-mdr-reportability",
             "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-ivd-clia-waiver",
             "fda-medical-device-ivd-regulatory-specialist",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
@@ -4104,7 +4239,9 @@
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-dual-510k-clia-waiver",
         "fda-estar-submission-builder",
+        "fda-ivd-clia-waiver",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
@@ -4140,7 +4277,9 @@
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-dual-510k-clia-waiver",
             "fda-estar-submission-builder",
+            "fda-ivd-clia-waiver",
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
             "ivdr-analytical-performance",
@@ -4172,7 +4311,9 @@
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-dual-510k-clia-waiver",
             "fda-estar-submission-builder",
+            "fda-ivd-clia-waiver",
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
             "ivdr-analytical-performance",

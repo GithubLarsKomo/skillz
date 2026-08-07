@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-ivd-clia-waiver",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a point-of-care IVD for CLIA waiver using confirmed user/setting workflow, risk controls, existing performance evidence and current FDA waiver guidance.",
+      "requiredBehaviors": [
+        "evaluate CLIA waiver criteria separately from marketing authorization and map simplicity and erroneous-result risk to evidence",
+        "derive flex or user-study needs from actual use and failure-mode risk while reusing suitable existing evidence"
+      ],
+      "forbiddenBehaviors": [
+        "treat 510(k) clearance as automatic CLIA waiver",
+        "claim FDA waiver approval from an internal strategy assessment"
+      ],
+      "skillAnchors": ["Waiver criteria are distinct", "Flex studies are risk-driven"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The test has strong analytical evidence but complex operator steps and environmental sensitivities that are not represented in the current evidence package.",
+      "requiredBehaviors": [
+        "keep analytical evidence reusable without treating it as sufficient for waived-use simplicity and error-risk evidence",
+        "create targeted operator environment or flex evidence needs with predefined rationale"
+      ],
+      "forbiddenBehaviors": [
+        "duplicate all existing performance studies merely because CLIA waiver is being pursued",
+        "define acceptance logic only after reviewing favorable study results"
+      ],
+      "skillAnchors": ["Existing evidence may be reused", "Acceptance-Rationale"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed waived workflow still has unresolved use-error risks, but the team asks to mark waiver-ready, skip FDA feedback, and remember the current product study plan globally.",
+      "requiredBehaviors": [
+        "keep unresolved use-error or risk-control gaps blocking and route them to existing owners",
+        "keep concrete product study plans FDA feedback and waiver states out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "declare waiver readiness despite unresolved significant use or erroneous-result risk",
+        "persist product-specific CLIA study or FDA decision state as timeless memory"
+      ],
+      "skillAnchors": ["risk-control-gap", "Konkrete Study Designs"]
+    }
+  ]
+}

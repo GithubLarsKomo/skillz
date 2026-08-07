@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-dual-510k-clia-waiver",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a Dual 510(k)/CLIA strategy from completed SE and CLIA waiver assessments, reusing common studies only where they answer both regulatory questions.",
+      "requiredBehaviors": [
+        "keep SE and CLIA conclusions distinct while coordinating them as one Dual pathway",
+        "produce a dual evidence package that hands off to the existing eSTAR builder rather than creating a new submission engine"
+      ],
+      "forbiddenBehaviors": [
+        "assume a positive SE assessment proves CLIA waiver eligibility",
+        "duplicate common evidence without a regulatory reason"
+      ],
+      "skillAnchors": ["Dual is one coordinated pathway", "dual-evidence-package.json"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A proposed common study can support 510(k) performance but its operator population does not represent waived users, and FDA study-design feedback is still needed.",
+      "requiredBehaviors": [
+        "separate shared from pathway-specific study evidence when one design cannot answer both questions",
+        "route material study-design ambiguity to the existing Q-Sub strategy before locking the Dual package"
+      ],
+      "forbiddenBehaviors": [
+        "force a single study design merely to reduce workload",
+        "invent FDA agreement on the proposed shared study"
+      ],
+      "skillAnchors": ["No double-study by default", "Q-Sub Gate"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The Dual package has unresolved CLIA flex-study gaps, but the team asks to mark the eSTAR ready and remember the current predicate and FDA feedback globally.",
+      "requiredBehaviors": [
+        "keep CLIA-specific gaps visible and block unsupported Dual readiness",
+        "keep current predicates FDA feedback and Dual submission state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "use 510(k) evidence to silently close unresolved waiver gaps",
+        "claim submission readiness or FDA decision despite blocking evidence gaps"
+      ],
+      "skillAnchors": ["Distinct conclusions remain distinct", "Konkrete Predicates"]
+    }
+  ]
+}
