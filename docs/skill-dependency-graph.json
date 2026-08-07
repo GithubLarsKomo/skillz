@@ -199,6 +199,31 @@
       ]
     },
     {
+      "name": "fda-de-novo-special-controls",
+      "requires": [
+        "fda-de-novo-strategy",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "de-novo-risk-control-rationale.md",
+        "special-controls-matrix.json"
+      ]
+    },
+    {
+      "name": "fda-de-novo-strategy",
+      "requires": [
+        "fda-device-classification-product-code",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "de-novo-evidence-gaps.json",
+        "de-novo-strategy.json"
+      ]
+    },
+    {
       "name": "fda-device-classification-product-code",
       "requires": [
         "regulated-product-context",
@@ -221,6 +246,19 @@
         "fda-regulatory-assessment.json",
         "fda-regulatory-assessment.md",
         "fda-regulatory-investigations.json"
+      ]
+    },
+    {
+      "name": "fda-qsub-strategy",
+      "requires": [
+        "decision-record",
+        "fda-medical-device-ivd-regulatory-specialist",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "qsub-briefing-package.md",
+        "qsub-commitments.json",
+        "qsub-question-set.json"
       ]
     },
     {
@@ -871,6 +909,34 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "fda-de-novo-special-controls",
+      "to": "fda-de-novo-strategy"
+    },
+    {
+      "from": "fda-de-novo-special-controls",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "fda-de-novo-special-controls",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "fda-de-novo-strategy",
+      "to": "fda-device-classification-product-code"
+    },
+    {
+      "from": "fda-de-novo-strategy",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "fda-de-novo-strategy",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "fda-de-novo-strategy",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "fda-device-classification-product-code",
       "to": "regulated-product-context"
     },
@@ -893,6 +959,18 @@
     {
       "from": "fda-medical-device-ivd-regulatory-specialist",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "fda-qsub-strategy",
+      "to": "decision-record"
+    },
+    {
+      "from": "fda-qsub-strategy",
+      "to": "fda-medical-device-ivd-regulatory-specialist"
+    },
+    {
+      "from": "fda-qsub-strategy",
+      "to": "regulatory-evidence-traceability"
     },
     {
       "from": "implement-from-issue",
@@ -1621,6 +1699,37 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "de-novo-evidence-gaps.json",
+      "producers": [
+        "fda-de-novo-strategy"
+      ],
+      "consumerSkills": [
+        "fda-de-novo-special-controls"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "de-novo-risk-control-rationale.md",
+      "producers": [
+        "fda-de-novo-special-controls"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "de-novo-strategy.json",
+      "producers": [
+        "fda-de-novo-strategy"
+      ],
+      "consumerSkills": [
+        "fda-de-novo-special-controls"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "decision register",
       "producers": [
         "conversation-to-spec"
@@ -1655,7 +1764,8 @@
         "decision-record"
       ],
       "consumerSkills": [
-        "domain-model-maintenance"
+        "domain-model-maintenance",
+        "fda-qsub-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -1666,7 +1776,8 @@
         "decision-record"
       ],
       "consumerSkills": [
-        "domain-model-maintenance"
+        "domain-model-maintenance",
+        "fda-qsub-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -1926,7 +2037,8 @@
         "fda-device-classification-product-code"
       ],
       "consumerSkills": [
-        "fda-510k-predicate-strategy"
+        "fda-510k-predicate-strategy",
+        "fda-de-novo-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -1937,7 +2049,8 @@
         "fda-device-classification-product-code"
       ],
       "consumerSkills": [
-        "fda-510k-predicate-strategy"
+        "fda-510k-predicate-strategy",
+        "fda-de-novo-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -1948,6 +2061,7 @@
         "fda-medical-device-ivd-regulatory-specialist"
       ],
       "consumerSkills": [
+        "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
       "ambiguous": false,
@@ -1959,6 +2073,7 @@
         "fda-medical-device-ivd-regulatory-specialist"
       ],
       "consumerSkills": [
+        "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
       "ambiguous": false,
@@ -1970,6 +2085,7 @@
         "fda-medical-device-ivd-regulatory-specialist"
       ],
       "consumerSkills": [
+        "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
       "ambiguous": false,
@@ -2645,6 +2761,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "qsub-briefing-package.md",
+      "producers": [
+        "fda-qsub-strategy"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "qsub-commitments.json",
+      "producers": [
+        "fda-qsub-strategy"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "qsub-question-set.json",
+      "producers": [
+        "fda-qsub-strategy"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "quality-review.json",
       "producers": [
         "two-axis-code-review"
@@ -2675,6 +2818,7 @@
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-predicate-strategy",
+        "fda-de-novo-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
@@ -2702,6 +2846,7 @@
         "controlled-quality-documentation",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-predicate-strategy",
+        "fda-de-novo-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
         "ivdr-analytical-performance",
@@ -2728,7 +2873,10 @@
       "consumerSkills": [
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-qsub-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
@@ -2750,7 +2898,10 @@
       "consumerSkills": [
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-qsub-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
@@ -2890,6 +3041,8 @@
       "consumerSkills": [
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -2908,6 +3061,8 @@
       "consumerSkills": [
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -2926,6 +3081,8 @@
       "consumerSkills": [
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-de-novo-special-controls",
+        "fda-de-novo-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
@@ -2991,6 +3148,15 @@
       "output": "source-context.md",
       "producers": [
         "source-to-context"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "special-controls-matrix.json",
+      "producers": [
+        "fda-de-novo-special-controls"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -3222,6 +3388,7 @@
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "controlled-document-plan.md",
+    "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
@@ -3262,6 +3429,9 @@
     "privacy-assessment.json",
     "privacy-governance.md",
     "progress summary",
+    "qsub-briefing-package.md",
+    "qsub-commitments.json",
+    "qsub-question-set.json",
     "recovered-system-model.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
@@ -3271,6 +3441,7 @@
     "se-evidence-gaps.json",
     "source-context.json",
     "source-context.md",
+    "special-controls-matrix.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "substantial-equivalence-assessment.json",
@@ -3292,6 +3463,7 @@
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "controlled-document-plan.md",
+    "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
     "docs/agents/CONFIG.md",
@@ -3332,6 +3504,9 @@
     "privacy-assessment.json",
     "privacy-governance.md",
     "progress summary",
+    "qsub-briefing-package.md",
+    "qsub-commitments.json",
+    "qsub-question-set.json",
     "recovered-system-model.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
@@ -3341,6 +3516,7 @@
     "se-evidence-gaps.json",
     "source-context.json",
     "source-context.md",
+    "special-controls-matrix.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "substantial-equivalence-assessment.json",

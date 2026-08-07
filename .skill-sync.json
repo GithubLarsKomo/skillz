@@ -112,6 +112,18 @@
         "agents/openai.yaml": "cf597705b1c9b3e84ba7b846b79771025df67d5bc62a465e33df7742b27bfdbc"
       }
     },
+    "fda-de-novo-special-controls": {
+      "files": {
+        "SKILL.md": "afcd552bdd509f14114301122868bcf0003bd1d58682c3111c1b15d44c2a73fd",
+        "agents/openai.yaml": "736907ae4727e888707150474459a42fe09253cda9bfb4c3faac075d98a79945"
+      }
+    },
+    "fda-de-novo-strategy": {
+      "files": {
+        "SKILL.md": "0b9889ec51e79a6662338492a503a943a008fe8683bb4cda69975075df68f67d",
+        "agents/openai.yaml": "1013227ff8dd00d6359ed0c05d4cb081086664440b1befb1526c20b2d082cf26"
+      }
+    },
     "fda-device-classification-product-code": {
       "files": {
         "SKILL.md": "735e2a26f97b6b0102a7348b82ea027fbddc9d5675effb7f1ecd8a3c79d3a06f",
@@ -122,6 +134,12 @@
       "files": {
         "SKILL.md": "e3e965929b6be7725f95011b5de94bdfff508f2aff594afccb0fed8bc1b25af4",
         "agents/openai.yaml": "12aa69158097cc75fcb368ddfe8292791529a37999f99506752265a69fd675a6"
+      }
+    },
+    "fda-qsub-strategy": {
+      "files": {
+        "SKILL.md": "5d87b5520bf85622e233853298834a55510c8339cdfe84d2c3064aaf913a5ed2",
+        "agents/openai.yaml": "b1b5fc0ffc5767036f3cdc0e13d7f446f32b6972b7464a8c3f1493e3e20236da"
       }
     },
     "human-procedure-wizard": {

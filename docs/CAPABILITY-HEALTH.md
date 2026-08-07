@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **66**
-- User-facing entrypoints: **48**
-- Evaluation suites: **66**
+- Skills: **69**
+- User-facing entrypoints: **51**
+- Evaluation suites: **69**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **68**
+- Outputs without inferred hard-requires consumers: **73**
 
 ## Evaluation gaps
 
@@ -38,6 +38,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `controlled-document-plan.md` — producer: `controlled-quality-documentation`
+- `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
 - `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`
 - `decision-follow-up-register.md` — producer: `decision-and-follow-up-tracker`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
@@ -78,6 +79,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `progress summary` — producer: `synapse-orchestrator`
+- `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
+- `qsub-commitments.json` — producer: `fda-qsub-strategy`
+- `qsub-question-set.json` — producer: `fda-qsub-strategy`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
@@ -87,6 +91,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `se-evidence-gaps.json` — producer: `fda-510k-substantial-equivalence`
 - `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`
+- `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
 - `substantial-equivalence-assessment.json` — producer: `fda-510k-substantial-equivalence`
