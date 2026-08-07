@@ -143,6 +143,12 @@
         "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
       }
     },
+    "ivdr-device-classification": {
+      "files": {
+        "SKILL.md": "3daa7063ab01c7eaf821690b868f6558d11571f6ccfb9ec0687f065c4a2f72b7",
+        "agents/openai.yaml": "a9e06186a499aa8448fadfa7816c6abc104d3705eb8f43976445030826afb084"
+      }
+    },
     "knowledge-map-generator": {
       "files": {
         "SKILL.md": "ab1f00550a3e1b78ee6e299368df498ddc98dee2b46c4f1334a0e0c13aaa2931",
@@ -159,6 +165,12 @@
       "files": {
         "SKILL.md": "d66264cdb0fbcc75d6c190b6bf821d0f1e286a075941964e9fd2d292c2161297",
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
+      }
+    },
+    "mdcg-guidance-navigator": {
+      "files": {
+        "SKILL.md": "22de3cb3f00a065ec6b344dba56ba8cfc9591da46d54511c9b5939f7ad83007c",
+        "agents/openai.yaml": "6f3f10fc048bf2b9247c6194c11f5a6b78a377913d0c0b233e0dd9f962fd63bf"
       }
     },
     "medical-device-capa": {
@@ -255,6 +267,12 @@
       "files": {
         "SKILL.md": "de209c852e3b9d9bd8fc7de4015881dd2fdfa1b795aaccafcd527c972b4b3005",
         "agents/openai.yaml": "65925dba220e6e5321680ebf16da66a89189fdaa4e7ff228866f0a8b76929d03"
+      }
+    },
+    "regulatory-evidence-traceability": {
+      "files": {
+        "SKILL.md": "5994e2f9688504720858e82204168e299db1d0745b8040644f750d093f3292a4",
+        "agents/openai.yaml": "19e9a60be41cc46beaf3890296b733dcf416c6233d4d9a1c81fdfccabd6be6f9"
       }
     },
     "repository-skill-bootstrap": {

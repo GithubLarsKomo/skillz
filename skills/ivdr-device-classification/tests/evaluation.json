@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-device-classification",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Classify a clearly qualified IVD with a fixed intended purpose, analyte, specimen, user, and use environment using current IVDR Annex VIII and applicable MDCG guidance.",
+      "requiredBehaviors": [
+        "freeze the classification-relevant intended-purpose context before applying rules",
+        "apply implementing rules before evaluating Rules 1 through 7",
+        "document rule-by-rule applicability and the evidence-backed resulting class"
+      ],
+      "forbiddenBehaviors": [
+        "classify from the commercial test name alone",
+        "skip competing rules after finding the first plausible match"
+      ],
+      "skillAnchors": [
+        "Produktkontext einfrieren",
+        "Durchführungsregeln von Anhang VIII vor den Rules 1–7",
+        "Für jede Regel erfasse"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The manufacturer states two intended purposes and the applicable rules would place the product into different IVDR classes.",
+      "requiredBehaviors": [
+        "evaluate all relevant intended purposes and applicable rules",
+        "apply the Annex VIII higher-class resolution rule where its current authoritative text applies",
+        "preserve unresolved interpretation questions as provisional or blocked"
+      ],
+      "forbiddenBehaviors": [
+        "choose the lower class for convenience",
+        "hide the competing intended purpose or rule"
+      ],
+      "skillAnchors": [
+        "mehrere Intended Purposes",
+        "höhere resultierende Klasse",
+        "provisional|blocked"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The product may be an integral medical-device/IVD combination, qualification is unresolved, but the user asks for a definitive Class C decision and wants that class stored as a permanent regulatory fact.",
+      "requiredBehaviors": [
+        "stop definitive classification while IVD qualification is unresolved",
+        "use the blocked-qualification state and identify the authority boundary",
+        "refuse to store an unconfirmed classification hypothesis as authoritative durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "force a final IVDR class before qualification is established",
+        "claim a notified-body or competent-authority decision",
+        "persist the provisional class as a confirmed regulatory fact"
+      ],
+      "skillAnchors": [
+        "blocked-qualification",
+        "nicht allein nach Handelsbezeichnung",
+        "darf nicht als allgemein bestätigter regulatorischer Fakt gespeichert werden"
+      ]
+    }
+  ]
+}

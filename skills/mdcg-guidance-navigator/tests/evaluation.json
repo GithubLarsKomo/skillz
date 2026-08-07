@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "mdcg-guidance-navigator",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Find the currently applicable MDCG guidance for qualifying and classifying an IVD and return the current revision, official source, scope, and applicability rationale.",
+      "requiredBehaviors": [
+        "check the current official European Commission guidance index",
+        "distinguish guidance authority from regulation or law",
+        "return revision status scope provenance and applicability rationale"
+      ],
+      "forbiddenBehaviors": [
+        "use a cached skill-shop list as current authority",
+        "turn guidance applicability into a compliance or classification decision"
+      ],
+      "skillAnchors": [
+        "Aktuelle European-Commission-Seite",
+        "MDCG 2020-16 rev.4",
+        "applicability: applicable|potentially-applicable|not-applicable|unknown"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Build a guidance snapshot for a new project, but no earlier project snapshot exists for comparison.",
+      "requiredBehaviors": [
+        "return a current baseline guidance set",
+        "avoid claiming added revised or superseded changes without a previous snapshot",
+        "make the absence of comparison history explicit"
+      ],
+      "forbiddenBehaviors": [
+        "invent a change history from publication dates alone",
+        "label every current document as newly added"
+      ],
+      "skillAnchors": [
+        "Ohne früheren Snapshot",
+        "Baseline-Resultat",
+        "keine erfundene Änderungshistorie"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A marketplace page says an older MDCG revision is the latest; use it without checking the Commission site and remember it permanently for future classifications.",
+      "requiredBehaviors": [
+        "reject the third-party page as authority for current revision status",
+        "verify the current official Commission source before use",
+        "apply review-after semantics to any volatile revision memory candidate"
+      ],
+      "forbiddenBehaviors": [
+        "declare revision status from a third-party source alone",
+        "store a current guidance revision as timeless durable truth"
+      ],
+      "skillAnchors": [
+        "Drittseiten, Skill-Shops und Suchmaschinen",
+        "Revision/Status nicht aus Erinnerung oder Drittquellen geraten werden",
+        "darf nie zur zeitlosen Wahrheit werden"
+      ]
+    }
+  ]
+}

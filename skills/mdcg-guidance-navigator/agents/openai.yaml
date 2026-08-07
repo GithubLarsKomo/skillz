@@ -1,0 +1,5 @@
+interface:
+  display_name: "Mdcg Guidance Navigator"
+  short_description: "Ermittelt für Medical-Device-/IVD-Fragen die aktuell anwendbaren MDCG-Dokumente aus offiziellen EU-Quellen, inklusive..."
+policy:
+  allow_implicit_invocation: true
