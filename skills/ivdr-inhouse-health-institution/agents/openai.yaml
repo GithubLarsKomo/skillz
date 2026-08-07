@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Inhouse Health Institution"
+  short_description: "Bewertet IVDR-Article-5(5)-Eligibility, aktuelle Bedingungen und Übergangsfristen für In-house-IVDs."
+policy:
+  allow_implicit_invocation: false
