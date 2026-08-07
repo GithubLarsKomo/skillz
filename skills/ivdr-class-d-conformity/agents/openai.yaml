@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Class D Conformity"
+  short_description: "Plant IVDR-Class-D-Conformity mit NB/EURL-, Performance-, Common-Specification- und Batch-Testing-Abhängigkeiten."
+policy:
+  allow_implicit_invocation: false
