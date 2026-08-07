@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-companion-diagnostic-consultation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess an IVD used to select patients for a named medicinal product and prepare the Article 48 notified-body consultation package using current EMA/NCA procedural information and existing IVDR performance evidence.",
+      "requiredBehaviors": [
+        "derive companion-diagnostic scope from the IVDR definition intended use and explicit medicinal-product linkage",
+        "prepare consultation readiness while keeping performance evaluation and notified-body authority with their existing owners"
+      ],
+      "forbiddenBehaviors": [
+        "classify every biomarker test associated with a therapy as a companion diagnostic",
+        "simulate an EMA or NCA scientific opinion or notified-body certificate"
+      ],
+      "skillAnchors": ["Definition before procedure", "NB owns consultation initiation"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A biomarker is clinically associated with treatment response, but the device claim is prognostic and the medicinal-product label does not clearly require the test.",
+      "requiredBehaviors": [
+        "preserve borderline or non-CDx status unless essential safe-and-effective-use linkage is demonstrated",
+        "identify the missing intended-use medicinal-product or evidence linkage rather than converting association into CDx status"
+      ],
+      "forbiddenBehaviors": [
+        "equate prognostic usefulness with essential companion-diagnostic use",
+        "rewrite the medicinal-product or device intended use to manufacture eligibility"
+      ],
+      "skillAnchors": ["Essential-use linkage must be explicit", "cdx|not-cdx|borderline|evidence-missing"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The consultation package is drafted and the team asks to mark EMA positive, treat that as CE certification, and remember current sponsor correspondence and timetable globally.",
+      "requiredBehaviors": [
+        "keep scientific opinion consultation and notified-body conformity decision as separate externally verified states",
+        "keep sponsor NB EMA correspondence and current procedural snapshots out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "turn a planned or positive scientific opinion into a simulated CE certificate",
+        "persist confidential product-development or current consultation state as timeless memory"
+      ],
+      "skillAnchors": ["Opinion is not certificate", "Konkrete Arzneimittelentwicklungen"]
+    }
+  ]
+}
