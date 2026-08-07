@@ -311,6 +311,18 @@
       ]
     },
     {
+      "name": "fda-qmsr-inspection-readiness",
+      "requires": [
+        "fda-qmsr-iso13485-gap",
+        "iso13485-qms-audit",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "inspection-evidence-index.json",
+        "qmsr-inspection-readiness.json"
+      ]
+    },
+    {
       "name": "fda-qmsr-iso13485-gap",
       "requires": [
         "medical-device-qms-iso13485",
@@ -692,6 +704,19 @@
       ]
     },
     {
+      "name": "process-validation-iq-oq-pq",
+      "requires": [
+        "design-control-traceability",
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971"
+      ],
+      "outputs": [
+        "process-validation-assessment.json",
+        "process-validation-protocol.md",
+        "process-validation-strategy.json"
+      ]
+    },
+    {
       "name": "project-beta-readiness",
       "requires": [
         "iterate-software-projects"
@@ -794,6 +819,19 @@
       "outputs": [
         "knowledge-artifact.json",
         "knowledge-artifact.md"
+      ]
+    },
+    {
+      "name": "supplier-quality-medical-device",
+      "requires": [
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "supplier-control-plan.json",
+        "supplier-quality-assessment.json",
+        "supplier-signal-set.json"
       ]
     },
     {
@@ -1093,6 +1131,18 @@
     {
       "from": "fda-medical-device-ivd-regulatory-specialist",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "fda-qmsr-inspection-readiness",
+      "to": "fda-qmsr-iso13485-gap"
+    },
+    {
+      "from": "fda-qmsr-inspection-readiness",
+      "to": "iso13485-qms-audit"
+    },
+    {
+      "from": "fda-qmsr-inspection-readiness",
+      "to": "two-axis-compliance-review"
     },
     {
       "from": "fda-qmsr-iso13485-gap",
@@ -1411,6 +1461,18 @@
       "to": "structured-knowledge-artifact"
     },
     {
+      "from": "process-validation-iq-oq-pq",
+      "to": "design-control-traceability"
+    },
+    {
+      "from": "process-validation-iq-oq-pq",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "process-validation-iq-oq-pq",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
       "from": "project-beta-readiness",
       "to": "iterate-software-projects"
     },
@@ -1441,6 +1503,18 @@
     {
       "from": "spec-to-vertical-issues",
       "to": "conversation-to-spec"
+    },
+    {
+      "from": "supplier-quality-medical-device",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "supplier-quality-medical-device",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "supplier-quality-medical-device",
+      "to": "two-axis-compliance-review"
     },
     {
       "from": "test-driven-vertical-slice",
@@ -1770,13 +1844,15 @@
         "controlled-quality-documentation",
         "design-control-traceability",
         "fda-acceptance-readiness",
+        "fda-qmsr-inspection-readiness",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
-        "medical-device-qms-iso13485"
+        "medical-device-qms-iso13485",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -1790,13 +1866,15 @@
         "controlled-quality-documentation",
         "design-control-traceability",
         "fda-acceptance-readiness",
+        "fda-qmsr-inspection-readiness",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
-        "medical-device-qms-iso13485"
+        "medical-device-qms-iso13485",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -1810,13 +1888,15 @@
         "controlled-quality-documentation",
         "design-control-traceability",
         "fda-acceptance-readiness",
+        "fda-qmsr-inspection-readiness",
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
-        "medical-device-qms-iso13485"
+        "medical-device-qms-iso13485",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2000,7 +2080,8 @@
         "design-control-traceability"
       ],
       "consumerSkills": [
-        "design-change-regulatory-impact"
+        "design-change-regulatory-impact",
+        "process-validation-iq-oq-pq"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2011,7 +2092,8 @@
         "design-control-traceability"
       ],
       "consumerSkills": [
-        "design-change-regulatory-impact"
+        "design-change-regulatory-impact",
+        "process-validation-iq-oq-pq"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2411,6 +2493,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "inspection-evidence-index.json",
+      "producers": [
+        "fda-qmsr-inspection-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "installed OpenASR model",
@@ -2870,6 +2961,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "process-validation-assessment.json",
+      "producers": [
+        "process-validation-iq-oq-pq"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "process-validation-protocol.md",
+      "producers": [
+        "process-validation-iq-oq-pq"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "process-validation-strategy.json",
+      "producers": [
+        "process-validation-iq-oq-pq"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "progress summary",
       "producers": [
         "synapse-orchestrator"
@@ -2941,6 +3059,7 @@
         "iso13485-qms-audit"
       ],
       "consumerSkills": [
+        "fda-qmsr-inspection-readiness",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -2952,6 +3071,7 @@
         "iso13485-qms-audit"
       ],
       "consumerSkills": [
+        "fda-qmsr-inspection-readiness",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -2963,6 +3083,7 @@
         "iso13485-qms-audit"
       ],
       "consumerSkills": [
+        "fda-qmsr-inspection-readiness",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -2978,7 +3099,9 @@
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "medical-device-capa",
-        "qms-management-review-governance"
+        "process-validation-iq-oq-pq",
+        "qms-management-review-governance",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2993,7 +3116,9 @@
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "medical-device-capa",
-        "qms-management-review-governance"
+        "process-validation-iq-oq-pq",
+        "qms-management-review-governance",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3008,7 +3133,9 @@
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
         "medical-device-capa",
-        "qms-management-review-governance"
+        "process-validation-iq-oq-pq",
+        "qms-management-review-governance",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3017,6 +3144,17 @@
       "output": "qmsr-gap-assessment.md",
       "producers": [
         "fda-qmsr-iso13485-gap"
+      ],
+      "consumerSkills": [
+        "fda-qmsr-inspection-readiness"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "qmsr-inspection-readiness.json",
+      "producers": [
+        "fda-qmsr-inspection-readiness"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -3027,9 +3165,11 @@
       "producers": [
         "fda-qmsr-iso13485-gap"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-qmsr-inspection-readiness"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "qsub-briefing-package.md",
@@ -3351,7 +3491,9 @@
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "medical-device-capa",
-        "medical-device-regulatory-strategy"
+        "medical-device-regulatory-strategy",
+        "process-validation-iq-oq-pq",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3373,7 +3515,9 @@
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "medical-device-capa",
-        "medical-device-regulatory-strategy"
+        "medical-device-regulatory-strategy",
+        "process-validation-iq-oq-pq",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3395,7 +3539,9 @@
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "medical-device-capa",
-        "medical-device-regulatory-strategy"
+        "medical-device-regulatory-strategy",
+        "process-validation-iq-oq-pq",
+        "supplier-quality-medical-device"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3512,6 +3658,33 @@
       "output": "substantial-equivalence-matrix.md",
       "producers": [
         "fda-510k-substantial-equivalence"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "supplier-control-plan.json",
+      "producers": [
+        "supplier-quality-medical-device"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "supplier-quality-assessment.json",
+      "producers": [
+        "supplier-quality-medical-device"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "supplier-signal-set.json",
+      "producers": [
+        "supplier-quality-medical-device"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -3729,6 +3902,7 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inspection-evidence-index.json",
     "installed OpenASR model",
     "isms-audit-findings.json",
     "isms-audit-plan.json",
@@ -3753,9 +3927,11 @@
     "pmpf-signals.json",
     "privacy-assessment.json",
     "privacy-governance.md",
+    "process-validation-assessment.json",
+    "process-validation-protocol.md",
+    "process-validation-strategy.json",
     "progress summary",
-    "qmsr-gap-assessment.md",
-    "qmsr-iso13485-delta.json",
+    "qmsr-inspection-readiness.json",
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
@@ -3775,6 +3951,9 @@
     "stakeholder-questionnaire.md",
     "substantial-equivalence-assessment.json",
     "substantial-equivalence-matrix.md",
+    "supplier-control-plan.json",
+    "supplier-quality-assessment.json",
+    "supplier-signal-set.json",
     "synchronization manifest",
     "trend-signal-set.json",
     "ui-prototype-plan.md",
@@ -3814,6 +3993,7 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inspection-evidence-index.json",
     "installed OpenASR model",
     "isms-audit-findings.json",
     "isms-audit-plan.json",
@@ -3838,9 +4018,11 @@
     "pmpf-signals.json",
     "privacy-assessment.json",
     "privacy-governance.md",
+    "process-validation-assessment.json",
+    "process-validation-protocol.md",
+    "process-validation-strategy.json",
     "progress summary",
-    "qmsr-gap-assessment.md",
-    "qmsr-iso13485-delta.json",
+    "qmsr-inspection-readiness.json",
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
@@ -3860,6 +4042,9 @@
     "stakeholder-questionnaire.md",
     "substantial-equivalence-assessment.json",
     "substantial-equivalence-matrix.md",
+    "supplier-control-plan.json",
+    "supplier-quality-assessment.json",
+    "supplier-signal-set.json",
     "synchronization manifest",
     "trend-signal-set.json",
     "ui-prototype-plan.md",

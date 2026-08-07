@@ -166,6 +166,12 @@
         "agents/openai.yaml": "12aa69158097cc75fcb368ddfe8292791529a37999f99506752265a69fd675a6"
       }
     },
+    "fda-qmsr-inspection-readiness": {
+      "files": {
+        "SKILL.md": "a02e58e83c9a667f6e889c4b36b93ec2a133aae4659c0e006fab67175c3750f3",
+        "agents/openai.yaml": "8c3487813de346cd8e351c9329035756a77c4c7b2c081afc5c9804f363647d72"
+      }
+    },
     "fda-qmsr-iso13485-gap": {
       "files": {
         "SKILL.md": "6c84399eb52f7f1056f89f2ea3da437fdd9d46e3e612f40ac942ddb557243619",
@@ -359,6 +365,12 @@
         "agents/openai.yaml": "9895354261df1c6d40697d0836be07e86c3cd3a67177789cdea4cd410d8d004c"
       }
     },
+    "process-validation-iq-oq-pq": {
+      "files": {
+        "SKILL.md": "b9334e05466fe6b78674d0cb4fbe8043dfb3480172f95682ee901dcfbfeb55b0",
+        "agents/openai.yaml": "898c26afe55ea1e1f8bb6ba7d00a6615b177a804f7bfeaef41f0830baa29d298"
+      }
+    },
     "project-beta-readiness": {
       "files": {
         "SKILL.md": "d4e4d9c950df62cd7836b9afd4b8bae212812b19bc9ad79ebfa6cc2c487050d5",
@@ -424,6 +436,12 @@
       "files": {
         "SKILL.md": "80cbd3a49750ba96073eb96139947d5a7da60b33f9c3ca20623e2284bff5a5a0",
         "agents/openai.yaml": "a86661db8335ff368dc4cf02cd63de14d5e549111827e1e4a62535493851bc23"
+      }
+    },
+    "supplier-quality-medical-device": {
+      "files": {
+        "SKILL.md": "523775698378209197758dd51790ec5a5351582986e173bf66108aaa0f00a04d",
+        "agents/openai.yaml": "66668062f8ec3563b2e1f8a534f0a7fb2cb3ef9db31c6747cb1867f9a5c71b22"
       }
     },
     "synapse-orchestrator": {
