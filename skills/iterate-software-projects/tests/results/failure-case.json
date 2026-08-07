@@ -1,17 +1,1 @@
-{
-  "schemaVersion": 1,
-  "skill": "iterate-software-projects",
-  "caseId": "failure-case",
-  "recordedAt": "2026-07-31",
-  "evaluator": "repository-maintainer",
-  "requiredBehaviors": [
-    {"behavior": "stop implementation and final prompt generation", "passed": true, "evidence": "The workflow halts before implementation because unresolved irreversible choices change scope and acceptance."},
-    {"behavior": "identify the earliest blocking decision", "passed": true, "evidence": "The first architecture decision on which migration and deployment depend is isolated."},
-    {"behavior": "ask exactly one decision-ready question with a recommendation", "passed": true, "evidence": "One focused question is asked with consequences and a recommended default."}
-  ],
-  "forbiddenBehaviors": [
-    {"behavior": "silently choose an irreversible architecture", "observed": false, "evidence": "No architecture or migration path is selected without the user's decision."},
-    {"behavior": "bundle multiple dependent questions into one round", "observed": false, "evidence": "Dependent questions are deferred until the first blocking choice is resolved."}
-  ],
-  "overall": "pass"
-}
+{"schemaVersion":1,"skill":"iterate-software-projects","caseId":"failure-case","recordedAt":"2026-08-08","evaluator":"repository-maintainer","requiredBehaviors":[{"behavior":"reject PR-closed and tracker-done as sufficient engineering closure","passed":true,"evidence":"The hardened quality principles explicitly reject PR-Closed, Merge or Tracker-Done alone as full Engineering Closure."},{"behavior":"surface stale review, missing merge evidence and missing requirement verification","passed":true,"evidence":"Project-state reconstruction separates reviewedHeadSha, current head, merge state, tracker state and requirement verification and leaves missing states explicit."},{"behavior":"make the earliest delivery or verification gap the next action instead of starting a new feature","passed":true,"evidence":"The next-increment ordering places open delivery/closure gaps before the next independent feature when prior integration remains unverified."}],"forbiddenBehaviors":[{"behavior":"treat a closed PR as proof of merge","observed":false,"evidence":"PR state and merge evidence are separate."},{"behavior":"treat tracker done as proof that requirements are verified","observed":false,"evidence":"Tracker closure does not replace acceptance and requirement verification."}],"overall":"pass"}
