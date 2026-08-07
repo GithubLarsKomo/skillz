@@ -157,6 +157,7 @@ graph TD
   ivdr_pmpf --> medical_device_risk_management_iso14971
   ivdr_pmpf --> regulatory_evidence_traceability
   ivdr_pms_vigilance --> mdcg_guidance_navigator
+  ivdr_pms_vigilance --> medical_device_pms_system
   ivdr_pms_vigilance --> medical_device_risk_management_iso14971
   ivdr_pms_vigilance --> regulated_product_context
   ivdr_pms_vigilance --> regulatory_evidence_traceability
@@ -226,6 +227,7 @@ graph TD
   project_beta_readiness --> iterate_software_projects
   qms_management_review_governance --> iso13485_qms_audit
   qms_management_review_governance --> medical_device_capa
+  qms_management_review_governance --> medical_device_pms_system
   qms_management_review_governance --> medical_device_qms_iso13485
   qms_management_review_governance --> project_status_brief
   quality_record_integrity --> controlled_quality_documentation
@@ -440,9 +442,10 @@ graph TD
 | `pmpf-evaluation-report.md` | `ivdr-pmpf` | — | unconsumed |
 | `pmpf-plan.json` | `ivdr-pmpf` | — | unconsumed |
 | `pmpf-signals.json` | `ivdr-pmpf` | — | unconsumed |
-| `pms-review-status.json` | `medical-device-pms-system` | — | unconsumed |
-| `pms-source-register.json` | `medical-device-pms-system` | — | unconsumed |
-| `pms-system-plan.json` | `medical-device-pms-system` | — | unconsumed |
+| `pms-management-review-input.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `qms-management-review-governance` | inferred |
+| `pms-review-status.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `qms-management-review-governance` | inferred |
+| `pms-source-register.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `qms-management-review-governance` | inferred |
+| `pms-system-plan.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `qms-management-review-governance` | inferred |
 | `predicate-candidate-set.json` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `predicate-strategy.md` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |

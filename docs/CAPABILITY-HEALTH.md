@@ -10,7 +10,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **133**
+- Outputs without inferred hard-requires consumers: **130**
 
 ## Evaluation gaps
 
@@ -121,9 +121,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
-- `pms-review-status.json` — producer: `medical-device-pms-system`
-- `pms-source-register.json` — producer: `medical-device-pms-system`
-- `pms-system-plan.json` — producer: `medical-device-pms-system`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`

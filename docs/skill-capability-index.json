@@ -3176,13 +3176,14 @@
     },
     {
       "name": "ivdr-pms-vigilance",
-      "description": "Bewertet IVDR-Post-Market-Signale und Vigilance-Fragen evidenzgebunden, zeitkritisch und mit klarer Rückkopplung in Risk, CAPA, PMPF und Performance Evaluation.",
+      "description": "Bewertet IVDR-Post-Market-Signale und Vigilance-Fragen evidenzgebunden, zeitkritisch und mit klarer Rückkopplung in PMS, Risk, CAPA, PMPF, Performance Evaluation und Management-Attention.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
       },
       "requires": [
         "mdcg-guidance-navigator",
+        "medical-device-pms-system",
         "medical-device-risk-management-iso14971",
         "regulated-product-context",
         "regulatory-evidence-traceability",
@@ -3860,7 +3861,7 @@
     },
     {
       "name": "medical-device-pms-system",
-      "description": "Steuert ein marktübergreifendes Medical-Device-PMS-System aus Plan, Datenquellen, Review-Zyklen, Signalrouting und Lifecycle-Rückkopplung, ohne Vigilance, Complaint, CAPA oder PMPF zu duplizieren.",
+      "description": "Steuert ein marktübergreifendes Medical-Device-PMS-System aus Plan, Datenquellen, Review-Zyklen, Signalrouting, Management-Review-Handoff und Lifecycle-Rückkopplung, ohne Vigilance, Complaint, CAPA oder PMPF zu duplizieren.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
@@ -3871,20 +3872,38 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "ivdr-pms-vigilance",
+        "qms-management-review-governance"
+      ],
       "outputs": [
+        "pms-management-review-input.json",
         "pms-review-status.json",
         "pms-source-register.json",
         "pms-system-plan.json"
       ],
       "outputContracts": [
         {
+          "output": "pms-management-review-input.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-pms-system"
+          ],
+          "consumerSkills": [
+            "ivdr-pms-vigilance",
+            "qms-management-review-governance"
+          ]
+        },
+        {
           "output": "pms-review-status.json",
           "ambiguous": false,
           "producers": [
             "medical-device-pms-system"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "ivdr-pms-vigilance",
+            "qms-management-review-governance"
+          ]
         },
         {
           "output": "pms-source-register.json",
@@ -3892,7 +3911,10 @@
           "producers": [
             "medical-device-pms-system"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "ivdr-pms-vigilance",
+            "qms-management-review-governance"
+          ]
         },
         {
           "output": "pms-system-plan.json",
@@ -3900,7 +3922,10 @@
           "producers": [
             "medical-device-pms-system"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "ivdr-pms-vigilance",
+            "qms-management-review-governance"
+          ]
         }
       ],
       "portableFiles": [
@@ -4825,7 +4850,7 @@
     },
     {
       "name": "qms-management-review-governance",
-      "description": "Bereitet Medical-Device-/IVD-QMS-Management-Reviews aus bestätigten QMS-, Audit-, CAPA-, Complaint-, Risk-, Supplier- und Performance-Evidenzen vor und trennt Inputs, Decisions, Actions und offene Datenlücken.",
+      "description": "Bereitet Medical-Device-/IVD-QMS-Management-Reviews aus bestätigten QMS-, Audit-, CAPA-, PMS-, Vigilance-, Complaint-, Risk-, Supplier- und Performance-Evidenzen vor und trennt Inputs, Decisions, Actions und offene Datenlücken.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
@@ -4833,6 +4858,7 @@
       "requires": [
         "iso13485-qms-audit",
         "medical-device-capa",
+        "medical-device-pms-system",
         "medical-device-qms-iso13485",
         "project-status-brief"
       ],
