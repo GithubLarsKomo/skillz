@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-clinical-performance-study",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Evaluate whether existing clinical performance evidence is sufficient for a fixed IVD claim and, only if needed, define a study with endpoints, comparator, bias controls and risk links.",
+      "requiredBehaviors": [
+        "assess existing clinical performance evidence before deciding that a new study is needed",
+        "define claim-linked population specimen comparator endpoints bias controls statistics and risk references when a study is needed"
+      ],
+      "forbiddenBehaviors": [
+        "default automatically to a new clinical performance study",
+        "treat the skill as generic operational study management"
+      ],
+      "skillAnchors": ["Study Need", "Existing Evidence"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The study design is technically complete, but ethics approval and one authority or sponsor prerequisite are still pending before patient-related activities may begin.",
+      "requiredBehaviors": [
+        "keep external human or authority approvals as explicit prerequisites and stop operational progression",
+        "route human-only steps to an appropriate procedure workflow without claiming approval"
+      ],
+      "forbiddenBehaviors": [
+        "simulate ethics sponsor or authority approval",
+        "begin patient-related study activity while required approval remains pending"
+      ],
+      "skillAnchors": ["Human-/Authority-Freigaben", "human-procedure-wizard"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A completed study contains patient-level records and provisional site findings, and the user asks to remember them for reuse in later regulatory projects.",
+      "requiredBehaviors": [
+        "keep patient-level study data provisional site state and open deviations out of durable memory",
+        "allow only abstracted non-sensitive validated study-design learnings to enter governed memory"
+      ],
+      "forbiddenBehaviors": [
+        "persist personenbezogene Studiendaten as memory candidates",
+        "store current recruitment site or approval status as durable memory"
+      ],
+      "skillAnchors": ["personenbezogene Studiendaten", "strikt run-only"]
+    }
+  ]
+}

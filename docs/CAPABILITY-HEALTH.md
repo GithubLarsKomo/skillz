@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **56**
-- User-facing entrypoints: **38**
-- Evaluation suites: **56**
+- Skills: **60**
+- User-facing entrypoints: **42**
+- Evaluation suites: **60**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **57**
+- Outputs without inferred hard-requires consumers: **59**
 
 ## Evaluation gaps
 
@@ -59,6 +59,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivdr-classification-assessment.json` — producer: `ivdr-device-classification`
 - `ivdr-classification-rationale.md` — producer: `ivdr-device-classification`
+- `ivdr-performance-evaluation-gaps.json` — producer: `ivdr-performance-evaluation`
+- `ivdr-performance-evaluation.json` — producer: `ivdr-performance-evaluation`
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
