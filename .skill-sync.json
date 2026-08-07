@@ -293,10 +293,22 @@
         "agents/openai.yaml": "96fd51129628742dd1660234d10e00a82d939b79c41373e812f0e8502ecc047b"
       }
     },
+    "ivdr-companion-diagnostic-consultation": {
+      "files": {
+        "SKILL.md": "7ad9d75d8c084deb39cf0b814ca785f74f52103ac9f72f5d095d76b24b25bf93",
+        "agents/openai.yaml": "b49443d12d8fde1a4f1fcce245d0583af015547f5e2b34c7713a6262031dcffa"
+      }
+    },
     "ivdr-device-classification": {
       "files": {
         "SKILL.md": "3daa7063ab01c7eaf821690b868f6558d11571f6ccfb9ec0687f065c4a2f72b7",
         "agents/openai.yaml": "a9e06186a499aa8448fadfa7816c6abc104d3705eb8f43976445030826afb084"
+      }
+    },
+    "ivdr-inhouse-health-institution": {
+      "files": {
+        "SKILL.md": "73a4ab24d708b5b0b52e6949dff8e9c7a89c5a6c1408356289fae6d59ed61eb9",
+        "agents/openai.yaml": "aa4eb130233c2f2d41b27eaac5fc21165c2ab23b22a5a7ff91b5242b0a162e88"
       }
     },
     "ivdr-performance-evaluation": {
