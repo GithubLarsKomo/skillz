@@ -100,6 +100,24 @@
         "agents/openai.yaml": "37109734ec61c0d290f7d468a1930cc8b79236575340493b15666cfe229b15f0"
       }
     },
+    "fda-510k-predicate-strategy": {
+      "files": {
+        "SKILL.md": "ba70e7b84f4c21e9726b05a122f25f7bdde64d1e349e9fb766b7d92d28f6d8c3",
+        "agents/openai.yaml": "306bbe68afae8fedf74e9d0dbf42a88d2e8cccf6be03c0d7e2df1fb77d113ffe"
+      }
+    },
+    "fda-510k-substantial-equivalence": {
+      "files": {
+        "SKILL.md": "6657bde86741eddaa478454abbbe411189f9c2acbee29aedee84d544dda61489",
+        "agents/openai.yaml": "cf597705b1c9b3e84ba7b846b79771025df67d5bc62a465e33df7742b27bfdbc"
+      }
+    },
+    "fda-device-classification-product-code": {
+      "files": {
+        "SKILL.md": "735e2a26f97b6b0102a7348b82ea027fbddc9d5675effb7f1ecd8a3c79d3a06f",
+        "agents/openai.yaml": "f221ae3334989c069554bee1bc5ea56b7d57325fd9377cf6c61b398135ca39d4"
+      }
+    },
     "fda-medical-device-ivd-regulatory-specialist": {
       "files": {
         "SKILL.md": "e3e965929b6be7725f95011b5de94bdfff508f2aff594afccb0fed8bc1b25af4",

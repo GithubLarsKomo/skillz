@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Device Classification Product Code"
+  short_description: "Ermittelt FDA-Geräteklasse, Regulation Number, Product Code und Premarket-Kontext evidenzgebunden aus aktuellen offiz..."
+policy:
+  allow_implicit_invocation: true

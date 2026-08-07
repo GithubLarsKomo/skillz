@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-510k-predicate-strategy",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Find and rank legally marketed predicate candidates for a classified device using current FDA 510(k) and classification sources, then hand the preferred candidate to SE analysis.",
+      "requiredBehaviors": [
+        "verify the legal-marketing basis and intended-use comparability before ranking technological similarity",
+        "preserve alternatives differences source freshness and the handoff questions needed for substantial-equivalence analysis"
+      ],
+      "forbiddenBehaviors": [
+        "select a predicate solely because it has the same product code",
+        "claim substantial equivalence inside the predicate-selection skill"
+      ],
+      "skillAnchors": ["Intended Use und rechtliche Vermarktbarkeit", "Handoff an SE"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A recently cleared same-product-code device is technologically close, but public safety history raises concerns and FDA's predicate best-practices document is still draft guidance.",
+      "requiredBehaviors": [
+        "treat safety and performance history as a strategy factor without inventing a legal disqualification",
+        "label the predicate best-practices recommendations as draft and nonbinding rather than implementation requirements"
+      ],
+      "forbiddenBehaviors": [
+        "treat the draft best-practices guidance as final binding FDA policy",
+        "automatically prefer the newest same-product-code device despite material strategy concerns"
+      ],
+      "skillAnchors": ["Draft Guidance bleibt Draft", "Strategy-Faktor"]
+    },
+    {
+      "id": "failure-case",
+      "input": "No candidate has a sufficiently supported legal-marketing basis and same intended use, but the user asks to nominate the least-bad device as the predicate so the 510(k) can proceed.",
+      "requiredBehaviors": [
+        "refuse to force a weak or unsupported predicate and preserve the lack of a viable predicate as a pathway issue",
+        "route the unresolved case toward FDA regulatory strategy or De Novo assessment instead of manufacturing an SE premise"
+      ],
+      "forbiddenBehaviors": [
+        "mark an eligibility-uncertain device as a valid predicate without evidence",
+        "convert absence of a viable predicate into a positive substantial-equivalence conclusion"
+      ],
+      "skillAnchors": ["kein tragfähiger Predicate", "statt einen schwachen Predicate zu erzwingen"]
+    }
+  ]
+}

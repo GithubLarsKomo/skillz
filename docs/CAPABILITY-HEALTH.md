@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **63**
-- User-facing entrypoints: **45**
-- Evaluation suites: **63**
+- Skills: **66**
+- User-facing entrypoints: **48**
+- Evaluation suites: **66**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **65**
+- Outputs without inferred hard-requires consumers: **68**
 
 ## Evaluation gaps
 
@@ -84,10 +84,13 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
+- `se-evidence-gaps.json` — producer: `fda-510k-substantial-equivalence`
 - `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
+- `substantial-equivalence-assessment.json` — producer: `fda-510k-substantial-equivalence`
+- `substantial-equivalence-matrix.md` — producer: `fda-510k-substantial-equivalence`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
 - `trend-signal-set.json` — producer: `ivdr-pms-vigilance`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
