@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Pmpf"
+  short_description: "Plant und bewertet IVDR-PMPF claim-, risiko- und evidenzgebunden und führt Signale in den Lifecycle zurück."
+policy:
+  allow_implicit_invocation: true
