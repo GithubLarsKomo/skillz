@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "engineering-delivery-followup",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A pull request was approved by two-axis-code-review for head abc123. Required CI for exactly abc123 is green, branch protection is satisfied, the PR is then squash-merged as def456, and the linked issue acceptance evidence points to the merged revision. Build the delivery closure state for the next engineering iteration.",
+      "requiredBehaviors": [
+        "bind review approval and required checks to the exact reviewed head before declaring merge readiness",
+        "keep merge, deployment and issue or requirement closure as separate evidence states",
+        "produce a return input that prevents completed work from being repeated in the next iteration"
+      ],
+      "forbiddenBehaviors": [
+        "treat review approval alone as proof that the change was merged or deployed",
+        "close the issue or requirement solely because a merge occurred"
+      ],
+      "skillAnchors": [
+        "Review-approved is not merge-ready",
+        "Merged is not deployed",
+        "Merged is not issue-closed"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The reviewed PR head was abc123 and all checks were green, but a small conflict-resolution commit changed the head to abc999 before merge. The new check run is pending.",
+      "requiredBehaviors": [
+        "mark the prior review approval stale because the current head differs from the reviewed head",
+        "refuse to transfer old green checks or merge readiness to the new head",
+        "route the new immutable head through required re-review and external verification"
+      ],
+      "forbiddenBehaviors": [
+        "preserve approval because the additional commit is described as small or conflict-only",
+        "reuse CI evidence from the old SHA as current merge evidence"
+      ],
+      "skillAnchors": [
+        "Head change invalidates approval",
+        "Auch ein Konfliktauflösungs-, Rebase-, Formatierungs- oder \"nur kleiner\" Commit",
+        "Ältere grüne Läufe"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A delivery summary says complete because the PR is closed and the issue is marked done. It has no merge SHA, the deployment is still running, one acceptance criterion has no evidence, and a non-blocking security follow-up disappeared from the summary.",
+      "requiredBehaviors": [
+        "reject a closed PR without merge evidence as proof of merge",
+        "keep deployment pending and the unverified acceptance criterion open",
+        "retain the undispositioned security follow-up and expose the earliest remaining action"
+      ],
+      "forbiddenBehaviors": [
+        "convert tracker done or PR closed into verified engineering closure",
+        "drop residual risks or follow-ups merely because the reviewed change was merged or closed in a tracker"
+      ],
+      "skillAnchors": [
+        "Ein geschlossener PR ohne Merge-Beleg ist **nicht** `merged`",
+        "Issue closed is not requirement verified",
+        "No silent follow-up loss"
+      ]
+    }
+  ]
+}
