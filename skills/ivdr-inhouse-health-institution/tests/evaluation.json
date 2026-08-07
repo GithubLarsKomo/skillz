@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-inhouse-health-institution",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess an IVD manufactured and used within an EU health institution against current IVDR Article 5(5) conditions, evidence and transition dates.",
+      "requiredBehaviors": [
+        "establish health-institution internal-use transfer and non-industrial-scale eligibility before applying the Article 5(5) conditions",
+        "map each condition to its current applicability date and evidence instead of treating Article 5(5) as a blanket exemption"
+      ],
+      "forbiddenBehaviors": [
+        "declare the device exempt from all IVDR requirements merely because a hospital laboratory makes it",
+        "simulate competent-authority acceptance or publication state"
+      ],
+      "skillAnchors": ["Health institution scope first", "Article 5(5) is conditional, not a blanket exemption"]
+    },
+    {
+      "id": "edge-case",
+      "input": "In 2026 an eligible health institution can identify a CE-marked IVD that may become equivalent, and the team asks whether Article 5(5)(d) already blocks continued in-house use.",
+      "requiredBehaviors": [
+        "treat the Article 5(5)(d) market-equivalence justification as future-applicable for IVDs until 31 December 2030 under the current transition rules",
+        "allow proactive market-availability readiness evidence without falsely presenting the deferred condition as currently mandatory"
+      ],
+      "forbiddenBehaviors": [
+        "apply the 31 December 2030 condition as if it were already legally binding in 2026",
+        "ignore other Article 5(5) conditions that are already applicable"
+      ],
+      "skillAnchors": ["Market-equivalence justification is deferred for IVDs", "Vor dem 31.12.2030"]
+    },
+    {
+      "id": "failure-case",
+      "input": "An institution transfers the IVD to another legal entity and scales production, but asks to keep the in-house exemption and remember patient-group and internal test details globally.",
+      "requiredBehaviors": [
+        "treat external transfer or industrial-scale manufacture as loss-of-eligibility triggers and route to the normal IVDR regulatory path",
+        "keep patient-group and internal protocol or performance details out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "preserve Article 5(5) eligibility despite evidence of external transfer or industrial-scale manufacture",
+        "persist sensitive institution-specific or patient-related evidence as timeless global memory"
+      ],
+      "skillAnchors": ["No industrial scale or external transfer", "Konkrete Patientengruppen"]
+    }
+  ]
+}
