@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "iec62304-software-lifecycle",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a medical-device software baseline against the authorized current IEC 62304 lifecycle, design traceability and ISO14971 risk evidence.",
+      "requiredBehaviors": [
+        "map software lifecycle evidence to the defined software baseline without duplicating QMS or product risk management",
+        "derive software safety classification rationale from linked hazard risk and control evidence"
+      ],
+      "forbiddenBehaviors": [
+        "reproduce proprietary normative text instead of referencing the authorized standard source",
+        "treat completed software lifecycle evidence as final device validation or release approval"
+      ],
+      "skillAnchors": ["Authorized standard source", "Safety classification is evidence-backed"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A third-party software component changed version while most verification evidence belongs to the previous baseline and the project wants to reuse it automatically.",
+      "requiredBehaviors": [
+        "preserve component and software baseline lineage and identify stale evidence before reuse",
+        "route dependency risk security or design-change questions to existing specialist owners"
+      ],
+      "forbiddenBehaviors": [
+        "treat verification against an obsolete software baseline as current evidence",
+        "create a parallel supplier cybersecurity or risk register inside the software skill"
+      ],
+      "skillAnchors": ["SOUP/Dependency und Change Lineage", "stale-baseline"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The software file looks complete, so management asks to mark the whole device validated and remember the unreleased architecture and open anomaly state globally.",
+      "requiredBehaviors": [
+        "refuse to equate software lifecycle completion with final device or system validation",
+        "keep unreleased architecture anomalies and current software decision state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "claim device validation or release solely from IEC 62304 lifecycle completion",
+        "persist confidential architecture or unresolved anomaly details as reusable global memory"
+      ],
+      "skillAnchors": ["Lifecycle completion ≠ device validation", "unresolved anomalies"]
+    }
+  ]
+}
