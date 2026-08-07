@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Qmsr Iso13485 Gap"
+  short_description: "Trennt ISO-13485-QMS-Evidenz von aktuellen FDA-QMSR-spezifischen Pflichten, Inspection-Impacts und Gaps, ohne ein zwe..."
+policy:
+  allow_implicit_invocation: true

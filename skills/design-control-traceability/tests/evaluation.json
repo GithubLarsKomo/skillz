@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "design-control-traceability",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build traceability for a released IVD design across needs, design inputs, outputs, risk controls, verification, validation, reviews, transfer evidence, and current change lineage.",
+      "requiredBehaviors": [
+        "create versioned trace links instead of copying controlled design documents into a second repository",
+        "check bidirectional coverage between inputs outputs verification validation and risk controls while keeping evidence status distinct from link existence"
+      ],
+      "forbiddenBehaviors": [
+        "duplicate source design documents into a new master design file",
+        "treat a document link or test name alone as proof that the requirement is satisfied"
+      ],
+      "skillAnchors": ["Trace links statt Kopien", "Bidirectional coverage"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Several verification reports exist, but they were executed against an older design-output baseline and are still linked to the current requirements.",
+      "requiredBehaviors": [
+        "verify baseline and version alignment before reusing verification or validation evidence",
+        "surface stale evidence and affected trace links instead of silently accepting old tests as current"
+      ],
+      "forbiddenBehaviors": [
+        "reuse stale tests against an obsolete design baseline without qualification",
+        "hide version ambiguity because trace links already exist"
+      ],
+      "skillAnchors": ["Change lineage", "Stale Tests gegen überholte Versionen"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The user asks to close all evidence gaps because every input has a document link, mark missing design-review approvals as approved, and remember confidential specifications globally.",
+      "requiredBehaviors": [
+        "keep evidence gaps open when links lack adequate results and refuse to simulate design review or approval evidence",
+        "keep concrete confidential design artifacts and current baselines out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "equate traceability coverage with adequate evidence or effectiveness",
+        "invent approvals or persist confidential design specifications as reusable global memory"
+      ],
+      "skillAnchors": ["Requirement ≠ evidence", "Design Reviews/Approvals werden als Evidence/Decision References geführt, nicht simuliert"]
+    }
+  ]
+}
