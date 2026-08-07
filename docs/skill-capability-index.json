@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 94,
-  "entrypointCount": 76,
+  "skillCount": 96,
+  "entrypointCount": 78,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 94,
+  "evaluationSuiteCount": 96,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -532,7 +532,9 @@
         "fda-corrections-removals",
         "fda-pccp-change-control",
         "fda-qsub-strategy",
-        "fda-registration-listing-udi"
+        "fda-registration-listing-udi",
+        "ivdr-companion-diagnostic-consultation",
+        "ivdr-inhouse-health-institution"
       ],
       "outputs": [
         "decision-record.json",
@@ -552,7 +554,9 @@
             "fda-corrections-removals",
             "fda-pccp-change-control",
             "fda-qsub-strategy",
-            "fda-registration-listing-udi"
+            "fda-registration-listing-udi",
+            "ivdr-companion-diagnostic-consultation",
+            "ivdr-inhouse-health-institution"
           ]
         },
         {
@@ -568,7 +572,9 @@
             "fda-corrections-removals",
             "fda-pccp-change-control",
             "fda-qsub-strategy",
-            "fda-registration-listing-udi"
+            "fda-registration-listing-udi",
+            "ivdr-companion-diagnostic-consultation",
+            "ivdr-inhouse-health-institution"
           ]
         }
       ],
@@ -2715,6 +2721,62 @@
       }
     },
     {
+      "name": "ivdr-companion-diagnostic-consultation",
+      "description": "Bewertet IVDR-Companion-Diagnostic-Scope und bereitet die Notified-Body-Konsultation mit EMA oder zuständiger Arzneimittelbehörde nach Artikel 48 evidenzgebunden vor, ohne Performance Evaluation oder externe Stellungnahme zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "ivdr-device-classification",
+        "ivdr-performance-evaluation",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "cdx-consultation-readiness.json",
+        "cdx-medicinal-product-linkage.json",
+        "cdx-scope-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "cdx-consultation-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-companion-diagnostic-consultation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "cdx-medicinal-product-linkage.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-companion-diagnostic-consultation"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "cdx-scope-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-companion-diagnostic-consultation"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "ivdr-device-classification",
       "description": "Erstellt für ein IVD eine evidenzgebundene IVDR-Qualifikations- und Klassifikationshypothese nach Artikel 47/Anhang VIII mit expliziter Regelbegründung, konkurrierenden Regeln, Unsicherheiten und aktueller MDCG-Guidance. Verwenden für Class A/B/C/D Assessments; keine endgültige Behörden-/NB-Entscheidung simulieren.",
       "invocation": {
@@ -2728,7 +2790,8 @@
       ],
       "dependents": [
         "eudamed-udi-ivd",
-        "ivdr-class-d-conformity"
+        "ivdr-class-d-conformity",
+        "ivdr-companion-diagnostic-consultation"
       ],
       "outputs": [
         "ivdr-classification-assessment.json",
@@ -2743,7 +2806,8 @@
           ],
           "consumerSkills": [
             "eudamed-udi-ivd",
-            "ivdr-class-d-conformity"
+            "ivdr-class-d-conformity",
+            "ivdr-companion-diagnostic-consultation"
           ]
         },
         {
@@ -2754,8 +2818,65 @@
           ],
           "consumerSkills": [
             "eudamed-udi-ivd",
-            "ivdr-class-d-conformity"
+            "ivdr-class-d-conformity",
+            "ivdr-companion-diagnostic-consultation"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-inhouse-health-institution",
+      "description": "Bewertet in Gesundheitseinrichtungen hergestellte und verwendete IVDs gegen die IVDR-Health-Institution-Exception nach Artikel 5(5), inklusive aktueller Übergangsfristen, GSPR-, QMS-, Dokumentations- und Marktäquivalenz-Gates.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "inhouse-ivd-condition-map.json",
+        "inhouse-ivd-eligibility.json",
+        "inhouse-ivd-transition-readiness.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "inhouse-ivd-condition-map.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-inhouse-health-institution"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "inhouse-ivd-eligibility.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-inhouse-health-institution"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "inhouse-ivd-transition-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-inhouse-health-institution"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -2783,6 +2904,7 @@
       ],
       "dependents": [
         "ivdr-class-d-conformity",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf"
       ],
@@ -2799,6 +2921,7 @@
           ],
           "consumerSkills": [
             "ivdr-class-d-conformity",
+            "ivdr-companion-diagnostic-consultation",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf"
           ]
@@ -2811,6 +2934,7 @@
           ],
           "consumerSkills": [
             "ivdr-class-d-conformity",
+            "ivdr-companion-diagnostic-consultation",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf"
           ]
@@ -3626,6 +3750,7 @@
         "fda-qmsr-iso13485-gap",
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
+        "ivdr-inhouse-health-institution",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -3651,6 +3776,7 @@
             "fda-qmsr-iso13485-gap",
             "iec62304-software-lifecycle",
             "iso13485-qms-audit",
+            "ivdr-inhouse-health-institution",
             "measurement-system-validation",
             "medical-device-capa",
             "nonconformance-mrb-disposition",
@@ -3671,6 +3797,7 @@
             "fda-qmsr-iso13485-gap",
             "iec62304-software-lifecycle",
             "iso13485-qms-audit",
+            "ivdr-inhouse-health-institution",
             "measurement-system-validation",
             "medical-device-capa",
             "nonconformance-mrb-disposition",
@@ -3691,6 +3818,7 @@
             "fda-qmsr-iso13485-gap",
             "iec62304-software-lifecycle",
             "iso13485-qms-audit",
+            "ivdr-inhouse-health-institution",
             "measurement-system-validation",
             "medical-device-capa",
             "nonconformance-mrb-disposition",
@@ -3793,6 +3921,7 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-inhouse-health-institution",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
@@ -3831,6 +3960,7 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-inhouse-health-institution",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "measurement-system-validation",
@@ -3864,6 +3994,7 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-inhouse-health-institution",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "measurement-system-validation",
@@ -3897,6 +4028,7 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-inhouse-health-institution",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "measurement-system-validation",
@@ -4591,7 +4723,9 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-inhouse-health-institution",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
@@ -4632,7 +4766,9 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-companion-diagnostic-consultation",
             "ivdr-device-classification",
+            "ivdr-inhouse-health-institution",
             "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
@@ -4669,7 +4805,9 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-companion-diagnostic-consultation",
             "ivdr-device-classification",
+            "ivdr-inhouse-health-institution",
             "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
@@ -4782,7 +4920,9 @@
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf",
@@ -4824,7 +4964,9 @@
             "ivdr-analytical-performance",
             "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
+            "ivdr-companion-diagnostic-consultation",
             "ivdr-device-classification",
+            "ivdr-inhouse-health-institution",
             "ivdr-performance-evaluation",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf",
@@ -4862,7 +5004,9 @@
             "ivdr-analytical-performance",
             "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
+            "ivdr-companion-diagnostic-consultation",
             "ivdr-device-classification",
+            "ivdr-inhouse-health-institution",
             "ivdr-performance-evaluation",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf",

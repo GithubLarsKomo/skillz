@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **94**
-- User-facing entrypoints: **76**
-- Evaluation suites: **94**
+- Skills: **96**
+- User-facing entrypoints: **78**
+- Evaluation suites: **96**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **109**
+- Outputs without inferred hard-requires consumers: **115**
 
 ## Evaluation gaps
 
@@ -34,6 +34,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
+- `cdx-consultation-readiness.json` — producer: `ivdr-companion-diagnostic-consultation`
+- `cdx-medicinal-product-linkage.json` — producer: `ivdr-companion-diagnostic-consultation`
+- `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
@@ -74,6 +77,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
 - `import verification` — producer: `openasr-offline-model-import`
+- `inhouse-ivd-condition-map.json` — producer: `ivdr-inhouse-health-institution`
+- `inhouse-ivd-eligibility.json` — producer: `ivdr-inhouse-health-institution`
+- `inhouse-ivd-transition-readiness.json` — producer: `ivdr-inhouse-health-institution`
 - `inspection-evidence-index.json` — producer: `fda-qmsr-inspection-readiness`
 - `installed OpenASR model` — producer: `openasr-offline-model-import`
 - `isms-audit-findings.json` — producer: `iso27001-isms-audit`

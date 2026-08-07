@@ -574,6 +574,21 @@
       ]
     },
     {
+      "name": "ivdr-companion-diagnostic-consultation",
+      "requires": [
+        "decision-record",
+        "ivdr-device-classification",
+        "ivdr-performance-evaluation",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "cdx-consultation-readiness.json",
+        "cdx-medicinal-product-linkage.json",
+        "cdx-scope-assessment.json"
+      ]
+    },
+    {
       "name": "ivdr-device-classification",
       "requires": [
         "mdcg-guidance-navigator",
@@ -583,6 +598,21 @@
       "outputs": [
         "ivdr-classification-assessment.json",
         "ivdr-classification-rationale.md"
+      ]
+    },
+    {
+      "name": "ivdr-inhouse-health-institution",
+      "requires": [
+        "decision-record",
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "inhouse-ivd-condition-map.json",
+        "inhouse-ivd-eligibility.json",
+        "inhouse-ivd-transition-readiness.json"
       ]
     },
     {
@@ -1601,6 +1631,26 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "ivdr-companion-diagnostic-consultation",
+      "to": "decision-record"
+    },
+    {
+      "from": "ivdr-companion-diagnostic-consultation",
+      "to": "ivdr-device-classification"
+    },
+    {
+      "from": "ivdr-companion-diagnostic-consultation",
+      "to": "ivdr-performance-evaluation"
+    },
+    {
+      "from": "ivdr-companion-diagnostic-consultation",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-companion-diagnostic-consultation",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "ivdr-device-classification",
       "to": "mdcg-guidance-navigator"
     },
@@ -1610,6 +1660,26 @@
     },
     {
       "from": "ivdr-device-classification",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-inhouse-health-institution",
+      "to": "decision-record"
+    },
+    {
+      "from": "ivdr-inhouse-health-institution",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "ivdr-inhouse-health-institution",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "ivdr-inhouse-health-institution",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-inhouse-health-institution",
       "to": "regulatory-evidence-traceability"
     },
     {
@@ -2231,6 +2301,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "cdx-consultation-readiness.json",
+      "producers": [
+        "ivdr-companion-diagnostic-consultation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "cdx-medicinal-product-linkage.json",
+      "producers": [
+        "ivdr-companion-diagnostic-consultation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "cdx-scope-assessment.json",
+      "producers": [
+        "ivdr-companion-diagnostic-consultation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "change-impact-assessment.json",
       "producers": [
         "controlled-quality-documentation"
@@ -2634,7 +2731,9 @@
         "fda-corrections-removals",
         "fda-pccp-change-control",
         "fda-qsub-strategy",
-        "fda-registration-listing-udi"
+        "fda-registration-listing-udi",
+        "ivdr-companion-diagnostic-consultation",
+        "ivdr-inhouse-health-institution"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2651,7 +2750,9 @@
         "fda-corrections-removals",
         "fda-pccp-change-control",
         "fda-qsub-strategy",
-        "fda-registration-listing-udi"
+        "fda-registration-listing-udi",
+        "ivdr-companion-diagnostic-consultation",
+        "ivdr-inhouse-health-institution"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3214,6 +3315,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "inhouse-ivd-condition-map.json",
+      "producers": [
+        "ivdr-inhouse-health-institution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "inhouse-ivd-eligibility.json",
+      "producers": [
+        "ivdr-inhouse-health-institution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "inhouse-ivd-transition-readiness.json",
+      "producers": [
+        "ivdr-inhouse-health-institution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "inspection-evidence-index.json",
       "producers": [
         "fda-qmsr-inspection-readiness"
@@ -3320,7 +3448,8 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
-        "ivdr-class-d-conformity"
+        "ivdr-class-d-conformity",
+        "ivdr-companion-diagnostic-consultation"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3332,7 +3461,8 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
-        "ivdr-class-d-conformity"
+        "ivdr-class-d-conformity",
+        "ivdr-companion-diagnostic-consultation"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3344,6 +3474,7 @@
       ],
       "consumerSkills": [
         "ivdr-class-d-conformity",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf"
       ],
@@ -3357,6 +3488,7 @@
       ],
       "consumerSkills": [
         "ivdr-class-d-conformity",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf"
       ],
@@ -3948,6 +4080,7 @@
         "fda-qmsr-iso13485-gap",
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
+        "ivdr-inhouse-health-institution",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -3969,6 +4102,7 @@
         "fda-qmsr-iso13485-gap",
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
+        "ivdr-inhouse-health-institution",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -3990,6 +4124,7 @@
         "fda-qmsr-iso13485-gap",
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
+        "ivdr-inhouse-health-institution",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -4135,7 +4270,9 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-inhouse-health-institution",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
@@ -4173,7 +4310,9 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-inhouse-health-institution",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
@@ -4227,7 +4366,9 @@
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf",
@@ -4266,7 +4407,9 @@
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
+        "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf",
@@ -4426,6 +4569,7 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-inhouse-health-institution",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
@@ -4460,6 +4604,7 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-inhouse-health-institution",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
@@ -4494,6 +4639,7 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-inhouse-health-institution",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
@@ -4904,6 +5050,9 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "cdx-consultation-readiness.json",
+    "cdx-medicinal-product-linkage.json",
+    "cdx-scope-assessment.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
@@ -4944,6 +5093,9 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inhouse-ivd-condition-map.json",
+    "inhouse-ivd-eligibility.json",
+    "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
     "isms-audit-findings.json",
@@ -5015,6 +5167,9 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "cdx-consultation-readiness.json",
+    "cdx-medicinal-product-linkage.json",
+    "cdx-scope-assessment.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
@@ -5055,6 +5210,9 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inhouse-ivd-condition-map.json",
+    "inhouse-ivd-eligibility.json",
+    "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
     "isms-audit-findings.json",
