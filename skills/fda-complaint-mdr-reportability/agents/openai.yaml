@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Complaint Mdr Reportability"
+  short_description: "Bewertet Medical-Device-Complaints auf FDA-MDR-Reportability, Timing und Folgeaktionen ohne Complaint- oder CAPA-Syst..."
+policy:
+  allow_implicit_invocation: false

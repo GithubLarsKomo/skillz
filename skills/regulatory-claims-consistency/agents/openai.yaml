@@ -1,0 +1,5 @@
+interface:
+  display_name: "Regulatory Claims Consistency"
+  short_description: "Prüft Medical-Device- und IVD-Claims über Labeling, Design und Regulatory Evidence auf Widersprüche und unbelegte Aus..."
+policy:
+  allow_implicit_invocation: true

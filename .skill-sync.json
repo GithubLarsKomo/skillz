@@ -136,6 +136,12 @@
         "agents/openai.yaml": "71f64d083fb3b10e8553587650e9728e67a85730b8c8cebb49926c6df446eb79"
       }
     },
+    "fda-complaint-mdr-reportability": {
+      "files": {
+        "SKILL.md": "a0898f9c58b244a69a4bd695582b3659fdd4fb2ed3b31bfa6b937c290895937c",
+        "agents/openai.yaml": "2fa5c3b326f2a9599186cb3c7468a5a3accb11e552b37f1f6e446b5ce4c58ad8"
+      }
+    },
     "fda-de-novo-special-controls": {
       "files": {
         "SKILL.md": "afcd552bdd509f14114301122868bcf0003bd1d58682c3111c1b15d44c2a73fd",
@@ -311,6 +317,12 @@
         "agents/openai.yaml": "767ee7de868e950e708b2ea98c6009900b5ad66cc8c3300a883f7c836cc57639"
       }
     },
+    "medical-device-labeling-ifu": {
+      "files": {
+        "SKILL.md": "325f3fa3c3e1da799fb03346e76170a4a73a2826808e30f0bb4edc1ce569cb89",
+        "agents/openai.yaml": "60b09d6acaec6dbc5f976d919f7712586755594714292e64652847784dc6503c"
+      }
+    },
     "medical-device-privacy-gdpr-bdsg": {
       "files": {
         "SKILL.md": "f4689b3eb4632a3fd4ac873b520caa5d8843a471f56621f4702a5be401c23aca",
@@ -411,6 +423,12 @@
       "files": {
         "SKILL.md": "de209c852e3b9d9bd8fc7de4015881dd2fdfa1b795aaccafcd527c972b4b3005",
         "agents/openai.yaml": "65925dba220e6e5321680ebf16da66a89189fdaa4e7ff228866f0a8b76929d03"
+      }
+    },
+    "regulatory-claims-consistency": {
+      "files": {
+        "SKILL.md": "6e51b381acffc5278e2280b8b53b6805c6f99de24ff5a082d3b21adda478c708",
+        "agents/openai.yaml": "03776654bc16a674078f861b25d5abd1ff9bb426e885830490d518788c9e1569"
       }
     },
     "regulatory-evidence-traceability": {

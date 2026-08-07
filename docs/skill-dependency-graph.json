@@ -250,6 +250,19 @@
       ]
     },
     {
+      "name": "fda-complaint-mdr-reportability",
+      "requires": [
+        "medical-device-risk-management-iso14971",
+        "quality-record-integrity",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "complaint-regulatory-actions.json",
+        "mdr-reportability-assessment.json"
+      ]
+    },
+    {
       "name": "fda-de-novo-special-controls",
       "requires": [
         "fda-de-novo-strategy",
@@ -598,6 +611,19 @@
       ]
     },
     {
+      "name": "medical-device-labeling-ifu",
+      "requires": [
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "ifu-content-structure.md",
+        "labeling-content-map.json",
+        "labeling-evidence-gaps.json"
+      ]
+    },
+    {
       "name": "medical-device-privacy-gdpr-bdsg",
       "requires": [
         "regulated-product-context",
@@ -795,6 +821,20 @@
       "outputs": [
         "regulated-product-context.json",
         "regulated-product-context.md"
+      ]
+    },
+    {
+      "name": "regulatory-claims-consistency",
+      "requires": [
+        "design-control-traceability",
+        "medical-device-labeling-ifu",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "claim-conflicts.json",
+        "claims-consistency-map.json",
+        "claims-remediation-plan.md"
       ]
     },
     {
@@ -1112,6 +1152,22 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "fda-complaint-mdr-reportability",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "fda-complaint-mdr-reportability",
+      "to": "quality-record-integrity"
+    },
+    {
+      "from": "fda-complaint-mdr-reportability",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "fda-complaint-mdr-reportability",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "fda-de-novo-special-controls",
       "to": "fda-de-novo-strategy"
     },
@@ -1424,6 +1480,18 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "medical-device-labeling-ifu",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-labeling-ifu",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-labeling-ifu",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "medical-device-privacy-gdpr-bdsg",
       "to": "regulated-product-context"
     },
@@ -1566,6 +1634,22 @@
     {
       "from": "quality-record-integrity",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "regulatory-claims-consistency",
+      "to": "design-control-traceability"
+    },
+    {
+      "from": "regulatory-claims-consistency",
+      "to": "medical-device-labeling-ifu"
+    },
+    {
+      "from": "regulatory-claims-consistency",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "regulatory-claims-consistency",
+      "to": "regulatory-evidence-traceability"
     },
     {
       "from": "regulatory-evidence-traceability",
@@ -1871,6 +1955,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "claim-conflicts.json",
+      "producers": [
+        "regulatory-claims-consistency"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "claims-consistency-map.json",
+      "producers": [
+        "regulatory-claims-consistency"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "claims-remediation-plan.md",
+      "producers": [
+        "regulatory-claims-consistency"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "clinical-performance-evidence.json",
       "producers": [
         "ivdr-clinical-performance-study"
@@ -1907,6 +2018,15 @@
       "output": "communication-profile.merged.json",
       "producers": [
         "memory-sync-reconciliation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "complaint-regulatory-actions.json",
+      "producers": [
+        "fda-complaint-mdr-reportability"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -2178,7 +2298,8 @@
       ],
       "consumerSkills": [
         "design-change-regulatory-impact",
-        "process-validation-iq-oq-pq"
+        "process-validation-iq-oq-pq",
+        "regulatory-claims-consistency"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2190,7 +2311,8 @@
       ],
       "consumerSkills": [
         "design-change-regulatory-impact",
-        "process-validation-iq-oq-pq"
+        "process-validation-iq-oq-pq",
+        "regulatory-claims-consistency"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2541,6 +2663,17 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "ifu-content-structure.md",
+      "producers": [
+        "medical-device-labeling-ifu"
+      ],
+      "consumerSkills": [
+        "regulatory-claims-consistency"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "implementation-evidence.json",
       "producers": [
         "implement-from-issue"
@@ -2784,6 +2917,28 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "labeling-content-map.json",
+      "producers": [
+        "medical-device-labeling-ifu"
+      ],
+      "consumerSkills": [
+        "regulatory-claims-consistency"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "labeling-evidence-gaps.json",
+      "producers": [
+        "medical-device-labeling-ifu"
+      ],
+      "consumerSkills": [
+        "regulatory-claims-consistency"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "management-review-actions.json",
       "producers": [
         "qms-management-review-governance"
@@ -2839,6 +2994,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "mdr-reportability-assessment.json",
+      "producers": [
+        "fda-complaint-mdr-reportability"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "measurement-capability-study.json",
@@ -3356,9 +3520,11 @@
       "producers": [
         "quality-record-integrity"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-complaint-mdr-reportability"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "quality-review.json",
@@ -3378,18 +3544,22 @@
       "producers": [
         "quality-record-integrity"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-complaint-mdr-reportability"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "record-retrieval-index.json",
       "producers": [
         "quality-record-integrity"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "fda-complaint-mdr-reportability"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "recovered-system-model.json",
@@ -3410,6 +3580,7 @@
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-predicate-strategy",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
@@ -3420,10 +3591,12 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
+        "medical-device-labeling-ifu",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971",
+        "regulatory-claims-consistency",
         "regulatory-evidence-traceability"
       ],
       "ambiguous": false,
@@ -3439,6 +3612,7 @@
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-predicate-strategy",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
@@ -3449,10 +3623,12 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
+        "medical-device-labeling-ifu",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971",
+        "regulatory-claims-consistency",
         "regulatory-evidence-traceability"
       ],
       "ambiguous": false,
@@ -3478,6 +3654,7 @@
         "fda-510k-substantial-equivalence",
         "fda-acceptance-readiness",
         "fda-additional-information-response",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
@@ -3492,7 +3669,9 @@
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
-        "mdcg-guidance-navigator"
+        "mdcg-guidance-navigator",
+        "medical-device-labeling-ifu",
+        "regulatory-claims-consistency"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3508,6 +3687,7 @@
         "fda-510k-substantial-equivalence",
         "fda-acceptance-readiness",
         "fda-additional-information-response",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
@@ -3522,7 +3702,9 @@
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
-        "mdcg-guidance-navigator"
+        "mdcg-guidance-navigator",
+        "medical-device-labeling-ifu",
+        "regulatory-claims-consistency"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3664,6 +3846,7 @@
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "ivdr-analytical-performance",
@@ -3672,6 +3855,7 @@
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
+        "medical-device-labeling-ifu",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -3690,6 +3874,7 @@
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "ivdr-analytical-performance",
@@ -3698,6 +3883,7 @@
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
+        "medical-device-labeling-ifu",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -3716,6 +3902,7 @@
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
+        "fda-complaint-mdr-reportability",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "ivdr-analytical-performance",
@@ -3724,6 +3911,7 @@
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
+        "medical-device-labeling-ifu",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -4063,7 +4251,11 @@
     "beta-readiness.md",
     "beta-runbook.md",
     "change-verification-needs.json",
+    "claim-conflicts.json",
+    "claims-consistency-map.json",
+    "claims-remediation-plan.md",
     "communication-profile.merged.json",
+    "complaint-regulatory-actions.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
@@ -4097,6 +4289,7 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
+    "mdr-reportability-assessment.json",
     "measurement-capability-study.json",
     "measurement-evidence-gaps.json",
     "measurement-system-assessment.json",
@@ -4124,9 +4317,6 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
-    "quality-record-integrity-assessment.json",
-    "record-integrity-gaps.json",
-    "record-retrieval-index.json",
     "recovered-system-model.json",
     "regulatory-change-decisions.json",
     "regulatory-strategy.json",
@@ -4160,7 +4350,11 @@
     "beta-readiness.md",
     "beta-runbook.md",
     "change-verification-needs.json",
+    "claim-conflicts.json",
+    "claims-consistency-map.json",
+    "claims-remediation-plan.md",
     "communication-profile.merged.json",
+    "complaint-regulatory-actions.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
@@ -4194,6 +4388,7 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
+    "mdr-reportability-assessment.json",
     "measurement-capability-study.json",
     "measurement-evidence-gaps.json",
     "measurement-system-assessment.json",
@@ -4221,9 +4416,6 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
-    "quality-record-integrity-assessment.json",
-    "record-integrity-gaps.json",
-    "record-retrieval-index.json",
     "recovered-system-model.json",
     "regulatory-change-decisions.json",
     "regulatory-strategy.json",

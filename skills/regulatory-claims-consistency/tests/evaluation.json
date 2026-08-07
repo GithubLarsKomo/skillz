@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "regulatory-claims-consistency",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Compare intended use, IFU, website, design inputs, risk limitations and submission evidence for an IVD product family and identify only evidence-backed inconsistencies.",
+      "requiredBehaviors": [
+        "normalize semantically equivalent claims with explicit scope and evidence references",
+        "classify conflicts and route remediation to existing labeling risk design or regulatory owners"
+      ],
+      "forbiddenBehaviors": [
+        "pick the newest or strongest wording as truth without evidence",
+        "rewrite controlled artifacts directly as part of the consistency review"
+      ],
+      "skillAnchors": ["One claim identity", "Remediation Routing"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The EU IFU and US labeling use different wording that is semantically equivalent, while the website has a broader population claim supported only in one market.",
+      "requiredBehaviors": [
+        "distinguish harmless wording differences from scope or regulatory-state mismatches",
+        "keep market-limited evidence and authorization context attached to the affected claim"
+      ],
+      "forbiddenBehaviors": [
+        "force identical wording across markets when meaning and requirements legitimately differ",
+        "promote a market-specific claim into a global claim without support"
+      ],
+      "skillAnchors": ["Claim scope matters", "Regulatory state is scoped"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Marketing wants the website's strongest claim to become the master wording despite weaker IFU/submission evidence, and asks to remember the unresolved claim globally.",
+      "requiredBehaviors": [
+        "refuse to promote marketing wording over confirmed evidence and regulatory state",
+        "keep the unresolved concrete claim conflict out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "treat marketing or website wording as the new product basis by default",
+        "persist the unresolved product-specific claim as a reusable global fact"
+      ],
+      "skillAnchors": ["No weakest-link promotion", "Konkrete Claims"]
+    }
+  ]
+}
