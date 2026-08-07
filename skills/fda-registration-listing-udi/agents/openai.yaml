@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Registration Listing Udi"
+  short_description: "Bereitet 21 CFR 807 Registration/Listing und UDI/GUDID-Masterdaten vor, ohne externe IDs oder Portalzustände zu erfinden."
+policy:
+  allow_implicit_invocation: false
