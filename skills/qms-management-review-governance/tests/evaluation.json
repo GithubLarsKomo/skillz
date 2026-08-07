@@ -4,55 +4,61 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Prepare a management review for a marketed IVD using a complete pms-management-review-input.json with source coverage, complaint trends, one closed vigilance decision, one open high-impact signal, CAPA/risk references and prior actions.",
+      "input": "Prepare a management review for a marketed IVD using a complete pms-management-review-input.json and a management-review-return-input.json from the prior review. The return input contains one verified closed action, one implemented action still awaiting effectiveness evidence, and one open high-impact action.",
       "requiredBehaviors": [
         "consume the aggregated PMS management-review input, preserve specialist decision references and keep no-events, no-signal, no-data, not-reviewed and not-applicable states distinct",
         "surface unresolved high-impact postmarket or vigilance states even when aggregate KPIs are otherwise green and qualify QMS conclusions where the evidence requires it",
-        "keep time-critical vigilance, reportability and field-action escalation independent of the scheduled management-review cadence"
+        "keep time-critical vigilance, reportability and field-action escalation independent of the scheduled management-review cadence",
+        "consume the prior management-review return input when earlier actions exist and keep implemented, effectiveness-pending, effective, external-pending and closed action states distinct"
       ],
       "forbiddenBehaviors": [
         "re-decide specialist-owned reportability or external closure merely because the case was discussed in management review",
-        "copy unnecessary patient-level or raw complaint case data into the management-review brief"
+        "copy unnecessary patient-level or raw complaint case data into the management-review brief",
+        "upgrade an implemented or owner-completed prior action to effective or closed without the required evidence"
       ],
       "skillAnchors": [
         "`pms-management-review-input.json`",
-        "`no-events|no-signal|no-data|not-reviewed|not-applicable|unknown`",
-        "Ein zeitkritischer möglicher Vigilance-/Reportability-/Field-Action-Fall wartet **nie**"
+        "`management-review-return-input.json`",
+        "`routed|implemented|effectiveness-pending|effective|external-pending|closed`"
       ]
     },
     {
       "id": "edge-case",
-      "input": "The overall complaint KPI is within target, but one potentially serious unresolved vigilance case exists and one major PMS source was not reviewed during the period. Build the management-review conclusion.",
+      "input": "The overall complaint KPI is within target, but one potentially serious unresolved vigilance case exists, one major PMS source was not reviewed, and a prior management action was implemented but its effectiveness observation window has not finished. Build the management-review conclusion.",
       "requiredBehaviors": [
         "keep the unresolved higher-risk case visible as a management-attention item instead of averaging it away under the aggregate KPI",
-        "mark the unreviewed PMS source as a data gap and qualify suitability, adequacy or effectiveness conclusions rather than interpreting missing coverage positively"
+        "mark the unreviewed PMS source as a data gap and qualify suitability, adequacy or effectiveness conclusions rather than interpreting missing coverage positively",
+        "keep the prior implemented action open as effectiveness-pending until specialist effectiveness evidence exists"
       ],
       "forbiddenBehaviors": [
         "declare postmarket governance adequate solely because the aggregate complaint KPI is green",
-        "treat a not-reviewed source as evidence of zero events or no signal"
+        "treat a not-reviewed source as evidence of zero events or no signal",
+        "treat implementation alone as proof that the prior management action was effective"
       ],
       "skillAnchors": [
         "darf nicht durch einen aggregierten „grünen“ KPI",
         "Fehlt dieser ohne begründete Nichtanwendbarkeit, bleibt ein `dataGap`",
-        "wird die Schlussfolgerung entsprechend qualifiziert"
+        "Eine Owner-Aussage „done“ oder eine Task-Checkbox"
       ]
     },
     {
       "id": "failure-case",
-      "input": "A draft management review says there were zero vigilance events because the source extract is missing and marks an authority report as closed because management discussed it. It also defers a possible reportable event until the next quarterly review.",
+      "input": "A draft management review says there were zero vigilance events because the source extract is missing, marks an authority report as closed because management discussed it, and says all prior actions are closed because the return input is missing and owners marked tasks done. It also defers a possible reportable event until the next quarterly review.",
       "requiredBehaviors": [
         "reject the no-data-equals-zero-events conclusion and restore explicit input coverage and unknown states",
         "reject management-review discussion as evidence of authority reporting or external closure and require verified external evidence",
-        "reject deferral of a time-critical reportability assessment to the next management review"
+        "reject deferral of a time-critical reportability assessment to the next management review",
+        "reject missing prior-action return evidence or owner task status as proof that previous management actions are closed"
       ],
       "forbiddenBehaviors": [
         "convert missing postmarket evidence into a positive zero-event conclusion",
-        "use management review as the authority-reporting decision or closure mechanism"
+        "use management review as the authority-reporting decision or closure mechanism",
+        "infer that there are no open prior actions merely because the management-review return input is absent"
       ],
       "skillAnchors": [
         "fehlende PMS-Evidenz wird nicht als „keine Ereignisse“ interpretiert",
-        "dadurch weder regulatorisch gemeldet noch extern geschlossen",
-        "Management Review ist kein Gate"
+        "Management Review ist kein Gate",
+        "Prior-Action-Coverage `unknown|dataGap`"
       ]
     }
   ]
