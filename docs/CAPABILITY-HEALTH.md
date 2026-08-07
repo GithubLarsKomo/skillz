@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **72**
-- User-facing entrypoints: **54**
-- Evaluation suites: **72**
+- Skills: **75**
+- User-facing entrypoints: **57**
+- Evaluation suites: **75**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **78**
+- Outputs without inferred hard-requires consumers: **83**
 
 ## Evaluation gaps
 
@@ -35,6 +35,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
 - `change-impact-assessment.json` — producer: `controlled-quality-documentation`
+- `change-verification-needs.json` — producer: `design-change-regulatory-impact`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
@@ -42,6 +43,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
 - `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`
 - `decision-follow-up-register.md` — producer: `decision-and-follow-up-tracker`
+- `design-change-impact.json` — producer: `design-change-regulatory-impact`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -83,10 +85,13 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `progress summary` — producer: `synapse-orchestrator`
+- `qmsr-gap-assessment.md` — producer: `fda-qmsr-iso13485-gap`
+- `qmsr-iso13485-delta.json` — producer: `fda-qmsr-iso13485-gap`
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
+- `regulatory-change-decisions.json` — producer: `design-change-regulatory-impact`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`

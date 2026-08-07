@@ -70,6 +70,18 @@
         "agents/openai.yaml": "8c336e46c3ff7b48b26203a436115b4c1f959c1f3e113fa5e4c3171aced7be7a"
       }
     },
+    "design-change-regulatory-impact": {
+      "files": {
+        "SKILL.md": "99c8488749cc228315e76c41791d406be396f329a22f122850950331f31219e7",
+        "agents/openai.yaml": "5af90c4db26831e52ae85780e807e446135fb04642f82ae9430b0f83cd19d379"
+      }
+    },
+    "design-control-traceability": {
+      "files": {
+        "SKILL.md": "5b8da84f31edf6a4c90dc6872555c4a42d33c05b5aac976dc197cca14ff7e8ac",
+        "agents/openai.yaml": "22195a863855aaf06bc93560042a1df79d818954f2117ef2f8f66835ddc44f93"
+      }
+    },
     "disciplined-diagnosis": {
       "files": {
         "SKILL.md": "d20066417f5f56ad24b5494c5c87b345f06a28ebc57441e16090b9c589139fd1",
@@ -152,6 +164,12 @@
       "files": {
         "SKILL.md": "e3e965929b6be7725f95011b5de94bdfff508f2aff594afccb0fed8bc1b25af4",
         "agents/openai.yaml": "12aa69158097cc75fcb368ddfe8292791529a37999f99506752265a69fd675a6"
+      }
+    },
+    "fda-qmsr-iso13485-gap": {
+      "files": {
+        "SKILL.md": "6c84399eb52f7f1056f89f2ea3da437fdd9d46e3e612f40ac942ddb557243619",
+        "agents/openai.yaml": "f84c4dc921b37afe0f510c3f4ae596b52265e20f49bf6a6e039e9ec58df25f52"
       }
     },
     "fda-qsub-strategy": {
