@@ -1,5 +1,5 @@
 interface:
   display_name: "Qms Management Review Governance"
-  short_description: "Bereitet Medical-Device-/IVD-QMS-Management-Reviews aus bestätigten QMS-, Audit-, CAPA-, Complaint-, Risk-, Supplier-..."
+  short_description: "Bereitet Medical-Device-/IVD-QMS-Management-Reviews aus bestätigten QMS-, Audit-, CAPA-, PMS-, Vigilance-, Complaint-..."
 policy:
   allow_implicit_invocation: true
