@@ -1,5 +1,5 @@
 interface:
   display_name: "Ivdr Inhouse Health Institution"
-  short_description: "Bewertet IVDR-Article-5(5)-Eligibility, aktuelle Bedingungen und Übergangsfristen für In-house-IVDs."
+  short_description: "Bewertet in Gesundheitseinrichtungen hergestellte und verwendete IVDs gegen die IVDR-Health-Institution-Exception nac..."
 policy:
   allow_implicit_invocation: false
