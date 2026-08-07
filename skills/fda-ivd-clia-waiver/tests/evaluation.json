@@ -26,7 +26,7 @@
         "duplicate all existing performance studies merely because CLIA waiver is being pursued",
         "define acceptance logic only after reviewing favorable study results"
       ],
-      "skillAnchors": ["Existing evidence may be reused", "vor Datenauswertung"]
+      "skillAnchors": ["Existing evidence may be reused", "Acceptance-Rationale"]
     },
     {
       "id": "failure-case",
