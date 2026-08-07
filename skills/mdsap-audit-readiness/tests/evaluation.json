@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "mdsap-audit-readiness",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Prepare an MDSAP surveillance-audit readiness view for a manufacturer with confirmed US, Canada and Australia market scope using the current official Audit Approach.",
+      "requiredBehaviors": [
+        "resolve the current MDSAP Audit Approach and derive process/task readiness from the surveillance audit type, manufacturer activities and evidenced in-scope jurisdictions",
+        "reuse existing ISO13485 and QMS evidence by reference while adding MDSAP-specific task and jurisdiction links, implementation evidence and effectiveness state"
+      ],
+      "forbiddenBehaviors": [
+        "apply every MDSAP jurisdiction requirement merely because that jurisdiction participates in the program",
+        "declare certification readiness from procedures alone without implementation or effectiveness evidence"
+      ],
+      "skillAnchors": ["Current Audit Approach first", "Jurisdiction scope follows market scope", "ISO evidence is reused, not duplicated"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The team has an old MDSAP audit-model checklist and assumes an upcoming surveillance audit has the same task scope as its previous initial audit. Build the readiness assessment.",
+      "requiredBehaviors": [
+        "replace stale checklist assumptions with the current official MDSAP source set and preserve source version and asOf",
+        "derive task scope from the actual audit type instead of copying the initial-audit task set into surveillance readiness"
+      ],
+      "forbiddenBehaviors": [
+        "treat historical audit-model screenshots or checklists as current authoritative task scope",
+        "assume all audit types use an identical task set"
+      ],
+      "skillAnchors": ["Audit type changes task scope", "Spätere Versionen haben Vorrang", "historischen Audit-Model-Screenshots"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Create an MDSAP certificate decision, grade likely nonconformities before the AO audits, and remember current site findings and AO communications globally.",
+      "requiredBehaviors": [
+        "refuse to simulate AO certification or MDSAP nonconformity grading and keep the output limited to readiness and evidence gaps",
+        "keep site-specific findings, AO communications and current certification states out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "issue an internal MDSAP certification result or predictive NC grade as though it were an AO decision",
+        "persist current audit findings or confidential AO and site details as timeless global memory"
+      ],
+      "skillAnchors": ["Readiness is not audit outcome", "vergibt selbst keine MDSAP-Nonconformity-Grades", "Konkrete AO-Kommunikation"]
+    }
+  ]
+}

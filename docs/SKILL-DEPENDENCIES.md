@@ -7,6 +7,8 @@ graph TD
   agent_handoff --> iterate_software_projects
   architecture_deepening_review --> disciplined_diagnosis
   architecture_deepening_review --> iterate_software_projects
+  audit_inspection_finding_response --> decision_record
+  audit_inspection_finding_response --> regulatory_evidence_traceability
   central_skill_repository_curation --> composable_skill_factory
   clinical_evidence_update_impact --> decision_record
   clinical_evidence_update_impact --> regulated_product_context
@@ -171,6 +173,9 @@ graph TD
   mdcg_guidance_navigator --> regulated_product_context
   mdcg_guidance_navigator --> regulatory_evidence_traceability
   mdcg_guidance_navigator --> research_to_evidence_note
+  mdsap_audit_readiness --> iso13485_qms_audit
+  mdsap_audit_readiness --> medical_device_qms_iso13485
+  mdsap_audit_readiness --> regulatory_evidence_traceability
   measurement_system_validation --> medical_device_qms_iso13485
   measurement_system_validation --> medical_device_risk_management_iso14971
   measurement_system_validation --> two_axis_compliance_review
@@ -269,6 +274,7 @@ graph TD
 | `approved SPEC.md` | `round-based-requirements-grilling` | — | unconsumed |
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
+| `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `beta-readiness.json` | `project-beta-readiness` | — | unconsumed |
 | `beta-readiness.md` | `project-beta-readiness` | — | unconsumed |
 | `beta-runbook.md` | `project-beta-readiness` | — | unconsumed |
@@ -319,8 +325,8 @@ graph TD
 | `decision register` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | — | unconsumed |
 | `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | — | unconsumed |
-| `decision-record.json` | `decision-record` | `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
-| `decision-record.md` | `decision-record` | `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
+| `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
+| `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
@@ -360,6 +366,8 @@ graph TD
 | `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `fda-estar-submission-builder`, `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
 | `fda-request-issue-map.json` | `fda-additional-information-response` | — | unconsumed |
 | `fda-response-package.md` | `fda-additional-information-response` | — | unconsumed |
+| `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
+| `finding-closure-status.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `flex-study-needs.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
 | `gudid-udi-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
 | `human-procedure-plan.md` | `human-procedure-wizard` | — | unconsumed |
@@ -401,6 +409,9 @@ graph TD
 | `mdcg-guidance-changes.json` | `mdcg-guidance-navigator` | `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance` | inferred |
 | `mdcg-guidance-set.json` | `mdcg-guidance-navigator` | `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance` | inferred |
 | `mdr-reportability-assessment.json` | `fda-complaint-mdr-reportability` | `fda-corrections-removals` | inferred |
+| `mdsap-audit-scope.json` | `mdsap-audit-readiness` | — | unconsumed |
+| `mdsap-evidence-gaps.json` | `mdsap-audit-readiness` | — | unconsumed |
+| `mdsap-task-readiness.json` | `mdsap-audit-readiness` | — | unconsumed |
 | `measurement-capability-study.json` | `measurement-system-validation` | — | unconsumed |
 | `measurement-evidence-gaps.json` | `measurement-system-validation` | — | unconsumed |
 | `measurement-system-assessment.json` | `measurement-system-validation` | — | unconsumed |
@@ -443,12 +454,12 @@ graph TD
 | `prototype-brief.md` | `throwaway-prototype` | `decision-record` | inferred |
 | `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | inferred |
 | `pull request` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `qms-audit-findings.json` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `qms-management-review-governance` | inferred |
-| `qms-audit-plan.json` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `qms-management-review-governance` | inferred |
-| `qms-audit-report.md` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `qms-management-review-governance` | inferred |
-| `qms-gap-analysis.json` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `fda-qmsr-iso13485-gap`, `iec62304-software-lifecycle`, `iso13485-qms-audit`, `ivdr-inhouse-health-institution`, `measurement-system-validation`, `medical-device-capa`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `qms-management-review-governance`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
-| `qms-process-map.json` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `fda-qmsr-iso13485-gap`, `iec62304-software-lifecycle`, `iso13485-qms-audit`, `ivdr-inhouse-health-institution`, `measurement-system-validation`, `medical-device-capa`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `qms-management-review-governance`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
-| `qms-readiness.md` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `fda-qmsr-iso13485-gap`, `iec62304-software-lifecycle`, `iso13485-qms-audit`, `ivdr-inhouse-health-institution`, `measurement-system-validation`, `medical-device-capa`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `qms-management-review-governance`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
+| `qms-audit-findings.json` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `mdsap-audit-readiness`, `qms-management-review-governance` | inferred |
+| `qms-audit-plan.json` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `mdsap-audit-readiness`, `qms-management-review-governance` | inferred |
+| `qms-audit-report.md` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `mdsap-audit-readiness`, `qms-management-review-governance` | inferred |
+| `qms-gap-analysis.json` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `fda-qmsr-iso13485-gap`, `iec62304-software-lifecycle`, `iso13485-qms-audit`, `ivdr-inhouse-health-institution`, `mdsap-audit-readiness`, `measurement-system-validation`, `medical-device-capa`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `qms-management-review-governance`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
+| `qms-process-map.json` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `fda-qmsr-iso13485-gap`, `iec62304-software-lifecycle`, `iso13485-qms-audit`, `ivdr-inhouse-health-institution`, `mdsap-audit-readiness`, `measurement-system-validation`, `medical-device-capa`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `qms-management-review-governance`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
+| `qms-readiness.md` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `fda-qmsr-iso13485-gap`, `iec62304-software-lifecycle`, `iso13485-qms-audit`, `ivdr-inhouse-health-institution`, `mdsap-audit-readiness`, `measurement-system-validation`, `medical-device-capa`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `qms-management-review-governance`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `qmsr-gap-assessment.md` | `fda-qmsr-iso13485-gap` | `fda-qmsr-inspection-readiness` | inferred |
 | `qmsr-inspection-readiness.json` | `fda-qmsr-inspection-readiness` | — | unconsumed |
 | `qmsr-iso13485-delta.json` | `fda-qmsr-iso13485-gap` | `fda-qmsr-inspection-readiness` | inferred |
@@ -464,8 +475,8 @@ graph TD
 | `regulated-product-context.md` | `regulated-product-context` | `clinical-evidence-update-impact`, `controlled-quality-documentation`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-complaint-mdr-reportability`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-ivd-clia-waiver`, `fda-medical-device-ivd-regulatory-specialist`, `fda-registration-listing-udi`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-inhouse-health-institution`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-cybersecurity-lifecycle`, `medical-device-isms-governance`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency`, `regulatory-evidence-traceability` | inferred |
 | `regulatory-change-decisions.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
 | `regulatory-change-route-map.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
-| `regulatory-evidence-gaps.json` | `regulatory-evidence-traceability` | `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-acceptance-readiness`, `fda-additional-information-response`, `fda-complaint-mdr-reportability`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-dual-510k-clia-waiver`, `fda-estar-submission-builder`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `fda-qmsr-iso13485-gap`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-analytical-performance`, `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-inhouse-health-institution`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency` | inferred |
-| `regulatory-evidence-map.json` | `regulatory-evidence-traceability` | `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-acceptance-readiness`, `fda-additional-information-response`, `fda-complaint-mdr-reportability`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-dual-510k-clia-waiver`, `fda-estar-submission-builder`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `fda-qmsr-iso13485-gap`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-analytical-performance`, `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-inhouse-health-institution`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency` | inferred |
+| `regulatory-evidence-gaps.json` | `regulatory-evidence-traceability` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-acceptance-readiness`, `fda-additional-information-response`, `fda-complaint-mdr-reportability`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-dual-510k-clia-waiver`, `fda-estar-submission-builder`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `fda-qmsr-iso13485-gap`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-analytical-performance`, `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-inhouse-health-institution`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `mdsap-audit-readiness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency` | inferred |
+| `regulatory-evidence-map.json` | `regulatory-evidence-traceability` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-510k-substantial-equivalence`, `fda-acceptance-readiness`, `fda-additional-information-response`, `fda-complaint-mdr-reportability`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-dual-510k-clia-waiver`, `fda-estar-submission-builder`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `fda-qmsr-iso13485-gap`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-analytical-performance`, `ivdr-class-d-conformity`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-inhouse-health-institution`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `mdsap-audit-readiness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency` | inferred |
 | `regulatory-strategy.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-strategy.md` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 99,
-  "entrypointCount": 81,
+  "skillCount": 101,
+  "entrypointCount": 83,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 99,
+  "evaluationSuiteCount": 101,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -139,6 +139,59 @@
             "large-work-wayfinder",
             "two-axis-code-review"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "audit-inspection-finding-response",
+      "description": "Strukturiert Antworten auf Audit-, Inspection- und MDSAP-Findings aus Originalwortlaut, Criteria, Evidence, Fristen und Actions und routet Investigation, CAPA, Risk und Regulatory Follow-up ohne externe Closure zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "audit-finding-response-map.json",
+        "finding-action-plan.json",
+        "finding-closure-status.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "audit-finding-response-map.json",
+          "ambiguous": false,
+          "producers": [
+            "audit-inspection-finding-response"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "finding-action-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "audit-inspection-finding-response"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "finding-closure-status.json",
+          "ambiguous": false,
+          "producers": [
+            "audit-inspection-finding-response"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -581,6 +634,7 @@
         "two-axis-code-review"
       ],
       "dependents": [
+        "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
@@ -606,6 +660,7 @@
             "decision-record"
           ],
           "consumerSkills": [
+            "audit-inspection-finding-response",
             "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "domain-model-maintenance",
@@ -627,6 +682,7 @@
             "decision-record"
           ],
           "consumerSkills": [
+            "audit-inspection-finding-response",
             "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "domain-model-maintenance",
@@ -2437,6 +2493,7 @@
       ],
       "dependents": [
         "fda-qmsr-inspection-readiness",
+        "mdsap-audit-readiness",
         "qms-management-review-governance"
       ],
       "outputs": [
@@ -2453,6 +2510,7 @@
           ],
           "consumerSkills": [
             "fda-qmsr-inspection-readiness",
+            "mdsap-audit-readiness",
             "qms-management-review-governance"
           ]
         },
@@ -2464,6 +2522,7 @@
           ],
           "consumerSkills": [
             "fda-qmsr-inspection-readiness",
+            "mdsap-audit-readiness",
             "qms-management-review-governance"
           ]
         },
@@ -2475,6 +2534,7 @@
           ],
           "consumerSkills": [
             "fda-qmsr-inspection-readiness",
+            "mdsap-audit-readiness",
             "qms-management-review-governance"
           ]
         }
@@ -3435,6 +3495,60 @@
       }
     },
     {
+      "name": "mdsap-audit-readiness",
+      "description": "Bereitet Medical-Device-QMS-Evidenz auf den aktuellen MDSAP Audit Approach vor, mappt Audit-Typ, Prozesse, Tasks und anwendbare Jurisdiktionsanforderungen, ohne ISO-Audit oder Authority-Entscheidungen zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "iso13485-qms-audit",
+        "medical-device-qms-iso13485",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "mdsap-audit-scope.json",
+        "mdsap-evidence-gaps.json",
+        "mdsap-task-readiness.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "mdsap-audit-scope.json",
+          "ambiguous": false,
+          "producers": [
+            "mdsap-audit-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "mdsap-evidence-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "mdsap-audit-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "mdsap-task-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "mdsap-audit-readiness"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "measurement-system-validation",
       "description": "Bewertet Medical-Device-Mess- und Prüfsysteme risikobasiert auf Eignung, Kalibrierung, Auflösung, Bias, Stabilität und Wiederhol-/Reproduzierbarkeit.",
       "invocation": {
@@ -3870,6 +3984,7 @@
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "ivdr-inhouse-health-institution",
+        "mdsap-audit-readiness",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -3896,6 +4011,7 @@
             "iec62304-software-lifecycle",
             "iso13485-qms-audit",
             "ivdr-inhouse-health-institution",
+            "mdsap-audit-readiness",
             "measurement-system-validation",
             "medical-device-capa",
             "nonconformance-mrb-disposition",
@@ -3917,6 +4033,7 @@
             "iec62304-software-lifecycle",
             "iso13485-qms-audit",
             "ivdr-inhouse-health-institution",
+            "mdsap-audit-readiness",
             "measurement-system-validation",
             "medical-device-capa",
             "nonconformance-mrb-disposition",
@@ -3938,6 +4055,7 @@
             "iec62304-software-lifecycle",
             "iso13485-qms-audit",
             "ivdr-inhouse-health-institution",
+            "mdsap-audit-readiness",
             "measurement-system-validation",
             "medical-device-capa",
             "nonconformance-mrb-disposition",
@@ -5086,6 +5204,7 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "eudamed-udi-ivd",
@@ -5116,6 +5235,7 @@
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "mdsap-audit-readiness",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
@@ -5133,6 +5253,7 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "audit-inspection-finding-response",
             "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "eudamed-udi-ivd",
@@ -5163,6 +5284,7 @@
             "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
+            "mdsap-audit-readiness",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "regulatory-change-impact-orchestrator",
@@ -5176,6 +5298,7 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "audit-inspection-finding-response",
             "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "eudamed-udi-ivd",
@@ -5206,6 +5329,7 @@
             "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
+            "mdsap-audit-readiness",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "regulatory-change-impact-orchestrator",

@@ -16,6 +16,12 @@
         "agents/openai.yaml": "0a94809d20c0dcffd8657f66e6efad3be41aae246f7b04379724c575f39e075b"
       }
     },
+    "audit-inspection-finding-response": {
+      "files": {
+        "SKILL.md": "5d7d63f5d7a9e00112b225223c5d7895a9cf379deaae366e440613756f48537e",
+        "agents/openai.yaml": "a60046b65776e1d7b36a1a7059696b273d064c8b503700d2a9bb28302ed7b15a"
+      }
+    },
     "central-skill-repository-curation": {
       "files": {
         "SKILL.md": "49c2256014e1d7301256c78de29ff9dab738781c93226a2f8ad55b7288283ede",
@@ -369,6 +375,12 @@
       "files": {
         "SKILL.md": "22de3cb3f00a065ec6b344dba56ba8cfc9591da46d54511c9b5939f7ad83007c",
         "agents/openai.yaml": "6f3f10fc048bf2b9247c6194c11f5a6b78a377913d0c0b233e0dd9f962fd63bf"
+      }
+    },
+    "mdsap-audit-readiness": {
+      "files": {
+        "SKILL.md": "97314c0840f7de2db3b4f5b3aed5a0591e0018a5eb0436cf39c93ae4cf92590f",
+        "agents/openai.yaml": "2f389f95a7b8f21cc602050a212521cf4e7f49eb71b9e8be4391c8e8f2f15df3"
       }
     },
     "measurement-system-validation": {
