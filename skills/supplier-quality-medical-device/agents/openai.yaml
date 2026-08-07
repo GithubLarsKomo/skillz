@@ -1,0 +1,5 @@
+interface:
+  display_name: "Supplier Quality Medical Device"
+  short_description: "Steuert Medical-Device-Lieferanten risikobasiert von Auswahl und Qualifizierung über Qualitätsvereinbarung, Monitorin..."
+policy:
+  allow_implicit_invocation: true
