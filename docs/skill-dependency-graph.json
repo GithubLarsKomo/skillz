@@ -24,6 +24,18 @@
       ]
     },
     {
+      "name": "audit-inspection-finding-response",
+      "requires": [
+        "decision-record",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "audit-finding-response-map.json",
+        "finding-action-plan.json",
+        "finding-closure-status.json"
+      ]
+    },
+    {
       "name": "central-skill-repository-curation",
       "requires": [
         "composable-skill-factory"
@@ -740,6 +752,19 @@
       ]
     },
     {
+      "name": "mdsap-audit-readiness",
+      "requires": [
+        "iso13485-qms-audit",
+        "medical-device-qms-iso13485",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "mdsap-audit-scope.json",
+        "mdsap-evidence-gaps.json",
+        "mdsap-task-readiness.json"
+      ]
+    },
+    {
       "name": "measurement-system-validation",
       "requires": [
         "medical-device-qms-iso13485",
@@ -1194,6 +1219,14 @@
     {
       "from": "architecture-deepening-review",
       "to": "iterate-software-projects"
+    },
+    {
+      "from": "audit-inspection-finding-response",
+      "to": "decision-record"
+    },
+    {
+      "from": "audit-inspection-finding-response",
+      "to": "regulatory-evidence-traceability"
     },
     {
       "from": "central-skill-repository-curation",
@@ -1852,6 +1885,18 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "mdsap-audit-readiness",
+      "to": "iso13485-qms-audit"
+    },
+    {
+      "from": "mdsap-audit-readiness",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "mdsap-audit-readiness",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "measurement-system-validation",
       "to": "medical-device-qms-iso13485"
     },
@@ -2299,6 +2344,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "audit-finding-response-map.json",
+      "producers": [
+        "audit-inspection-finding-response"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "beta-readiness.json",
@@ -2846,6 +2900,7 @@
         "decision-record"
       ],
       "consumerSkills": [
+        "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
@@ -2868,6 +2923,7 @@
         "decision-record"
       ],
       "consumerSkills": [
+        "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
@@ -3339,6 +3395,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "finding-action-plan.json",
+      "producers": [
+        "audit-inspection-finding-response"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "finding-closure-status.json",
+      "producers": [
+        "audit-inspection-finding-response"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "flex-study-needs.json",
       "producers": [
         "fda-ivd-clia-waiver"
@@ -3789,6 +3863,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "mdsap-audit-scope.json",
+      "producers": [
+        "mdsap-audit-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "mdsap-evidence-gaps.json",
+      "producers": [
+        "mdsap-audit-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "mdsap-task-readiness.json",
+      "producers": [
+        "mdsap-audit-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "measurement-capability-study.json",
       "producers": [
         "measurement-system-validation"
@@ -4206,6 +4307,7 @@
       ],
       "consumerSkills": [
         "fda-qmsr-inspection-readiness",
+        "mdsap-audit-readiness",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -4218,6 +4320,7 @@
       ],
       "consumerSkills": [
         "fda-qmsr-inspection-readiness",
+        "mdsap-audit-readiness",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -4230,6 +4333,7 @@
       ],
       "consumerSkills": [
         "fda-qmsr-inspection-readiness",
+        "mdsap-audit-readiness",
         "qms-management-review-governance"
       ],
       "ambiguous": false,
@@ -4246,6 +4350,7 @@
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "ivdr-inhouse-health-institution",
+        "mdsap-audit-readiness",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -4268,6 +4373,7 @@
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "ivdr-inhouse-health-institution",
+        "mdsap-audit-readiness",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -4290,6 +4396,7 @@
         "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "ivdr-inhouse-health-institution",
+        "mdsap-audit-readiness",
         "measurement-system-validation",
         "medical-device-capa",
         "nonconformance-mrb-disposition",
@@ -4526,6 +4633,7 @@
         "regulatory-evidence-traceability"
       ],
       "consumerSkills": [
+        "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "eudamed-udi-ivd",
@@ -4556,6 +4664,7 @@
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "mdsap-audit-readiness",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
@@ -4570,6 +4679,7 @@
         "regulatory-evidence-traceability"
       ],
       "consumerSkills": [
+        "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "eudamed-udi-ivd",
@@ -4600,6 +4710,7 @@
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "mdsap-audit-readiness",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
@@ -5236,6 +5347,7 @@
     "GRILL-REPORT.md",
     "acceptance-gaps.json",
     "approved SPEC.md",
+    "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
@@ -5282,6 +5394,8 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "finding-action-plan.json",
+    "finding-closure-status.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -5300,6 +5414,9 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
+    "mdsap-audit-scope.json",
+    "mdsap-evidence-gaps.json",
+    "mdsap-task-readiness.json",
     "measurement-capability-study.json",
     "measurement-evidence-gaps.json",
     "measurement-system-assessment.json",
@@ -5362,6 +5479,7 @@
     "GRILL-REPORT.md",
     "acceptance-gaps.json",
     "approved SPEC.md",
+    "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
@@ -5408,6 +5526,8 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "finding-action-plan.json",
+    "finding-closure-status.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -5426,6 +5546,9 @@
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
+    "mdsap-audit-scope.json",
+    "mdsap-evidence-gaps.json",
+    "mdsap-task-readiness.json",
     "measurement-capability-study.json",
     "measurement-evidence-gaps.json",
     "measurement-system-assessment.json",

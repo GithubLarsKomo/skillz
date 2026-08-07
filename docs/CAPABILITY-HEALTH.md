@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **99**
-- User-facing entrypoints: **81**
-- Evaluation suites: **99**
+- Skills: **101**
+- User-facing entrypoints: **83**
+- Evaluation suites: **101**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **124**
+- Outputs without inferred hard-requires consumers: **130**
 
 ## Evaluation gaps
 
@@ -31,6 +31,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `GRILL-REPORT.md` — producer: `round-based-requirements-grilling`
 - `acceptance-gaps.json` — producer: `fda-acceptance-readiness`
 - `approved SPEC.md` — producer: `round-based-requirements-grilling`
+- `audit-finding-response-map.json` — producer: `audit-inspection-finding-response`
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
@@ -77,6 +78,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
+- `finding-action-plan.json` — producer: `audit-inspection-finding-response`
+- `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
@@ -95,6 +98,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
+- `mdsap-audit-scope.json` — producer: `mdsap-audit-readiness`
+- `mdsap-evidence-gaps.json` — producer: `mdsap-audit-readiness`
+- `mdsap-task-readiness.json` — producer: `mdsap-audit-readiness`
 - `measurement-capability-study.json` — producer: `measurement-system-validation`
 - `measurement-evidence-gaps.json` — producer: `measurement-system-validation`
 - `measurement-system-assessment.json` — producer: `measurement-system-validation`
