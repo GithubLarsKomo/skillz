@@ -409,6 +409,34 @@
       ]
     },
     {
+      "name": "iec62304-software-lifecycle",
+      "requires": [
+        "design-control-traceability",
+        "medical-device-qms-iso13485",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context"
+      ],
+      "outputs": [
+        "software-evidence-gaps.json",
+        "software-lifecycle-assessment.json",
+        "software-safety-classification.json"
+      ]
+    },
+    {
+      "name": "iec62366-usability-engineering",
+      "requires": [
+        "design-control-traceability",
+        "medical-device-labeling-ifu",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context"
+      ],
+      "outputs": [
+        "usability-engineering-assessment.json",
+        "usability-evidence-gaps.json",
+        "use-related-risk-evidence.json"
+      ]
+    },
+    {
       "name": "implement-from-issue",
       "requires": [
         "agent-handoff",
@@ -649,6 +677,20 @@
         "capa-effectiveness-plan.json",
         "capa-plan.json",
         "capa-status.md"
+      ]
+    },
+    {
+      "name": "medical-device-cybersecurity-lifecycle",
+      "requires": [
+        "design-control-traceability",
+        "iec62304-software-lifecycle",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context"
+      ],
+      "outputs": [
+        "cybersecurity-evidence-map.json",
+        "cybersecurity-lifecycle-assessment.json",
+        "cybersecurity-postmarket-actions.json"
       ]
     },
     {
@@ -1361,6 +1403,38 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "iec62304-software-lifecycle",
+      "to": "design-control-traceability"
+    },
+    {
+      "from": "iec62304-software-lifecycle",
+      "to": "medical-device-qms-iso13485"
+    },
+    {
+      "from": "iec62304-software-lifecycle",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "iec62304-software-lifecycle",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "iec62366-usability-engineering",
+      "to": "design-control-traceability"
+    },
+    {
+      "from": "iec62366-usability-engineering",
+      "to": "medical-device-labeling-ifu"
+    },
+    {
+      "from": "iec62366-usability-engineering",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "iec62366-usability-engineering",
+      "to": "regulated-product-context"
+    },
+    {
       "from": "implement-from-issue",
       "to": "agent-handoff"
     },
@@ -1583,6 +1657,22 @@
     {
       "from": "medical-device-capa",
       "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-cybersecurity-lifecycle",
+      "to": "design-control-traceability"
+    },
+    {
+      "from": "medical-device-cybersecurity-lifecycle",
+      "to": "iec62304-software-lifecycle"
+    },
+    {
+      "from": "medical-device-cybersecurity-lifecycle",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-cybersecurity-lifecycle",
+      "to": "regulated-product-context"
     },
     {
       "from": "medical-device-isms-governance",
@@ -2322,6 +2412,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "cybersecurity-evidence-map.json",
+      "producers": [
+        "medical-device-cybersecurity-lifecycle"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "cybersecurity-lifecycle-assessment.json",
+      "producers": [
+        "medical-device-cybersecurity-lifecycle"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "cybersecurity-postmarket-actions.json",
+      "producers": [
+        "medical-device-cybersecurity-lifecycle"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "de-novo-evidence-gaps.json",
       "producers": [
         "fda-de-novo-strategy"
@@ -2451,6 +2568,9 @@
       ],
       "consumerSkills": [
         "design-change-regulatory-impact",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
+        "medical-device-cybersecurity-lifecycle",
         "process-validation-iq-oq-pq",
         "regulatory-claims-consistency"
       ],
@@ -2464,6 +2584,9 @@
       ],
       "consumerSkills": [
         "design-change-regulatory-impact",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
+        "medical-device-cybersecurity-lifecycle",
         "process-validation-iq-oq-pq",
         "regulatory-claims-consistency"
       ],
@@ -2871,6 +2994,7 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
+        "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
@@ -3143,6 +3267,7 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
+        "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
@@ -3155,6 +3280,7 @@
       ],
       "consumerSkills": [
         "eudamed-udi-ivd",
+        "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
@@ -3629,6 +3755,7 @@
       "consumerSkills": [
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
+        "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "measurement-system-validation",
         "medical-device-capa",
@@ -3649,6 +3776,7 @@
       "consumerSkills": [
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
+        "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "measurement-system-validation",
         "medical-device-capa",
@@ -3669,6 +3797,7 @@
       "consumerSkills": [
         "fda-medical-device-ivd-regulatory-specialist",
         "fda-qmsr-iso13485-gap",
+        "iec62304-software-lifecycle",
         "iso13485-qms-audit",
         "measurement-system-validation",
         "medical-device-capa",
@@ -3810,12 +3939,15 @@
         "fda-device-classification-product-code",
         "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
         "medical-device-privacy-gdpr-bdsg",
@@ -3844,12 +3976,15 @@
         "fda-device-classification-product-code",
         "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
         "medical-device-privacy-gdpr-bdsg",
@@ -4086,12 +4221,15 @@
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
+        "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
@@ -4115,12 +4253,15 @@
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
+        "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
@@ -4144,12 +4285,15 @@
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "iec62304-software-lifecycle",
+        "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
+        "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
@@ -4199,6 +4343,39 @@
       ],
       "consumerSkills": [
         "central-skill-repository-curation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "software-evidence-gaps.json",
+      "producers": [
+        "iec62304-software-lifecycle"
+      ],
+      "consumerSkills": [
+        "medical-device-cybersecurity-lifecycle"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "software-lifecycle-assessment.json",
+      "producers": [
+        "iec62304-software-lifecycle"
+      ],
+      "consumerSkills": [
+        "medical-device-cybersecurity-lifecycle"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "software-safety-classification.json",
+      "producers": [
+        "iec62304-software-lifecycle"
+      ],
+      "consumerSkills": [
+        "medical-device-cybersecurity-lifecycle"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4340,6 +4517,33 @@
       "output": "updated skill repository",
       "producers": [
         "central-skill-repository-curation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "usability-engineering-assessment.json",
+      "producers": [
+        "iec62366-usability-engineering"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "usability-evidence-gaps.json",
+      "producers": [
+        "iec62366-usability-engineering"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "use-related-risk-evidence.json",
+      "producers": [
+        "iec62366-usability-engineering"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -4506,6 +4710,9 @@
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
+    "cybersecurity-evidence-map.json",
+    "cybersecurity-lifecycle-assessment.json",
+    "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
@@ -4587,6 +4794,9 @@
     "trend-signal-set.json",
     "ui-prototype-plan.md",
     "updated skill repository",
+    "usability-engineering-assessment.json",
+    "usability-evidence-gaps.json",
+    "use-related-risk-evidence.json",
     "vigilance-decision-log.json"
   ],
   "orphanOutputs": [
@@ -4607,6 +4817,9 @@
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
+    "cybersecurity-evidence-map.json",
+    "cybersecurity-lifecycle-assessment.json",
+    "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
     "decision-follow-up-register.json",
     "decision-follow-up-register.md",
@@ -4688,6 +4901,9 @@
     "trend-signal-set.json",
     "ui-prototype-plan.md",
     "updated skill repository",
+    "usability-engineering-assessment.json",
+    "usability-evidence-gaps.json",
+    "use-related-risk-evidence.json",
     "vigilance-decision-log.json"
   ]
 }
