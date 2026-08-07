@@ -103,19 +103,19 @@ flowchart TB
     REG_MR --> W_HUMAN
     ENG_ENTRY --> W_HANDOFF
 
-    ENG -. durable abstractions .-> M_GOV
-    REG -. durable abstractions .-> M_GOV
-    KNOW -. durable abstractions .-> M_GOV
-    PROD -. durable abstractions .-> M_GOV
+    ENG_ENTRY -. durable abstractions .-> M_GOV
+    REG_STRAT -. durable abstractions .-> M_GOV
+    K_RESEARCH -. durable abstractions .-> M_GOV
+    P_FOLLOW -. durable abstractions .-> M_GOV
     M_GOV --> M_SYNC
 
     S_FACTORY --> S_CURATE --> S_CAP
-    S_CAP -. governs discoverability .-> ENG
-    S_CAP -. governs discoverability .-> REG
-    S_CAP -. governs discoverability .-> KNOW
-    S_CAP -. governs discoverability .-> PROD
-    S_CAP -. governs discoverability .-> MEM
-    S_CAP -. governs discoverability .-> FLOW
+    S_CAP -. governs discoverability .-> ENG_ENTRY
+    S_CAP -. governs discoverability .-> REG_STRAT
+    S_CAP -. governs discoverability .-> K_RESEARCH
+    S_CAP -. governs discoverability .-> P_INBOX
+    S_CAP -. governs discoverability .-> M_GOV
+    S_CAP -. governs discoverability .-> W_EXT
 ```
 
 The important architectural point is that no single top-level orchestrator owns every domain. The repository composes narrow owners around a few shared spines: evidence, verification, delivery, governance and memory.
@@ -424,8 +424,8 @@ flowchart TB
 
     P4 --> M1
     R4 --> P2
-    R4 --> E1
-    E5 --> P2
+    R4 -. regulated product change .-> E1
+    E5 -. regulated product delivery evidence .-> P2
 ```
 
 ---
