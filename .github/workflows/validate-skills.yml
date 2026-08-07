@@ -6,32 +6,16 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: agent/regulatory-wave1-ivdr-performance
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Temporary materialize canonical repository metadata
-        run: |
-          python scripts/evaluate_skills.py
-          python scripts/generate_repository_metadata.py
-          python scripts/generate_repository_metadata.py --check
-          git diff --check
-          if ! git diff --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md .skill-sync.json docs/skill-dependency-graph.json docs/SKILL-DEPENDENCIES.md docs/skill-capability-index.json docs/CAPABILITY-HEALTH.md
-            git commit -m "Regenerate IVDR performance capability metadata [generated]"
-            git push origin HEAD:agent/regulatory-wave1-ivdr-performance
-          fi
       - name: Test skillz bootstrap installer
         run: python -m unittest tests.test_bootstrap_skillz
       - name: Test clean-room beta installation path
