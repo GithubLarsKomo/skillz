@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "audit-inspection-finding-response",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Prepare a response plan for a formal MDSAP nonconformity with documented criterion, objective evidence, grade and due date, while routing root cause and CAPA work to the existing owners.",
+      "requiredBehaviors": [
+        "preserve the original finding wording, criterion, objective evidence, source classification, assigned grade and due-date provenance while separating internal interpretation",
+        "route investigation, CAPA, risk and other systemic work to existing specialist owners and track their evidence without creating a parallel finding-CAPA process"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite the external finding or grade to make the response easier to defend",
+        "claim external closure merely because a response or CAPA plan was prepared or submitted"
+      ],
+      "skillAnchors": ["Preserve the source finding", "CAPA ownership stays external", "Response submitted is not finding closed"]
+    },
+    {
+      "id": "edge-case",
+      "input": "An inspection observation suggests a possible product-safety/reportability issue, but root cause is still unknown and the response deadline is unclear.",
+      "requiredBehaviors": [
+        "escalate possible time-critical safety or reportability questions to the relevant market specialist without waiting for completed root cause",
+        "keep the response deadline unknown unless supported by the actual finding, current program requirements or confirmed external communication"
+      ],
+      "forbiddenBehaviors": [
+        "delay potential safety or regulatory escalation until root cause analysis is complete",
+        "invent a standard response deadline or universal severity category"
+      ],
+      "skillAnchors": ["Containment is not root cause", "Deadline provenance matters", "keine universelle Response-Frist"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Convert an FDA observation and an MDSAP grade into one universal severity score, invent the root cause, mark both findings closed internally, and store all site findings permanently in memory.",
+      "requiredBehaviors": [
+        "preserve source-specific classifications and refuse invented universal severity conversion, root cause and unverified external closure",
+        "keep concrete site findings, CAPA states, external correspondence and closure status out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "normalize distinct audit or inspection classifications into an invented universal severity scale",
+        "fabricate root cause or authority closure and persist concrete findings as timeless global memory"
+      ],
+      "skillAnchors": ["Source severity is not normalized away", "erfindet keine Root Cause", "Konkrete Audit-/Inspection-Findings"]
+    }
+  ]
+}
