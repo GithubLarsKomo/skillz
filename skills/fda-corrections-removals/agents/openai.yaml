@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Corrections Removals"
+  short_description: "Bewertet Device Corrections/Removals nach 21 CFR 806 auf Reportability, Frist, Recordkeeping und Recall-Routing."
+policy:
+  allow_implicit_invocation: false
