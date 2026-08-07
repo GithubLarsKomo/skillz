@@ -1,0 +1,5 @@
+interface:
+  display_name: "Measurement System Validation"
+  short_description: "Bewertet Medical-Device-Mess- und Prüfsysteme risikobasiert auf Eignung, Kalibrierung, Auflösung, Bias, Stabilität un..."
+policy:
+  allow_implicit_invocation: true

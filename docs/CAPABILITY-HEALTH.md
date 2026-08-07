@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **78**
-- User-facing entrypoints: **60**
-- Evaluation suites: **78**
+- Skills: **81**
+- User-facing entrypoints: **63**
+- Evaluation suites: **81**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **89**
+- Outputs without inferred hard-requires consumers: **95**
 
 ## Evaluation gaps
 
@@ -34,12 +34,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
-- `change-impact-assessment.json` — producer: `controlled-quality-documentation`
 - `change-verification-needs.json` — producer: `design-change-regulatory-impact`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
-- `controlled-document-plan.md` — producer: `controlled-quality-documentation`
+- `containment-actions.json` — producer: `nonconformance-mrb-disposition`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
 - `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`
 - `decision-follow-up-register.md` — producer: `decision-and-follow-up-tracker`
@@ -47,7 +46,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
-- `document-control-assessment.json` — producer: `controlled-quality-documentation`
 - `domain-change-plan.md` — producer: `domain-model-maintenance`
 - `domain-model-map.json` — producer: `domain-model-maintenance`
 - `domain-validation.json` — producer: `domain-model-maintenance`
@@ -71,8 +69,13 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
+- `measurement-capability-study.json` — producer: `measurement-system-validation`
+- `measurement-evidence-gaps.json` — producer: `measurement-system-validation`
+- `measurement-system-assessment.json` — producer: `measurement-system-validation`
 - `memory-ledger.merged.json` — producer: `memory-sync-reconciliation`
 - `memory-reconciliation-plan.json` — producer: `memory-sync-reconciliation`
+- `mrb-disposition-decision.json` — producer: `nonconformance-mrb-disposition`
+- `nonconformance-assessment.json` — producer: `nonconformance-mrb-disposition`
 - `obsidian-candidate.json` — producer: `obsidian-adapter`
 - `obsidian-map.canvas` — producer: `obsidian-adapter`
 - `obsidian-note.md` — producer: `obsidian-adapter`
@@ -93,6 +96,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
+- `quality-record-integrity-assessment.json` — producer: `quality-record-integrity`
+- `record-integrity-gaps.json` — producer: `quality-record-integrity`
+- `record-retrieval-index.json` — producer: `quality-record-integrity`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
 - `regulatory-change-decisions.json` — producer: `design-change-regulatory-impact`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`

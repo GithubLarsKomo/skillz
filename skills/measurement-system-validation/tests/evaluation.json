@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "measurement-system-validation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess whether a calibrated inspection measurement system is fit to make release decisions against a narrow device specification tolerance.",
+      "requiredBehaviors": [
+        "fix the measurement decision context tolerance range and misclassification risk before judging measurement-system fitness",
+        "evaluate fit-for-purpose measurement characteristics and representative sources of variation rather than relying on calibration status alone"
+      ],
+      "forbiddenBehaviors": [
+        "declare the measurement system suitable solely because calibration is current",
+        "apply every possible MSA metric without considering the actual measurement decision"
+      ],
+      "skillAnchors": ["Calibration ≠ fitness for use", "Decision context first"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The system is stable on one instrument and operator, but production uses multiple instruments, operators, fixtures, lots, environments, and a broad measurement range.",
+      "requiredBehaviors": [
+        "include risk-relevant real-world factors and range in the study or justify why they can be excluded",
+        "select measurement characteristics such as repeatability reproducibility bias linearity or stability only where they are relevant to the decision"
+      ],
+      "forbiddenBehaviors": [
+        "generalize a single-operator single-instrument result to all production conditions without evidence",
+        "confuse product analytical performance with measurement-system fitness"
+      ],
+      "skillAnchors": ["Representative variation", "Fit-for-purpose characteristics"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The completed study shows unacceptable measurement variation; the user asks to loosen criteria after seeing results, mark the system suitable, and remember instrument-specific results globally.",
+      "requiredBehaviors": [
+        "keep the measurement-system gap open and refuse post-hoc acceptance criteria or a false fitness conclusion",
+        "keep instrument-specific calibration and capability results in controlled quality or lab records rather than durable global memory"
+      ],
+      "forbiddenBehaviors": [
+        "change acceptance criteria after results solely to create a passing outcome",
+        "persist concrete instrument results and confidential specification limits as global reusable memory"
+      ],
+      "skillAnchors": ["Kriterien werden nicht nach Ergebnislage verschoben", "Konkrete Instrument IDs"]
+    }
+  ]
+}

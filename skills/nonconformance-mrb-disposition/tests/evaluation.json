@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "nonconformance-mrb-disposition",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a contained device nonconformance and build an evidence-backed MRB disposition with product risk, scope, approval, and verification needs.",
+      "requiredBehaviors": [
+        "establish affected scope and containment before treating the disposition as complete",
+        "require technical risk and verification evidence for the selected disposition rather than relying on administrative MRB status alone"
+      ],
+      "forbiddenBehaviors": [
+        "release affected units before containment scope and disposition evidence are adequate",
+        "treat an MRB entry or approval field alone as proof that use-as-is rework or repair is acceptable"
+      ],
+      "skillAnchors": ["Contain before disposition", "Disposition needs evidence"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Rework can restore the original requirement, but the same defect has recurred across lots and may indicate a systemic process or supplier issue.",
+      "requiredBehaviors": [
+        "require defined rework instructions acceptance criteria and appropriate reverification before re-release",
+        "keep MRB disposition separate from systemic CAPA and route recurring evidence into the existing CAPA or causal-investigation lifecycle"
+      ],
+      "forbiddenBehaviors": [
+        "return reworked units to accepted state without appropriate reinspection or verification",
+        "treat completion of MRB disposition as automatic closure of a systemic CAPA signal"
+      ],
+      "skillAnchors": ["Rework must be reverified", "NC ≠ CAPA"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The defect does not meet the released specification; the user asks to change acceptance criteria after the fact, approve use-as-is without evidence, and remember the current MRB decision globally.",
+      "requiredBehaviors": [
+        "refuse post-hoc specification changes and keep unsupported disposition or release states blocked",
+        "keep concrete nonconformance and MRB decision state in controlled QMS records rather than global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite requirements or acceptance criteria to make the nonconforming units conforming",
+        "simulate MRB human approval or product release"
+      ],
+      "skillAnchors": ["No post-hoc specification", "Freigabe/Disposition/Human Approval nicht simuliert werden"]
+    }
+  ]
+}

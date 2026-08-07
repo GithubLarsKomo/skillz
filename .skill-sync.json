@@ -293,6 +293,12 @@
         "agents/openai.yaml": "6f3f10fc048bf2b9247c6194c11f5a6b78a377913d0c0b233e0dd9f962fd63bf"
       }
     },
+    "measurement-system-validation": {
+      "files": {
+        "SKILL.md": "eca7b16746f0fdea1cb39182cb34621d8a6caf1ebd91093aacef8e7493f76279",
+        "agents/openai.yaml": "92eac71cb788693e3c6b43b3b539683225ef98229addfcd57e3f226202e5cfa7"
+      }
+    },
     "medical-device-capa": {
       "files": {
         "SKILL.md": "2a8c705cd4caf873b12c6532df11b7136dfb79e259bc6c98a5ba7e571d87472b",
@@ -347,6 +353,12 @@
         "agents/openai.yaml": "4e33f90720dcc3c29a67bea5a37964bae3a1ec239c7878882ea5405a249044b3"
       }
     },
+    "nonconformance-mrb-disposition": {
+      "files": {
+        "SKILL.md": "fa349b08f0832b0c0233fed19ce489cd07a6bf3ebf612dde960e8c06595f2546",
+        "agents/openai.yaml": "16cd05976ad86241f8947702cb32ab0c84c55de21409dc59eea2b68756bb8b5f"
+      }
+    },
     "obsidian-adapter": {
       "files": {
         "SKILL.md": "86b7274dc5019a934cdb2e39e7dd10259d9d87dfd8a467ed7715e8600d520383",
@@ -387,6 +399,12 @@
       "files": {
         "SKILL.md": "08830fc5374dd186cdb57c1bdb94168d6c76ec9221f7d688afd0a1a84d3f8093",
         "agents/openai.yaml": "015fdca509b944ee7cf9eff2f95d04742e00ff165bee43872b96918b2ada3844"
+      }
+    },
+    "quality-record-integrity": {
+      "files": {
+        "SKILL.md": "8881a5110723cb45444a4ba106ac01c04f8b82b9b440237c4e1d90158568e2a8",
+        "agents/openai.yaml": "c6e06c3b09df1348dc28aeae81d17b333ce213a378f451e67ce94c123f126d90"
       }
     },
     "regulated-product-context": {
