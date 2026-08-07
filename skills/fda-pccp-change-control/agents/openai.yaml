@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Pccp Change Control"
+  short_description: "Prüft bestätigte Device-Änderungen gegen einen tatsächlich autorisierten FDA-PCCP-Scope und dessen Evidence-Gates."
+policy:
+  allow_implicit_invocation: false
