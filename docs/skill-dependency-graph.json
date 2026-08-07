@@ -301,6 +301,47 @@
       ]
     },
     {
+      "name": "ivdr-performance-evaluation-report",
+      "requires": [
+        "ivdr-performance-evaluation",
+        "mdcg-guidance-navigator",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "per-traceability.json",
+        "performance-evaluation-report.md"
+      ]
+    },
+    {
+      "name": "ivdr-pmpf",
+      "requires": [
+        "ivdr-performance-evaluation",
+        "mdcg-guidance-navigator",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "pmpf-evaluation-report.md",
+        "pmpf-plan.json",
+        "pmpf-signals.json"
+      ]
+    },
+    {
+      "name": "ivdr-pms-vigilance",
+      "requires": [
+        "mdcg-guidance-navigator",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "ivdr-pms-assessment.json",
+        "trend-signal-set.json",
+        "vigilance-decision-log.json"
+      ]
+    },
+    {
       "name": "ivdr-scientific-validity",
       "requires": [
         "regulated-product-context",
@@ -864,6 +905,54 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "ivdr-performance-evaluation-report",
+      "to": "ivdr-performance-evaluation"
+    },
+    {
+      "from": "ivdr-performance-evaluation-report",
+      "to": "mdcg-guidance-navigator"
+    },
+    {
+      "from": "ivdr-performance-evaluation-report",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-pmpf",
+      "to": "ivdr-performance-evaluation"
+    },
+    {
+      "from": "ivdr-pmpf",
+      "to": "mdcg-guidance-navigator"
+    },
+    {
+      "from": "ivdr-pmpf",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "ivdr-pmpf",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
+      "to": "mdcg-guidance-navigator"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
+      "to": "two-axis-compliance-review"
+    },
+    {
       "from": "ivdr-scientific-validity",
       "to": "regulated-product-context"
     },
@@ -1361,6 +1450,7 @@
         "controlled-quality-documentation",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
+        "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
@@ -1377,6 +1467,7 @@
         "controlled-quality-documentation",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
+        "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
@@ -1393,6 +1484,7 @@
         "controlled-quality-documentation",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
+        "ivdr-pms-vigilance",
         "medical-device-isms-governance",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485"
@@ -1955,14 +2047,29 @@
       "producers": [
         "ivdr-performance-evaluation"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "ivdr-performance-evaluation.json",
       "producers": [
         "ivdr-performance-evaluation"
+      ],
+      "consumerSkills": [
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "ivdr-pms-assessment.json",
+      "producers": [
+        "ivdr-pms-vigilance"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -2050,7 +2157,10 @@
       ],
       "consumerSkills": [
         "ivdr-clinical-performance-study",
-        "ivdr-device-classification"
+        "ivdr-device-classification",
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2062,7 +2172,10 @@
       ],
       "consumerSkills": [
         "ivdr-clinical-performance-study",
-        "ivdr-device-classification"
+        "ivdr-device-classification",
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2191,6 +2304,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "per-traceability.json",
+      "producers": [
+        "ivdr-performance-evaluation-report"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "performance-evaluation-report.md",
+      "producers": [
+        "ivdr-performance-evaluation-report"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "performance-study-gaps.json",
       "producers": [
         "ivdr-clinical-performance-study"
@@ -2200,6 +2331,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "pmpf-evaluation-report.md",
+      "producers": [
+        "ivdr-pmpf"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pmpf-plan.json",
+      "producers": [
+        "ivdr-pmpf"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pmpf-signals.json",
+      "producers": [
+        "ivdr-pmpf"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "privacy-assessment.json",
@@ -2394,6 +2552,7 @@
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
@@ -2418,6 +2577,7 @@
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-isms-governance",
@@ -2440,6 +2600,9 @@
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-performance-evaluation",
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator"
       ],
@@ -2456,6 +2619,9 @@
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-performance-evaluation",
+        "ivdr-performance-evaluation-report",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator"
       ],
@@ -2589,6 +2755,8 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -2604,6 +2772,8 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -2619,6 +2789,8 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-pmpf",
+        "ivdr-pms-vigilance",
         "medical-device-capa",
         "medical-device-regulatory-strategy"
       ],
@@ -2698,6 +2870,15 @@
       "output": "synchronization manifest",
       "producers": [
         "central-skill-repository-curation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "trend-signal-set.json",
+      "producers": [
+        "ivdr-pms-vigilance"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -2830,6 +3011,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "vigilance-decision-log.json",
+      "producers": [
+        "ivdr-pms-vigilance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "watch record",
       "producers": [
         "deferred-external-action-verification"
@@ -2887,8 +3077,7 @@
     "isms-audit-report.md",
     "ivdr-classification-assessment.json",
     "ivdr-classification-rationale.md",
-    "ivdr-performance-evaluation-gaps.json",
-    "ivdr-performance-evaluation.json",
+    "ivdr-pms-assessment.json",
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
@@ -2899,6 +3088,11 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "per-traceability.json",
+    "performance-evaluation-report.md",
+    "pmpf-evaluation-report.md",
+    "pmpf-plan.json",
+    "pmpf-signals.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "progress summary",
@@ -2913,8 +3107,10 @@
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "synchronization manifest",
+    "trend-signal-set.json",
     "ui-prototype-plan.md",
-    "updated skill repository"
+    "updated skill repository",
+    "vigilance-decision-log.json"
   ],
   "orphanOutputs": [
     "GRILL-REPORT.md",
@@ -2948,8 +3144,7 @@
     "isms-audit-report.md",
     "ivdr-classification-assessment.json",
     "ivdr-classification-rationale.md",
-    "ivdr-performance-evaluation-gaps.json",
-    "ivdr-performance-evaluation.json",
+    "ivdr-pms-assessment.json",
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
@@ -2960,6 +3155,11 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "per-traceability.json",
+    "performance-evaluation-report.md",
+    "pmpf-evaluation-report.md",
+    "pmpf-plan.json",
+    "pmpf-signals.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "progress summary",
@@ -2974,7 +3174,9 @@
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "synchronization manifest",
+    "trend-signal-set.json",
     "ui-prototype-plan.md",
-    "updated skill repository"
+    "updated skill repository",
+    "vigilance-decision-log.json"
   ]
 }

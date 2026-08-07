@@ -167,6 +167,24 @@
         "agents/openai.yaml": "2a2ebb29daa9e518f257a18a36f230c95e6ec5e07741a9e21155f5224a4754e2"
       }
     },
+    "ivdr-performance-evaluation-report": {
+      "files": {
+        "SKILL.md": "051edde0b706a67f32f9beea7400e6ad189b041fa054853d313a1b88eec8ac21",
+        "agents/openai.yaml": "7fabfbd0f60d3f2c5d7261a6fed2fd232589e4a82517de3d87357107dcd702f3"
+      }
+    },
+    "ivdr-pmpf": {
+      "files": {
+        "SKILL.md": "fe244a7589364db4498f0e811bb5259976fd5403c56293d926616b222592db0f",
+        "agents/openai.yaml": "e879d8971f793c3087070ec6633b85457ef488572c522b7d4d4765d532b9baf6"
+      }
+    },
+    "ivdr-pms-vigilance": {
+      "files": {
+        "SKILL.md": "d9e340698c501d352c18f9f58e0286228915dca13aa215614fa0274a16a63630",
+        "agents/openai.yaml": "2625501ed4143a57a3b0e894c54f4301e69f951cb765523df0a12e0ef2a82ab5"
+      }
+    },
     "ivdr-scientific-validity": {
       "files": {
         "SKILL.md": "e6ef29a6faab636c2309666d3e4b6d6db2dad2fac2112beff890b0b54bf69e1b",

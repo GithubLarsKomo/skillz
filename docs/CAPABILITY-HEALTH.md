@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **60**
-- User-facing entrypoints: **42**
-- Evaluation suites: **60**
+- Skills: **63**
+- User-facing entrypoints: **45**
+- Evaluation suites: **63**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **59**
+- Outputs without inferred hard-requires consumers: **65**
 
 ## Evaluation gaps
 
@@ -59,8 +59,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivdr-classification-assessment.json` — producer: `ivdr-device-classification`
 - `ivdr-classification-rationale.md` — producer: `ivdr-device-classification`
-- `ivdr-performance-evaluation-gaps.json` — producer: `ivdr-performance-evaluation`
-- `ivdr-performance-evaluation.json` — producer: `ivdr-performance-evaluation`
+- `ivdr-pms-assessment.json` — producer: `ivdr-pms-vigilance`
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
@@ -71,6 +70,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `obsidian-note.md` — producer: `obsidian-adapter`
 - `obsidian-view.base` — producer: `obsidian-adapter`
 - `opaque-analysis-evidence.md` — producer: `opaque-system-analysis`
+- `per-traceability.json` — producer: `ivdr-performance-evaluation-report`
+- `performance-evaluation-report.md` — producer: `ivdr-performance-evaluation-report`
+- `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
+- `pmpf-plan.json` — producer: `ivdr-pmpf`
+- `pmpf-signals.json` — producer: `ivdr-pmpf`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `progress summary` — producer: `synapse-orchestrator`
@@ -85,8 +89,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
+- `trend-signal-set.json` — producer: `ivdr-pms-vigilance`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
 - `updated skill repository` — producer: `central-skill-repository-curation`
+- `vigilance-decision-log.json` — producer: `ivdr-pms-vigilance`
 
 ## Interpretation
 

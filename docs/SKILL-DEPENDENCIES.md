@@ -53,6 +53,18 @@ graph TD
   ivdr_performance_evaluation --> ivdr_clinical_performance_study
   ivdr_performance_evaluation --> ivdr_scientific_validity
   ivdr_performance_evaluation --> regulatory_evidence_traceability
+  ivdr_performance_evaluation_report --> ivdr_performance_evaluation
+  ivdr_performance_evaluation_report --> mdcg_guidance_navigator
+  ivdr_performance_evaluation_report --> regulatory_evidence_traceability
+  ivdr_pmpf --> ivdr_performance_evaluation
+  ivdr_pmpf --> mdcg_guidance_navigator
+  ivdr_pmpf --> medical_device_risk_management_iso14971
+  ivdr_pmpf --> regulatory_evidence_traceability
+  ivdr_pms_vigilance --> mdcg_guidance_navigator
+  ivdr_pms_vigilance --> medical_device_risk_management_iso14971
+  ivdr_pms_vigilance --> regulated_product_context
+  ivdr_pms_vigilance --> regulatory_evidence_traceability
+  ivdr_pms_vigilance --> two_axis_compliance_review
   ivdr_scientific_validity --> regulated_product_context
   ivdr_scientific_validity --> regulatory_evidence_traceability
   ivdr_scientific_validity --> research_to_evidence_note
@@ -142,9 +154,9 @@ graph TD
 | `clinical-performance-study-plan.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `communication-profile.json` | `communication-memory-governance` | `memory-sync-reconciliation` | inferred |
 | `communication-profile.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
-| `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
-| `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
-| `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
+| `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
+| `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
+| `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485` | inferred |
 | `conflict-residual-risk-handoff.json` | `merge-conflict-resolution` | — | unconsumed |
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | unconsumed |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
@@ -196,8 +208,9 @@ graph TD
 | `isms-risk-treatment-context.json` | `medical-device-isms-governance` | `iso27001-isms-audit` | inferred |
 | `ivdr-classification-assessment.json` | `ivdr-device-classification` | — | unconsumed |
 | `ivdr-classification-rationale.md` | `ivdr-device-classification` | — | unconsumed |
-| `ivdr-performance-evaluation-gaps.json` | `ivdr-performance-evaluation` | — | unconsumed |
-| `ivdr-performance-evaluation.json` | `ivdr-performance-evaluation` | — | unconsumed |
+| `ivdr-performance-evaluation-gaps.json` | `ivdr-performance-evaluation` | `ivdr-performance-evaluation-report`, `ivdr-pmpf` | inferred |
+| `ivdr-performance-evaluation.json` | `ivdr-performance-evaluation` | `ivdr-performance-evaluation-report`, `ivdr-pmpf` | inferred |
+| `ivdr-pms-assessment.json` | `ivdr-pms-vigilance` | — | unconsumed |
 | `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | inferred |
 | `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | inferred |
 | `knowledge-map.json` | `knowledge-map-generator` | `obsidian-adapter` | inferred |
@@ -205,8 +218,8 @@ graph TD
 | `management-review-actions.json` | `qms-management-review-governance` | — | unconsumed |
 | `management-review-brief.json` | `qms-management-review-governance` | — | unconsumed |
 | `management-review-brief.md` | `qms-management-review-governance` | — | unconsumed |
-| `mdcg-guidance-changes.json` | `mdcg-guidance-navigator` | `ivdr-clinical-performance-study`, `ivdr-device-classification` | inferred |
-| `mdcg-guidance-set.json` | `mdcg-guidance-navigator` | `ivdr-clinical-performance-study`, `ivdr-device-classification` | inferred |
+| `mdcg-guidance-changes.json` | `mdcg-guidance-navigator` | `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance` | inferred |
+| `mdcg-guidance-set.json` | `mdcg-guidance-navigator` | `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance` | inferred |
 | `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | inferred |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | inferred |
 | `memory-ledger.json` | `communication-memory-governance` | `memory-sync-reconciliation` | inferred |
@@ -219,7 +232,12 @@ graph TD
 | `obsidian-note.md` | `obsidian-adapter` | — | unconsumed |
 | `obsidian-view.base` | `obsidian-adapter` | — | unconsumed |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | unconsumed |
+| `per-traceability.json` | `ivdr-performance-evaluation-report` | — | unconsumed |
+| `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-study-gaps.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
+| `pmpf-evaluation-report.md` | `ivdr-pmpf` | — | unconsumed |
+| `pmpf-plan.json` | `ivdr-pmpf` | — | unconsumed |
+| `pmpf-signals.json` | `ivdr-pmpf` | — | unconsumed |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
 | `privacy-governance.md` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
@@ -236,10 +254,10 @@ graph TD
 | `qms-readiness.md` | `medical-device-qms-iso13485` | `fda-medical-device-ivd-regulatory-specialist`, `iso13485-qms-audit`, `medical-device-capa`, `qms-management-review-governance` | inferred |
 | `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
 | `recovered-system-model.json` | `opaque-system-analysis` | — | unconsumed |
-| `regulated-product-context.json` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
-| `regulated-product-context.md` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
-| `regulatory-evidence-gaps.json` | `regulatory-evidence-traceability` | `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
-| `regulatory-evidence-map.json` | `regulatory-evidence-traceability` | `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
+| `regulated-product-context.json` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
+| `regulated-product-context.md` | `regulated-product-context` | `controlled-quality-documentation`, `eu-mdr-ivdr-regulatory-specialist`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-evidence-traceability` | inferred |
+| `regulatory-evidence-gaps.json` | `regulatory-evidence-traceability` | `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
+| `regulatory-evidence-map.json` | `regulatory-evidence-traceability` | `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-device-classification`, `ivdr-performance-evaluation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator` | inferred |
 | `regulatory-strategy.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-strategy.md` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
@@ -251,9 +269,9 @@ graph TD
 | `review-brief.md` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
 | `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | inferred |
-| `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
-| `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
-| `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
+| `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
+| `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
+| `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `eu-mdr-ivdr-regulatory-specialist`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `medical-device-capa`, `medical-device-regulatory-strategy` | inferred |
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
@@ -262,6 +280,7 @@ graph TD
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `synchronization manifest` | `central-skill-repository-curation` | — | unconsumed |
+| `trend-signal-set.json` | `ivdr-pms-vigilance` | — | unconsumed |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | unconsumed |
 | `updated skill repository` | `central-skill-repository-curation` | — | unconsumed |
 | `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
@@ -272,5 +291,6 @@ graph TD
 | `vertical-issues.md` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-slice-evidence.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `vigilance-decision-log.json` | `ivdr-pms-vigilance` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
