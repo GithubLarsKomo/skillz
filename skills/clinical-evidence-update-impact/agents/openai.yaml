@@ -1,0 +1,5 @@
+interface:
+  display_name: "Clinical Evidence Update Impact"
+  short_description: "Bewertet neue klinische oder wissenschaftliche Evidenz als Delta gegen bestehende Claims, Risk, Performance- und Regu..."
+policy:
+  allow_implicit_invocation: true

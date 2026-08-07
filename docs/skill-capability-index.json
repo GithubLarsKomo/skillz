@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 96,
-  "entrypointCount": 78,
+  "skillCount": 99,
+  "entrypointCount": 81,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 96,
+  "evaluationSuiteCount": 99,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -180,6 +180,61 @@
           "ambiguous": false,
           "producers": [
             "central-skill-repository-curation"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "clinical-evidence-update-impact",
+      "description": "Bewertet neue klinische oder wissenschaftliche Evidenz als Delta gegen bestehende Claims, Risk, Performance- und Regulatory-Baselines und routet erforderliche Lifecycle-Updates, ohne eine vollständige Clinical/Performance Evaluation zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "clinical-evidence-actions.json",
+        "clinical-evidence-delta.json",
+        "clinical-evidence-impact-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "clinical-evidence-actions.json",
+          "ambiguous": false,
+          "producers": [
+            "clinical-evidence-update-impact"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "clinical-evidence-delta.json",
+          "ambiguous": false,
+          "producers": [
+            "clinical-evidence-update-impact"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "clinical-evidence-impact-map.json",
+          "ambiguous": false,
+          "producers": [
+            "clinical-evidence-update-impact"
           ],
           "consumerSkills": []
         }
@@ -526,6 +581,7 @@
         "two-axis-code-review"
       ],
       "dependents": [
+        "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
         "fda-additional-information-response",
@@ -534,7 +590,9 @@
         "fda-qsub-strategy",
         "fda-registration-listing-udi",
         "ivdr-companion-diagnostic-consultation",
-        "ivdr-inhouse-health-institution"
+        "ivdr-inhouse-health-institution",
+        "medical-device-pms-system",
+        "regulatory-change-impact-orchestrator"
       ],
       "outputs": [
         "decision-record.json",
@@ -548,6 +606,7 @@
             "decision-record"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "domain-model-maintenance",
             "fda-additional-information-response",
@@ -556,7 +615,9 @@
             "fda-qsub-strategy",
             "fda-registration-listing-udi",
             "ivdr-companion-diagnostic-consultation",
-            "ivdr-inhouse-health-institution"
+            "ivdr-inhouse-health-institution",
+            "medical-device-pms-system",
+            "regulatory-change-impact-orchestrator"
           ]
         },
         {
@@ -566,6 +627,7 @@
             "decision-record"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "domain-model-maintenance",
             "fda-additional-information-response",
@@ -574,7 +636,9 @@
             "fda-qsub-strategy",
             "fda-registration-listing-udi",
             "ivdr-companion-diagnostic-consultation",
-            "ivdr-inhouse-health-institution"
+            "ivdr-inhouse-health-institution",
+            "medical-device-pms-system",
+            "regulatory-change-impact-orchestrator"
           ]
         }
       ],
@@ -3681,6 +3745,61 @@
       }
     },
     {
+      "name": "medical-device-pms-system",
+      "description": "Steuert ein marktübergreifendes Medical-Device-PMS-System aus Plan, Datenquellen, Review-Zyklen, Signalrouting und Lifecycle-Rückkopplung, ohne Vigilance, Complaint, CAPA oder PMPF zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "pms-review-status.json",
+        "pms-source-register.json",
+        "pms-system-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "pms-review-status.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-pms-system"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "pms-source-register.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-pms-system"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "pms-system-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-pms-system"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "medical-device-privacy-gdpr-bdsg",
       "description": "Bewertet Datenschutz für Medical-Device-/IVD- und Health-Software-Kontexte unter GDPR/DSGVO und deutschem BDSG mit Data Inventory, Rollen, Legal Basis, Art.-9-Kontext, DPIA, Rights, Retention, Transfers und Breach Governance.",
       "invocation": {
@@ -3928,6 +4047,7 @@
         "medical-device-capa",
         "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -3967,6 +4087,7 @@
             "medical-device-capa",
             "medical-device-cybersecurity-lifecycle",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
             "medical-device-regulatory-strategy",
             "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
@@ -4001,6 +4122,7 @@
             "medical-device-capa",
             "medical-device-cybersecurity-lifecycle",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
             "medical-device-regulatory-strategy",
             "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
@@ -4035,6 +4157,7 @@
             "medical-device-capa",
             "medical-device-cybersecurity-lifecycle",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
             "medical-device-regulatory-strategy",
             "nonconformance-mrb-disposition",
             "process-validation-iq-oq-pq",
@@ -4708,6 +4831,7 @@
       },
       "requires": [],
       "dependents": [
+        "clinical-evidence-update-impact",
         "controlled-quality-documentation",
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
@@ -4732,10 +4856,12 @@
         "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971",
+        "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency",
         "regulatory-evidence-traceability"
       ],
@@ -4751,6 +4877,7 @@
             "regulated-product-context"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "controlled-quality-documentation",
             "design-control-traceability",
             "eu-mdr-ivdr-regulatory-specialist",
@@ -4775,10 +4902,12 @@
             "medical-device-cybersecurity-lifecycle",
             "medical-device-isms-governance",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485",
             "medical-device-regulatory-strategy",
             "medical-device-risk-management-iso14971",
+            "regulatory-change-impact-orchestrator",
             "regulatory-claims-consistency",
             "regulatory-evidence-traceability"
           ]
@@ -4790,6 +4919,7 @@
             "regulated-product-context"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "controlled-quality-documentation",
             "design-control-traceability",
             "eu-mdr-ivdr-regulatory-specialist",
@@ -4814,13 +4944,69 @@
             "medical-device-cybersecurity-lifecycle",
             "medical-device-isms-governance",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-qms-iso13485",
             "medical-device-regulatory-strategy",
             "medical-device-risk-management-iso14971",
+            "regulatory-change-impact-orchestrator",
             "regulatory-claims-consistency",
             "regulatory-evidence-traceability"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "regulatory-change-impact-orchestrator",
+      "description": "Orchestriert bestätigte Regulatory-/Lifecycle-Change-Events über Design, Risk, V&V, QMS, Evidence, Labeling, PMS und Markt-Spezialisten, ohne deren Fachentscheidungen zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "change-integration-status.json",
+        "lifecycle-impact-gates.json",
+        "regulatory-change-route-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "change-integration-status.json",
+          "ambiguous": false,
+          "producers": [
+            "regulatory-change-impact-orchestrator"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "lifecycle-impact-gates.json",
+          "ambiguous": false,
+          "producers": [
+            "regulatory-change-impact-orchestrator"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "regulatory-change-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "regulatory-change-impact-orchestrator"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -4900,6 +5086,7 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "eudamed-udi-ivd",
         "fda-510k-predicate-strategy",
@@ -4930,6 +5117,8 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
+        "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency"
       ],
       "outputs": [
@@ -4944,6 +5133,7 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "eudamed-udi-ivd",
             "fda-510k-predicate-strategy",
@@ -4974,6 +5164,8 @@
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
+            "regulatory-change-impact-orchestrator",
             "regulatory-claims-consistency"
           ]
         },
@@ -4984,6 +5176,7 @@
             "regulatory-evidence-traceability"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "eudamed-udi-ivd",
             "fda-510k-predicate-strategy",
@@ -5014,6 +5207,8 @@
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-labeling-ifu",
+            "medical-device-pms-system",
+            "regulatory-change-impact-orchestrator",
             "regulatory-claims-consistency"
           ]
         }
@@ -5088,6 +5283,7 @@
       },
       "requires": [],
       "dependents": [
+        "clinical-evidence-update-impact",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -5113,6 +5309,7 @@
             "research-to-evidence-note"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -5134,6 +5331,7 @@
             "research-to-evidence-note"
           ],
           "consumerSkills": [
+            "clinical-evidence-update-impact",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",

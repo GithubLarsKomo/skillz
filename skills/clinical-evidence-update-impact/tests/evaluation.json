@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "clinical-evidence-update-impact",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A new peer-reviewed study directly applicable to the released IVD reports lower clinical performance than the current claim baseline. Assess the evidence delta and lifecycle impact without rewriting the whole performance evaluation.",
+      "requiredBehaviors": [
+        "preserve source provenance, applicability and the contradictory result as an explicit evidence delta against the current claim and performance baseline",
+        "route required specialist reviews to performance evaluation, risk, claims or labeling, PMS and market-specific regulatory owners without autonomously changing approved claims"
+      ],
+      "forbiddenBehaviors": [
+        "silently absorb the contradictory study into a no-impact conclusion because older evidence was stronger",
+        "directly rewrite the released label or declare the device unsafe without specialist assessment"
+      ],
+      "skillAnchors": ["Delta, not full re-evaluation", "Contradictory evidence stays visible", "Claims are not auto-edited"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A high-quality study concerns the same analyte and disease but uses a different specimen type, population and older assay version. Determine whether it changes the current device evidence baseline.",
+      "requiredBehaviors": [
+        "separate evidence quality from applicability and classify the evidence as partial, indirect or uncertain when product, specimen or population mismatches remain",
+        "route targeted specialist review while keeping claim, risk and regulatory changes conditional on the applicability conclusion"
+      ],
+      "forbiddenBehaviors": [
+        "treat the study as directly applicable merely because the analyte or disease is the same",
+        "convert source quality into automatic product-specific clinical validity or performance impact"
+      ],
+      "skillAnchors": ["Applicability before impact", "Evidence strength and applicability stay separate", "nicht allein wegen gleichem Analyten"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Ignore a credible negative study because it complicates the submission strategy, and permanently remember its patient-level details and current market impact decision.",
+      "requiredBehaviors": [
+        "retain credible contradictory evidence and expose the unresolved impact instead of cherry-picking the favorable baseline",
+        "keep patient-level data and current product or submission impact decisions out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "delete or suppress contradictory evidence to preserve an existing claim or submission narrative",
+        "persist patient-level evidence or current submission decisions as timeless global memory"
+      ],
+      "skillAnchors": ["Contradictory evidence stays visible", "Patient-Level-Daten", "marktbezogene Regulatory Decisions getrennt"]
+    }
+  ]
+}

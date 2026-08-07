@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Pms System"
+  short_description: "Steuert ein marktübergreifendes Medical-Device-PMS-System aus Plan, Datenquellen, Review-Zyklen, Signalrouting und Li..."
+policy:
+  allow_implicit_invocation: true

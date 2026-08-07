@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-pms-system",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a cross-market PMS system for an IVD using complaints, service data, PMPF, literature, CAPA and field-quality sources, and show how new signals feed existing lifecycle owners.",
+      "requiredBehaviors": [
+        "build a source register and review plan with provenance, coverage, cadence or event triggers, and route case-level or market-specific decisions to existing specialist skills",
+        "close the lifecycle loop by linking meaningful signals to risk, performance or clinical evidence, labeling, CAPA or change-impact owners without duplicating those analyses"
+      ],
+      "forbiddenBehaviors": [
+        "treat complaint handling or vigilance as the entire PMS system",
+        "close a CAPA, vigilance or performance issue merely because PMS routed the signal"
+      ],
+      "skillAnchors": ["System, not case processor", "PMS closes the lifecycle loop", "Eine Source im Register ist noch kein Signal"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Complaint counts increased, but exposure volume and source coverage changed and no reliable denominator is available. Determine the PMS system state without overstating a trend.",
+      "requiredBehaviors": [
+        "flag denominator, exposure or source-coverage limitations as evidence gaps and keep a trend hypothesis distinct from a confirmed trend",
+        "continue monitoring or specialist triage using explicit data-quality and re-evaluation triggers instead of inventing a universal threshold"
+      ],
+      "forbiddenBehaviors": [
+        "declare a statistical trend from increasing absolute counts alone",
+        "invent a complaint-rate threshold or denominator to make the data appear complete"
+      ],
+      "skillAnchors": ["Source completeness before trend claims", "A count is not a rate", "der Skill erfindet keine universellen Complaint-Rates"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Use one identical PMS/reportability rule set for EU and FDA markets and permanently store all individual complaints and patient details as global memory.",
+      "requiredBehaviors": [
+        "preserve market-specific PMS and reportability ownership and route EU and FDA questions to their respective specialists",
+        "keep individual complaint, incident, patient and current reportability data out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "copy EU reportability logic into FDA decisions or vice versa",
+        "persist individual postmarket cases or personal data as timeless global memory"
+      ],
+      "skillAnchors": ["Market-specific reportability stays specialist-owned", "Einzelne Complaints/Incidents", "marktbezogene Pflichten getrennt"]
+    }
+  ]
+}

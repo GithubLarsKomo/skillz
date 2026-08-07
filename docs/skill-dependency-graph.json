@@ -34,6 +34,20 @@
       ]
     },
     {
+      "name": "clinical-evidence-update-impact",
+      "requires": [
+        "decision-record",
+        "regulated-product-context",
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "clinical-evidence-actions.json",
+        "clinical-evidence-delta.json",
+        "clinical-evidence-impact-map.json"
+      ]
+    },
+    {
       "name": "communication-memory-governance",
       "requires": [],
       "outputs": [
@@ -791,6 +805,20 @@
       ]
     },
     {
+      "name": "medical-device-pms-system",
+      "requires": [
+        "decision-record",
+        "medical-device-risk-management-iso14971",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "pms-review-status.json",
+        "pms-source-register.json",
+        "pms-system-plan.json"
+      ]
+    },
+    {
       "name": "medical-device-privacy-gdpr-bdsg",
       "requires": [
         "regulated-product-context",
@@ -991,6 +1019,19 @@
       ]
     },
     {
+      "name": "regulatory-change-impact-orchestrator",
+      "requires": [
+        "decision-record",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "change-integration-status.json",
+        "lifecycle-impact-gates.json",
+        "regulatory-change-route-map.json"
+      ]
+    },
+    {
       "name": "regulatory-claims-consistency",
       "requires": [
         "design-control-traceability",
@@ -1157,6 +1198,22 @@
     {
       "from": "central-skill-repository-curation",
       "to": "composable-skill-factory"
+    },
+    {
+      "from": "clinical-evidence-update-impact",
+      "to": "decision-record"
+    },
+    {
+      "from": "clinical-evidence-update-impact",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "clinical-evidence-update-impact",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "clinical-evidence-update-impact",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "controlled-quality-documentation",
@@ -1855,6 +1912,22 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "medical-device-pms-system",
+      "to": "decision-record"
+    },
+    {
+      "from": "medical-device-pms-system",
+      "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-pms-system",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-pms-system",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "medical-device-privacy-gdpr-bdsg",
       "to": "regulated-product-context"
     },
@@ -1997,6 +2070,18 @@
     {
       "from": "quality-record-integrity",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "regulatory-change-impact-orchestrator",
+      "to": "decision-record"
+    },
+    {
+      "from": "regulatory-change-impact-orchestrator",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "regulatory-change-impact-orchestrator",
+      "to": "regulatory-evidence-traceability"
     },
     {
       "from": "regulatory-claims-consistency",
@@ -2339,6 +2424,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "change-integration-status.json",
+      "producers": [
+        "regulatory-change-impact-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "change-verification-needs.json",
       "producers": [
         "design-change-regulatory-impact"
@@ -2415,6 +2509,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "clinical-evidence-actions.json",
+      "producers": [
+        "clinical-evidence-update-impact"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "clinical-evidence-delta.json",
+      "producers": [
+        "clinical-evidence-update-impact"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "clinical-evidence-impact-map.json",
+      "producers": [
+        "clinical-evidence-update-impact"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "clinical-performance-evidence.json",
@@ -2725,6 +2846,7 @@
         "decision-record"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
         "fda-additional-information-response",
@@ -2733,7 +2855,9 @@
         "fda-qsub-strategy",
         "fda-registration-listing-udi",
         "ivdr-companion-diagnostic-consultation",
-        "ivdr-inhouse-health-institution"
+        "ivdr-inhouse-health-institution",
+        "medical-device-pms-system",
+        "regulatory-change-impact-orchestrator"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2744,6 +2868,7 @@
         "decision-record"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
         "fda-additional-information-response",
@@ -2752,7 +2877,9 @@
         "fda-qsub-strategy",
         "fda-registration-listing-udi",
         "ivdr-companion-diagnostic-consultation",
-        "ivdr-inhouse-health-institution"
+        "ivdr-inhouse-health-institution",
+        "medical-device-pms-system",
+        "regulatory-change-impact-orchestrator"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3043,6 +3170,7 @@
         "research-to-evidence-note"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -3065,6 +3193,7 @@
         "research-to-evidence-note"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -3581,6 +3710,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "lifecycle-impact-gates.json",
+      "producers": [
+        "regulatory-change-impact-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "management-review-actions.json",
       "producers": [
         "qms-management-review-governance"
@@ -3896,6 +4034,33 @@
       "output": "pmpf-signals.json",
       "producers": [
         "ivdr-pmpf"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pms-review-status.json",
+      "producers": [
+        "medical-device-pms-system"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pms-source-register.json",
+      "producers": [
+        "medical-device-pms-system"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "pms-system-plan.json",
+      "producers": [
+        "medical-device-pms-system"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -4255,6 +4420,7 @@
         "regulated-product-context"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "controlled-quality-documentation",
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
@@ -4279,10 +4445,12 @@
         "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971",
+        "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency",
         "regulatory-evidence-traceability"
       ],
@@ -4295,6 +4463,7 @@
         "regulated-product-context"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "controlled-quality-documentation",
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
@@ -4319,10 +4488,12 @@
         "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-qms-iso13485",
         "medical-device-regulatory-strategy",
         "medical-device-risk-management-iso14971",
+        "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency",
         "regulatory-evidence-traceability"
       ],
@@ -4341,11 +4512,21 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "regulatory-change-route-map.json",
+      "producers": [
+        "regulatory-change-impact-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "regulatory-evidence-gaps.json",
       "producers": [
         "regulatory-evidence-traceability"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "eudamed-udi-ivd",
         "fda-510k-predicate-strategy",
@@ -4376,6 +4557,8 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
+        "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
@@ -4387,6 +4570,7 @@
         "regulatory-evidence-traceability"
       ],
       "consumerSkills": [
+        "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "eudamed-udi-ivd",
         "fda-510k-predicate-strategy",
@@ -4417,6 +4601,8 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
+        "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
@@ -4576,6 +4762,7 @@
         "medical-device-capa",
         "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -4611,6 +4798,7 @@
         "medical-device-capa",
         "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -4646,6 +4834,7 @@
         "medical-device-capa",
         "medical-device-cybersecurity-lifecycle",
         "medical-device-labeling-ifu",
+        "medical-device-pms-system",
         "medical-device-regulatory-strategy",
         "nonconformance-mrb-disposition",
         "process-validation-iq-oq-pq",
@@ -5053,11 +5242,15 @@
     "cdx-consultation-readiness.json",
     "cdx-medicinal-product-linkage.json",
     "cdx-scope-assessment.json",
+    "change-integration-status.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
     "class-d-external-dependencies.json",
+    "clinical-evidence-actions.json",
+    "clinical-evidence-delta.json",
+    "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
@@ -5103,6 +5296,7 @@
     "isms-audit-report.md",
     "ivd-udi-data-set.json",
     "ivdr-pms-assessment.json",
+    "lifecycle-impact-gates.json",
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
@@ -5126,6 +5320,9 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "pms-review-status.json",
+    "pms-source-register.json",
+    "pms-system-plan.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -5137,6 +5334,7 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
+    "regulatory-change-route-map.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
@@ -5170,11 +5368,15 @@
     "cdx-consultation-readiness.json",
     "cdx-medicinal-product-linkage.json",
     "cdx-scope-assessment.json",
+    "change-integration-status.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
     "class-d-external-dependencies.json",
+    "clinical-evidence-actions.json",
+    "clinical-evidence-delta.json",
+    "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
@@ -5220,6 +5422,7 @@
     "isms-audit-report.md",
     "ivd-udi-data-set.json",
     "ivdr-pms-assessment.json",
+    "lifecycle-impact-gates.json",
     "management-review-actions.json",
     "management-review-brief.json",
     "management-review-brief.md",
@@ -5243,6 +5446,9 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "pms-review-status.json",
+    "pms-source-register.json",
+    "pms-system-plan.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -5254,6 +5460,7 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
+    "regulatory-change-route-map.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
