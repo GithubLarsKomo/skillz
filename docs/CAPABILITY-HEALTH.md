@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **102**
-- User-facing entrypoints: **84**
-- Evaluation suites: **102**
+- Skills: **103**
+- User-facing entrypoints: **85**
+- Evaluation suites: **103**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **130**
+- Outputs without inferred hard-requires consumers: **128**
 
 ## Evaluation gaps
 
@@ -58,8 +58,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
-- `decision-follow-up-register.json` — producer: `decision-and-follow-up-tracker`
-- `decision-follow-up-register.md` — producer: `decision-and-follow-up-tracker`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -95,9 +93,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
 - `ivdr-pms-assessment.json` — producer: `ivdr-pms-vigilance`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
-- `management-review-actions.json` — producer: `qms-management-review-governance`
-- `management-review-brief.json` — producer: `qms-management-review-governance`
-- `management-review-brief.md` — producer: `qms-management-review-governance`
+- `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
+- `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
+- `management-review-return-input.json` — producer: `qms-management-review-action-followup`
 - `mdsap-audit-scope.json` — producer: `mdsap-audit-readiness`
 - `mdsap-evidence-gaps.json` — producer: `mdsap-audit-readiness`
 - `mdsap-task-readiness.json` — producer: `mdsap-audit-readiness`

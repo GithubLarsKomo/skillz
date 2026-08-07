@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "skill": "qms-management-review-action-followup",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Track three confirmed management-review actions: one CAPA with verified implementation and effectiveness evidence, one risk-control action implemented but still inside its effectiveness observation window, and one regulatory action whose internal work is complete but external authority confirmation is still pending.",
+      "requiredBehaviors": [
+        "preserve specialist ownership and distinguish routed, implemented, effectiveness-pending, effective, external-pending and closed states using referenced evidence",
+        "produce a next-review return input that keeps open, high-impact and effectiveness-pending actions visible while retaining verified closures with evidence references",
+        "use verified external-state evidence before allowing an action with an external dependency to become closed"
+      ],
+      "forbiddenBehaviors": [
+        "treat implementation or a completed task checkbox as automatic effectiveness or management-review closure",
+        "re-decide CAPA effectiveness, risk acceptability or regulatory authority state inside the follow-up worker"
+      ],
+      "skillAnchors": [
+        "Decision is not action completion",
+        "Implementation is not effectiveness",
+        "Effectiveness is not always closure"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A management-review action was implemented on time, but its predefined effectiveness observation window has not elapsed. Another action is overdue because a required specialist investigation is blocked. Build the follow-up state without overstating failure or closure.",
+      "requiredBehaviors": [
+        "keep the implemented action as effectiveness-pending until the required observation trigger and evidence exist",
+        "mark the second action overdue and blocked without equating lateness with ineffectiveness or silently closing the action"
+      ],
+      "forbiddenBehaviors": [
+        "declare the implemented action effective before its effectiveness evidence is available",
+        "treat overdue status itself as proof of ineffectiveness or regulatory noncompliance"
+      ],
+      "skillAnchors": [
+        "`effectiveness-pending`",
+        "`overdue` ist ein Zeit-/Governance-Merkmal",
+        "No silent ageing"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Management says all prior actions can be closed because each owner marked their task done. The CAPA has no effectiveness evidence, a risk-file update has no verified completion reference, and an authority response is still pending. Close the review loop anyway.",
+      "requiredBehaviors": [
+        "reject owner task completion as sufficient evidence for effectiveness or QMS closure and restore the missing specialist evidence gates",
+        "keep the authority-dependent action external-pending until the external end state is independently verified",
+        "return all unresolved actions and evidence gaps to the next management review instead of deleting them from history"
+      ],
+      "forbiddenBehaviors": [
+        "mark all actions closed from management preference, meeting minutes or task status alone",
+        "invent missing CAPA, risk or external authority evidence"
+      ],
+      "skillAnchors": [
+        "Kein `closed` aus Meeting-Minutes",
+        "deferred-external-action-verification",
+        "Geschlossene Punkte dürfen für Trend-/Wirksamkeitsbewertung sichtbar bleiben"
+      ]
+    }
+  ]
+}
