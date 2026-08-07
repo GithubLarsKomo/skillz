@@ -1057,6 +1057,18 @@
       ]
     },
     {
+      "name": "regulatory-change-monitoring",
+      "requires": [
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "regulatory-change-events.json",
+        "regulatory-change-watch-status.json",
+        "regulatory-source-register.json"
+      ]
+    },
+    {
       "name": "regulatory-claims-consistency",
       "requires": [
         "design-control-traceability",
@@ -2127,6 +2139,14 @@
     {
       "from": "regulatory-change-impact-orchestrator",
       "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "regulatory-change-monitoring",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "regulatory-change-monitoring",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "regulatory-claims-consistency",
@@ -3237,6 +3257,7 @@
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
+        "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
@@ -3260,6 +3281,7 @@
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
+        "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
@@ -4619,9 +4641,27 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "regulatory-change-events.json",
+      "producers": [
+        "regulatory-change-monitoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "regulatory-change-route-map.json",
       "producers": [
         "regulatory-change-impact-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "regulatory-change-watch-status.json",
+      "producers": [
+        "regulatory-change-monitoring"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -4668,6 +4708,7 @@
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
+        "regulatory-change-monitoring",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
@@ -4714,10 +4755,20 @@
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
+        "regulatory-change-monitoring",
         "regulatory-claims-consistency"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "regulatory-source-register.json",
+      "producers": [
+        "regulatory-change-monitoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "regulatory-strategy.json",
@@ -5451,7 +5502,10 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
+    "regulatory-change-events.json",
     "regulatory-change-route-map.json",
+    "regulatory-change-watch-status.json",
+    "regulatory-source-register.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
@@ -5583,7 +5637,10 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
+    "regulatory-change-events.json",
     "regulatory-change-route-map.json",
+    "regulatory-change-watch-status.json",
+    "regulatory-source-register.json",
     "regulatory-strategy.json",
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",

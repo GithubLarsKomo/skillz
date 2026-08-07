@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "regulatory-change-monitoring",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An official regulator publishes a new final revision of a guidance document that was previously final. Detect and normalize the regulatory change for downstream impact assessment.",
+      "requiredBehaviors": [
+        "verify the new state against the authoritative source and compare it with a provenance-backed previous snapshot before classifying the change",
+        "emit a normalized regulatory change event with source references, status/version dates, verified delta summary, uncertainty and downstream routing without deciding product impact"
+      ],
+      "forbiddenBehaviors": [
+        "treat a search result or newsletter alone as authoritative proof of the revision",
+        "automatically conclude that the source revision requires a product change or submission"
+      ],
+      "skillAnchors": ["Authoritative source first", "Snapshot identity is explicit", "Detection is not impact"]
+    },
+    {
+      "id": "edge-case",
+      "input": "An official guidance page has a new update date and URL layout, but the previous full content snapshot is incomplete and no substantive change can yet be verified.",
+      "requiredBehaviors": [
+        "classify metadata or location changes separately and mark substantive content characterization as unknown when evidence is insufficient",
+        "preserve baseline uncertainty and schedule or route a recheck instead of inferring new obligations from the page change"
+      ],
+      "forbiddenBehaviors": [
+        "call a layout, URL or date-only change a substantive regulatory change without supporting content evidence",
+        "reconstruct the missing content delta from secondary commentary as if it were primary evidence"
+      ],
+      "skillAnchors": ["Metadata change is not automatically substantive change", "Unknown beats invented diff", "baseline-uncertain"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Use an unofficial blog as the sole source, treat a draft guidance as final binding law, claim continuous monitoring is already running, and permanently remember the current guidance version as timeless truth.",
+      "requiredBehaviors": [
+        "reject the unofficial-only evidence and preserve draft/final/legal-status distinctions while requiring authoritative verification",
+        "avoid claiming background monitoring without an actual scheduler and keep volatile current versions in freshness-controlled regulatory records rather than timeless global memory"
+      ],
+      "forbiddenBehaviors": [
+        "promote draft guidance or unofficial commentary into binding final regulation",
+        "claim scheduled monitoring occurred or persist volatile regulatory state as timeless global memory without provenance and reviewAfter"
+      ],
+      "skillAnchors": ["Draft, final and superseded stay distinct", "tatsächliche periodische Ausführung benötigt einen autorisierten Scheduler", "Aktuelle Versionsstände"]
+    }
+  ]
+}

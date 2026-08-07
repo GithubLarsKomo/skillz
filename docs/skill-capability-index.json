@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 101,
-  "entrypointCount": 83,
+  "skillCount": 102,
+  "entrypointCount": 84,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 101,
+  "evaluationSuiteCount": 102,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -5138,6 +5138,59 @@
       }
     },
     {
+      "name": "regulatory-change-monitoring",
+      "description": "Erkennt belastbare Änderungen an offiziellen Regulatory-Quellen über versionierte Snapshots, Status-/Inhalts-Deltas und Freshness und übergibt normalisierte Change Events an bestehende Regulatory-Impact-Owner.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "regulatory-evidence-traceability",
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "regulatory-change-events.json",
+        "regulatory-change-watch-status.json",
+        "regulatory-source-register.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "regulatory-change-events.json",
+          "ambiguous": false,
+          "producers": [
+            "regulatory-change-monitoring"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "regulatory-change-watch-status.json",
+          "ambiguous": false,
+          "producers": [
+            "regulatory-change-monitoring"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "regulatory-source-register.json",
+          "ambiguous": false,
+          "producers": [
+            "regulatory-change-monitoring"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "regulatory-claims-consistency",
       "description": "Prüft Medical-Device- und IVD-Claims über Labeling, Design und Regulatory Evidence auf Widersprüche und unbelegte Aussagen.",
       "invocation": {
@@ -5239,6 +5292,7 @@
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
+        "regulatory-change-monitoring",
         "regulatory-claims-consistency"
       ],
       "outputs": [
@@ -5288,6 +5342,7 @@
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "regulatory-change-impact-orchestrator",
+            "regulatory-change-monitoring",
             "regulatory-claims-consistency"
           ]
         },
@@ -5333,6 +5388,7 @@
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "regulatory-change-impact-orchestrator",
+            "regulatory-change-monitoring",
             "regulatory-claims-consistency"
           ]
         }
@@ -5418,6 +5474,7 @@
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
+        "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
@@ -5444,6 +5501,7 @@
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
+            "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
             "two-axis-compliance-review"
           ]
@@ -5466,6 +5524,7 @@
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
+            "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
             "two-axis-compliance-review"
           ]
