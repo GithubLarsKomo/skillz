@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda De Novo Strategy"
+  short_description: "Entwickelt eine evidenzgebundene FDA-De-Novo-Strategie für neuartige Low-/Moderate-Risk-Devices ohne tragfähigen Pred..."
+policy:
+  allow_implicit_invocation: false
