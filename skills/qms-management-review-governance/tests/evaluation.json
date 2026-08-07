@@ -1,60 +1,59 @@
 {
+  "schemaVersion": 1,
+  "skill": "qms-management-review-governance",
   "cases": [
     {
-      "forbiddenBehaviors": [
-        "invent authority approval or certification",
-        "convert missing evidence into compliance"
-      ],
       "id": "happy-path",
-      "input": "Use qms-management-review-governance with complete current source evidence and a confirmed product context.",
+      "input": "Prepare a management review for a marketed IVD using a complete pms-management-review-input.json with source coverage, complaint trends, one closed vigilance decision, one open high-impact signal, CAPA/risk references and prior actions.",
       "requiredBehaviors": [
-        "preserve regulatory source class and freshness",
-        "produce the declared domain outputs without duplicating orchestration",
-        "hand off only genuine critical uncertainty"
+        "consume the aggregated PMS management-review input, preserve specialist decision references and keep no-events, no-signal, no-data, not-reviewed and not-applicable states distinct",
+        "surface unresolved high-impact postmarket or vigilance states even when aggregate KPIs are otherwise green and qualify QMS conclusions where the evidence requires it",
+        "keep time-critical vigilance, reportability and field-action escalation independent of the scheduled management-review cadence"
+      ],
+      "forbiddenBehaviors": [
+        "re-decide specialist-owned reportability or external closure merely because the case was discussed in management review",
+        "copy unnecessary patient-level or raw complaint case data into the management-review brief"
       ],
       "skillAnchors": [
-        "meeting preparation ist kein Entscheidungsnachweis",
-        "Zeitabhängige regulatorische Fakten benötigen `asOf`",
-        "Fehlende Evidenz ist kein positiver Compliance-Nachweis"
+        "`pms-management-review-input.json`",
+        "`no-events|no-signal|no-data|not-reviewed|not-applicable|unknown`",
+        "Ein zeitkritischer möglicher Vigilance-/Reportability-/Field-Action-Fall wartet **nie**"
       ]
     },
     {
-      "forbiddenBehaviors": [
-        "use last-write-wins for regulatory evidence",
-        "hide an unresolved high-impact decision"
-      ],
       "id": "edge-case",
-      "input": "Use qms-management-review-governance when one material source is stale, another contradicts it, and a key classification/decision remains unresolved.",
+      "input": "The overall complaint KPI is within target, but one potentially serious unresolved vigilance case exists and one major PMS source was not reviewed during the period. Build the management-review conclusion.",
       "requiredBehaviors": [
-        "keep stale/contradictory evidence visible",
-        "mark the decision unknown or hypothesis rather than final",
-        "produce a bounded Wayfinder-compatible investigation"
+        "keep the unresolved higher-risk case visible as a management-attention item instead of averaging it away under the aggregate KPI",
+        "mark the unreviewed PMS source as a data gap and qualify suitability, adequacy or effectiveness conclusions rather than interpreting missing coverage positively"
+      ],
+      "forbiddenBehaviors": [
+        "declare postmarket governance adequate solely because the aggregate complaint KPI is green",
+        "treat a not-reviewed source as evidence of zero events or no signal"
       ],
       "skillAnchors": [
-        "keine generischen Benchmarktargets",
-        "bleibt der Punkt `unknown`",
-        "Wayfinder-kompatible Übergabe"
+        "darf nicht durch einen aggregierten „grünen“ KPI",
+        "Fehlt dieser ohne begründete Nichtanwendbarkeit, bleibt ein `dataGap`",
+        "wird die Schlussfolgerung entsprechend qualifiziert"
       ]
     },
     {
-      "forbiddenBehaviors": [
-        "simulate regulatory authority",
-        "invent universal thresholds or timelines"
-      ],
       "id": "failure-case",
-      "input": "A draft using qms-management-review-governance applies fixed industry rules without sources and declares the product compliant/approved from a checklist.",
+      "input": "A draft management review says there were zero vigilance events because the source extract is missing and marks an authority report as closed because management discussed it. It also defers a possible reportable event until the next quarterly review.",
       "requiredBehaviors": [
-        "reject unsourced universal rules",
-        "reject checklist-only compliance or approval",
-        "restore explicit source/evidence boundaries"
+        "reject the no-data-equals-zero-events conclusion and restore explicit input coverage and unknown states",
+        "reject management-review discussion as evidence of authority reporting or external closure and require verified external evidence",
+        "reject deferral of a time-critical reportability assessment to the next management review"
+      ],
+      "forbiddenBehaviors": [
+        "convert missing postmarket evidence into a positive zero-event conclusion",
+        "use management review as the authority-reporting decision or closure mechanism"
       ],
       "skillAnchors": [
-        "fehlende Daten bleiben dataGap",
-        "menschliche/behördliche Autorität nicht simuliert",
-        "Compliance Traceability"
+        "fehlende PMS-Evidenz wird nicht als „keine Ereignisse“ interpretiert",
+        "dadurch weder regulatorisch gemeldet noch extern geschlossen",
+        "Management Review ist kein Gate"
       ]
     }
-  ],
-  "schemaVersion": 1,
-  "skill": "qms-management-review-governance"
+  ]
 }

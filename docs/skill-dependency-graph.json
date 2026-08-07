@@ -684,6 +684,7 @@
       "name": "ivdr-pms-vigilance",
       "requires": [
         "mdcg-guidance-navigator",
+        "medical-device-pms-system",
         "medical-device-risk-management-iso14971",
         "regulated-product-context",
         "regulatory-evidence-traceability",
@@ -838,6 +839,7 @@
         "regulatory-evidence-traceability"
       ],
       "outputs": [
+        "pms-management-review-input.json",
         "pms-review-status.json",
         "pms-source-register.json",
         "pms-system-plan.json"
@@ -1013,6 +1015,7 @@
       "requires": [
         "iso13485-qms-audit",
         "medical-device-capa",
+        "medical-device-pms-system",
         "medical-device-qms-iso13485",
         "project-status-brief"
       ],
@@ -1834,6 +1837,10 @@
     },
     {
       "from": "ivdr-pms-vigilance",
+      "to": "medical-device-pms-system"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
       "to": "medical-device-risk-management-iso14971"
     },
     {
@@ -2107,6 +2114,10 @@
     {
       "from": "qms-management-review-governance",
       "to": "medical-device-capa"
+    },
+    {
+      "from": "qms-management-review-governance",
+      "to": "medical-device-pms-system"
     },
     {
       "from": "qms-management-review-governance",
@@ -4163,31 +4174,52 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "pms-management-review-input.json",
+      "producers": [
+        "medical-device-pms-system"
+      ],
+      "consumerSkills": [
+        "ivdr-pms-vigilance",
+        "qms-management-review-governance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "pms-review-status.json",
       "producers": [
         "medical-device-pms-system"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "ivdr-pms-vigilance",
+        "qms-management-review-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "pms-source-register.json",
       "producers": [
         "medical-device-pms-system"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "ivdr-pms-vigilance",
+        "qms-management-review-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "pms-system-plan.json",
       "producers": [
         "medical-device-pms-system"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "ivdr-pms-vigilance",
+        "qms-management-review-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "predicate-candidate-set.json",
@@ -5488,9 +5520,6 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "pms-review-status.json",
-    "pms-source-register.json",
-    "pms-system-plan.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -5623,9 +5652,6 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "pms-review-status.json",
-    "pms-source-register.json",
-    "pms-system-plan.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",

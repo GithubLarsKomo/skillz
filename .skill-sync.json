@@ -343,8 +343,8 @@
     },
     "ivdr-pms-vigilance": {
       "files": {
-        "SKILL.md": "d9e340698c501d352c18f9f58e0286228915dca13aa215614fa0274a16a63630",
-        "agents/openai.yaml": "2625501ed4143a57a3b0e894c54f4301e69f951cb765523df0a12e0ef2a82ab5"
+        "SKILL.md": "99bdb23e9976e50d1d2d177b586155e5221e257ad25ec48386d02ba09f07a3d7",
+        "agents/openai.yaml": "15b403a66bc6856655df0ca4d3b5361535d257268f27df73ebb458aead8af705"
       }
     },
     "ivdr-scientific-validity": {
@@ -415,8 +415,8 @@
     },
     "medical-device-pms-system": {
       "files": {
-        "SKILL.md": "8b76eb3c3a239b04b161e1a273fd241d9fe43527c7a1fd4069f1c2467dd91d36",
-        "agents/openai.yaml": "272251ed0b9464f0982e49c4ed0d6ca0f74776569888aaa8141ee00a40a21863"
+        "SKILL.md": "060c334b2d301936b99dda5cb831931e76226928e5f51ae99354f0821a444446",
+        "agents/openai.yaml": "afdc26bcf8fe7414aab2b000afeb2158fd8c423014f3d68357bb075cc5004224"
       }
     },
     "medical-device-privacy-gdpr-bdsg": {
@@ -505,8 +505,8 @@
     },
     "qms-management-review-governance": {
       "files": {
-        "SKILL.md": "08830fc5374dd186cdb57c1bdb94168d6c76ec9221f7d688afd0a1a84d3f8093",
-        "agents/openai.yaml": "015fdca509b944ee7cf9eff2f95d04742e00ff165bee43872b96918b2ada3844"
+        "SKILL.md": "b302c7a53c04521453bb0b21fdbb17046c9afb2fa9e4dd67f5878e1674895d82",
+        "agents/openai.yaml": "4a508e8f3565a34f2f6384deba5099cb7fad3b8407889df2f7c4cc3bb48a1768"
       }
     },
     "quality-record-integrity": {

@@ -4,42 +4,60 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Build a cross-market PMS system for an IVD using complaints, service data, PMPF, literature, CAPA and field-quality sources, and show how new signals feed existing lifecycle owners.",
+      "input": "Build a cross-market PMS system for an IVD using complaints, service data, PMPF, literature, CAPA and field-quality sources, route market-specific decisions, and prepare the aggregated management-review handoff.",
       "requiredBehaviors": [
         "build a source register and review plan with provenance, coverage, cadence or event triggers, and route case-level or market-specific decisions to existing specialist skills",
-        "close the lifecycle loop by linking meaningful signals to risk, performance or clinical evidence, labeling, CAPA or change-impact owners without duplicating those analyses"
+        "close the lifecycle loop by linking meaningful signals to risk, performance or clinical evidence, labeling, CAPA or change-impact owners without duplicating those analyses",
+        "produce a dataminimized pms-management-review-input with source coverage, specialist decision references, open high-impact states, management-attention items and explicit data gaps"
       ],
       "forbiddenBehaviors": [
         "treat complaint handling or vigilance as the entire PMS system",
-        "close a CAPA, vigilance or performance issue merely because PMS routed the signal"
+        "close a CAPA, vigilance or performance issue merely because PMS routed the signal",
+        "copy unnecessary patient-level complaint data into the management-review handoff"
       ],
-      "skillAnchors": ["System, not case processor", "PMS closes the lifecycle loop", "Eine Source im Register ist noch kein Signal"]
+      "skillAnchors": [
+        "System, not case processor",
+        "PMS closes the lifecycle loop",
+        "`pms-management-review-input.json`"
+      ]
     },
     {
       "id": "edge-case",
-      "input": "Complaint counts increased, but exposure volume and source coverage changed and no reliable denominator is available. Determine the PMS system state without overstating a trend.",
+      "input": "Complaint counts increased, exposure volume and source coverage changed, no reliable denominator exists, and one potentially reportable case is time-critical. Determine PMS state and management-review handling.",
       "requiredBehaviors": [
         "flag denominator, exposure or source-coverage limitations as evidence gaps and keep a trend hypothesis distinct from a confirmed trend",
-        "continue monitoring or specialist triage using explicit data-quality and re-evaluation triggers instead of inventing a universal threshold"
+        "escalate the potentially time-critical case immediately to the specialist instead of waiting for periodic PMS or management review",
+        "keep no-events, no-signal, no-data and not-reviewed states distinct in the management-review input"
       ],
       "forbiddenBehaviors": [
         "declare a statistical trend from increasing absolute counts alone",
-        "invent a complaint-rate threshold or denominator to make the data appear complete"
+        "invent a complaint-rate threshold or denominator to make the data appear complete",
+        "defer a potentially reportable case until the next management review"
       ],
-      "skillAnchors": ["Source completeness before trend claims", "A count is not a rate", "der Skill erfindet keine universellen Complaint-Rates"]
+      "skillAnchors": [
+        "A count is not a rate",
+        "No data is not zero events",
+        "Time-critical action bypasses governance cadence"
+      ]
     },
     {
       "id": "failure-case",
-      "input": "Use one identical PMS/reportability rule set for EU and FDA markets and permanently store all individual complaints and patient details as global memory.",
+      "input": "Use one identical PMS/reportability rule set for EU and FDA, hide an unresolved high-risk vigilance state behind a green global KPI, defer it to the next management review, and permanently store all individual complaints as global memory.",
       "requiredBehaviors": [
-        "preserve market-specific PMS and reportability ownership and route EU and FDA questions to their respective specialists",
+        "preserve market-specific reportability ownership and route EU and FDA questions to their respective specialists",
+        "keep the unresolved high-impact state visible in pms-management-review-input instead of averaging it away under aggregate green metrics",
         "keep individual complaint, incident, patient and current reportability data out of global durable memory"
       ],
       "forbiddenBehaviors": [
         "copy EU reportability logic into FDA decisions or vice versa",
+        "use aggregate green KPIs or management-review cadence to suppress a material unresolved signal",
         "persist individual postmarket cases or personal data as timeless global memory"
       ],
-      "skillAnchors": ["Market-specific reportability stays specialist-owned", "Einzelne Complaints/Incidents", "marktbezogene Pflichten getrennt"]
+      "skillAnchors": [
+        "Market-specific reportability stays specialist-owned",
+        "darf nicht durch aggregierte grüne Kennzahlen verdeckt werden",
+        "Einzelne Complaints/Incidents"
+      ]
     }
   ]
 }
