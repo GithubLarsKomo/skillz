@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "iec62366-usability-engineering",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a medical-device user interface with intended users, use environments, use-related risks, formative evidence and planned summative evaluation.",
+      "requiredBehaviors": [
+        "anchor usability evidence to intended users uses environments interface baseline and existing ISO14971 risk references",
+        "keep formative design learning distinct from summative or validation evidence"
+      ],
+      "forbiddenBehaviors": [
+        "create a second use-related risk register disconnected from ISO14971",
+        "treat successful formative work as automatic summative validation"
+      ],
+      "skillAnchors": ["Users uses environments first", "Formative and summative serve different decisions"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Existing usability data used expert clinicians, but the intended product is now for minimally trained home users with different labeling and environment.",
+      "requiredBehaviors": [
+        "evaluate whether users environment training interface and task context are representative before reusing evidence",
+        "identify targeted additional evidence when the changed use context is not adequately represented"
+      ],
+      "forbiddenBehaviors": [
+        "reuse prior usability evidence solely because the device interface looks similar",
+        "define critical tasks from a generic checklist without use-risk evidence"
+      ],
+      "skillAnchors": ["Representative context matters", "Critical tasks are evidence-backed"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A summative study missed a critical task, and the team asks to change the success criterion after reviewing results and remember participant-level failures globally.",
+      "requiredBehaviors": [
+        "keep predefined evaluation criteria and the critical-task failure visible rather than changing criteria post hoc",
+        "keep participant-level data and current test findings out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "modify acceptance criteria after seeing unfavorable study results",
+        "persist participant or unreleased UI test details as reusable global memory"
+      ],
+      "skillAnchors": ["vor Ergebnisbewertung", "Konkrete Participant-/User-Daten"]
+    }
+  ]
+}
