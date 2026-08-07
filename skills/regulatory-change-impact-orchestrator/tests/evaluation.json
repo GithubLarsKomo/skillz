@@ -39,7 +39,7 @@
         "simulate FDA, notified-body or authority approval from an internal orchestration record",
         "persist concrete unreleased change or submission state as timeless global memory"
       ],
-      "skillAnchors": ["Markets stay separate", "keine universelle Freigabeentscheidung", "Konkrete unreleased Changes"]
+      "skillAnchors": ["Markets stay separate", "Marktentscheidungen separat bleiben", "Konkrete unreleased Changes"]
     }
   ]
 }
