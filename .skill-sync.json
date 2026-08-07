@@ -112,6 +112,18 @@
         "agents/openai.yaml": "cf597705b1c9b3e84ba7b846b79771025df67d5bc62a465e33df7742b27bfdbc"
       }
     },
+    "fda-acceptance-readiness": {
+      "files": {
+        "SKILL.md": "37805f62c409660599cd02ab68a0a2af0cad7f06cde8fd043378e7343aae98fb",
+        "agents/openai.yaml": "a5b417d1c0a2e8c93526be4e1bdced1d84ea1ed1bb423da3757542c968264e73"
+      }
+    },
+    "fda-additional-information-response": {
+      "files": {
+        "SKILL.md": "34c6ceee0a0a7a5252e4bb09cd158924712420d27fbe5c9f0bbbcb64cbf754dd",
+        "agents/openai.yaml": "71f64d083fb3b10e8553587650e9728e67a85730b8c8cebb49926c6df446eb79"
+      }
+    },
     "fda-de-novo-special-controls": {
       "files": {
         "SKILL.md": "afcd552bdd509f14114301122868bcf0003bd1d58682c3111c1b15d44c2a73fd",
@@ -128,6 +140,12 @@
       "files": {
         "SKILL.md": "735e2a26f97b6b0102a7348b82ea027fbddc9d5675effb7f1ecd8a3c79d3a06f",
         "agents/openai.yaml": "f221ae3334989c069554bee1bc5ea56b7d57325fd9377cf6c61b398135ca39d4"
+      }
+    },
+    "fda-estar-submission-builder": {
+      "files": {
+        "SKILL.md": "aa57111d2a5bd773e9a151503e4fd7515b30fe9d85fe3cef60b78ed79f8a6f9f",
+        "agents/openai.yaml": "01e316a1cbef70db1781be1bc33a9e01ba2da51523cac04b2b96b3d268e70178"
       }
     },
     "fda-medical-device-ivd-regulatory-specialist": {

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Additional Information Response"
+  short_description: "Strukturiert FDA-Interactive-Review- und Additional-Information-Anfragen issue-by-issue in evidenzgebundene Response-..."
+policy:
+  allow_implicit_invocation: false

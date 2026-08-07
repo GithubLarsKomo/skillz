@@ -199,6 +199,31 @@
       ]
     },
     {
+      "name": "fda-acceptance-readiness",
+      "requires": [
+        "fda-estar-submission-builder",
+        "regulatory-evidence-traceability",
+        "two-axis-compliance-review"
+      ],
+      "outputs": [
+        "acceptance-gaps.json",
+        "fda-acceptance-preflight.json"
+      ]
+    },
+    {
+      "name": "fda-additional-information-response",
+      "requires": [
+        "decision-record",
+        "fda-estar-submission-builder",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "fda-request-issue-map.json",
+        "fda-response-package.md",
+        "response-evidence-matrix.json"
+      ]
+    },
+    {
       "name": "fda-de-novo-special-controls",
       "requires": [
         "fda-de-novo-strategy",
@@ -233,6 +258,17 @@
       "outputs": [
         "fda-device-classification.json",
         "fda-product-code-evidence.json"
+      ]
+    },
+    {
+      "name": "fda-estar-submission-builder",
+      "requires": [
+        "fda-medical-device-ivd-regulatory-specialist",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "estar-content-map.json",
+        "submission-readiness.json"
       ]
     },
     {
@@ -909,6 +945,30 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "fda-acceptance-readiness",
+      "to": "fda-estar-submission-builder"
+    },
+    {
+      "from": "fda-acceptance-readiness",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "fda-acceptance-readiness",
+      "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "fda-additional-information-response",
+      "to": "decision-record"
+    },
+    {
+      "from": "fda-additional-information-response",
+      "to": "fda-estar-submission-builder"
+    },
+    {
+      "from": "fda-additional-information-response",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "fda-de-novo-special-controls",
       "to": "fda-de-novo-strategy"
     },
@@ -947,6 +1007,14 @@
     {
       "from": "fda-device-classification-product-code",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "fda-estar-submission-builder",
+      "to": "fda-medical-device-ivd-regulatory-specialist"
+    },
+    {
+      "from": "fda-estar-submission-builder",
+      "to": "regulatory-evidence-traceability"
     },
     {
       "from": "fda-medical-device-ivd-regulatory-specialist",
@@ -1363,6 +1431,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "acceptance-gaps.json",
+      "producers": [
+        "fda-acceptance-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "agent-handoff.json",
       "producers": [
         "agent-handoff"
@@ -1604,6 +1681,7 @@
       ],
       "consumerSkills": [
         "controlled-quality-documentation",
+        "fda-acceptance-readiness",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
@@ -1621,6 +1699,7 @@
       ],
       "consumerSkills": [
         "controlled-quality-documentation",
+        "fda-acceptance-readiness",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
@@ -1638,6 +1717,7 @@
       ],
       "consumerSkills": [
         "controlled-quality-documentation",
+        "fda-acceptance-readiness",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
@@ -1765,6 +1845,7 @@
       ],
       "consumerSkills": [
         "domain-model-maintenance",
+        "fda-additional-information-response",
         "fda-qsub-strategy"
       ],
       "ambiguous": false,
@@ -1777,6 +1858,7 @@
       ],
       "consumerSkills": [
         "domain-model-maintenance",
+        "fda-additional-information-response",
         "fda-qsub-strategy"
       ],
       "ambiguous": false,
@@ -1926,6 +2008,18 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "estar-content-map.json",
+      "producers": [
+        "fda-estar-submission-builder"
+      ],
+      "consumerSkills": [
+        "fda-acceptance-readiness",
+        "fda-additional-information-response"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "eu-regulatory-assessment.json",
       "producers": [
         "eu-mdr-ivdr-regulatory-specialist"
@@ -2032,6 +2126,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "fda-acceptance-preflight.json",
+      "producers": [
+        "fda-acceptance-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "fda-device-classification.json",
       "producers": [
         "fda-device-classification-product-code"
@@ -2061,6 +2164,7 @@
         "fda-medical-device-ivd-regulatory-specialist"
       ],
       "consumerSkills": [
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
@@ -2073,6 +2177,7 @@
         "fda-medical-device-ivd-regulatory-specialist"
       ],
       "consumerSkills": [
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
@@ -2085,11 +2190,30 @@
         "fda-medical-device-ivd-regulatory-specialist"
       ],
       "consumerSkills": [
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "fda-request-issue-map.json",
+      "producers": [
+        "fda-additional-information-response"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fda-response-package.md",
+      "producers": [
+        "fda-additional-information-response"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "human-procedure-plan.md",
@@ -2873,9 +2997,12 @@
       "consumerSkills": [
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
+        "fda-acceptance-readiness",
+        "fda-additional-information-response",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -2898,9 +3025,12 @@
       "consumerSkills": [
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
+        "fda-acceptance-readiness",
+        "fda-additional-information-response",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -2968,6 +3098,15 @@
       "output": "resolved-change-brief.md",
       "producers": [
         "merge-conflict-resolution"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "response-evidence-matrix.json",
+      "producers": [
+        "fda-additional-information-response"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -3181,6 +3320,18 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "submission-readiness.json",
+      "producers": [
+        "fda-estar-submission-builder"
+      ],
+      "consumerSkills": [
+        "fda-acceptance-readiness",
+        "fda-additional-information-response"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "substantial-equivalence-assessment.json",
       "producers": [
         "fda-510k-substantial-equivalence"
@@ -3379,6 +3530,7 @@
   ],
   "unconsumedOutputs": [
     "GRILL-REPORT.md",
+    "acceptance-gaps.json",
     "approved SPEC.md",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -3401,6 +3553,9 @@
     "dpia-decision.json",
     "execution plan",
     "expert handoff",
+    "fda-acceptance-preflight.json",
+    "fda-request-issue-map.json",
+    "fda-response-package.md",
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
@@ -3438,6 +3593,7 @@
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
     "resolved-change-brief.md",
+    "response-evidence-matrix.json",
     "se-evidence-gaps.json",
     "source-context.json",
     "source-context.md",
@@ -3454,6 +3610,7 @@
   ],
   "orphanOutputs": [
     "GRILL-REPORT.md",
+    "acceptance-gaps.json",
     "approved SPEC.md",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -3476,6 +3633,9 @@
     "dpia-decision.json",
     "execution plan",
     "expert handoff",
+    "fda-acceptance-preflight.json",
+    "fda-request-issue-map.json",
+    "fda-response-package.md",
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
@@ -3513,6 +3673,7 @@
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
     "resolved-change-brief.md",
+    "response-evidence-matrix.json",
     "se-evidence-gaps.json",
     "source-context.json",
     "source-context.md",

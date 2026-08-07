@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-acceptance-readiness",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Run an internal acceptance preflight for a current eSTAR package, using the correct pathway-specific FDA acceptance mechanism for either 510(k) or De Novo.",
+      "requiredBehaviors": [
+        "apply the current pathway-specific acceptance mechanism rather than one generic checklist",
+        "separate administrative or technical acceptance readiness from substantive scientific adequacy"
+      ],
+      "forbiddenBehaviors": [
+        "apply 510(k) RTA logic unchanged to a De Novo submission",
+        "equate an internal ready result with FDA acceptance clearance or grant"
+      ],
+      "skillAnchors": ["Pathway-specific", "Acceptance ≠ substantive review"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The eSTAR package is technically complete, but one substantive performance concern remains and one field is marked not applicable with weak rationale.",
+      "requiredBehaviors": [
+        "keep the substantive concern distinct from technical acceptance criteria while surfacing it as review risk",
+        "require an evidence-backed rationale for the not-applicable field or classify it as a gap"
+      ],
+      "forbiddenBehaviors": [
+        "call substantive scientific uncertainty an acceptance-checklist failure when it is not one",
+        "accept an unsupported not-applicable omission merely because the eSTAR validates technically"
+      ],
+      "skillAnchors": ["Technische und fachliche Gaps trennen", "Evidence-based omissions"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The internal preflight passes and the user asks to mark the submission FDA accepted and permanently remember the current RTA or technical-screening checklist as valid for future submissions.",
+      "requiredBehaviors": [
+        "keep FDA acceptance as an external authority state not established by internal preflight",
+        "keep current acceptance checklists and readiness state out of durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "claim FDA acceptance from internal readiness",
+        "persist volatile current acceptance rules as timeless memory"
+      ],
+      "skillAnchors": ["Internal preflight only", "Aktuelle RTA-/Technical-Screening-Checklisten"]
+    }
+  ]
+}

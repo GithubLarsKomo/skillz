@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 69,
-  "entrypointCount": 51,
+  "skillCount": 72,
+  "entrypointCount": 54,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 69,
+  "evaluationSuiteCount": 72,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -519,6 +519,7 @@
       ],
       "dependents": [
         "domain-model-maintenance",
+        "fda-additional-information-response",
         "fda-qsub-strategy"
       ],
       "outputs": [
@@ -534,6 +535,7 @@
           ],
           "consumerSkills": [
             "domain-model-maintenance",
+            "fda-additional-information-response",
             "fda-qsub-strategy"
           ]
         },
@@ -545,6 +547,7 @@
           ],
           "consumerSkills": [
             "domain-model-maintenance",
+            "fda-additional-information-response",
             "fda-qsub-strategy"
           ]
         }
@@ -1020,6 +1023,105 @@
       }
     },
     {
+      "name": "fda-acceptance-readiness",
+      "description": "Prüft pathway-spezifisch FDA-Submission-Acceptance-Readiness für 510(k) oder De Novo gegen aktuelle eSTAR-/RTA-/Technical-Screening-Anforderungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-estar-submission-builder",
+        "regulatory-evidence-traceability",
+        "two-axis-compliance-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "acceptance-gaps.json",
+        "fda-acceptance-preflight.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "acceptance-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-acceptance-readiness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fda-acceptance-preflight.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-acceptance-readiness"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-additional-information-response",
+      "description": "Strukturiert FDA-Interactive-Review- und Additional-Information-Anfragen issue-by-issue in evidenzgebundene Response-Pakete, Fristen und Follow-ups.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "fda-estar-submission-builder",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "fda-request-issue-map.json",
+        "fda-response-package.md",
+        "response-evidence-matrix.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fda-request-issue-map.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-additional-information-response"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fda-response-package.md",
+          "ambiguous": false,
+          "producers": [
+            "fda-additional-information-response"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "response-evidence-matrix.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-additional-information-response"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fda-de-novo-special-controls",
       "description": "Entwickelt vorgeschlagene FDA-De-Novo-Special-Controls aus Risiko- und Evidenzlücken und trennt interne Control-Hypothesen strikt von später von FDA etablierten Controls.",
       "invocation": {
@@ -1171,6 +1273,59 @@
       }
     },
     {
+      "name": "fda-estar-submission-builder",
+      "description": "Assembliert 510(k)- oder De-Novo-Evidenz pathway-aware in eine aktuelle FDA-eSTAR-Content-Map und Readiness-Struktur, ohne die Submission extern einzureichen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-medical-device-ivd-regulatory-specialist",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [
+        "fda-acceptance-readiness",
+        "fda-additional-information-response"
+      ],
+      "outputs": [
+        "estar-content-map.json",
+        "submission-readiness.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "estar-content-map.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-estar-submission-builder"
+          ],
+          "consumerSkills": [
+            "fda-acceptance-readiness",
+            "fda-additional-information-response"
+          ]
+        },
+        {
+          "output": "submission-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-estar-submission-builder"
+          ],
+          "consumerSkills": [
+            "fda-acceptance-readiness",
+            "fda-additional-information-response"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fda-medical-device-ivd-regulatory-specialist",
       "description": "Bewertet US-FDA-Regulatory-Pathways für Medical Devices und IVDs einschließlich 510(k), De Novo, PMA, Exemption/Classification, IVD-spezifischer Controls und QMSR-Readiness mit aktueller FDA-Evidenz.",
       "invocation": {
@@ -1183,6 +1338,7 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "medical-device-regulatory-strategy"
       ],
@@ -1199,6 +1355,7 @@
             "fda-medical-device-ivd-regulatory-specialist"
           ],
           "consumerSkills": [
+            "fda-estar-submission-builder",
             "fda-qsub-strategy",
             "medical-device-regulatory-strategy"
           ]
@@ -1210,6 +1367,7 @@
             "fda-medical-device-ivd-regulatory-specialist"
           ],
           "consumerSkills": [
+            "fda-estar-submission-builder",
             "fda-qsub-strategy",
             "medical-device-regulatory-strategy"
           ]
@@ -1221,6 +1379,7 @@
             "fda-medical-device-ivd-regulatory-specialist"
           ],
           "consumerSkills": [
+            "fda-estar-submission-builder",
             "fda-qsub-strategy",
             "medical-device-regulatory-strategy"
           ]
@@ -3260,9 +3419,12 @@
       "dependents": [
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
+        "fda-acceptance-readiness",
+        "fda-additional-information-response",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-device-classification-product-code",
+        "fda-estar-submission-builder",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
@@ -3288,9 +3450,12 @@
           "consumerSkills": [
             "fda-510k-predicate-strategy",
             "fda-510k-substantial-equivalence",
+            "fda-acceptance-readiness",
+            "fda-additional-information-response",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-estar-submission-builder",
             "fda-qsub-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
@@ -3312,9 +3477,12 @@
           "consumerSkills": [
             "fda-510k-predicate-strategy",
             "fda-510k-substantial-equivalence",
+            "fda-acceptance-readiness",
+            "fda-additional-information-response",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-device-classification-product-code",
+            "fda-estar-submission-builder",
             "fda-qsub-strategy",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
@@ -3938,6 +4106,7 @@
       ],
       "dependents": [
         "controlled-quality-documentation",
+        "fda-acceptance-readiness",
         "iso13485-qms-audit",
         "iso27001-isms-audit",
         "ivdr-pms-vigilance",
@@ -3959,6 +4128,7 @@
           ],
           "consumerSkills": [
             "controlled-quality-documentation",
+            "fda-acceptance-readiness",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
@@ -3975,6 +4145,7 @@
           ],
           "consumerSkills": [
             "controlled-quality-documentation",
+            "fda-acceptance-readiness",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",
@@ -3991,6 +4162,7 @@
           ],
           "consumerSkills": [
             "controlled-quality-documentation",
+            "fda-acceptance-readiness",
             "iso13485-qms-audit",
             "iso27001-isms-audit",
             "ivdr-pms-vigilance",

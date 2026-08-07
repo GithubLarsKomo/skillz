@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-additional-information-response",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build an issue-by-issue response package from an actual FDA review request, with source letter, request items, evidence, owners and cross-references.",
+      "requiredBehaviors": [
+        "use the actual FDA request as source of truth and map every request item to interpretation evidence owner response and status",
+        "cross-check each response against the original submission claims risk and other responses"
+      ],
+      "forbiddenBehaviors": [
+        "invent FDA deficiencies not present in the source request",
+        "claim response submission or FDA acceptance from drafting alone"
+      ],
+      "skillAnchors": ["Actual request is source of truth", "Cross-response consistency"]
+    },
+    {
+      "id": "edge-case",
+      "input": "FDA sends time-sensitive interactive-review questions and later a formal Additional Information request with a documented clock or due-date consequence.",
+      "requiredBehaviors": [
+        "distinguish interactive review from the formal additional-information request and preserve their different process consequences",
+        "derive due date or clock status from the actual FDA communication and current official process rules"
+      ],
+      "forbiddenBehaviors": [
+        "treat every FDA reviewer email as a formal AI request",
+        "use a remembered static response deadline without the actual letter or current FDA source"
+      ],
+      "skillAnchors": ["Interactive Review ≠ formal AI Request", "Current Process Context"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The response package is drafted but missing new testing requested by FDA; the user asks to submit anyway, mark FDA as satisfied, and remember the current request and due date globally.",
+      "requiredBehaviors": [
+        "keep the missing evidence as a blocker and route it to the relevant specialist",
+        "refuse to simulate external submission or FDA acceptance and keep case-specific request and due-date data out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "fill the evidence gap with unsupported prose",
+        "claim FDA received or accepted the response without verified external evidence"
+      ],
+      "skillAnchors": ["No unsupported answer", "konkrete FDA-Requests"]
+    }
+  ]
+}

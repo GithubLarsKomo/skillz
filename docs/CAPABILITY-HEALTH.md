@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **69**
-- User-facing entrypoints: **51**
-- Evaluation suites: **69**
+- Skills: **72**
+- User-facing entrypoints: **54**
+- Evaluation suites: **72**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **73**
+- Outputs without inferred hard-requires consumers: **78**
 
 ## Evaluation gaps
 
@@ -29,6 +29,7 @@ None.
 These are **not automatically defects**. The dependency graph infers consumers only from hard `requires` edges. User-facing reports, installed artifacts, runbooks, exported notes and other terminal products are expected to appear here. Treat this list as a review queue, not as an orphan verdict.
 
 - `GRILL-REPORT.md` — producer: `round-based-requirements-grilling`
+- `acceptance-gaps.json` — producer: `fda-acceptance-readiness`
 - `approved SPEC.md` — producer: `round-based-requirements-grilling`
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
@@ -51,6 +52,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `dpia-decision.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `execution plan` — producer: `synapse-orchestrator`
 - `expert handoff` — producer: `synapse-orchestrator`
+- `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
+- `fda-request-issue-map.json` — producer: `fda-additional-information-response`
+- `fda-response-package.md` — producer: `fda-additional-information-response`
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
 - `import verification` — producer: `openasr-offline-model-import`
@@ -88,6 +92,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
+- `response-evidence-matrix.json` — producer: `fda-additional-information-response`
 - `se-evidence-gaps.json` — producer: `fda-510k-substantial-equivalence`
 - `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`

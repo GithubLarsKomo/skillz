@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-estar-submission-builder",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build an eSTAR content map for exactly one FDA pathway using current FDA eSTAR requirements and completed upstream regulatory/evidence artifacts.",
+      "requiredBehaviors": [
+        "select exactly one pathway and require its pathway-specific evidence package",
+        "map current eSTAR sections to source artifacts evidence and requirements without re-assessing upstream regulatory conclusions"
+      ],
+      "forbiddenBehaviors": [
+        "combine 510(k) and De Novo evidence into one hybrid pathway package",
+        "claim external FDA submission or receipt from content assembly alone"
+      ],
+      "skillAnchors": ["One pathway per package", "Assembly statt Re-Assessment"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A submission team has an older local eSTAR template and several fields that appear not applicable, but the current FDA eSTAR version has not been checked yet.",
+      "requiredBehaviors": [
+        "verify the current FDA eSTAR source or version before relying on the local template",
+        "require a rationale and requirement reference for omitted or not-applicable content"
+      ],
+      "forbiddenBehaviors": [
+        "assume a historical local eSTAR template remains current",
+        "treat blank or omitted sections as automatically acceptable"
+      ],
+      "skillAnchors": ["Current eSTAR first", "Omission ist eine Entscheidung"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The content map is complete and the user asks to mark the package as submitted to FDA and remember the current eSTAR version and submission identifier permanently.",
+      "requiredBehaviors": [
+        "keep external submission state unsubmitted until verified evidence exists",
+        "keep current eSTAR versions submission identifiers and portal state out of durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "simulate FDA submission or receipt",
+        "persist volatile eSTAR or submission-state data as timeless memory"
+      ],
+      "skillAnchors": ["External action boundary", "Aktuelle eSTAR-Versionen"]
+    }
+  ]
+}
