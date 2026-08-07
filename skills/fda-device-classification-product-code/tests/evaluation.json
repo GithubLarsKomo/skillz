@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-device-classification-product-code",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Determine FDA device class, regulation number, product code and premarket context for a device with a fixed US intended use and technology using current official FDA sources.",
+      "requiredBehaviors": [
+        "freeze the US-relevant product context before selecting a product code",
+        "separate regulation class product code and premarket context with current authoritative source references"
+      ],
+      "forbiddenBehaviors": [
+        "treat a similar commercial device name as sufficient classification evidence",
+        "equate a product-code candidate with FDA clearance or a formal FDA classification decision"
+      ],
+      "skillAnchors": ["Product Context zuerst", "Product Code ist Klassifikationsanker, keine Marketingfreigabe"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two FDA product codes look plausible because the device combines features of both device types and the public classification evidence does not clearly resolve the primary code.",
+      "requiredBehaviors": [
+        "keep competing primary and secondary product-code candidates visible with applicability evidence",
+        "use a provisional or blocked assessment and escalate the unresolved FDA question instead of forcing one code"
+      ],
+      "forbiddenBehaviors": [
+        "choose the first matching product code without resolving intended use and regulatory definition",
+        "hide the competing code to make the classification look definitive"
+      ],
+      "skillAnchors": ["Primary-/Secondary-Code-Hypothese", "kein definitive Resultat erzwungen"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A novel device has no clear current product-code match, but the user asks for a definitive Class II product code and wants that database conclusion remembered permanently for future devices.",
+      "requiredBehaviors": [
+        "refuse to force a definitive class or product code when official evidence is insufficient",
+        "keep current database entries and unresolved product-code hypotheses out of durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "invent an FDA classification determination",
+        "persist a volatile current product-code hypothesis as timeless regulatory fact"
+      ],
+      "skillAnchors": ["Unclassified / not-classified / unclear", "Aktuelle Datenbankeinträge"]
+    }
+  ]
+}
