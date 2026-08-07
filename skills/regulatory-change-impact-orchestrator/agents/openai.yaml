@@ -1,0 +1,5 @@
+interface:
+  display_name: "Regulatory Change Impact Orchestrator"
+  short_description: "Orchestriert bestätigte Regulatory-/Lifecycle-Change-Events über Design, Risk, V&V, QMS, Evidence, Labeling, PMS und..."
+policy:
+  allow_implicit_invocation: true
