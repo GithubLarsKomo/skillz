@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 86,
-  "entrypointCount": 68,
+  "skillCount": 88,
+  "entrypointCount": 70,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 86,
+  "evaluationSuiteCount": 88,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -937,6 +937,52 @@
           "consumerSkills": [
             "medical-device-regulatory-strategy"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "eudamed-udi-ivd",
+      "description": "Erzeugt IVD-UDI-/EUDAMED-Readiness-Datensätze aus Product Context, Classification und kontrollierter Device-Evidence.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "ivdr-device-classification",
+        "medical-device-labeling-ifu",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "eudamed-readiness.json",
+        "ivd-udi-data-set.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "eudamed-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "eudamed-udi-ivd"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ivd-udi-data-set.json",
+          "ambiguous": false,
+          "producers": [
+            "eudamed-udi-ivd"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -2245,6 +2291,52 @@
       }
     },
     {
+      "name": "ivdr-class-d-conformity",
+      "description": "Plant IVDR-Class-D-Conformity mit NB/EURL-, Performance-, Common-Specification- und Batch-Testing-Abhängigkeiten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "ivdr-device-classification",
+        "ivdr-performance-evaluation",
+        "mdcg-guidance-navigator",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "class-d-conformity-plan.json",
+        "class-d-external-dependencies.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "class-d-conformity-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-class-d-conformity"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "class-d-external-dependencies.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-class-d-conformity"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "ivdr-clinical-performance-study",
       "description": "Plant klinische IVD-Performance-Evidenz nach IVDR/ISO 20916 mit Risiko-, Bias-, Endpunkt- und Gap-Kontrolle.",
       "invocation": {
@@ -2319,7 +2411,10 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "eudamed-udi-ivd",
+        "ivdr-class-d-conformity"
+      ],
       "outputs": [
         "ivdr-classification-assessment.json",
         "ivdr-classification-rationale.md"
@@ -2331,7 +2426,10 @@
           "producers": [
             "ivdr-device-classification"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "eudamed-udi-ivd",
+            "ivdr-class-d-conformity"
+          ]
         },
         {
           "output": "ivdr-classification-rationale.md",
@@ -2339,7 +2437,10 @@
           "producers": [
             "ivdr-device-classification"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "eudamed-udi-ivd",
+            "ivdr-class-d-conformity"
+          ]
         }
       ],
       "portableFiles": [
@@ -2366,6 +2467,7 @@
         "regulatory-evidence-traceability"
       ],
       "dependents": [
+        "ivdr-class-d-conformity",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf"
       ],
@@ -2381,6 +2483,7 @@
             "ivdr-performance-evaluation"
           ],
           "consumerSkills": [
+            "ivdr-class-d-conformity",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf"
           ]
@@ -2392,6 +2495,7 @@
             "ivdr-performance-evaluation"
           ],
           "consumerSkills": [
+            "ivdr-class-d-conformity",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf"
           ]
@@ -2774,6 +2878,7 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-performance-evaluation-report",
@@ -2792,6 +2897,7 @@
             "mdcg-guidance-navigator"
           ],
           "consumerSkills": [
+            "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-performance-evaluation-report",
@@ -2806,6 +2912,7 @@
             "mdcg-guidance-navigator"
           ],
           "consumerSkills": [
+            "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-performance-evaluation-report",
@@ -3014,6 +3121,7 @@
         "regulatory-evidence-traceability"
       ],
       "dependents": [
+        "eudamed-udi-ivd",
         "regulatory-claims-consistency"
       ],
       "outputs": [
@@ -3029,6 +3137,7 @@
             "medical-device-labeling-ifu"
           ],
           "consumerSkills": [
+            "eudamed-udi-ivd",
             "regulatory-claims-consistency"
           ]
         },
@@ -3039,6 +3148,7 @@
             "medical-device-labeling-ifu"
           ],
           "consumerSkills": [
+            "eudamed-udi-ivd",
             "regulatory-claims-consistency"
           ]
         },
@@ -3049,6 +3159,7 @@
             "medical-device-labeling-ifu"
           ],
           "consumerSkills": [
+            "eudamed-udi-ivd",
             "regulatory-claims-consistency"
           ]
         }
@@ -4062,6 +4173,7 @@
         "controlled-quality-documentation",
         "design-control-traceability",
         "eu-mdr-ivdr-regulatory-specialist",
+        "eudamed-udi-ivd",
         "fda-510k-predicate-strategy",
         "fda-complaint-mdr-reportability",
         "fda-de-novo-strategy",
@@ -4098,6 +4210,7 @@
             "controlled-quality-documentation",
             "design-control-traceability",
             "eu-mdr-ivdr-regulatory-specialist",
+            "eudamed-udi-ivd",
             "fda-510k-predicate-strategy",
             "fda-complaint-mdr-reportability",
             "fda-de-novo-strategy",
@@ -4130,6 +4243,7 @@
             "controlled-quality-documentation",
             "design-control-traceability",
             "eu-mdr-ivdr-regulatory-specialist",
+            "eudamed-udi-ivd",
             "fda-510k-predicate-strategy",
             "fda-complaint-mdr-reportability",
             "fda-de-novo-strategy",
@@ -4231,6 +4345,7 @@
       ],
       "dependents": [
         "design-change-regulatory-impact",
+        "eudamed-udi-ivd",
         "fda-510k-predicate-strategy",
         "fda-510k-substantial-equivalence",
         "fda-acceptance-readiness",
@@ -4245,6 +4360,7 @@
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
         "ivdr-analytical-performance",
+        "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-performance-evaluation",
@@ -4269,6 +4385,7 @@
           ],
           "consumerSkills": [
             "design-change-regulatory-impact",
+            "eudamed-udi-ivd",
             "fda-510k-predicate-strategy",
             "fda-510k-substantial-equivalence",
             "fda-acceptance-readiness",
@@ -4283,6 +4400,7 @@
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
             "ivdr-analytical-performance",
+            "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-performance-evaluation",
@@ -4303,6 +4421,7 @@
           ],
           "consumerSkills": [
             "design-change-regulatory-impact",
+            "eudamed-udi-ivd",
             "fda-510k-predicate-strategy",
             "fda-510k-substantial-equivalence",
             "fda-acceptance-readiness",
@@ -4317,6 +4436,7 @@
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
             "ivdr-analytical-performance",
+            "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-performance-evaluation",

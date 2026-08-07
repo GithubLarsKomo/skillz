@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **86**
-- User-facing entrypoints: **68**
-- Evaluation suites: **86**
+- Skills: **88**
+- User-facing entrypoints: **70**
+- Evaluation suites: **88**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **97**
+- Outputs without inferred hard-requires consumers: **99**
 
 ## Evaluation gaps
 
@@ -38,6 +38,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
+- `class-d-conformity-plan.json` — producer: `ivdr-class-d-conformity`
+- `class-d-external-dependencies.json` — producer: `ivdr-class-d-conformity`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `complaint-regulatory-actions.json` — producer: `fda-complaint-mdr-reportability`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
@@ -57,6 +59,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`
+- `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
 - `execution plan` — producer: `synapse-orchestrator`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
@@ -70,8 +73,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-findings.json` — producer: `iso27001-isms-audit`
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
-- `ivdr-classification-assessment.json` — producer: `ivdr-device-classification`
-- `ivdr-classification-rationale.md` — producer: `ivdr-device-classification`
+- `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
 - `ivdr-pms-assessment.json` — producer: `ivdr-pms-vigilance`
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`

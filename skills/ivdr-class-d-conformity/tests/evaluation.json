@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-class-d-conformity",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a Class D conformity plan from confirmed IVDR classification, completed performance evidence, current MDCG/EU sources and known NB/EURL dependencies.",
+      "requiredBehaviors": [
+        "start from an explicit Class D classification state and reuse upstream performance evidence",
+        "map current NB EURL common-specification and batch-testing dependencies with verified external-state boundaries"
+      ],
+      "forbiddenBehaviors": [
+        "re-run the full IVDR classification or performance evaluation inside the conformity plan",
+        "claim an NB EURL or authority result without verified external evidence"
+      ],
+      "skillAnchors": ["Class D confirmed first", "External decisions remain external"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The device is Class D, but it is unclear whether a currently designated EURL covers this specific analyte/device scope and whether batch testing applies as assumed by an old project plan.",
+      "requiredBehaviors": [
+        "verify current EURL designation scope and applicable external requirements before treating them as mandatory project gates",
+        "keep uncertain or non-applicable dependencies explicit with rationale instead of inheriting old assumptions"
+      ],
+      "forbiddenBehaviors": [
+        "assume every Class D device has identical EURL scope and batch-testing implementation",
+        "reuse stale EURL or common-specification assumptions without current-source verification"
+      ],
+      "skillAnchors": ["EURL scope is conditional", "Current external applicability"]
+    },
+    {
+      "id": "failure-case",
+      "input": "An internal batch is ready but a required external test or review is still pending; management asks to mark the external gate complete and remember the current batch result globally.",
+      "requiredBehaviors": [
+        "keep the required external batch or review gate blocking until verified completion evidence exists",
+        "keep concrete batch identifiers external results and current NB/EURL state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "convert internal release readiness into a completed external conformity gate",
+        "persist batch-specific or external-review state as timeless memory"
+      ],
+      "skillAnchors": ["Batch release is evidence-gated", "Sample-/Batch-IDs"]
+    }
+  ]
+}

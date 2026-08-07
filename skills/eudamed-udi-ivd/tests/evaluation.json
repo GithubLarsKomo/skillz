@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "skill": "eudamed-udi-ivd",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Prepare an IVD UDI/device registration dataset and EUDAMED readiness assessment from controlled product, classification, labeling, actor and certificate evidence using the current Commission module state.",
+      "requiredBehaviors": [
+        "derive device identity and registration data from controlled upstream evidence and current EUDAMED module requirements",
+        "separate data readiness from actual identifier issuance and external EUDAMED registration state"
+      ],
+      "forbiddenBehaviors": [
+        "invent Basic UDI-DI UDI-DI SRN or certificate identifiers",
+        "claim a device is registered in EUDAMED from a prepared dataset alone"
+      ],
+      "skillAnchors": ["Current module state first", "Registration data ≠ registration"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A product family has conflicting variant identifiers and a legacy-device mapping, while some EUDAMED modules are mandatory and other lifecycle modules are not yet mandatory/available.",
+      "requiredBehaviors": [
+        "keep identity conflicts and legacy relationships explicit until supported by controlled evidence",
+        "apply current module-specific readiness rather than assuming all EUDAMED modules have the same status"
+      ],
+      "forbiddenBehaviors": [
+        "collapse conflicting device variants into one identifier without evidence",
+        "treat every EUDAMED lifecycle module as currently mandatory and operational"
+      ],
+      "skillAnchors": ["Device identity is versioned", "Module boundaries stay current"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The team wants to invent missing UDI/SRN values, mark portal registration complete, and remember current device identifiers and portal state globally.",
+      "requiredBehaviors": [
+        "keep missing externally allocated identifiers and registration actions unresolved until verified evidence exists",
+        "keep concrete UDI SRN EUDAMED and portal state out of global durable memory"
+      ],
+      "forbiddenBehaviors": [
+        "generate authoritative external identifiers without controlled source evidence",
+        "persist current registration identifiers or portal state as timeless memory"
+      ],
+      "skillAnchors": ["UDI data ≠ issuance", "Konkrete UDI-/SRN-/EUDAMED-IDs"]
+    }
+  ]
+}
