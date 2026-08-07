@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 91,
-  "entrypointCount": 73,
+  "skillCount": 94,
+  "entrypointCount": 76,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 91,
+  "evaluationSuiteCount": 94,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -529,7 +529,10 @@
         "design-change-regulatory-impact",
         "domain-model-maintenance",
         "fda-additional-information-response",
-        "fda-qsub-strategy"
+        "fda-corrections-removals",
+        "fda-pccp-change-control",
+        "fda-qsub-strategy",
+        "fda-registration-listing-udi"
       ],
       "outputs": [
         "decision-record.json",
@@ -546,7 +549,10 @@
             "design-change-regulatory-impact",
             "domain-model-maintenance",
             "fda-additional-information-response",
-            "fda-qsub-strategy"
+            "fda-corrections-removals",
+            "fda-pccp-change-control",
+            "fda-qsub-strategy",
+            "fda-registration-listing-udi"
           ]
         },
         {
@@ -559,7 +565,10 @@
             "design-change-regulatory-impact",
             "domain-model-maintenance",
             "fda-additional-information-response",
-            "fda-qsub-strategy"
+            "fda-corrections-removals",
+            "fda-pccp-change-control",
+            "fda-qsub-strategy",
+            "fda-registration-listing-udi"
           ]
         }
       ],
@@ -648,7 +657,9 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "fda-pccp-change-control"
+      ],
       "outputs": [
         "change-verification-needs.json",
         "design-change-impact.json",
@@ -661,7 +672,9 @@
           "producers": [
             "design-change-regulatory-impact"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-pccp-change-control"
+          ]
         },
         {
           "output": "design-change-impact.json",
@@ -669,7 +682,9 @@
           "producers": [
             "design-change-regulatory-impact"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-pccp-change-control"
+          ]
         },
         {
           "output": "regulatory-change-decisions.json",
@@ -677,7 +692,9 @@
           "producers": [
             "design-change-regulatory-impact"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-pccp-change-control"
+          ]
         }
       ],
       "portableFiles": [
@@ -1320,7 +1337,9 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "fda-corrections-removals"
+      ],
       "outputs": [
         "complaint-regulatory-actions.json",
         "mdr-reportability-assessment.json"
@@ -1332,13 +1351,72 @@
           "producers": [
             "fda-complaint-mdr-reportability"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-corrections-removals"
+          ]
         },
         {
           "output": "mdr-reportability-assessment.json",
           "ambiguous": false,
           "producers": [
             "fda-complaint-mdr-reportability"
+          ],
+          "consumerSkills": [
+            "fda-corrections-removals"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-corrections-removals",
+      "description": "Bewertet Medical-Device-Korrekturen und -Entfernungen nach 21 CFR 806/Part 7 auf Reportability, 10-Arbeitstage-Frist, Recall-/Recordkeeping-Pfad und verknüpft Risk, MDR, CAPA und externe FDA-Aktionen ohne diese zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "fda-complaint-mdr-reportability",
+        "medical-device-capa",
+        "medical-device-risk-management-iso14971"
+      ],
+      "dependents": [],
+      "outputs": [
+        "correction-removal-action-plan.json",
+        "correction-removal-assessment.json",
+        "correction-removal-reporting-state.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "correction-removal-action-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-corrections-removals"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "correction-removal-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-corrections-removals"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "correction-removal-reporting-state.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-corrections-removals"
           ],
           "consumerSkills": []
         }
@@ -1748,6 +1826,61 @@
       }
     },
     {
+      "name": "fda-pccp-change-control",
+      "description": "Bewertet bestätigte Medical-Device-Änderungen gegen einen tatsächlich autorisierten oder cleared FDA-PCCP-Scope, trennt PCCP-konforme Umsetzung von neuer Submission und routet Abweichungen in bestehende Change-/Submission-Pfade.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "design-change-regulatory-impact",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "pccp-applicability.json",
+        "pccp-change-evidence.json",
+        "pccp-deviation-routing.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "pccp-applicability.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-pccp-change-control"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "pccp-change-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-pccp-change-control"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "pccp-deviation-routing.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-pccp-change-control"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fda-qmsr-inspection-readiness",
       "description": "Bereitet Medical-Device-QMS-Evidenz auf aktuelle FDA-QMSR-Inspektionen vor, identifiziert Retrieval-, Record-, Evidence- und Remediation-Gaps und vermeidet QSIT-Legacy.",
       "invocation": {
@@ -1883,6 +2016,61 @@
           "ambiguous": false,
           "producers": [
             "fda-qsub-strategy"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-registration-listing-udi",
+      "description": "Bereitet FDA Establishment Registration, Device Listing und UDI/GUDID-Masterdaten für Medical Devices strukturiert vor, trennt 21 CFR 807 von UDI-Pflichten und simuliert weder Registrierung noch Identifier-Vergabe.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "decision-record",
+        "medical-device-labeling-ifu",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "fda-device-listing-readiness.json",
+        "fda-registration-readiness.json",
+        "gudid-udi-readiness.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fda-device-listing-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-registration-listing-udi"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fda-registration-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-registration-listing-udi"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "gudid-udi-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-registration-listing-udi"
           ],
           "consumerSkills": []
         }
@@ -3125,6 +3313,7 @@
         "medical-device-risk-management-iso14971"
       ],
       "dependents": [
+        "fda-corrections-removals",
         "qms-management-review-governance"
       ],
       "outputs": [
@@ -3140,6 +3329,7 @@
             "medical-device-capa"
           ],
           "consumerSkills": [
+            "fda-corrections-removals",
             "qms-management-review-governance"
           ]
         },
@@ -3150,6 +3340,7 @@
             "medical-device-capa"
           ],
           "consumerSkills": [
+            "fda-corrections-removals",
             "qms-management-review-governance"
           ]
         },
@@ -3160,6 +3351,7 @@
             "medical-device-capa"
           ],
           "consumerSkills": [
+            "fda-corrections-removals",
             "qms-management-review-governance"
           ]
         }
@@ -3304,6 +3496,7 @@
       ],
       "dependents": [
         "eudamed-udi-ivd",
+        "fda-registration-listing-udi",
         "iec62366-usability-engineering",
         "regulatory-claims-consistency"
       ],
@@ -3321,6 +3514,7 @@
           ],
           "consumerSkills": [
             "eudamed-udi-ivd",
+            "fda-registration-listing-udi",
             "iec62366-usability-engineering",
             "regulatory-claims-consistency"
           ]
@@ -3333,6 +3527,7 @@
           ],
           "consumerSkills": [
             "eudamed-udi-ivd",
+            "fda-registration-listing-udi",
             "iec62366-usability-engineering",
             "regulatory-claims-consistency"
           ]
@@ -3345,6 +3540,7 @@
           ],
           "consumerSkills": [
             "eudamed-udi-ivd",
+            "fda-registration-listing-udi",
             "iec62366-usability-engineering",
             "regulatory-claims-consistency"
           ]
@@ -3588,9 +3784,11 @@
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-510k-substantial-equivalence",
         "fda-complaint-mdr-reportability",
+        "fda-corrections-removals",
         "fda-de-novo-special-controls",
         "fda-de-novo-strategy",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -3624,9 +3822,11 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-substantial-equivalence",
             "fda-complaint-mdr-reportability",
+            "fda-corrections-removals",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-ivd-clia-waiver",
+            "fda-pccp-change-control",
             "iec62304-software-lifecycle",
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
@@ -3655,9 +3855,11 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-substantial-equivalence",
             "fda-complaint-mdr-reportability",
+            "fda-corrections-removals",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-ivd-clia-waiver",
+            "fda-pccp-change-control",
             "iec62304-software-lifecycle",
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
@@ -3686,9 +3888,11 @@
             "eu-mdr-ivdr-regulatory-specialist",
             "fda-510k-substantial-equivalence",
             "fda-complaint-mdr-reportability",
+            "fda-corrections-removals",
             "fda-de-novo-special-controls",
             "fda-de-novo-strategy",
             "fda-ivd-clia-waiver",
+            "fda-pccp-change-control",
             "iec62304-software-lifecycle",
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
@@ -4382,6 +4586,7 @@
         "fda-device-classification-product-code",
         "fda-ivd-clia-waiver",
         "fda-medical-device-ivd-regulatory-specialist",
+        "fda-registration-listing-udi",
         "iec62304-software-lifecycle",
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
@@ -4422,6 +4627,7 @@
             "fda-device-classification-product-code",
             "fda-ivd-clia-waiver",
             "fda-medical-device-ivd-regulatory-specialist",
+            "fda-registration-listing-udi",
             "iec62304-software-lifecycle",
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
@@ -4458,6 +4664,7 @@
             "fda-device-classification-product-code",
             "fda-ivd-clia-waiver",
             "fda-medical-device-ivd-regulatory-specialist",
+            "fda-registration-listing-udi",
             "iec62304-software-lifecycle",
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
@@ -4568,8 +4775,10 @@
         "fda-dual-510k-clia-waiver",
         "fda-estar-submission-builder",
         "fda-ivd-clia-waiver",
+        "fda-pccp-change-control",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
+        "fda-registration-listing-udi",
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
@@ -4608,8 +4817,10 @@
             "fda-dual-510k-clia-waiver",
             "fda-estar-submission-builder",
             "fda-ivd-clia-waiver",
+            "fda-pccp-change-control",
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
+            "fda-registration-listing-udi",
             "ivdr-analytical-performance",
             "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
@@ -4644,8 +4855,10 @@
             "fda-dual-510k-clia-waiver",
             "fda-estar-submission-builder",
             "fda-ivd-clia-waiver",
+            "fda-pccp-change-control",
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
+            "fda-registration-listing-udi",
             "ivdr-analytical-performance",
             "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",

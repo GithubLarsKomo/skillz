@@ -1,5 +1,5 @@
 interface:
   display_name: "Fda Registration Listing Udi"
-  short_description: "Bereitet 21 CFR 807 Registration/Listing und UDI/GUDID-Masterdaten vor, ohne externe IDs oder Portalzustände zu erfinden."
+  short_description: "Bereitet FDA Establishment Registration, Device Listing und UDI/GUDID-Masterdaten für Medical Devices strukturiert vo..."
 policy:
   allow_implicit_invocation: false

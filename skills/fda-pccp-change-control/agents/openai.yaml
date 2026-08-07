@@ -1,5 +1,5 @@
 interface:
   display_name: "Fda Pccp Change Control"
-  short_description: "Prüft bestätigte Device-Änderungen gegen einen tatsächlich autorisierten FDA-PCCP-Scope und dessen Evidence-Gates."
+  short_description: "Bewertet bestätigte Medical-Device-Änderungen gegen einen tatsächlich autorisierten oder cleared FDA-PCCP-Scope, tren..."
 policy:
   allow_implicit_invocation: false

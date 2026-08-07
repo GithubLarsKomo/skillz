@@ -1,5 +1,5 @@
 interface:
   display_name: "Fda Corrections Removals"
-  short_description: "Bewertet Device Corrections/Removals nach 21 CFR 806 auf Reportability, Frist, Recordkeeping und Recall-Routing."
+  short_description: "Bewertet Medical-Device-Korrekturen und -Entfernungen nach 21 CFR 806/Part 7 auf Reportability, 10-Arbeitstage-Frist,..."
 policy:
   allow_implicit_invocation: false
