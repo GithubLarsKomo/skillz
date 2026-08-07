@@ -13,12 +13,13 @@ outputs:
   - review findings
   - next increment
   - verification evidence
-lastEvaluated: 2026-07-31
+  - engineering-iteration-state.json
+lastEvaluated: 2026-08-08
 ---
 
 # Softwareprojekte iterativ entwickeln
 
-Arbeite als technischer Orchestrator. Halte Analyse, Implementierungsauftrag und Review als getrennte Phasen, aber führe ihre Erkenntnisse in einer fortlaufenden Projektschleife zusammen.
+Arbeite als technischer Orchestrator. Halte Analyse, Implementierungsauftrag, Review und Delivery-Closure als getrennte Phasen, aber führe ihre Erkenntnisse in einer fortlaufenden Projektschleife zusammen.
 
 ## Arbeitsmodus bestimmen
 
@@ -27,9 +28,22 @@ Ermittle zuerst, welche Phase der Nutzer verlangt:
 - **Analyse:** Repository und Laufzeitstatus untersuchen und das nächste sinnvolle Inkrement empfehlen.
 - **Copilot-Prompt:** Einen unmittelbar ausführbaren Auftrag für Copilot oder einen anderen Coding-Agenten erzeugen.
 - **Review:** Umsetzung, Diff, Tests und Laufzeitnachweise gegen den Auftrag prüfen.
-- **Weiterentwicklung:** Alle drei Phasen nacheinander durchführen, soweit Zugriff und Auftrag dies erlauben.
+- **Weiterentwicklung:** Alle Phasen nacheinander durchführen, soweit Zugriff und Auftrag dies erlauben.
 
-Bei Formulierungen wie „wie bisher“, „prüfe und mache weiter“ oder „nächster Prompt“ den letzten nachweisbaren Stand rekonstruieren. Keine vermeintliche Projektkontinuität erfinden.
+Bei Formulierungen wie „wie bisher“, „prüfe und mache weiter“ oder „nächster Prompt“ den letzten **verifizierten Delivery-Zustand** rekonstruieren. Keine vermeintliche Projektkontinuität erfinden und eine reviewte, aber noch nicht gemergte beziehungsweise extern verifizierte Änderung nicht als bereits erledigte Iteration behandeln.
+
+## Temporal Feedback Contract
+
+Wenn für die vorherige Iteration `engineering-iteration-return-input.json` aus `engineering-delivery-followup` vorliegt, ist er ein expliziter Eingang der nächsten Iteration. Ein technischer Hard-Dependency-Zyklus wird bewusst vermieden.
+
+Wenn aus Repository-/PR-/Issue-Evidenz erkennbar ist, dass eine vorherige Iteration reviewt oder zur Delivery übergeben wurde, aber kein belastbarer Return Input beziehungsweise gleichwertiger verifizierter Delivery-Zustand vorliegt:
+
+- Status nicht als abgeschlossen erfinden,
+- `deliveryContinuityGap` markieren,
+- zuerst Review-Freshness, Required Checks, Merge/Deployment soweit relevant und Issue-/Requirement-Closure auflösen,
+- erst danach ein unabhängiges neues Inkrement starten.
+
+Trenne mindestens `implemented`, `review-approved`, `merge-ready`, `merged`, `deployed/released` soweit anwendbar, `issue-closed` und `requirement-verified`. Kein späterer Tracker- oder PR-Status ersetzt einen fehlenden fachlichen Nachweis.
 
 ## Fakten und Entscheidungen trennen
 
@@ -51,19 +65,27 @@ Bei einer noch offenen, irreversiblen oder weitreichenden Entscheidung weder Imp
 2. Branch, Status, letzte relevante Commits und aktuelle Änderungen prüfen.
 3. Architektur, Services, Schnittstellen, Datenhaltung und Deployment erfassen.
 4. Offene TODOs, fehlgeschlagene Tests, Logs, Review-Kommentare und provisorische Fixes sammeln.
-5. Behauptungen in drei Klassen trennen: durch Quelltext belegt, durch Laufzeittest belegt, noch unbestätigt.
+5. Vorherigen Iterations-/Delivery-Status rekonstruieren: Issue/Requirement, Implementierungs-Head, `reviewedHeadSha`, aktuelle PR-/Branch-SHA, Required Checks, Merge State, Deployment/Release soweit Done-relevant, Tracker-/Requirement-Closure und undispositionierte Follow-ups.
+6. Behauptungen in drei Klassen trennen: durch Quelltext belegt, durch Laufzeit-/Delivery-Evidenz belegt, noch unbestätigt.
 
 Bei Docker-/KI-Projekten zuerst den realen Fehlerweg verfolgen: Servicezustand, Logs, Ports, Health-Endpunkt, interne und externe URLs, Abhängigkeiten und Netzwerkgrenzen. Lokale Proxy-Sonderfälle berücksichtigen; für lokale Tests bei Bedarf `--noproxy "*"` verwenden.
 
 ## 2. Nächstes Inkrement wählen
 
-Das kleinste Inkrement wählen, das eigenständig Wert liefert und überprüfbar abgeschlossen werden kann. In dieser Reihenfolge priorisieren:
+Bevor ein neues Inkrement gewählt wird, muss die vorherige Iteration dispositioniert sein:
+
+- `closed`: darf als erledigt in `doNotRepeat` übernommen werden,
+- `closed-with-followups`: Kernissue abgeschlossen, Follow-ups bleiben sichtbar und werden nur bei echter Priorität als neues Inkrement gewählt,
+- `review-stale|blocked|pending|unknown`: zuerst die früheste Delivery-/Verification-Lücke schließen; kein unabhängiges neues Feature vorziehen, wenn dadurch ein unsicherer Integrationszustand verborgen würde.
+
+Danach das kleinste Inkrement wählen, das eigenständig Wert liefert und überprüfbar abgeschlossen werden kann. In dieser Reihenfolge priorisieren:
 
 1. Regressionen und Restfehler der letzten Iteration
-2. Reproduzierbarkeit eines bereits bewiesenen provisorischen Fixes
-3. Fehlende Tests, Migrationen, Dokumentation oder Betriebsnachweise
-4. Nächster fachlich kohärenter MVP-Baustein
-5. Härtung, Automatisierung und Komfortfunktionen
+2. offene Delivery-/Closure-Gaps der letzten Iteration
+3. Reproduzierbarkeit eines bereits bewiesenen provisorischen Fixes
+4. fehlende Tests, Migrationen, Dokumentation oder Betriebsnachweise
+5. nächster fachlich kohärenter MVP-Baustein
+6. Härtung, Automatisierung und Komfortfunktionen
 
 Bestehende Architektur und Infrastruktur bevorzugen. Neue Komponenten nur einführen, wenn ihr Nutzen und ihre Integrationsgrenze klar sind. Größere Vorhaben phasenweise schneiden, beispielsweise isolierter MVP → Integration → Schnittstelle → Synchronisation → Härtung.
 
@@ -73,6 +95,7 @@ Vor Festlegung des Inkrements einen kurzen Entscheidungscheck durchführen:
 2. Sind In-Scope und Nicht-im-Scope widerspruchsfrei?
 3. Sind irreversible Architektur-, Daten- oder Deployment-Entscheidungen geklärt?
 4. Lassen sich Abnahmekriterien ausführen oder beobachten?
+5. Ist die vorherige Iteration wirklich geschlossen oder ihr offener Delivery-Zustand explizit der nächste Schritt?
 
 Nur offene Punkte klären, die das gewählte Inkrement tatsächlich verändern würden.
 
@@ -107,15 +130,18 @@ Den ursprünglichen Auftrag als Prüfbasis verwenden. Nicht nur prüfen, ob Date
 
 Wenn Tests wegen Umgebung oder fehlender Zugänge nicht ausführbar sind, dies als unbestätigten Nachweis ausweisen; nicht als Erfolg behandeln.
 
+Ein Code Review kann eine Änderung `review-approved` machen, aber nicht eigenständig `merged`, `deployed`, `issue-closed` oder `requirement-verified`. Für die Delivery-/Closure-Phase an `engineering-delivery-followup` übergeben.
+
 ## 5. Schleife schließen
 
-Nach dem Review genau einen Status vergeben:
+Nach Review und soweit erforderlich Delivery-Follow-up genau einen Iterationsstatus vergeben:
 
-- **Abnahmefähig:** Definition of Done erfüllt; nächstes Inkrement vorschlagen.
-- **Korrekturschleife:** Begrenzte Restfehler; einen fokussierten Fix-Prompt erzeugen.
+- **Abnahmefähig/geschlossen:** Definition of Done inklusive der vereinbarten Delivery-Gates erfüllt; nächstes Inkrement vorschlagen.
+- **Korrekturschleife:** Begrenzte Restfehler oder Review-Findings; fokussierten Fix-Auftrag erzeugen.
+- **Delivery offen:** Review abgeschlossen, aber CI/Merge/Deployment/Issue-/Requirement-Closure noch pending, stale oder unbestätigt; zuerst `engineering-delivery-followup` fortsetzen.
 - **Neu schneiden:** Ansatz oder Scope ist fehlerhaft; Inkrement neu definieren.
 
-Den Projektstand kompakt fortschreiben: bestätigter Stand, offene Risiken, nächster Schritt und benötigte Nachweise. Keine abgeschlossene Arbeit erneut beauftragen.
+Den Projektstand kompakt fortschreiben: bestätigter Stand, Delivery-/Verification-Status, offene Risiken, `doNotRepeat`, nächster Schritt und benötigte Nachweise. Keine abgeschlossene Arbeit erneut beauftragen.
 
 Zusätzlich ein schlankes Entscheidungsprotokoll fortschreiben:
 
@@ -123,9 +149,11 @@ Zusätzlich ein schlankes Entscheidungsprotokoll fortschreiben:
 - **Angenommen:** reversible Vorgabe, die bei neuen Fakten geändert werden darf
 - **Offen:** nur Entscheidungen, die eine spätere Iteration tatsächlich blockieren
 
+`engineering-iteration-state.json` enthält mindestens Repository/Head, letzte Issue-/Requirement-IDs, Review/Delivery State, Return-Input-Referenz sofern vorhanden, `doNotRepeat`, offene Gaps/Risks und genau das nächste Inkrement beziehungsweise die früheste Closure-Aktion.
+
 ## Qualitätsprinzipien
 
-- Evidence first: Logs, Tests, API-Antworten und Diffs höher gewichten als Beschreibungen.
+- Evidence first: Logs, Tests, API-Antworten, Diffs und verifizierte Delivery-Zustände höher gewichten als Beschreibungen.
 - Kleine, reversible Änderungen mit klarer Abnahmegrenze bevorzugen.
 - Quellengebundene Systeme dürfen keine unbelegten Inhalte als Fakten speichern oder ausgeben.
 - Generierte Inhalte und verifizierte Quellen getrennt halten; Audit Trail und Versionierung vorsehen, wenn Wissen weiterverwendet wird.
@@ -134,13 +162,18 @@ Zusätzlich ein schlankes Entscheidungsprotokoll fortschreiben:
 - Nur den nächsten sinnvollen Schritt detaillieren; spätere Phasen als Orientierung knapp halten.
 - Bei Rückfragen eine konkrete Empfehlung geben, statt lediglich Optionen aufzuzählen.
 - Nicht um Bestätigung bereits belegter Fakten bitten.
+- Weder PR-Closed noch Merge noch Tracker-Done allein als vollständige Engineering-Closure behandeln.
+
+## Memory Path
+
+Persistenzwürdig sind abstrahierte Iterations-, Priorisierungs-, Verification- und Delivery-Governance-Muster. Konkrete Repository-/PR-/Issue-Namen, SHAs, aktuelle CI-/Deployment-Zustände, unveröffentlichte Implementierungsdetails und offene Findings bleiben Run-/Project-State. Übergib nur validierte `memory-candidate-handoff-v1`-Kandidaten an `communication-memory-governance`; dieser Skill persistiert nichts selbst.
 
 ## Ausgabeformate
 
-Bei **Analyse** liefern: Statusbild, Belege, Risiken, empfohlenes Inkrement und Abnahmekriterien.
+Bei **Analyse** liefern: Statusbild, Belege, Risiken, Delivery-Continuity-Status, empfohlenes Inkrement und Abnahmekriterien.
 
 Bei **Entscheidungsklärung** liefern: genau eine Frage, die empfohlene Antwort mit Begründung und die wesentlichen Folgen der realistischen Alternativen. Danach auf die Nutzerentscheidung warten.
 
 Bei **Copilot-Prompt** liefern: einen kopierbaren, in sich geschlossenen Prompt ohne zusätzliche Ausführungskommentare im Promptblock.
 
-Bei **Review** liefern: Befunde zuerst, nach Schwere sortiert und mit Datei-/Stellenbezug; danach Testnachweise, Restunsicherheiten und klare Entscheidung.
+Bei **Review** liefern: Befunde zuerst, nach Schwere sortiert und mit Datei-/Stellenbezug; danach Testnachweise, Delivery-/Closure-Status, Restunsicherheiten und klare Entscheidung.

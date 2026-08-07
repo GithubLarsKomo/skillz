@@ -194,6 +194,18 @@
       ]
     },
     {
+      "name": "engineering-delivery-followup",
+      "requires": [
+        "deferred-external-action-verification",
+        "two-axis-code-review"
+      ],
+      "outputs": [
+        "engineering-closure-gaps.json",
+        "engineering-delivery-status.json",
+        "engineering-iteration-return-input.json"
+      ]
+    },
+    {
       "name": "eu-mdr-ivdr-regulatory-specialist",
       "requires": [
         "medical-device-risk-management-iso14971",
@@ -554,6 +566,7 @@
       "name": "iterate-software-projects",
       "requires": [],
       "outputs": [
+        "engineering-iteration-state.json",
         "next increment",
         "review findings",
         "verification evidence"
@@ -1218,6 +1231,7 @@
         "implement-from-issue"
       ],
       "outputs": [
+        "delivery-review-handoff.json",
         "quality-review.json",
         "requirement-coverage.json",
         "review-decision.md"
@@ -1366,6 +1380,14 @@
     },
     {
       "from": "domain-model-maintenance",
+      "to": "two-axis-code-review"
+    },
+    {
+      "from": "engineering-delivery-followup",
+      "to": "deferred-external-action-verification"
+    },
+    {
+      "from": "engineering-delivery-followup",
       "to": "two-axis-code-review"
     },
     {
@@ -2819,6 +2841,7 @@
         "deferred-external-action-verification"
       ],
       "consumerSkills": [
+        "engineering-delivery-followup",
         "implement-from-issue",
         "merge-conflict-resolution",
         "qms-management-review-action-followup"
@@ -2997,6 +3020,20 @@
         "ivdr-inhouse-health-institution",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "delivery-review-handoff.json",
+      "producers": [
+        "two-axis-code-review"
+      ],
+      "consumerSkills": [
+        "decision-record",
+        "domain-model-maintenance",
+        "engineering-delivery-followup",
+        "merge-conflict-resolution"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3215,6 +3252,47 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "engineering-closure-gaps.json",
+      "producers": [
+        "engineering-delivery-followup"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "engineering-delivery-status.json",
+      "producers": [
+        "engineering-delivery-followup"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "engineering-iteration-return-input.json",
+      "producers": [
+        "engineering-delivery-followup"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "engineering-iteration-state.json",
+      "producers": [
+        "iterate-software-projects"
+      ],
+      "consumerSkills": [
+        "agent-handoff",
+        "architecture-deepening-review",
+        "disciplined-diagnosis",
+        "project-beta-readiness"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "estar-content-map.json",
@@ -4602,6 +4680,7 @@
       "consumerSkills": [
         "decision-record",
         "domain-model-maintenance",
+        "engineering-delivery-followup",
         "merge-conflict-resolution"
       ],
       "ambiguous": false,
@@ -4909,6 +4988,7 @@
       "consumerSkills": [
         "decision-record",
         "domain-model-maintenance",
+        "engineering-delivery-followup",
         "merge-conflict-resolution"
       ],
       "ambiguous": false,
@@ -4976,6 +5056,7 @@
       "consumerSkills": [
         "decision-record",
         "domain-model-maintenance",
+        "engineering-delivery-followup",
         "merge-conflict-resolution"
       ],
       "ambiguous": false,
@@ -5379,6 +5460,7 @@
         "deferred-external-action-verification"
       ],
       "consumerSkills": [
+        "engineering-delivery-followup",
         "implement-from-issue",
         "merge-conflict-resolution",
         "qms-management-review-action-followup"
@@ -5470,6 +5552,7 @@
         "deferred-external-action-verification"
       ],
       "consumerSkills": [
+        "engineering-delivery-followup",
         "implement-from-issue",
         "merge-conflict-resolution",
         "qms-management-review-action-followup"
@@ -5532,6 +5615,9 @@
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
+    "engineering-closure-gaps.json",
+    "engineering-delivery-status.json",
+    "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
     "execution plan",
     "expert handoff",
@@ -5662,6 +5748,9 @@
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
+    "engineering-closure-gaps.json",
+    "engineering-delivery-status.json",
+    "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
     "execution plan",
     "expert handoff",

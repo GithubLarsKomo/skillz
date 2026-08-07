@@ -4,56 +4,56 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Review an existing repository after a completed implementation, verify the requested behavior and tests, then select and describe the next smallest valuable increment.",
+      "input": "Review an existing repository after a completed implementation. The prior engineering-iteration-return-input.json proves the reviewed head was merged, the linked issue acceptance evidence is satisfied, and one non-blocking follow-up remains. Verify the requested behavior and select the next smallest valuable increment without repeating completed work.",
       "requiredBehaviors": [
-        "reconstruct the verified project state from repository evidence",
-        "review scope, behavior, tests, and runtime evidence against the original assignment",
-        "choose one small independently verifiable next increment"
+        "reconstruct the verified project and delivery state from repository evidence and the prior return input",
+        "preserve the non-blocking follow-up while marking the completed issue in doNotRepeat",
+        "choose one small independently verifiable next increment only after prior delivery closure is dispositioned"
       ],
       "forbiddenBehaviors": [
-        "repeat completed work as the next assignment",
-        "treat descriptions without evidence as successful verification"
+        "repeat the merged and requirement-verified issue as the next assignment",
+        "drop the remaining follow-up merely because the prior core issue is closed"
       ],
       "skillAnchors": [
-        "Projektzustand rekonstruieren",
-        "Umsetzung reviewen",
-        "Nächstes Inkrement wählen"
+        "Temporal Feedback Contract",
+        "`closed-with-followups`",
+        "`doNotRepeat`"
       ]
     },
     {
       "id": "edge-case",
-      "input": "Continue a project where the user says 'prüfe und mache weiter', but the latest runtime test is unavailable and one reversible implementation detail is undecided.",
+      "input": "Continue a project where the last implementation was review-approved, but CI is still pending and no engineering-iteration-return-input.json exists yet. A separate low-priority feature is ready to start.",
       "requiredBehaviors": [
-        "reconstruct only the last provable state",
-        "mark unavailable runtime verification as unconfirmed",
-        "continue with a stated reversible assumption when it does not change the increment"
+        "mark a deliveryContinuityGap instead of assuming the prior iteration is complete",
+        "treat pending external verification as the earliest closure action",
+        "avoid starting the unrelated feature while the current integration state remains materially unverified"
       ],
       "forbiddenBehaviors": [
-        "invent project continuity or successful runtime evidence",
-        "ask again for facts available from repository sources"
+        "interpret review-approved as merged or closed",
+        "invent successful CI or issue closure from lack of contrary evidence"
       ],
       "skillAnchors": [
-        "Keine vermeintliche Projektkontinuität erfinden",
-        "als unbestätigten Nachweis ausweisen",
-        "reversible Detailentscheidungen"
+        "`deliveryContinuityGap`",
+        "`review-stale|blocked|pending|unknown`",
+        "Delivery offen"
       ]
     },
     {
       "id": "failure-case",
-      "input": "Prepare an implementation prompt although two unresolved irreversible architecture choices would materially change data migration, deployment, and acceptance criteria.",
+      "input": "A project continuation summary calls the previous issue done because the PR is closed. There is no merge evidence, the issue tracker is marked done without acceptance evidence, and a newer head invalidated the prior review. It proposes the next feature immediately.",
       "requiredBehaviors": [
-        "stop implementation and final prompt generation",
-        "identify the earliest blocking decision",
-        "ask exactly one decision-ready question with a recommendation"
+        "reject PR-closed and tracker-done as sufficient engineering closure",
+        "surface stale review, missing merge evidence and missing requirement verification",
+        "make the earliest delivery or verification gap the next action instead of starting a new feature"
       ],
       "forbiddenBehaviors": [
-        "silently choose an irreversible architecture",
-        "bundle multiple dependent questions into one round"
+        "treat a closed PR as proof of merge",
+        "treat tracker done as proof that requirements are verified"
       ],
       "skillAnchors": [
-        "weder Implementierung noch finalen Coding-Prompt erzeugen",
-        "Zuerst die Entscheidung klären",
-        "Pro Runde genau eine entscheidungsreife Frage"
+        "reviewte, aber noch nicht gemergte",
+        "Weder PR-Closed noch Merge noch Tracker-Done allein",
+        "zuerst `engineering-delivery-followup` fortsetzen"
       ]
     }
   ]

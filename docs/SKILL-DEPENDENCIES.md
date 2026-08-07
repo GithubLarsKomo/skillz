@@ -37,6 +37,8 @@ graph TD
   domain_model_maintenance --> decision_record
   domain_model_maintenance --> test_driven_vertical_slice
   domain_model_maintenance --> two_axis_code_review
+  engineering_delivery_followup --> deferred_external_action_verification
+  engineering_delivery_followup --> two_axis_code_review
   eu_mdr_ivdr_regulatory_specialist --> medical_device_risk_management_iso14971
   eu_mdr_ivdr_regulatory_specialist --> regulated_product_context
   eu_mdr_ivdr_regulatory_specialist --> research_to_evidence_note
@@ -318,7 +320,7 @@ graph TD
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | unconsumed |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `containment-actions.json` | `nonconformance-mrb-disposition` | — | unconsumed |
-| `continuation result` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
+| `continuation result` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `controlled-document-plan.md` | `controlled-quality-documentation` | `quality-record-integrity` | inferred |
 | `correction-removal-action-plan.json` | `fda-corrections-removals` | — | unconsumed |
 | `correction-removal-assessment.json` | `fda-corrections-removals` | — | unconsumed |
@@ -334,6 +336,7 @@ graph TD
 | `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
+| `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
@@ -353,6 +356,10 @@ graph TD
 | `dual-510k-clia-strategy.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-evidence-package.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
+| `engineering-closure-gaps.json` | `engineering-delivery-followup` | — | unconsumed |
+| `engineering-delivery-status.json` | `engineering-delivery-followup` | — | unconsumed |
+| `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
+| `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `estar-content-map.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `eu-regulatory-assessment.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eu-regulatory-assessment.md` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
@@ -478,7 +485,7 @@ graph TD
 | `qsub-commitments.json` | `fda-qsub-strategy` | — | unconsumed |
 | `qsub-question-set.json` | `fda-qsub-strategy` | — | unconsumed |
 | `quality-record-integrity-assessment.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability` | inferred |
-| `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
+| `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
 | `record-integrity-gaps.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability` | inferred |
 | `record-retrieval-index.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability` | inferred |
 | `recovered-system-model.json` | `opaque-system-analysis` | — | unconsumed |
@@ -495,13 +502,13 @@ graph TD
 | `regulatory-strategy.md` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
-| `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
+| `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `review-brief.json` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
 | `review-brief.md` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
-| `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `merge-conflict-resolution` | inferred |
+| `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | inferred |
 | `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
@@ -533,12 +540,12 @@ graph TD
 | `use-related-risk-evidence.json` | `iec62366-usability-engineering` | — | unconsumed |
 | `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `verification-report.md` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
-| `verified terminal status` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
+| `verified terminal status` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `verified-fix-evidence.md` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `vertical-issues.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-issues.md` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-slice-evidence.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | — | unconsumed |
-| `watch record` | `deferred-external-action-verification` | `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
+| `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |

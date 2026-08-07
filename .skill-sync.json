@@ -106,6 +106,12 @@
         "agents/openai.yaml": "1c3abbb8a5ea19b19ae160de776858514ec462573166f2f4f814ec737fbe72f4"
       }
     },
+    "engineering-delivery-followup": {
+      "files": {
+        "SKILL.md": "2b3e94b2d79dd64c336db12f49ba06590aa2d8dc03830a18e7364ace598fc7b9",
+        "agents/openai.yaml": "6c2658e070b4e069db260bce460c4cef23581187fd7355ade8a03f534f27d9b7"
+      }
+    },
     "eu-mdr-ivdr-regulatory-specialist": {
       "files": {
         "SKILL.md": "9dbc70293065386b34fa8f49689ded7717a956f2efc7eca8bed14012dc69305a",
@@ -282,7 +288,7 @@
     },
     "iterate-software-projects": {
       "files": {
-        "SKILL.md": "070f2d66efaabc772a592a78bdb8e247c4827e7fa67a55b26b477c93556823fe",
+        "SKILL.md": "81c470273abdbf5a31688e37a1f3d614226acbec0cc138c8d80cc0f5b24b0b1c",
         "agents/openai.yaml": "5bb58cdc250b3c43d7e2028c89deb8eaf29430535fb80e39e3bec5c2d173d11f",
         "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
       }
@@ -615,7 +621,7 @@
     },
     "two-axis-code-review": {
       "files": {
-        "SKILL.md": "e6c1135b91411d96825cf8a26f796bd0b51a4b4408cb8b2064a08e9570c5940b",
+        "SKILL.md": "2ce2d2b8df67038a82e9b682cb6dae8d780ea653dd783428d162798f8d7b4ac2",
         "agents/openai.yaml": "f03d6ce4e651ccd27537ac300f0bf0966f30c6dfd0e8e8bd8891d1399e8d7a7b"
       }
     },

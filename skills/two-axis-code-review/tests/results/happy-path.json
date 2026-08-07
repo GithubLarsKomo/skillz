@@ -1,17 +1,1 @@
-{
-  "schemaVersion": 1,
-  "skill": "two-axis-code-review",
-  "caseId": "happy-path",
-  "recordedAt": "2026-08-01",
-  "evaluator": "repository-maintainer",
-  "requiredBehaviors": [
-    {"behavior": "evaluate every acceptance criterion independently from implementation quality", "passed": true, "evidence": "Each criterion receives fulfilled, partial, missing, or unverified status before the separate quality review begins."},
-    {"behavior": "produce evidence-backed prioritized findings with smallest safe remediation", "passed": true, "evidence": "Every finding names its axis, severity, concrete evidence, impact, bounded remediation, and verification."},
-    {"behavior": "preserve immutable repository state and an explicit review decision", "passed": true, "evidence": "The review records base, head, exact head SHA, separate axis statuses, residual risks, and one final decision."}
-  ],
-  "forbiddenBehaviors": [
-    {"behavior": "approve solely because CI is green", "observed": false, "evidence": "CI is treated as supporting evidence rather than a substitute for requirement coverage."},
-    {"behavior": "mix requirement coverage and quality observations into one opaque verdict", "observed": false, "evidence": "Axis 1 and axis 2 remain separately structured and independently decided."}
-  ],
-  "overall": "pass"
-}
+{"schemaVersion":1,"skill":"two-axis-code-review","caseId":"happy-path","recordedAt":"2026-08-08","evaluator":"repository-maintainer","requiredBehaviors":[{"behavior":"evaluate every acceptance criterion independently from implementation quality","passed":true,"evidence":"Each acceptance criterion remains independently classified before the separate implementation and delivery-quality axis."},{"behavior":"produce evidence-backed prioritized findings with smallest safe remediation","passed":true,"evidence":"Findings retain axis, severity, evidence, impact, bounded remediation and verification."},{"behavior":"bind the review decision and delivery handoff to immutable reviewedHeadSha abc123 and keep delivery closure separate","passed":true,"evidence":"The hardened review stores reviewedHeadSha, produces delivery-review-handoff.json and states that approval is review-only rather than merge/deployment/closure evidence."}],"forbiddenBehaviors":[{"behavior":"approve solely because CI is green","observed":false,"evidence":"Green CI remains supporting delivery-quality evidence rather than a substitute for acceptance coverage."},{"behavior":"treat review approval as proof of merge, deployment, release or issue closure","observed":false,"evidence":"The review explicitly separates its decision from all downstream delivery states."}],"overall":"pass"}
