@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **96**
-- User-facing entrypoints: **78**
-- Evaluation suites: **96**
+- Skills: **99**
+- User-facing entrypoints: **81**
+- Evaluation suites: **99**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **115**
+- Outputs without inferred hard-requires consumers: **124**
 
 ## Evaluation gaps
 
@@ -37,11 +37,15 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `cdx-consultation-readiness.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `cdx-medicinal-product-linkage.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
+- `change-integration-status.json` — producer: `regulatory-change-impact-orchestrator`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
 - `class-d-conformity-plan.json` — producer: `ivdr-class-d-conformity`
 - `class-d-external-dependencies.json` — producer: `ivdr-class-d-conformity`
+- `clinical-evidence-actions.json` — producer: `clinical-evidence-update-impact`
+- `clinical-evidence-delta.json` — producer: `clinical-evidence-update-impact`
+- `clinical-evidence-impact-map.json` — producer: `clinical-evidence-update-impact`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
@@ -87,6 +91,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
 - `ivdr-pms-assessment.json` — producer: `ivdr-pms-vigilance`
+- `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-actions.json` — producer: `qms-management-review-governance`
 - `management-review-brief.json` — producer: `qms-management-review-governance`
 - `management-review-brief.md` — producer: `qms-management-review-governance`
@@ -110,6 +115,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
+- `pms-review-status.json` — producer: `medical-device-pms-system`
+- `pms-source-register.json` — producer: `medical-device-pms-system`
+- `pms-system-plan.json` — producer: `medical-device-pms-system`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`
@@ -121,6 +129,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
+- `regulatory-change-route-map.json` — producer: `regulatory-change-impact-orchestrator`
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`

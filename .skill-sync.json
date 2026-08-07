@@ -22,6 +22,12 @@
         "agents/openai.yaml": "b5be94d0650374e2f4cc2c880cd1cfc6110ec0e21cfe6e1050397f4b4dda30da"
       }
     },
+    "clinical-evidence-update-impact": {
+      "files": {
+        "SKILL.md": "f54f14be82f4db322582719d63fd1c19d4876c7576cd37708f1c04b5223a8b3d",
+        "agents/openai.yaml": "6f1c99cfe2f762bd6c5d8f06b195036c3805fcfcd8e8ea9afdc80fa3f197b66a"
+      }
+    },
     "communication-memory-governance": {
       "files": {
         "SKILL.md": "dd46779a1f4a70232c4a5482334cc68b25a081eb59d005a964e8dcc68739eccd",
@@ -395,6 +401,12 @@
         "agents/openai.yaml": "60b09d6acaec6dbc5f976d919f7712586755594714292e64652847784dc6503c"
       }
     },
+    "medical-device-pms-system": {
+      "files": {
+        "SKILL.md": "8b76eb3c3a239b04b161e1a273fd241d9fe43527c7a1fd4069f1c2467dd91d36",
+        "agents/openai.yaml": "272251ed0b9464f0982e49c4ed0d6ca0f74776569888aaa8141ee00a40a21863"
+      }
+    },
     "medical-device-privacy-gdpr-bdsg": {
       "files": {
         "SKILL.md": "f4689b3eb4632a3fd4ac873b520caa5d8843a471f56621f4702a5be401c23aca",
@@ -495,6 +507,12 @@
       "files": {
         "SKILL.md": "de209c852e3b9d9bd8fc7de4015881dd2fdfa1b795aaccafcd527c972b4b3005",
         "agents/openai.yaml": "65925dba220e6e5321680ebf16da66a89189fdaa4e7ff228866f0a8b76929d03"
+      }
+    },
+    "regulatory-change-impact-orchestrator": {
+      "files": {
+        "SKILL.md": "4170195b86bcd4304ca11cd5ed5f9f677da4c300134a79d5d3e05a81ae4cd4c0",
+        "agents/openai.yaml": "cd3cdf2aa83572f5799f67493f28f620a29063267bfe4069654db4ea9ca7a996"
       }
     },
     "regulatory-claims-consistency": {
