@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Complaint Customer Follow-up"
+  short_description: "Plant und dokumentiert evidenzbasiertes Customer-Follow-up für Medical-Device-/IVD-Complaints und führt neue Fak..."
+policy:
+  allow_implicit_invocation: true
