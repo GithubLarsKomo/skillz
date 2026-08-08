@@ -98,7 +98,8 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
             if c["output"] == "vigilance-decision-log.json"
         )
 
-        self.assertEqual(intake_contract["consumerSkills"], ["medical-device-complaint-handling"])
+        self.assertIn("medical-device-complaint-handling", intake_contract["consumerSkills"])
+        self.assertIn("medical-device-service-report-quality-routing", intake_contract["consumerSkills"])
         self.assertIn("medical-device-complaint-regulatory-routing", complaint_contract["consumerSkills"])
         self.assertEqual(followup_contract["consumerSkills"], ["medical-device-complaint-regulatory-routing"])
         self.assertIn("medical-device-complaint-regulatory-routing", fda_return_contract["consumerSkills"])
