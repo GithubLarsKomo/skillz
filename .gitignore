@@ -3,3 +3,6 @@ __pycache__/
 .venv/
 # Runtime capability snapshots
 .skillz/
+# Local Obsidian workspace settings; generated universe content is tracked separately.
+.obsidian/
+obsidian/.obsidian/
