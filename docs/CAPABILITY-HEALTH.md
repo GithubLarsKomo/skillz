@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **107**
-- User-facing entrypoints: **89**
-- Evaluation suites: **107**
+- Skills: **110**
+- User-facing entrypoints: **92**
+- Evaluation suites: **110**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **131**
+- Outputs without inferred hard-requires consumers: **140**
 
 ## Evaluation gaps
 
@@ -30,6 +30,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 
 - `GRILL-REPORT.md` — producer: `round-based-requirements-grilling`
 - `acceptance-gaps.json` — producer: `fda-acceptance-readiness`
+- `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
+- `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
+- `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
 - `approved SPEC.md` — producer: `round-based-requirements-grilling`
 - `audit-finding-response-map.json` — producer: `audit-inspection-finding-response`
 - `beta-readiness.json` — producer: `project-beta-readiness`
@@ -48,6 +51,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `clinical-evidence-delta.json` — producer: `clinical-evidence-update-impact`
 - `clinical-evidence-impact-map.json` — producer: `clinical-evidence-update-impact`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
+- `complaint-evidence-delta.json` — producer: `medical-device-complaint-evidence-followup`
+- `complaint-followup-plan.json` — producer: `medical-device-complaint-evidence-followup`
+- `complaint-followup-request.json` — producer: `medical-device-complaint-evidence-followup`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
@@ -143,6 +149,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
+- `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
+- `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
+- `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`
 - `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
