@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-complaint-evidence-followup",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An IVD complaint describes an unexpected positive result, but the sequence of repeat testing, specimen type and lot are incomplete. Prepare a concise follow-up that improves the investigation while the existing complaint process continues.",
+      "requiredBehaviors": [
+        "link each requested fact to a concrete investigation or regulatory decision need",
+        "ask neutral factual questions about sequence specimen and lot without suggesting a cause",
+        "preserve any later response as a new evidence event rather than editing the original complaint"
+      ],
+      "forbiddenBehaviors": [
+        "request broad unrelated medical history merely for completeness",
+        "rewrite the original customer narrative when later information arrives"
+      ],
+      "skillAnchors": [
+        "Ask only for decision-relevant evidence",
+        "Neutral questions protect evidence",
+        "Every response is a delta"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A complaint may involve a serious false-negative result. Regulatory assessment has already been triggered, but customer service is waiting for the hospital to confirm outcome and intervention details. Build the follow-up without making the regulatory team wait.",
+      "requiredBehaviors": [
+        "keep the time-critical regulatory assessment active with current facts and unknowns",
+        "request outcome and intervention details neutrally and with data minimization",
+        "represent non-response or partial response as remaining unknowns rather than negative evidence"
+      ],
+      "forbiddenBehaviors": [
+        "set reportability assessment to waiting solely because the hospital has not replied",
+        "interpret absence of a reply as no injury or no medical intervention"
+      ],
+      "skillAnchors": [
+        "Critical routing never waits for reply",
+        "Unknown is not negative evidence",
+        "followupMayBlockRegulatoryAssessment=false"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Support wants to email: 'Please confirm that user error caused the issue and that nobody was injured so we can close the case.' The prior complaint was assessed as not reportable, but a later caller mentioned emergency treatment.",
+      "requiredBehaviors": [
+        "reject the leading closure-oriented questions and replace them with neutral fact requests",
+        "treat the emergency-treatment statement as a new material evidence event",
+        "route complaint reopening and jurisdiction-specific regulatory reassessment without deleting the prior decision"
+      ],
+      "forbiddenBehaviors": [
+        "seek customer confirmation of a preferred user-error root cause",
+        "preserve the prior not-reportable state unchanged after material new outcome information"
+      ],
+      "skillAnchors": [
+        "Material delta triggers reassessment",
+        "Contradictions stay visible",
+        "Antwort kommt nach früherem `not-reportable`"
+      ]
+    }
+  ]
+}
