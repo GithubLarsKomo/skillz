@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Complaint Handling"
+  short_description: "Führt Complaints kontrolliert von Intake über Investigation bis Closure ohne Vigilance-Logik zu duplizieren."
+policy:
+  allow_implicit_invocation: true
