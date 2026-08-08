@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "skill": "fda-recall-status-termination",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An FDA recall has a DRC-requested three-week reporting cadence, a current authorized strategy, reconciled consignee/action/product evidence, completed effectiveness checks and no material new safety facts. Prepare the next status report and assess termination-request readiness.",
+      "requiredBehaviors": [
+        "use the recall-specific FDA reporting cadence instead of replacing it with a generic interval",
+        "build a versioned status snapshot covering notification responses nonresponses product accounting effectiveness checks and completion estimate",
+        "prepare termination-request readiness from current status effectiveness and disposition evidence without claiming FDA termination"
+      ],
+      "forbiddenBehaviors": [
+        "replace the FDA-specified cadence with an automatic two-week or four-week schedule",
+        "recompute field-action effectiveness as a second independent assessment",
+        "label the recall FDA-terminated because internal execution is complete"
+      ],
+      "skillAnchors": [
+        "FDA cadence is an external case state",
+        "Status report is a snapshot, not history rewrite",
+        "Completed ≠ terminated"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The firm considers the recall operationally complete, but a small set of nonresponding consignees and not-located devices remains. Management wants them removed from the final status report before requesting termination.",
+      "requiredBehaviors": [
+        "keep nonresponding consignees and not-located devices visible in the current status and termination-readiness evidence",
+        "evaluate whether the residual unknowns are supportable under the current recall strategy without silently redefining the denominator",
+        "keep firm-completed and FDA-terminated as separate authority states"
+      ],
+      "forbiddenBehaviors": [
+        "delete unresolved consignees or devices from the status report to improve completion",
+        "treat an internal completion decision as an FDA termination decision",
+        "invent FDA acceptance of residual unknowns"
+      ],
+      "skillAnchors": [
+        "Unknowns remain reportable facts",
+        "Request ≠ decision",
+        "FDA state needs FDA evidence"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A termination request package is ready when the same serious event occurs after correction and the firm extends the action to another lot. Operations asks to submit the old package unchanged and mention the new lot in the next status report.",
+      "requiredBehaviors": [
+        "interrupt termination readiness and preserve the prior request package as historical",
+        "route the new serious event to MDR recall risk and CAPA reassessment without waiting for the next status report",
+        "route the lot extension to fda-corrections-removals for possible Part 806 amendment assessment"
+      ],
+      "forbiddenBehaviors": [
+        "submit the superseded termination package unchanged after material new safety evidence",
+        "hide the scope extension only inside a later recall status report",
+        "allow prior high effectiveness to override the new serious event"
+      ],
+      "skillAnchors": [
+        "New safety facts bypass termination",
+        "806 amendment stays separate",
+        "Reopen / Amendment"
+      ]
+    },
+    {
+      "id": "authority-feedback-case",
+      "input": "After a termination request is submitted, FDA asks for additional disposition evidence and changes the expected reporting cadence. The firm wants to overwrite the prior request and mark the recall terminated once the requested files are uploaded.",
+      "requiredBehaviors": [
+        "record the FDA request and changed cadence as new append-only authority events",
+        "create a new controlled response or request-package version while preserving the submitted historical package",
+        "keep FDA-review-pending or more-information-required until verified FDA termination evidence exists"
+      ],
+      "forbiddenBehaviors": [
+        "overwrite the historical submitted request package",
+        "infer FDA termination from uploading requested evidence",
+        "retain the superseded reporting cadence after FDA changed it"
+      ],
+      "skillAnchors": [
+        "Agency questions reopen the package, not history",
+        "FDA-terminated-verified",
+        "Agency Feedback versioniert verarbeiten"
+      ]
+    }
+  ]
+}
