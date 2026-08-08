@@ -93,6 +93,41 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         self.assertNotIn("medical-device-complaint-handling", fda["requires"])
         self.assertNotIn("medical-device-complaint-handling", ivdr["requires"])
 
+    def test_customer_followup_reassessment_contract_is_hard_wired(self):
+        reassessment_skills = [
+            "medical-device-customer-contact-intake",
+            "medical-device-complaint-handling",
+            "medical-device-complaint-regulatory-routing",
+            "fda-complaint-mdr-reportability",
+            "ivdr-pms-vigilance",
+        ]
+
+        expected_behavior_fragments = {
+            "medical-device-customer-contact-intake": "record the follow-up as a separate evidence event",
+            "medical-device-complaint-handling": "preserve the historical closure and prior investigation decision",
+            "medical-device-complaint-regulatory-routing": "set reassessment-required independently for US and EU",
+            "fda-complaint-mdr-reportability": "treat the prior not-reportable decision as historical",
+            "ivdr-pms-vigilance": "treat the prior not-reportable and complaint-closure states as historical",
+        }
+
+        for name in reassessment_skills:
+            evaluation = json.loads((ROOT / "skills" / name / "tests" / "evaluation.json").read_text(encoding="utf-8"))
+            case = next((c for c in evaluation["cases"] if c["id"] == "reassessment-case"), None)
+            self.assertIsNotNone(case, name)
+            self.assertEqual(self.skills[name]["evaluation"]["caseCount"], 4, name)
+            self.assertTrue(
+                any(expected_behavior_fragments[name] in behavior for behavior in case["requiredBehaviors"]),
+                name,
+            )
+            self.assertTrue((ROOT / "skills" / name / "tests" / "results" / "reassessment-case.json").exists(), name)
+
+        router_text = (ROOT / "skills" / "medical-device-complaint-regulatory-routing" / "SKILL.md").read_text(encoding="utf-8")
+        complaint_text = (ROOT / "skills" / "medical-device-complaint-handling" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("Prior decisions are historical, not immunity", router_text)
+        self.assertIn("reassessment-required", router_text)
+        self.assertIn("Closure is not immunity", complaint_text)
+        self.assertIn("complaintClosureState=reopened", complaint_text)
+
 
 if __name__ == "__main__":
     unittest.main()
