@@ -98,7 +98,8 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
             if c["output"] == "vigilance-decision-log.json"
         )
 
-        self.assertEqual(intake_contract["consumerSkills"], ["medical-device-complaint-handling"])
+        self.assertIn("medical-device-complaint-handling", intake_contract["consumerSkills"])
+        self.assertIn("medical-device-service-report-quality-routing", intake_contract["consumerSkills"])
         self.assertIn("medical-device-complaint-regulatory-routing", complaint_contract["consumerSkills"])
         self.assertEqual(followup_contract["consumerSkills"], ["medical-device-complaint-regulatory-routing"])
         self.assertIn("medical-device-complaint-regulatory-routing", fda_return_contract["consumerSkills"])
@@ -167,6 +168,43 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         self.assertIn("Evidence preservation precedes destructive support", followup_text)
         self.assertIn("Router is optional provenance, not a prerequisite", fda_text)
         self.assertIn("Non-complaint vigilance remains valid", ivdr_text)
+
+    def test_service_and_coding_sidecars_preserve_current_customer_flow(self):
+        service = self.skills["medical-device-service-report-quality-routing"]
+        coding = self.skills["medical-device-adverse-event-coding"]
+        followup = self.skills["medical-device-complaint-customer-followup"]
+        router = self.skills["medical-device-complaint-regulatory-routing"]
+        fda = self.skills["fda-complaint-mdr-reportability"]
+        ivdr = self.skills["ivdr-pms-vigilance"]
+
+        self.assertIn("medical-device-customer-contact-intake", service["requires"])
+        self.assertIn("medical-device-complaint-handling", coding["requires"])
+        self.assertIn("medical-device-complaint-handling", followup["requires"])
+        self.assertIn("medical-device-complaint-customer-followup", router["requires"])
+
+        # Service and coding are complementary sidecars, not new gates in the fast regulatory path.
+        for optional_worker in [
+            "medical-device-service-report-quality-routing",
+            "medical-device-adverse-event-coding",
+        ]:
+            self.assertNotIn(optional_worker, followup["requires"])
+            self.assertNotIn(optional_worker, router["requires"])
+            self.assertNotIn(optional_worker, fda["requires"])
+            self.assertNotIn(optional_worker, ivdr["requires"])
+            self.assertEqual(self.skills[optional_worker]["evaluation"]["caseCount"], 3)
+            self.assertEqual(self.skills[optional_worker]["evaluation"]["recordedResultCount"], 3)
+            for case_id in ["happy-path", "edge-case", "failure-case"]:
+                self.assertTrue((ROOT / "skills" / optional_worker / "tests" / "results" / f"{case_id}.json").exists())
+
+        service_text = (ROOT / "skills" / "medical-device-service-report-quality-routing" / "SKILL.md").read_text(encoding="utf-8")
+        coding_text = (ROOT / "skills" / "medical-device-adverse-event-coding" / "SKILL.md").read_text(encoding="utf-8")
+        followup_text = (ROOT / "skills" / "medical-device-complaint-customer-followup" / "SKILL.md").read_text(encoding="utf-8")
+
+        self.assertIn("Safety bypasses service SLA", service_text)
+        self.assertIn("Service completion ≠ complaint closure", service_text)
+        self.assertIn("No coding gate before safety", coding_text)
+        self.assertIn("Code ≠ reportability", coding_text)
+        self.assertIn("Follow-up never delays time-critical escalation", followup_text)
 
 
 if __name__ == "__main__":

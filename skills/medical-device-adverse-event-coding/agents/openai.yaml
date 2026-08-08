@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Adverse Event Coding"
+  short_description: "Normalisiert Medical-Device-/IVD-Complaint- und Adverse-Event-Fakten in versionierte IMDRF-/marktbezogene Code-Kandid..."
+policy:
+  allow_implicit_invocation: true

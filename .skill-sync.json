@@ -395,6 +395,12 @@
         "agents/openai.yaml": "92eac71cb788693e3c6b43b3b539683225ef98229addfcd57e3f226202e5cfa7"
       }
     },
+    "medical-device-adverse-event-coding": {
+      "files": {
+        "SKILL.md": "4d9a6c816ec9794595fb1ff3a64c9c62aeed7c838aa743c07fa42ac923ff1006",
+        "agents/openai.yaml": "087ebc557054ac9c448a7126e9364574a34d0cd3eb688bc815ec815cef7aa91b"
+      }
+    },
     "medical-device-capa": {
       "files": {
         "SKILL.md": "2a8c705cd4caf873b12c6532df11b7136dfb79e259bc6c98a5ba7e571d87472b",
@@ -471,6 +477,12 @@
       "files": {
         "SKILL.md": "8fea4a64cbae72e05fa259db3c1d50c5240d3264978bf748537eb32b25d2cb77",
         "agents/openai.yaml": "96743cc728831760e3b5f8506278d9f2a908b99d92c74d2e7ecd6c3494a4d78a"
+      }
+    },
+    "medical-device-service-report-quality-routing": {
+      "files": {
+        "SKILL.md": "58824a71e582aa632b7aea23ec62d4a0690020a6d6b711d66aa8664327951161",
+        "agents/openai.yaml": "aa4cb14b8eb36457ceeeb1b7307ce62bddfdc380c1be59f65ddd674ef3000bf0"
       }
     },
     "meeting-preparation": {

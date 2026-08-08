@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Service Report Quality Routing"
+  short_description: "Überführt Medical-Device-/IVD-Service-, Repair- und Troubleshooting-Ereignisse evidenztreu in Quality-/Complaint-/Saf..."
+policy:
+  allow_implicit_invocation: true

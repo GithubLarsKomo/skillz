@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-adverse-event-coding",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A complaint investigation documents intermittent analyzer aspiration failure, identifies a verified fluid-path obstruction, and records a repeat specimen without patient harm. Produce current IMDRF/FDA-compatible coding candidates while preserving the narrative and investigation evidence.",
+      "requiredBehaviors": [
+        "resolve the current authoritative coding release and bind the coding snapshot to its source and asOf context",
+        "separate device problem investigation finding investigation conclusion health impact and component dimensions",
+        "select the most specific codes actually supported by the cited facts without treating them as reportability conclusions"
+      ],
+      "forbiddenBehaviors": [
+        "replace the complaint narrative with codes as the source of truth",
+        "infer reportability or causal certainty merely from the presence of a code"
+      ],
+      "skillAnchors": [
+        "Narrative remains source of truth",
+        "Most specific supported, never invented specificity",
+        "Code ≠ reportability"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A false-negative IVD complaint has a known device problem but the patient outcome is still unknown and two neighboring IMDRF problem codes are plausible. Coding is requested for an urgent regulatory assessment.",
+      "requiredBehaviors": [
+        "keep both plausible code candidates with ambiguity and identify the evidence needed to refine them",
+        "leave patient health impact unknown rather than assigning a no-injury code",
+        "allow urgent MDR or vigilance assessment to proceed despite incomplete coding"
+      ],
+      "forbiddenBehaviors": [
+        "choose a more specific code without supporting facts merely to complete the form",
+        "treat unknown patient outcome as no harm or block regulatory routing pending coding completion"
+      ],
+      "skillAnchors": [
+        "Coding uncertainty is first-class",
+        "No coding gate before safety",
+        "keine implizite `no injury`-Codierung"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "An older case was coded under a previous terminology release. A current mapping changed and new investigation evidence points to a different component. The team wants to overwrite the old codes and mark the new component as the confirmed root cause because it was replaced successfully.",
+      "requiredBehaviors": [
+        "preserve the historical coding snapshot with its original release and create a new versioned delta",
+        "separate mapping-release changes from changes caused by new case evidence",
+        "reject successful component replacement as automatic confirmed root cause"
+      ],
+      "forbiddenBehaviors": [
+        "silently rewrite historical coding to the newest release",
+        "convert component replacement or problem resolution into confirmed causality without evidence"
+      ],
+      "skillAnchors": [
+        "Deprecated/changed mapping stays historical",
+        "Version changes are explicit",
+        "Component Replacement ≠ bestätigter Component Failure"
+      ]
+    }
+  ]
+}
