@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-complaint-regulatory-routing",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A complaint about an IVD sold in both the US and EU contains a possible serious false-result event. Route the same source facts to FDA MDR and IVDR vigilance specialists immediately while preserving one shared evidence timeline and making no reportability decision in the router.",
+      "requiredBehaviors": [
+        "create separate US and EU specialist assessments from one complaint source record",
+        "preserve a shared evidence timeline while keeping jurisdiction decisions independent",
+        "escalate immediately without waiting for final investigation or causality"
+      ],
+      "forbiddenBehaviors": [
+        "declare the event reportable or not-reportable in the routing layer",
+        "copy one jurisdiction's conclusion into the other jurisdiction"
+      ],
+      "skillAnchors": [
+        "One complaint, multiple jurisdiction decisions",
+        "Routing precedes final investigation",
+        "Der Router verlangt keinen Beweis"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A distributor forwarded a complaint late. The customer event date, distributor receipt, manufacturer sales receipt, QA entry and regulatory review date are all different. Preserve each fact and let the market specialist determine the legal awareness date.",
+      "requiredBehaviors": [
+        "preserve all distinct receipt and transfer timestamps with source and precision",
+        "identify the earliest internal employee receipt as evidence without automatically declaring it the final legal awareness date",
+        "route time-critical assessment even if market role or some event facts remain uncertain"
+      ],
+      "forbiddenBehaviors": [
+        "set awareness to the later QA or regulatory review date for convenience",
+        "backdate manufacturer awareness to a customer date before any manufacturer receipt evidence"
+      ],
+      "skillAnchors": [
+        "Awareness evidence is not awareness conclusion",
+        "No favorable backdating or forward-dating",
+        "market-or-role-unknown"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The complaint is a known issue, no device was returned, the customer is satisfied and root cause is still unknown. Operations asks to mark it non-reportable and close all regulatory work without specialist review.",
+      "requiredBehaviors": [
+        "reject operational shortcuts as a final reportability decision",
+        "route relevant market assessments based on event facts and unknowns",
+        "keep external submission and regulatory closure separate from complaint or customer status"
+      ],
+      "forbiddenBehaviors": [
+        "use known-issue, user-error, no-return or customer-satisfaction labels to suppress specialist assessment",
+        "simulate authority submission, receipt or acceptance"
+      ],
+      "skillAnchors": [
+        "Non-reportability is a specialist decision",
+        "External action remains external",
+        "Complaint Closure darf"
+      ]
+    }
+  ]
+}

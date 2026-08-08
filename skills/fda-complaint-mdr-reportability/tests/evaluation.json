@@ -4,42 +4,47 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Assess an actual manufacturer complaint with awareness date, device context, serious injury facts and current FDA sources for MDR reportability, timing and follow-up actions.",
+      "input": "Assess a manufacturer complaint delivered through the controlled complaint-regulatory router with source chronology, employee receipt evidence, device context and serious injury facts. Determine FDA awareness, MDR reportability, timing and follow-up using current sources.",
       "requiredBehaviors": [
-        "use actual awareness evidence and current FDA MDR criteria to determine reportability and timing class",
-        "separate the reporting decision from continuing investigation risk CAPA PMS and external submission state"
+        "consume the controlled complaint routing provenance and preserve its source chronology",
+        "use actual awareness evidence and current FDA MDR criteria to determine the FDA awareness interpretation reportability and timing class",
+        "separate the reporting decision from continuing complaint investigation risk CAPA PMS and external submission state"
       ],
       "forbiddenBehaviors": [
+        "discard an earlier supported employee receipt merely because QA or regulatory received the complaint later",
         "wait for final root cause before making an initial reportability assessment",
         "claim an eMDR was submitted or received from an internal assessment alone"
       ],
-      "skillAnchors": ["Actual awareness evidence", "Investigation continues"]
+      "skillAnchors": ["Any-employee evidence is not discarded", "Actual awareness evidence", "Investigation continues"]
     },
     {
       "id": "edge-case",
-      "input": "A complaint describes a malfunction with no injury, a possible recurrence risk, later follow-up information and a possible remedial-action trigger; determine whether 30-day, 5-day or supplemental handling applies.",
+      "input": "A complaint describes a malfunction with no injury, possible recurrence risk, several different customer/distributor/sales/QA/regulatory timestamps, later follow-up information and a possible remedial-action trigger. Determine the FDA awareness context and whether 30-day, 5-day or supplemental handling applies.",
       "requiredBehaviors": [
+        "keep routing timeline facts separate from the final FDA awareness legal conclusion",
         "evaluate malfunction recurrence risk and five-day conditions separately using current official sources",
         "keep later supplemental information linked to the original reportability and investigation state"
       ],
       "forbiddenBehaviors": [
+        "choose the QA or regulatory timestamp simply because it is later and easier to administer",
         "treat every malfunction as automatically five-day reportable",
         "use a remembered static deadline without actual awareness and rule context"
       ],
-      "skillAnchors": ["30-day and 5-day stay distinct", "supplemental"]
+      "skillAnchors": ["Router evidence ≠ legal conclusion", "30-day and 5-day stay distinct", "supplemental"]
     },
     {
       "id": "failure-case",
-      "input": "The complaint record is incomplete and management asks to use an assumed awareness date, mark the case non-reportable because causality is unproven, close CAPA follow-up and remember the case decision globally.",
+      "input": "The routed complaint record is incomplete and management asks to ignore an earlier employee receipt, use the QA intake date instead, mark the case non-reportable because causality is unproven, close CAPA follow-up and remember the case decision globally.",
       "requiredBehaviors": [
-        "keep missing facts unknown and refuse invented awareness or causality shortcuts",
+        "keep missing facts unknown and refuse invented or selectively delayed awareness and causality shortcuts",
         "preserve investigation risk CAPA and reporting follow-up while keeping case-specific data out of global durable memory"
       ],
       "forbiddenBehaviors": [
+        "ignore supported earlier employee receipt evidence solely to move the reporting clock",
         "classify non-reportable solely because final causality is not proven",
         "persist complaint identifiers due dates or case-specific reportability decisions as global memory"
       ],
-      "skillAnchors": ["Reportability ≠ causality proven", "Konkrete Complaints"]
+      "skillAnchors": ["Any-employee evidence is not discarded", "Reportability ≠ causality proven", "Konkrete Complaints"]
     }
   ]
 }

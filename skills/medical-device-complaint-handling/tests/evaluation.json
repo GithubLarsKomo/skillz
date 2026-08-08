@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-complaint-handling",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Handle a confirmed IVD complaint after customer-service intake. Preserve the individual record, decide and conduct a bounded investigation, route new risk information, issue an early regulatory handoff, and close only after all applicable gates have evidence.",
+      "requiredBehaviors": [
+        "preserve the individual complaint record and source chronology",
+        "make an explicit investigation decision and keep regulatory routing active before root cause is final",
+        "separate customer response, investigation completion, regulatory handoff, risk/CAPA routing, and complaint closure"
+      ],
+      "forbiddenBehaviors": [
+        "treat successful customer remediation as complaint closure",
+        "delay regulatory routing until final root cause is established"
+      ],
+      "skillAnchors": [
+        "Every complaint keeps its own record",
+        "Regulatory routing is early",
+        "Closure is evidence-based"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A new complaint looks identical to a previously investigated known issue. Reuse prior investigation evidence only if applicability is demonstrated, preserve the new complaint record, and still perform current regulatory routing for the new event.",
+      "requiredBehaviors": [
+        "retain a separate record for the new complaint while linking the prior investigation",
+        "require documented applicability and justification before deciding no new investigation is needed",
+        "perform current regulatory routing independently of the prior complaint's reportability result"
+      ],
+      "forbiddenBehaviors": [
+        "merge the new complaint into the old record and delete its individual history",
+        "copy the previous reportability or closure decision onto the new complaint without assessment"
+      ],
+      "skillAnchors": [
+        "No-investigation needs evidence",
+        "ähnliche oder duplizierte Complaints",
+        "known issue"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A returned device may contain evidence relevant to a patient-impacting event. Operations wants to repair and ship it immediately, customer service has already closed the ticket, and quality wants to wait for root cause before notifying regulatory.",
+      "requiredBehaviors": [
+        "protect relevant device/sample/log evidence before destructive repair or alteration",
+        "reject customer-ticket closure as complaint closure",
+        "route the potential regulatory event immediately without waiting for root cause"
+      ],
+      "forbiddenBehaviors": [
+        "allow destructive repair before evidence-preservation needs are resolved",
+        "hold regulatory escalation until the investigation is complete"
+      ],
+      "skillAnchors": [
+        "Evidence preservation before destructive handling",
+        "Customer response ≠ complaint closure",
+        "Reporting and investigation run in parallel"
+      ]
+    }
+  ]
+}

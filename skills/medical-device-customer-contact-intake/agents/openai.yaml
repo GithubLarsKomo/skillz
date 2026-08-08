@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Customer Contact Intake"
+  short_description: "Normalisiert Medical-Device-/IVD-Kundenkontakte kanalunabhängig in einen belastbaren Quality-Intake und trennt Servic..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-customer-contact-intake",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A laboratory emails support that an IVD analyzer intermittently produces an error and asks only for troubleshooting. Capture the contact, allow technical support to continue, and ensure a possible complaint is handed off without deciding vigilance.",
+      "requiredBehaviors": [
+        "preserve original source and received time while separating the structured summary",
+        "classify service-support and possible-complaint in parallel rather than mutually exclusively",
+        "create a complaint handoff without making a final regulatory reportability decision"
+      ],
+      "forbiddenBehaviors": [
+        "treat the contact as non-complaint solely because the customer asked for support",
+        "close quality routing because troubleshooting resolved the immediate customer request"
+      ],
+      "skillAnchors": [
+        "Original voice is evidence",
+        "Customer wording does not control classification",
+        "Service resolution does not erase quality signal"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A distributor forwards an old customer message today describing a potentially wrong test result. The original customer receipt date is known but the internal manufacturer receipt and safety relevance were recognized later. Preserve the chronology and escalate uncertainty immediately.",
+      "requiredBehaviors": [
+        "retain separate original-source, manufacturer-receipt, transfer, and safety-observation times",
+        "mark potential safety escalation without inventing a regulatory awareness date",
+        "treat distributor information as a valid intake source and preserve unknowns"
+      ],
+      "forbiddenBehaviors": [
+        "backdate manufacturer awareness to the customer's original message without evidence",
+        "delay the safety handoff until all product and outcome details are complete"
+      ],
+      "skillAnchors": [
+        "Received time is immutable",
+        "Safety beats service SLA",
+        "Unknown stays unknown"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Customer service replaced the product, refunded the customer, marked the ticket solved, and wants the record excluded from quality review because the customer never used the word complaint. The message mentioned a patient-impacting false result.",
+      "requiredBehaviors": [
+        "reject customer-service closure as complaint or regulatory closure",
+        "create complaint and safety escalation handoffs based on the facts rather than wording",
+        "keep service, complaint, and regulatory states explicitly separate"
+      ],
+      "forbiddenBehaviors": [
+        "suppress the complaint because a refund or replacement was accepted",
+        "wait for root cause before escalating the potential safety event"
+      ],
+      "skillAnchors": [
+        "customerResolved=true",
+        "safetyEscalationRequired=true",
+        "kein Frontline-Team darf den Handoff"
+      ]
+    }
+  ]
+}
