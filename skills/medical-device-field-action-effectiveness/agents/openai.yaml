@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Field Action Effectiveness"
+  short_description: "Prüft Field-Action-/Recall-Wirksamkeit, Product Reconciliation und Closure-Readiness ohne Authority-Termination zu simulieren."
+policy:
+  allow_implicit_invocation: false
