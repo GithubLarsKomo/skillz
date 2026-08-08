@@ -10,6 +10,7 @@ owners:
   - GithubLarsKomo
 requires:
   - medical-device-field-action-communication
+  - medical-device-field-action-physical-execution
   - medical-device-risk-management-iso14971
   - medical-device-capa
   - medical-device-pms-system
@@ -25,7 +26,7 @@ lastEvaluated: 2026-08-08
 
 ## Zweck und Grenze
 
-Dieser Skill besitzt den **operativen Effectiveness- und Closure-Readiness-Übergang** einer Medical-Device-/IVD-Feldmaßnahme. Er prüft, ob die definierte Recipient Population tatsächlich ausreichend erreicht wurde, ob geforderte Maßnahmen umgesetzt und evidenziert sind, ob betroffene Produkte/Installationen reconciled wurden und welche Gaps einer belastbaren Closure noch entgegenstehen.
+Dieser Skill besitzt den **operativen Effectiveness- und Closure-Readiness-Übergang** einer Medical-Device-/IVD-Feldmaßnahme. Er prüft, ob die definierte Recipient Population tatsächlich ausreichend erreicht wurde, ob geforderte Maßnahmen umgesetzt und evidenziert sind, ob betroffene Produkte/Installationen reconciled wurden und welche Gaps einer belastbaren Closure noch entgegenstehen. Verifizierte Unit-/Custody-/Quarantine-/Correction-/Disposition-Evidence wird aus `medical-device-field-action-physical-execution` konsumiert und hier nicht rückwirkend erfunden.
 
 Er ersetzt weder jurisdiction-spezifische FSCA-/Recall-/806-Entscheidungen noch `medical-device-capa`-Effectiveness, Risk Management oder Authority Termination. Insbesondere gilt für FDA Recall States: interne `completed`-/`closure-ready`-Bewertung ist **nicht** gleichbedeutend mit einer von FDA erklärten `terminated` Recall. Für EU-FSCA werden Authority-/Final-Report-/Closure-Prozesse current-source-basiert und extern evidenziert geführt.
 
@@ -34,6 +35,7 @@ Er ersetzt weder jurisdiction-spezifische FSCA-/Recall-/806-Entscheidungen noch 
 - **Effectiveness is outcome evidence, not activity count:** Anzahl gesendeter Notices oder Contact Attempts beweist keine Wirksamkeit.
 - **Communication coverage ≠ action coverage:** Information des Empfängers und Durchführung der geforderten Correction/Removal/Stop-Use/Return-Aktion sind getrennte Nenner.
 - **Action reported ≠ action verified:** eine Selbstauskunft kann ein Evidence Input sein, ersetzt aber nicht automatisch den vom Action Plan geforderten Nachweis.
+- **Physical execution evidence is authoritative for unit state:** Return, Quarantine, Correction, Verification, Release und Destruction werden aus dem kontrollierten Physical-Execution-Ledger übernommen; Effectiveness darf diese Zustände nicht aus Communication-Antworten ableiten.
 - **Denominator before percentage:** Prozentwerte sind nur belastbar, wenn Population/Recall Depth/Field-Action Scope ausreichend definiert und versioniert sind.
 - **Jurisdiction strategy governs checking method:** FDA-Effectiveness-Check-Level, Sampling oder andere Marktanforderungen werden aus dem autorisierten aktuellen Recall/Field-Action-Plan übernommen; der Skill erfindet keine eigene Check-Stufe.
 - **Sample adequacy must be justified:** ein Sample beweist nur das, was Sampling Design, Population und Response Bias tragen. Non-Responder werden nicht aus dem Nenner entfernt, um Effectiveness zu verbessern.
@@ -58,6 +60,7 @@ Konsumiere:
 - Effectiveness Check Strategy/Level/Sampling Plan soweit vorgegeben,
 - Required Recipient Actions,
 - Communication Events,
+- Physical Execution Plan/Unit Custody/Disposition Evidence,
 - Downstream Distribution State,
 - Product/Shipment/Installed Base Data,
 - Due-/Status-Reporting-Anforderungen,
@@ -126,7 +129,7 @@ Pro Recipient/Unit/Site je nach Action Plan:
 - `unknown`,
 - `not-located`.
 
-Geeignete Evidence kann z. B. Return/Destruction Records, Service-/Software-/Configuration Logs, Quarantine Confirmation, Inventory Reconciliation oder andere kontrollierte Nachweise umfassen. Welche Evidence ausreichend ist, folgt dem Action Plan und anwendbaren Requirements, nicht einer pauschalen globalen Regel.
+Geeignete Evidence kann z. B. Return/Destruction Records, Service-/Software-/Configuration Logs, Quarantine Confirmation, Inventory Reconciliation oder andere kontrollierte Nachweise umfassen. Physische Unit-/Disposition-Zustände stammen aus `medical-device-field-action-physical-execution`. Welche Evidence ausreichend ist, folgt dem Action Plan und anwendbaren Requirements, nicht einer pauschalen globalen Regel.
 
 ### 6. Product Reconciliation erstellen
 
@@ -219,6 +222,7 @@ Bestanden nur wenn:
 
 - Activity Counts nicht als Effectiveness ausgegeben werden,
 - Notification, Acknowledgement, Action Completion und Verification getrennt sind,
+- physische Return/Quarantine/Correction/Verification/Disposition States aus kontrollierter Physical-Execution-Evidence stammen statt aus Communication-Selbstauskunft abgeleitet zu werden,
 - Prozentwerte definierte versionierte Denominators besitzen,
 - Non-Responder/Unknowns nicht aus Nennern entfernt werden, um Ergebnisse zu verbessern,
 - Sampling/Check-Level aus autorisiertem Strategy State stammt und seine Grenzen sichtbar sind,

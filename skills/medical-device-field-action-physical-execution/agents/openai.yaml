@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Field Action Physical Execution"
+  short_description: "Steuert und evidenziert die physische Ausführung autorisierter Medical-Device-/IVD-Feldmaßnahmen von RMA, Transport u..."
+policy:
+  allow_implicit_invocation: false

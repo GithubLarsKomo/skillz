@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **113**
-- User-facing entrypoints: **95**
-- Evaluation suites: **113**
+- Skills: **115**
+- User-facing entrypoints: **97**
+- Evaluation suites: **115**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **143**
+- Outputs without inferred hard-requires consumers: **146**
 
 ## Evaluation gaps
 
@@ -102,6 +102,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
+- `ivdr-economic-operator-escalation-log.json` — producer: `ivdr-economic-operator-postmarket-propagation`
+- `ivdr-economic-operator-obligation-map.json` — producer: `ivdr-economic-operator-postmarket-propagation`
+- `ivdr-economic-operator-propagation-state.json` — producer: `ivdr-economic-operator-postmarket-propagation`
 - `ivdr-fsca-assessment.json` — producer: `ivdr-field-safety-corrective-action`
 - `ivdr-fsca-regulatory-plan.json` — producer: `ivdr-field-safety-corrective-action`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
