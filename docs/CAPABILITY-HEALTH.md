@@ -54,6 +54,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `complaint-evidence-delta.json` — producer: `medical-device-complaint-evidence-followup`
 - `complaint-followup-plan.json` — producer: `medical-device-complaint-evidence-followup`
 - `complaint-followup-request.json` — producer: `medical-device-complaint-evidence-followup`
+- `complaint-regulatory-routing.json` — producer: `medical-device-complaint-regulatory-routing`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
@@ -100,7 +101,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
-- `ivdr-pms-assessment.json` — producer: `ivdr-pms-vigilance`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
@@ -139,6 +139,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
+- `regulatory-awareness-timeline.json` — producer: `medical-device-complaint-regulatory-routing`
 - `regulatory-change-events.json` — producer: `regulatory-change-monitoring`
 - `regulatory-change-route-map.json` — producer: `regulatory-change-impact-orchestrator`
 - `regulatory-change-watch-status.json` — producer: `regulatory-change-monitoring`
@@ -161,13 +162,12 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
-- `trend-signal-set.json` — producer: `ivdr-pms-vigilance`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
 - `updated skill repository` — producer: `central-skill-repository-curation`
 - `usability-engineering-assessment.json` — producer: `iec62366-usability-engineering`
 - `usability-evidence-gaps.json` — producer: `iec62366-usability-engineering`
 - `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
-- `vigilance-decision-log.json` — producer: `ivdr-pms-vigilance`
+- `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
 
 ## Interpretation
 

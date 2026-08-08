@@ -1525,14 +1525,14 @@
         "category": "regulated-engineering"
       },
       "requires": [
-        "medical-device-complaint-regulatory-routing",
         "medical-device-risk-management-iso14971",
         "quality-record-integrity",
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
       "dependents": [
-        "fda-corrections-removals"
+        "fda-corrections-removals",
+        "medical-device-complaint-regulatory-routing"
       ],
       "outputs": [
         "complaint-regulatory-actions.json",
@@ -1546,7 +1546,8 @@
             "fda-complaint-mdr-reportability"
           ],
           "consumerSkills": [
-            "fda-corrections-removals"
+            "fda-corrections-removals",
+            "medical-device-complaint-regulatory-routing"
           ]
         },
         {
@@ -1556,7 +1557,8 @@
             "fda-complaint-mdr-reportability"
           ],
           "consumerSkills": [
-            "fda-corrections-removals"
+            "fda-corrections-removals",
+            "medical-device-complaint-regulatory-routing"
           ]
         }
       ],
@@ -1565,8 +1567,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 4,
-        "recordedResultCount": 4,
+        "caseCount": 5,
+        "recordedResultCount": 5,
         "passed": true
       }
     },
@@ -3265,14 +3267,15 @@
       },
       "requires": [
         "mdcg-guidance-navigator",
-        "medical-device-complaint-regulatory-routing",
         "medical-device-pms-system",
         "medical-device-risk-management-iso14971",
         "regulated-product-context",
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
-      "dependents": [],
+      "dependents": [
+        "medical-device-complaint-regulatory-routing"
+      ],
       "outputs": [
         "ivdr-pms-assessment.json",
         "trend-signal-set.json",
@@ -3285,7 +3288,9 @@
           "producers": [
             "ivdr-pms-vigilance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "medical-device-complaint-regulatory-routing"
+          ]
         },
         {
           "output": "trend-signal-set.json",
@@ -3293,7 +3298,9 @@
           "producers": [
             "ivdr-pms-vigilance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "medical-device-complaint-regulatory-routing"
+          ]
         },
         {
           "output": "vigilance-decision-log.json",
@@ -3301,7 +3308,9 @@
           "producers": [
             "ivdr-pms-vigilance"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "medical-device-complaint-regulatory-routing"
+          ]
         }
       ],
       "portableFiles": [
@@ -3309,8 +3318,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 4,
-        "recordedResultCount": 4,
+        "caseCount": 5,
+        "recordedResultCount": 5,
         "passed": true
       }
     },
@@ -3949,14 +3958,13 @@
         "category": "regulated-engineering"
       },
       "requires": [
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance",
         "medical-device-complaint-handling",
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [
-        "fda-complaint-mdr-reportability",
-        "ivdr-pms-vigilance"
-      ],
+      "dependents": [],
       "outputs": [
         "complaint-regulatory-routing.json",
         "regulatory-awareness-timeline.json",
@@ -3969,10 +3977,7 @@
           "producers": [
             "medical-device-complaint-regulatory-routing"
           ],
-          "consumerSkills": [
-            "fda-complaint-mdr-reportability",
-            "ivdr-pms-vigilance"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "regulatory-awareness-timeline.json",
@@ -3980,10 +3985,7 @@
           "producers": [
             "medical-device-complaint-regulatory-routing"
           ],
-          "consumerSkills": [
-            "fda-complaint-mdr-reportability",
-            "ivdr-pms-vigilance"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "vigilance-entry-handoff.json",
@@ -3991,10 +3993,7 @@
           "producers": [
             "medical-device-complaint-regulatory-routing"
           ],
-          "consumerSkills": [
-            "fda-complaint-mdr-reportability",
-            "ivdr-pms-vigilance"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -4002,8 +4001,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 4,
-        "recordedResultCount": 4,
+        "caseCount": 5,
+        "recordedResultCount": 5,
         "passed": true
       }
     },
