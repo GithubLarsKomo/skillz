@@ -73,6 +73,24 @@
         "Material new information triggers reassessment",
         "reassessment-required"
       ]
+    },
+    {
+      "id": "dispatch-ownership-case",
+      "input": "A dual-market complaint requires both US MDR and EU-IVDR vigilance review. Ensure the complaint router invokes both specialist capabilities and tracks their acknowledgements, while the specialists remain independently usable for non-router inputs.",
+      "requiredBehaviors": [
+        "invoke the FDA MDR and IVDR vigilance specialists from the complaint-origin router rather than making those specialists depend on the router",
+        "track sent-to-specialist acknowledged assessment-open and assessment-complete as distinct states",
+        "keep each specialist's final reportability conclusion outside the routing layer"
+      ],
+      "forbiddenBehaviors": [
+        "treat sent-to-specialist as specialist acknowledgement or completed assessment",
+        "make all FDA MDR or IVDR vigilance invocations require a complaint-origin router"
+      ],
+      "skillAnchors": [
+        "Complaint-origin Orchestrator",
+        "Specialists stay reusable",
+        "Specialist Acknowledgement verfolgen"
+      ]
     }
   ]
 }
