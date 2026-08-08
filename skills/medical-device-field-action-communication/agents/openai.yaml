@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Field Action Communication"
+  short_description: "Kontrolliert FSN-/Recall-Kommunikation, Recipient Scope, Delivery, Acknowledgement und Downstream-Evidence ohne Erfolgsannahmen."
+policy:
+  allow_implicit_invocation: false
