@@ -59,6 +59,20 @@
         "overwrite the prior decision or claim a supplemental or new report was externally filed without verification"
       ],
       "skillAnchors": ["Prior not-reportable is not permanent", "Supplemental information is versioned", "Ein früheres `not-reportable`"]
+    },
+    {
+      "id": "standalone-controlled-event-case",
+      "input": "Regulatory receives a controlled manufacturer adverse-event record from an established quality system rather than through the customer-service complaint router. The record has reliable source, employee receipt evidence, device context and event facts. Perform FDA MDR assessment without forcing an artificial router round-trip.",
+      "requiredBehaviors": [
+        "accept an adequately controlled complaint or event record without requiring complaint-router provenance",
+        "preserve the same FDA awareness reportability timing and external-action safeguards used for routed complaints",
+        "keep missing provenance fields unknown rather than inventing a synthetic complaint routing history"
+      ],
+      "forbiddenBehaviors": [
+        "block FDA MDR assessment solely because medical-device-complaint-regulatory-routing was not used",
+        "fabricate complaint-router timestamps or handoff states to satisfy the workflow"
+      ],
+      "skillAnchors": ["Router is optional provenance, not a prerequisite", "äquivalent kontrollierten Complaint-/Event-Record", "bei Complaint-Router-Ursprung"]
     }
   ]
 }
