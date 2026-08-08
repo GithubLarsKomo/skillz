@@ -277,7 +277,7 @@ def build_canvas(index: dict[str, object], graph: dict[str, object]) -> str:
             nodes.append({
                 "id": f"skill-{name}",
                 "type": "file",
-                "file": f"obsidian/skills/{name}.md",
+                "file": f"skills/{name}.md",
                 "x": x,
                 "y": y,
                 "width": node_width,
