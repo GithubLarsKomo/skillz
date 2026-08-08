@@ -640,6 +640,19 @@
       ]
     },
     {
+      "name": "ivdr-economic-operator-postmarket-propagation",
+      "requires": [
+        "quality-record-integrity",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "ivdr-economic-operator-escalation-log.json",
+        "ivdr-economic-operator-obligation-map.json",
+        "ivdr-economic-operator-propagation-state.json"
+      ]
+    },
+    {
       "name": "ivdr-field-safety-corrective-action",
       "requires": [
         "controlled-quality-documentation",
@@ -918,6 +931,7 @@
       "requires": [
         "medical-device-capa",
         "medical-device-field-action-communication",
+        "medical-device-field-action-physical-execution",
         "medical-device-pms-system",
         "medical-device-risk-management-iso14971",
         "quality-record-integrity"
@@ -926,6 +940,19 @@
         "field-action-closure-readiness.json",
         "field-action-effectiveness-assessment.json",
         "field-action-product-reconciliation.json"
+      ]
+    },
+    {
+      "name": "medical-device-field-action-physical-execution",
+      "requires": [
+        "controlled-quality-documentation",
+        "medical-device-field-action-communication",
+        "quality-record-integrity"
+      ],
+      "outputs": [
+        "field-action-disposition-evidence.json",
+        "field-action-physical-execution-plan.json",
+        "field-action-unit-custody-ledger.json"
       ]
     },
     {
@@ -1925,6 +1952,18 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "ivdr-economic-operator-postmarket-propagation",
+      "to": "quality-record-integrity"
+    },
+    {
+      "from": "ivdr-economic-operator-postmarket-propagation",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "ivdr-economic-operator-postmarket-propagation",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "ivdr-field-safety-corrective-action",
       "to": "controlled-quality-documentation"
     },
@@ -2218,6 +2257,10 @@
     },
     {
       "from": "medical-device-field-action-effectiveness",
+      "to": "medical-device-field-action-physical-execution"
+    },
+    {
+      "from": "medical-device-field-action-effectiveness",
       "to": "medical-device-pms-system"
     },
     {
@@ -2226,6 +2269,18 @@
     },
     {
       "from": "medical-device-field-action-effectiveness",
+      "to": "quality-record-integrity"
+    },
+    {
+      "from": "medical-device-field-action-physical-execution",
+      "to": "controlled-quality-documentation"
+    },
+    {
+      "from": "medical-device-field-action-physical-execution",
+      "to": "medical-device-field-action-communication"
+    },
+    {
+      "from": "medical-device-field-action-physical-execution",
       "to": "quality-record-integrity"
     },
     {
@@ -2831,6 +2886,7 @@
       "consumerSkills": [
         "ivdr-field-safety-corrective-action",
         "medical-device-field-action-communication",
+        "medical-device-field-action-physical-execution",
         "quality-record-integrity"
       ],
       "ambiguous": false,
@@ -3212,6 +3268,7 @@
       "consumerSkills": [
         "ivdr-field-safety-corrective-action",
         "medical-device-field-action-communication",
+        "medical-device-field-action-physical-execution",
         "quality-record-integrity"
       ],
       "ambiguous": false,
@@ -3601,6 +3658,7 @@
       "consumerSkills": [
         "ivdr-field-safety-corrective-action",
         "medical-device-field-action-communication",
+        "medical-device-field-action-physical-execution",
         "quality-record-integrity"
       ],
       "ambiguous": false,
@@ -3966,6 +4024,18 @@
         "medical-device-field-action-communication"
       ],
       "consumerSkills": [
+        "medical-device-field-action-effectiveness",
+        "medical-device-field-action-physical-execution"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "field-action-disposition-evidence.json",
+      "producers": [
+        "medical-device-field-action-physical-execution"
+      ],
+      "consumerSkills": [
         "medical-device-field-action-effectiveness"
       ],
       "ambiguous": false,
@@ -3986,6 +4056,18 @@
         "medical-device-field-action-communication"
       ],
       "consumerSkills": [
+        "medical-device-field-action-effectiveness",
+        "medical-device-field-action-physical-execution"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "field-action-physical-execution-plan.json",
+      "producers": [
+        "medical-device-field-action-physical-execution"
+      ],
+      "consumerSkills": [
         "medical-device-field-action-effectiveness"
       ],
       "ambiguous": false,
@@ -4004,6 +4086,18 @@
       "output": "field-action-recipient-scope.json",
       "producers": [
         "medical-device-field-action-communication"
+      ],
+      "consumerSkills": [
+        "medical-device-field-action-effectiveness",
+        "medical-device-field-action-physical-execution"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "field-action-unit-custody-ledger.json",
+      "producers": [
+        "medical-device-field-action-physical-execution"
       ],
       "consumerSkills": [
         "medical-device-field-action-effectiveness"
@@ -4295,6 +4389,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "ivdr-economic-operator-escalation-log.json",
+      "producers": [
+        "ivdr-economic-operator-postmarket-propagation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "ivdr-economic-operator-obligation-map.json",
+      "producers": [
+        "ivdr-economic-operator-postmarket-propagation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "ivdr-economic-operator-propagation-state.json",
+      "producers": [
+        "ivdr-economic-operator-postmarket-propagation"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "ivdr-fsca-assessment.json",
@@ -5181,11 +5302,13 @@
       ],
       "consumerSkills": [
         "fda-complaint-mdr-reportability",
+        "ivdr-economic-operator-postmarket-propagation",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "medical-device-customer-contact-intake",
         "medical-device-field-action-communication",
         "medical-device-field-action-effectiveness",
+        "medical-device-field-action-physical-execution",
         "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
@@ -5212,11 +5335,13 @@
       ],
       "consumerSkills": [
         "fda-complaint-mdr-reportability",
+        "ivdr-economic-operator-postmarket-propagation",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "medical-device-customer-contact-intake",
         "medical-device-field-action-communication",
         "medical-device-field-action-effectiveness",
+        "medical-device-field-action-physical-execution",
         "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
@@ -5229,11 +5354,13 @@
       ],
       "consumerSkills": [
         "fda-complaint-mdr-reportability",
+        "ivdr-economic-operator-postmarket-propagation",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "medical-device-customer-contact-intake",
         "medical-device-field-action-communication",
         "medical-device-field-action-effectiveness",
+        "medical-device-field-action-physical-execution",
         "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
@@ -5272,6 +5399,7 @@
         "ivdr-clinical-performance-study",
         "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-economic-operator-postmarket-propagation",
         "ivdr-inhouse-health-institution",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
@@ -5319,6 +5447,7 @@
         "ivdr-clinical-performance-study",
         "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-economic-operator-postmarket-propagation",
         "ivdr-inhouse-health-institution",
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
@@ -5419,6 +5548,7 @@
         "ivdr-clinical-performance-study",
         "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-economic-operator-postmarket-propagation",
         "ivdr-field-safety-corrective-action",
         "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
@@ -5469,6 +5599,7 @@
         "ivdr-clinical-performance-study",
         "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-economic-operator-postmarket-propagation",
         "ivdr-field-safety-corrective-action",
         "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
@@ -6251,6 +6382,9 @@
     "isms-audit-plan.json",
     "isms-audit-report.md",
     "ivd-udi-data-set.json",
+    "ivdr-economic-operator-escalation-log.json",
+    "ivdr-economic-operator-obligation-map.json",
+    "ivdr-economic-operator-propagation-state.json",
     "ivdr-fsca-assessment.json",
     "ivdr-fsca-regulatory-plan.json",
     "lifecycle-impact-gates.json",
@@ -6396,6 +6530,9 @@
     "isms-audit-plan.json",
     "isms-audit-report.md",
     "ivd-udi-data-set.json",
+    "ivdr-economic-operator-escalation-log.json",
+    "ivdr-economic-operator-obligation-map.json",
+    "ivdr-economic-operator-propagation-state.json",
     "ivdr-fsca-assessment.json",
     "ivdr-fsca-regulatory-plan.json",
     "lifecycle-impact-gates.json",

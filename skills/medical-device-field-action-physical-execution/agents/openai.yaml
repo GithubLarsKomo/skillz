@@ -1,5 +1,5 @@
 interface:
   display_name: "Medical Device Field Action Physical Execution"
-  short_description: "Evidenziert RMA, Custody, Quarantine, Correction, Verification und Disposition für autorisierte Feldmaßnahmen."
+  short_description: "Steuert und evidenziert die physische Ausführung autorisierter Medical-Device-/IVD-Feldmaßnahmen von RMA, Transport u..."
 policy:
   allow_implicit_invocation: false

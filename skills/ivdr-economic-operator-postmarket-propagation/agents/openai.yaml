@@ -1,5 +1,5 @@
 interface:
-  display_name: "IVDR Economic Operator Postmarket Propagation"
-  short_description: "Ordnet Importer-/Distributor-Pflichten, Register, Serious-Risk-Eskalation und Lieferketten-Propagation unter IVDR."
+  display_name: "Ivdr Economic Operator Postmarket Propagation"
+  short_description: "Strukturiert und evidenziert die eigenständigen IVDR-Postmarket-Pflichten von Importeuren und Distributoren bei Compl..."
 policy:
   allow_implicit_invocation: false

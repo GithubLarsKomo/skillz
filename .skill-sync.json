@@ -323,6 +323,12 @@
         "agents/openai.yaml": "a9e06186a499aa8448fadfa7816c6abc104d3705eb8f43976445030826afb084"
       }
     },
+    "ivdr-economic-operator-postmarket-propagation": {
+      "files": {
+        "SKILL.md": "15ad2161cd848b2fd499decdbfd79cf903d034418daca5da7d6018c9c1946d02",
+        "agents/openai.yaml": "33dbf5474bbf5d68d39f2d635835a82ace4e5aa3d8ecf016f4f75731d50b6778"
+      }
+    },
     "ivdr-field-safety-corrective-action": {
       "files": {
         "SKILL.md": "76308bb5e1dd1a7f12cf9152c6f4281b7d49a23272d976267b67234777a90370",
@@ -451,8 +457,14 @@
     },
     "medical-device-field-action-effectiveness": {
       "files": {
-        "SKILL.md": "2330d0b85962539bd400f6ff3db82bcdb231dada8c9edf7310d226e27961c5a1",
+        "SKILL.md": "bbde669fdc9833ce12aaae5b9182e9f49e818254823decb6fde88d216cebaec6",
         "agents/openai.yaml": "ad0bed4df33c1ae7679bc0f178d48de8bf0096efc1003c85078dbbc333918d84"
+      }
+    },
+    "medical-device-field-action-physical-execution": {
+      "files": {
+        "SKILL.md": "df0d18fe7d44de644389017130700012b9d99188a24676ba97ff2f5843f1f40d",
+        "agents/openai.yaml": "41f7700d764bfa99e0c0ddc364068d0904e6f3e4e41ac15eb7c97a55d4d64a6c"
       }
     },
     "medical-device-isms-governance": {
