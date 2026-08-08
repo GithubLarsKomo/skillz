@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-field-action-effectiveness",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A field action has a versioned recipient population, verified communication states, required-action evidence, distribution quantities and an authorized effectiveness-check strategy. Assess effectiveness, reconcile products and determine closure readiness.",
+      "requiredBehaviors": [
+        "separate notification acknowledgement required-action completion verification and product reconciliation dimensions",
+        "calculate effectiveness only against explicit versioned denominators and the authorized checking strategy",
+        "reconcile returned corrected destroyed quarantined downstream not-located and unknown product states",
+        "produce closure readiness without claiming external authority termination"
+      ],
+      "forbiddenBehaviors": [
+        "use number of messages sent as the overall effectiveness result",
+        "remove nonresponders or unknown dispositions from denominators without evidence",
+        "label a recall terminated solely because internal work is complete"
+      ],
+      "skillAnchors": [
+        "Effectiveness is outcome evidence, not activity count",
+        "Denominator before percentage",
+        "Closure readiness ≠ authority closure"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A US recall strategy specifies effectiveness checks on a sample. Response is excellent among large hospitals but several small consignees and downstream accounts did not respond. The team wants to report 100% effectiveness among responders.",
+      "requiredBehaviors": [
+        "evaluate the check against the authorized sampling strategy and preserve response bias and population limits",
+        "keep nonresponders and downstream accounts visible rather than redefining the denominator to responders",
+        "avoid claiming population-wide effectiveness beyond what the sampling evidence supports"
+      ],
+      "forbiddenBehaviors": [
+        "report responder-only success as 100 percent field-action effectiveness",
+        "invent a different FDA effectiveness-check level or sampling method",
+        "exclude small accounts merely because they are operationally harder to reach"
+      ],
+      "skillAnchors": [
+        "Jurisdiction strategy governs checking method",
+        "Sample adequacy must be justified",
+        "Non-Responder werden nicht aus dem Nenner entfernt"
+      ]
+    },
+    {
+      "id": "capa-vs-field-action-case",
+      "input": "All affected devices were corrected and customer actions are verified, but the systemic CAPA effectiveness check later fails. Management asks to mark both the field action and CAPA effective because the recall execution succeeded.",
+      "requiredBehaviors": [
+        "keep field-action execution effectiveness and CAPA systemic effectiveness as separate conclusions",
+        "allow operational field-action completion evidence to remain valid while CAPA stays ineffective or open",
+        "route the failed CAPA state to CAPA risk and PMS without rewriting historical field-action evidence"
+      ],
+      "forbiddenBehaviors": [
+        "treat successful recall or FSCA execution as proof that CAPA prevents recurrence",
+        "rewrite field-action completion to hide a later CAPA failure",
+        "close systemic risk feedback because recipient actions were completed"
+      ],
+      "skillAnchors": [
+        "CAPA effectiveness ≠ field-action effectiveness",
+        "Field-Action- vs CAPA-Effectiveness trennen",
+        "systemische Ursachenvermeidung und Feldmaßnahmen-Execution werden separat bewertet"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The field action is 98% complete and a final/termination package is being prepared. A corrected device then generates the same serious safety event and several units remain not located. Operations wants to submit closure unchanged because the target percentage was met.",
+      "requiredBehaviors": [
+        "interrupt closure readiness and route the new safety event to jurisdiction-specific vigilance or MDR reassessment",
+        "treat failure after correction as material evidence for risk CAPA and possible scope/action reassessment",
+        "keep not-located units and unresolved disposition visible in closure readiness"
+      ],
+      "forbiddenBehaviors": [
+        "allow a target percentage to override a material new safety event",
+        "declare operational or authority closure while material units and repeat failure remain unresolved",
+        "use no-new-complaints before this event as evidence that the correction was effective"
+      ],
+      "skillAnchors": [
+        "New incidents bypass closure",
+        "Residual unknowns are explicit",
+        "no-new-complaints is not an effectiveness check"
+      ]
+    }
+  ]
+}

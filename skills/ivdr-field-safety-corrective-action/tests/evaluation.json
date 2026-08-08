@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-field-safety-corrective-action",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An IVDR vigilance assessment confirms a field safety corrective action for several EU member states. The affected device scope, risk evidence, planned action and current official IVDR/MDCG sources are available. Build the FSCA regulatory plan and controlled FSN content package.",
+      "requiredBehaviors": [
+        "keep FSCA serious-incident CAPA and general field-action states distinct",
+        "resolve current authority reporting and FSN requirements from authoritative sources with as-of provenance",
+        "version affected device and member-state scope and produce a controlled FSN content package without claiming external sending",
+        "route released communication scope to medical-device-field-action-communication while keeping vigilance risk CAPA and PMS feedback open"
+      ],
+      "forbiddenBehaviors": [
+        "treat an internal CAPA decision as proof that an FSCA has been reported",
+        "claim competent-authority acceptance or FSN delivery without external evidence",
+        "close vigilance or CAPA merely because the FSN content is ready"
+      ],
+      "skillAnchors": [
+        "FSCA ≠ CAPA",
+        "Authority comment state is explicit",
+        "No closure by communication"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A potentially serious false-result hazard requires immediate stop-use and correction before complete distribution data or root cause are available. The team asks whether it must wait for administrative completeness or authority comments before acting.",
+      "requiredBehaviors": [
+        "allow necessary urgent safety action without waiting for root cause complete distribution data or administrative completeness",
+        "document the urgent exception and current authority-reporting sequence rather than silently bypassing regulatory obligations",
+        "keep unknown distribution and scope facts explicit and trigger continued scope reconciliation"
+      ],
+      "forbiddenBehaviors": [
+        "delay an urgent safety action solely until root cause or full device lists are complete",
+        "treat urgency as eliminating regulatory reporting or documentation duties",
+        "invent missing distribution facts to complete the FSCA package"
+      ],
+      "skillAnchors": [
+        "Advance reporting unless urgency",
+        "Urgency und regulatorische Sequenz bestimmen",
+        "Eine dringliche Maßnahme darf nicht auf Root Cause"
+      ]
+    },
+    {
+      "id": "third-country-and-translation-case",
+      "input": "A manufacturer starts a corrective action in a non-EU country for a device version also legally marketed in several EU countries. Commercial teams want different risk wording by country and ask whether the non-EU origin means no EU FSCA assessment is needed.",
+      "requiredBehaviors": [
+        "assess EU relevance of the third-country field action based on device and reason scope rather than geography alone",
+        "require member-state language versions to trace to one controlled master content and preserve risk meaning",
+        "require documented justification for substantive country-specific deviations"
+      ],
+      "forbiddenBehaviors": [
+        "exclude the action from EU assessment solely because it started outside the EU",
+        "allow commercial localization to understate risk or change required user actions",
+        "treat translation as an uncontrolled copy of the notice"
+      ],
+      "skillAnchors": [
+        "Third-country action can matter in EU",
+        "Country consistency by default",
+        "Multi-Member-State-Konsistenz kontrollieren"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "After an FSN was released for two lots, new complaints show the same failure mode in additional lots and another member state. Operations wants to keep the original scope and mark the FSCA complete because the first notice was already sent.",
+      "requiredBehaviors": [
+        "treat new lots countries and failure evidence as material facts requiring versioned FSCA scope reassessment",
+        "preserve the earlier FSCA and FSN versions historically rather than rewriting them",
+        "keep regulatory communication execution vigilance risk CAPA and PMS states open until the expanded evidence is assessed"
+      ],
+      "forbiddenBehaviors": [
+        "treat prior FSN release as immunity from scope reassessment",
+        "overwrite the original notice or scope history",
+        "declare FSCA closure while material affected scope remains unresolved"
+      ],
+      "skillAnchors": [
+        "New facts reopen scope",
+        "Scope-Erweiterungen überschreiben keine frühere Version",
+        "Eine bereits freigegebene FSN immunisiert die Entscheidung nicht"
+      ]
+    }
+  ]
+}

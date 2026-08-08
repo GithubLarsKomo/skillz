@@ -206,6 +206,75 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         self.assertIn("Code ≠ reportability", coding_text)
         self.assertIn("Follow-up never delays time-critical escalation", followup_text)
 
+    def test_field_action_chain_preserves_regulatory_and_closure_boundaries(self):
+        ivdr = self.skills["ivdr-pms-vigilance"]
+        fsca = self.skills["ivdr-field-safety-corrective-action"]
+        fda806 = self.skills["fda-corrections-removals"]
+        communication = self.skills["medical-device-field-action-communication"]
+        effectiveness = self.skills["medical-device-field-action-effectiveness"]
+
+        # EU FSCA is downstream of IVDR vigilance; generic execution workers remain jurisdiction-neutral.
+        self.assertIn("ivdr-pms-vigilance", fsca["requires"])
+        self.assertNotIn("medical-device-field-action-communication", fsca["requires"])
+        self.assertNotIn("medical-device-field-action-effectiveness", fsca["requires"])
+        self.assertNotIn("ivdr-field-safety-corrective-action", communication["requires"])
+        self.assertNotIn("fda-corrections-removals", communication["requires"])
+
+        # Effectiveness consumes verified communication evidence but cannot become a prerequisite for regulatory decisions.
+        self.assertIn("medical-device-field-action-communication", effectiveness["requires"])
+        for execution_worker in [
+            "medical-device-field-action-communication",
+            "medical-device-field-action-effectiveness",
+        ]:
+            self.assertNotIn(execution_worker, ivdr["requires"])
+            self.assertNotIn(execution_worker, fda806["requires"])
+
+        communication_contract = next(
+            c
+            for c in communication["outputContracts"]
+            if c["output"] == "field-action-communication-state.json"
+        )
+        self.assertIn("medical-device-field-action-effectiveness", communication_contract["consumerSkills"])
+
+        # New workers have harder four-case suites with complete recorded evidence.
+        for worker in [
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-communication",
+            "medical-device-field-action-effectiveness",
+        ]:
+            evaluation = json.loads((ROOT / "skills" / worker / "tests" / "evaluation.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(evaluation["cases"]), 4, worker)
+            self.assertEqual(self.skills[worker]["evaluation"]["caseCount"], 4, worker)
+            self.assertEqual(self.skills[worker]["evaluation"]["recordedResultCount"], 4, worker)
+            for case in evaluation["cases"]:
+                self.assertTrue((ROOT / "skills" / worker / "tests" / "results" / f"{case['id']}.json").exists(), worker)
+
+        # Existing jurisdiction owners expose explicit execution handoffs without losing their regulatory ownership.
+        ivdr_eval = json.loads((ROOT / "skills" / "ivdr-pms-vigilance" / "tests" / "evaluation.json").read_text(encoding="utf-8"))
+        fda_eval = json.loads((ROOT / "skills" / "fda-corrections-removals" / "tests" / "evaluation.json").read_text(encoding="utf-8"))
+        self.assertTrue(any(c["id"] == "fsca-handoff-case" for c in ivdr_eval["cases"]))
+        self.assertTrue(any(c["id"] == "execution-handoff-case" for c in fda_eval["cases"]))
+        self.assertTrue((ROOT / "skills" / "ivdr-pms-vigilance" / "tests" / "results" / "fsca-handoff-case.json").exists())
+        self.assertTrue((ROOT / "skills" / "fda-corrections-removals" / "tests" / "results" / "execution-handoff-case.json").exists())
+
+        ivdr_text = (ROOT / "skills" / "ivdr-pms-vigilance" / "SKILL.md").read_text(encoding="utf-8")
+        fsca_text = (ROOT / "skills" / "ivdr-field-safety-corrective-action" / "SKILL.md").read_text(encoding="utf-8")
+        fda806_text = (ROOT / "skills" / "fda-corrections-removals" / "SKILL.md").read_text(encoding="utf-8")
+        communication_text = (ROOT / "skills" / "medical-device-field-action-communication" / "SKILL.md").read_text(encoding="utf-8")
+        effectiveness_text = (ROOT / "skills" / "medical-device-field-action-effectiveness" / "SKILL.md").read_text(encoding="utf-8")
+
+        self.assertIn("FSCA assessment has a dedicated downstream owner", ivdr_text)
+        self.assertIn("Advance reporting unless urgency", fsca_text)
+        self.assertIn("Third-country action can matter in EU", fsca_text)
+        self.assertIn("Execution cannot delay the 806 clock", fda806_text)
+        self.assertIn("FDA classification/termination stay external", fda806_text)
+        self.assertIn("Sent ≠ delivered", communication_text)
+        self.assertIn("Acknowledged ≠ action completed", communication_text)
+        self.assertIn("Downstream distribution remains in scope", communication_text)
+        self.assertIn("CAPA effectiveness ≠ field-action effectiveness", effectiveness_text)
+        self.assertIn("Closure readiness ≠ authority closure", effectiveness_text)
+        self.assertIn("New incidents bypass closure", effectiveness_text)
+
 
 if __name__ == "__main__":
     unittest.main()

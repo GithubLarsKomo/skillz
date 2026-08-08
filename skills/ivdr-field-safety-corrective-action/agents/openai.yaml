@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Field Safety Corrective Action"
+  short_description: "Überführt eine IVDR-Vigilance-/Field-Action-Frage in eine evidenzgebundene FSCA-Entscheidung, behördliche Sequenz, Fi..."
+policy:
+  allow_implicit_invocation: false

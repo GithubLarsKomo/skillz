@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-field-action-communication",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A released field action package has a versioned device scope, approved notice versions for three countries and distribution records. Build the recipient population, execute communication tracking and hand verified states to effectiveness checking.",
+      "requiredBehaviors": [
+        "derive and version recipient scope from distribution and consignee evidence rather than CRM alone",
+        "keep sent delivered acknowledged and action-evidenced states separate for every recipient",
+        "bind each communication event to the actual controlled notice version and evidence",
+        "handoff unresolved recipients downstream distribution and verified response states to medical-device-field-action-effectiveness"
+      ],
+      "forbiddenBehaviors": [
+        "treat a mailing list as proof of complete affected population",
+        "mark recipients informed solely because messages were dispatched",
+        "claim required customer action is complete from acknowledgement alone"
+      ],
+      "skillAnchors": [
+        "Recipient scope is evidence, not a mailing list",
+        "Sent ≠ delivered",
+        "Acknowledged ≠ action completed"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Several recall/FSN emails bounce, one hospital does not answer, and a distributor acknowledges the notice but reports that affected units were redistributed to unknown subaccounts.",
+      "requiredBehaviors": [
+        "preserve failed delivery and nonresponse as unresolved evidence states",
+        "use alternate controlled contact routes and escalation rules without converting attempts into success",
+        "keep downstream distribution open and require recipient-population expansion or reconciliation"
+      ],
+      "forbiddenBehaviors": [
+        "mark bounced or unanswered contacts as informed",
+        "treat distributor acknowledgement as proof all downstream consignees were notified",
+        "delete failed communication attempts after a successful resend"
+      ],
+      "skillAnchors": [
+        "No response remains unresolved",
+        "Downstream distribution remains in scope",
+        "Communication evidence is immutable"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Sales asks to notify top accounts first, omit small customers until later, soften the translated risk wording, and let field representatives confirm verbally without recording the controlled notice version.",
+      "requiredBehaviors": [
+        "reject commercial value as a safety prioritization criterion",
+        "preserve approved risk meaning and required actions across translations",
+        "require traceable evidence for verbal or field-representative contacts including notice version and result"
+      ],
+      "forbiddenBehaviors": [
+        "deprioritize affected recipients because of account value",
+        "weaken safety language for relationship management",
+        "count undocumented verbal contact as verified communication"
+      ],
+      "skillAnchors": [
+        "Commercial priority cannot reorder safety",
+        "Translation cannot change safety meaning",
+        "Verbal contact needs a record"
+      ]
+    },
+    {
+      "id": "new-safety-facts-case",
+      "input": "During field-action follow-up, a customer reports a serious new clinical outcome and identifies additional affected serial numbers outside the current action scope. Communication is otherwise nearly complete.",
+      "requiredBehaviors": [
+        "capture the response as a new evidence event without burying it inside communication status",
+        "trigger complaint or vigilance/MDR reassessment immediately without waiting for communication closure",
+        "return the newly identified device scope as a versioned scope-extension candidate"
+      ],
+      "forbiddenBehaviors": [
+        "delay new safety-event routing until all recipients have responded",
+        "treat near-complete communication coverage as reason to keep the old scope",
+        "rewrite prior communication events to include the new scope retroactively"
+      ],
+      "skillAnchors": [
+        "New Safety Facts",
+        "Scope-Erweiterung an den Action Owner zurückgeben",
+        "Communication Follow-up darf diese Reassessment-Linie nicht blockieren"
+      ]
+    }
+  ]
+}

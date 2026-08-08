@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 110,
-  "entrypointCount": 92,
+  "skillCount": 113,
+  "entrypointCount": 95,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 110,
+  "evaluationSuiteCount": 113,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -419,6 +419,8 @@
         "two-axis-compliance-review"
       ],
       "dependents": [
+        "ivdr-field-safety-corrective-action",
+        "medical-device-field-action-communication",
         "quality-record-integrity"
       ],
       "outputs": [
@@ -434,6 +436,8 @@
             "controlled-quality-documentation"
           ],
           "consumerSkills": [
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-communication",
             "quality-record-integrity"
           ]
         },
@@ -444,6 +448,8 @@
             "controlled-quality-documentation"
           ],
           "consumerSkills": [
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-communication",
             "quality-record-integrity"
           ]
         },
@@ -454,6 +460,8 @@
             "controlled-quality-documentation"
           ],
           "consumerSkills": [
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-communication",
             "quality-record-integrity"
           ]
         }
@@ -1622,8 +1630,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -3042,6 +3050,63 @@
       }
     },
     {
+      "name": "ivdr-field-safety-corrective-action",
+      "description": "Überführt eine IVDR-Vigilance-/Field-Action-Frage in eine evidenzgebundene FSCA-Entscheidung, behördliche Sequenz, Field-Safety-Notice-Anforderungen und kontrollierte Execution-Handoffs, ohne Authority- oder Customer-Aktionen zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "controlled-quality-documentation",
+        "ivdr-pms-vigilance",
+        "mdcg-guidance-navigator",
+        "medical-device-capa",
+        "medical-device-risk-management-iso14971",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "field-safety-notice-content.json",
+        "ivdr-fsca-assessment.json",
+        "ivdr-fsca-regulatory-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "field-safety-notice-content.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-field-safety-corrective-action"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ivdr-fsca-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-field-safety-corrective-action"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ivdr-fsca-regulatory-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-field-safety-corrective-action"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
       "name": "ivdr-inhouse-health-institution",
       "description": "Bewertet in Gesundheitseinrichtungen hergestellte und verwendete IVDs gegen die IVDR-Health-Institution-Exception nach Artikel 5(5), inklusive aktueller Übergangsfristen, GSPR-, QMS-, Dokumentations- und Marktäquivalenz-Gates.",
       "invocation": {
@@ -3274,6 +3339,7 @@
         "two-axis-compliance-review"
       ],
       "dependents": [
+        "ivdr-field-safety-corrective-action",
         "medical-device-complaint-regulatory-routing"
       ],
       "outputs": [
@@ -3289,6 +3355,7 @@
             "ivdr-pms-vigilance"
           ],
           "consumerSkills": [
+            "ivdr-field-safety-corrective-action",
             "medical-device-complaint-regulatory-routing"
           ]
         },
@@ -3299,6 +3366,7 @@
             "ivdr-pms-vigilance"
           ],
           "consumerSkills": [
+            "ivdr-field-safety-corrective-action",
             "medical-device-complaint-regulatory-routing"
           ]
         },
@@ -3309,6 +3377,7 @@
             "ivdr-pms-vigilance"
           ],
           "consumerSkills": [
+            "ivdr-field-safety-corrective-action",
             "medical-device-complaint-regulatory-routing"
           ]
         }
@@ -3318,8 +3387,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 5,
-        "recordedResultCount": 5,
+        "caseCount": 6,
+        "recordedResultCount": 6,
         "passed": true
       }
     },
@@ -3537,6 +3606,7 @@
         "ivdr-class-d-conformity",
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
+        "ivdr-field-safety-corrective-action",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf",
         "ivdr-pms-vigilance"
@@ -3556,6 +3626,7 @@
             "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-field-safety-corrective-action",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf",
             "ivdr-pms-vigilance"
@@ -3571,6 +3642,7 @@
             "ivdr-class-d-conformity",
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
+            "ivdr-field-safety-corrective-action",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf",
             "ivdr-pms-vigilance"
@@ -3762,6 +3834,8 @@
       ],
       "dependents": [
         "fda-corrections-removals",
+        "ivdr-field-safety-corrective-action",
+        "medical-device-field-action-effectiveness",
         "qms-management-review-governance"
       ],
       "outputs": [
@@ -3778,6 +3852,8 @@
           ],
           "consumerSkills": [
             "fda-corrections-removals",
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         },
@@ -3789,6 +3865,8 @@
           ],
           "consumerSkills": [
             "fda-corrections-removals",
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         },
@@ -3800,6 +3878,8 @@
           ],
           "consumerSkills": [
             "fda-corrections-removals",
+            "ivdr-field-safety-corrective-action",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         }
@@ -4136,6 +4216,124 @@
       }
     },
     {
+      "name": "medical-device-field-action-communication",
+      "description": "Plant, kontrolliert und evidenziert Medical-Device-/IVD-Field-Action-, FSN- und Recall-Kommunikation über Kunden, Distributoren und Downstream-Empfänger, ohne Versand, Zustellung, Acknowledgement oder Maßnahmenabschluss zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "controlled-quality-documentation",
+        "quality-record-integrity",
+        "regulated-product-context"
+      ],
+      "dependents": [
+        "medical-device-field-action-effectiveness"
+      ],
+      "outputs": [
+        "field-action-communication-state.json",
+        "field-action-notice-package.json",
+        "field-action-recipient-scope.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "field-action-communication-state.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-field-action-communication"
+          ],
+          "consumerSkills": [
+            "medical-device-field-action-effectiveness"
+          ]
+        },
+        {
+          "output": "field-action-notice-package.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-field-action-communication"
+          ],
+          "consumerSkills": [
+            "medical-device-field-action-effectiveness"
+          ]
+        },
+        {
+          "output": "field-action-recipient-scope.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-field-action-communication"
+          ],
+          "consumerSkills": [
+            "medical-device-field-action-effectiveness"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "medical-device-field-action-effectiveness",
+      "description": "Bewertet die tatsächliche Wirksamkeit und Closure-Readiness von Medical-Device-/IVD-Feldmaßnahmen anhand von Recipient-, Communication-, Action-, Product-Reconciliation- und Follow-up-Evidence, ohne CAPA-Effektivität oder Authority-Termination zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-capa",
+        "medical-device-field-action-communication",
+        "medical-device-pms-system",
+        "medical-device-risk-management-iso14971",
+        "quality-record-integrity"
+      ],
+      "dependents": [],
+      "outputs": [
+        "field-action-closure-readiness.json",
+        "field-action-effectiveness-assessment.json",
+        "field-action-product-reconciliation.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "field-action-closure-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-field-action-effectiveness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "field-action-effectiveness-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-field-action-effectiveness"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "field-action-product-reconciliation.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-field-action-effectiveness"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
       "name": "medical-device-isms-governance",
       "description": "Strukturiert ISO-27001-orientierte ISMS-Governance für MedTech/IVD-Organisationen und koppelt Informationssicherheitsrisiken, Controls, Supplier/Cloud, Incidents und Product-Cybersecurity-Schnittstellen ohne technische Security-Tests zu duplizieren.",
       "invocation": {
@@ -4285,6 +4483,7 @@
       ],
       "dependents": [
         "ivdr-pms-vigilance",
+        "medical-device-field-action-effectiveness",
         "qms-management-review-governance"
       ],
       "outputs": [
@@ -4302,6 +4501,7 @@
           ],
           "consumerSkills": [
             "ivdr-pms-vigilance",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         },
@@ -4313,6 +4513,7 @@
           ],
           "consumerSkills": [
             "ivdr-pms-vigilance",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         },
@@ -4324,6 +4525,7 @@
           ],
           "consumerSkills": [
             "ivdr-pms-vigilance",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         },
@@ -4335,6 +4537,7 @@
           ],
           "consumerSkills": [
             "ivdr-pms-vigilance",
+            "medical-device-field-action-effectiveness",
             "qms-management-review-governance"
           ]
         }
@@ -4594,12 +4797,14 @@
         "iec62366-usability-engineering",
         "ivdr-analytical-performance",
         "ivdr-clinical-performance-study",
+        "ivdr-field-safety-corrective-action",
         "ivdr-inhouse-health-institution",
         "ivdr-pmpf",
         "ivdr-pms-vigilance",
         "measurement-system-validation",
         "medical-device-capa",
         "medical-device-cybersecurity-lifecycle",
+        "medical-device-field-action-effectiveness",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "medical-device-regulatory-strategy",
@@ -4634,12 +4839,14 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-field-safety-corrective-action",
             "ivdr-inhouse-health-institution",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "measurement-system-validation",
             "medical-device-capa",
             "medical-device-cybersecurity-lifecycle",
+            "medical-device-field-action-effectiveness",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "medical-device-regulatory-strategy",
@@ -4669,12 +4876,14 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-field-safety-corrective-action",
             "ivdr-inhouse-health-institution",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "measurement-system-validation",
             "medical-device-capa",
             "medical-device-cybersecurity-lifecycle",
+            "medical-device-field-action-effectiveness",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "medical-device-regulatory-strategy",
@@ -4704,12 +4913,14 @@
             "iec62366-usability-engineering",
             "ivdr-analytical-performance",
             "ivdr-clinical-performance-study",
+            "ivdr-field-safety-corrective-action",
             "ivdr-inhouse-health-institution",
             "ivdr-pmpf",
             "ivdr-pms-vigilance",
             "measurement-system-validation",
             "medical-device-capa",
             "medical-device-cybersecurity-lifecycle",
+            "medical-device-field-action-effectiveness",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
             "medical-device-regulatory-strategy",
@@ -5447,6 +5658,8 @@
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "medical-device-customer-contact-intake",
+        "medical-device-field-action-communication",
+        "medical-device-field-action-effectiveness",
         "medical-device-service-report-quality-routing"
       ],
       "outputs": [
@@ -5466,6 +5679,8 @@
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-customer-contact-intake",
+            "medical-device-field-action-communication",
+            "medical-device-field-action-effectiveness",
             "medical-device-service-report-quality-routing"
           ]
         },
@@ -5480,6 +5695,8 @@
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-customer-contact-intake",
+            "medical-device-field-action-communication",
+            "medical-device-field-action-effectiveness",
             "medical-device-service-report-quality-routing"
           ]
         },
@@ -5494,6 +5711,8 @@
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-customer-contact-intake",
+            "medical-device-field-action-communication",
+            "medical-device-field-action-effectiveness",
             "medical-device-service-report-quality-routing"
           ]
         }
@@ -5543,6 +5762,7 @@
         "medical-device-complaint-handling",
         "medical-device-complaint-regulatory-routing",
         "medical-device-cybersecurity-lifecycle",
+        "medical-device-field-action-communication",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
@@ -5592,6 +5812,7 @@
             "medical-device-complaint-handling",
             "medical-device-complaint-regulatory-routing",
             "medical-device-cybersecurity-lifecycle",
+            "medical-device-field-action-communication",
             "medical-device-isms-governance",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
@@ -5637,6 +5858,7 @@
             "medical-device-complaint-handling",
             "medical-device-complaint-regulatory-routing",
             "medical-device-cybersecurity-lifecycle",
+            "medical-device-field-action-communication",
             "medical-device-isms-governance",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
@@ -5858,6 +6080,7 @@
         "ivdr-clinical-performance-study",
         "ivdr-companion-diagnostic-consultation",
         "ivdr-device-classification",
+        "ivdr-field-safety-corrective-action",
         "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
         "ivdr-performance-evaluation-report",
@@ -5910,6 +6133,7 @@
             "ivdr-clinical-performance-study",
             "ivdr-companion-diagnostic-consultation",
             "ivdr-device-classification",
+            "ivdr-field-safety-corrective-action",
             "ivdr-inhouse-health-institution",
             "ivdr-performance-evaluation",
             "ivdr-performance-evaluation-report",
@@ -5958,6 +6182,7 @@
             "ivdr-clinical-performance-study",
             "ivdr-companion-diagnostic-consultation",
             "ivdr-device-classification",
+            "ivdr-field-safety-corrective-action",
             "ivdr-inhouse-health-institution",
             "ivdr-performance-evaluation",
             "ivdr-performance-evaluation-report",

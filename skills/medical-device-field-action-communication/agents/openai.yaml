@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Field Action Communication"
+  short_description: "Plant, kontrolliert und evidenziert Medical-Device-/IVD-Field-Action-, FSN- und Recall-Kommunikation über Kunden, Dis..."
+policy:
+  allow_implicit_invocation: false
