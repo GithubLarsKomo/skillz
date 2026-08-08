@@ -1,0 +1,3902 @@
+{
+  "nodes": [
+    {
+      "id": "universe-title",
+      "type": "text",
+      "text": "# Skill Universe\n117 generated skill nodes\nDirected arrows mean **requires**.",
+      "x": 0,
+      "y": -240,
+      "width": 620,
+      "height": 160
+    },
+    {
+      "id": "category-communication-memory",
+      "type": "group",
+      "label": "communication-memory",
+      "x": 0,
+      "y": 0,
+      "width": 1120,
+      "height": 240,
+      "color": "1"
+    },
+    {
+      "id": "skill-communication-memory-governance",
+      "type": "file",
+      "file": "skills/communication-memory-governance.md",
+      "x": 40,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-engineering",
+      "type": "group",
+      "label": "engineering",
+      "x": 1220,
+      "y": 0,
+      "width": 1120,
+      "height": 660,
+      "color": "2"
+    },
+    {
+      "id": "skill-agent-handoff",
+      "type": "file",
+      "file": "skills/agent-handoff.md",
+      "x": 1260,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-architecture-deepening-review",
+      "type": "file",
+      "file": "skills/architecture-deepening-review.md",
+      "x": 1590,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-conversation-to-spec",
+      "type": "file",
+      "file": "skills/conversation-to-spec.md",
+      "x": 1920,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-disciplined-diagnosis",
+      "type": "file",
+      "file": "skills/disciplined-diagnosis.md",
+      "x": 1260,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-engineering-delivery-followup",
+      "type": "file",
+      "file": "skills/engineering-delivery-followup.md",
+      "x": 1590,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-implement-from-issue",
+      "type": "file",
+      "file": "skills/implement-from-issue.md",
+      "x": 1920,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-iterate-software-projects",
+      "type": "file",
+      "file": "skills/iterate-software-projects.md",
+      "x": 1260,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-large-work-wayfinder",
+      "type": "file",
+      "file": "skills/large-work-wayfinder.md",
+      "x": 1590,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-project-beta-readiness",
+      "type": "file",
+      "file": "skills/project-beta-readiness.md",
+      "x": 1920,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-spec-to-vertical-issues",
+      "type": "file",
+      "file": "skills/spec-to-vertical-issues.md",
+      "x": 1260,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-throwaway-prototype",
+      "type": "file",
+      "file": "skills/throwaway-prototype.md",
+      "x": 1590,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-two-axis-code-review",
+      "type": "file",
+      "file": "skills/two-axis-code-review.md",
+      "x": 1920,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-internal",
+      "type": "group",
+      "label": "internal",
+      "x": 2440,
+      "y": 0,
+      "width": 1120,
+      "height": 940,
+      "color": "3"
+    },
+    {
+      "id": "skill-decision-record",
+      "type": "file",
+      "file": "skills/decision-record.md",
+      "x": 2480,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-deferred-external-action-verification",
+      "type": "file",
+      "file": "skills/deferred-external-action-verification.md",
+      "x": 2810,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-domain-model-maintenance",
+      "type": "file",
+      "file": "skills/domain-model-maintenance.md",
+      "x": 3140,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-evidence-based-causal-investigation",
+      "type": "file",
+      "file": "skills/evidence-based-causal-investigation.md",
+      "x": 2480,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-knowledge-map-generator",
+      "type": "file",
+      "file": "skills/knowledge-map-generator.md",
+      "x": 2810,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-knowledge-view",
+      "type": "file",
+      "file": "skills/knowledge-view.md",
+      "x": 3140,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-memory-sync-reconciliation",
+      "type": "file",
+      "file": "skills/memory-sync-reconciliation.md",
+      "x": 2480,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-merge-conflict-resolution",
+      "type": "file",
+      "file": "skills/merge-conflict-resolution.md",
+      "x": 2810,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-obsidian-adapter",
+      "type": "file",
+      "file": "skills/obsidian-adapter.md",
+      "x": 3140,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-opaque-system-analysis",
+      "type": "file",
+      "file": "skills/opaque-system-analysis.md",
+      "x": 2480,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-openasr-offline-model-import",
+      "type": "file",
+      "file": "skills/openasr-offline-model-import.md",
+      "x": 2810,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-regulated-product-context",
+      "type": "file",
+      "file": "skills/regulated-product-context.md",
+      "x": 3140,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-regulatory-evidence-traceability",
+      "type": "file",
+      "file": "skills/regulatory-evidence-traceability.md",
+      "x": 2480,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-round-based-requirements-grilling",
+      "type": "file",
+      "file": "skills/round-based-requirements-grilling.md",
+      "x": 2810,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-source-to-context",
+      "type": "file",
+      "file": "skills/source-to-context.md",
+      "x": 3140,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-synapse-orchestrator",
+      "type": "file",
+      "file": "skills/synapse-orchestrator.md",
+      "x": 2480,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-test-driven-vertical-slice",
+      "type": "file",
+      "file": "skills/test-driven-vertical-slice.md",
+      "x": 2810,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-two-axis-compliance-review",
+      "type": "file",
+      "file": "skills/two-axis-compliance-review.md",
+      "x": 3140,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-productivity",
+      "type": "group",
+      "label": "productivity",
+      "x": 3660,
+      "y": 0,
+      "width": 1120,
+      "height": 380,
+      "color": "4"
+    },
+    {
+      "id": "skill-daily-and-weekly-review",
+      "type": "file",
+      "file": "skills/daily-and-weekly-review.md",
+      "x": 3700,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-decision-and-follow-up-tracker",
+      "type": "file",
+      "file": "skills/decision-and-follow-up-tracker.md",
+      "x": 4030,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-external-stakeholder-questionnaire",
+      "type": "file",
+      "file": "skills/external-stakeholder-questionnaire.md",
+      "x": 4360,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-inbox-action-triage",
+      "type": "file",
+      "file": "skills/inbox-action-triage.md",
+      "x": 3700,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-meeting-preparation",
+      "type": "file",
+      "file": "skills/meeting-preparation.md",
+      "x": 4030,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-project-status-brief",
+      "type": "file",
+      "file": "skills/project-status-brief.md",
+      "x": 4360,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-regulated-engineering",
+      "type": "group",
+      "label": "regulated-engineering",
+      "x": 4880,
+      "y": 0,
+      "width": 1120,
+      "height": 3600,
+      "color": "5"
+    },
+    {
+      "id": "skill-audit-inspection-finding-response",
+      "type": "file",
+      "file": "skills/audit-inspection-finding-response.md",
+      "x": 4920,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-clinical-evidence-update-impact",
+      "type": "file",
+      "file": "skills/clinical-evidence-update-impact.md",
+      "x": 5250,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-controlled-quality-documentation",
+      "type": "file",
+      "file": "skills/controlled-quality-documentation.md",
+      "x": 5580,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-design-change-regulatory-impact",
+      "type": "file",
+      "file": "skills/design-change-regulatory-impact.md",
+      "x": 4920,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-design-control-traceability",
+      "type": "file",
+      "file": "skills/design-control-traceability.md",
+      "x": 5250,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-eu-mdr-ivdr-regulatory-specialist",
+      "type": "file",
+      "file": "skills/eu-mdr-ivdr-regulatory-specialist.md",
+      "x": 5580,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-eudamed-udi-ivd",
+      "type": "file",
+      "file": "skills/eudamed-udi-ivd.md",
+      "x": 4920,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-510k-predicate-strategy",
+      "type": "file",
+      "file": "skills/fda-510k-predicate-strategy.md",
+      "x": 5250,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-510k-substantial-equivalence",
+      "type": "file",
+      "file": "skills/fda-510k-substantial-equivalence.md",
+      "x": 5580,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-acceptance-readiness",
+      "type": "file",
+      "file": "skills/fda-acceptance-readiness.md",
+      "x": 4920,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-additional-information-response",
+      "type": "file",
+      "file": "skills/fda-additional-information-response.md",
+      "x": 5250,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-complaint-mdr-reportability",
+      "type": "file",
+      "file": "skills/fda-complaint-mdr-reportability.md",
+      "x": 5580,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-corrections-removals",
+      "type": "file",
+      "file": "skills/fda-corrections-removals.md",
+      "x": 4920,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-de-novo-special-controls",
+      "type": "file",
+      "file": "skills/fda-de-novo-special-controls.md",
+      "x": 5250,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-de-novo-strategy",
+      "type": "file",
+      "file": "skills/fda-de-novo-strategy.md",
+      "x": 5580,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-device-classification-product-code",
+      "type": "file",
+      "file": "skills/fda-device-classification-product-code.md",
+      "x": 4920,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-dual-510k-clia-waiver",
+      "type": "file",
+      "file": "skills/fda-dual-510k-clia-waiver.md",
+      "x": 5250,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-estar-submission-builder",
+      "type": "file",
+      "file": "skills/fda-estar-submission-builder.md",
+      "x": 5580,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-ivd-clia-waiver",
+      "type": "file",
+      "file": "skills/fda-ivd-clia-waiver.md",
+      "x": 4920,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "type": "file",
+      "file": "skills/fda-medical-device-ivd-regulatory-specialist.md",
+      "x": 5250,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-pccp-change-control",
+      "type": "file",
+      "file": "skills/fda-pccp-change-control.md",
+      "x": 5580,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-qmsr-inspection-readiness",
+      "type": "file",
+      "file": "skills/fda-qmsr-inspection-readiness.md",
+      "x": 4920,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-qmsr-iso13485-gap",
+      "type": "file",
+      "file": "skills/fda-qmsr-iso13485-gap.md",
+      "x": 5250,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-qsub-strategy",
+      "type": "file",
+      "file": "skills/fda-qsub-strategy.md",
+      "x": 5580,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-recall-status-termination",
+      "type": "file",
+      "file": "skills/fda-recall-status-termination.md",
+      "x": 4920,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-fda-registration-listing-udi",
+      "type": "file",
+      "file": "skills/fda-registration-listing-udi.md",
+      "x": 5250,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-iec62304-software-lifecycle",
+      "type": "file",
+      "file": "skills/iec62304-software-lifecycle.md",
+      "x": 5580,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-iec62366-usability-engineering",
+      "type": "file",
+      "file": "skills/iec62366-usability-engineering.md",
+      "x": 4920,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-iso13485-qms-audit",
+      "type": "file",
+      "file": "skills/iso13485-qms-audit.md",
+      "x": 5250,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-iso27001-isms-audit",
+      "type": "file",
+      "file": "skills/iso27001-isms-audit.md",
+      "x": 5580,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-analytical-performance",
+      "type": "file",
+      "file": "skills/ivdr-analytical-performance.md",
+      "x": 4920,
+      "y": 1470,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-class-d-conformity",
+      "type": "file",
+      "file": "skills/ivdr-class-d-conformity.md",
+      "x": 5250,
+      "y": 1470,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-clinical-performance-study",
+      "type": "file",
+      "file": "skills/ivdr-clinical-performance-study.md",
+      "x": 5580,
+      "y": 1470,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-companion-diagnostic-consultation",
+      "type": "file",
+      "file": "skills/ivdr-companion-diagnostic-consultation.md",
+      "x": 4920,
+      "y": 1610,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-device-classification",
+      "type": "file",
+      "file": "skills/ivdr-device-classification.md",
+      "x": 5250,
+      "y": 1610,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-economic-operator-postmarket-propagation",
+      "type": "file",
+      "file": "skills/ivdr-economic-operator-postmarket-propagation.md",
+      "x": 5580,
+      "y": 1610,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-field-safety-corrective-action",
+      "type": "file",
+      "file": "skills/ivdr-field-safety-corrective-action.md",
+      "x": 4920,
+      "y": 1750,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-fsca-status-final-reporting",
+      "type": "file",
+      "file": "skills/ivdr-fsca-status-final-reporting.md",
+      "x": 5250,
+      "y": 1750,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-inhouse-health-institution",
+      "type": "file",
+      "file": "skills/ivdr-inhouse-health-institution.md",
+      "x": 5580,
+      "y": 1750,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-performance-evaluation",
+      "type": "file",
+      "file": "skills/ivdr-performance-evaluation.md",
+      "x": 4920,
+      "y": 1890,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-performance-evaluation-report",
+      "type": "file",
+      "file": "skills/ivdr-performance-evaluation-report.md",
+      "x": 5250,
+      "y": 1890,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-pmpf",
+      "type": "file",
+      "file": "skills/ivdr-pmpf.md",
+      "x": 5580,
+      "y": 1890,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-pms-vigilance",
+      "type": "file",
+      "file": "skills/ivdr-pms-vigilance.md",
+      "x": 4920,
+      "y": 2030,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ivdr-scientific-validity",
+      "type": "file",
+      "file": "skills/ivdr-scientific-validity.md",
+      "x": 5250,
+      "y": 2030,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-mdcg-guidance-navigator",
+      "type": "file",
+      "file": "skills/mdcg-guidance-navigator.md",
+      "x": 5580,
+      "y": 2030,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-mdsap-audit-readiness",
+      "type": "file",
+      "file": "skills/mdsap-audit-readiness.md",
+      "x": 4920,
+      "y": 2170,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-measurement-system-validation",
+      "type": "file",
+      "file": "skills/measurement-system-validation.md",
+      "x": 5250,
+      "y": 2170,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-adverse-event-coding",
+      "type": "file",
+      "file": "skills/medical-device-adverse-event-coding.md",
+      "x": 5580,
+      "y": 2170,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-capa",
+      "type": "file",
+      "file": "skills/medical-device-capa.md",
+      "x": 4920,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-complaint-customer-followup",
+      "type": "file",
+      "file": "skills/medical-device-complaint-customer-followup.md",
+      "x": 5250,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-complaint-handling",
+      "type": "file",
+      "file": "skills/medical-device-complaint-handling.md",
+      "x": 5580,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-complaint-regulatory-routing",
+      "type": "file",
+      "file": "skills/medical-device-complaint-regulatory-routing.md",
+      "x": 4920,
+      "y": 2450,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-customer-contact-intake",
+      "type": "file",
+      "file": "skills/medical-device-customer-contact-intake.md",
+      "x": 5250,
+      "y": 2450,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-cybersecurity-lifecycle",
+      "type": "file",
+      "file": "skills/medical-device-cybersecurity-lifecycle.md",
+      "x": 5580,
+      "y": 2450,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-field-action-communication",
+      "type": "file",
+      "file": "skills/medical-device-field-action-communication.md",
+      "x": 4920,
+      "y": 2590,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-field-action-effectiveness",
+      "type": "file",
+      "file": "skills/medical-device-field-action-effectiveness.md",
+      "x": 5250,
+      "y": 2590,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-field-action-physical-execution",
+      "type": "file",
+      "file": "skills/medical-device-field-action-physical-execution.md",
+      "x": 5580,
+      "y": 2590,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-isms-governance",
+      "type": "file",
+      "file": "skills/medical-device-isms-governance.md",
+      "x": 4920,
+      "y": 2730,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-labeling-ifu",
+      "type": "file",
+      "file": "skills/medical-device-labeling-ifu.md",
+      "x": 5250,
+      "y": 2730,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-pms-system",
+      "type": "file",
+      "file": "skills/medical-device-pms-system.md",
+      "x": 5580,
+      "y": 2730,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-privacy-gdpr-bdsg",
+      "type": "file",
+      "file": "skills/medical-device-privacy-gdpr-bdsg.md",
+      "x": 4920,
+      "y": 2870,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-qms-iso13485",
+      "type": "file",
+      "file": "skills/medical-device-qms-iso13485.md",
+      "x": 5250,
+      "y": 2870,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-regulatory-strategy",
+      "type": "file",
+      "file": "skills/medical-device-regulatory-strategy.md",
+      "x": 5580,
+      "y": 2870,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-risk-management-iso14971",
+      "type": "file",
+      "file": "skills/medical-device-risk-management-iso14971.md",
+      "x": 4920,
+      "y": 3010,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-medical-device-service-report-quality-routing",
+      "type": "file",
+      "file": "skills/medical-device-service-report-quality-routing.md",
+      "x": 5250,
+      "y": 3010,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-nonconformance-mrb-disposition",
+      "type": "file",
+      "file": "skills/nonconformance-mrb-disposition.md",
+      "x": 5580,
+      "y": 3010,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-process-validation-iq-oq-pq",
+      "type": "file",
+      "file": "skills/process-validation-iq-oq-pq.md",
+      "x": 4920,
+      "y": 3150,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-qms-management-review-action-followup",
+      "type": "file",
+      "file": "skills/qms-management-review-action-followup.md",
+      "x": 5250,
+      "y": 3150,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-qms-management-review-governance",
+      "type": "file",
+      "file": "skills/qms-management-review-governance.md",
+      "x": 5580,
+      "y": 3150,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-quality-record-integrity",
+      "type": "file",
+      "file": "skills/quality-record-integrity.md",
+      "x": 4920,
+      "y": 3290,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-regulatory-change-impact-orchestrator",
+      "type": "file",
+      "file": "skills/regulatory-change-impact-orchestrator.md",
+      "x": 5250,
+      "y": 3290,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-regulatory-change-monitoring",
+      "type": "file",
+      "file": "skills/regulatory-change-monitoring.md",
+      "x": 5580,
+      "y": 3290,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-regulatory-claims-consistency",
+      "type": "file",
+      "file": "skills/regulatory-claims-consistency.md",
+      "x": 4920,
+      "y": 3430,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-supplier-quality-medical-device",
+      "type": "file",
+      "file": "skills/supplier-quality-medical-device.md",
+      "x": 5250,
+      "y": 3430,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-research-knowledge",
+      "type": "group",
+      "label": "research-knowledge",
+      "x": 6100,
+      "y": 0,
+      "width": 1120,
+      "height": 240,
+      "color": "6"
+    },
+    {
+      "id": "skill-research-to-evidence-note",
+      "type": "file",
+      "file": "skills/research-to-evidence-note.md",
+      "x": 6140,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-structured-knowledge-artifact",
+      "type": "file",
+      "file": "skills/structured-knowledge-artifact.md",
+      "x": 6470,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-skill-system",
+      "type": "group",
+      "label": "skill-system",
+      "x": 7320,
+      "y": 0,
+      "width": 1120,
+      "height": 240,
+      "color": "1"
+    },
+    {
+      "id": "skill-central-skill-repository-curation",
+      "type": "file",
+      "file": "skills/central-skill-repository-curation.md",
+      "x": 7360,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-composable-skill-factory",
+      "type": "file",
+      "file": "skills/composable-skill-factory.md",
+      "x": 7690,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-repository-skill-bootstrap",
+      "type": "file",
+      "file": "skills/repository-skill-bootstrap.md",
+      "x": 8020,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-workflow",
+      "type": "group",
+      "label": "workflow",
+      "x": 8540,
+      "y": 0,
+      "width": 1120,
+      "height": 240,
+      "color": "2"
+    },
+    {
+      "id": "skill-human-procedure-wizard",
+      "type": "file",
+      "file": "skills/human-procedure-wizard.md",
+      "x": 8580,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    }
+  ],
+  "edges": [
+    {
+      "id": "requires-53e64ca8269e",
+      "fromNode": "skill-agent-handoff",
+      "fromSide": "right",
+      "toNode": "skill-iterate-software-projects",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-618777d85273",
+      "fromNode": "skill-architecture-deepening-review",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c3ae346553a8",
+      "fromNode": "skill-architecture-deepening-review",
+      "fromSide": "left",
+      "toNode": "skill-iterate-software-projects",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6745b2e27294",
+      "fromNode": "skill-audit-inspection-finding-response",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-11483efc311a",
+      "fromNode": "skill-audit-inspection-finding-response",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b9a95c56ffa7",
+      "fromNode": "skill-central-skill-repository-curation",
+      "fromSide": "right",
+      "toNode": "skill-composable-skill-factory",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a7e17cbd1f3b",
+      "fromNode": "skill-clinical-evidence-update-impact",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-40e560ebba1a",
+      "fromNode": "skill-clinical-evidence-update-impact",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b85cf777905f",
+      "fromNode": "skill-clinical-evidence-update-impact",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-da2f68810685",
+      "fromNode": "skill-clinical-evidence-update-impact",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7acbea2fdbe2",
+      "fromNode": "skill-controlled-quality-documentation",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-84b8a8044fe4",
+      "fromNode": "skill-controlled-quality-documentation",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8d012c927760",
+      "fromNode": "skill-daily-and-weekly-review",
+      "fromSide": "right",
+      "toNode": "skill-inbox-action-triage",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6ae43bd70203",
+      "fromNode": "skill-decision-and-follow-up-tracker",
+      "fromSide": "left",
+      "toNode": "skill-daily-and-weekly-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-24ffef3d6622",
+      "fromNode": "skill-decision-and-follow-up-tracker",
+      "fromSide": "right",
+      "toNode": "skill-meeting-preparation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0641365b9818",
+      "fromNode": "skill-decision-and-follow-up-tracker",
+      "fromSide": "right",
+      "toNode": "skill-project-status-brief",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f9498be270a7",
+      "fromNode": "skill-decision-record",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8bc77c762fa9",
+      "fromNode": "skill-decision-record",
+      "fromSide": "left",
+      "toNode": "skill-large-work-wayfinder",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2203468b4ce2",
+      "fromNode": "skill-decision-record",
+      "fromSide": "left",
+      "toNode": "skill-throwaway-prototype",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cf10fa2b488e",
+      "fromNode": "skill-decision-record",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-code-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4608cf83e1b5",
+      "fromNode": "skill-design-change-regulatory-impact",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1dedad248cf5",
+      "fromNode": "skill-design-change-regulatory-impact",
+      "fromSide": "right",
+      "toNode": "skill-design-control-traceability",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ec5e64079e39",
+      "fromNode": "skill-design-change-regulatory-impact",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-829b11fdec96",
+      "fromNode": "skill-design-change-regulatory-impact",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4dafeb230536",
+      "fromNode": "skill-design-control-traceability",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bd68e420975d",
+      "fromNode": "skill-design-control-traceability",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c3fd87d6cff7",
+      "fromNode": "skill-design-control-traceability",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e28911b4f199",
+      "fromNode": "skill-disciplined-diagnosis",
+      "fromSide": "right",
+      "toNode": "skill-iterate-software-projects",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-53807efc5a18",
+      "fromNode": "skill-domain-model-maintenance",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-81d25422d040",
+      "fromNode": "skill-domain-model-maintenance",
+      "fromSide": "left",
+      "toNode": "skill-architecture-deepening-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-46ebecd773d1",
+      "fromNode": "skill-domain-model-maintenance",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-17832d64e64b",
+      "fromNode": "skill-domain-model-maintenance",
+      "fromSide": "left",
+      "toNode": "skill-test-driven-vertical-slice",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f67c628aac9f",
+      "fromNode": "skill-domain-model-maintenance",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-code-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ad35c37b12a5",
+      "fromNode": "skill-engineering-delivery-followup",
+      "fromSide": "right",
+      "toNode": "skill-deferred-external-action-verification",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6cdb29467620",
+      "fromNode": "skill-engineering-delivery-followup",
+      "fromSide": "right",
+      "toNode": "skill-two-axis-code-review",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dccb98e2b024",
+      "fromNode": "skill-eu-mdr-ivdr-regulatory-specialist",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-64f968abd2a7",
+      "fromNode": "skill-eu-mdr-ivdr-regulatory-specialist",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d17038a2c23c",
+      "fromNode": "skill-eu-mdr-ivdr-regulatory-specialist",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e30de7dc89f7",
+      "fromNode": "skill-eudamed-udi-ivd",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-device-classification",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-319a5ec371a7",
+      "fromNode": "skill-eudamed-udi-ivd",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-labeling-ifu",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-449a73bd9d9f",
+      "fromNode": "skill-eudamed-udi-ivd",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-762b6dc8b564",
+      "fromNode": "skill-eudamed-udi-ivd",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0ee48a4b2b66",
+      "fromNode": "skill-evidence-based-causal-investigation",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0d44acc62715",
+      "fromNode": "skill-fda-510k-predicate-strategy",
+      "fromSide": "left",
+      "toNode": "skill-fda-device-classification-product-code",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0b151ccca9d2",
+      "fromNode": "skill-fda-510k-predicate-strategy",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-26b9174ed702",
+      "fromNode": "skill-fda-510k-predicate-strategy",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e85786bb8fc8",
+      "fromNode": "skill-fda-510k-predicate-strategy",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ced39b96fd10",
+      "fromNode": "skill-fda-510k-substantial-equivalence",
+      "fromSide": "left",
+      "toNode": "skill-fda-510k-predicate-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f807882e4b7b",
+      "fromNode": "skill-fda-510k-substantial-equivalence",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-08b824352346",
+      "fromNode": "skill-fda-510k-substantial-equivalence",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f352f74a2d1a",
+      "fromNode": "skill-fda-acceptance-readiness",
+      "fromSide": "right",
+      "toNode": "skill-fda-estar-submission-builder",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-76d83ce8ba74",
+      "fromNode": "skill-fda-acceptance-readiness",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c7c5e6c6ad61",
+      "fromNode": "skill-fda-acceptance-readiness",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d9d81de1e5f8",
+      "fromNode": "skill-fda-additional-information-response",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-372d11776e7d",
+      "fromNode": "skill-fda-additional-information-response",
+      "fromSide": "right",
+      "toNode": "skill-fda-estar-submission-builder",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3d22c357685e",
+      "fromNode": "skill-fda-additional-information-response",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-22efc85093ad",
+      "fromNode": "skill-fda-complaint-mdr-reportability",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c243f6542771",
+      "fromNode": "skill-fda-complaint-mdr-reportability",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-01b967cfb424",
+      "fromNode": "skill-fda-complaint-mdr-reportability",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c6c0541f5325",
+      "fromNode": "skill-fda-complaint-mdr-reportability",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-00b3f16b03dc",
+      "fromNode": "skill-fda-corrections-removals",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-10a3f58ea552",
+      "fromNode": "skill-fda-corrections-removals",
+      "fromSide": "right",
+      "toNode": "skill-fda-complaint-mdr-reportability",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5c02d8158bcc",
+      "fromNode": "skill-fda-corrections-removals",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-capa",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-568829666e39",
+      "fromNode": "skill-fda-corrections-removals",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-744d12b5f0e7",
+      "fromNode": "skill-fda-de-novo-special-controls",
+      "fromSide": "right",
+      "toNode": "skill-fda-de-novo-strategy",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3d1585d3350e",
+      "fromNode": "skill-fda-de-novo-special-controls",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a125feb24fd4",
+      "fromNode": "skill-fda-de-novo-special-controls",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2c0c25ab1336",
+      "fromNode": "skill-fda-de-novo-strategy",
+      "fromSide": "left",
+      "toNode": "skill-fda-device-classification-product-code",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2791ee8f0b31",
+      "fromNode": "skill-fda-de-novo-strategy",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-56437dc3bfe6",
+      "fromNode": "skill-fda-de-novo-strategy",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6c6a786b2519",
+      "fromNode": "skill-fda-de-novo-strategy",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ce89d5cfcd4b",
+      "fromNode": "skill-fda-device-classification-product-code",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cd3bf037eaef",
+      "fromNode": "skill-fda-device-classification-product-code",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-710ca31f6ee9",
+      "fromNode": "skill-fda-device-classification-product-code",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c8c039329704",
+      "fromNode": "skill-fda-dual-510k-clia-waiver",
+      "fromSide": "right",
+      "toNode": "skill-fda-510k-substantial-equivalence",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-257d9b27b90b",
+      "fromNode": "skill-fda-dual-510k-clia-waiver",
+      "fromSide": "left",
+      "toNode": "skill-fda-ivd-clia-waiver",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c0b621d5fd09",
+      "fromNode": "skill-fda-dual-510k-clia-waiver",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dd418cddfee9",
+      "fromNode": "skill-fda-estar-submission-builder",
+      "fromSide": "left",
+      "toNode": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-617af65483eb",
+      "fromNode": "skill-fda-estar-submission-builder",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3322b8274046",
+      "fromNode": "skill-fda-ivd-clia-waiver",
+      "fromSide": "right",
+      "toNode": "skill-fda-device-classification-product-code",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3978450b8870",
+      "fromNode": "skill-fda-ivd-clia-waiver",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fe4e12d57c65",
+      "fromNode": "skill-fda-ivd-clia-waiver",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e961822a463b",
+      "fromNode": "skill-fda-ivd-clia-waiver",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-535222e7dff8",
+      "fromNode": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fb217986c0b1",
+      "fromNode": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a9954b073642",
+      "fromNode": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dd903c89967b",
+      "fromNode": "skill-fda-pccp-change-control",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d64e8a84665d",
+      "fromNode": "skill-fda-pccp-change-control",
+      "fromSide": "left",
+      "toNode": "skill-design-change-regulatory-impact",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3473689ec354",
+      "fromNode": "skill-fda-pccp-change-control",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f5f4e95f1482",
+      "fromNode": "skill-fda-pccp-change-control",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-503641c61aba",
+      "fromNode": "skill-fda-qmsr-inspection-readiness",
+      "fromSide": "right",
+      "toNode": "skill-fda-qmsr-iso13485-gap",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-713da8b843a0",
+      "fromNode": "skill-fda-qmsr-inspection-readiness",
+      "fromSide": "right",
+      "toNode": "skill-iso13485-qms-audit",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4cc9c7fe8d4a",
+      "fromNode": "skill-fda-qmsr-inspection-readiness",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c398678b7b77",
+      "fromNode": "skill-fda-qmsr-iso13485-gap",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-117b66c872bf",
+      "fromNode": "skill-fda-qmsr-iso13485-gap",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-110c150ad9da",
+      "fromNode": "skill-fda-qmsr-iso13485-gap",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a42a2428b3b2",
+      "fromNode": "skill-fda-qsub-strategy",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-642189bd4b43",
+      "fromNode": "skill-fda-qsub-strategy",
+      "fromSide": "left",
+      "toNode": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-df0b065ffb49",
+      "fromNode": "skill-fda-qsub-strategy",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-02810da1e886",
+      "fromNode": "skill-fda-recall-status-termination",
+      "fromSide": "right",
+      "toNode": "skill-fda-corrections-removals",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-439333888b82",
+      "fromNode": "skill-fda-recall-status-termination",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-field-action-effectiveness",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e39d9833a0d1",
+      "fromNode": "skill-fda-recall-status-termination",
+      "fromSide": "right",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4e2cc11c17a0",
+      "fromNode": "skill-fda-recall-status-termination",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-190b4464b27f",
+      "fromNode": "skill-fda-registration-listing-udi",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-735cca2e9d5c",
+      "fromNode": "skill-fda-registration-listing-udi",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-labeling-ifu",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-46953c13ee2f",
+      "fromNode": "skill-fda-registration-listing-udi",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-01c7dd4d1b62",
+      "fromNode": "skill-fda-registration-listing-udi",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-457849b31ba4",
+      "fromNode": "skill-iec62304-software-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-design-control-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-26718016cae6",
+      "fromNode": "skill-iec62304-software-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f0a4d4ff0416",
+      "fromNode": "skill-iec62304-software-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a639572a568e",
+      "fromNode": "skill-iec62304-software-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6449f7233c5c",
+      "fromNode": "skill-iec62366-usability-engineering",
+      "fromSide": "right",
+      "toNode": "skill-design-control-traceability",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6366172cfa70",
+      "fromNode": "skill-iec62366-usability-engineering",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-labeling-ifu",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0410309e79db",
+      "fromNode": "skill-iec62366-usability-engineering",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3849de8ba03b",
+      "fromNode": "skill-iec62366-usability-engineering",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-baae57f40b4f",
+      "fromNode": "skill-implement-from-issue",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-baa894d8c58f",
+      "fromNode": "skill-implement-from-issue",
+      "fromSide": "right",
+      "toNode": "skill-deferred-external-action-verification",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e9a76273e25a",
+      "fromNode": "skill-implement-from-issue",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f31ea074dc0b",
+      "fromNode": "skill-implement-from-issue",
+      "fromSide": "right",
+      "toNode": "skill-test-driven-vertical-slice",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9b644bdc8968",
+      "fromNode": "skill-iso13485-qms-audit",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-71422845f6bf",
+      "fromNode": "skill-iso13485-qms-audit",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b3b1d62e0322",
+      "fromNode": "skill-iso27001-isms-audit",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-isms-governance",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-393d83565e71",
+      "fromNode": "skill-iso27001-isms-audit",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5beed4cca6f3",
+      "fromNode": "skill-ivdr-analytical-performance",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f6458533a87e",
+      "fromNode": "skill-ivdr-analytical-performance",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ce308252a553",
+      "fromNode": "skill-ivdr-analytical-performance",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-094be399e0d9",
+      "fromNode": "skill-ivdr-class-d-conformity",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-device-classification",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-20d97bf6928a",
+      "fromNode": "skill-ivdr-class-d-conformity",
+      "fromSide": "left",
+      "toNode": "skill-ivdr-performance-evaluation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-68d0d5e27517",
+      "fromNode": "skill-ivdr-class-d-conformity",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-580e4ef4db55",
+      "fromNode": "skill-ivdr-class-d-conformity",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a97669e71973",
+      "fromNode": "skill-ivdr-clinical-performance-study",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-942714fe8bd7",
+      "fromNode": "skill-ivdr-clinical-performance-study",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-77125d4ccfa3",
+      "fromNode": "skill-ivdr-clinical-performance-study",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-145e1c2c0929",
+      "fromNode": "skill-ivdr-clinical-performance-study",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e88a17a16ff3",
+      "fromNode": "skill-ivdr-companion-diagnostic-consultation",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-48a1b13313f6",
+      "fromNode": "skill-ivdr-companion-diagnostic-consultation",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-device-classification",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-21690ad86d11",
+      "fromNode": "skill-ivdr-companion-diagnostic-consultation",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-performance-evaluation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8981df0b50f7",
+      "fromNode": "skill-ivdr-companion-diagnostic-consultation",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fa3020d607e0",
+      "fromNode": "skill-ivdr-companion-diagnostic-consultation",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-78066aef8332",
+      "fromNode": "skill-ivdr-device-classification",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-74456ee3fb97",
+      "fromNode": "skill-ivdr-device-classification",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a2d5074c19c6",
+      "fromNode": "skill-ivdr-device-classification",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-eb06e1ebab84",
+      "fromNode": "skill-ivdr-economic-operator-postmarket-propagation",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2f1804a39799",
+      "fromNode": "skill-ivdr-economic-operator-postmarket-propagation",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-26ec26b7305b",
+      "fromNode": "skill-ivdr-economic-operator-postmarket-propagation",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3c991b8a6eab",
+      "fromNode": "skill-ivdr-field-safety-corrective-action",
+      "fromSide": "right",
+      "toNode": "skill-controlled-quality-documentation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a04ac46e4693",
+      "fromNode": "skill-ivdr-field-safety-corrective-action",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-pms-vigilance",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-00568fdf52c4",
+      "fromNode": "skill-ivdr-field-safety-corrective-action",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b248981428c8",
+      "fromNode": "skill-ivdr-field-safety-corrective-action",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-capa",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-330fb6a57739",
+      "fromNode": "skill-ivdr-field-safety-corrective-action",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-57fea477e71f",
+      "fromNode": "skill-ivdr-field-safety-corrective-action",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0c4bf40b149b",
+      "fromNode": "skill-ivdr-fsca-status-final-reporting",
+      "fromSide": "left",
+      "toNode": "skill-ivdr-field-safety-corrective-action",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b2ef988024d5",
+      "fromNode": "skill-ivdr-fsca-status-final-reporting",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5322a5437bc7",
+      "fromNode": "skill-ivdr-fsca-status-final-reporting",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-field-action-effectiveness",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f86b0b6e50dc",
+      "fromNode": "skill-ivdr-fsca-status-final-reporting",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-af233ca342f8",
+      "fromNode": "skill-ivdr-inhouse-health-institution",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2afe8aae025f",
+      "fromNode": "skill-ivdr-inhouse-health-institution",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dde0a85dad6e",
+      "fromNode": "skill-ivdr-inhouse-health-institution",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c9641b67892c",
+      "fromNode": "skill-ivdr-inhouse-health-institution",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c1c26004b2c6",
+      "fromNode": "skill-ivdr-inhouse-health-institution",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-118c90cfa6d3",
+      "fromNode": "skill-ivdr-performance-evaluation",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-analytical-performance",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-78287f723c6d",
+      "fromNode": "skill-ivdr-performance-evaluation",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-clinical-performance-study",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9ff7cef01f5c",
+      "fromNode": "skill-ivdr-performance-evaluation",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-scientific-validity",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3552c119aa5c",
+      "fromNode": "skill-ivdr-performance-evaluation",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ec1ee02d4a60",
+      "fromNode": "skill-ivdr-performance-evaluation-report",
+      "fromSide": "left",
+      "toNode": "skill-ivdr-performance-evaluation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2b9854e398f5",
+      "fromNode": "skill-ivdr-performance-evaluation-report",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b7fcef54056c",
+      "fromNode": "skill-ivdr-performance-evaluation-report",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cbd5174e5c05",
+      "fromNode": "skill-ivdr-pmpf",
+      "fromSide": "left",
+      "toNode": "skill-ivdr-performance-evaluation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-08d0b3915df0",
+      "fromNode": "skill-ivdr-pmpf",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9ced44b470bf",
+      "fromNode": "skill-ivdr-pmpf",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d2337d188185",
+      "fromNode": "skill-ivdr-pmpf",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3ce837fb7373",
+      "fromNode": "skill-ivdr-pms-vigilance",
+      "fromSide": "right",
+      "toNode": "skill-mdcg-guidance-navigator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-35a02d21bd45",
+      "fromNode": "skill-ivdr-pms-vigilance",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-pms-system",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-657e929916e7",
+      "fromNode": "skill-ivdr-pms-vigilance",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-abf7c01cdd15",
+      "fromNode": "skill-ivdr-pms-vigilance",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bacdf0259e0b",
+      "fromNode": "skill-ivdr-pms-vigilance",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-636d3c82622b",
+      "fromNode": "skill-ivdr-pms-vigilance",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9761ef9d5588",
+      "fromNode": "skill-ivdr-scientific-validity",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bd4208412501",
+      "fromNode": "skill-ivdr-scientific-validity",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-496a4eca503e",
+      "fromNode": "skill-ivdr-scientific-validity",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3e650f290a75",
+      "fromNode": "skill-knowledge-map-generator",
+      "fromSide": "right",
+      "toNode": "skill-structured-knowledge-artifact",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-afa9c63b027e",
+      "fromNode": "skill-knowledge-view",
+      "fromSide": "right",
+      "toNode": "skill-structured-knowledge-artifact",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e3ad69dd6c15",
+      "fromNode": "skill-large-work-wayfinder",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f46d8ec9a2a3",
+      "fromNode": "skill-large-work-wayfinder",
+      "fromSide": "right",
+      "toNode": "skill-architecture-deepening-review",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-adccc67755e1",
+      "fromNode": "skill-large-work-wayfinder",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-40dd69253110",
+      "fromNode": "skill-large-work-wayfinder",
+      "fromSide": "left",
+      "toNode": "skill-spec-to-vertical-issues",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e1c315a534cf",
+      "fromNode": "skill-mdcg-guidance-navigator",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1ed8515ce2c3",
+      "fromNode": "skill-mdcg-guidance-navigator",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-83ad696f8192",
+      "fromNode": "skill-mdcg-guidance-navigator",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b66c8fdc9c60",
+      "fromNode": "skill-mdsap-audit-readiness",
+      "fromSide": "right",
+      "toNode": "skill-iso13485-qms-audit",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-13049d09b606",
+      "fromNode": "skill-mdsap-audit-readiness",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4bec29dc302d",
+      "fromNode": "skill-mdsap-audit-readiness",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d2983ed3f0f3",
+      "fromNode": "skill-measurement-system-validation",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-51a5b228cf3c",
+      "fromNode": "skill-measurement-system-validation",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f1b5fd988b08",
+      "fromNode": "skill-measurement-system-validation",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2484b3338bff",
+      "fromNode": "skill-medical-device-adverse-event-coding",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-complaint-handling",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6202a9960093",
+      "fromNode": "skill-medical-device-adverse-event-coding",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-730c8fef6c17",
+      "fromNode": "skill-medical-device-capa",
+      "fromSide": "left",
+      "toNode": "skill-evidence-based-causal-investigation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-34efde9f9a5b",
+      "fromNode": "skill-medical-device-capa",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9f74c0b3f1a6",
+      "fromNode": "skill-medical-device-capa",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-17d6ebf3280d",
+      "fromNode": "skill-medical-device-complaint-customer-followup",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-complaint-handling",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1b3073f3c33d",
+      "fromNode": "skill-medical-device-complaint-customer-followup",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4821014b9ef8",
+      "fromNode": "skill-medical-device-complaint-customer-followup",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0dad0827b3b9",
+      "fromNode": "skill-medical-device-complaint-handling",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-customer-contact-intake",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cc97c08a3dfe",
+      "fromNode": "skill-medical-device-complaint-handling",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-11ca2d4edb1b",
+      "fromNode": "skill-medical-device-complaint-handling",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4973f5a8ba6b",
+      "fromNode": "skill-medical-device-complaint-regulatory-routing",
+      "fromSide": "right",
+      "toNode": "skill-fda-complaint-mdr-reportability",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7df7a95400d9",
+      "fromNode": "skill-medical-device-complaint-regulatory-routing",
+      "fromSide": "right",
+      "toNode": "skill-ivdr-pms-vigilance",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d3a9f5038d07",
+      "fromNode": "skill-medical-device-complaint-regulatory-routing",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-complaint-customer-followup",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b854e97fd83d",
+      "fromNode": "skill-medical-device-complaint-regulatory-routing",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-complaint-handling",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5ec246c66063",
+      "fromNode": "skill-medical-device-complaint-regulatory-routing",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7a73b31e7934",
+      "fromNode": "skill-medical-device-complaint-regulatory-routing",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d3bef94a829a",
+      "fromNode": "skill-medical-device-customer-contact-intake",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-301cfb651d58",
+      "fromNode": "skill-medical-device-cybersecurity-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-design-control-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1b0c2ec22734",
+      "fromNode": "skill-medical-device-cybersecurity-lifecycle",
+      "fromSide": "right",
+      "toNode": "skill-iec62304-software-lifecycle",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9c5962503ef2",
+      "fromNode": "skill-medical-device-cybersecurity-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c5c05335d8ed",
+      "fromNode": "skill-medical-device-cybersecurity-lifecycle",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e39e72138553",
+      "fromNode": "skill-medical-device-field-action-communication",
+      "fromSide": "right",
+      "toNode": "skill-controlled-quality-documentation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cabd3b068d14",
+      "fromNode": "skill-medical-device-field-action-communication",
+      "fromSide": "right",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5c800b619a26",
+      "fromNode": "skill-medical-device-field-action-communication",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3596d2752dc5",
+      "fromNode": "skill-medical-device-field-action-effectiveness",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-capa",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c8cd4ba7d53a",
+      "fromNode": "skill-medical-device-field-action-effectiveness",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-field-action-communication",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-644e87c59dbc",
+      "fromNode": "skill-medical-device-field-action-effectiveness",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-field-action-physical-execution",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a195aff6a87a",
+      "fromNode": "skill-medical-device-field-action-effectiveness",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-pms-system",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bc3b915d7ca5",
+      "fromNode": "skill-medical-device-field-action-effectiveness",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7358e3821a7d",
+      "fromNode": "skill-medical-device-field-action-effectiveness",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b65df2daf4ca",
+      "fromNode": "skill-medical-device-field-action-physical-execution",
+      "fromSide": "right",
+      "toNode": "skill-controlled-quality-documentation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1b95995c49c4",
+      "fromNode": "skill-medical-device-field-action-physical-execution",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-field-action-communication",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-71c68c4033a5",
+      "fromNode": "skill-medical-device-field-action-physical-execution",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b5d0585b7745",
+      "fromNode": "skill-medical-device-isms-governance",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d08593de3d56",
+      "fromNode": "skill-medical-device-isms-governance",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f9f3f11e5c40",
+      "fromNode": "skill-medical-device-labeling-ifu",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6b52db5a5c3c",
+      "fromNode": "skill-medical-device-labeling-ifu",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cdaa7d74ac41",
+      "fromNode": "skill-medical-device-labeling-ifu",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-01f2cea4b978",
+      "fromNode": "skill-medical-device-pms-system",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ee7af1ed0cf8",
+      "fromNode": "skill-medical-device-pms-system",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c92b8547ed02",
+      "fromNode": "skill-medical-device-pms-system",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4be38e2a606a",
+      "fromNode": "skill-medical-device-pms-system",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1504b6492bd9",
+      "fromNode": "skill-medical-device-privacy-gdpr-bdsg",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d891f231338f",
+      "fromNode": "skill-medical-device-privacy-gdpr-bdsg",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b5c95f26af8c",
+      "fromNode": "skill-medical-device-privacy-gdpr-bdsg",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7d93ff12fed4",
+      "fromNode": "skill-medical-device-qms-iso13485",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-14a5fbc8c8e0",
+      "fromNode": "skill-medical-device-qms-iso13485",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a72a65d07969",
+      "fromNode": "skill-medical-device-regulatory-strategy",
+      "fromSide": "right",
+      "toNode": "skill-eu-mdr-ivdr-regulatory-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a2674057da14",
+      "fromNode": "skill-medical-device-regulatory-strategy",
+      "fromSide": "left",
+      "toNode": "skill-fda-medical-device-ivd-regulatory-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1707dd1009a1",
+      "fromNode": "skill-medical-device-regulatory-strategy",
+      "fromSide": "left",
+      "toNode": "skill-large-work-wayfinder",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bdb281a5d6fd",
+      "fromNode": "skill-medical-device-regulatory-strategy",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-91d61ca19b37",
+      "fromNode": "skill-medical-device-regulatory-strategy",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c8ff03ff046b",
+      "fromNode": "skill-medical-device-risk-management-iso14971",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1ed2c536549f",
+      "fromNode": "skill-medical-device-risk-management-iso14971",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-87be4c189bc4",
+      "fromNode": "skill-medical-device-service-report-quality-routing",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-customer-contact-intake",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8eabf6b71bb7",
+      "fromNode": "skill-medical-device-service-report-quality-routing",
+      "fromSide": "left",
+      "toNode": "skill-quality-record-integrity",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3ba501363443",
+      "fromNode": "skill-meeting-preparation",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-809d1ff75147",
+      "fromNode": "skill-memory-sync-reconciliation",
+      "fromSide": "left",
+      "toNode": "skill-communication-memory-governance",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7b548fa6717b",
+      "fromNode": "skill-merge-conflict-resolution",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ebbf5f44655d",
+      "fromNode": "skill-merge-conflict-resolution",
+      "fromSide": "right",
+      "toNode": "skill-deferred-external-action-verification",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-878fcdde6184",
+      "fromNode": "skill-merge-conflict-resolution",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d2fe1719247e",
+      "fromNode": "skill-merge-conflict-resolution",
+      "fromSide": "right",
+      "toNode": "skill-test-driven-vertical-slice",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dd8ec05fbef4",
+      "fromNode": "skill-merge-conflict-resolution",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-code-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-decd1190244b",
+      "fromNode": "skill-nonconformance-mrb-disposition",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-57553b7d783a",
+      "fromNode": "skill-nonconformance-mrb-disposition",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9a2c3f132464",
+      "fromNode": "skill-nonconformance-mrb-disposition",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-53c59a4442ba",
+      "fromNode": "skill-obsidian-adapter",
+      "fromSide": "left",
+      "toNode": "skill-knowledge-map-generator",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a27a7fd7bc9c",
+      "fromNode": "skill-obsidian-adapter",
+      "fromSide": "right",
+      "toNode": "skill-knowledge-view",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d49b00fbbef3",
+      "fromNode": "skill-obsidian-adapter",
+      "fromSide": "right",
+      "toNode": "skill-structured-knowledge-artifact",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5ed3beb6859a",
+      "fromNode": "skill-process-validation-iq-oq-pq",
+      "fromSide": "right",
+      "toNode": "skill-design-control-traceability",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-34d5b28659d2",
+      "fromNode": "skill-process-validation-iq-oq-pq",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ed7a203a7c55",
+      "fromNode": "skill-process-validation-iq-oq-pq",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ad2e1382155b",
+      "fromNode": "skill-project-beta-readiness",
+      "fromSide": "left",
+      "toNode": "skill-iterate-software-projects",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bf77ec3c2762",
+      "fromNode": "skill-qms-management-review-action-followup",
+      "fromSide": "left",
+      "toNode": "skill-decision-and-follow-up-tracker",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a7817e9f9f80",
+      "fromNode": "skill-qms-management-review-action-followup",
+      "fromSide": "left",
+      "toNode": "skill-deferred-external-action-verification",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-34e3285722b1",
+      "fromNode": "skill-qms-management-review-action-followup",
+      "fromSide": "right",
+      "toNode": "skill-qms-management-review-governance",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7bd0f6d46258",
+      "fromNode": "skill-qms-management-review-governance",
+      "fromSide": "left",
+      "toNode": "skill-iso13485-qms-audit",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2ab680b12062",
+      "fromNode": "skill-qms-management-review-governance",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-capa",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d7b7f1e761a1",
+      "fromNode": "skill-qms-management-review-governance",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-pms-system",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fd9e2c33bde0",
+      "fromNode": "skill-qms-management-review-governance",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-658bf595581c",
+      "fromNode": "skill-qms-management-review-governance",
+      "fromSide": "left",
+      "toNode": "skill-project-status-brief",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8644db99606b",
+      "fromNode": "skill-quality-record-integrity",
+      "fromSide": "right",
+      "toNode": "skill-controlled-quality-documentation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6521a48d65ab",
+      "fromNode": "skill-quality-record-integrity",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6be4348d941e",
+      "fromNode": "skill-quality-record-integrity",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a40e6416faa2",
+      "fromNode": "skill-regulatory-change-impact-orchestrator",
+      "fromSide": "left",
+      "toNode": "skill-decision-record",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4c2a9b25d8b8",
+      "fromNode": "skill-regulatory-change-impact-orchestrator",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d8595327e9f1",
+      "fromNode": "skill-regulatory-change-impact-orchestrator",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c02a9c7f3b86",
+      "fromNode": "skill-regulatory-change-monitoring",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f4741f4193b2",
+      "fromNode": "skill-regulatory-change-monitoring",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-900335840e55",
+      "fromNode": "skill-regulatory-claims-consistency",
+      "fromSide": "right",
+      "toNode": "skill-design-control-traceability",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-46e5cac5a298",
+      "fromNode": "skill-regulatory-claims-consistency",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-labeling-ifu",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-425ae58e4f08",
+      "fromNode": "skill-regulatory-claims-consistency",
+      "fromSide": "left",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bd6e98e0acbc",
+      "fromNode": "skill-regulatory-claims-consistency",
+      "fromSide": "left",
+      "toNode": "skill-regulatory-evidence-traceability",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-de82c48ca352",
+      "fromNode": "skill-regulatory-evidence-traceability",
+      "fromSide": "right",
+      "toNode": "skill-regulated-product-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4841532e7312",
+      "fromNode": "skill-regulatory-evidence-traceability",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ab9ac39db2f9",
+      "fromNode": "skill-spec-to-vertical-issues",
+      "fromSide": "right",
+      "toNode": "skill-conversation-to-spec",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5803030bbdbf",
+      "fromNode": "skill-supplier-quality-medical-device",
+      "fromSide": "right",
+      "toNode": "skill-medical-device-qms-iso13485",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bdb2c995cf1d",
+      "fromNode": "skill-supplier-quality-medical-device",
+      "fromSide": "left",
+      "toNode": "skill-medical-device-risk-management-iso14971",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-80536cc0cbd2",
+      "fromNode": "skill-supplier-quality-medical-device",
+      "fromSide": "left",
+      "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f4413196526e",
+      "fromNode": "skill-test-driven-vertical-slice",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c837b1114a9f",
+      "fromNode": "skill-test-driven-vertical-slice",
+      "fromSide": "left",
+      "toNode": "skill-spec-to-vertical-issues",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-173369a869c0",
+      "fromNode": "skill-throwaway-prototype",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6556027b08d0",
+      "fromNode": "skill-throwaway-prototype",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8ac5355ec53f",
+      "fromNode": "skill-throwaway-prototype",
+      "fromSide": "right",
+      "toNode": "skill-large-work-wayfinder",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cdcfdc447d41",
+      "fromNode": "skill-throwaway-prototype",
+      "fromSide": "left",
+      "toNode": "skill-spec-to-vertical-issues",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6bd189d17753",
+      "fromNode": "skill-two-axis-code-review",
+      "fromSide": "left",
+      "toNode": "skill-agent-handoff",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-121038cddd35",
+      "fromNode": "skill-two-axis-code-review",
+      "fromSide": "left",
+      "toNode": "skill-architecture-deepening-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f0c5211ad424",
+      "fromNode": "skill-two-axis-code-review",
+      "fromSide": "left",
+      "toNode": "skill-disciplined-diagnosis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e8aea4668e23",
+      "fromNode": "skill-two-axis-code-review",
+      "fromSide": "right",
+      "toNode": "skill-implement-from-issue",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d4e3c83196dc",
+      "fromNode": "skill-two-axis-compliance-review",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    }
+  ]
+}
