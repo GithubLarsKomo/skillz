@@ -67,6 +67,28 @@
         "medical-device-regulatory-strategy",
         "large-work-wayfinder"
       ]
+    },
+    {
+      "id": "customer-contact-to-dual-market-vigilance",
+      "mustPreserve": [
+        "original-contact-voice",
+        "immutable-receipt-chronology",
+        "individual-complaint-record",
+        "investigation-decision-evidence",
+        "evidence-preservation",
+        "awareness-provenance",
+        "separate-jurisdiction-decisions",
+        "time-critical-escalation",
+        "complaint-closure-not-regulatory-closure"
+      ],
+      "sequence": [
+        "medical-device-customer-contact-intake",
+        "medical-device-complaint-handling",
+        "medical-device-complaint-regulatory-routing",
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance",
+        "medical-device-pms-system"
+      ]
     }
   ],
   "schemaVersion": 1
