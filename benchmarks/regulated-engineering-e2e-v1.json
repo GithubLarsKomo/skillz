@@ -110,6 +110,29 @@
         "ivdr-pms-vigilance",
         "medical-device-pms-system"
       ]
+    },
+    {
+      "id": "service-and-coding-to-vigilance",
+      "mustPreserve": [
+        "service-state-not-quality-closure",
+        "pre-service-evidence-preservation",
+        "existing-customer-followup-owner-preserved",
+        "narrative-remains-coding-source-of-truth",
+        "coding-release-versioning",
+        "coding-not-causality-or-reportability",
+        "time-critical-regulatory-bypass"
+      ],
+      "sequence": [
+        "medical-device-customer-contact-intake",
+        "medical-device-service-report-quality-routing",
+        "medical-device-complaint-handling",
+        "medical-device-complaint-customer-followup",
+        "medical-device-adverse-event-coding",
+        "medical-device-complaint-regulatory-routing",
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance",
+        "medical-device-pms-system"
+      ]
     }
   ],
   "schemaVersion": 1
