@@ -8,7 +8,7 @@ Canonical hard-dependency source: [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.m
 
 This document is the human-readable architecture map for the `skillz` repository. It intentionally does **not** reproduce every hard `requires` edge. The generated [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.md) remains the exact machine-derived graph; this view highlights responsibilities, lifecycle paths and feedback loops.
 
-Current canonical inventory after the customer-service/complaint wave: **107 skills, 89 user-facing entrypoints, 107/107 evaluation suites passing, 0 evaluation errors**.
+Current canonical inventory after the customer-service/complaint follow-up wave: **108 skills, 90 user-facing entrypoints, 108/108 evaluation suites passing, 0 evaluation errors**.
 
 ### Reading the diagrams
 
@@ -37,8 +37,9 @@ flowchart TB
     subgraph SERVICE[Customer Service / Complaint]
         CS_CONTACT[medical-device-customer-contact-intake]
         CS_COMPLAINT[medical-device-complaint-handling]
+        CS_FOLLOW[medical-device-complaint-customer-followup]
         CS_ROUTE[medical-device-complaint-regulatory-routing]
-        CS_FOLLOWUP[Later customer / field information]
+        CS_LATE[Later customer / field information]
     end
 
     subgraph REG[Regulated Engineering]
@@ -90,14 +91,17 @@ flowchart TB
     ENG_SPEC --> ENG_ISSUES --> ENG_IMPL --> ENG_REVIEW --> ENG_DELIVERY
     ENG_DELIVERY -. verified iteration return .-> ENG_ENTRY
 
-    CS_CONTACT --> CS_COMPLAINT --> CS_ROUTE
+    CS_CONTACT --> CS_COMPLAINT
+    CS_COMPLAINT --> CS_FOLLOW
+    CS_COMPLAINT -->|initial / time-critical| CS_ROUTE
+    CS_FOLLOW -->|evidence delta| CS_ROUTE
     CS_ROUTE --> REG_FDA
     CS_ROUTE --> REG_IVDR
     REG_IVDR --> REG_PMS --> REG_MR
     REG_FDA --> REG_PMS
-    CS_FOLLOWUP --> CS_CONTACT
-    REG_FDA -. prior decision / new evidence .-> CS_FOLLOWUP
-    REG_IVDR -. prior decision / new evidence .-> CS_FOLLOWUP
+    CS_LATE --> CS_FOLLOW
+    REG_FDA -. prior decision reference .-> CS_FOLLOW
+    REG_IVDR -. prior decision reference .-> CS_FOLLOW
 
     K_RESEARCH --> K_TRACE --> REG_CTX --> REG_STRAT
     K_RESEARCH --> K_STRUCT --> K_MAP --> K_VIEW
@@ -111,6 +115,7 @@ flowchart TB
 
     ENG_ENTRY -. durable abstractions .-> M_GOV
     CS_COMPLAINT -. durable abstractions only .-> M_GOV
+    CS_FOLLOW -. durable patterns only .-> M_GOV
     REG_STRAT -. durable abstractions .-> M_GOV
     K_RESEARCH -. durable source/method patterns .-> M_GOV
     M_GOV --> M_SYNC
@@ -159,12 +164,13 @@ A later state is never inferred solely from an earlier one.
 
 ---
 
-## 3. Customer contact → complaint → vigilance → reassessment
+## 3. Customer contact → complaint → follow-up → vigilance → reassessment
 
 ```mermaid
 flowchart LR
     CONTACT[medical-device-customer-contact-intake]
     COMPLAINT[medical-device-complaint-handling]
+    CFOLLOW[medical-device-complaint-customer-followup]
     ROUTE[medical-device-complaint-regulatory-routing]
     FDA[fda-complaint-mdr-reportability]
     IVDR[ivdr-pms-vigilance]
@@ -172,10 +178,12 @@ flowchart LR
     RISK[medical-device-risk-management-iso14971]
     CAPA[medical-device-capa]
     MR[qms-management-review-governance]
-    FOLLOWUP[Later customer / distributor / field information]
+    LATE[Later customer / distributor / field information]
 
     CONTACT -->|complaint-intake-handoff.json| COMPLAINT
-    COMPLAINT -->|complaint-regulatory-handoff.json| ROUTE
+    COMPLAINT -->|missing facts / follow-up need| CFOLLOW
+    COMPLAINT -->|initial or time-critical handoff| ROUTE
+    CFOLLOW -->|customer-followup-evidence.json| ROUTE
     ROUTE -->|US assessment| FDA
     ROUTE -->|EU-IVDR assessment| IVDR
 
@@ -188,49 +196,56 @@ flowchart LR
     FDA -. investigation remains open .-> COMPLAINT
     IVDR -. investigation remains open .-> COMPLAINT
 
-    FDA -. prior decision snapshot .-> FOLLOWUP
-    IVDR -. prior decision snapshot .-> FOLLOWUP
-    FOLLOWUP -->|new evidence event| CONTACT
-    CONTACT -. reopen candidate .-> COMPLAINT
-    COMPLAINT -. reassessment trigger .-> ROUTE
+    FDA -. prior decision snapshot .-> CFOLLOW
+    IVDR -. prior decision snapshot .-> CFOLLOW
+    LATE --> CFOLLOW
+    CFOLLOW -. new material evidence .-> COMPLAINT
+    CFOLLOW -->|reassessment delta| ROUTE
 
     S1{{customer resolved ≠ complaint closed}}
     S2{{complaint closed ≠ regulatory closed}}
     S3{{awareness evidence ≠ legal awareness conclusion}}
     S4{{known issue / user error / no return ≠ non-reportable}}
     S5{{prior not-reportable ≠ permanent immunity}}
-    S6{{new evidence is appended, not backdated or overwritten}}
+    S6{{no response ≠ no event}}
+    S7{{follow-up must not delay time-critical vigilance}}
+    S8{{preserve evidence before destructive support}}
 
     CONTACT -.-> S1
     COMPLAINT -.-> S2
     ROUTE -.-> S3
     ROUTE -.-> S4
     ROUTE -.-> S5
-    FOLLOWUP -.-> S6
+    CFOLLOW -.-> S6
+    CFOLLOW -.-> S7
+    CFOLLOW -.-> S8
 ```
 
 ### Ownership boundaries
 
-- `medical-device-customer-contact-intake` owns source-preserving intake for both first and follow-up contacts and the earliest possible Complaint/Safety handoff. It does not investigate or decide reportability.
+- `medical-device-customer-contact-intake` owns source-preserving intake for first and unsolicited follow-up contacts and the earliest possible Complaint/Safety handoff. It does not investigate or decide reportability.
 - `medical-device-complaint-handling` owns the individual complaint QMS record, investigation decision, evidence preservation, versioned supplemental evidence, reopen state and complaint-closure readiness. It does not decide FDA MDR or EU vigilance.
-- `medical-device-complaint-regulatory-routing` owns jurisdiction/role routing, the awareness-evidence chronology and jurisdiction-specific reassessment triggers. It does not convert evidence into a legal awareness date or final reportability decision.
+- `medical-device-complaint-customer-followup` owns controlled, criteria-based customer evidence acquisition after complaint opening: neutral questions, contact-attempt evidence, data minimization, support/return evidence preservation and the versioned evidence delta. It does not own investigation or reportability.
+- `medical-device-complaint-regulatory-routing` owns jurisdiction/role routing, awareness-evidence chronology, follow-up-delta consumption and jurisdiction-specific reassessment triggers. It does not convert evidence into a legal awareness date or final reportability decision.
 - `fda-complaint-mdr-reportability` owns FDA-specific awareness, MDR criteria, timing and versioned reassessment when material evidence changes.
-- `ivdr-pms-vigilance` owns IVDR-specific vigilance/serious-incident assessment, versioned reassessment and PMS feedback.
+- `ivdr-pms-vigilance` owns IVDR-specific vigilance/serious-incident assessment, versioned reassessment and PMS feedback; non-complaint PMS/trend/literature/field signals remain valid inputs.
 
 ### Hard customer-service invariants
 
 1. Customer wording does not determine whether a possible complaint exists.
 2. Troubleshooting, refund, replacement or a solved service ticket never erase the Quality path.
-3. Potential safety information is escalated before final root cause, returned-device analysis or complaint closure.
+3. Potential safety information is escalated before final root cause, returned-device analysis, customer follow-up completion or complaint closure.
 4. Every complaint keeps an individual record; a prior investigation may be referenced only with documented applicability.
-5. Potentially relevant returned devices, samples, logs and raw evidence are protected before destructive handling.
-6. One complaint can require multiple independent jurisdiction assessments.
-7. Customer/distributor/employee/QA/regulatory timestamps remain separate evidence facts; the market specialist owns the legal awareness conclusion.
-8. External authority submission, receipt and acceptance require external evidence.
-9. Every follow-up contact is a new evidence event with its own source and receipt time.
-10. Complaint closure and prior `not-reportable` decisions remain historical evidence, not immunity against later facts.
-11. Reassessment is versioned per jurisdiction; US and EU decisions remain independent.
-12. New time-critical information bypasses previous customer resolution, complaint closure and management-review cadence.
+5. Follow-up questions require a documented information gap/purpose and are not selected by customer commercial value.
+6. `no-response`, `unable-to-contact` and `declined` are missing-information states, never evidence of no injury/no malfunction/non-reportability.
+7. Potentially relevant returned devices, samples, logs and raw evidence are protected before reset, repair, update, cleaning, disposal or other destructive handling.
+8. One complaint can require multiple independent jurisdiction assessments.
+9. Customer/distributor/employee/QA/regulatory/follow-up timestamps remain separate evidence facts; the market specialist owns the legal awareness conclusion.
+10. External customer or authority communication is not `sent|delivered|received|accepted` without external evidence.
+11. Complaint closure and prior `not-reportable` decisions remain historical evidence, not immunity against later facts.
+12. Reassessment is versioned per jurisdiction; US and EU decisions remain independent.
+13. New material follow-up information is appended as an evidence delta; prior complaint/regulatory decisions are not overwritten.
+14. New time-critical information bypasses customer follow-up, previous service resolution, complaint closure and management-review cadence.
 
 ---
 
@@ -254,8 +269,9 @@ flowchart TB
     end
 
     subgraph POST[Postmarket]
-        CONTACT[Customer contact / follow-up]
+        CONTACT[Customer contact]
         COMPLAINT[Complaint handling / reopen]
+        CFOLLOW[Customer follow-up evidence]
         ROUTE[Regulatory routing / reassessment]
         FDA_MDR[FDA MDR / reassessment]
         EU_VIG[IVDR vigilance / reassessment]
@@ -279,7 +295,9 @@ flowchart TB
     CTX --> QMS --> DESIGN
     CTX --> RISK
 
-    CONTACT --> COMPLAINT --> ROUTE
+    CONTACT --> COMPLAINT
+    COMPLAINT --> CFOLLOW --> ROUTE
+    COMPLAINT -->|time-critical| ROUTE
     ROUTE --> FDA_MDR
     ROUTE --> EU_VIG
     FDA_MDR --> PMS
@@ -291,8 +309,8 @@ flowchart TB
     PMS --> RISK
     RISK --> CHANGE
 
-    FDA_MDR -. new material evidence .-> CONTACT
-    EU_VIG -. new material evidence .-> CONTACT
+    FDA_MDR -. new material evidence .-> CFOLLOW
+    EU_VIG -. new material evidence .-> CFOLLOW
 
     PMS --> MR --> MRF
     MRF -. management-review-return-input.json .-> MR
@@ -304,12 +322,12 @@ flowchart TB
 
 The key regulated-engineering loops remain separate but connected:
 
-1. **Customer/Complaint:** contact → complaint → jurisdiction routing → market-specific vigilance/reportability → later evidence → versioned reassessment.
+1. **Customer/Complaint:** contact → complaint → criteria-based customer follow-up where needed → jurisdiction routing → market-specific vigilance/reportability → later evidence → versioned reassessment.
 2. **Postmarket:** complaints/vigilance/field signals → PMS → Risk/CAPA/Performance.
 3. **Management governance:** PMS → Management Review → Action Follow-up → next Management Review.
 4. **Regulatory intelligence:** source change → change monitoring → impact orchestration → specialist lifecycle update.
 
-Time-critical reportability, vigilance, reassessment or field action never waits for complaint closure or a periodic management-review cadence.
+Time-critical reportability, vigilance, reassessment or field action never waits for customer follow-up, device return, complaint closure or a periodic management-review cadence.
 
 ---
 
@@ -340,7 +358,7 @@ Knowledge and Memory remain different concerns:
 
 - Knowledge artifacts preserve explicit source/provenance relationships.
 - Memory governance decides whether an abstracted learning is durable and safe enough to persist.
-- Current contacts, complaints, patients/reporters, device/lot IDs, awareness dates, reportability decisions, submissions, findings, SHAs, CI state and credentials remain outside global Memory.
+- Current contacts, complaints, patients/reporters, device/lot IDs, original customer responses, awareness dates, reportability decisions, submissions, findings, SHAs, CI state and credentials remain outside global Memory.
 
 ---
 
@@ -354,9 +372,12 @@ flowchart TB
     end
 
     subgraph CLOOP[Customer / Complaint]
-        C1[Customer / Distributor / Field contact] --> C2[Complaint intake & investigation] --> C3[Regulatory routing] --> C4[FDA MDR / IVDR vigilance]
+        C1[Customer / Distributor / Field contact] --> C2[Complaint intake & investigation]
+        C2 --> C2F[Criteria-based customer follow-up]
+        C2 -->|time-critical| C3[Regulatory routing]
+        C2F --> C3 --> C4[FDA MDR / IVDR vigilance]
         C4 -. prior decision snapshot .-> C5[Later material information]
-        C5 --> C1
+        C5 --> C2F
     end
 
     subgraph PLOOP[Postmarket]
