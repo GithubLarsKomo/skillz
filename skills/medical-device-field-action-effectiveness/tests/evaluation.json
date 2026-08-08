@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "sampling-and-nonresponse-case",
+      "id": "edge-case",
       "input": "A US recall strategy specifies effectiveness checks on a sample. Response is excellent among large hospitals but several small consignees and downstream accounts did not respond. The team wants to report 100% effectiveness among responders.",
       "requiredBehaviors": [
         "evaluate the check against the authorized sampling strategy and preserve response bias and population limits",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "id": "new-incident-closure-failure-case",
+      "id": "failure-case",
       "input": "The field action is 98% complete and a final/termination package is being prepared. A corrected device then generates the same serious safety event and several units remain not located. Operations wants to submit closure unchanged because the target percentage was met.",
       "requiredBehaviors": [
         "interrupt closure readiness and route the new safety event to jurisdiction-specific vigilance or MDR reassessment",
