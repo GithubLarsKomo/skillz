@@ -35,6 +35,8 @@ Er führt **keine externe Behördenmeldung autonom aus**, ersetzt keine Complain
 
 - **Complaint provenance enters vigilance intact:** `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json` werden als referenzierte Intake-/Awareness-Evidence übernommen; Original-Complaint und personenbezogene Rohdaten werden nicht unnötig dupliziert.
 - **Routing evidence ≠ IVDR conclusion:** der Router löst die Bewertung aus, entscheidet aber weder Serious Incident noch Reportability; diese Entscheidung bleibt current-source-basiert in diesem Skill.
+- **Prior vigilance decision is not immunity:** eine frühere `not-reportable-on-current-evidence`, `assessment-complete` oder Complaint-Closure gilt nur für ihren Evidence Snapshot. Neue materielle Fakten lösen eine erneute current-source-basierte Vigilance-Bewertung aus.
+- **Reassessment is versioned:** neue Outcome-/Seriousness-/False-Result-/Malfunction-/FSCA-/Market-/PMS-Fakten werden gegen die frühere Decision-Version bewertet; die alte Entscheidung bleibt historisch referenziert statt überschrieben zu werden.
 - Melde-/Vigilance-Fragen werden fallbezogen gegen aktuelle offizielle Anforderungen geprüft; Fristen und Definitionen werden nicht als statische Zahlen im Skill konserviert.
 - Unvollständige Fakten sind kein Grund, potenziell zeitkritische regulatorische Bewertung aufzuschieben: Unsicherheit und nächste sichere Aktion werden explizit dokumentiert.
 - **Time-critical vigilance bypasses complaint and management cadence:** Reportability-/Authority-/Field-Action-Eskalationen warten weder auf Complaint Closure/finale Root Cause noch auf periodischen PMS Review oder Management Review.
@@ -49,7 +51,7 @@ Er führt **keine externe Behördenmeldung autonom aus**, ersetzt keine Complain
 
 ### 1. Complaint-/Signal-Intake normalisieren
 
-Konsumiere soweit vorhanden `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json`. Erfasse/übernehme Quelle, Zeitpunkt/Transferchronologie, Produkt/Version/Lot soweit relevant, Markt, Nutzungskontext, Ereignisbeschreibung, Outcome/Impact, bekannte Patient-/User-Auswirkungen, technische Fakten, Complaint-Investigation-State und Unknowns.
+Konsumiere soweit vorhanden `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json`. Erfasse/übernehme Quelle, Zeitpunkt/Transferchronologie, Produkt/Version/Lot soweit relevant, Markt, Nutzungskontext, Ereignisbeschreibung, Outcome/Impact, bekannte Patient-/User-Auswirkungen, technische Fakten, Complaint-Investigation-State, Prior IVDR Decision Reference, New Material Facts und Unknowns.
 
 Personenbezogene Daten werden minimiert und nicht unnötig in Vigilance-Artefakte kopiert. Übernimm soweit verfügbar den aktuellen PMS-Systemkontext/Source-State; fehlt er, markiere den Gap ohne zeitkritische Bewertung zu verzögern.
 
@@ -75,19 +77,31 @@ Status mindestens `not-indicated|possible|likely|confirmed|not-reportable-on-cur
 
 Eine Complaint-Klassifikation oder erfolgreiche Customer Resolution ist kein Ersatz für diese Vigilance-Klassifikation.
 
-### 4. Zeitkritik und Stop Conditions bestimmen
+### 4. Reassessment bei neuer Information
+
+Wenn eine frühere Vigilance-Entscheidung existiert:
+
+1. referenziere deren Evidence Snapshot, Reportability-/Incident-State, Requirement Sources und External Action State,
+2. vergleiche `newMaterialFacts` gegen den früheren Stand,
+3. wiederhole die current-source-basierte Bewertung, wenn neue Information Seriousness, Incident/Serious-Incident-Potenzial, False Result/Performance, Malfunction, FSCA/Field Action, Causality, Market Scope oder PMS-/Trend-Kontext materiell beeinflussen kann,
+4. erhalte die frühere Decision-Version unverändert,
+5. aktualisiere PMS/Risk/CAPA/PMPF/Performance- und Management-Attention-Handoffs auf Basis des neuen Stands.
+
+Ein früheres `not-reportable-on-current-evidence` oder `assessment-complete` darf bei materiellem Evidence Delta nicht unverändert fortgeschrieben werden.
+
+### 5. Zeitkritik und Stop Conditions bestimmen
 
 Bei möglicher Meldepflicht oder anderer zeitkritischer Pflicht wird der relevante Human/Regulatory Owner sofort sichtbar gemacht. Fehlende Detailinformationen, offene Complaint Investigation oder nicht etablierte Root Cause dürfen notwendige Eskalation nicht still blockieren. Der Skill behauptet keine Meldung, solange externe Ausführung nicht verifiziert ist. Complaint Closure, Management Review oder periodischer PMS Review sind niemals Vorbedingungen für diese Aktion.
 
-### 5. Evidence/Risk-Linkage
+### 6. Evidence/Risk-Linkage
 
 Verknüpfe die Entscheidung über `regulatory-evidence-traceability` mit aktuellen Requirements und aktualisiere bei Bedarf `medical-device-risk-management-iso14971`. Eine neue Gefahr/Risikohöhe oder ein neuer Failure Mode wird nicht nur im Vigilance-Log belassen. Complaint Investigation bleibt beim `medical-device-complaint-handling`; offene Ursachenarbeit wird referenziert, nicht dupliziert.
 
-### 6. Management-Attention bestimmen
+### 7. Management-Attention bestimmen
 
 Setze `managementAttention=true`, wenn der Fall/das Signal z. B. einen höher-riskanten Safety-/Quality-Sachverhalt, systemisches Muster, wesentliche Trendhypothese, offene Field-Action-/FSCA-Frage, bedeutsame Risk-/Performance-Auswirkung oder länger offenbleibenden regulatorischen High-Impact-State erzeugt. Dokumentiere `managementAttentionReason`, ohne dadurch die operative Regulatory Action zu ersetzen oder zu verzögern.
 
-### 7. Lifecycle-, Complaint- und PMS-Routing
+### 8. Lifecycle-, Complaint- und PMS-Routing
 
 - Complaint-Investigation-/Follow-up-State → referenzgebundener Rückkanal zu `medical-device-complaint-handling`; Reportability-Entscheidung darf dessen Investigation aber nicht blockieren
 - PMS-Systemstatus/Management-Review-Handoff → `medical-device-pms-system` mit Decision/Signal Reference, State, Management-Attention, Data Limits und Follow-up Trigger
@@ -102,15 +116,15 @@ Ein Management Review konsumiert die aggregierte PMS-Governance-Sicht; er ist ke
 
 ## Output-Verträge
 
-`ivdr-pms-assessment.json` enthält Scope, Complaint-/Routing-/PMS-References, Datenquellen, Signalübersicht, Product/PMS/Risk Context, Trend-/Performance-Bewertung, offene Gaps, Management-Attention, Re-evaluation Trigger und `asOf`.
+`ivdr-pms-assessment.json` enthält Scope, Complaint-/Routing-/PMS-References, Decision Version, Prior Decision Reference, New Material Facts, Datenquellen, Signalübersicht, Product/PMS/Risk Context, Trend-/Performance-Bewertung, offene Gaps, Management-Attention, Re-evaluation Trigger und `asOf`.
 
-`vigilance-decision-log.json` enthält pro Fall/Entscheidung Facts, Unknowns, Complaint/Timeline References, Current Requirement References, Klassifikation, Reportability State, Time-Criticality, Human Owner, Decision Evidence, externe Action State, `managementAttention`, `managementAttentionReason`, `pmsHandoffState` und Follow-up Trigger.
+`vigilance-decision-log.json` enthält pro Fall/Entscheidung Facts, Unknowns, Complaint/Timeline References, Prior Decision Reference, New Material Facts, Current Requirement References, Klassifikation, Reportability State, Time-Criticality, Human Owner, Decision Evidence, externe Action State, `managementAttention`, `managementAttentionReason`, `pmsHandoffState` und Follow-up Trigger.
 
 `trend-signal-set.json` enthält normalisierte Signaldefinition, Baseline/Denominator soweit verfügbar, Beobachtungen, Unsicherheit, Trigger/Threshold-Logik, Confidence, Management-Attention soweit relevant und Next Action. Ein statistischer Trend wird nicht behauptet, wenn Datenbasis oder Nenner unzureichend sind.
 
 ## Memory Path
 
-Persistenzwürdig sind validierte produktspezifische Signaldefinitionen, stabile Surveillance-Grenzen und bestätigte wiederverwendbare Entscheidungsheuristiken. Einzelne Beschwerden, Patienten-/Anwenderdaten, Awareness-/Routing-Timelines, laufende Reportability-Fälle, aktuelle Meldefrist-Snapshots, momentane Trendwerte, Management-Attention einzelner Fälle und offene Investigation-Fakten bleiben run-only. Kandidaten benötigen `sourceRefs`; regulatorische Learnings zusätzlich `asOf` und `reviewAfter`. Übergib nur abstrahierte, nicht-sensitive `memory-candidate-handoff-v1`-Kandidaten an `communication-memory-governance`; der Skill persistiert nichts selbst.
+Persistenzwürdig sind validierte produktspezifische Signaldefinitionen, stabile Surveillance-Grenzen und bestätigte wiederverwendbare Decision-/Reassessment-Heuristiken. Einzelne Beschwerden, Patienten-/Anwenderdaten, Awareness-/Routing-Timelines, laufende Reportability-Fälle, aktuelle Meldefrist-Snapshots, momentane Trendwerte, Management-Attention einzelner Fälle und offene Investigation-Fakten bleiben run-only. Kandidaten benötigen `sourceRefs`; regulatorische Learnings zusätzlich `asOf` und `reviewAfter`. Übergib nur abstrahierte, nicht-sensitive `memory-candidate-handoff-v1`-Kandidaten an `communication-memory-governance`; der Skill persistiert nichts selbst.
 
 ## Qualitätsgate
 
@@ -120,6 +134,8 @@ Bestanden nur wenn:
 - Router/Complaint-Status nicht als IVDR-Reportability-Entscheidung missverstanden wird,
 - aktuelle Requirements statt erinnerter Fristen/Definitionen verwendet werden,
 - Facts, Unknowns und regulatorische Interpretation getrennt sind,
+- neue materielle Fakten frühere `not-reportable-on-current-evidence`-/Assessment-/Complaint-Closure-Zustände erneut öffnen können,
+- Reassessment frühere Decision-Version und neuen Evidence Snapshot getrennt erhält,
 - potenziell zeitkritische Fälle nicht auf Complaint Closure, vollständige Ursachenklärung, periodischen PMS Review oder Management Review warten,
 - `known issue`, `user error`, fehlender Rücklauf oder Kundenzufriedenheit mögliche Vigilance-Bewertung nicht abschneiden,
 - externe Meldung/Behördenaktion nicht simuliert wird,
