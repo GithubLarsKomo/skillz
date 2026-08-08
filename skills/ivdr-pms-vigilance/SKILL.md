@@ -40,6 +40,7 @@ Wenn der Ursprung ein Customer-Service-/Complaint-Fall ist, konsumiert der Skill
 - Melde-/Vigilance-Fragen werden fallbezogen gegen aktuelle offizielle Anforderungen geprüft; Fristen und Definitionen werden nicht als statische Zahlen im Skill konserviert.
 - Unvollständige Fakten sind kein Grund, potenziell zeitkritische regulatorische Bewertung aufzuschieben: Unsicherheit und nächste sichere Aktion werden explizit dokumentiert.
 - **Time-critical vigilance bypasses complaint and management cadence:** Reportability-/Authority-/Field-Action-Eskalationen warten weder auf Complaint Closure/finale Root Cause noch auf periodischen PMS Review oder Management Review.
+- **FSCA assessment has a dedicated downstream owner:** sobald eine konkrete Field-Safety-/Corrective-Action-Frage materiell wird, bleibt die Vigilance-Entscheidung hier, die EU-spezifische FSCA-Qualifikation, Behörden-Sequenz und FSN-Content-Steuerung geht aber an `ivdr-field-safety-corrective-action`; dieser Skill baut keinen zweiten FSCA-Execution-Prozess ein.
 - Complaint, Incident, Serious-Incident-Hypothese, Trend, FSCA-/Field-Action-Frage, Nonconformity und Performance Signal bleiben getrennte Klassifikationen, bis Evidenz eine Verbindung trägt.
 - `known issue`, `user error`, fehlender Device-Rücklauf, Kundenzufriedenheit oder nicht etablierte Causality sind für sich allein keine Vigilance-Non-Reportability-Entscheidung.
 - PMS aggregiert Datenquellen; Complaint Handling, Risk Management, PMPF, Performance Evaluation und CAPA behalten ihre jeweilige Fachlogik.
@@ -95,6 +96,8 @@ Ein früheres `not-reportable-on-current-evidence` oder `assessment-complete` da
 
 Bei möglicher Meldepflicht oder anderer zeitkritischer Pflicht wird der relevante Human/Regulatory Owner sofort sichtbar gemacht. Fehlende Detailinformationen, offene Complaint Investigation oder nicht etablierte Root Cause dürfen notwendige Eskalation nicht still blockieren. Der Skill behauptet keine Meldung, solange externe Ausführung nicht verifiziert ist. Complaint Closure, Management Review oder periodischer PMS Review sind niemals Vorbedingungen für diese Aktion.
 
+Eine materielle FSCA-/Field-Action-Frage wird parallel an `ivdr-field-safety-corrective-action` übergeben; deren Detailbewertung darf die Incident-/Serious-Incident-Meldelogik dieses Skills nicht verzögern.
+
 ### 6. Evidence/Risk-Linkage
 
 Verknüpfe die Entscheidung über `regulatory-evidence-traceability` mit aktuellen Requirements und aktualisiere bei Bedarf `medical-device-risk-management-iso14971`. Eine neue Gefahr/Risikohöhe oder ein neuer Failure Mode wird nicht nur im Vigilance-Log belassen. Bei Complaint-Ursprung bleibt Investigation beim `medical-device-complaint-handling`; offene Ursachenarbeit wird referenziert, nicht dupliziert.
@@ -106,6 +109,7 @@ Setze `managementAttention=true`, wenn der Fall/das Signal z. B. einen höher-ri
 ### 8. Lifecycle-, Complaint- und PMS-Routing
 
 - bei Complaint-Ursprung: Complaint-Investigation-/Follow-up-State → referenzgebundener Rückkanal zu `medical-device-complaint-handling`; Reportability-Entscheidung darf dessen Investigation aber nicht blockieren
+- materielle FSCA-/Field-Action-Frage → `ivdr-field-safety-corrective-action` mit Vigilance Decision Reference, Facts/Unknowns, Risk/Market Scope und Time-Criticality; FSCA Execution entscheidet nicht rückwirkend die Incident Reportability
 - PMS-Systemstatus/Management-Review-Handoff → `medical-device-pms-system` mit Decision/Signal Reference, State, Management-Attention, Data Limits und Follow-up Trigger
 - Performance-Frage → `ivdr-performance-evaluation` / `ivdr-pmpf`
 - Trend-/PMS-Überwachung → fortgesetztes PMS mit definiertem Trigger
@@ -120,7 +124,7 @@ Ein Management Review konsumiert die aggregierte PMS-Governance-Sicht; er ist ke
 
 `ivdr-pms-assessment.json` enthält Source Type, Scope, optionale Complaint-/Routing-References, PMS-References, Decision Version, Prior Decision Reference, New Material Facts, Datenquellen, Signalübersicht, Product/PMS/Risk Context, Trend-/Performance-Bewertung, offene Gaps, Management-Attention, Re-evaluation Trigger und `asOf`.
 
-`vigilance-decision-log.json` enthält pro Fall/Entscheidung Facts, Unknowns, Source-/optionale Complaint/Timeline References, Prior Decision Reference, New Material Facts, Current Requirement References, Klassifikation, Reportability State, Time-Criticality, Human Owner, Decision Evidence, externe Action State, `managementAttention`, `managementAttentionReason`, `pmsHandoffState` und Follow-up Trigger.
+`vigilance-decision-log.json` enthält pro Fall/Entscheidung Facts, Unknowns, Source-/optionale Complaint/Timeline References, Prior Decision Reference, New Material Facts, Current Requirement References, Klassifikation, Reportability State, Time-Criticality, Human Owner, Decision Evidence, externe Action State, `managementAttention`, `managementAttentionReason`, `pmsHandoffState` und Follow-up Trigger. Bei materieller FSCA-Frage enthält es zusätzlich einen referenzgebundenen `fscaHandoffState`, ohne selbst FSCA Execution zu übernehmen.
 
 `trend-signal-set.json` enthält normalisierte Signaldefinition, Baseline/Denominator soweit verfügbar, Beobachtungen, Unsicherheit, Trigger/Threshold-Logik, Confidence, Management-Attention soweit relevant und Next Action. Ein statistischer Trend wird nicht behauptet, wenn Datenbasis oder Nenner unzureichend sind.
 
@@ -142,6 +146,7 @@ Bestanden nur wenn:
 - potenziell zeitkritische Fälle nicht auf Complaint Closure, vollständige Ursachenklärung, periodischen PMS Review oder Management Review warten,
 - `known issue`, `user error`, fehlender Rücklauf oder Kundenzufriedenheit mögliche Vigilance-Bewertung nicht abschneiden,
 - externe Meldung/Behördenaktion nicht simuliert wird,
+- materielle FSCA-/Field-Action-Fragen an `ivdr-field-safety-corrective-action` übergeben werden, ohne Incident-/Serious-Incident-Meldepfade zu blockieren oder zu duplizieren,
 - Risk/PMPF/Performance/CAPA-Rückkopplung korrekt geroutet ist,
 - material relevante Vigilance-/Trend-/High-Impact-Zustände mit Decision Reference zurück in `medical-device-pms-system` gelangen und dort nicht still verloren gehen,
 - Management-Attention nicht mit externer Meldung, Closure oder Managemententscheidung verwechselt wird,
