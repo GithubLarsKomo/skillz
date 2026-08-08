@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-field-action-physical-execution",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A field action requires return of identified serialised devices, quarantine on receipt, a controlled repair, post-repair verification and return to the customer. Build the physical execution evidence chain and hand verified states to effectiveness.",
+      "requiredBehaviors": [
+        "keep RMA shipment receipt quarantine correction verification release and final disposition as separate evidence states",
+        "maintain append-only unit identity quantity location and custody evidence through all handoffs",
+        "require controlled instructions and post-correction verification before any corrected unit is released for use",
+        "handoff only verified unit and disposition states plus unresolved gaps to medical-device-field-action-effectiveness"
+      ],
+      "forbiddenBehaviors": [
+        "treat an issued RMA as proof that the affected unit was returned",
+        "treat completed repair work as proof that the correction was verified",
+        "close field-action effectiveness merely because all received units were processed"
+      ],
+      "skillAnchors": [
+        "RMA ≠ return",
+        "Correction performed ≠ correction verified",
+        "Physical completion ≠ field-action effectiveness"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A returned device is needed for an open serious-incident investigation, but operations wants to disassemble and repair it immediately. Carrier records also show one serial number that does not match the RMA list.",
+      "requiredBehaviors": [
+        "apply an evidence-preservation gate before destructive disassembly or repair when investigation evidence is still needed",
+        "keep the serial-number mismatch as an unresolved scope or identity discrepancy instead of silently correcting records",
+        "allow only an explicitly authorised safety-versus-evidence tradeoff when urgent action cannot wait"
+      ],
+      "forbiddenBehaviors": [
+        "destroy potentially needed investigation evidence merely to speed up repair",
+        "rewrite custody or RMA identity records to make the serial number match",
+        "treat physical receipt as automatic quarantine or final disposition"
+      ],
+      "skillAnchors": [
+        "Evidence preservation precedes destructive action",
+        "Identity before disposition",
+        "Received ≠ quarantined"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A replacement device has been shipped to the customer, the affected unit is still at the customer site, and the team wants to mark the original device returned, destroyed and reconciled so the recall metrics look complete.",
+      "requiredBehaviors": [
+        "preserve the affected original unit as unresolved until actual return correction quarantine or disposition evidence exists",
+        "keep replacement shipment separate from the disposition state of the affected original unit",
+        "block fabricated return destruction or reconciliation states and keep the gap visible downstream"
+      ],
+      "forbiddenBehaviors": [
+        "use replacement delivery as evidence that the affected original unit was returned",
+        "mark an unreceived unit destroyed without scope-linked destruction evidence",
+        "remove the unresolved original unit from product reconciliation to improve completion metrics"
+      ],
+      "skillAnchors": [
+        "Replacement does not erase the affected unit",
+        "Destruction Certificate beweist nur den darin tatsächlich identifizierten Scope",
+        "Quantity- oder Identity-Differenzen werden als Reconciliation Gap geführt"
+      ]
+    },
+    {
+      "id": "third-party-custody-case",
+      "input": "A distributor sends affected units to a third-party repair vendor and then to a waste contractor for destruction of failed units. Some batches are tracked only by quantity rather than serial number. Assess the physical evidence chain.",
+      "requiredBehaviors": [
+        "treat distributor repair-vendor and waste-contractor transfers as explicit custody handoffs with evidence",
+        "support controlled quantity-batch reconciliation when serial-level identity does not exist while preserving scope limits",
+        "require destruction evidence to identify the actual quantity or batch scope and leave unreconciled balances open"
+      ],
+      "forbiddenBehaviors": [
+        "treat third-party possession as outside the field-action chain of custody",
+        "invent serial-level traceability where only quantity-batch evidence exists",
+        "close the full batch from a destruction certificate that covers only part of the quantity"
+      ],
+      "skillAnchors": [
+        "Third-party custody is still custody",
+        "Chain of custody is append-only",
+        "Nicht identifizierte oder nicht reconciled Units werden nicht als destroyed gezählt"
+      ]
+    }
+  ]
+}
