@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-fsca-status-final-reporting",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An IVDR serious-incident/FSCA case has a completed investigation, reconciled FSCA execution and effectiveness evidence, no material new safety facts, and verified current MIR/FSCA reporting requirements. Prepare the manufacturer final/follow-up package and authority-state handoff.",
+      "requiredBehaviors": [
+        "verify current report form schema channel and authority context before final package creation",
+        "build a versioned final package from existing investigation risk FSCA and effectiveness evidence without recomputing execution effectiveness",
+        "separate manufacturer final submission authority receipt review and authority closure states"
+      ],
+      "forbiddenBehaviors": [
+        "use an obsolete reporting form without current-source verification",
+        "treat the manufacturer final report as competent-authority closure",
+        "create a second independent FSCA effectiveness assessment"
+      ],
+      "skillAnchors": [
+        "Current form before final package",
+        "Manufacturer final ≠ authority closed",
+        "FSCA execution evidence is consumed, not recomputed"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The operational FSCA is nearly complete, but root cause remains unresolved and management wants to file a Final (Non-reportable) incident to close the case administratively.",
+      "requiredBehaviors": [
+        "keep unresolved root cause or contributing-factor uncertainty explicit in final-report readiness",
+        "block a Final Non-reportable shortcut when the required causal basis is not established",
+        "keep the case in an appropriate open follow-up or investigation state while preserving completed FSCA evidence"
+      ],
+      "forbiddenBehaviors": [
+        "use a Final Non-reportable label to bypass unresolved causality",
+        "rewrite completed FSCA execution evidence as incomplete merely because investigation remains open",
+        "infer competent-authority acceptance from lack of questions"
+      ],
+      "skillAnchors": [
+        "Investigation completeness is explicit",
+        "No non-reportable shortcut",
+        "Authority silence is not acceptance"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A final package is approved internally when a corrected device causes a new serious incident in a newly affected country and another lot is implicated. The team wants to submit the approved package unchanged and address the new facts later.",
+      "requiredBehaviors": [
+        "interrupt finalization and preserve the approved package version as historical rather than submitting it unchanged",
+        "route the new serious incident and additional lot to vigilance FSCA risk CAPA and scope reassessment immediately",
+        "create a new market and scope version that includes the newly affected country before subsequent reporting"
+      ],
+      "forbiddenBehaviors": [
+        "submit a superseded final package after material new safety and scope evidence",
+        "delay vigilance reassessment until after administrative finalization",
+        "hide the newly affected country or lot outside the controlled scope history"
+      ],
+      "skillAnchors": [
+        "New safety facts bypass finalization",
+        "Multi-state consistency",
+        "Reopen / Scope Drift"
+      ]
+    },
+    {
+      "id": "authority-feedback-case",
+      "input": "After a manufacturer final report is submitted, the evaluating authority asks for more evidence and the notified body separately asks for a CAPA update. No authority has issued a closure decision. Management wants one combined closed state.",
+      "requiredBehaviors": [
+        "record competent-authority and notified-body requests as separate append-only external events",
+        "create controlled follow-up response versions while preserving the submitted final report",
+        "keep authority-review-pending or more-information-required until verified competent-authority closure evidence exists"
+      ],
+      "forbiddenBehaviors": [
+        "collapse notified-body and competent-authority states into one closed state",
+        "overwrite the submitted manufacturer final report with later authority feedback",
+        "infer authority closure from submission or silence"
+      ],
+      "skillAnchors": [
+        "Authority feedback is append-only",
+        "Notified Body and Authority states stay distinct",
+        "authority-closed-verified"
+      ]
+    }
+  ]
+}

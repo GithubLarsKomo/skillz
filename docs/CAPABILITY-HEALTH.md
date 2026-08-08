@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **115**
-- User-facing entrypoints: **97**
-- Evaluation suites: **115**
+- Skills: **117**
+- User-facing entrypoints: **99**
+- Evaluation suites: **117**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **146**
+- Outputs without inferred hard-requires consumers: **143**
 
 ## Evaluation gaps
 
@@ -55,9 +55,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
-- `correction-removal-action-plan.json` — producer: `fda-corrections-removals`
-- `correction-removal-assessment.json` — producer: `fda-corrections-removals`
-- `correction-removal-reporting-state.json` — producer: `fda-corrections-removals`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
@@ -80,13 +77,12 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `expert handoff` — producer: `synapse-orchestrator`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
 - `fda-device-listing-readiness.json` — producer: `fda-registration-listing-udi`
+- `fda-recall-authority-state.json` — producer: `fda-recall-status-termination`
+- `fda-recall-status-report.json` — producer: `fda-recall-status-termination`
+- `fda-recall-termination-request.json` — producer: `fda-recall-status-termination`
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
-- `field-action-closure-readiness.json` — producer: `medical-device-field-action-effectiveness`
-- `field-action-effectiveness-assessment.json` — producer: `medical-device-field-action-effectiveness`
-- `field-action-product-reconciliation.json` — producer: `medical-device-field-action-effectiveness`
-- `field-safety-notice-content.json` — producer: `ivdr-field-safety-corrective-action`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
@@ -102,11 +98,12 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
+- `ivdr-authority-state.json` — producer: `ivdr-fsca-status-final-reporting`
 - `ivdr-economic-operator-escalation-log.json` — producer: `ivdr-economic-operator-postmarket-propagation`
 - `ivdr-economic-operator-obligation-map.json` — producer: `ivdr-economic-operator-postmarket-propagation`
 - `ivdr-economic-operator-propagation-state.json` — producer: `ivdr-economic-operator-postmarket-propagation`
-- `ivdr-fsca-assessment.json` — producer: `ivdr-field-safety-corrective-action`
-- `ivdr-fsca-regulatory-plan.json` — producer: `ivdr-field-safety-corrective-action`
+- `ivdr-fsca-authority-followup.json` — producer: `ivdr-fsca-status-final-reporting`
+- `ivdr-vigilance-final-report-package.json` — producer: `ivdr-fsca-status-final-reporting`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
