@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Customer Contact Intake"
+  short_description: "Normalisiert Kundenkontakte zu Service-, Complaint- und Safety-Handoffs ohne Quality-Signale zu verlieren."
+policy:
+  allow_implicit_invocation: true
