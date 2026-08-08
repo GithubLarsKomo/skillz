@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "urgent-action-case",
+      "id": "edge-case",
       "input": "A potentially serious false-result hazard requires immediate stop-use and correction before complete distribution data or root cause are available. The team asks whether it must wait for administrative completeness or authority comments before acting.",
       "requiredBehaviors": [
         "allow necessary urgent safety action without waiting for root cause complete distribution data or administrative completeness",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "id": "scope-extension-failure-case",
+      "id": "failure-case",
       "input": "After an FSN was released for two lots, new complaints show the same failure mode in additional lots and another member state. Operations wants to keep the original scope and mark the FSCA complete because the first notice was already sent.",
       "requiredBehaviors": [
         "treat new lots countries and failure evidence as material facts requiring versioned FSCA scope reassessment",
