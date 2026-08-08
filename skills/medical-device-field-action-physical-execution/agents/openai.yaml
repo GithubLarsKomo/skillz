@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Field Action Physical Execution"
+  short_description: "Evidenziert RMA, Custody, Quarantine, Correction, Verification und Disposition für autorisierte Feldmaßnahmen."
+policy:
+  allow_implicit_invocation: false
