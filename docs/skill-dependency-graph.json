@@ -303,7 +303,6 @@
     {
       "name": "fda-complaint-mdr-reportability",
       "requires": [
-        "medical-device-complaint-regulatory-routing",
         "medical-device-risk-management-iso14971",
         "quality-record-integrity",
         "regulated-product-context",
@@ -698,7 +697,6 @@
       "name": "ivdr-pms-vigilance",
       "requires": [
         "mdcg-guidance-navigator",
-        "medical-device-complaint-regulatory-routing",
         "medical-device-pms-system",
         "medical-device-risk-management-iso14971",
         "regulated-product-context",
@@ -823,6 +821,8 @@
     {
       "name": "medical-device-complaint-regulatory-routing",
       "requires": [
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance",
         "medical-device-complaint-handling",
         "regulated-product-context",
         "regulatory-evidence-traceability"
@@ -1516,10 +1516,6 @@
     },
     {
       "from": "fda-complaint-mdr-reportability",
-      "to": "medical-device-complaint-regulatory-routing"
-    },
-    {
-      "from": "fda-complaint-mdr-reportability",
       "to": "medical-device-risk-management-iso14971"
     },
     {
@@ -1916,10 +1912,6 @@
     },
     {
       "from": "ivdr-pms-vigilance",
-      "to": "medical-device-complaint-regulatory-routing"
-    },
-    {
-      "from": "ivdr-pms-vigilance",
       "to": "medical-device-pms-system"
     },
     {
@@ -2033,6 +2025,14 @@
     {
       "from": "medical-device-complaint-handling",
       "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-complaint-regulatory-routing",
+      "to": "fda-complaint-mdr-reportability"
+    },
+    {
+      "from": "medical-device-complaint-regulatory-routing",
+      "to": "ivdr-pms-vigilance"
     },
     {
       "from": "medical-device-complaint-regulatory-routing",
@@ -2837,7 +2837,8 @@
         "fda-complaint-mdr-reportability"
       ],
       "consumerSkills": [
-        "fda-corrections-removals"
+        "fda-corrections-removals",
+        "medical-device-complaint-regulatory-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2858,12 +2859,9 @@
       "producers": [
         "medical-device-complaint-regulatory-routing"
       ],
-      "consumerSkills": [
-        "fda-complaint-mdr-reportability",
-        "ivdr-pms-vigilance"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "compliance-evidence-effectiveness.json",
@@ -4009,9 +4007,11 @@
       "producers": [
         "ivdr-pms-vigilance"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "knowledge-artifact.json",
@@ -4196,7 +4196,8 @@
         "fda-complaint-mdr-reportability"
       ],
       "consumerSkills": [
-        "fda-corrections-removals"
+        "fda-corrections-removals",
+        "medical-device-complaint-regulatory-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4983,12 +4984,9 @@
       "producers": [
         "medical-device-complaint-regulatory-routing"
       ],
-      "consumerSkills": [
-        "fda-complaint-mdr-reportability",
-        "ivdr-pms-vigilance"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "regulatory-change-decisions.json",
@@ -5567,9 +5565,11 @@
       "producers": [
         "ivdr-pms-vigilance"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "ui-prototype-plan.md",
@@ -5731,21 +5731,20 @@
       "producers": [
         "ivdr-pms-vigilance"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "vigilance-entry-handoff.json",
       "producers": [
         "medical-device-complaint-regulatory-routing"
       ],
-      "consumerSkills": [
-        "fda-complaint-mdr-reportability",
-        "ivdr-pms-vigilance"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "watch record",
@@ -5796,6 +5795,7 @@
     "clinical-evidence-delta.json",
     "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
+    "complaint-regulatory-routing.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
@@ -5842,7 +5842,6 @@
     "isms-audit-plan.json",
     "isms-audit-report.md",
     "ivd-udi-data-set.json",
-    "ivdr-pms-assessment.json",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
@@ -5881,6 +5880,7 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
+    "regulatory-awareness-timeline.json",
     "regulatory-change-events.json",
     "regulatory-change-route-map.json",
     "regulatory-change-watch-status.json",
@@ -5900,13 +5900,12 @@
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
-    "trend-signal-set.json",
     "ui-prototype-plan.md",
     "updated skill repository",
     "usability-engineering-assessment.json",
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
-    "vigilance-decision-log.json"
+    "vigilance-entry-handoff.json"
   ],
   "orphanOutputs": [
     "GRILL-REPORT.md",
@@ -5929,6 +5928,7 @@
     "clinical-evidence-delta.json",
     "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
+    "complaint-regulatory-routing.json",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
@@ -5975,7 +5975,6 @@
     "isms-audit-plan.json",
     "isms-audit-report.md",
     "ivd-udi-data-set.json",
-    "ivdr-pms-assessment.json",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
@@ -6014,6 +6013,7 @@
     "qsub-commitments.json",
     "qsub-question-set.json",
     "recovered-system-model.json",
+    "regulatory-awareness-timeline.json",
     "regulatory-change-events.json",
     "regulatory-change-route-map.json",
     "regulatory-change-watch-status.json",
@@ -6033,12 +6033,11 @@
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
-    "trend-signal-set.json",
     "ui-prototype-plan.md",
     "updated skill repository",
     "usability-engineering-assessment.json",
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
-    "vigilance-decision-log.json"
+    "vigilance-entry-handoff.json"
   ]
 }

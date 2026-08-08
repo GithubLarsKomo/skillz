@@ -9,7 +9,6 @@ status: candidate
 owners:
   - GithubLarsKomo
 requires:
-  - medical-device-complaint-regulatory-routing
   - regulated-product-context
   - medical-device-risk-management-iso14971
   - regulatory-evidence-traceability
@@ -26,13 +25,14 @@ lastEvaluated: 2026-08-08
 
 Dieser Skill bewertet vorhandene Medical-Device-/IVD-Complaint- oder Adverse-Event-Fakten auf FDA Medical Device Reporting (MDR) Reportability und regulatorische Folgeaktionen. Er **ist kein Complaint-Management-System**, führt keine CAPA eigenständig und übermittelt keine eMDRs.
 
-Der Skill konsumiert den jurisdiction-neutralen Complaint-/Awareness-Handoff aus `medical-device-complaint-regulatory-routing`. Er übernimmt dessen Timeline-Fakten als Evidence, trifft die **FDA-spezifische Rechtsentscheidung über Awareness, Reportability und Timing aber selbst**. Ein Router- oder Complaint-Systemstatus darf diese Entscheidung weder vorwegnehmen noch verzögern.
+Wenn der Fall aus dem kontrollierten Customer-Service-/Complaint-Flow stammt, konsumiert der Skill die Complaint-/Awareness-Provenance aus `medical-device-complaint-regulatory-routing`. Er bleibt aber auch für andere bereits kontrollierte Complaint-/Event-Records verwendbar. In beiden Fällen trifft er die **FDA-spezifische Rechtsentscheidung über Awareness, Reportability und Timing selbst**. Ein Router-, Complaint- oder Tracker-Status darf diese Entscheidung weder vorwegnehmen noch verzögern.
 
 ## Kernprinzipien
 
-- **Actual awareness evidence:** Awareness-Evidence, Source und vorhandene Event-Fakten werden aus dem realen Complaint-/Routing-Record übernommen; keine Frist wird aus einem erfundenen Datum berechnet.
-- **Any-employee evidence is not discarded:** aktuelle Part-803-Awareness-Regeln dürfen nicht dadurch umgangen werden, dass nur QA-/Regulatory-Eingänge betrachtet werden. Frühere belegte Employee-/Function-Receipt-Fakten aus `regulatory-awareness-timeline.json` müssen in die FDA-Bewertung einfließen.
-- **Router evidence ≠ legal conclusion:** die Timeline liefert Evidence Events; der FDA-Skill bestimmt daraus current-source-basiert die relevante Awareness-/Clock-Interpretation.
+- **Actual awareness evidence:** Awareness-Evidence, Source und vorhandene Event-Fakten werden aus dem realen Complaint-/Event-/Routing-Record übernommen; keine Frist wird aus einem erfundenen Datum berechnet.
+- **Any-employee evidence is not discarded:** aktuelle Part-803-Awareness-Regeln dürfen nicht dadurch umgangen werden, dass nur QA-/Regulatory-Eingänge betrachtet werden. Frühere belegte Employee-/Function-Receipt-Fakten müssen in die FDA-Bewertung einfließen.
+- **Router evidence ≠ legal conclusion:** sofern Router-Timeline vorliegt, liefert sie Evidence Events; der FDA-Skill bestimmt daraus current-source-basiert die relevante Awareness-/Clock-Interpretation.
+- **Router is optional provenance, not a prerequisite:** fehlt ein Complaint-Router, aber es liegt ein ausreichend kontrollierter Complaint-/Event-Record mit belastbarer Source-/Awareness-Evidence vor, darf die FDA-Bewertung nicht künstlich blockiert werden.
 - **Prior not-reportable is not permanent:** eine frühere `not-reportable`-, `insufficient-information`- oder sonstige MDR-Entscheidung gilt nur für ihren dokumentierten Evidence Snapshot. Neue materielle Informationen lösen eine neue current-source-basierte Bewertung aus.
 - **Supplemental information is versioned:** neue Safety-/Outcome-/Malfunction-/Remedial-Action-/Awareness-Fakten werden gegen die frühere Decision-Version bewertet; die frühere Entscheidung bleibt historisch erhalten und wird nicht still überschrieben.
 - **Reportability ≠ causality proven:** MDR kann auf Informationen beruhen, die reasonably suggest, dass ein Device verursacht/beigetragen haben könnte oder ein relevanter Malfunction vorliegt; endgültige Root Cause ist nicht Voraussetzung für die initiale Bewertung.
@@ -43,9 +43,9 @@ Der Skill konsumiert den jurisdiction-neutralen Complaint-/Awareness-Handoff aus
 
 ## Workflow
 
-### 1. Complaint/Event Context und Routing-Evidence fixieren
+### 1. Complaint/Event Context und Provenance fixieren
 
-Konsumiere `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json`. Erfasse Complaint/Event ID, Device/Variant, Market, Reporter/Source, alle belegten relevanten Receipt-/Transfer-/Employee-/Function-Awareness-Fakten, Event Description, Outcome, Device Availability, Malfunction/Failure Information, Initial Risk/Seriousness Information, Prior FDA Assessment Reference, New Material Facts und Record Integrity Status.
+Nutze den bestverfügbaren kontrollierten Event-Kontext. Wenn der Fall aus `medical-device-complaint-regulatory-routing` stammt, konsumiere `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json`. Andernfalls verlange einen äquivalent kontrollierten Complaint-/Event-Record mit Source, Receipt-/Awareness-Evidence, Device Context, Event Description, Outcome, Malfunction/Failure Information, Prior Assessment Reference, New Material Facts und Record Integrity Status.
 
 Ein später QA-/Regulatory-Eingang überschreibt keine frühere belegte interne Information. Ein früher Customer-/Distributor-Zeitpunkt wird umgekehrt nicht ohne Manufacturer-Receipt-Evidence zur Hersteller-Awareness erklärt.
 
@@ -55,7 +55,7 @@ Nutze `quality-record-integrity`, um Source/Attribution/Timing/Completeness zu b
 
 ### 3. FDA Awareness und MDR Criteria bewerten
 
-Bestimme zuerst current-source-basiert aus den Routing-Evidence-Events den anwendbaren FDA-Awareness-Context. Prüfe anschließend mindestens:
+Bestimme zuerst current-source-basiert aus den Evidence Events den anwendbaren FDA-Awareness-Context. Prüfe anschließend mindestens:
 - Death,
 - Serious Injury,
 - Device may have caused or contributed,
@@ -94,11 +94,11 @@ Klassifiziere `30-day|5-day|supplemental|not-reportable|insufficient-information
 
 ### 7. Decision, Routing Return und External Boundary
 
-Dokumentiere Reportability State, Decision Version, Prior Assessment Reference, New Material Facts, Rationale, Source References, Awareness/Clock Inputs, Missing Information, Investigation/Risk/CAPA Links, Human Regulatory Review State und External Submission State getrennt. Aktualisiere den Complaint-/Routing-Follow-up-State referenzgebunden; nur verifizierte externe Evidenz darf `submitted`/`received` setzen.
+Dokumentiere Reportability State, Decision Version, Prior Assessment Reference, New Material Facts, Rationale, Source References, Awareness/Clock Inputs, Missing Information, Investigation/Risk/CAPA Links, Human Regulatory Review State und External Submission State getrennt. Wenn ein Complaint-Router existiert, aktualisiere dessen Follow-up-State referenzgebunden; nur verifizierte externe Evidenz darf `submitted`/`received` setzen.
 
 ## Output-Verträge
 
-`mdr-reportability-assessment.json` enthält Event Context, Routing/Timeline References, Decision Version, Prior Assessment Reference, New Material Facts, FDA Awareness Evidence/Interpretation, Current Rule Sources/`asOf`, Criteria Assessment, Reportability State, Timing Class, Due/Clock Inputs, Rationale, Missing Information und Human Review State.
+`mdr-reportability-assessment.json` enthält Event Context, optionale Routing/Timeline References, Decision Version, Prior Assessment Reference, New Material Facts, FDA Awareness Evidence/Interpretation, Current Rule Sources/`asOf`, Criteria Assessment, Reportability State, Timing Class, Due/Clock Inputs, Rationale, Missing Information und Human Review State.
 
 `complaint-regulatory-actions.json` enthält Required/Recommended Actions, Owner, Due Source, Reassessment/Supplemental Need, Investigation/Risk/CAPA/PMS Links, eMDR External State, Follow-up Need und Completion Evidence.
 
@@ -110,7 +110,8 @@ Persistenzwürdig sind validierte MDR-Decision-/Reassessment-Heuristiken, wieder
 
 Bestanden nur wenn:
 
-- der kontrollierte Complaint-Regulatory-Routing-Handoff konsumiert und seine Provenance nicht verloren wird,
+- bei Complaint-Router-Ursprung dessen Provenance vollständig konsumiert und nicht verloren wird,
+- ein ausreichend kontrollierter alternativer Complaint-/Event-Record auch ohne Router bewertbar bleibt,
 - **Actual awareness evidence** statt erfundener Clock-Inputs verwendet wird,
 - frühere belegte Employee-/Function-Receipt-Fakten nicht zugunsten eines späteren QA-/Regulatory-Zeitpunkts verworfen werden,
 - Awareness-Evidence und finale FDA-Rechtsinterpretation getrennt bleiben,

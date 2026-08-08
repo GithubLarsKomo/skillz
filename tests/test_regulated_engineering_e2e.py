@@ -62,8 +62,12 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
 
         self.assertIn("medical-device-customer-contact-intake", complaint["requires"])
         self.assertIn("medical-device-complaint-handling", router["requires"])
-        self.assertIn("medical-device-complaint-regulatory-routing", fda["requires"])
-        self.assertIn("medical-device-complaint-regulatory-routing", ivdr["requires"])
+        self.assertIn("fda-complaint-mdr-reportability", router["requires"])
+        self.assertIn("ivdr-pms-vigilance", router["requires"])
+
+        # Market specialists stay reusable for controlled non-router event/signal sources.
+        self.assertNotIn("medical-device-complaint-regulatory-routing", fda["requires"])
+        self.assertNotIn("medical-device-complaint-regulatory-routing", ivdr["requires"])
 
         intake_contract = next(
             c
@@ -75,18 +79,21 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
             for c in complaint["outputContracts"]
             if c["output"] == "complaint-regulatory-handoff.json"
         )
-        routing_contract = next(
+        fda_return_contract = next(
             c
-            for c in router["outputContracts"]
-            if c["output"] == "complaint-regulatory-routing.json"
+            for c in fda["outputContracts"]
+            if c["output"] == "complaint-regulatory-actions.json"
+        )
+        ivdr_return_contract = next(
+            c
+            for c in ivdr["outputContracts"]
+            if c["output"] == "vigilance-decision-log.json"
         )
 
         self.assertEqual(intake_contract["consumerSkills"], ["medical-device-complaint-handling"])
         self.assertEqual(complaint_contract["consumerSkills"], ["medical-device-complaint-regulatory-routing"])
-        self.assertEqual(
-            set(routing_contract["consumerSkills"]),
-            {"fda-complaint-mdr-reportability", "ivdr-pms-vigilance"},
-        )
+        self.assertIn("medical-device-complaint-regulatory-routing", fda_return_contract["consumerSkills"])
+        self.assertIn("medical-device-complaint-regulatory-routing", ivdr_return_contract["consumerSkills"])
 
         self.assertNotIn("medical-device-customer-contact-intake", fda["requires"])
         self.assertNotIn("medical-device-customer-contact-intake", ivdr["requires"])
@@ -110,23 +117,40 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
             "ivdr-pms-vigilance": "treat the prior not-reportable and complaint-closure states as historical",
         }
 
+        extra_hardness_cases = {
+            "medical-device-complaint-regulatory-routing": "dispatch-ownership-case",
+            "fda-complaint-mdr-reportability": "standalone-controlled-event-case",
+            "ivdr-pms-vigilance": "non-complaint-signal-case",
+        }
+
         for name in reassessment_skills:
             evaluation = json.loads((ROOT / "skills" / name / "tests" / "evaluation.json").read_text(encoding="utf-8"))
             case = next((c for c in evaluation["cases"] if c["id"] == "reassessment-case"), None)
             self.assertIsNotNone(case, name)
-            self.assertEqual(self.skills[name]["evaluation"]["caseCount"], 4, name)
+            self.assertGreaterEqual(self.skills[name]["evaluation"]["caseCount"], 4, name)
+            self.assertEqual(self.skills[name]["evaluation"]["caseCount"], len(evaluation["cases"]), name)
             self.assertTrue(
                 any(expected_behavior_fragments[name] in behavior for behavior in case["requiredBehaviors"]),
                 name,
             )
             self.assertTrue((ROOT / "skills" / name / "tests" / "results" / "reassessment-case.json").exists(), name)
 
+            extra_case_id = extra_hardness_cases.get(name)
+            if extra_case_id:
+                self.assertTrue(any(c["id"] == extra_case_id for c in evaluation["cases"]), name)
+                self.assertTrue((ROOT / "skills" / name / "tests" / "results" / f"{extra_case_id}.json").exists(), name)
+
         router_text = (ROOT / "skills" / "medical-device-complaint-regulatory-routing" / "SKILL.md").read_text(encoding="utf-8")
         complaint_text = (ROOT / "skills" / "medical-device-complaint-handling" / "SKILL.md").read_text(encoding="utf-8")
+        fda_text = (ROOT / "skills" / "fda-complaint-mdr-reportability" / "SKILL.md").read_text(encoding="utf-8")
+        ivdr_text = (ROOT / "skills" / "ivdr-pms-vigilance" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("Prior decisions are historical, not immunity", router_text)
+        self.assertIn("Complaint-origin Orchestrator", router_text)
         self.assertIn("reassessment-required", router_text)
         self.assertIn("Closure is not immunity", complaint_text)
         self.assertIn("complaintClosureState=reopened", complaint_text)
+        self.assertIn("Router is optional provenance, not a prerequisite", fda_text)
+        self.assertIn("Non-complaint vigilance remains valid", ivdr_text)
 
 
 if __name__ == "__main__":
