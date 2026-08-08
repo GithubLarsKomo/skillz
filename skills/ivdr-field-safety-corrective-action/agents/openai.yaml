@@ -1,0 +1,5 @@
+interface:
+  display_name: "IVDR Field Safety Corrective Action"
+  short_description: "Strukturiert IVDR-FSCA-Entscheidung, Behörden-Sequenz und FSN-Content mit harten Safety- und Evidence-Gates."
+policy:
+  allow_implicit_invocation: false
