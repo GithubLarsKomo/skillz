@@ -40,6 +40,25 @@
         "simulate FDA receipt or persist case-specific recall data as timeless memory"
       ],
       "skillAnchors": ["kein Recall-Execution-System", "Konkrete Complaint-/Patient-/Consignee-Daten"]
+    },
+    {
+      "id": "execution-handoff-case",
+      "input": "A reportable correction/removal has an action plan and affected distribution scope. The firm now needs customer notification, downstream tracking, effectiveness checks and eventual recall termination evidence. Route execution without changing the 806 conclusion or inventing FDA states.",
+      "requiredBehaviors": [
+        "route controlled action and distribution scope to medical-device-field-action-communication without making communication a prerequisite for the Part-806 reporting clock",
+        "route verified communication and product execution evidence to medical-device-field-action-effectiveness",
+        "keep internal operational completion distinct from FDA recall classification and termination"
+      ],
+      "forbiddenBehaviors": [
+        "let the communication or effectiveness worker re-decide Part-806 reportability",
+        "delay a due Part-806 report until recipient lists or effectiveness planning are complete",
+        "mark the recall terminated from internal completion evidence without FDA confirmation"
+      ],
+      "skillAnchors": [
+        "Regulatory decision ≠ execution success",
+        "Execution cannot delay the 806 clock",
+        "Interne Closure-Readiness ist keine FDA Recall Termination"
+      ]
     }
   ]
 }
