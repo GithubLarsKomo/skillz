@@ -1,5 +1,5 @@
 interface:
   display_name: "Medical Device Complaint Regulatory Routing"
-  short_description: "Überführt Medical-Device-/IVD-Complaint-Fakten und Awareness-Evidence frühzeitig in jurisdiction-spezifische Reportab..."
+  short_description: "Überführt Medical-Device-/IVD-Complaint-Fakten, Customer-Follow-up und Awareness-Evidence frühzeitig in jurisdiction-..."
 policy:
   allow_implicit_invocation: false

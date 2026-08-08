@@ -56,12 +56,15 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
 
     def test_customer_contact_to_vigilance_chain_is_hard_wired(self):
         complaint = self.skills["medical-device-complaint-handling"]
+        followup = self.skills["medical-device-complaint-customer-followup"]
         router = self.skills["medical-device-complaint-regulatory-routing"]
         fda = self.skills["fda-complaint-mdr-reportability"]
         ivdr = self.skills["ivdr-pms-vigilance"]
 
         self.assertIn("medical-device-customer-contact-intake", complaint["requires"])
+        self.assertIn("medical-device-complaint-handling", followup["requires"])
         self.assertIn("medical-device-complaint-handling", router["requires"])
+        self.assertIn("medical-device-complaint-customer-followup", router["requires"])
         self.assertIn("fda-complaint-mdr-reportability", router["requires"])
         self.assertIn("ivdr-pms-vigilance", router["requires"])
 
@@ -79,6 +82,11 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
             for c in complaint["outputContracts"]
             if c["output"] == "complaint-regulatory-handoff.json"
         )
+        followup_contract = next(
+            c
+            for c in followup["outputContracts"]
+            if c["output"] == "customer-followup-evidence.json"
+        )
         fda_return_contract = next(
             c
             for c in fda["outputContracts"]
@@ -91,7 +99,8 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         )
 
         self.assertEqual(intake_contract["consumerSkills"], ["medical-device-complaint-handling"])
-        self.assertEqual(complaint_contract["consumerSkills"], ["medical-device-complaint-regulatory-routing"])
+        self.assertIn("medical-device-complaint-regulatory-routing", complaint_contract["consumerSkills"])
+        self.assertEqual(followup_contract["consumerSkills"], ["medical-device-complaint-regulatory-routing"])
         self.assertIn("medical-device-complaint-regulatory-routing", fda_return_contract["consumerSkills"])
         self.assertIn("medical-device-complaint-regulatory-routing", ivdr_return_contract["consumerSkills"])
 
@@ -99,11 +108,13 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         self.assertNotIn("medical-device-customer-contact-intake", ivdr["requires"])
         self.assertNotIn("medical-device-complaint-handling", fda["requires"])
         self.assertNotIn("medical-device-complaint-handling", ivdr["requires"])
+        self.assertNotIn("medical-device-complaint-regulatory-routing", followup["requires"])
 
     def test_customer_followup_reassessment_contract_is_hard_wired(self):
         reassessment_skills = [
             "medical-device-customer-contact-intake",
             "medical-device-complaint-handling",
+            "medical-device-complaint-customer-followup",
             "medical-device-complaint-regulatory-routing",
             "fda-complaint-mdr-reportability",
             "ivdr-pms-vigilance",
@@ -112,6 +123,7 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         expected_behavior_fragments = {
             "medical-device-customer-contact-intake": "record the follow-up as a separate evidence event",
             "medical-device-complaint-handling": "preserve the historical closure and prior investigation decision",
+            "medical-device-complaint-customer-followup": "record the later reply as a new immutable follow-up evidence event",
             "medical-device-complaint-regulatory-routing": "set reassessment-required independently for US and EU",
             "fda-complaint-mdr-reportability": "treat the prior not-reportable decision as historical",
             "ivdr-pms-vigilance": "treat the prior not-reportable and complaint-closure states as historical",
@@ -142,13 +154,17 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
 
         router_text = (ROOT / "skills" / "medical-device-complaint-regulatory-routing" / "SKILL.md").read_text(encoding="utf-8")
         complaint_text = (ROOT / "skills" / "medical-device-complaint-handling" / "SKILL.md").read_text(encoding="utf-8")
+        followup_text = (ROOT / "skills" / "medical-device-complaint-customer-followup" / "SKILL.md").read_text(encoding="utf-8")
         fda_text = (ROOT / "skills" / "fda-complaint-mdr-reportability" / "SKILL.md").read_text(encoding="utf-8")
         ivdr_text = (ROOT / "skills" / "ivdr-pms-vigilance" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("Prior decisions are historical, not immunity", router_text)
         self.assertIn("Complaint-origin Orchestrator", router_text)
+        self.assertIn("Customer Follow-up ist ein Evidence-Zulieferer", router_text)
         self.assertIn("reassessment-required", router_text)
         self.assertIn("Closure is not immunity", complaint_text)
         self.assertIn("complaintClosureState=reopened", complaint_text)
+        self.assertIn("Follow-up never delays time-critical escalation", followup_text)
+        self.assertIn("Evidence preservation precedes destructive support", followup_text)
         self.assertIn("Router is optional provenance, not a prerequisite", fda_text)
         self.assertIn("Non-complaint vigilance remains valid", ivdr_text)
 

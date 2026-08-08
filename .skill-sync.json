@@ -401,6 +401,12 @@
         "agents/openai.yaml": "cfd77da4fa39913ad09a67e3e0562645e217fec81fafa75b6c302171a8cd6cc1"
       }
     },
+    "medical-device-complaint-customer-followup": {
+      "files": {
+        "SKILL.md": "93e061909db0f274861e1efc08088d55cb644b9d7d0133602538fafc07a8ccf7",
+        "agents/openai.yaml": "0a1df3793f5af0e9b2dcc0d5b200cebb59330389c1ed6cfa7e4a7acac480d11b"
+      }
+    },
     "medical-device-complaint-handling": {
       "files": {
         "SKILL.md": "aec2b3fb5eb2bbf33c358d22afa93b24b043eac93b9a3850946eaf593c0542d8",
@@ -409,8 +415,8 @@
     },
     "medical-device-complaint-regulatory-routing": {
       "files": {
-        "SKILL.md": "cd44ddf3f879d356e37161ad3e9f1f00a45dd75fe1a9d0006e8094c38e359978",
-        "agents/openai.yaml": "35bf83200bd38aa4d77fa2b300032200532fd63e0686e5803f94233fdbefa3d5"
+        "SKILL.md": "7b98d63c519bf63fb65ba30dbf46e44861538dbba427024b62eb4d0cd66c9e5a",
+        "agents/openai.yaml": "e78e8f49f9a2eefaec9419ac51db4e5a841898ca581d09e05b9f147aca011220"
       }
     },
     "medical-device-customer-contact-intake": {

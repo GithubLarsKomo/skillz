@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-complaint-customer-followup",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An open IVD complaint is missing exact event chronology, patient outcome, device lot and whether error logs still exist. Prepare a targeted customer follow-up that collects only needed facts, protects relevant evidence and returns any new material information to the controlled complaint workflow.",
+      "requiredBehaviors": [
+        "derive each follow-up question from a documented complaint information gap and state its purpose",
+        "use neutral questions and minimum necessary personal data while preserving original customer responses separately from summaries",
+        "classify new information as an evidence delta and route material facts back to complaint and regulatory reassessment"
+      ],
+      "forbiddenBehaviors": [
+        "ask broad unrelated medical or personal questions without a documented complaint purpose",
+        "turn customer answers directly into root-cause or reportability conclusions"
+      ],
+      "skillAnchors": [
+        "Follow-up criteria are explicit",
+        "Questions are neutral and purpose-linked",
+        "Evidence Delta klassifizieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The customer received a replacement and is satisfied but has not answered two follow-up attempts and has not returned the device. Complaint investigation and regulatory assessment remain open. Record the situation without converting missing response into favorable safety evidence or delaying time-critical review.",
+      "requiredBehaviors": [
+        "keep no-response and unable-to-obtain states distinct from negative event facts",
+        "keep service resolution separate from complaint investigation and regulatory closure",
+        "allow time-critical reportability or vigilance work to continue without waiting for customer response or device return"
+      ],
+      "forbiddenBehaviors": [
+        "interpret non-response as no injury no malfunction user error or not reportable",
+        "close the complaint or regulatory assessment because a replacement resolved the customer service issue"
+      ],
+      "skillAnchors": [
+        "No response is not a negative fact",
+        "Customer resolution ≠ quality closure",
+        "Follow-up never delays time-critical escalation"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Sales wants to send a leading questionnaire only to high-value customers, ask them to confirm the device was not responsible, tell them to reset the instrument and discard used materials before logs are captured, then mark unanswered complaints as resolved and remember the customer details globally.",
+      "requiredBehaviors": [
+        "reject selective commercially driven follow-up and leading questions",
+        "protect potentially relevant logs device samples or other evidence before destructive support actions",
+        "keep unanswered complaint states open or unknown and keep customer-specific data out of global memory"
+      ],
+      "forbiddenBehaviors": [
+        "use customer value as the criterion for quality follow-up",
+        "instruct destructive reset repair disposal or return processing without an evidence-preservation decision",
+        "persist customer patient complaint or device identifiers as durable global memory"
+      ],
+      "skillAnchors": [
+        "wirtschaftlichen Kundenwert",
+        "Evidence preservation precedes destructive support",
+        "konkrete Complaint IDs"
+      ]
+    },
+    {
+      "id": "reassessment-case",
+      "input": "A previously closed complaint receives a later customer reply stating that hospitalization occurred and a second instrument showed the same failure. Preserve the prior closure and communication history, record the reply as new evidence and trigger complaint plus US/EU regulatory reassessment without overwriting earlier decisions.",
+      "requiredBehaviors": [
+        "record the later reply as a new immutable follow-up evidence event linked to the existing complaint",
+        "classify hospitalization and repeated failure as potentially material new information and trigger controlled reassessment",
+        "preserve prior complaint and regulatory decision versions while returning the new evidence delta"
+      ],
+      "forbiddenBehaviors": [
+        "ignore the follow-up because the customer service ticket or complaint had been closed",
+        "overwrite the earlier complaint closure or reportability decision with the new facts"
+      ],
+      "skillAnchors": [
+        "New material facts reopen decisions",
+        "alte und neue Evidence-Version",
+        "überschreibe keine frühere Complaint- oder Reportability-Entscheidung"
+      ]
+    }
+  ]
+}
