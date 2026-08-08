@@ -152,6 +152,49 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         self.assertIn("Router is optional provenance, not a prerequisite", fda_text)
         self.assertIn("Non-complaint vigilance remains valid", ivdr_text)
 
+    def test_service_followup_and_coding_workers_preserve_fast_regulatory_path(self):
+        service = self.skills["medical-device-service-report-quality-routing"]
+        followup = self.skills["medical-device-complaint-evidence-followup"]
+        coding = self.skills["medical-device-adverse-event-coding"]
+        router = self.skills["medical-device-complaint-regulatory-routing"]
+        fda = self.skills["fda-complaint-mdr-reportability"]
+        ivdr = self.skills["ivdr-pms-vigilance"]
+
+        self.assertIn("medical-device-customer-contact-intake", service["requires"])
+        self.assertIn("medical-device-complaint-handling", followup["requires"])
+        self.assertIn("medical-device-complaint-handling", coding["requires"])
+
+        # Complaint-origin dispatch still belongs to the router.
+        self.assertIn("fda-complaint-mdr-reportability", router["requires"])
+        self.assertIn("ivdr-pms-vigilance", router["requires"])
+        self.assertNotIn("medical-device-complaint-regulatory-routing", fda["requires"])
+        self.assertNotIn("medical-device-complaint-regulatory-routing", ivdr["requires"])
+
+        # The new service/follow-up/coding workers remain optional sidecars and can never become safety gates.
+        for optional_worker in [
+            "medical-device-service-report-quality-routing",
+            "medical-device-complaint-evidence-followup",
+            "medical-device-adverse-event-coding",
+        ]:
+            self.assertNotIn(optional_worker, router["requires"])
+            self.assertNotIn(optional_worker, fda["requires"])
+            self.assertNotIn(optional_worker, ivdr["requires"])
+            self.assertEqual(self.skills[optional_worker]["evaluation"]["caseCount"], 3)
+            self.assertEqual(self.skills[optional_worker]["evaluation"]["recordedResultCount"], 3)
+            for case_id in ["happy-path", "edge-case", "failure-case"]:
+                self.assertTrue((ROOT / "skills" / optional_worker / "tests" / "results" / f"{case_id}.json").exists())
+
+        service_text = (ROOT / "skills" / "medical-device-service-report-quality-routing" / "SKILL.md").read_text(encoding="utf-8")
+        followup_text = (ROOT / "skills" / "medical-device-complaint-evidence-followup" / "SKILL.md").read_text(encoding="utf-8")
+        coding_text = (ROOT / "skills" / "medical-device-adverse-event-coding" / "SKILL.md").read_text(encoding="utf-8")
+
+        self.assertIn("Safety bypasses service SLA", service_text)
+        self.assertIn("Service completion ≠ complaint closure", service_text)
+        self.assertIn("Critical routing never waits for reply", followup_text)
+        self.assertIn("Unknown is not negative evidence", followup_text)
+        self.assertIn("No coding gate before safety", coding_text)
+        self.assertIn("Code ≠ reportability", coding_text)
+
 
 if __name__ == "__main__":
     unittest.main()
