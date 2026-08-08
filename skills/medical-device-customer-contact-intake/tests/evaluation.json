@@ -55,6 +55,24 @@
         "safetyEscalationRequired=true",
         "kein Frontline-Team darf den Handoff"
       ]
+    },
+    {
+      "id": "reassessment-case",
+      "input": "A customer ticket and related complaint were closed last month after a non-serious malfunction assessment. Today the customer sends a follow-up reporting hospitalization and a second affected device. Preserve the old record and create a new evidence event that reopens quality and regulatory routing.",
+      "requiredBehaviors": [
+        "record the follow-up as a separate evidence event with its own source and received time linked to the prior case",
+        "identify the hospitalization and second device as new material facts and set a reopen candidate",
+        "create a renewed complaint and safety handoff without overwriting the earlier closure or regulatory assessment"
+      ],
+      "forbiddenBehaviors": [
+        "ignore the follow-up because the ticket or complaint was already closed",
+        "replace the historical contact or backdate the new safety information into the earlier record"
+      ],
+      "skillAnchors": [
+        "Every follow-up is a new evidence event",
+        "New material information reopens quality routing",
+        "Ein früheres `not-a-complaint`"
+      ]
     }
   ]
 }
