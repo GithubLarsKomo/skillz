@@ -12,6 +12,8 @@ requires:
   - medical-device-complaint-handling
   - regulated-product-context
   - regulatory-evidence-traceability
+  - fda-complaint-mdr-reportability
+  - ivdr-pms-vigilance
 outputs:
   - complaint-regulatory-routing.json
   - regulatory-awareness-timeline.json
@@ -23,9 +25,11 @@ lastEvaluated: 2026-08-08
 
 ## Zweck und Grenze
 
-Dieser Skill besitzt die kontrollierte **Schwelle vom Complaint Handling in jurisdiction-spezifische Vigilance-/Reportability-Assessments**. Er normalisiert Markets, Rollen, Awareness-Evidence, Safety-/Performance-Fakten und Unknowns und erzeugt parallele Handoffs an die vorhandenen Regulatory-Spezialisten.
+Dieser Skill besitzt die kontrollierte **Schwelle vom Complaint Handling in jurisdiction-spezifische Vigilance-/Reportability-Assessments**. Er normalisiert Markets, Rollen, Awareness-Evidence, Safety-/Performance-Fakten und Unknowns und orchestriert parallele Handoffs an die vorhandenen Regulatory-Spezialisten.
 
 Er entscheidet ausdrücklich **nicht** `reportable|not-reportable`, berechnet keine finale gesetzliche Due Date und übermittelt keine Behördenmeldung. FDA-MDR bleibt bei `fda-complaint-mdr-reportability`; IVDR-Vigilance bleibt bei `ivdr-pms-vigilance`. Weitere Jurisdiktionen werden als `specialist-required` geroutet, bis ein eigener Owner existiert.
+
+Der Router ist der **Complaint-origin Orchestrator**: Er ruft die zuständigen Markt-Spezialisten auf und verfolgt deren Acknowledgement-/Assessment-State. Umgekehrt dürfen diese Spezialisten nicht technisch vom Complaint-Router abhängig sein, weil sie auch aus anderen zulässigen Quellen wie PMS, Literatur, Field Signals oder bereits kontrollierten Event Records aufgerufen werden können.
 
 ## Kernprinzipien
 
@@ -37,6 +41,7 @@ Er entscheidet ausdrücklich **nicht** `reportable|not-reportable`, berechnet ke
 - **Prior decisions are historical, not immunity:** ein früheres `not-reportable`, `assessment-complete`, `complaint-closed` oder `no-action` bleibt als versionierte Entscheidung erhalten, verhindert aber keine erneute Specialist-Bewertung bei neuen materiellen Fakten.
 - **Material new information triggers reassessment:** neue Safety-, Outcome-, Malfunction-, False-Result-, Market-, Role- oder Remedial-Action-Fakten erzeugen pro betroffener Jurisdiktion einen neuen `reassessment-required`-State mit Referenz auf die frühere Entscheidung.
 - **Non-reportability is a specialist decision:** Customer Service, Complaint Handling und dieser Router dürfen eine potenziell relevante Meldung nicht durch `not-a-complaint`, `known issue`, `user error`, `no device returned`, `customer satisfied` oder `root cause unknown` abschneiden.
+- **Specialists stay reusable:** FDA- und IVDR-Spezialisten dürfen außerhalb des Complaint-Flows mit anderen kontrollierten Postmarket-/Event-Quellen arbeiten; Complaint-Provenance wird nur verlangt, wenn der Ursprung tatsächlich ein Complaint ist.
 - **External action remains external:** Routing/Assessment/Approval ≠ submitted/received/accepted by authority.
 
 ## Workflow
@@ -110,15 +115,17 @@ Wenn bereits eine Market-Entscheidung existiert, vergleiche neue Fakten gegen de
 
 Ein `reassessment-required` entsteht, wenn neue Information die frühere Awareness-, Seriousness-, Malfunction-, Causality-, Remedial-Action-, Market-/Role- oder sonstige Reportability-/Vigilance-Bewertung materiell beeinflussen kann. Frühere Entscheidungen bleiben versioniert referenziert und werden nicht überschrieben.
 
-### 6. Market-Handoffs erzeugen
+### 6. Market-Spezialisten aufrufen
 
-Für USA → `fda-complaint-mdr-reportability` mit Complaint Reference, Product/Role Facts, Awareness Evidence, Event/Malfunction Facts, Investigation State, Prior FDA Assessment Reference, New Material Facts und Unknowns.
+Für USA → rufe `fda-complaint-mdr-reportability` mit Complaint Reference, Product/Role Facts, Awareness Evidence, Event/Malfunction Facts, Investigation State, Prior FDA Assessment Reference, New Material Facts und Unknowns auf.
 
-Für EU-IVDR → `ivdr-pms-vigilance` mit Complaint Reference, Product/Market Facts, Event/Seriousness/False-Result Facts, PMS Context Reference soweit vorhanden, Investigation State, Prior IVDR Decision Reference, New Material Facts und Unknowns.
+Für EU-IVDR → rufe `ivdr-pms-vigilance` mit Complaint Reference, Product/Market Facts, Event/Seriousness/False-Result Facts, PMS Context Reference soweit vorhanden, Investigation State, Prior IVDR Decision Reference, New Material Facts und Unknowns auf.
 
 Für andere Märkte → benenne Regulatory Owner/Specialist Need, Current-Source Requirement und `human-review-required`; erfinde keine analoge FDA-/EU-Regel.
 
-### 7. Routing Acknowledgement verfolgen
+Die Spezialisten erhalten Complaint-Provenance als Input, bleiben aber eigenständige Owner ihrer Rechts-/Vigilance-Entscheidung. Der Router darf deren Output nicht umetikettieren oder in einen eigenen Reportability-State verdichten.
+
+### 7. Specialist Acknowledgement verfolgen
 
 `vigilance-entry-handoff.json` enthält pro Jurisdiktion:
 
@@ -128,9 +135,10 @@ Für andere Märkte → benenne Regulatory Owner/Specialist Need, Current-Source
 - Prior Assessment Reference,
 - New Material Facts/Delta,
 - Time-Criticality,
+- Specialist Assessment/Decision Reference soweit vorhanden,
 - offene Fakten/Folgeinformationen.
 
-Complaint Closure darf bei einem erforderlichen, aber nicht bestätigten Regulatory-Handoff oder Reassessment nicht als vollständig gelten.
+Complaint Closure darf bei einem erforderlichen, aber nicht bestätigten Regulatory-Handoff oder Reassessment nicht als vollständig gelten. Ein interner Router-State `sent-to-specialist` ist weder Specialist-Acknowledgement noch Assessment-Completion.
 
 ## Output-Verträge
 
@@ -153,7 +161,9 @@ Bestanden nur wenn:
 - Awareness-Evidence chronologisch erhalten und nicht mit finaler Awareness-Rechtsentscheidung verwechselt wird,
 - neue materielle Fakten frühere `not-reportable`-/Assessment-/Complaint-Closure-Zustände nicht als Sperre behandeln,
 - Reassessment pro Jurisdiktion versioniert und mit Prior Decision/New Evidence referenziert wird,
+- FDA-/EU-Spezialisten tatsächlich aufgerufen und deren Acknowledgement-/Assessment-State getrennt vom Router-State verfolgt wird,
 - FDA-/EU-/weitere Marktentscheidungen getrennte Specialist Assessments bleiben,
+- die Markt-Spezialisten außerhalb des Complaint-Flows weiterhin mit anderen kontrollierten Event-/PMS-Quellen verwendbar bleiben,
 - `known issue`, `user error`, fehlender Rücklauf oder Kundenzufriedenheit keine mögliche regulatorische Bewertung abschneiden,
 - ein Headline-Status wie `ticket closed` oder `complaint closed` keine Authority-/Reportability-Closure erzeugt,
 - externe Meldung/Receipt/Acceptance niemals simuliert wird,
