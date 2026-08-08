@@ -9,7 +9,6 @@ status: candidate
 owners:
   - GithubLarsKomo
 requires:
-  - medical-device-complaint-regulatory-routing
   - regulated-product-context
   - medical-device-pms-system
   - medical-device-risk-management-iso14971
@@ -27,14 +26,15 @@ lastEvaluated: 2026-08-08
 
 ## Zweck und Grenze
 
-Dieser Skill strukturiert IVDR-Post-Market-Surveillance-Signale und Vigilance-/Reportability-Fragen. Er verbindet Feldinformationen mit dem kontrollierten Complaint-Regulatory-Routing, Product Context, dem übergeordneten PMS-System, Risk Management, regulatorischer Evidenz und aktuellen Melde-/Guidance-Anforderungen und erzeugt nachvollziehbare Entscheidungen, Gaps und Eskalationen.
+Dieser Skill strukturiert IVDR-Post-Market-Surveillance-Signale und Vigilance-/Reportability-Fragen. Er verbindet Feldinformationen mit Product Context, dem übergeordneten PMS-System, Risk Management, regulatorischer Evidenz und aktuellen Melde-/Guidance-Anforderungen und erzeugt nachvollziehbare Entscheidungen, Gaps und Eskalationen.
 
-Er führt **keine externe Behördenmeldung autonom aus**, ersetzt keine Complaint Investigation, CAPA/Ursachenanalyse und ist kein generischer Complaint-Handling-Skill. Wegen potenziell zeitkritischer regulatorischer Entscheidungen ist die automatische implizite Invocation deaktiviert. Ein fehlender oder unvollständiger PMS-Systemkontext ist ein System-Gap, darf aber eine zeitkritische Vigilance-Bewertung nicht blockieren.
+Wenn der Ursprung ein Customer-Service-/Complaint-Fall ist, konsumiert der Skill die kontrollierte Provenance aus `medical-device-complaint-regulatory-routing`. Er bleibt aber ebenso für andere zulässige Postmarket-Quellen wie PMS-Trends, Literatur, Field-Service-/Distributor-Signale oder bereits kontrollierte Event Records verwendbar. Er führt **keine externe Behördenmeldung autonom aus**, ersetzt keine Complaint Investigation, CAPA/Ursachenanalyse und ist kein generischer Complaint-Handling-Skill. Wegen potenziell zeitkritischer regulatorischer Entscheidungen ist die automatische implizite Invocation deaktiviert. Ein fehlender oder unvollständiger PMS-Systemkontext ist ein System-Gap, darf aber eine zeitkritische Vigilance-Bewertung nicht blockieren.
 
 ## Kernprinzipien
 
-- **Complaint provenance enters vigilance intact:** `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json` werden als referenzierte Intake-/Awareness-Evidence übernommen; Original-Complaint und personenbezogene Rohdaten werden nicht unnötig dupliziert.
-- **Routing evidence ≠ IVDR conclusion:** der Router löst die Bewertung aus, entscheidet aber weder Serious Incident noch Reportability; diese Entscheidung bleibt current-source-basiert in diesem Skill.
+- **Complaint provenance enters vigilance intact when applicable:** liegen `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` oder `vigilance-entry-handoff.json` vor, werden sie als referenzierte Intake-/Awareness-Evidence übernommen; Original-Complaint und personenbezogene Rohdaten werden nicht unnötig dupliziert.
+- **Non-complaint vigilance remains valid:** ein PMS-/Trend-/Literatur-/Field-Signal benötigt keinen künstlichen Complaint-Router, solange Source, Product/Market Context, Event/Signal Facts und Provenance ausreichend kontrolliert sind.
+- **Routing evidence ≠ IVDR conclusion:** ein Complaint-Router kann die Bewertung auslösen, entscheidet aber weder Serious Incident noch Reportability; diese Entscheidung bleibt current-source-basiert in diesem Skill.
 - **Prior vigilance decision is not immunity:** eine frühere `not-reportable-on-current-evidence`, `assessment-complete` oder Complaint-Closure gilt nur für ihren Evidence Snapshot. Neue materielle Fakten lösen eine erneute current-source-basierte Vigilance-Bewertung aus.
 - **Reassessment is versioned:** neue Outcome-/Seriousness-/False-Result-/Malfunction-/FSCA-/Market-/PMS-Fakten werden gegen die frühere Decision-Version bewertet; die alte Entscheidung bleibt historisch referenziert statt überschrieben zu werden.
 - Melde-/Vigilance-Fragen werden fallbezogen gegen aktuelle offizielle Anforderungen geprüft; Fristen und Definitionen werden nicht als statische Zahlen im Skill konserviert.
@@ -49,9 +49,11 @@ Er führt **keine externe Behördenmeldung autonom aus**, ersetzt keine Complain
 
 ## Workflow
 
-### 1. Complaint-/Signal-Intake normalisieren
+### 1. Postmarket-/Complaint-Signal normalisieren
 
-Konsumiere soweit vorhanden `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json`. Erfasse/übernehme Quelle, Zeitpunkt/Transferchronologie, Produkt/Version/Lot soweit relevant, Markt, Nutzungskontext, Ereignisbeschreibung, Outcome/Impact, bekannte Patient-/User-Auswirkungen, technische Fakten, Complaint-Investigation-State, Prior IVDR Decision Reference, New Material Facts und Unknowns.
+Bestimme zuerst den Source-Typ: `complaint|pms-trend|literature|field-service|distributor|performance-monitoring|other-controlled-source`.
+
+Bei Complaint-Ursprung konsumiere soweit vorhanden `complaint-regulatory-routing.json`, `regulatory-awareness-timeline.json` und `vigilance-entry-handoff.json`. Bei anderen Quellen erfasse deren kontrollierte Source-/Receipt-Provenance direkt. In allen Fällen: Produkt/Version/Lot soweit relevant, Markt, Nutzungskontext, Ereignis-/Signalbeschreibung, Outcome/Impact, bekannte Patient-/User-Auswirkungen, technische Fakten, Prior IVDR Decision Reference, New Material Facts und Unknowns.
 
 Personenbezogene Daten werden minimiert und nicht unnötig in Vigilance-Artefakte kopiert. Übernimm soweit verfügbar den aktuellen PMS-Systemkontext/Source-State; fehlt er, markiere den Gap ohne zeitkritische Bewertung zu verzögern.
 
@@ -75,7 +77,7 @@ Bewerte getrennt:
 
 Status mindestens `not-indicated|possible|likely|confirmed|not-reportable-on-current-evidence|reportability-unresolved|human-authority-action-required`.
 
-Eine Complaint-Klassifikation oder erfolgreiche Customer Resolution ist kein Ersatz für diese Vigilance-Klassifikation.
+Eine Complaint-Klassifikation oder erfolgreiche Customer Resolution ist kein Ersatz für diese Vigilance-Klassifikation; umgekehrt wird ein nicht-Complaint-origin Signal nicht künstlich zum Complaint umetikettiert.
 
 ### 4. Reassessment bei neuer Information
 
@@ -95,7 +97,7 @@ Bei möglicher Meldepflicht oder anderer zeitkritischer Pflicht wird der relevan
 
 ### 6. Evidence/Risk-Linkage
 
-Verknüpfe die Entscheidung über `regulatory-evidence-traceability` mit aktuellen Requirements und aktualisiere bei Bedarf `medical-device-risk-management-iso14971`. Eine neue Gefahr/Risikohöhe oder ein neuer Failure Mode wird nicht nur im Vigilance-Log belassen. Complaint Investigation bleibt beim `medical-device-complaint-handling`; offene Ursachenarbeit wird referenziert, nicht dupliziert.
+Verknüpfe die Entscheidung über `regulatory-evidence-traceability` mit aktuellen Requirements und aktualisiere bei Bedarf `medical-device-risk-management-iso14971`. Eine neue Gefahr/Risikohöhe oder ein neuer Failure Mode wird nicht nur im Vigilance-Log belassen. Bei Complaint-Ursprung bleibt Investigation beim `medical-device-complaint-handling`; offene Ursachenarbeit wird referenziert, nicht dupliziert.
 
 ### 7. Management-Attention bestimmen
 
@@ -103,7 +105,7 @@ Setze `managementAttention=true`, wenn der Fall/das Signal z. B. einen höher-ri
 
 ### 8. Lifecycle-, Complaint- und PMS-Routing
 
-- Complaint-Investigation-/Follow-up-State → referenzgebundener Rückkanal zu `medical-device-complaint-handling`; Reportability-Entscheidung darf dessen Investigation aber nicht blockieren
+- bei Complaint-Ursprung: Complaint-Investigation-/Follow-up-State → referenzgebundener Rückkanal zu `medical-device-complaint-handling`; Reportability-Entscheidung darf dessen Investigation aber nicht blockieren
 - PMS-Systemstatus/Management-Review-Handoff → `medical-device-pms-system` mit Decision/Signal Reference, State, Management-Attention, Data Limits und Follow-up Trigger
 - Performance-Frage → `ivdr-performance-evaluation` / `ivdr-pmpf`
 - Trend-/PMS-Überwachung → fortgesetztes PMS mit definiertem Trigger
@@ -116,9 +118,9 @@ Ein Management Review konsumiert die aggregierte PMS-Governance-Sicht; er ist ke
 
 ## Output-Verträge
 
-`ivdr-pms-assessment.json` enthält Scope, Complaint-/Routing-/PMS-References, Decision Version, Prior Decision Reference, New Material Facts, Datenquellen, Signalübersicht, Product/PMS/Risk Context, Trend-/Performance-Bewertung, offene Gaps, Management-Attention, Re-evaluation Trigger und `asOf`.
+`ivdr-pms-assessment.json` enthält Source Type, Scope, optionale Complaint-/Routing-References, PMS-References, Decision Version, Prior Decision Reference, New Material Facts, Datenquellen, Signalübersicht, Product/PMS/Risk Context, Trend-/Performance-Bewertung, offene Gaps, Management-Attention, Re-evaluation Trigger und `asOf`.
 
-`vigilance-decision-log.json` enthält pro Fall/Entscheidung Facts, Unknowns, Complaint/Timeline References, Prior Decision Reference, New Material Facts, Current Requirement References, Klassifikation, Reportability State, Time-Criticality, Human Owner, Decision Evidence, externe Action State, `managementAttention`, `managementAttentionReason`, `pmsHandoffState` und Follow-up Trigger.
+`vigilance-decision-log.json` enthält pro Fall/Entscheidung Facts, Unknowns, Source-/optionale Complaint/Timeline References, Prior Decision Reference, New Material Facts, Current Requirement References, Klassifikation, Reportability State, Time-Criticality, Human Owner, Decision Evidence, externe Action State, `managementAttention`, `managementAttentionReason`, `pmsHandoffState` und Follow-up Trigger.
 
 `trend-signal-set.json` enthält normalisierte Signaldefinition, Baseline/Denominator soweit verfügbar, Beobachtungen, Unsicherheit, Trigger/Threshold-Logik, Confidence, Management-Attention soweit relevant und Next Action. Ein statistischer Trend wird nicht behauptet, wenn Datenbasis oder Nenner unzureichend sind.
 
@@ -130,7 +132,8 @@ Persistenzwürdig sind validierte produktspezifische Signaldefinitionen, stabile
 
 Bestanden nur wenn:
 
-- der kontrollierte Complaint-Regulatory-Routing-Handoff und seine Timeline-Provenance konsumiert werden,
+- Complaint-origin Fälle die kontrollierte Routing-/Timeline-Provenance vollständig konsumieren,
+- nicht-Complaint-origin PMS-/Trend-/Literatur-/Feldsignale ohne künstlichen Complaint-Router bewertbar bleiben,
 - Router/Complaint-Status nicht als IVDR-Reportability-Entscheidung missverstanden wird,
 - aktuelle Requirements statt erinnerter Fristen/Definitionen verwendet werden,
 - Facts, Unknowns und regulatorische Interpretation getrennt sind,
