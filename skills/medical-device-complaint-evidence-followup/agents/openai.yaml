@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Complaint Evidence Followup"
+  short_description: "Plant und steuert gezielte Medical-Device-/IVD-Complaint-Folgeabfragen als versionierte Evidenzereignisse, ohne fehle..."
+policy:
+  allow_implicit_invocation: true
