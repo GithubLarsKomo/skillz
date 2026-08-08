@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 107,
-  "entrypointCount": 89,
+  "skillCount": 108,
+  "entrypointCount": 90,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 107,
+  "evaluationSuiteCount": 108,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -3762,14 +3762,14 @@
       }
     },
     {
-      "name": "medical-device-complaint-handling",
-      "description": "Führt Medical-Device-/IVD-Complaints als kontrollierten QMS-Prozess von Intake über Evaluation und Investigation bis zu evidenzbasierter Closure, ohne MDR-/Vigilance-Reportability, CAPA oder Risk Management zu duplizieren.",
+      "name": "medical-device-complaint-customer-followup",
+      "description": "Plant und dokumentiert Medical-Device-/IVD-Customer-Follow-up für offene oder wieder zu öffnende Complaints evidenzbasiert, konsistent und datensparsam und führt neue Fakten kontrolliert in Complaint- und Regulatory-Reassessment zurück, ohne Investigation oder Reportability zu übernehmen.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
       },
       "requires": [
-        "medical-device-customer-contact-intake",
+        "medical-device-complaint-handling",
         "quality-record-integrity",
         "regulated-product-context"
       ],
@@ -3777,47 +3777,36 @@
         "medical-device-complaint-regulatory-routing"
       ],
       "outputs": [
-        "complaint-closure-readiness.json",
-        "complaint-investigation-plan.json",
-        "complaint-record.json",
-        "complaint-regulatory-handoff.json"
+        "customer-communication-record.json",
+        "customer-followup-evidence.json",
+        "customer-followup-plan.json"
       ],
       "outputContracts": [
         {
-          "output": "complaint-closure-readiness.json",
+          "output": "customer-communication-record.json",
           "ambiguous": false,
           "producers": [
-            "medical-device-complaint-handling"
+            "medical-device-complaint-customer-followup"
           ],
           "consumerSkills": [
             "medical-device-complaint-regulatory-routing"
           ]
         },
         {
-          "output": "complaint-investigation-plan.json",
+          "output": "customer-followup-evidence.json",
           "ambiguous": false,
           "producers": [
-            "medical-device-complaint-handling"
+            "medical-device-complaint-customer-followup"
           ],
           "consumerSkills": [
             "medical-device-complaint-regulatory-routing"
           ]
         },
         {
-          "output": "complaint-record.json",
+          "output": "customer-followup-plan.json",
           "ambiguous": false,
           "producers": [
-            "medical-device-complaint-handling"
-          ],
-          "consumerSkills": [
-            "medical-device-complaint-regulatory-routing"
-          ]
-        },
-        {
-          "output": "complaint-regulatory-handoff.json",
-          "ambiguous": false,
-          "producers": [
-            "medical-device-complaint-handling"
+            "medical-device-complaint-customer-followup"
           ],
           "consumerSkills": [
             "medical-device-complaint-regulatory-routing"
@@ -3835,8 +3824,86 @@
       }
     },
     {
+      "name": "medical-device-complaint-handling",
+      "description": "Führt Medical-Device-/IVD-Complaints als kontrollierten QMS-Prozess von Intake über Evaluation und Investigation bis zu evidenzbasierter Closure, ohne MDR-/Vigilance-Reportability, CAPA oder Risk Management zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-customer-contact-intake",
+        "quality-record-integrity",
+        "regulated-product-context"
+      ],
+      "dependents": [
+        "medical-device-complaint-customer-followup",
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "outputs": [
+        "complaint-closure-readiness.json",
+        "complaint-investigation-plan.json",
+        "complaint-record.json",
+        "complaint-regulatory-handoff.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "complaint-closure-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-complaint-handling"
+          ],
+          "consumerSkills": [
+            "medical-device-complaint-customer-followup",
+            "medical-device-complaint-regulatory-routing"
+          ]
+        },
+        {
+          "output": "complaint-investigation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-complaint-handling"
+          ],
+          "consumerSkills": [
+            "medical-device-complaint-customer-followup",
+            "medical-device-complaint-regulatory-routing"
+          ]
+        },
+        {
+          "output": "complaint-record.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-complaint-handling"
+          ],
+          "consumerSkills": [
+            "medical-device-complaint-customer-followup",
+            "medical-device-complaint-regulatory-routing"
+          ]
+        },
+        {
+          "output": "complaint-regulatory-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-complaint-handling"
+          ],
+          "consumerSkills": [
+            "medical-device-complaint-customer-followup",
+            "medical-device-complaint-regulatory-routing"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
       "name": "medical-device-complaint-regulatory-routing",
-      "description": "Überführt Medical-Device-/IVD-Complaint-Fakten und Awareness-Evidence frühzeitig in jurisdiction-spezifische Reportability-/Vigilance-Assessments, ohne selbst FDA-MDR-, EU-Vigilance- oder andere Behördenentscheidungen zu treffen.",
+      "description": "Überführt Medical-Device-/IVD-Complaint-Fakten, Customer-Follow-up und Awareness-Evidence frühzeitig in jurisdiction-spezifische Reportability-/Vigilance-Assessments, ohne selbst FDA-MDR-, EU-Vigilance- oder andere Behördenentscheidungen zu treffen.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
@@ -3844,6 +3911,7 @@
       "requires": [
         "fda-complaint-mdr-reportability",
         "ivdr-pms-vigilance",
+        "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "regulated-product-context",
         "regulatory-evidence-traceability"
@@ -5261,6 +5329,7 @@
       ],
       "dependents": [
         "fda-complaint-mdr-reportability",
+        "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "medical-device-customer-contact-intake"
       ],
@@ -5278,6 +5347,7 @@
           ],
           "consumerSkills": [
             "fda-complaint-mdr-reportability",
+            "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-customer-contact-intake"
           ]
@@ -5290,6 +5360,7 @@
           ],
           "consumerSkills": [
             "fda-complaint-mdr-reportability",
+            "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-customer-contact-intake"
           ]
@@ -5302,6 +5373,7 @@
           ],
           "consumerSkills": [
             "fda-complaint-mdr-reportability",
+            "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-customer-contact-intake"
           ]
@@ -5348,6 +5420,7 @@
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
         "medical-device-complaint-regulatory-routing",
         "medical-device-cybersecurity-lifecycle",
@@ -5396,6 +5469,7 @@
             "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
+            "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-complaint-regulatory-routing",
             "medical-device-cybersecurity-lifecycle",
@@ -5440,6 +5514,7 @@
             "ivdr-pms-vigilance",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
+            "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
             "medical-device-complaint-regulatory-routing",
             "medical-device-cybersecurity-lifecycle",
