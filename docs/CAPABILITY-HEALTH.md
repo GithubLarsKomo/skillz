@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **110**
-- User-facing entrypoints: **92**
-- Evaluation suites: **110**
+- Skills: **113**
+- User-facing entrypoints: **95**
+- Evaluation suites: **113**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **137**
+- Outputs without inferred hard-requires consumers: **143**
 
 ## Evaluation gaps
 
@@ -83,6 +83,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
+- `field-action-closure-readiness.json` — producer: `medical-device-field-action-effectiveness`
+- `field-action-effectiveness-assessment.json` — producer: `medical-device-field-action-effectiveness`
+- `field-action-product-reconciliation.json` — producer: `medical-device-field-action-effectiveness`
+- `field-safety-notice-content.json` — producer: `ivdr-field-safety-corrective-action`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
@@ -98,6 +102,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`
 - `ivd-udi-data-set.json` — producer: `eudamed-udi-ivd`
+- `ivdr-fsca-assessment.json` — producer: `ivdr-field-safety-corrective-action`
+- `ivdr-fsca-regulatory-plan.json` — producer: `ivdr-field-safety-corrective-action`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`

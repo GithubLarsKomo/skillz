@@ -168,7 +168,7 @@
     },
     "fda-corrections-removals": {
       "files": {
-        "SKILL.md": "258e36504095c462364b474e47b91da5ae768767068f73ddae1e7332dc4841c3",
+        "SKILL.md": "1b4a214baf7451c0ab45b2bb38d1141eeae7907ad7010a6f6ee0a36269432ed6",
         "agents/openai.yaml": "937e4aeddfc6b1c8b5475e9aa7237d0bb5c4bc760fb474cd3ecc9d29384025ec"
       }
     },
@@ -323,6 +323,12 @@
         "agents/openai.yaml": "a9e06186a499aa8448fadfa7816c6abc104d3705eb8f43976445030826afb084"
       }
     },
+    "ivdr-field-safety-corrective-action": {
+      "files": {
+        "SKILL.md": "76308bb5e1dd1a7f12cf9152c6f4281b7d49a23272d976267b67234777a90370",
+        "agents/openai.yaml": "18b123662585b635c2e515da0f7106030c113f488bbc371ab743bd5a574bcdc2"
+      }
+    },
     "ivdr-inhouse-health-institution": {
       "files": {
         "SKILL.md": "73a4ab24d708b5b0b52e6949dff8e9c7a89c5a6c1408356289fae6d59ed61eb9",
@@ -349,7 +355,7 @@
     },
     "ivdr-pms-vigilance": {
       "files": {
-        "SKILL.md": "2b83be53444a7973ae15059c6565bdaf3513ff01bc566023315349fc63f04aa6",
+        "SKILL.md": "780fc2958a53eaa4fa104ecef20fc66ee96f82dbcb63bbd4592af0877a65340d",
         "agents/openai.yaml": "15b403a66bc6856655df0ca4d3b5361535d257268f27df73ebb458aead8af705"
       }
     },
@@ -435,6 +441,18 @@
       "files": {
         "SKILL.md": "39ed9c9fd908cae16ca0c45980f2f401aa08a819159c6851661c72f3c4546cef",
         "agents/openai.yaml": "6dd59514962a976193422768f3499556014f41aa2af7326a946bd9f4a1813694"
+      }
+    },
+    "medical-device-field-action-communication": {
+      "files": {
+        "SKILL.md": "32f0f2e2cbf47bedfb94d5c90914329adac6da30d005621966bc04593912216b",
+        "agents/openai.yaml": "fff9bdcdae807cb88f2f2d3c61217b49eab01d491dc6db8c4d6660e9426913fc"
+      }
+    },
+    "medical-device-field-action-effectiveness": {
+      "files": {
+        "SKILL.md": "2330d0b85962539bd400f6ff3db82bcdb231dada8c9edf7310d226e27961c5a1",
+        "agents/openai.yaml": "ad0bed4df33c1ae7679bc0f178d48de8bf0096efc1003c85078dbbc333918d84"
       }
     },
     "medical-device-isms-governance": {
