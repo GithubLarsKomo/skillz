@@ -133,6 +133,49 @@
         "ivdr-pms-vigilance",
         "medical-device-pms-system"
       ]
+    },
+    {
+      "id": "ivdr-vigilance-to-fsca-closure",
+      "mustPreserve": [
+        "incident-reportability-separate-from-fsca",
+        "urgent-safety-action-nonblocking",
+        "fsca-scope-versioning",
+        "fsn-risk-meaning-preserved",
+        "recipient-scope-from-distribution-evidence",
+        "sent-delivered-acknowledged-action-separated",
+        "downstream-distribution-reconciled",
+        "effectiveness-has-versioned-denominator",
+        "capa-effectiveness-separate",
+        "authority-closure-not-simulated",
+        "new-safety-facts-reopen"
+      ],
+      "sequence": [
+        "ivdr-pms-vigilance",
+        "ivdr-field-safety-corrective-action",
+        "medical-device-field-action-communication",
+        "medical-device-field-action-effectiveness",
+        "medical-device-pms-system"
+      ]
+    },
+    {
+      "id": "fda-correction-removal-to-recall-closure",
+      "mustPreserve": [
+        "806-reportability-separate-from-recall-classification",
+        "806-clock-not-blocked-by-execution",
+        "recipient-scope-from-distribution-evidence",
+        "communication-evidence-state-separation",
+        "strategy-governs-effectiveness-check",
+        "nonresponders-remain-in-scope",
+        "product-reconciliation",
+        "internal-completion-not-fda-termination",
+        "new-safety-facts-reopen"
+      ],
+      "sequence": [
+        "fda-corrections-removals",
+        "medical-device-field-action-communication",
+        "medical-device-field-action-effectiveness",
+        "medical-device-pms-system"
+      ]
     }
   ],
   "schemaVersion": 1
