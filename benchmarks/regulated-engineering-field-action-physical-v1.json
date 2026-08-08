@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "scenarios": [
+    {
+      "id": "ivdr-economic-operator-to-physical-closure",
+      "mustPreserve": [
+        "economic-operator-role-separation",
+        "operator-own-register-evidence",
+        "serious-risk-nonblocking-escalation",
+        "downstream-propagation-not-acknowledgement",
+        "rma-not-return",
+        "append-only-chain-of-custody",
+        "evidence-preservation-before-destruction",
+        "correction-not-verification",
+        "physical-completion-not-authority-closure"
+      ],
+      "sequence": [
+        "ivdr-pms-vigilance",
+        "ivdr-field-safety-corrective-action",
+        "ivdr-economic-operator-postmarket-propagation",
+        "medical-device-field-action-communication",
+        "medical-device-field-action-physical-execution",
+        "medical-device-field-action-effectiveness",
+        "medical-device-pms-system"
+      ]
+    },
+    {
+      "id": "fda-recall-to-physical-closure",
+      "mustPreserve": [
+        "806-clock-not-blocked-by-execution",
+        "recipient-action-separate-from-unit-state",
+        "rma-not-return",
+        "third-party-custody-evidence",
+        "verified-correction-before-release",
+        "product-reconciliation",
+        "fda-termination-external"
+      ],
+      "sequence": [
+        "fda-corrections-removals",
+        "medical-device-field-action-communication",
+        "medical-device-field-action-physical-execution",
+        "medical-device-field-action-effectiveness",
+        "medical-device-pms-system"
+      ]
+    }
+  ]
+}
