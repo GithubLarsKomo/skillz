@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "medical-device-service-report-quality-routing",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A field-service engineer is asked to replace an analyzer module after intermittent measurement errors. The device can be restored quickly, but logs and the pre-service configuration are still available. Route the service event into quality without delaying the repair unnecessarily.",
+      "requiredBehaviors": [
+        "preserve relevant pre-service logs and configuration before the module replacement where practicable",
+        "allow service restoration and possible-complaint routing to proceed in parallel",
+        "create a service complaint handoff without treating successful repair as root cause or regulatory closure"
+      ],
+      "forbiddenBehaviors": [
+        "treat the service ticket classification as proof that no complaint exists",
+        "infer root cause solely because the error disappears after module replacement"
+      ],
+      "skillAnchors": [
+        "Preserve before repair",
+        "Repair success is not root cause",
+        "One event, parallel tracks"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Remote support must immediately reset an IVD analyzer because patient testing is blocked. A potentially wrong result was reported, but not all logs can be exported before the reset. Preserve what is feasible, document evidence loss, and escalate the safety question without waiting for the service report to close.",
+      "requiredBehaviors": [
+        "permit the necessary intervention while recording what evidence was preserved and what became unavailable",
+        "mark the missing pre-reset evidence explicitly instead of reconstructing it",
+        "trigger immediate complaint and safety routing without waiting for repair completion or root cause"
+      ],
+      "forbiddenBehaviors": [
+        "block a necessary safety or continuity intervention solely to preserve every log",
+        "delay regulatory routing until the final service report or complete device data is available"
+      ],
+      "skillAnchors": [
+        "Safety bypasses service SLA",
+        "Evidence Loss explizit",
+        "Fehlende Voraussetzungen blockieren keine zeitkritische Safety-Eskalation"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A repair ticket was closed after replacing a pump and the instrument now works. Service wants to mark the case as solved and exclude it from quality review even though the original report described a patient-impacting false result and the replaced pump was discarded.",
+      "requiredBehaviors": [
+        "reject service completion as complaint or regulatory closure",
+        "record the discarded component as evidence loss and preserve the historical service actions",
+        "route the false-result facts immediately into complaint and safety assessment despite the successful repair"
+      ],
+      "forbiddenBehaviors": [
+        "use deviceOperational or serviceCompleted as a non-complaint or non-reportable conclusion",
+        "hide the lost component or claim a confirmed pump root cause without evidence"
+      ],
+      "skillAnchors": [
+        "Service completion ≠ complaint closure",
+        "No destructive convenience",
+        "immediateQualitySafetyEscalation=true"
+      ]
+    }
+  ]
+}
