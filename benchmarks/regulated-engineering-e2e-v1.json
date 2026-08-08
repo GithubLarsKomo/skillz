@@ -89,6 +89,27 @@
         "ivdr-pms-vigilance",
         "medical-device-pms-system"
       ]
+    },
+    {
+      "id": "customer-followup-reassessment-loop",
+      "mustPreserve": [
+        "followup-as-new-evidence-event",
+        "historical-contact-and-closure-state",
+        "complaint-reopen-state",
+        "prior-assessment-versioning",
+        "independent-jurisdiction-reassessment",
+        "new-evidence-not-immunity",
+        "time-critical-reassessment",
+        "updated-pms-feedback"
+      ],
+      "sequence": [
+        "medical-device-customer-contact-intake",
+        "medical-device-complaint-handling",
+        "medical-device-complaint-regulatory-routing",
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance",
+        "medical-device-pms-system"
+      ]
     }
   ],
   "schemaVersion": 1
