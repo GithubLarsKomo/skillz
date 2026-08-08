@@ -162,7 +162,7 @@
     },
     "fda-complaint-mdr-reportability": {
       "files": {
-        "SKILL.md": "e8fc181951ecd7a84c5eeed8a234730cdd53f1acdbaf896efe6193f561c29dbe",
+        "SKILL.md": "a5ba688211fcda7e70f7daceb6f7df07712f109ffebe044814868b8f43b9ff77",
         "agents/openai.yaml": "2fa5c3b326f2a9599186cb3c7468a5a3accb11e552b37f1f6e446b5ce4c58ad8"
       }
     },
@@ -349,7 +349,7 @@
     },
     "ivdr-pms-vigilance": {
       "files": {
-        "SKILL.md": "32b4f374b208dcb3df67bd8e45c2e7ba0c176e9323f542ca6c080e2e2a41b4a0",
+        "SKILL.md": "2b83be53444a7973ae15059c6565bdaf3513ff01bc566023315349fc63f04aa6",
         "agents/openai.yaml": "15b403a66bc6856655df0ca4d3b5361535d257268f27df73ebb458aead8af705"
       }
     },
@@ -409,7 +409,7 @@
     },
     "medical-device-complaint-regulatory-routing": {
       "files": {
-        "SKILL.md": "b1b0e5ee94152f66115f50cc5337a51a4431078546e651f266a0c73e0b648838",
+        "SKILL.md": "cd44ddf3f879d356e37161ad3e9f1f00a45dd75fe1a9d0006e8094c38e359978",
         "agents/openai.yaml": "35bf83200bd38aa4d77fa2b300032200532fd63e0686e5803f94233fdbefa3d5"
       }
     },
