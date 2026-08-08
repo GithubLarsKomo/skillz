@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "skill": "ivdr-economic-operator-postmarket-propagation",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "An IVDR FSCA affects stock held by an importer and two distributors in several Member States. The manufacturer has issued a controlled action package. Map operator-specific duties, own records, downstream propagation, inventory actions and serious-risk escalation evidence without duplicating the manufacturer workflow.",
+      "requiredBehaviors": [
+        "map importer and distributor obligations separately from the manufacturer action using current authoritative IVDR sources",
+        "preserve operator-specific complaint nonconformity recall and withdrawal register evidence instead of replacing it with a central manufacturer record",
+        "route recipient communication to medical-device-field-action-communication and inventory quarantine return or correction to medical-device-field-action-physical-execution",
+        "keep downstream coverage and authority escalation evidence explicit per economic operator"
+      ],
+      "forbiddenBehaviors": [
+        "treat a manufacturer instruction as proof that every importer or distributor fulfilled its own applicable duty",
+        "collapse legally distinct group companies into one evidence state merely because they share an ERP",
+        "claim authority notification from an internal escalation task without external evidence"
+      ],
+      "skillAnchors": [
+        "Own duty is not delegated away",
+        "Own register remains own evidence",
+        "No role collapse across group companies"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A distributor receives a suspected serious incident and believes the IVD may present a serious risk. The manufacturer has not yet replied and root-cause investigation is incomplete. Determine the distributor's postmarket propagation and escalation state.",
+      "requiredBehaviors": [
+        "preserve and immediately forward the complaint or suspected-incident evidence without turning forwarding into a reportability conclusion",
+        "resolve the distributor serious-risk authority obligation from current IVDR sources and keep any required immediate escalation independent of manufacturer response or root cause",
+        "record the distributor's own complaint and escalation evidence state while returning new safety facts upstream"
+      ],
+      "forbiddenBehaviors": [
+        "wait for manufacturer approval before a currently applicable immediate serious-risk authority action",
+        "mark the complaint investigated or closed merely because it was forwarded",
+        "infer no serious risk from incomplete root-cause evidence"
+      ],
+      "skillAnchors": [
+        "Serious risk bypasses manufacturer response",
+        "Complaint forwarding is not complaint closure",
+        "New safety facts return upstream immediately"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A corporate quality team asks to use one global recall spreadsheet as the only record for three legally separate EU distributors, mark all downstream customers informed because each distributor acknowledged the manufacturer's email, and close operator obligations because the central task is complete.",
+      "requiredBehaviors": [
+        "retain separate operator-level obligation register downstream and execution states for each legal distributor",
+        "treat distributor acknowledgement as insufficient evidence of downstream recipient propagation or inventory action completion",
+        "reject central task closure as proof that operator-specific statutory duties or field-action execution are complete"
+      ],
+      "forbiddenBehaviors": [
+        "replace required operator-specific records with one corporate spreadsheet solely for administrative convenience",
+        "mark downstream recipients informed from distributor acknowledgement alone",
+        "close economic-operator duties because the manufacturer task tracker is green"
+      ],
+      "skillAnchors": [
+        "Forwarded ≠ propagated",
+        "Cooperation ≠ completion",
+        "Eine zentrale Manufacturer-Task-ID ist nur Referenz"
+      ]
+    },
+    {
+      "id": "role-change-trigger-case",
+      "input": "An importer translates and relabels an IVD for a local market and also modifies packaging during an ongoing corrective action. The business wants the workflow to assume it remains only an importer and reuse the old field-action responsibilities unchanged.",
+      "requiredBehaviors": [
+        "capture the actual relabel translation packaging and modification activities as facts and trigger current-source regulatory role assessment",
+        "keep the prior importer role and field-action evidence historically intact while the possible role or responsibility change is unresolved",
+        "avoid propagating new obligations under an invented role until the regulatory assessment establishes them"
+      ],
+      "forbiddenBehaviors": [
+        "assume the entity remains only an importer without assessing the relevant activities",
+        "automatically classify the entity as manufacturer or Article-16-compliant without current-source analysis",
+        "rewrite historical field-action evidence under a newly assumed role"
+      ],
+      "skillAnchors": [
+        "Article-16-type activity is a role-change trigger",
+        "Role-/Activity-Conflict erkennen",
+        "keine automatische `still-distributor`, `manufacturer`, `Article-16-compliant`"
+      ]
+    }
+  ]
+}
