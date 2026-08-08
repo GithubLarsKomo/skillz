@@ -64,6 +64,20 @@
         "behauptet keine Meldung",
         "nicht still verloren gehen"
       ]
+    },
+    {
+      "id": "reassessment-case",
+      "input": "An IVDR complaint was previously assessed as not reportable on current evidence and the complaint was later closed. A new follow-up adds hospitalization, a second false-result event and a possible field-safety action question. Reassess vigilance and update PMS/risk links without deleting the earlier decision.",
+      "requiredBehaviors": [
+        "treat the prior not-reportable and complaint-closure states as historical to their earlier evidence snapshot",
+        "repeat current-source vigilance assessment when the new material facts may affect serious-incident reportability or field-action evaluation",
+        "preserve the earlier decision version and route the new state back to PMS risk CAPA PMPF or performance owners as applicable"
+      ],
+      "forbiddenBehaviors": [
+        "reuse the earlier not-reportable result without assessing the new evidence",
+        "overwrite the earlier vigilance decision or treat prior complaint closure as regulatory closure"
+      ],
+      "skillAnchors": ["Prior vigilance decision is not immunity", "Reassessment is versioned", "Ein früheres `not-reportable-on-current-evidence`"]
     }
   ]
 }

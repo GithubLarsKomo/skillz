@@ -34,6 +34,8 @@ Er entscheidet ausdrücklich **nicht** `reportable|not-reportable`, berechnet ke
 - **Awareness evidence is not awareness conclusion:** Empfangs-, Transfer- und Employee-/Function-Awareness-Fakten werden chronologisch bewahrt; die rechtliche Awareness-/Clock-Entscheidung trifft der zuständige Market-Skill.
 - **No favorable backdating or forward-dating:** Timeline-Fakten werden nicht auf Complaint-Eröffnung, QA-Eingang oder Regulatory-Review verschoben, nur weil diese Zeitpunkte prozessual bequemer sind.
 - **Potential seriousness bypasses completeness:** mögliche Death/Serious-Injury/Serious-Incident-/Malfunction-/False-Result-/Public-Health-Fakten werden sofort weitergereicht, auch wenn Device, Lot, Outcome oder Causality unvollständig sind.
+- **Prior decisions are historical, not immunity:** ein früheres `not-reportable`, `assessment-complete`, `complaint-closed` oder `no-action` bleibt als versionierte Entscheidung erhalten, verhindert aber keine erneute Specialist-Bewertung bei neuen materiellen Fakten.
+- **Material new information triggers reassessment:** neue Safety-, Outcome-, Malfunction-, False-Result-, Market-, Role- oder Remedial-Action-Fakten erzeugen pro betroffener Jurisdiktion einen neuen `reassessment-required`-State mit Referenz auf die frühere Entscheidung.
 - **Non-reportability is a specialist decision:** Customer Service, Complaint Handling und dieser Router dürfen eine potenziell relevante Meldung nicht durch `not-a-complaint`, `known issue`, `user error`, `no device returned`, `customer satisfied` oder `root cause unknown` abschneiden.
 - **External action remains external:** Routing/Assessment/Approval ≠ submitted/received/accepted by authority.
 
@@ -50,7 +52,8 @@ Er entscheidet ausdrücklich **nicht** `reportable|not-reportable`, berechnet ke
 - Safety/Outcome/Malfunction/False-Result-/Performance-Fakten,
 - Investigation State und neue Erkenntnisse,
 - Device/Evidence Availability,
-- Unknowns.
+- Unknowns,
+- Prior Assessment/Decision References und `reassessmentTrigger` soweit vorhanden.
 
 Der Original-Complaint-Record bleibt Source of Truth; Handoffs kopieren keine unnötigen personenbezogenen Daten.
 
@@ -76,6 +79,7 @@ Verifiziere Hersteller-/Importer-/Distributor-/User-Facility-/Economic-Operator-
 - Complaint-System Entry,
 - QA/Regulatory Receipt,
 - spätere Safety-/Seriousness-/Malfunction-Erkenntnisse,
+- Supplemental-/Follow-up-Receipt-Facts,
 - Source References und Unsicherheit jeder Zeitangabe.
 
 Keine dieser Tatsachen wird automatisch als finale regulatorische Awareness Date bezeichnet. Für FDA ist insbesondere zu beachten, dass aktuelle Part-803-Regeln Awareness nicht erst auf QA/Regulatory beschränken; die konkrete Rechtsanwendung bleibt beim FDA-Skill.
@@ -93,37 +97,52 @@ Setze `immediateSpecialistAssessmentRequired=true`, wenn die Informationen vern�
 
 Der Router verlangt keinen Beweis, dass das Event tatsächlich reportable ist.
 
-### 5. Market-Handoffs erzeugen
+### 5. Reassessment Need bei neuer Information bestimmen
 
-Für USA → `fda-complaint-mdr-reportability` mit Complaint Reference, Product/Role Facts, Awareness Evidence, Event/Malfunction Facts, Investigation State und Unknowns.
+Wenn bereits eine Market-Entscheidung existiert, vergleiche neue Fakten gegen deren Evidence Snapshot. Setze pro Jurisdiktion mindestens:
 
-Für EU-IVDR → `ivdr-pms-vigilance` mit Complaint Reference, Product/Market Facts, Event/Seriousness/False-Result Facts, PMS Context Reference soweit vorhanden, Investigation State und Unknowns.
+- `no-material-change`,
+- `reassessment-required`,
+- `reassessment-sent`,
+- `reassessment-open`,
+- `reassessment-complete`,
+- `blocked|unknown`.
+
+Ein `reassessment-required` entsteht, wenn neue Information die frühere Awareness-, Seriousness-, Malfunction-, Causality-, Remedial-Action-, Market-/Role- oder sonstige Reportability-/Vigilance-Bewertung materiell beeinflussen kann. Frühere Entscheidungen bleiben versioniert referenziert und werden nicht überschrieben.
+
+### 6. Market-Handoffs erzeugen
+
+Für USA → `fda-complaint-mdr-reportability` mit Complaint Reference, Product/Role Facts, Awareness Evidence, Event/Malfunction Facts, Investigation State, Prior FDA Assessment Reference, New Material Facts und Unknowns.
+
+Für EU-IVDR → `ivdr-pms-vigilance` mit Complaint Reference, Product/Market Facts, Event/Seriousness/False-Result Facts, PMS Context Reference soweit vorhanden, Investigation State, Prior IVDR Decision Reference, New Material Facts und Unknowns.
 
 Für andere Märkte → benenne Regulatory Owner/Specialist Need, Current-Source Requirement und `human-review-required`; erfinde keine analoge FDA-/EU-Regel.
 
-### 6. Routing Acknowledgement verfolgen
+### 7. Routing Acknowledgement verfolgen
 
 `vigilance-entry-handoff.json` enthält pro Jurisdiktion:
 
-- `handoffState: required|sent-to-specialist|acknowledged|assessment-open|assessment-complete|blocked|unknown`,
+- `handoffState: required|sent-to-specialist|acknowledged|assessment-open|assessment-complete|reassessment-required|reassessment-open|reassessment-complete|blocked|unknown`,
 - zuständigen Specialist/Owner,
 - immutable Complaint/Timeline References,
+- Prior Assessment Reference,
+- New Material Facts/Delta,
 - Time-Criticality,
 - offene Fakten/Folgeinformationen.
 
-Complaint Closure darf bei einem erforderlichen, aber nicht bestätigten Regulatory-Handoff nicht als vollständig gelten.
+Complaint Closure darf bei einem erforderlichen, aber nicht bestätigten Regulatory-Handoff oder Reassessment nicht als vollständig gelten.
 
 ## Output-Verträge
 
-`complaint-regulatory-routing.json` enthält Market/Role Scope, Routing Reason, Specialist Target, Immediate-Assessment Flag, Facts/Unknowns, Current Source References/`asOf` und Handoff State. Es enthält keine finale Reportability.
+`complaint-regulatory-routing.json` enthält Market/Role Scope, Routing Reason, Specialist Target, Immediate-Assessment-/Reassessment-Flag, Facts/Unknowns, Prior Assessment Reference, New Material Facts, Current Source References/`asOf` und Handoff State. Es enthält keine finale Reportability.
 
-`regulatory-awareness-timeline.json` enthält chronologische Evidence Events mit Source, Actor/Function soweit zulässig, Timestamp/Precision, Fact Type und Confidence, ohne diese automatisch zur gesetzlichen Awareness Date zu machen.
+`regulatory-awareness-timeline.json` enthält chronologische Evidence Events mit Source, Actor/Function soweit zulässig, Timestamp/Precision, Fact Type und Confidence, einschließlich Supplemental-Evidence-Events, ohne diese automatisch zur gesetzlichen Awareness Date zu machen.
 
-`vigilance-entry-handoff.json` ist der kontrollierte Übergabestatus vom Complaint-Prozess an FDA-/EU-/weitere Regulatory-Spezialisten und liefert den Acknowledgement-/Assessment-State zurück an Complaint Handling.
+`vigilance-entry-handoff.json` ist der kontrollierte Übergabestatus vom Complaint-Prozess an FDA-/EU-/weitere Regulatory-Spezialisten und liefert Initial-/Reassessment-Acknowledgement-/Assessment-State zurück an Complaint Handling.
 
 ## Memory Path
 
-Persistenzwürdig sind abstrahierte Routing-Heuristiken, stabile Timeline-Fact-Typen und validierte jurisdiction-neutrale Escalation-Muster. Konkrete Complaints, Kunden-/Patientendaten, Employee-Awareness-Fälle, Zeitstempel, Reportability Assessments, Due Dates und Authority Submission States bleiben kontrollierte Records/run-only. Regulatory Learnings benötigen `sourceRefs`, `asOf` und `reviewAfter`; nur geeignete abstrahierte `memory-candidate-handoff-v1`-Kandidaten gehen an `communication-memory-governance`.
+Persistenzwürdig sind abstrahierte Routing-/Reassessment-Heuristiken, stabile Timeline-Fact-Typen und validierte jurisdiction-neutrale Escalation-Muster. Konkrete Complaints, Kunden-/Patientendaten, Employee-Awareness-Fälle, Zeitstempel, Reportability Assessments, Due Dates und Authority Submission States bleiben kontrollierte Records/run-only. Regulatory Learnings benötigen `sourceRefs`, `asOf` und `reviewAfter`; nur geeignete abstrahierte `memory-candidate-handoff-v1`-Kandidaten gehen an `communication-memory-governance`.
 
 ## Qualitätsgate
 
@@ -132,6 +151,8 @@ Bestanden nur wenn:
 - Complaint-/Safety-Fakten frühzeitig in alle relevanten Jurisdiktionen geroutet werden,
 - Investigation/Root Cause die Reportability-Eskalation nicht verzögert,
 - Awareness-Evidence chronologisch erhalten und nicht mit finaler Awareness-Rechtsentscheidung verwechselt wird,
+- neue materielle Fakten frühere `not-reportable`-/Assessment-/Complaint-Closure-Zustände nicht als Sperre behandeln,
+- Reassessment pro Jurisdiktion versioniert und mit Prior Decision/New Evidence referenziert wird,
 - FDA-/EU-/weitere Marktentscheidungen getrennte Specialist Assessments bleiben,
 - `known issue`, `user error`, fehlender Rücklauf oder Kundenzufriedenheit keine mögliche regulatorische Bewertung abschneiden,
 - ein Headline-Status wie `ticket closed` oder `complaint closed` keine Authority-/Reportability-Closure erzeugt,

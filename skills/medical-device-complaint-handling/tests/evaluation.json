@@ -55,6 +55,24 @@
         "Customer response ≠ complaint closure",
         "Reporting and investigation run in parallel"
       ]
+    },
+    {
+      "id": "reassessment-case",
+      "input": "A complaint was closed after investigation and a prior non-reportable regulatory assessment. A later follow-up adds hospitalization and a new device failure. Reopen only the affected complaint/investigation/regulatory gates while retaining the historical closure and earlier assessment.",
+      "requiredBehaviors": [
+        "preserve the historical closure and prior investigation decision as versioned evidence",
+        "record the later follow-up as supplemental evidence and reopen complaint or investigation state when materially affected",
+        "issue an updated regulatory handoff with prior assessment reference and new material facts"
+      ],
+      "forbiddenBehaviors": [
+        "treat closed as permanent immunity from later evidence",
+        "overwrite the earlier closure or reportability history with the new state"
+      ],
+      "skillAnchors": [
+        "Closure is not immunity",
+        "Supplemental evidence is versioned",
+        "complaintClosureState=reopened"
+      ]
     }
   ]
 }

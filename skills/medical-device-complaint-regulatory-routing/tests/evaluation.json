@@ -55,6 +55,24 @@
         "External action remains external",
         "Complaint Closure darf"
       ]
+    },
+    {
+      "id": "reassessment-case",
+      "input": "US and EU specialists previously completed assessments on a complaint as not reportable on the then-known facts. A later customer follow-up adds hospitalization, a second failure and a possible field-action question. Route reassessment independently to both markets without rewriting the earlier decisions.",
+      "requiredBehaviors": [
+        "compare the new material facts against each jurisdiction's prior assessment snapshot",
+        "set reassessment-required independently for US and EU and send the updated evidence to each specialist",
+        "retain the prior decisions and awareness timeline as historical evidence rather than overwriting them"
+      ],
+      "forbiddenBehaviors": [
+        "treat the earlier not-reportable decisions as permanent immunity from reassessment",
+        "reuse one jurisdiction's reassessment outcome as the other jurisdiction's decision"
+      ],
+      "skillAnchors": [
+        "Prior decisions are historical, not immunity",
+        "Material new information triggers reassessment",
+        "reassessment-required"
+      ]
     }
   ]
 }
