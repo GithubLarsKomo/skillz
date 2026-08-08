@@ -45,6 +45,20 @@
         "persist complaint identifiers due dates or case-specific reportability decisions as global memory"
       ],
       "skillAnchors": ["Any-employee evidence is not discarded", "Reportability ≠ causality proven", "Konkrete Complaints"]
+    },
+    {
+      "id": "reassessment-case",
+      "input": "A complaint was previously assessed as not reportable on the then-known FDA facts. A later routed follow-up adds hospitalization, a second device malfunction and a possible remedial-action trigger. Reassess against current FDA requirements while preserving the earlier decision version.",
+      "requiredBehaviors": [
+        "treat the prior not-reportable decision as historical to its evidence snapshot rather than permanent",
+        "evaluate the new material facts with current FDA awareness and MDR criteria and determine the appropriate new or supplemental handling state",
+        "preserve the prior assessment and external action history while issuing a new versioned decision"
+      ],
+      "forbiddenBehaviors": [
+        "copy the prior not-reportable result onto the materially changed evidence snapshot",
+        "overwrite the prior decision or claim a supplemental or new report was externally filed without verification"
+      ],
+      "skillAnchors": ["Prior not-reportable is not permanent", "Supplemental information is versioned", "Ein früheres `not-reportable`"]
     }
   ]
 }
