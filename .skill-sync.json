@@ -238,6 +238,12 @@
         "agents/openai.yaml": "b1b5fc0ffc5767036f3cdc0e13d7f446f32b6972b7464a8c3f1493e3e20236da"
       }
     },
+    "fda-recall-status-termination": {
+      "files": {
+        "SKILL.md": "3c041f729fe84383b97dd2ceabd92815ebfab28b6cf30c5a98fe79544eac032b",
+        "agents/openai.yaml": "9c8a2d91bade9f79afa8c78d010010aefad179b02b340d0df5fc49ba0de5c0a8"
+      }
+    },
     "fda-registration-listing-udi": {
       "files": {
         "SKILL.md": "071f15ce4dddcc24311e133470154a42ffd4f53043279c4408ed714294838902",
@@ -333,6 +339,12 @@
       "files": {
         "SKILL.md": "76308bb5e1dd1a7f12cf9152c6f4281b7d49a23272d976267b67234777a90370",
         "agents/openai.yaml": "18b123662585b635c2e515da0f7106030c113f488bbc371ab743bd5a574bcdc2"
+      }
+    },
+    "ivdr-fsca-status-final-reporting": {
+      "files": {
+        "SKILL.md": "1746ade459206c82256a410645125f4999ebf318c736fd2beaddffaf326d73b6",
+        "agents/openai.yaml": "3506c8b412c9c48ab7ddb3aadc7b11111dfba2b4176d719b778b75639f19d851"
       }
     },
     "ivdr-inhouse-health-institution": {

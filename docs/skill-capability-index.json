@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 115,
-  "entrypointCount": 97,
+  "skillCount": 117,
+  "entrypointCount": 99,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 115,
+  "evaluationSuiteCount": 117,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1597,7 +1597,9 @@
         "medical-device-capa",
         "medical-device-risk-management-iso14971"
       ],
-      "dependents": [],
+      "dependents": [
+        "fda-recall-status-termination"
+      ],
       "outputs": [
         "correction-removal-action-plan.json",
         "correction-removal-assessment.json",
@@ -1610,7 +1612,9 @@
           "producers": [
             "fda-corrections-removals"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-recall-status-termination"
+          ]
         },
         {
           "output": "correction-removal-assessment.json",
@@ -1618,7 +1622,9 @@
           "producers": [
             "fda-corrections-removals"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-recall-status-termination"
+          ]
         },
         {
           "output": "correction-removal-reporting-state.json",
@@ -1626,7 +1632,9 @@
           "producers": [
             "fda-corrections-removals"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-recall-status-termination"
+          ]
         }
       ],
       "portableFiles": [
@@ -2235,6 +2243,61 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fda-recall-status-termination",
+      "description": "Erstellt und verfolgt FDA-Recall-Statusberichte, Termination-Request-Pakete und verifizierte FDA-Authority-States aus kontrollierter Field-Action-Evidence, ohne interne Completion als FDA Termination zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "fda-corrections-removals",
+        "medical-device-field-action-effectiveness",
+        "quality-record-integrity",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "fda-recall-authority-state.json",
+        "fda-recall-status-report.json",
+        "fda-recall-termination-request.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fda-recall-authority-state.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-recall-status-termination"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fda-recall-status-report.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-recall-status-termination"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fda-recall-termination-request.json",
+          "ambiguous": false,
+          "producers": [
+            "fda-recall-status-termination"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -3122,7 +3185,9 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
-      "dependents": [],
+      "dependents": [
+        "ivdr-fsca-status-final-reporting"
+      ],
       "outputs": [
         "field-safety-notice-content.json",
         "ivdr-fsca-assessment.json",
@@ -3135,7 +3200,9 @@
           "producers": [
             "ivdr-field-safety-corrective-action"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "ivdr-fsca-status-final-reporting"
+          ]
         },
         {
           "output": "ivdr-fsca-assessment.json",
@@ -3143,13 +3210,72 @@
           "producers": [
             "ivdr-field-safety-corrective-action"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "ivdr-fsca-status-final-reporting"
+          ]
         },
         {
           "output": "ivdr-fsca-regulatory-plan.json",
           "ambiguous": false,
           "producers": [
             "ivdr-field-safety-corrective-action"
+          ],
+          "consumerSkills": [
+            "ivdr-fsca-status-final-reporting"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "ivdr-fsca-status-final-reporting",
+      "description": "Finalisiert IVDR-Vigilance-/FSCA-Herstellerberichte und verfolgt zuständige-Behörden-Feedback, Follow-up- und Closure-Evidence aus kontrollierter Field-Action-Evidence, ohne einen Final Report mit Authority Acceptance oder Closure gleichzusetzen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "ivdr-field-safety-corrective-action",
+        "mdcg-guidance-navigator",
+        "medical-device-field-action-effectiveness",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "ivdr-authority-state.json",
+        "ivdr-fsca-authority-followup.json",
+        "ivdr-vigilance-final-report-package.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "ivdr-authority-state.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-fsca-status-final-reporting"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ivdr-fsca-authority-followup.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-fsca-status-final-reporting"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ivdr-vigilance-final-report-package.json",
+          "ambiguous": false,
+          "producers": [
+            "ivdr-fsca-status-final-reporting"
           ],
           "consumerSkills": []
         }
@@ -3665,6 +3791,7 @@
         "ivdr-clinical-performance-study",
         "ivdr-device-classification",
         "ivdr-field-safety-corrective-action",
+        "ivdr-fsca-status-final-reporting",
         "ivdr-performance-evaluation-report",
         "ivdr-pmpf",
         "ivdr-pms-vigilance"
@@ -3685,6 +3812,7 @@
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-field-safety-corrective-action",
+            "ivdr-fsca-status-final-reporting",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf",
             "ivdr-pms-vigilance"
@@ -3701,6 +3829,7 @@
             "ivdr-clinical-performance-study",
             "ivdr-device-classification",
             "ivdr-field-safety-corrective-action",
+            "ivdr-fsca-status-final-reporting",
             "ivdr-performance-evaluation-report",
             "ivdr-pmpf",
             "ivdr-pms-vigilance"
@@ -4354,7 +4483,10 @@
         "medical-device-risk-management-iso14971",
         "quality-record-integrity"
       ],
-      "dependents": [],
+      "dependents": [
+        "fda-recall-status-termination",
+        "ivdr-fsca-status-final-reporting"
+      ],
       "outputs": [
         "field-action-closure-readiness.json",
         "field-action-effectiveness-assessment.json",
@@ -4367,7 +4499,10 @@
           "producers": [
             "medical-device-field-action-effectiveness"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-recall-status-termination",
+            "ivdr-fsca-status-final-reporting"
+          ]
         },
         {
           "output": "field-action-effectiveness-assessment.json",
@@ -4375,7 +4510,10 @@
           "producers": [
             "medical-device-field-action-effectiveness"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-recall-status-termination",
+            "ivdr-fsca-status-final-reporting"
+          ]
         },
         {
           "output": "field-action-product-reconciliation.json",
@@ -4383,7 +4521,10 @@
           "producers": [
             "medical-device-field-action-effectiveness"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fda-recall-status-termination",
+            "ivdr-fsca-status-final-reporting"
+          ]
         }
       ],
       "portableFiles": [
@@ -5780,6 +5921,7 @@
       ],
       "dependents": [
         "fda-complaint-mdr-reportability",
+        "fda-recall-status-termination",
         "ivdr-economic-operator-postmarket-propagation",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
@@ -5803,6 +5945,7 @@
           ],
           "consumerSkills": [
             "fda-complaint-mdr-reportability",
+            "fda-recall-status-termination",
             "ivdr-economic-operator-postmarket-propagation",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
@@ -5821,6 +5964,7 @@
           ],
           "consumerSkills": [
             "fda-complaint-mdr-reportability",
+            "fda-recall-status-termination",
             "ivdr-economic-operator-postmarket-propagation",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
@@ -5839,6 +5983,7 @@
           ],
           "consumerSkills": [
             "fda-complaint-mdr-reportability",
+            "fda-recall-status-termination",
             "ivdr-economic-operator-postmarket-propagation",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
@@ -6210,6 +6355,7 @@
         "fda-pccp-change-control",
         "fda-qmsr-iso13485-gap",
         "fda-qsub-strategy",
+        "fda-recall-status-termination",
         "fda-registration-listing-udi",
         "ivdr-analytical-performance",
         "ivdr-class-d-conformity",
@@ -6218,6 +6364,7 @@
         "ivdr-device-classification",
         "ivdr-economic-operator-postmarket-propagation",
         "ivdr-field-safety-corrective-action",
+        "ivdr-fsca-status-final-reporting",
         "ivdr-inhouse-health-institution",
         "ivdr-performance-evaluation",
         "ivdr-performance-evaluation-report",
@@ -6264,6 +6411,7 @@
             "fda-pccp-change-control",
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
+            "fda-recall-status-termination",
             "fda-registration-listing-udi",
             "ivdr-analytical-performance",
             "ivdr-class-d-conformity",
@@ -6272,6 +6420,7 @@
             "ivdr-device-classification",
             "ivdr-economic-operator-postmarket-propagation",
             "ivdr-field-safety-corrective-action",
+            "ivdr-fsca-status-final-reporting",
             "ivdr-inhouse-health-institution",
             "ivdr-performance-evaluation",
             "ivdr-performance-evaluation-report",
@@ -6314,6 +6463,7 @@
             "fda-pccp-change-control",
             "fda-qmsr-iso13485-gap",
             "fda-qsub-strategy",
+            "fda-recall-status-termination",
             "fda-registration-listing-udi",
             "ivdr-analytical-performance",
             "ivdr-class-d-conformity",
@@ -6322,6 +6472,7 @@
             "ivdr-device-classification",
             "ivdr-economic-operator-postmarket-propagation",
             "ivdr-field-safety-corrective-action",
+            "ivdr-fsca-status-final-reporting",
             "ivdr-inhouse-health-institution",
             "ivdr-performance-evaluation",
             "ivdr-performance-evaluation-report",

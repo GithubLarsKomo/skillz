@@ -1,6 +1,5 @@
-invocation:
-  allowImplicitInvocation: false
-  policy: "Invoke only for an already-established FDA recall/status/termination workflow with controlled recall authority provenance; never infer FDA submission, receipt, classification, completion, or termination from internal state alone."
-  examples:
-    - "Prepare the next FDA recall status report from verified recall execution evidence."
-    - "Assess whether this recall is ready for a termination request without claiming FDA termination."
+interface:
+  display_name: "Fda Recall Status Termination"
+  short_description: "Erstellt und verfolgt FDA-Recall-Statusberichte, Termination-Request-Pakete und verifizierte FDA-Authority-States aus..."
+policy:
+  allow_implicit_invocation: false
