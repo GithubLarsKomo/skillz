@@ -1,0 +1,51 @@
+name: Materialize Obsidian skill universe
+
+on:
+  push:
+    branches:
+      - agent/obsidian-skill-universe
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/obsidian-skill-universe
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Normalize standalone-vault Canvas paths
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/generate_obsidian_skill_universe.py')
+          text = path.read_text(encoding='utf-8')
+          old = '                "file": f"obsidian/skills/{name}.md",'
+          new = '                "file": f"skills/{name}.md",'
+          if old in text:
+              text = text.replace(old, new)
+              path.write_text(text, encoding='utf-8', newline='\n')
+          elif new not in text:
+              raise SystemExit('Expected Canvas file-path expression not found')
+          PY
+      - name: Materialize canonical metadata and Obsidian projection
+        run: python scripts/generate_repository_metadata.py
+      - name: Test Obsidian projection
+        run: python -m unittest tests.test_generate_obsidian_skill_universe
+      - name: Commit generated projection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/generate_obsidian_skill_universe.py obsidian/
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "Materialize Obsidian skill universe"
+          git push origin HEAD:agent/obsidian-skill-universe
