@@ -54,6 +54,45 @@ class RegulatedEngineeringE2ETest(unittest.TestCase):
         for name in ["iso13485-qms-audit", "iso27001-isms-audit"]:
             self.assertIn("two-axis-compliance-review", self.skills[name]["requires"])
 
+    def test_customer_contact_to_vigilance_chain_is_hard_wired(self):
+        complaint = self.skills["medical-device-complaint-handling"]
+        router = self.skills["medical-device-complaint-regulatory-routing"]
+        fda = self.skills["fda-complaint-mdr-reportability"]
+        ivdr = self.skills["ivdr-pms-vigilance"]
+
+        self.assertIn("medical-device-customer-contact-intake", complaint["requires"])
+        self.assertIn("medical-device-complaint-handling", router["requires"])
+        self.assertIn("medical-device-complaint-regulatory-routing", fda["requires"])
+        self.assertIn("medical-device-complaint-regulatory-routing", ivdr["requires"])
+
+        intake_contract = next(
+            c
+            for c in self.skills["medical-device-customer-contact-intake"]["outputContracts"]
+            if c["output"] == "complaint-intake-handoff.json"
+        )
+        complaint_contract = next(
+            c
+            for c in complaint["outputContracts"]
+            if c["output"] == "complaint-regulatory-handoff.json"
+        )
+        routing_contract = next(
+            c
+            for c in router["outputContracts"]
+            if c["output"] == "complaint-regulatory-routing.json"
+        )
+
+        self.assertEqual(intake_contract["consumerSkills"], ["medical-device-complaint-handling"])
+        self.assertEqual(complaint_contract["consumerSkills"], ["medical-device-complaint-regulatory-routing"])
+        self.assertEqual(
+            set(routing_contract["consumerSkills"]),
+            {"fda-complaint-mdr-reportability", "ivdr-pms-vigilance"},
+        )
+
+        self.assertNotIn("medical-device-customer-contact-intake", fda["requires"])
+        self.assertNotIn("medical-device-customer-contact-intake", ivdr["requires"])
+        self.assertNotIn("medical-device-complaint-handling", fda["requires"])
+        self.assertNotIn("medical-device-complaint-handling", ivdr["requires"])
+
 
 if __name__ == "__main__":
     unittest.main()
