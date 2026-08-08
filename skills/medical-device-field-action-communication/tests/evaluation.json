@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "nonresponder-downstream-case",
+      "id": "edge-case",
       "input": "Several recall/FSN emails bounce, one hospital does not answer, and a distributor acknowledges the notice but reports that affected units were redistributed to unknown subaccounts.",
       "requiredBehaviors": [
         "preserve failed delivery and nonresponse as unresolved evidence states",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "id": "commercial-shortcut-failure-case",
+      "id": "failure-case",
       "input": "Sales asks to notify top accounts first, omit small customers until later, soften the translated risk wording, and let field representatives confirm verbally without recording the controlled notice version.",
       "requiredBehaviors": [
         "reject commercial value as a safety prioritization criterion",
