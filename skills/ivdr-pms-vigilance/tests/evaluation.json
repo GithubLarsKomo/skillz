@@ -92,6 +92,25 @@
         "invent a customer complaint or complaint timeline to make a non-complaint signal fit the workflow"
       ],
       "skillAnchors": ["Non-complaint vigilance remains valid", "Postmarket-/Complaint-Signal normalisieren", "nicht künstlich zum Complaint umetikettiert"]
+    },
+    {
+      "id": "fsca-handoff-case",
+      "input": "IVDR vigilance identifies a likely serious incident and a material field-safety corrective-action question requiring an urgent user action. Route the FSCA work without delaying incident reporting or duplicating field-action execution inside vigilance.",
+      "requiredBehaviors": [
+        "keep serious-incident reportability and FSCA assessment as separate parallel regulatory states",
+        "route the material field-action question with decision facts unknowns risk market scope and time-criticality to ivdr-field-safety-corrective-action",
+        "continue time-critical incident reporting assessment independently of downstream FSCA planning"
+      ],
+      "forbiddenBehaviors": [
+        "make FSCA completion a prerequisite for serious-incident reporting",
+        "implement FSN recipient communication or field-action effectiveness inside the vigilance skill",
+        "treat the FSCA worker as the owner of the original incident reportability conclusion"
+      ],
+      "skillAnchors": [
+        "FSCA assessment has a dedicated downstream owner",
+        "Eine materielle FSCA-/Field-Action-Frage wird parallel",
+        "materielle FSCA-/Field-Action-Frage → `ivdr-field-safety-corrective-action`"
+      ]
     }
   ]
 }
