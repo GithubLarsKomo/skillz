@@ -6,16 +6,16 @@ Canonical hard-dependency source: [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.m
 
 ## Purpose
 
-This document is the human-readable architecture map for the `skillz` repository.
+This document is the human-readable architecture map for the `skillz` repository. It intentionally does **not** reproduce every hard `requires` edge. The generated [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.md) remains the exact machine-derived graph; this view highlights responsibilities, lifecycle paths and feedback loops.
 
-It intentionally does **not** reproduce every hard `requires` edge of all skills. The generated [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.md) remains the exact machine-derived dependency graph. This Universe view groups capabilities by responsibility, highlights the primary lifecycle paths, and makes the important feedback loops visible.
+Current canonical inventory after the customer-service/complaint wave: **107 skills, 89 user-facing entrypoints, 107/107 evaluation suites passing, 0 evaluation errors**.
 
 ### Reading the diagrams
 
-- **Solid arrows** show the primary semantic flow or ownership handoff.
-- **Dashed arrows** show a temporal feedback or governance return path that is deliberately not modeled as a hard `requires` dependency, usually to avoid cycles.
-- **External state** means evidence from CI, deployment platforms, authorities, notified bodies, issue trackers or other systems that must be verified rather than simulated.
-- **Memory paths** carry only governed, durable abstractions. Concrete repository state, product records, regulatory decisions and sensitive case data remain run/project/controlled-record state.
+- **Solid arrows** show primary semantic flow or ownership handoff.
+- **Dashed arrows** show temporal/governance feedback that is deliberately not encoded as a hard cyclic dependency.
+- **External state** means CI, deployment, authority, notified-body, customer or issue-tracker state that must be verified rather than simulated.
+- **Memory paths** carry only governed durable abstractions; concrete repository, customer, complaint, patient, regulatory and current case state remains project/run/controlled-record state.
 
 ---
 
@@ -34,14 +34,20 @@ flowchart TB
         ENG_DELIVERY[engineering-delivery-followup]
     end
 
+    subgraph SERVICE[Customer Service / Complaint]
+        CS_CONTACT[medical-device-customer-contact-intake]
+        CS_COMPLAINT[medical-device-complaint-handling]
+        CS_ROUTE[medical-device-complaint-regulatory-routing]
+    end
+
     subgraph REG[Regulated Engineering]
         REG_CTX[regulated-product-context]
         REG_STRAT[medical-device-regulatory-strategy]
-        REG_EU[EU / IVDR stack]
-        REG_FDA[FDA stack]
+        REG_FDA[fda-complaint-mdr-reportability / FDA stack]
+        REG_IVDR[ivdr-pms-vigilance / EU-IVDR stack]
         REG_QMS[QMS / Risk / Design]
-        REG_POST[PMS / Vigilance / CAPA]
-        REG_MR[Management Review]
+        REG_PMS[medical-device-pms-system]
+        REG_MR[qms-management-review-governance]
     end
 
     subgraph KNOW[Research & Knowledge]
@@ -55,8 +61,6 @@ flowchart TB
     subgraph PROD[Productivity]
         P_INBOX[inbox-action-triage]
         P_REVIEW[daily-and-weekly-review]
-        P_MEET[meeting-preparation]
-        P_STATUS[project-status-brief]
         P_FOLLOW[decision-and-follow-up-tracker]
     end
 
@@ -71,7 +75,7 @@ flowchart TB
         S_CAP[Capability index / resolver / evaluation]
     end
 
-    subgraph FLOW[Workflow & External Verification]
+    subgraph FLOW[Workflow / External Verification]
         W_EXT[deferred-external-action-verification]
         W_HUMAN[human-procedure-wizard]
         W_HANDOFF[agent-handoff]
@@ -79,46 +83,38 @@ flowchart TB
 
     USER --> ENG_ENTRY
     USER --> REG_STRAT
+    USER --> CS_CONTACT
     USER --> P_INBOX
 
     ENG_SPEC --> ENG_ISSUES --> ENG_IMPL --> ENG_REVIEW --> ENG_DELIVERY
     ENG_DELIVERY -. verified iteration return .-> ENG_ENTRY
 
-    K_RESEARCH --> K_TRACE --> REG_CTX
-    REG_CTX --> REG_STRAT
-    REG_STRAT --> REG_EU
-    REG_STRAT --> REG_FDA
-    REG_STRAT --> REG_QMS
-    REG_QMS --> REG_POST --> REG_MR
-    REG_MR -. governed action return .-> REG_POST
+    CS_CONTACT --> CS_COMPLAINT --> CS_ROUTE
+    CS_ROUTE --> REG_FDA
+    CS_ROUTE --> REG_IVDR
+    REG_IVDR --> REG_PMS --> REG_MR
+    REG_FDA --> REG_PMS
 
+    K_RESEARCH --> K_TRACE --> REG_CTX --> REG_STRAT
     K_RESEARCH --> K_STRUCT --> K_MAP --> K_VIEW
 
     P_INBOX --> P_REVIEW --> P_FOLLOW
-    P_MEET --> P_FOLLOW
-    P_STATUS --> P_FOLLOW
 
     ENG_DELIVERY --> W_EXT
-    REG_POST --> W_HUMAN
-    REG_MR --> W_HUMAN
+    REG_FDA --> W_HUMAN
+    REG_IVDR --> W_HUMAN
     ENG_ENTRY --> W_HANDOFF
 
     ENG_ENTRY -. durable abstractions .-> M_GOV
+    CS_COMPLAINT -. durable abstractions only .-> M_GOV
     REG_STRAT -. durable abstractions .-> M_GOV
-    K_RESEARCH -. durable abstractions .-> M_GOV
-    P_FOLLOW -. durable abstractions .-> M_GOV
+    K_RESEARCH -. durable source/method patterns .-> M_GOV
     M_GOV --> M_SYNC
 
     S_FACTORY --> S_CURATE --> S_CAP
-    S_CAP -. governs discoverability .-> ENG_ENTRY
-    S_CAP -. governs discoverability .-> REG_STRAT
-    S_CAP -. governs discoverability .-> K_RESEARCH
-    S_CAP -. governs discoverability .-> P_INBOX
-    S_CAP -. governs discoverability .-> M_GOV
-    S_CAP -. governs discoverability .-> W_EXT
 ```
 
-The important architectural point is that no single top-level orchestrator owns every domain. The repository composes narrow owners around a few shared spines: evidence, verification, delivery, governance and memory.
+No single top-level orchestrator owns every domain. Narrow owners compose around shared evidence, verification, delivery, QMS and memory spines.
 
 ---
 
@@ -133,30 +129,12 @@ flowchart LR
     E[two-axis-code-review]
     F[engineering-delivery-followup]
     G[iterate-software-projects]
-
-    DIAG[disciplined-diagnosis]
-    ARCH[architecture-deepening-review]
-    DOMAIN[domain-model-maintenance]
-    MERGE[merge-conflict-resolution]
     EXT[deferred-external-action-verification]
-    HANDOFF[agent-handoff]
-    BETA[project-beta-readiness]
 
     A --> B --> C --> D --> E --> F
     F -. engineering-iteration-return-input.json .-> G
     G --> B
-
-    DIAG --> C
-    DIAG --> D
-    DIAG --> E
-    ARCH --> E
-    DOMAIN --> E
-    E --> DOMAIN
-    E --> MERGE
-    MERGE --> E
     F --> EXT
-    G --> HANDOFF
-    G --> BETA
 
     R1{{review-approved ≠ merge-ready}}
     R2{{merged ≠ deployed}}
@@ -169,273 +147,224 @@ flowchart LR
     E -.-> R4
 ```
 
-### Engineering closure contract
+Engineering state remains explicit:
 
-The lifecycle deliberately separates these states:
+`implemented → review-approved → merge-ready → merged → deployed/released when applicable → issue-closed → requirement-verified`
 
-`implemented → review-approved → merge-ready → merged → deployed/released (when applicable) → issue-closed → requirement-verified`
-
-A later state is never inferred solely from an earlier one. `engineering-delivery-followup` owns that distinction and returns the verified prior-iteration state to `iterate-software-projects` before unrelated work is started.
+A later state is never inferred solely from an earlier one.
 
 ---
 
-## 3. Regulated Engineering — Medical Device / IVD universe
-
-```mermaid
-flowchart TB
-    subgraph FOUNDATION[Shared regulated-engineering foundations]
-        CTX[regulated-product-context]
-        RES[research-to-evidence-note]
-        TRACE[regulatory-evidence-traceability]
-        COMP[two-axis-compliance-review]
-        RISK[medical-device-risk-management-iso14971]
-        QMS[medical-device-qms-iso13485]
-        DEC[decision-record]
-    end
-
-    subgraph FRONT[Market front doors]
-        STRAT[medical-device-regulatory-strategy]
-        EU[eu-mdr-ivdr-regulatory-specialist]
-        FDA[fda-medical-device-ivd-regulatory-specialist]
-    end
-
-    subgraph IVDR[EU / IVDR]
-        MDCG[mdcg-guidance-navigator]
-        CLASS[ivdr-device-classification]
-        SV[ivdr-scientific-validity]
-        AP[ivdr-analytical-performance]
-        CPS[ivdr-clinical-performance-study]
-        PE[ivdr-performance-evaluation]
-        PER[ivdr-performance-evaluation-report]
-        PMPF[ivdr-pmpf]
-        VIG[ivdr-pms-vigilance]
-        CLASSD[ivdr-class-d-conformity]
-        EUD[eudamed-udi-ivd]
-        CDX[ivdr-companion-diagnostic-consultation]
-        INHOUSE[ivdr-inhouse-health-institution]
-    end
-
-    subgraph US[FDA]
-        FCLASS[fda-device-classification-product-code]
-        PRED[fda-510k-predicate-strategy]
-        SE[fda-510k-substantial-equivalence]
-        DENOVO[fda-de-novo-strategy]
-        SPECIAL[fda-de-novo-special-controls]
-        QSUB[fda-qsub-strategy]
-        ESTAR[fda-estar-submission-builder]
-        ACCEPT[fda-acceptance-readiness]
-        AI[fda-additional-information-response]
-        CLIA[fda-ivd-clia-waiver]
-        DUAL[fda-dual-510k-clia-waiver]
-        QMSR[fda-qmsr-iso13485-gap]
-        INSPECT[fda-qmsr-inspection-readiness]
-        MDR[fda-complaint-mdr-reportability]
-        CR[fda-corrections-removals]
-        PCCP[fda-pccp-change-control]
-        LIST[fda-registration-listing-udi]
-    end
-
-    subgraph SHARED[Shared lifecycle controls]
-        DESIGN[design-control-traceability]
-        CHANGE[design-change-regulatory-impact]
-        LABEL[medical-device-labeling-ifu]
-        CLAIM[regulatory-claims-consistency]
-        SW[iec62304-software-lifecycle]
-        USE[iec62366-usability-engineering]
-        CYBER[medical-device-cybersecurity-lifecycle]
-        SUP[supplier-quality-medical-device]
-        PROC[process-validation-iq-oq-pq]
-        MEAS[measurement-system-validation]
-        NC[nonconformance-mrb-disposition]
-        RECORD[quality-record-integrity]
-        CAPA[medical-device-capa]
-    end
-
-    subgraph GOVERNANCE[Postmarket & governance]
-        PMS[medical-device-pms-system]
-        MR[qms-management-review-governance]
-        MRF[qms-management-review-action-followup]
-        AUDIT[iso13485-qms-audit]
-        MDSAP[mdsap-audit-readiness]
-        FIND[audit-inspection-finding-response]
-        MON[regulatory-change-monitoring]
-        ORCH[regulatory-change-impact-orchestrator]
-    end
-
-    RES --> TRACE --> CTX
-    CTX --> STRAT
-    STRAT --> EU
-    STRAT --> FDA
-    CTX --> RISK
-    CTX --> QMS
-    TRACE --> COMP
-
-    EU --> MDCG --> CLASS
-    CLASS --> SV
-    CLASS --> AP
-    CLASS --> CPS
-    SV --> PE
-    AP --> PE
-    CPS --> PE
-    PE --> PER
-    PE --> PMPF
-    PMPF --> PMS
-    PMS --> VIG
-    CLASS --> CLASSD
-    CLASS --> EUD
-    PE --> CDX
-    QMS --> INHOUSE
-
-    FDA --> FCLASS
-    FCLASS --> PRED --> SE --> ESTAR --> ACCEPT
-    FCLASS --> DENOVO --> SPECIAL --> ESTAR
-    FDA --> QSUB
-    ESTAR --> AI
-    FCLASS --> CLIA --> DUAL
-    SE --> DUAL
-    QMS --> QMSR --> INSPECT
-    PMS --> MDR --> CR
-    CHANGE --> PCCP
-    LABEL --> LIST
-
-    QMS --> DESIGN --> CHANGE
-    RISK --> DESIGN
-    DESIGN --> SW --> CYBER
-    DESIGN --> USE
-    RISK --> LABEL --> CLAIM
-    QMS --> SUP
-    QMS --> PROC
-    QMS --> MEAS
-    QMS --> NC --> CAPA
-    QMS --> RECORD
-
-    PMS --> MR --> MRF
-    MRF -. management-review-return-input.json .-> MR
-    CAPA --> MR
-    RISK --> MR
-    QMS --> AUDIT --> MDSAP
-    AUDIT --> FIND
-
-    MON --> ORCH
-    ORCH --> CHANGE
-    ORCH --> RISK
-    ORCH --> LABEL
-    ORCH --> PMS
-    ORCH --> PE
-
-    VIG -. material signals .-> PMS
-    MRF -. action effectiveness / open gaps .-> PMS
-```
-
-### Regulated-engineering governance loops
-
-Three loops are intentionally separate but connected:
-
-1. **Postmarket:** `Vigilance / complaints / field signals → PMS → Risk/CAPA/Performance`.
-2. **Management governance:** `PMS → Management Review → Action Follow-up → next Management Review`.
-3. **Regulatory intelligence:** `Source change → regulatory-change-monitoring → regulatory-change-impact-orchestrator → specialist owners → lifecycle re-evaluation`.
-
-Time-critical reporting or field action never waits for a periodic management-review cadence.
-
----
-
-## 4. Evidence, knowledge and memory spine
+## 3. Customer contact → complaint → vigilance
 
 ```mermaid
 flowchart LR
-    SOURCE[Authoritative / project sources]
+    CONTACT[medical-device-customer-contact-intake]
+    COMPLAINT[medical-device-complaint-handling]
+    ROUTE[medical-device-complaint-regulatory-routing]
+    FDA[fda-complaint-mdr-reportability]
+    IVDR[ivdr-pms-vigilance]
+    PMS[medical-device-pms-system]
+    RISK[medical-device-risk-management-iso14971]
+    CAPA[medical-device-capa]
+    MR[qms-management-review-governance]
+
+    CONTACT -->|complaint-intake-handoff.json| COMPLAINT
+    COMPLAINT -->|complaint-regulatory-handoff.json| ROUTE
+    ROUTE -->|US assessment| FDA
+    ROUTE -->|EU-IVDR assessment| IVDR
+
+    COMPLAINT --> RISK
+    COMPLAINT --> CAPA
+    FDA --> PMS
+    IVDR --> PMS
+    PMS --> MR
+
+    FDA -. investigation remains open .-> COMPLAINT
+    IVDR -. investigation remains open .-> COMPLAINT
+
+    S1{{customer resolved ≠ complaint closed}}
+    S2{{complaint closed ≠ regulatory closed}}
+    S3{{awareness evidence ≠ legal awareness conclusion}}
+    S4{{known issue / user error / no return ≠ non-reportable}}
+
+    CONTACT -.-> S1
+    COMPLAINT -.-> S2
+    ROUTE -.-> S3
+    ROUTE -.-> S4
+```
+
+### Ownership boundaries
+
+- `medical-device-customer-contact-intake` owns source-preserving intake and the earliest possible Complaint/Safety handoff. It does not investigate or decide reportability.
+- `medical-device-complaint-handling` owns the individual complaint QMS record, investigation decision, evidence preservation and complaint-closure readiness. It does not decide FDA MDR or EU vigilance.
+- `medical-device-complaint-regulatory-routing` owns jurisdiction/role routing and the awareness-evidence chronology. It does not convert evidence into a legal awareness date or final reportability decision.
+- `fda-complaint-mdr-reportability` owns FDA-specific awareness, MDR criteria and timing.
+- `ivdr-pms-vigilance` owns IVDR-specific vigilance/serious-incident assessment and its PMS feedback.
+
+### Hard customer-service invariants
+
+1. Customer wording does not determine whether a possible complaint exists.
+2. Troubleshooting, refund, replacement or a solved service ticket never erase the Quality path.
+3. Potential safety information is escalated before final root cause, returned-device analysis or complaint closure.
+4. Every complaint keeps an individual record; a prior investigation may be referenced only with documented applicability.
+5. Potentially relevant returned devices, samples, logs and raw evidence are protected before destructive handling.
+6. One complaint can require multiple independent jurisdiction assessments.
+7. Customer/distributor/employee/QA/regulatory timestamps remain separate evidence facts; the market specialist owns the legal awareness conclusion.
+8. External authority submission, receipt and acceptance require external evidence.
+
+---
+
+## 4. Regulated Engineering — lifecycle universe
+
+```mermaid
+flowchart TB
+    subgraph FOUNDATION[Foundations]
+        CTX[regulated-product-context]
+        RES[research-to-evidence-note]
+        TRACE[regulatory-evidence-traceability]
+        QMS[medical-device-qms-iso13485]
+        RISK[medical-device-risk-management-iso14971]
+        DESIGN[design-control-traceability]
+    end
+
+    subgraph MARKET[Market access]
+        STRAT[medical-device-regulatory-strategy]
+        EU[EU / IVDR capabilities]
+        US[FDA capabilities]
+    end
+
+    subgraph POST[Postmarket]
+        CONTACT[Customer contact]
+        COMPLAINT[Complaint handling]
+        ROUTE[Regulatory routing]
+        FDA_MDR[FDA MDR]
+        EU_VIG[IVDR vigilance]
+        PMS[PMS system]
+        CAPA[CAPA]
+        PERF[Performance / PMPF]
+        CHANGE[Change impact]
+    end
+
+    subgraph GOV[Governance]
+        MR[Management Review]
+        MRF[Management Review action follow-up]
+        AUDIT[ISO 13485 / MDSAP / FDA inspection]
+        MON[Regulatory change monitoring]
+        ORCH[Regulatory change impact orchestrator]
+    end
+
+    RES --> TRACE --> CTX
+    CTX --> STRAT --> EU
+    STRAT --> US
+    CTX --> QMS --> DESIGN
+    CTX --> RISK
+
+    CONTACT --> COMPLAINT --> ROUTE
+    ROUTE --> FDA_MDR
+    ROUTE --> EU_VIG
+    FDA_MDR --> PMS
+    EU_VIG --> PMS
+    COMPLAINT --> CAPA
+    COMPLAINT --> RISK
+    PMS --> PERF
+    PMS --> CAPA
+    PMS --> RISK
+    RISK --> CHANGE
+
+    PMS --> MR --> MRF
+    MRF -. management-review-return-input.json .-> MR
+    QMS --> AUDIT
+    MON --> ORCH --> CHANGE
+    ORCH --> PMS
+    ORCH --> PERF
+```
+
+The key regulated-engineering loops remain separate but connected:
+
+1. **Customer/Complaint:** contact → complaint → jurisdiction routing → market-specific vigilance/reportability.
+2. **Postmarket:** complaints/vigilance/field signals → PMS → Risk/CAPA/Performance.
+3. **Management governance:** PMS → Management Review → Action Follow-up → next Management Review.
+4. **Regulatory intelligence:** source change → change monitoring → impact orchestration → specialist lifecycle update.
+
+Time-critical reportability, vigilance or field action never waits for complaint closure or a periodic management-review cadence.
+
+---
+
+## 5. Evidence, knowledge and memory spine
+
+```mermaid
+flowchart LR
+    SOURCE[Authoritative / project / controlled sources]
     RESEARCH[research-to-evidence-note]
     TRACE[regulatory-evidence-traceability]
     STRUCT[structured-knowledge-artifact]
     MAP[knowledge-map-generator]
-    VIEW[knowledge-view]
-    OBS[obsidian-adapter]
+    VIEW[knowledge-view / obsidian-adapter]
 
-    ENG[Engineering skills]
-    REG[Regulated-engineering skills]
-    PROD[Productivity skills]
+    SKILLS[Engineering / Customer Service / Regulated Engineering]
     MEM[communication-memory-governance]
     SYNC[memory-sync-reconciliation]
 
-    SOURCE --> RESEARCH
-    RESEARCH --> TRACE
+    SOURCE --> RESEARCH --> TRACE
     RESEARCH --> STRUCT --> MAP --> VIEW
-    MAP --> OBS
+    SKILLS -. memory-candidate-handoff-v1 .-> MEM --> SYNC
 
-    ENG -. memory-candidate-handoff-v1 .-> MEM
-    REG -. memory-candidate-handoff-v1 .-> MEM
-    PROD -. memory-candidate-handoff-v1 .-> MEM
-    RESEARCH -. durable source / method patterns .-> MEM
-    MEM --> SYNC
-
-    RULE{{Concrete run / project / regulatory / patient / secret state does not become global Memory automatically}}
+    RULE{{Concrete customer, complaint, patient, awareness, regulatory, repository and secret state is not global Memory}}
     MEM -. enforces .-> RULE
 ```
 
-The knowledge graph and Memory are deliberately different concerns:
+Knowledge and Memory remain different concerns:
 
 - Knowledge artifacts preserve explicit source/provenance relationships.
 - Memory governance decides whether an abstracted learning is durable and safe enough to persist.
-- Current product records, submissions, incidents, findings, SHAs, CI state, credentials and sensitive case data stay outside global Memory.
+- Current contacts, complaints, patients/reporters, device/lot IDs, awareness dates, reportability decisions, submissions, findings, SHAs, CI state and credentials remain outside global Memory.
 
 ---
 
-## 5. Closed-loop architecture at a glance
+## 6. Closed-loop architecture at a glance
 
 ```mermaid
 flowchart TB
-    subgraph ELOOP[Engineering loop]
-        E1[Spec / Issue]
-        E2[Implement]
-        E3[Review]
-        E4[CI / Merge / Delivery]
-        E5[Verified iteration state]
-        E1 --> E2 --> E3 --> E4 --> E5
+    subgraph ELOOP[Engineering]
+        E1[Spec / Issue] --> E2[Implement] --> E3[Review] --> E4[CI / Merge / Delivery] --> E5[Verified iteration state]
         E5 -. next increment .-> E1
     end
 
-    subgraph PLOOP[Postmarket loop]
-        P1[Signals / Complaints]
-        P2[PMS aggregation]
-        P3[Vigilance / Risk / CAPA / Evidence]
-        P4[Management attention]
-        P1 --> P2 --> P3 --> P4
-        P3 -. updated state .-> P2
+    subgraph CLOOP[Customer / Complaint]
+        C1[Customer / Distributor / Field contact] --> C2[Complaint intake & investigation] --> C3[Regulatory routing] --> C4[FDA MDR / IVDR vigilance]
     end
 
-    subgraph MLOOP[Management Review loop]
-        M1[Management Review]
-        M2[Confirmed Actions]
-        M3[Specialist implementation]
-        M4[Effectiveness / External Closure]
-        M5[Return input]
-        M1 --> M2 --> M3 --> M4 --> M5
+    subgraph PLOOP[Postmarket]
+        P1[PMS aggregation] --> P2[Risk / CAPA / Performance] --> P3[Management attention]
+        P2 -. updated state .-> P1
+    end
+
+    subgraph MLOOP[Management Review]
+        M1[Management Review] --> M2[Confirmed actions] --> M3[Specialist implementation] --> M4[Effectiveness / external closure] --> M5[Return input]
         M5 -. next review .-> M1
     end
 
-    subgraph RLOOP[Regulatory intelligence loop]
-        R1[Source registry / monitoring]
-        R2[Verified change event]
-        R3[Impact orchestration]
-        R4[Specialist lifecycle updates]
-        R1 --> R2 --> R3 --> R4
+    subgraph RLOOP[Regulatory intelligence]
+        R1[Source monitoring] --> R2[Verified change event] --> R3[Impact orchestration] --> R4[Specialist lifecycle updates]
         R4 -. new baseline .-> R1
     end
 
-    P4 --> M1
-    R4 --> P2
-    R4 -. regulated product change .-> E1
-    E5 -. regulated product delivery evidence .-> P2
+    C4 --> P1
+    P3 --> M1
+    R4 --> P1
+    R4 --> E1
+    E5 --> P1
 ```
 
 ---
 
 ## Canonical vs curated views
 
-Use this document when the question is **“How does the whole skill system fit together?”**
+Use this document for **“How does the whole skill system fit together?”**
 
-Use [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.md) when the question is **“What are the exact hard `requires` and inferred output-consumer edges?”**
+Use [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.md) for **exact hard `requires` and inferred output-consumer edges**.
 
-Use [`skill-capability-index.json`](skill-capability-index.json) when a tool or agent needs the canonical machine-readable capability inventory and evaluation status.
+Use [`skill-capability-index.json`](skill-capability-index.json) for the canonical machine-readable inventory and evaluation state.
 
-The Universe should therefore stay **curated and semantically stable**. New individual skills belong here only when they introduce a new architectural responsibility, lifecycle boundary or feedback loop; ordinary workers remain visible in the exact generated dependency graph.
+The Universe remains curated and semantically stable. Individual workers belong here only when they introduce a new architectural responsibility, lifecycle boundary or feedback loop; ordinary workers stay visible in the generated dependency graph.
