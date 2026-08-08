@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 108,
-  "entrypointCount": 90,
+  "skillCount": 110,
+  "entrypointCount": 92,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 108,
+  "evaluationSuiteCount": 110,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -3696,6 +3696,59 @@
       }
     },
     {
+      "name": "medical-device-adverse-event-coding",
+      "description": "Normalisiert Medical-Device-/IVD-Complaint- und Adverse-Event-Fakten in versionierte IMDRF-/marktbezogene Code-Kandidaten mit Quellenbindung, ohne Codierung mit Kausalität oder Reportability zu verwechseln.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-complaint-handling",
+        "regulatory-evidence-traceability"
+      ],
+      "dependents": [],
+      "outputs": [
+        "adverse-event-code-set.json",
+        "adverse-event-coding-delta.json",
+        "adverse-event-coding-rationale.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "adverse-event-code-set.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-adverse-event-coding"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "adverse-event-coding-delta.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-adverse-event-coding"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "adverse-event-coding-rationale.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-adverse-event-coding"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "medical-device-capa",
       "description": "Strukturiert CAPA von Signal/Problem Statement über evidenzbasierte Kausalinvestigation, Action Plan und Effectiveness Verification bis zur kontrollierten Closure und Rückkopplung in Risk/QMS.",
       "invocation": {
@@ -3836,6 +3889,7 @@
         "regulated-product-context"
       ],
       "dependents": [
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-regulatory-routing"
       ],
@@ -3853,6 +3907,7 @@
             "medical-device-complaint-handling"
           ],
           "consumerSkills": [
+            "medical-device-adverse-event-coding",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-regulatory-routing"
           ]
@@ -3864,6 +3919,7 @@
             "medical-device-complaint-handling"
           ],
           "consumerSkills": [
+            "medical-device-adverse-event-coding",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-regulatory-routing"
           ]
@@ -3875,6 +3931,7 @@
             "medical-device-complaint-handling"
           ],
           "consumerSkills": [
+            "medical-device-adverse-event-coding",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-regulatory-routing"
           ]
@@ -3886,6 +3943,7 @@
             "medical-device-complaint-handling"
           ],
           "consumerSkills": [
+            "medical-device-adverse-event-coding",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-regulatory-routing"
           ]
@@ -3969,7 +4027,8 @@
         "quality-record-integrity"
       ],
       "dependents": [
-        "medical-device-complaint-handling"
+        "medical-device-complaint-handling",
+        "medical-device-service-report-quality-routing"
       ],
       "outputs": [
         "complaint-intake-handoff.json",
@@ -3984,7 +4043,8 @@
             "medical-device-customer-contact-intake"
           ],
           "consumerSkills": [
-            "medical-device-complaint-handling"
+            "medical-device-complaint-handling",
+            "medical-device-service-report-quality-routing"
           ]
         },
         {
@@ -3994,7 +4054,8 @@
             "medical-device-customer-contact-intake"
           ],
           "consumerSkills": [
-            "medical-device-complaint-handling"
+            "medical-device-complaint-handling",
+            "medical-device-service-report-quality-routing"
           ]
         },
         {
@@ -4004,7 +4065,8 @@
             "medical-device-customer-contact-intake"
           ],
           "consumerSkills": [
-            "medical-device-complaint-handling"
+            "medical-device-complaint-handling",
+            "medical-device-service-report-quality-routing"
           ]
         }
       ],
@@ -4655,6 +4717,59 @@
             "process-validation-iq-oq-pq",
             "supplier-quality-medical-device"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "medical-device-service-report-quality-routing",
+      "description": "Überführt Medical-Device-/IVD-Service-, Repair- und Troubleshooting-Ereignisse evidenztreu in Quality-/Complaint-/Safety-Routing, ohne Serviceabschluss mit Qualitäts- oder regulatorischer Closure zu verwechseln.",
+      "invocation": {
+        "userFacing": true,
+        "category": "regulated-engineering"
+      },
+      "requires": [
+        "medical-device-customer-contact-intake",
+        "quality-record-integrity"
+      ],
+      "dependents": [],
+      "outputs": [
+        "service-complaint-handoff.json",
+        "service-event-quality-record.json",
+        "service-quality-routing.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "service-complaint-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-service-report-quality-routing"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "service-event-quality-record.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-service-report-quality-routing"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "service-quality-routing.json",
+          "ambiguous": false,
+          "producers": [
+            "medical-device-service-report-quality-routing"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -5331,7 +5446,8 @@
         "fda-complaint-mdr-reportability",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
-        "medical-device-customer-contact-intake"
+        "medical-device-customer-contact-intake",
+        "medical-device-service-report-quality-routing"
       ],
       "outputs": [
         "quality-record-integrity-assessment.json",
@@ -5349,7 +5465,8 @@
             "fda-complaint-mdr-reportability",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
-            "medical-device-customer-contact-intake"
+            "medical-device-customer-contact-intake",
+            "medical-device-service-report-quality-routing"
           ]
         },
         {
@@ -5362,7 +5479,8 @@
             "fda-complaint-mdr-reportability",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
-            "medical-device-customer-contact-intake"
+            "medical-device-customer-contact-intake",
+            "medical-device-service-report-quality-routing"
           ]
         },
         {
@@ -5375,7 +5493,8 @@
             "fda-complaint-mdr-reportability",
             "medical-device-complaint-customer-followup",
             "medical-device-complaint-handling",
-            "medical-device-customer-contact-intake"
+            "medical-device-customer-contact-intake",
+            "medical-device-service-report-quality-routing"
           ]
         }
       ],
@@ -5747,6 +5866,7 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "mdsap-audit-readiness",
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-regulatory-routing",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
@@ -5798,6 +5918,7 @@
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "mdsap-audit-readiness",
+            "medical-device-adverse-event-coding",
             "medical-device-complaint-regulatory-routing",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",
@@ -5845,6 +5966,7 @@
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "mdsap-audit-readiness",
+            "medical-device-adverse-event-coding",
             "medical-device-complaint-regulatory-routing",
             "medical-device-labeling-ifu",
             "medical-device-pms-system",

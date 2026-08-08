@@ -792,6 +792,18 @@
       ]
     },
     {
+      "name": "medical-device-adverse-event-coding",
+      "requires": [
+        "medical-device-complaint-handling",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "adverse-event-code-set.json",
+        "adverse-event-coding-delta.json",
+        "adverse-event-coding-rationale.json"
+      ]
+    },
+    {
       "name": "medical-device-capa",
       "requires": [
         "evidence-based-causal-investigation",
@@ -962,6 +974,18 @@
         "risk-management-analysis.json",
         "risk-management-analysis.md",
         "risk-wayfinding-handoff.json"
+      ]
+    },
+    {
+      "name": "medical-device-service-report-quality-routing",
+      "requires": [
+        "medical-device-customer-contact-intake",
+        "quality-record-integrity"
+      ],
+      "outputs": [
+        "service-complaint-handoff.json",
+        "service-event-quality-record.json",
+        "service-quality-routing.json"
       ]
     },
     {
@@ -2017,6 +2041,14 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "medical-device-adverse-event-coding",
+      "to": "medical-device-complaint-handling"
+    },
+    {
+      "from": "medical-device-adverse-event-coding",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
       "from": "medical-device-capa",
       "to": "evidence-based-causal-investigation"
     },
@@ -2179,6 +2211,14 @@
     {
       "from": "medical-device-risk-management-iso14971",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "medical-device-service-report-quality-routing",
+      "to": "medical-device-customer-contact-intake"
+    },
+    {
+      "from": "medical-device-service-report-quality-routing",
+      "to": "quality-record-integrity"
     },
     {
       "from": "meeting-preparation",
@@ -2422,6 +2462,33 @@
       "output": "acceptance-gaps.json",
       "producers": [
         "fda-acceptance-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "adverse-event-code-set.json",
+      "producers": [
+        "medical-device-adverse-event-coding"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "adverse-event-coding-delta.json",
+      "producers": [
+        "medical-device-adverse-event-coding"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "adverse-event-coding-rationale.json",
+      "producers": [
+        "medical-device-adverse-event-coding"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -2823,6 +2890,7 @@
         "medical-device-complaint-handling"
       ],
       "consumerSkills": [
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-regulatory-routing"
       ],
@@ -2835,7 +2903,8 @@
         "medical-device-customer-contact-intake"
       ],
       "consumerSkills": [
-        "medical-device-complaint-handling"
+        "medical-device-complaint-handling",
+        "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2846,6 +2915,7 @@
         "medical-device-complaint-handling"
       ],
       "consumerSkills": [
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-regulatory-routing"
       ],
@@ -2858,6 +2928,7 @@
         "medical-device-complaint-handling"
       ],
       "consumerSkills": [
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-regulatory-routing"
       ],
@@ -2882,6 +2953,7 @@
         "medical-device-complaint-handling"
       ],
       "consumerSkills": [
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-regulatory-routing"
       ],
@@ -3079,7 +3151,8 @@
         "medical-device-customer-contact-intake"
       ],
       "consumerSkills": [
-        "medical-device-complaint-handling"
+        "medical-device-complaint-handling",
+        "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3090,7 +3163,8 @@
         "medical-device-customer-contact-intake"
       ],
       "consumerSkills": [
-        "medical-device-complaint-handling"
+        "medical-device-complaint-handling",
+        "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4903,7 +4977,8 @@
         "fda-complaint-mdr-reportability",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
-        "medical-device-customer-contact-intake"
+        "medical-device-customer-contact-intake",
+        "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4931,7 +5006,8 @@
         "fda-complaint-mdr-reportability",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
-        "medical-device-customer-contact-intake"
+        "medical-device-customer-contact-intake",
+        "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4945,7 +5021,8 @@
         "fda-complaint-mdr-reportability",
         "medical-device-complaint-customer-followup",
         "medical-device-complaint-handling",
-        "medical-device-customer-contact-intake"
+        "medical-device-customer-contact-intake",
+        "medical-device-service-report-quality-routing"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5136,6 +5213,7 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "mdsap-audit-readiness",
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-regulatory-routing",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
@@ -5184,6 +5262,7 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "mdsap-audit-readiness",
+        "medical-device-adverse-event-coding",
         "medical-device-complaint-regulatory-routing",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
@@ -5472,6 +5551,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "service-complaint-handoff.json",
+      "producers": [
+        "medical-device-service-report-quality-routing"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "service-event-quality-record.json",
+      "producers": [
+        "medical-device-service-report-quality-routing"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "service-quality-routing.json",
+      "producers": [
+        "medical-device-service-report-quality-routing"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "skills/<skill-name>/SKILL.md",
@@ -5849,6 +5955,9 @@
   "unconsumedOutputs": [
     "GRILL-REPORT.md",
     "acceptance-gaps.json",
+    "adverse-event-code-set.json",
+    "adverse-event-coding-delta.json",
+    "adverse-event-coding-rationale.json",
     "approved SPEC.md",
     "audit-finding-response-map.json",
     "beta-readiness.json",
@@ -5963,6 +6072,9 @@
     "remaining-unknowns.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
+    "service-complaint-handoff.json",
+    "service-event-quality-record.json",
+    "service-quality-routing.json",
     "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
@@ -5982,6 +6094,9 @@
   "orphanOutputs": [
     "GRILL-REPORT.md",
     "acceptance-gaps.json",
+    "adverse-event-code-set.json",
+    "adverse-event-coding-delta.json",
+    "adverse-event-coding-rationale.json",
     "approved SPEC.md",
     "audit-finding-response-map.json",
     "beta-readiness.json",
@@ -6096,6 +6211,9 @@
     "remaining-unknowns.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
+    "service-complaint-handoff.json",
+    "service-event-quality-record.json",
+    "service-quality-routing.json",
     "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
