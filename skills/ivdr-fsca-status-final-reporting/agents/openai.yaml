@@ -1,0 +1,6 @@
+invocation:
+  allowImplicitInvocation: false
+  policy: "Invoke only for an established IVDR vigilance/FSCA case requiring current-form final/follow-up reporting or authority-state reconciliation; never infer submission, authority receipt, acceptance, assessment, or closure without external evidence."
+  examples:
+    - "Prepare the current-form IVDR final vigilance package from the verified FSCA evidence."
+    - "Reconcile the competent-authority follow-up state without treating the manufacturer's final report as closure."
