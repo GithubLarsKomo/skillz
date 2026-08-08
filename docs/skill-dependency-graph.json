@@ -303,6 +303,7 @@
     {
       "name": "fda-complaint-mdr-reportability",
       "requires": [
+        "medical-device-complaint-regulatory-routing",
         "medical-device-risk-management-iso14971",
         "quality-record-integrity",
         "regulated-product-context",
@@ -697,6 +698,7 @@
       "name": "ivdr-pms-vigilance",
       "requires": [
         "mdcg-guidance-navigator",
+        "medical-device-complaint-regulatory-routing",
         "medical-device-pms-system",
         "medical-device-risk-management-iso14971",
         "regulated-product-context",
@@ -802,6 +804,44 @@
         "capa-effectiveness-plan.json",
         "capa-plan.json",
         "capa-status.md"
+      ]
+    },
+    {
+      "name": "medical-device-complaint-handling",
+      "requires": [
+        "medical-device-customer-contact-intake",
+        "quality-record-integrity",
+        "regulated-product-context"
+      ],
+      "outputs": [
+        "complaint-closure-readiness.json",
+        "complaint-investigation-plan.json",
+        "complaint-record.json",
+        "complaint-regulatory-handoff.json"
+      ]
+    },
+    {
+      "name": "medical-device-complaint-regulatory-routing",
+      "requires": [
+        "medical-device-complaint-handling",
+        "regulated-product-context",
+        "regulatory-evidence-traceability"
+      ],
+      "outputs": [
+        "complaint-regulatory-routing.json",
+        "regulatory-awareness-timeline.json",
+        "vigilance-entry-handoff.json"
+      ]
+    },
+    {
+      "name": "medical-device-customer-contact-intake",
+      "requires": [
+        "quality-record-integrity"
+      ],
+      "outputs": [
+        "complaint-intake-handoff.json",
+        "customer-contact-record.json",
+        "customer-contact-triage.json"
       ]
     },
     {
@@ -1476,6 +1516,10 @@
     },
     {
       "from": "fda-complaint-mdr-reportability",
+      "to": "medical-device-complaint-regulatory-routing"
+    },
+    {
+      "from": "fda-complaint-mdr-reportability",
       "to": "medical-device-risk-management-iso14971"
     },
     {
@@ -1872,6 +1916,10 @@
     },
     {
       "from": "ivdr-pms-vigilance",
+      "to": "medical-device-complaint-regulatory-routing"
+    },
+    {
+      "from": "ivdr-pms-vigilance",
       "to": "medical-device-pms-system"
     },
     {
@@ -1973,6 +2021,34 @@
     {
       "from": "medical-device-capa",
       "to": "medical-device-risk-management-iso14971"
+    },
+    {
+      "from": "medical-device-complaint-handling",
+      "to": "medical-device-customer-contact-intake"
+    },
+    {
+      "from": "medical-device-complaint-handling",
+      "to": "quality-record-integrity"
+    },
+    {
+      "from": "medical-device-complaint-handling",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-complaint-regulatory-routing",
+      "to": "medical-device-complaint-handling"
+    },
+    {
+      "from": "medical-device-complaint-regulatory-routing",
+      "to": "regulated-product-context"
+    },
+    {
+      "from": "medical-device-complaint-regulatory-routing",
+      "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "medical-device-customer-contact-intake",
+      "to": "quality-record-integrity"
     },
     {
       "from": "medical-device-cybersecurity-lifecycle",
@@ -2712,12 +2788,79 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "complaint-closure-readiness.json",
+      "producers": [
+        "medical-device-complaint-handling"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "complaint-intake-handoff.json",
+      "producers": [
+        "medical-device-customer-contact-intake"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-handling"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "complaint-investigation-plan.json",
+      "producers": [
+        "medical-device-complaint-handling"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "complaint-record.json",
+      "producers": [
+        "medical-device-complaint-handling"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "complaint-regulatory-actions.json",
       "producers": [
         "fda-complaint-mdr-reportability"
       ],
       "consumerSkills": [
         "fda-corrections-removals"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "complaint-regulatory-handoff.json",
+      "producers": [
+        "medical-device-complaint-handling"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "complaint-regulatory-routing.json",
+      "producers": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "consumerSkills": [
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -2886,6 +3029,28 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "customer-contact-record.json",
+      "producers": [
+        "medical-device-customer-contact-intake"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-handling"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "customer-contact-triage.json",
+      "producers": [
+        "medical-device-customer-contact-intake"
+      ],
+      "consumerSkills": [
+        "medical-device-complaint-handling"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "cybersecurity-evidence-map.json",
@@ -4667,7 +4832,9 @@
         "quality-record-integrity"
       ],
       "consumerSkills": [
-        "fda-complaint-mdr-reportability"
+        "fda-complaint-mdr-reportability",
+        "medical-device-complaint-handling",
+        "medical-device-customer-contact-intake"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4692,7 +4859,9 @@
         "quality-record-integrity"
       ],
       "consumerSkills": [
-        "fda-complaint-mdr-reportability"
+        "fda-complaint-mdr-reportability",
+        "medical-device-complaint-handling",
+        "medical-device-customer-contact-intake"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4703,7 +4872,9 @@
         "quality-record-integrity"
       ],
       "consumerSkills": [
-        "fda-complaint-mdr-reportability"
+        "fda-complaint-mdr-reportability",
+        "medical-device-complaint-handling",
+        "medical-device-customer-contact-intake"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4745,6 +4916,8 @@
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "medical-device-complaint-handling",
+        "medical-device-complaint-regulatory-routing",
         "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
@@ -4788,6 +4961,8 @@
         "ivdr-pms-vigilance",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
+        "medical-device-complaint-handling",
+        "medical-device-complaint-regulatory-routing",
         "medical-device-cybersecurity-lifecycle",
         "medical-device-isms-governance",
         "medical-device-labeling-ifu",
@@ -4799,6 +4974,18 @@
         "regulatory-change-impact-orchestrator",
         "regulatory-claims-consistency",
         "regulatory-evidence-traceability"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "regulatory-awareness-timeline.json",
+      "producers": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "consumerSkills": [
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4879,6 +5066,7 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "mdsap-audit-readiness",
+        "medical-device-complaint-regulatory-routing",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
@@ -4926,6 +5114,7 @@
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "mdsap-audit-readiness",
+        "medical-device-complaint-regulatory-routing",
         "medical-device-labeling-ifu",
         "medical-device-pms-system",
         "regulatory-change-impact-orchestrator",
@@ -5545,6 +5734,18 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "vigilance-entry-handoff.json",
+      "producers": [
+        "medical-device-complaint-regulatory-routing"
+      ],
+      "consumerSkills": [
+        "fda-complaint-mdr-reportability",
+        "ivdr-pms-vigilance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "watch record",

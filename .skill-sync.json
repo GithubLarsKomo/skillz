@@ -162,7 +162,7 @@
     },
     "fda-complaint-mdr-reportability": {
       "files": {
-        "SKILL.md": "a0898f9c58b244a69a4bd695582b3659fdd4fb2ed3b31bfa6b937c290895937c",
+        "SKILL.md": "4250af2cfa9f056b9d2b2c816ae89d247697aac88854f4af3e6655b848d1ae5b",
         "agents/openai.yaml": "2fa5c3b326f2a9599186cb3c7468a5a3accb11e552b37f1f6e446b5ce4c58ad8"
       }
     },
@@ -349,7 +349,7 @@
     },
     "ivdr-pms-vigilance": {
       "files": {
-        "SKILL.md": "99bdb23e9976e50d1d2d177b586155e5221e257ad25ec48386d02ba09f07a3d7",
+        "SKILL.md": "1f1a7afef454e1324bc04a5ee18a01524ff371d07fe17eecc678b7c2ca18a2f4",
         "agents/openai.yaml": "15b403a66bc6856655df0ca4d3b5361535d257268f27df73ebb458aead8af705"
       }
     },
@@ -399,6 +399,24 @@
       "files": {
         "SKILL.md": "2a8c705cd4caf873b12c6532df11b7136dfb79e259bc6c98a5ba7e571d87472b",
         "agents/openai.yaml": "cfd77da4fa39913ad09a67e3e0562645e217fec81fafa75b6c302171a8cd6cc1"
+      }
+    },
+    "medical-device-complaint-handling": {
+      "files": {
+        "SKILL.md": "a0119a73390831ff4406ad4c764ecedb2a42f3b3fb8cc106856efac6f8664599",
+        "agents/openai.yaml": "97edb751ea5941921f6e8b273184830519a1c44df06be5f1bdd104b2a9a46595"
+      }
+    },
+    "medical-device-complaint-regulatory-routing": {
+      "files": {
+        "SKILL.md": "8c8712aab8df03cc39a8e9ad3a6dda631b2232e71774358385f11aefecae31fd",
+        "agents/openai.yaml": "35bf83200bd38aa4d77fa2b300032200532fd63e0686e5803f94233fdbefa3d5"
+      }
+    },
+    "medical-device-customer-contact-intake": {
+      "files": {
+        "SKILL.md": "705e21d38ff79af0e37f4475f93ac23773699fc86645e198674bdcb0b07b1b85",
+        "agents/openai.yaml": "d30b860edc0862572dc2bade07c799220769e35e58d9cdf2b383f37d7a202007"
       }
     },
     "medical-device-cybersecurity-lifecycle": {

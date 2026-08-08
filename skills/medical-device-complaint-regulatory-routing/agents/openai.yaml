@@ -1,5 +1,5 @@
 interface:
   display_name: "Medical Device Complaint Regulatory Routing"
-  short_description: "Routet Complaint-Fakten und Awareness-Evidence früh in FDA-/EU-Vigilance-Assessments ohne Reportability selbst zu entscheiden."
+  short_description: "Überführt Medical-Device-/IVD-Complaint-Fakten und Awareness-Evidence frühzeitig in jurisdiction-spezifische Reportab..."
 policy:
   allow_implicit_invocation: false
