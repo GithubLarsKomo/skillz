@@ -1565,8 +1565,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -3309,8 +3309,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -3820,8 +3820,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -3886,8 +3886,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -3946,8 +3946,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
