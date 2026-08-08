@@ -18,7 +18,7 @@
         "treat management attention as evidence that the authority action or case is closed"
       ],
       "skillAnchors": [
-        "Complaint provenance enters vigilance intact",
+        "Complaint provenance enters vigilance intact when applicable",
         "Signal klassifizieren",
         "Material signals return to PMS",
         "Management attention is not case duplication"
@@ -78,6 +78,20 @@
         "overwrite the earlier vigilance decision or treat prior complaint closure as regulatory closure"
       ],
       "skillAnchors": ["Prior vigilance decision is not immunity", "Reassessment is versioned", "Ein früheres `not-reportable-on-current-evidence`"]
+    },
+    {
+      "id": "non-complaint-signal-case",
+      "input": "PMS identifies a statistically credible false-result signal from aggregate trend monitoring and field-service data, with no individual customer complaint record. Perform IVDR vigilance triage directly from the controlled PMS and signal provenance rather than inventing a complaint.",
+      "requiredBehaviors": [
+        "accept a controlled PMS trend literature field-service or other postmarket signal without requiring complaint-router provenance",
+        "preserve source type provenance and perform current-source vigilance classification and time-criticality assessment",
+        "route material results back to PMS risk CAPA PMPF or performance owners without manufacturing a complaint record"
+      ],
+      "forbiddenBehaviors": [
+        "block IVDR vigilance assessment solely because no medical-device-complaint-regulatory-routing handoff exists",
+        "invent a customer complaint or complaint timeline to make a non-complaint signal fit the workflow"
+      ],
+      "skillAnchors": ["Non-complaint vigilance remains valid", "Postmarket-/Complaint-Signal normalisieren", "nicht künstlich zum Complaint umetikettiert"]
     }
   ]
 }
