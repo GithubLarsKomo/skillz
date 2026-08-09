@@ -1,0 +1,5 @@
+interface:
+  display_name: "Throwaway Prototype"
+  short_description: "Prüft unsichere technische oder fachliche Annahmen mit bewusst kurzlebigen, isolierten Prototypen, trennt Lernnachwei..."
+policy:
+  allow_implicit_invocation: true

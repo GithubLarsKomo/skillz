@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Recall Status Termination"
+  short_description: "Erstellt und verfolgt FDA-Recall-Statusberichte, Termination-Request-Pakete und verifizierte FDA-Authority-States aus..."
+policy:
+  allow_implicit_invocation: false

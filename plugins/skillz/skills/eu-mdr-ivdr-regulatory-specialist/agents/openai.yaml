@@ -1,0 +1,5 @@
+interface:
+  display_name: "Eu Mdr Ivdr Regulatory Specialist"
+  short_description: "Bewertet EU-Market-Access für Medical Devices und IVDs getrennt nach MDR 2017/745 und IVDR 2017/746 mit evidenzgebund..."
+policy:
+  allow_implicit_invocation: true

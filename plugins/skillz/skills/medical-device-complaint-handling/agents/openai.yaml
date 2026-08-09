@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Complaint Handling"
+  short_description: "Führt Medical-Device-/IVD-Complaints als kontrollierten QMS-Prozess von Intake über Evaluation und Investigation bis..."
+policy:
+  allow_implicit_invocation: true

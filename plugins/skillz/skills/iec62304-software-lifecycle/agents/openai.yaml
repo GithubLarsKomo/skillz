@@ -1,0 +1,5 @@
+interface:
+  display_name: "Iec62304 Software Lifecycle"
+  short_description: "Bewertet Medical-Device-Software-Lifecycle, Safety Class und Evidence Gaps entlang IEC 62304 ohne QMS oder Risk zu du..."
+policy:
+  allow_implicit_invocation: true

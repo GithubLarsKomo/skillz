@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Labeling Ifu"
+  short_description: "Strukturiert Medical-Device- und IVD-Labeling/IFU aus Product Context, Risk und Regulatory Evidence ohne Claims zu er..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Composable Skill Factory"
+  short_description: "Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen..."
+policy:
+  allow_implicit_invocation: false

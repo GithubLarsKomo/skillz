@@ -1,0 +1,5 @@
+interface:
+  display_name: "Test Driven Vertical Slice"
+  short_description: "Implementiert ein kleines, unabhängig beobachtbares End-to-End-Verhalten durch einen disziplinierten Red-Green-Refact..."
+policy:
+  allow_implicit_invocation: true

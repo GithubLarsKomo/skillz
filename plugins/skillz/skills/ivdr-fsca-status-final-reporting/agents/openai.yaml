@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Fsca Status Final Reporting"
+  short_description: "Finalisiert IVDR-Vigilance-/FSCA-Herstellerberichte und verfolgt zuständige-Behörden-Feedback, Follow-up- und Closure..."
+policy:
+  allow_implicit_invocation: false

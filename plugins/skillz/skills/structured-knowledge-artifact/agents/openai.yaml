@@ -1,0 +1,5 @@
+interface:
+  display_name: "Structured Knowledge Artifact"
+  short_description: "Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adressierbares Wissensartefakt mit stabi..."
+policy:
+  allow_implicit_invocation: true

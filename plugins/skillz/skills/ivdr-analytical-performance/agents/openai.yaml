@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Analytical Performance"
+  short_description: "Bewertet analytische IVD-Leistungsmerkmale evidenzgebunden, verknüpft Methoden, Akzeptanzkriterien, Ergebnisse und Gaps."
+policy:
+  allow_implicit_invocation: true

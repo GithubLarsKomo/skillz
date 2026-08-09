@@ -1,0 +1,5 @@
+interface:
+  display_name: "Quality Record Integrity"
+  short_description: "Prüft Medical-Device-Qualitätsaufzeichnungen auf Integrität, Attribution, Zeitbezug, Version/Quelle, Korrekturen, Aud..."
+policy:
+  allow_implicit_invocation: true

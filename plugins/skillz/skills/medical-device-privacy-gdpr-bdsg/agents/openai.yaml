@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Privacy Gdpr Bdsg"
+  short_description: "Bewertet Datenschutz für Medical-Device-/IVD- und Health-Software-Kontexte unter GDPR/DSGVO und deutschem BDSG mit Da..."
+policy:
+  allow_implicit_invocation: true

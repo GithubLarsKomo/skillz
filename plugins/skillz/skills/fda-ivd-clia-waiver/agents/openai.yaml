@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Ivd Clia Waiver"
+  short_description: "Bewertet IVDs auf FDA-CLIA-Waiver-Eignung und erzeugt Flex-/User-Study- sowie Evidence-Gaps ohne Submission zu simuli..."
+policy:
+  allow_implicit_invocation: false

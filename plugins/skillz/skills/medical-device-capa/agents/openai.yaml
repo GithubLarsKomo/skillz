@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Capa"
+  short_description: "Strukturiert CAPA von Signal/Problem Statement über evidenzbasierte Kausalinvestigation, Action Plan und Effectivenes..."
+policy:
+  allow_implicit_invocation: true

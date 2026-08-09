@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Companion Diagnostic Consultation"
+  short_description: "Bewertet IVDR-Companion-Diagnostic-Scope und bereitet die Notified-Body-Konsultation mit EMA oder zuständiger Arzneim..."
+policy:
+  allow_implicit_invocation: false

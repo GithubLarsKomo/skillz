@@ -1,0 +1,5 @@
+interface:
+  display_name: "Eudamed Udi Ivd"
+  short_description: "Erzeugt IVD-UDI-/EUDAMED-Readiness-Datensätze aus Product Context, Classification und kontrollierter Device-Evidence."
+policy:
+  allow_implicit_invocation: false

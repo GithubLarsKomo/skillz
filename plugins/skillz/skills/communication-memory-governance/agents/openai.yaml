@@ -1,0 +1,5 @@
+interface:
+  display_name: "Communication Memory Governance"
+  short_description: "Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Einträge getrennt von transientem Gespräch..."
+policy:
+  allow_implicit_invocation: true

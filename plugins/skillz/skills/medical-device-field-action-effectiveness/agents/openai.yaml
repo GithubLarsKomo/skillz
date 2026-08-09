@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Field Action Effectiveness"
+  short_description: "Bewertet die tatsächliche Wirksamkeit und Closure-Readiness von Medical-Device-/IVD-Feldmaßnahmen anhand von Recipien..."
+policy:
+  allow_implicit_invocation: false

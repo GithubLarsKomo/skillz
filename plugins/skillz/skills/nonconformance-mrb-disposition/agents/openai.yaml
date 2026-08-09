@@ -1,0 +1,5 @@
+interface:
+  display_name: "Nonconformance Mrb Disposition"
+  short_description: "Strukturiert Medical-Device-Nichtkonformitäten von Containment und Impact Assessment bis risikobasierter MRB-Disposit..."
+policy:
+  allow_implicit_invocation: true

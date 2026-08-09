@@ -1,0 +1,5 @@
+interface:
+  display_name: "Memory Sync Reconciliation"
+  short_description: "Gleicht mehrere bereits governance-konforme Kommunikationsprofile und Memory-Ledger deterministisch ab, propagiert Fo..."
+policy:
+  allow_implicit_invocation: true

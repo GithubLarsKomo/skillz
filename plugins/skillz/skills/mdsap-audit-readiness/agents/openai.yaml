@@ -1,0 +1,5 @@
+interface:
+  display_name: "Mdsap Audit Readiness"
+  short_description: "Bereitet Medical-Device-QMS-Evidenz auf den aktuellen MDSAP Audit Approach vor, mappt Audit-Typ, Prozesse, Tasks und..."
+policy:
+  allow_implicit_invocation: false

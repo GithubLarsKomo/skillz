@@ -1,0 +1,5 @@
+interface:
+  display_name: "Implement From Issue"
+  short_description: "Implementiert ein klar abgegrenztes Repository-Issue vom verifizierten Ausgangszustand bis zu einem überprüfbaren Com..."
+policy:
+  allow_implicit_invocation: true

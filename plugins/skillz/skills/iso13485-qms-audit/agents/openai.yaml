@@ -1,0 +1,5 @@
+interface:
+  display_name: "Iso13485 Qms Audit"
+  short_description: "Plant und bewertet risikobasierte ISO-13485-QMS-Audits mit unabhängiger Evidenz, nachvollziehbarem Sampling und findi..."
+policy:
+  allow_implicit_invocation: true

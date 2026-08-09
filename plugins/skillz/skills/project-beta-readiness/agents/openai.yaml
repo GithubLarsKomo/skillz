@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Beta Readiness"
+  short_description: "Bewertet genau ein Softwareprojekt evidenzbasiert auf den Weg zur ersten nutzbaren Beta, quantifiziert den Reifegrad,..."
+policy:
+  allow_implicit_invocation: true

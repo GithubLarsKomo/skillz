@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Scientific Validity"
+  short_description: "Bewertet die wissenschaftliche Validität eines IVD evidenzgebunden und trennt Association, Claim, Evidenzstärke und Gap."
+policy:
+  allow_implicit_invocation: true

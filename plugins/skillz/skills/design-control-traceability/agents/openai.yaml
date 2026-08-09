@@ -1,0 +1,5 @@
+interface:
+  display_name: "Design Control Traceability"
+  short_description: "Verknüpft Medical-Device-Design-Inputs, Outputs, Verifikation, Validierung, Risiken, Reviews und Changes zu einer prü..."
+policy:
+  allow_implicit_invocation: true

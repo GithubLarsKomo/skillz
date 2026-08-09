@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda 510k Substantial Equivalence"
+  short_description: "Baut eine evidenzgebundene 510(k)-Substantial-Equivalence-Bewertung aus Intended Use, technologischen Merkmalen, Safe..."
+policy:
+  allow_implicit_invocation: false

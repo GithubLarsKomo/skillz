@@ -1,0 +1,5 @@
+interface:
+  display_name: "Iterate Software Projects"
+  short_description: "Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrenden Zyklus aus Bestandsanalyse, Klärun..."
+policy:
+  allow_implicit_invocation: true

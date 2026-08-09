@@ -1,0 +1,5 @@
+interface:
+  display_name: "Controlled Quality Documentation"
+  short_description: "Prüft und entwirft kontrollierte QMS-Dokument- und Record-Lifecycles mit Change Impact, Approval Evidence, Effective/..."
+policy:
+  allow_implicit_invocation: true

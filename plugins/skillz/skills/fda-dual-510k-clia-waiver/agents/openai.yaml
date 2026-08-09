@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Dual 510k Clia Waiver"
+  short_description: "Orchestriert 510(k)-SE- und CLIA-Waiver-Evidence zu einer konsistenten Dual-Submission-Strategie ohne Reviews zu dupl..."
+policy:
+  allow_implicit_invocation: false

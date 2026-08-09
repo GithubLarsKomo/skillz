@@ -1,0 +1,5 @@
+interface:
+  display_name: "Iso27001 Isms Audit"
+  short_description: "Plant und bewertet ISO-27001-ISMS-Audits mit Scope-/SoA-Kontext, unabhängiger Control-Evidence und nachvollziehbarem..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Human Procedure Wizard"
+  short_description: "Führt sicher durch unvermeidbare menschliche Schritte in ansonsten agentengesteuerten Workflows, etwa Dashboard-Aktio..."
+policy:
+  allow_implicit_invocation: true
