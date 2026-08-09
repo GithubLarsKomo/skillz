@@ -11,6 +11,9 @@ mod = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None
 SPEC.loader.exec_module(mod)
 
+MARKETPLACE = ROOT / ".agents" / "plugins" / "marketplace.json"
+COMMITTED_PLUGIN = ROOT / "plugins" / "skillz"
+
 
 def tree_digest(root: Path) -> str:
     h = hashlib.sha256()
@@ -88,6 +91,25 @@ class OpenAIPluginDistributionTests(unittest.TestCase):
             self.assertEqual(plugin["skills"], "./skills/")
             self.assertNotIn("apps", plugin)
             self.assertNotIn("mcpServers", plugin)
+
+    def test_repository_marketplace_points_to_committed_skillz_plugin(self):
+        marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
+        self.assertEqual(marketplace["name"], "skillz")
+        self.assertEqual(marketplace.get("interface", {}).get("displayName"), "Skillz")
+        self.assertEqual(len(marketplace["plugins"]), 1)
+        entry = marketplace["plugins"][0]
+        self.assertEqual(entry["name"], "skillz")
+        self.assertEqual(entry["source"], {"source": "local", "path": "./plugins/skillz"})
+        self.assertEqual(entry["policy"]["installation"], "AVAILABLE")
+        self.assertEqual(entry["policy"]["authentication"], "ON_INSTALL")
+        self.assertEqual(entry["category"], "Productivity")
+        mod.validate_bundle(COMMITTED_PLUGIN)
+
+    def test_committed_marketplace_bundle_is_current(self):
+        with tempfile.TemporaryDirectory() as td:
+            rebuilt = Path(td) / "skillz"
+            mod.build(rebuilt)
+            self.assertEqual(tree_digest(COMMITTED_PLUGIN), tree_digest(rebuilt))
 
     def test_deterministic_tar_is_byte_identical(self):
         with tempfile.TemporaryDirectory() as td:
