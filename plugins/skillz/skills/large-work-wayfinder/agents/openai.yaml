@@ -1,0 +1,5 @@
+interface:
+  display_name: "Large Work Wayfinder"
+  short_description: "Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch evidenzbasierte Exploration, fokussier..."
+policy:
+  allow_implicit_invocation: true

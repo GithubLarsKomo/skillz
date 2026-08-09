@@ -1,0 +1,5 @@
+interface:
+  display_name: "Design Change Regulatory Impact"
+  short_description: "Bewertet bestätigte Medical-Device-Design- oder Produktänderungen marktübergreifend auf Risk, V&V, QMS, 510(k)/FDA- u..."
+policy:
+  allow_implicit_invocation: false

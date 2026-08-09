@@ -1,0 +1,5 @@
+interface:
+  display_name: "Audit Inspection Finding Response"
+  short_description: "Strukturiert Antworten auf Audit-, Inspection- und MDSAP-Findings aus Originalwortlaut, Criteria, Evidence, Fristen u..."
+policy:
+  allow_implicit_invocation: false

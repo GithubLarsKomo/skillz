@@ -1,0 +1,5 @@
+interface:
+  display_name: "Architecture Deepening Review"
+  short_description: "Prüft bestehende Softwarearchitekturen evidenzbasiert auf flache Modulgrenzen, unbeabsichtigte Kopplung, duplizierte..."
+policy:
+  allow_implicit_invocation: true

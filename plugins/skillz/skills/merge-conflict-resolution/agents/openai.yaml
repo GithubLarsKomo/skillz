@@ -1,0 +1,5 @@
+interface:
+  display_name: "Merge Conflict Resolution"
+  short_description: "Löst Git-Merge-Konflikte semantisch, rekonstruiert die Änderungsabsichten beider Seiten, bewahrt akzeptiertes Verhalt..."
+policy:
+  allow_implicit_invocation: true

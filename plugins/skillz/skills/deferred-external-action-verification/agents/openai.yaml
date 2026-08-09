@@ -1,0 +1,5 @@
+interface:
+  display_name: "Deferred External Action Verification"
+  short_description: "Richtet für asynchron arbeitende externe Programme, APIs und CI/CD-Systeme eine zeitversetzte, wiederholbare Ergebnis..."
+policy:
+  allow_implicit_invocation: true

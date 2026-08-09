@@ -1,0 +1,5 @@
+interface:
+  display_name: "Two Axis Code Review"
+  short_description: "Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementierungs- sowie Lieferqualität. Verwendet zw..."
+policy:
+  allow_implicit_invocation: true

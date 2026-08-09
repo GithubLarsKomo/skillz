@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Cybersecurity Lifecycle"
+  short_description: "Steuert Medical-Device-Cybersecurity über Design, Premarket Evidence, Vulnerability Management und Postmarket Actions."
+policy:
+  allow_implicit_invocation: true

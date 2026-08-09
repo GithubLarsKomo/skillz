@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Clinical Performance Study"
+  short_description: "Plant klinische IVD-Performance-Evidenz nach IVDR/ISO 20916 mit Risiko-, Bias-, Endpunkt- und Gap-Kontrolle."
+policy:
+  allow_implicit_invocation: false

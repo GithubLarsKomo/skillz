@@ -1,0 +1,5 @@
+interface:
+  display_name: "Research To Evidence Note"
+  short_description: "Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu einer zitierfähigen Evidenznotiz mit expli..."
+policy:
+  allow_implicit_invocation: true

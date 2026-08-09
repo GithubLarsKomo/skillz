@@ -1,0 +1,5 @@
+interface:
+  display_name: "Iec62366 Usability Engineering"
+  short_description: "Bewertet Use-Related-Risk- und Usability-Evidence für Medical Devices entlang IEC 62366-1 ohne Risk oder Design zu du..."
+policy:
+  allow_implicit_invocation: true

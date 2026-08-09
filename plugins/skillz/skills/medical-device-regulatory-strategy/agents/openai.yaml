@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Regulatory Strategy"
+  short_description: "Orchestriert evidenzbasierte Multi-Market-Regulatory-Strategie für Medical Devices und IVDs aus bestätigtem Produktko..."
+policy:
+  allow_implicit_invocation: true

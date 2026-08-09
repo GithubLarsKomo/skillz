@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda De Novo Special Controls"
+  short_description: "Entwickelt vorgeschlagene FDA-De-Novo-Special-Controls aus Risiko- und Evidenzlücken und trennt interne Control-Hypot..."
+policy:
+  allow_implicit_invocation: false

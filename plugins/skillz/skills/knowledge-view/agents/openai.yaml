@@ -1,0 +1,5 @@
+interface:
+  display_name: "Knowledge View"
+  short_description: "Erzeugt deterministische, schreibgeschützte Sichten auf strukturierte Wissensartefakte anhand expliziter Filter, Sort..."
+policy:
+  allow_implicit_invocation: true

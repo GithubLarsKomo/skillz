@@ -1,0 +1,5 @@
+interface:
+  display_name: "Regulatory Change Monitoring"
+  short_description: "Erkennt belastbare Änderungen an offiziellen Regulatory-Quellen über versionierte Snapshots, Status-/Inhalts-Deltas u..."
+policy:
+  allow_implicit_invocation: true

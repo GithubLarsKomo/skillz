@@ -1,0 +1,5 @@
+interface:
+  display_name: "Repository Skill Bootstrap"
+  short_description: "Analysiert ein bestehendes Software-Repository und richtet eine portable Agent-Arbeitsgrundlage mit CONFIG.md, CONTEX..."
+policy:
+  allow_implicit_invocation: true

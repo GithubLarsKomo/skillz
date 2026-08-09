@@ -1,0 +1,5 @@
+interface:
+  display_name: "Disciplined Diagnosis"
+  short_description: "Diagnostiziert Softwarefehler reproduzierbar und evidenzbasiert, minimiert den Fehlerraum, prüft konkurrierende Hypot..."
+policy:
+  allow_implicit_invocation: true

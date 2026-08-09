@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Status Brief"
+  short_description: "Verdichtet bereits erhobene Repository- und Projekt-Evidenz zu einem zeitpunktbezogenen Statusbrief mit Fortschritt,..."
+policy:
+  allow_implicit_invocation: true

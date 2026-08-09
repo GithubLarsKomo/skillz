@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Device Isms Governance"
+  short_description: "Strukturiert ISO-27001-orientierte ISMS-Governance für MedTech/IVD-Organisationen und koppelt Informationssicherheits..."
+policy:
+  allow_implicit_invocation: true

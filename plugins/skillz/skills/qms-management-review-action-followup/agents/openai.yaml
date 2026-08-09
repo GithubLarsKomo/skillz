@@ -1,0 +1,5 @@
+interface:
+  display_name: "Qms Management Review Action Followup"
+  short_description: "Verfolgt Management-Review-Actions evidenzbasiert über Routing, Implementierung, Wirksamkeit und Closure bis zum Folg..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Evidence Based Causal Investigation"
+  short_description: "Untersucht Qualitäts-, Prozess-, Produkt-, Herstellungs-, Human-Factor- und Systemprobleme evidenzbasiert mit konkurr..."
+policy:
+  allow_implicit_invocation: true

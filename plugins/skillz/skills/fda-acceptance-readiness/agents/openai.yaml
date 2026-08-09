@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fda Acceptance Readiness"
+  short_description: "Prüft pathway-spezifisch FDA-Submission-Acceptance-Readiness für 510(k) oder De Novo gegen aktuelle eSTAR-/RTA-/Techn..."
+policy:
+  allow_implicit_invocation: true

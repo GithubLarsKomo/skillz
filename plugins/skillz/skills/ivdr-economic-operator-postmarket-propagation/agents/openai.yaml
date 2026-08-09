@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ivdr Economic Operator Postmarket Propagation"
+  short_description: "Strukturiert und evidenziert die eigenständigen IVDR-Postmarket-Pflichten von Importeuren und Distributoren bei Compl..."
+policy:
+  allow_implicit_invocation: false
