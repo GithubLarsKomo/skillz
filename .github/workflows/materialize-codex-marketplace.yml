@@ -4,17 +4,19 @@ on:
   push:
     branches:
       - agent/codex-marketplace-distribution
+  pull_request:
 
 permissions:
   contents: write
 
 jobs:
   materialize:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -22,6 +24,8 @@ jobs:
         run: python scripts/build_openai_plugin.py --output plugins/skillz
       - name: Commit generated bundle when changed
         shell: bash
+        env:
+          TARGET_BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
         run: |
           if git diff --quiet -- plugins/skillz && git diff --cached --quiet; then
             echo "Codex marketplace bundle already current."
@@ -31,4 +35,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add plugins/skillz
           git commit -m "Materialize Codex marketplace bundle"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin HEAD:"${TARGET_BRANCH}"
