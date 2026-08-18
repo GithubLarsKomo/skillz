@@ -1067,7 +1067,7 @@
     },
     {
       "name": "dr-komorowski-sport-report-renderer",
-      "description": "Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komorowski-Diagnose-&-Training-Design mit Vektorlogo, Navy/Teal-Farbsystem, Tabellen, Callouts, Kopf-/Fußzeilen und visueller Qualitätskontrolle. Verwenden, wenn ein fertiger fachlicher Inhalt im wiederverwendbaren Dr.-Komorowski-Template ausgegeben werden soll; der Skill erfindet keine Diagnostik oder Trainingslogik.",
+      "description": "Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komorowski-Diagnose-&-Training-Design mit Vektorlogo, Navy/Teal-Farbsystem, Tabellen, Callouts, Charts, Kopf-/Fußzeilen und visueller Qualitätskontrolle. Verwenden, wenn ein fertiger fachlicher Inhalt im wiederverwendbaren Dr.-Komorowski-Template ausgegeben werden soll; der Skill erfindet keine Diagnostik oder Trainingslogik.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -1095,6 +1095,7 @@
         "agents/openai.yaml",
         "assets/dr-komorowski-logo.svg",
         "assets/report-spec.example.json",
+        "assets/report-spec.lactate-chart.example.json",
         "assets/report-spec.lactate-test.example.json",
         "assets/report-theme.json",
         "references/brand-guide.md",

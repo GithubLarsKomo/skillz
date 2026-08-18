@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Laktat-Stufentest - Chart-Beispiel",
+    "subject": "Beispiel des Laktat-/Herzfrequenz-Chart-Blocks",
+    "author": "Dr. Komorowski Diagnose- und Trainingszentrum",
+    "date": "18.08.2026",
+    "header_right": "DR. KOMOROWSKI | LAKTATDIAGNOSTIK",
+    "footer_left": "Laktat-Stufentest | Chart-Beispiel | 18.08.2026"
+  },
+  "cover": {
+    "eyebrow": "SPORTDIAGNOSTIK | LAKTAT",
+    "brand_heading": "Dr. Komorowski Diagnose- und Trainingszentrum",
+    "title": "LAKTAT-STUFENTEST",
+    "subtitle": "Vektor-Chart für Laktat, Herzfrequenz und LT1-/LT2-Arbeitsbereiche",
+    "meta_rows": [
+      ["Athlet", "Max Mustermann | 45 Jahre"],
+      ["Test", "Fahrradergometer | 4-min-Stufen | +25 W"],
+      ["Hinweis", "Fiktive Beispielwerte zur Demonstration des Renderers"]
+    ]
+  },
+  "sections": [
+    {
+      "title": "Laktat und Herzfrequenz",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Die Grafik zeigt die gemessenen Laktat- und Herzfrequenzwerte über der Leistung mit getrennten y-Achsen. LT1 und LT2 werden als fachlich vorgegebene Arbeitsbereiche markiert; die jeweiligen Arbeitswerte erscheinen zusätzlich als gestrichelte Vertikalen."
+        },
+        {
+          "type": "chart",
+          "chart_type": "lactate_hr_power",
+          "title": "Laktat und Herzfrequenz über Leistung",
+          "x_label": "Leistung (W)",
+          "left_y_label": "Laktat (mmol/l)",
+          "right_y_label": "Herzfrequenz (/min)",
+          "height_mm": 92,
+          "data": [
+            {"power_w": 100, "lactate_mmol_l": 1.0, "hr_bpm": 108},
+            {"power_w": 125, "lactate_mmol_l": 1.0, "hr_bpm": 116},
+            {"power_w": 150, "lactate_mmol_l": 1.1, "hr_bpm": 124},
+            {"power_w": 175, "lactate_mmol_l": 1.4, "hr_bpm": 132},
+            {"power_w": 200, "lactate_mmol_l": 2.0, "hr_bpm": 143},
+            {"power_w": 225, "lactate_mmol_l": 3.1, "hr_bpm": 155},
+            {"power_w": 250, "lactate_mmol_l": 5.1, "hr_bpm": 166}
+          ],
+          "threshold_bands": [
+            {"label": "LT1", "kind": "lt1", "from_w": 175, "to_w": 185, "working_w": 180},
+            {"label": "LT2", "kind": "lt2", "from_w": 220, "to_w": 230, "working_w": 225}
+          ],
+          "caption": "LT1: 175-185 W (Arbeitswert 180 W); LT2: 220-230 W (Arbeitswert 225 W). Die Bänder sind sportwissenschaftliche Arbeitsbereiche und keine zusätzlichen Messpunkte."
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Darstellungslogik",
+          "text": "Der Renderer visualisiert ausschließlich übergebene Messwerte und Arbeitsbereiche. Er berechnet oder verschiebt LT1/LT2 nicht und interpoliert keine zusätzlichen Chart-Datenpunkte."
+        }
+      ]
+    }
+  ]
+}
