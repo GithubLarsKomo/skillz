@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Training Programming"
+  short_description: "Erstellt aus Zieltermin, Leistungsstand, Trainingshistorie, Kraftwerten, verfügbaren Einheiten und Belastungsgrenzen..."
+policy:
+  allow_implicit_invocation: true
