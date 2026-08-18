@@ -4,7 +4,7 @@ generated: true
 name: "round-based-requirements-grilling"
 category: "internal"
 userFacing: false
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -50,7 +50,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 
