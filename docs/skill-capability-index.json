@@ -1095,6 +1095,7 @@
         "agents/openai.yaml",
         "assets/dr-komorowski-logo.svg",
         "assets/report-spec.example.json",
+        "assets/report-spec.lactate-test.example.json",
         "assets/report-theme.json",
         "references/brand-guide.md",
         "scripts/render_report.py"

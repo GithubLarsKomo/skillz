@@ -112,6 +112,7 @@
         "agents/openai.yaml": "b0944358945520a61045f12901e826496e1258d8dc37384a77ff8204ed5f6300",
         "assets/dr-komorowski-logo.svg": "f76a60ab95974b888a434489d964b632cfec2b0e9365c39ec4bca19154b3e8d1",
         "assets/report-spec.example.json": "983a2e0f02ec205e2ba4d8748b6310562b4da8eb9ac98b915423ef57830bc9fb",
+        "assets/report-spec.lactate-test.example.json": "5028df1c2d8e3fc2ac2e1bf0ea1bee953072e548ef45d925f89eda21f155ccb8",
         "assets/report-theme.json": "97d8f6c4c6b440e1a56121c962629fedd2eb02ce787bd18276c60c40339f5d8e",
         "references/brand-guide.md": "b5450b76859e35ec20f1f737c439c24a64734e031d2ed382813ba031ac593097",
         "scripts/render_report.py": "e35c599eaa1afd74e5ac7d7fe4f595e6ee8faea4425adf08aa7c6729d3c28fdd"

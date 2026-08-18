@@ -1,0 +1,443 @@
+{
+  "_template": {
+    "template_id": "dr-komorowski-lactate-test-v1",
+    "template_name": "Laktat-Stufentest – vollständige Report-Spec",
+    "renderer": "dr-komorowski-sport-report-renderer",
+    "language": "de-DE",
+    "example_values": true,
+    "usage": [
+      "Die Felder unter input_schema beschreiben die erwarteten Eingaben.",
+      "example_input enthält einen vollständig ausgefüllten, fiktiven Beispieldatensatz.",
+      "metadata, cover und sections sind die direkt renderbare Beispielprojektion dieses Datensatzes.",
+      "Für einen realen Bericht input_schema/example_input als fachliche Quelle verwenden und die renderbaren Blöcke daraus neu erzeugen; nicht Werte an mehreren Stellen unabhängig pflegen.",
+      "Gemessene, interpolierte und interpretierte Werte müssen im realen Bericht unterscheidbar bleiben."
+    ]
+  },
+  "input_schema": {
+    "report": {
+      "report_id": {"type": "string", "required": true, "example": "DK-LAC-2026-018"},
+      "test_date": {"type": "date", "required": true, "example": "18.08.2026"},
+      "evaluator": {"type": "string", "required": false, "example": "Dr. Komorowski"},
+      "test_center": {"type": "string", "required": false, "example": "Dr. Komorowski Diagnose- und Trainingszentrum"}
+    },
+    "athlete": {
+      "name": {"type": "string", "required": true, "example": "Max Mustermann"},
+      "age_years": {"type": "number", "required": true, "example": 45},
+      "sex": {"type": "string", "required": false, "example": "männlich"},
+      "height_cm": {"type": "number", "required": false, "example": 184},
+      "weight_kg": {"type": "number", "required": false, "example": 82.5},
+      "sport": {"type": "string", "required": true, "example": "Radsport"},
+      "discipline": {"type": "string", "required": false, "example": "Ausdauer / Jedermann-Rennen"},
+      "training_phase": {"type": "string", "required": false, "example": "Aufbauphase"},
+      "test_goal": {"type": "string", "required": true, "example": "Bestimmung belastbarer aerober Arbeitsbereiche und Vergleichsbasis für die Trainingssteuerung"}
+    },
+    "pretest": {
+      "health_status": {"type": "string", "required": true, "example": "subjektiv beschwerdefrei, testbereit"},
+      "sleep_h": {"type": "number", "required": false, "example": 7.5},
+      "last_hard_training_h_ago": {"type": "number", "required": false, "example": 36},
+      "last_meal_h_ago": {"type": "number", "required": false, "example": 2.5},
+      "caffeine_mg": {"type": "number", "required": false, "example": 80},
+      "readiness_1_10": {"type": "number", "required": false, "example": 8},
+      "medication_or_relevant_notes": {"type": "string", "required": false, "example": "keine testrelevanten Angaben"}
+    },
+    "test_setup": {
+      "modality": {"type": "string", "required": true, "example": "Fahrradergometer"},
+      "ergometer": {"type": "string", "required": false, "example": "kalibriertes elektromagnetisches Ergometer"},
+      "stage_duration_min": {"type": "number", "required": true, "example": 4},
+      "start_power_w": {"type": "number", "required": true, "example": 100},
+      "increment_w": {"type": "number", "required": true, "example": 25},
+      "target_cadence_rpm": {"type": "string", "required": false, "example": "85–95"},
+      "warmup": {"type": "string", "required": false, "example": "10 min locker, anschließend 3 min ruhig"},
+      "blood_sampling_site": {"type": "string", "required": false, "example": "Ohrläppchen"},
+      "lactate_device": {"type": "string", "required": false, "example": "enzymatisches Handmessgerät, QC durchgeführt"},
+      "heart_rate_device": {"type": "string", "required": false, "example": "Brustgurt"},
+      "rpe_scale": {"type": "string", "required": false, "example": "Borg 6–20"},
+      "termination": {"type": "string", "required": true, "example": "willentliche Ausbelastung bei deutlicher Laktatakkumulation"},
+      "recovery_sampling": {"type": "string", "required": false, "example": "4 min nach Belastungsende"},
+      "ambient_conditions": {"type": "string", "required": false, "example": "21 °C, Innenraum, gute Ventilation"}
+    },
+    "stage_data": {
+      "type": "array",
+      "required": true,
+      "columns": ["stage", "power_w", "cadence_rpm", "heart_rate_bpm", "lactate_mmol_l", "rpe_6_20", "comment"],
+      "minimum_rows": 3
+    },
+    "recovery_data": {
+      "type": "array",
+      "required": false,
+      "columns": ["minutes_post", "heart_rate_bpm", "lactate_mmol_l", "rpe_6_20", "comment"]
+    },
+    "analysis": {
+      "curve_observation": {"type": "string", "required": true},
+      "model_results": {"type": "array", "required": true, "columns": ["model", "result", "interpretation", "confidence"]},
+      "lt1_range_w": {"type": "string", "required": false, "example": "175–185"},
+      "lt1_working_w": {"type": "number", "required": false, "example": 180},
+      "lt1_hr_bpm": {"type": "number", "required": false, "example": 134},
+      "lt2_range_w": {"type": "string", "required": false, "example": "220–230"},
+      "lt2_working_w": {"type": "number", "required": false, "example": 225},
+      "lt2_hr_bpm": {"type": "number", "required": false, "example": 155},
+      "confidence": {"type": "string", "required": true, "allowed": ["niedrig", "mittel", "hoch"], "example": "mittel"},
+      "limitations": {"type": "array", "required": true},
+      "recommendations": {"type": "array", "required": true}
+    }
+  },
+  "example_input": {
+    "report": {
+      "report_id": "DK-LAC-2026-018",
+      "test_date": "18.08.2026",
+      "evaluator": "Dr. Komorowski",
+      "test_center": "Dr. Komorowski Diagnose- und Trainingszentrum"
+    },
+    "athlete": {
+      "name": "Max Mustermann",
+      "age_years": 45,
+      "sex": "männlich",
+      "height_cm": 184,
+      "weight_kg": 82.5,
+      "sport": "Radsport",
+      "discipline": "Ausdauer / Jedermann-Rennen",
+      "training_phase": "Aufbauphase",
+      "test_goal": "Bestimmung belastbarer aerober Arbeitsbereiche und Vergleichsbasis für die Trainingssteuerung"
+    },
+    "pretest": {
+      "health_status": "subjektiv beschwerdefrei, testbereit",
+      "sleep_h": 7.5,
+      "last_hard_training_h_ago": 36,
+      "last_meal_h_ago": 2.5,
+      "caffeine_mg": 80,
+      "readiness_1_10": 8,
+      "medication_or_relevant_notes": "keine testrelevanten Angaben"
+    },
+    "test_setup": {
+      "modality": "Fahrradergometer",
+      "ergometer": "kalibriertes elektromagnetisches Ergometer",
+      "stage_duration_min": 4,
+      "start_power_w": 100,
+      "increment_w": 25,
+      "target_cadence_rpm": "85–95",
+      "warmup": "10 min locker, anschließend 3 min ruhig",
+      "blood_sampling_site": "Ohrläppchen",
+      "lactate_device": "enzymatisches Handmessgerät, QC durchgeführt",
+      "heart_rate_device": "Brustgurt",
+      "rpe_scale": "Borg 6–20",
+      "termination": "willentliche Ausbelastung bei deutlicher Laktatakkumulation",
+      "recovery_sampling": "4 min nach Belastungsende",
+      "ambient_conditions": "21 °C, Innenraum, gute Ventilation"
+    },
+    "stage_data": [
+      {"stage": "1", "power_w": 100, "cadence_rpm": 88, "heart_rate_bpm": 108, "lactate_mmol_l": 1.0, "rpe_6_20": 7, "comment": "locker"},
+      {"stage": "2", "power_w": 125, "cadence_rpm": 89, "heart_rate_bpm": 116, "lactate_mmol_l": 1.0, "rpe_6_20": 8, "comment": "locker"},
+      {"stage": "3", "power_w": 150, "cadence_rpm": 90, "heart_rate_bpm": 124, "lactate_mmol_l": 1.1, "rpe_6_20": 9, "comment": "ruhig"},
+      {"stage": "4", "power_w": 175, "cadence_rpm": 90, "heart_rate_bpm": 132, "lactate_mmol_l": 1.4, "rpe_6_20": 11, "comment": "kontrolliert"},
+      {"stage": "5", "power_w": 200, "cadence_rpm": 91, "heart_rate_bpm": 143, "lactate_mmol_l": 2.0, "rpe_6_20": 13, "comment": "deutlich arbeitend"},
+      {"stage": "6", "power_w": 225, "cadence_rpm": 90, "heart_rate_bpm": 155, "lactate_mmol_l": 3.1, "rpe_6_20": 15, "comment": "hart, stabil"},
+      {"stage": "7", "power_w": 250, "cadence_rpm": 88, "heart_rate_bpm": 166, "lactate_mmol_l": 5.1, "rpe_6_20": 18, "comment": "sehr hart / Testende"}
+    ],
+    "recovery_data": [
+      {"minutes_post": 4, "heart_rate_bpm": 112, "lactate_mmol_l": 3.8, "rpe_6_20": 9, "comment": "aktive lockere Erholung"}
+    ],
+    "analysis": {
+      "curve_observation": "Bis 150 W nahezu stabile Laktatwerte. Ab 175 W beginnt ein nachhaltiger Anstieg; zwischen 200 und 225 W nimmt die Steigung klar zu. Oberhalb 225 W zeigt sich eine ausgeprägte Akkumulation.",
+      "model_results": [
+        {"model": "Erster nachhaltiger Kurvenanstieg", "result": "ca. 175–185 W", "interpretation": "plausibler LT1-Arbeitsbereich", "confidence": "mittel"},
+        {"model": "Baseline + 1,0 mmol/l", "result": "ca. 200 W", "interpretation": "liegt oberhalb des frühesten aeroben Umschlags; als alleinige LT1-Definition eher spät", "confidence": "mittel"},
+        {"model": "Fix 2,0 mmol/l", "result": "200 W", "interpretation": "reproduzierbarer Referenzpunkt, nicht automatisch individuelle LT1", "confidence": "hoch für Interpolation / begrenzt physiologisch"},
+        {"model": "Steigungswechsel / obere Schwelle", "result": "ca. 220–230 W", "interpretation": "plausibler LT2-Arbeitsbereich", "confidence": "mittel"},
+        {"model": "Fix 4,0 mmol/l", "result": "ca. 236 W", "interpretation": "interpolierter Referenzwert zwischen 225 und 250 W; liegt etwas oberhalb des Arbeits-LT2", "confidence": "mittel"}
+      ],
+      "lt1_range_w": "175–185",
+      "lt1_working_w": 180,
+      "lt1_hr_bpm": 134,
+      "lt2_range_w": "220–230",
+      "lt2_working_w": 225,
+      "lt2_hr_bpm": 155,
+      "confidence": "mittel",
+      "limitations": [
+        "25-W-Stufenschritte begrenzen die Auflösung; Schwellen werden deshalb als Bereiche berichtet.",
+        "Ein einzelner Testtag ist durch Vorbelastung, Ernährung, Temperatur, Hydration und Messvariation beeinflussbar.",
+        "Die 4-min-Recovery-Probe erlaubt eine Verlaufsbeobachtung, aber keine vollständige Laktat-Clearance-Charakterisierung.",
+        "Feste 2- oder 4-mmol/l-Punkte sind Referenzmodelle und nicht mit individuellen physiologischen Schwellen gleichzusetzen."
+      ],
+      "recommendations": [
+        "Für extensive Grundlageneinheiten überwiegend unterhalb des LT1-Arbeitswertes bleiben und subjektive Belastung mitbeobachten.",
+        "Intensive Schwellenarbeit gezielt um den LT2-Arbeitsbereich dosieren und nicht aus einem Einzelwert wattgenau ableiten.",
+        "Wiederholungstest unter vergleichbaren Bedingungen nach 6–10 Wochen oder nach einem abgeschlossenen Trainingsblock.",
+        "Bei deutlicher Diskrepanz zwischen Herzfrequenz, Leistung, RPE und Laktat die Messreihe bzw. Testbedingungen prüfen."
+      ]
+    }
+  },
+  "metadata": {
+    "title": "Laktat-Stufentest – Leistungsdiagnostischer Bericht",
+    "subject": "Sportwissenschaftliche Auswertung eines Laktat-Stufentests mit Arbeits-Schwellen und Trainingsankern",
+    "author": "Dr. Komorowski Diagnose- und Trainingszentrum",
+    "date": "18.08.2026",
+    "header_right": "DR. KOMOROWSKI | LAKTATDIAGNOSTIK",
+    "footer_left": "Laktat-Stufentest | DK-LAC-2026-018 | 18.08.2026"
+  },
+  "cover": {
+    "eyebrow": "SPORTDIAGNOSTIK | LAKTAT",
+    "brand_heading": "Dr. Komorowski Diagnose- und Trainingszentrum",
+    "title": "LAKTAT-STUFENTEST",
+    "subtitle": "Leistungsdiagnostische Auswertung mit Kurveninterpretation, Schwellenvergleich, Erholung und Trainingsankern",
+    "meta_rows": [
+      ["Athlet", "Max Mustermann | 45 Jahre | 184 cm | 82,5 kg"],
+      ["Sport / Phase", "Radsport | Aufbauphase"],
+      ["Test", "Fahrradergometer | 4-min-Stufen | +25 W je Stufe"],
+      ["Testdatum", "18.08.2026"],
+      ["Berichtsnummer", "DK-LAC-2026-018"]
+    ],
+    "callouts": [
+      {
+        "kind": "info",
+        "title": "Interpretationsprinzip",
+        "text": "Der Bericht trennt Messwerte, rechnerische Referenzpunkte und sportwissenschaftliche Arbeitswerte. Schwellen werden als Bereiche angegeben, wenn die Testauflösung keine engere Aussage rechtfertigt."
+      },
+      {
+        "kind": "warning",
+        "title": "Medizinischer Hinweis",
+        "text": "Dieser Bericht dient der sportwissenschaftlichen Trainingssteuerung und ersetzt keine ärztliche Untersuchung oder medizinische Belastungsfreigabe. Bei Thoraxschmerz, Synkope, ungewöhnlicher Dyspnoe, Rhythmusauffälligkeiten oder anderen Warnzeichen ist die sportliche Interpretation nachrangig gegenüber medizinischer Abklärung."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "1. Fragestellung und Testvoraussetzungen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ziel des Tests ist die Bestimmung belastbarer aerober Arbeitsbereiche, die Einordnung der Laktat-Leistungs-Beziehung und die Schaffung einer reproduzierbaren Vergleichsbasis für die weitere Trainingssteuerung."
+        },
+        {
+          "type": "table",
+          "columns": ["Eingabefeld", "Beispielwert", "Bedeutung für die Interpretation"],
+          "rows": [
+            ["Gesundheitsstatus", "subjektiv beschwerdefrei, testbereit", "Voraussetzung für reguläre sportwissenschaftliche Testinterpretation"],
+            ["Schlaf", "7,5 h", "möglicher Einfluss auf Herzfrequenz, RPE und Leistungsbereitschaft"],
+            ["Letzte harte Einheit", "vor 36 h", "Vorermüdung erscheint begrenzt"],
+            ["Letzte Mahlzeit", "vor 2,5 h", "bei Verlaufstests möglichst standardisieren"],
+            ["Koffein", "80 mg", "bei Wiederholung dokumentieren und möglichst vergleichbar halten"],
+            ["Readiness", "8/10", "subjektiv gute Testbereitschaft"]
+          ],
+          "widths": [0.24, 0.24, 0.52]
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Standardisierung für Verlaufstests",
+          "text": "Für belastbare Längsschnittvergleiche sollten Tageszeit, Vorbelastung, Ernährung, Koffein, Hydration, Raumtemperatur, Ergometer und Messsystem möglichst konstant gehalten werden."
+        }
+      ]
+    },
+    {
+      "title": "2. Testprotokoll",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["Parameter", "Beispielwert"],
+          "rows": [
+            ["Modalität", "Fahrradergometer"],
+            ["Ergometer", "kalibriertes elektromagnetisches Ergometer"],
+            ["Aufwärmen", "10 min locker, anschließend 3 min ruhig"],
+            ["Stufendauer", "4 min"],
+            ["Startleistung", "100 W"],
+            ["Steigerung", "+25 W je Stufe"],
+            ["Soll-Kadenz", "85–95 rpm"],
+            ["Laktatprobe", "Ohrläppchen, Ende jeder Stufe"],
+            ["Herzfrequenz", "Brustgurt, Stufenendwert"],
+            ["RPE", "Borg 6–20"],
+            ["Abbruch", "willentliche Ausbelastung bei deutlicher Laktatakkumulation"],
+            ["Recovery-Probe", "4 min nach Belastungsende"]
+          ],
+          "widths": [0.32, 0.68]
+        },
+        {
+          "type": "callout",
+          "kind": "warning",
+          "title": "Protokollabhängigkeit",
+          "text": "Schwellenwerte sind nicht unabhängig vom Testprotokoll. Änderungen von Stufendauer, Inkrement, Kadenz oder Probenzeitpunkt können die resultierende Laktatkurve und damit die Vergleichbarkeit deutlich verändern."
+        }
+      ]
+    },
+    {
+      "title": "3. Rohdaten",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Die folgende Tabelle enthält ausschließlich die beispielhaft gemessenen Stufenwerte. Interpolierte oder interpretierte Schwellenwerte werden erst in den späteren Abschnitten ausgewiesen."
+        },
+        {
+          "type": "table",
+          "columns": ["Stufe", "Leistung", "Kadenz", "HF", "Laktat", "RPE", "Bemerkung"],
+          "rows": [
+            ["1", "100 W", "88 rpm", "108/min", "1,0 mmol/l", "7", "locker"],
+            ["2", "125 W", "89 rpm", "116/min", "1,0 mmol/l", "8", "locker"],
+            ["3", "150 W", "90 rpm", "124/min", "1,1 mmol/l", "9", "ruhig"],
+            ["4", "175 W", "90 rpm", "132/min", "1,4 mmol/l", "11", "kontrolliert"],
+            ["5", "200 W", "91 rpm", "143/min", "2,0 mmol/l", "13", "deutlich arbeitend"],
+            ["6", "225 W", "90 rpm", "155/min", "3,1 mmol/l", "15", "hart, stabil"],
+            ["7", "250 W", "88 rpm", "166/min", "5,1 mmol/l", "18", "sehr hart / Testende"]
+          ],
+          "widths": [0.08, 0.13, 0.13, 0.12, 0.16, 0.08, 0.30]
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Messwertstatus",
+          "text": "Leistung, Herzfrequenz, Laktat, Kadenz und RPE dieser Tabelle sind Rohdaten des Beispiels. Spätere Zwischenwerte wie 236 W bei 4,0 mmol/l sind ausdrücklich Interpolationen."
+        }
+      ]
+    },
+    {
+      "title": "4. Verlauf der Laktat-Leistungs-Beziehung",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bis 150 W bleibt das Laktat nahezu stabil. Bei 175 W beginnt ein nachhaltiger Anstieg. Zwischen 200 und 225 W nimmt die Kurvensteigung klar zu; oberhalb von 225 W zeigt sich eine ausgeprägte Akkumulation. Herzfrequenz und RPE steigen parallel und ohne offensichtlichen Widerspruch zur Leistung."
+        },
+        {
+          "type": "table",
+          "columns": ["Bereich", "Beobachtung", "Arbeitsinterpretation"],
+          "rows": [
+            ["100–150 W", "1,0–1,1 mmol/l, niedrige RPE", "stabiler niedriger Laktatbereich"],
+            ["175–200 W", "Anstieg auf 1,4–2,0 mmol/l", "Übergang vom sehr lockeren in den klar aeroben Arbeitsbereich"],
+            ["200–225 W", "zunehmende Steigung auf 3,1 mmol/l", "Annäherung an oberen Schwellenbereich"],
+            ["225–250 W", "Anstieg von 3,1 auf 5,1 mmol/l", "deutliche Akkumulation oberhalb des oberen Arbeitsbereichs"]
+          ],
+          "widths": [0.20, 0.38, 0.42]
+        }
+      ]
+    },
+    {
+      "title": "5. Schwellenmodelle und Arbeitswerte",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mehrere Modelle werden nebeneinander betrachtet. Sie beantworten nicht exakt dieselbe physiologische Frage und dürfen deshalb nicht durch eine einfache Mehrheitsentscheidung zu einem scheinbar exakten Einzelwert verschmolzen werden."
+        },
+        {
+          "type": "table",
+          "columns": ["Modell", "Ergebnis", "Einordnung", "Sicherheit"],
+          "rows": [
+            ["Erster nachhaltiger Kurvenanstieg", "ca. 175–185 W", "plausibler LT1-Arbeitsbereich", "mittel"],
+            ["Baseline + 1,0 mmol/l", "ca. 200 W", "für diesen Datensatz eher spätes LT1-Kriterium", "mittel"],
+            ["Fix 2,0 mmol/l", "200 W", "reproduzierbarer Referenzpunkt, nicht automatisch individuelle LT1", "hoch rechnerisch"],
+            ["Steigungswechsel / obere Schwelle", "ca. 220–230 W", "plausibler LT2-Arbeitsbereich", "mittel"],
+            ["Fix 4,0 mmol/l", "ca. 236 W", "lineare Interpolation zwischen 225 und 250 W; etwas oberhalb des Arbeits-LT2", "mittel"]
+          ],
+          "widths": [0.25, 0.18, 0.42, 0.15]
+        },
+        {
+          "type": "callout",
+          "kind": "warning",
+          "title": "Keine Scheingenauigkeit",
+          "text": "Bei 25-W-Stufen ist eine wattgenaue individuelle Schwelle nicht durch die Messauflösung gedeckt. Für die Trainingssteuerung werden deshalb Arbeitsbereiche plus ein praktisch nutzbarer Arbeitswert angegeben."
+        },
+        {
+          "type": "table",
+          "columns": ["Arbeitswert", "Bereich", "Praktischer Wert", "HF-Anker", "Sicherheit"],
+          "rows": [
+            ["LT1", "175–185 W", "180 W", "ca. 134/min", "mittel"],
+            ["LT2", "220–230 W", "225 W", "ca. 155/min", "mittel"]
+          ],
+          "widths": [0.14, 0.20, 0.20, 0.22, 0.24]
+        }
+      ]
+    },
+    {
+      "title": "6. Erholung nach Belastungsende",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["Zeit nach Test", "Herzfrequenz", "Laktat", "RPE", "Bemerkung"],
+          "rows": [
+            ["4 min", "112/min", "3,8 mmol/l", "9", "aktive lockere Erholung"]
+          ],
+          "widths": [0.20, 0.20, 0.20, 0.12, 0.28]
+        },
+        {
+          "type": "paragraph",
+          "text": "Vier Minuten nach Testende ist das Laktat gegenüber dem Spitzenwert von 5,1 mmol/l auf 3,8 mmol/l gesunken; auch die Herzfrequenz ist deutlich rückläufig. Dieser Einzelpunkt beschreibt die frühe Erholung, erlaubt aber keine vollständige Aussage über die individuelle Laktat-Clearance-Kinetik."
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Recovery richtig vergleichen",
+          "text": "Bei Verlaufstests muss der Zeitpunkt der Nachbelastungsprobe identisch sein. Ein 2-min-, 4-min- und 6-min-Wert sind physiologisch nicht austauschbar."
+        }
+      ]
+    },
+    {
+      "title": "7. Trainingsrelevante Ableitung",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["Trainingszweck", "Leistungsanker", "HF-/RPE-Anker", "Hinweis"],
+          "rows": [
+            ["Regeneration / sehr locker", "unter ca. 150 W", "deutlich unter LT1, sehr niedrige RPE", "Erholung und Umfang ohne zusätzlichen Qualitätsreiz"],
+            ["Extensive Grundlage", "ca. 150–175 W", "unter ca. 132/min, RPE etwa 9–11", "überwiegend unter LT1 bleiben"],
+            ["Oberer aerober Bereich", "ca. 175–195 W", "ca. 132–140/min, RPE etwa 11–13", "gezielt einsetzen; Nähe zu LT1 beachten"],
+            ["Schwellennahe Arbeit", "ca. 210–225 W", "ca. 150–155/min, RPE etwa 14–16", "Intervallformat und Erholung entscheiden über Gesamtbelastung"],
+            ["Oberhalb LT2", "über ca. 225 W", "über ca. 155/min, hohe RPE", "kurze gezielte Reize; rasche Laktatakkumulation erwarten"]
+          ],
+          "widths": [0.23, 0.20, 0.25, 0.32]
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Arbeitsbereiche statt starrer Grenzen",
+          "text": "Leistung, Herzfrequenz und subjektive Belastung sollten gemeinsam verwendet werden. Herzfrequenz reagiert verzögert und ist durch Temperatur, Hydration, Müdigkeit und Tagesform beeinflussbar."
+        }
+      ]
+    },
+    {
+      "title": "8. Qualität, Limitationen und Wiederholung",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            "25-W-Stufenschritte begrenzen die Auflösung; Schwellen werden als Bereiche berichtet.",
+            "Ein einzelner Testtag ist durch Vorbelastung, Ernährung, Temperatur, Hydration und Messvariation beeinflussbar.",
+            "Die 4-min-Recovery-Probe erlaubt eine Verlaufsbeobachtung, aber keine vollständige Laktat-Clearance-Charakterisierung.",
+            "Feste 2- oder 4-mmol/l-Punkte sind Referenzmodelle und nicht mit individuellen physiologischen Schwellen gleichzusetzen.",
+            "Bei Verlaufstests Protokoll und Randbedingungen möglichst unverändert wiederholen."
+          ]
+        },
+        {
+          "type": "callout",
+          "kind": "warning",
+          "title": "Wann der Test nicht einfach sportlich interpretiert werden sollte",
+          "text": "Neue oder ungewöhnliche Symptome, auffällige kardiorespiratorische Reaktionen, Synkope, Thoraxschmerz oder andere medizinische Warnzeichen haben Vorrang vor Trainingszonen und erfordern fachliche Abklärung."
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Empfohlener Verlaufstest",
+          "text": "Unter vergleichbaren Bedingungen nach etwa 6–10 Wochen oder nach Abschluss eines klar definierten Trainingsblocks. Entscheidend ist dann nicht nur die Schwelle, sondern die gesamte Verschiebung von Leistung, Herzfrequenz, Laktat und RPE."
+        }
+      ]
+    },
+    {
+      "title": "9. Zusammenfassung",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["Kernbefund", "Beispielergebnis"],
+          "rows": [
+            ["Niedriger stabiler Laktatbereich", "bis etwa 150 W"],
+            ["LT1-Arbeitsbereich", "175–185 W; Arbeitswert 180 W; HF-Anker ca. 134/min"],
+            ["LT2-Arbeitsbereich", "220–230 W; Arbeitswert 225 W; HF-Anker ca. 155/min"],
+            ["Fixer 4-mmol/l-Referenzpunkt", "ca. 236 W, interpoliert"],
+            ["Peak der Beispielmessreihe", "250 W | 166/min | 5,1 mmol/l | RPE 18"],
+            ["4-min-Recovery", "112/min | 3,8 mmol/l | RPE 9"],
+            ["Gesamtsicherheit", "mittel – gut interpretierbare Kurve, aber durch 25-W-Stufen begrenzte Schwellenauflösung"]
+          ],
+          "widths": [0.34, 0.66]
+        },
+        {
+          "type": "paragraph",
+          "text": "Gesamtbeurteilung des Beispiels: Die Messreihe zeigt einen klaren Übergang von einem stabilen niedrigen Laktatbereich in eine zunehmende Akkumulation. Für die praktische Trainingssteuerung sind LT1 um 180 W und LT2 um 225 W als Arbeitswerte sinnvoll, wobei die zugrunde liegenden Bereiche und die Testauflösung ausdrücklich erhalten bleiben."
+        }
+      ]
+    }
+  ]
+}
