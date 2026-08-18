@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-report-renderer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Helvetica-Fallback verwenden oder lokalen Font korrekt auflösen", "passed": true, "evidence": "The renderer resolves DejaVu Sans locally and falls back to Helvetica."},
+    {"behavior": "keine Fontdatei weitergeben", "passed": true, "evidence": "The skill explicitly prohibits bundling font files."},
+    {"behavior": "PDF trotzdem auf Glyphenprobleme prüfen", "passed": true, "evidence": "Visual verification remains mandatory after fallback."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Fontdateien in assets einbetten", "observed": false, "evidence": "No font files are stored and the brand guide forbids doing so."},
+    {"behavior": "Rendering-Erfolg ohne Sichtprüfung behaupten", "observed": false, "evidence": "Completion requires a visual PDF check."}
+  ],
+  "overall": "pass"
+}

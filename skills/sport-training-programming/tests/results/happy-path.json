@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-programming",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "sportartspezifische Hauptreize priorisieren", "passed": true, "evidence": "The load-budget step protects sport-specific key sessions first."},
+    {"behavior": "jede Kraftübung mit Last, Wiederholungen, Pause und Qualitätsregel dosieren", "passed": true, "evidence": "Session concretization requires volume, intensity, rest and stop/adaptation rules."},
+    {"behavior": "Volumen zur Regatta reduzieren ohne neue 1RM-Tests", "passed": true, "evidence": "The taper rule reduces volume and explicitly avoids late 1RM testing."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Kraftausdauer in die Peak-Woche hinein maximieren", "observed": false, "evidence": "Taper rules protect specific quality while reducing overall volume."},
+    {"behavior": "verpasste Einheiten in der Wettkampfwoche nachholen", "observed": false, "evidence": "The programming rules explicitly prohibit catching up missed work during race week."}
+  ],
+  "overall": "pass"
+}

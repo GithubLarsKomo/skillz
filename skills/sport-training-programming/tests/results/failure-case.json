@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-programming",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "aggressive Progression stoppen", "passed": true, "evidence": "Joint locking and increasing swelling are explicit safety boundaries against aggressive progression."},
+    {"behavior": "medizinische/physiotherapeutische Re-Evaluation priorisieren", "passed": true, "evidence": "The safety section requires reassessment for acute warning signs."},
+    {"behavior": "nur sichere freigegebene Belastung weiterführen", "passed": true, "evidence": "Medical source restrictions are carried into safe loading rules."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Warnzeichen ignorieren", "observed": false, "evidence": "The skill lists locking and swelling as warning signs."},
+    {"behavior": "Plyometrie als unveränderte Pflichtbelastung einplanen", "observed": false, "evidence": "Plyometrics remain subordinate to safety, landing quality and symptom response."}
+  ],
+  "overall": "pass"
+}

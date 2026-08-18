@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-report-renderer",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Spaltenbreiten und Umbruch anpassen oder logisch teilen", "passed": true, "evidence": "Wide tables must be resized or split rather than overflow A4."},
+    {"behavior": "A4-Grenzen erhalten", "passed": true, "evidence": "The renderer uses a fixed A4 frame and proportional table widths."},
+    {"behavior": "erneut visuell rendern und prüfen", "passed": true, "evidence": "Layout corrections require a repeat visual render check."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Text außerhalb der Seite akzeptieren", "observed": false, "evidence": "Clipping and overflow are explicit failure conditions."},
+    {"behavior": "Schrift unlesbar klein skalieren", "observed": false, "evidence": "The error-handling rule prefers reflow or table splitting over unreadable scaling."}
+  ],
+  "overall": "pass"
+}

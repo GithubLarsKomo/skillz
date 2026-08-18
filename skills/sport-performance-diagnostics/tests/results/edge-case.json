@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-performance-diagnostics",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Lücken und Ausreißer sichtbar lassen", "passed": true, "evidence": "Missing values and outliers are preserved and discussed explicitly."},
+    {"behavior": "mit reduzierter Sicherheit arbeiten", "passed": true, "evidence": "Incomplete series must be marked with reduced confidence."},
+    {"behavior": "keine künstlichen Messwerte erzeugen", "passed": true, "evidence": "The prerequisites explicitly prohibit inventing missing data."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "fehlende Werte erfinden", "observed": false, "evidence": "The skill states 'Fehlende Daten nicht erfinden'."},
+    {"behavior": "den Ausreißer kommentarlos löschen", "observed": false, "evidence": "Outliers must be evaluated, not silently deleted."}
+  ],
+  "overall": "pass"
+}

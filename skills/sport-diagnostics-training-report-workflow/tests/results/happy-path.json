@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-diagnostics-training-report-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Diagnostik, Trainingsplanung und Rendering über die jeweiligen Fach-Skills sequenzieren", "passed": true, "evidence": "The orchestrator delegates each phase to the dedicated specialist skill."},
+    {"behavior": "Zwischenartefakte konsistent halten", "passed": true, "evidence": "A consistency gate checks zones, loads, dates, exercises and safety constraints."},
+    {"behavior": "finales PDF visuell prüfen", "passed": true, "evidence": "The PDF stage explicitly includes visual verification."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Fachlogik im Orchestrator duplizieren", "observed": false, "evidence": "The orchestrator states that specialist logic must not be duplicated."},
+    {"behavior": "Werte beim PDF-Satz still verändern", "observed": false, "evidence": "The report spec may contain only approved values and the renderer cannot alter them."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-diagnostics-training-report-workflow",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "definitive Diagnose blockieren", "passed": true, "evidence": "The prerequisites prohibit reconstructing a diagnosis from memory."},
+    {"behavior": "Originalbefund oder verlässliche Quelle verlangen", "passed": true, "evidence": "A medical source report or reliable source is required before definitive use."},
+    {"behavior": "Quellenbefund und sportwissenschaftliche Ableitung getrennt halten", "passed": true, "evidence": "The consistency checks explicitly separate medical source findings from sport-science implications."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "eine Diagnose rekonstruieren", "observed": false, "evidence": "Reconstruction from incomplete memory is explicitly prohibited."},
+    {"behavior": "den Renderer zur fachlichen Ergänzung verwenden", "observed": false, "evidence": "The renderer is presentation-only and content changes return upstream."}
+  ],
+  "overall": "pass"
+}

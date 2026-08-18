@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-performance-diagnostics",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Rohdaten und Protokoll unverändert sichern", "passed": true, "evidence": "SKILL.md requires immutable raw-data capture before interpretation."},
+    {"behavior": "mehrere passende Schwellenmodelle rechnen und Konvergenz statt Scheingenauigkeit bewerten", "passed": true, "evidence": "The workflow explicitly separates model calculation from convergence and uncertainty assessment."},
+    {"behavior": "LT1/LT2 als Arbeitsbereich plus Unsicherheit übergeben", "passed": true, "evidence": "The handoff schema carries ranges, working values and confidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "interpolierte Werte als gemessen ausgeben", "observed": false, "evidence": "Measured and interpolated values are explicitly required to remain distinguishable."},
+    {"behavior": "ein Modell ohne Begründung zur physiologischen Wahrheit erklären", "observed": false, "evidence": "The skill requires model assumptions and convergence to be discussed rather than absolutized."}
+  ],
+  "overall": "pass"
+}
