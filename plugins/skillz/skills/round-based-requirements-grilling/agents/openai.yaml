@@ -1,5 +1,5 @@
 interface:
   display_name: "Round Based Requirements Grilling"
-  short_description: "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten is..."
+  short_description: "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-En..."
 policy:
   allow_implicit_invocation: false

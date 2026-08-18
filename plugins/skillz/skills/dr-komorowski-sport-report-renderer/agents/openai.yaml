@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dr Komorowski Sport Report Renderer"
+  short_description: "Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komo..."
+policy:
+  allow_implicit_invocation: true
