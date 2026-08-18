@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Performance Diagnostics"
+  short_description: "Wertet sportwissenschaftliche Leistungsdiagnostik wie Laktat-Stufentests, Ergometerdaten, Herzfrequenz, RPE und Erholung st..."
+policy:
+  allow_implicit_invocation: true
