@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -115,6 +116,55 @@ class LogoFlowable(Flowable):
         c.drawString(text_x, y0 + 4.0 * mm, "DIAGNOSE & TRAINING")
 
 
+def _require_finite_number(value: Any, path: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError(f"{path} must be numeric")
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError(f"{path} must be finite")
+    return number
+
+
+def validate_chart_block(block: dict[str, Any], path: str) -> None:
+    chart_type = block.get("chart_type", "lactate_hr_power")
+    if chart_type != "lactate_hr_power":
+        raise ValueError(f"{path}.chart_type unsupported: {chart_type!r}")
+    data = block.get("data")
+    if not isinstance(data, list) or len(data) < 2:
+        raise ValueError(f"{path}.data must contain at least two rows")
+    previous_power: float | None = None
+    for ridx, row in enumerate(data):
+        if not isinstance(row, dict):
+            raise ValueError(f"{path}.data[{ridx}] must be an object")
+        power = _require_finite_number(row.get("power_w"), f"{path}.data[{ridx}].power_w")
+        _require_finite_number(row.get("lactate_mmol_l"), f"{path}.data[{ridx}].lactate_mmol_l")
+        _require_finite_number(row.get("hr_bpm"), f"{path}.data[{ridx}].hr_bpm")
+        if previous_power is not None and power <= previous_power:
+            raise ValueError(f"{path}.data power_w values must be strictly increasing")
+        previous_power = power
+    bands = block.get("threshold_bands", [])
+    if not isinstance(bands, list):
+        raise ValueError(f"{path}.threshold_bands must be an array")
+    for tidx, band in enumerate(bands):
+        bpath = f"{path}.threshold_bands[{tidx}]"
+        if not isinstance(band, dict):
+            raise ValueError(f"{bpath} must be an object")
+        if not isinstance(band.get("label"), str) or not band["label"].strip():
+            raise ValueError(f"{bpath}.label must be a non-empty string")
+        start = _require_finite_number(band.get("from_w"), f"{bpath}.from_w")
+        end = _require_finite_number(band.get("to_w"), f"{bpath}.to_w")
+        if end <= start:
+            raise ValueError(f"{bpath}.to_w must be greater than from_w")
+        if "working_w" in band:
+            working = _require_finite_number(band.get("working_w"), f"{bpath}.working_w")
+            if not start <= working <= end:
+                raise ValueError(f"{bpath}.working_w must lie within the band")
+    if "height_mm" in block:
+        height = _require_finite_number(block["height_mm"], f"{path}.height_mm")
+        if not 60 <= height <= 130:
+            raise ValueError(f"{path}.height_mm must be between 60 and 130")
+
+
 def validate_spec(spec: dict[str, Any]) -> None:
     if not isinstance(spec.get("metadata"), dict):
         raise ValueError("metadata object is required")
@@ -127,7 +177,7 @@ def validate_spec(spec: dict[str, Any]) -> None:
     sections = spec.get("sections", [])
     if not isinstance(sections, list):
         raise ValueError("sections must be an array")
-    allowed = {"heading", "subheading", "paragraph", "bullets", "table", "callout", "spacer", "pagebreak"}
+    allowed = {"heading", "subheading", "paragraph", "bullets", "table", "callout", "chart", "spacer", "pagebreak"}
     for sidx, section in enumerate(sections):
         if not isinstance(section, dict):
             raise ValueError(f"sections[{sidx}] must be an object")
@@ -138,12 +188,15 @@ def validate_spec(spec: dict[str, Any]) -> None:
             if not isinstance(block, dict):
                 raise ValueError(f"sections[{sidx}].blocks[{bidx}] must be an object")
             btype = block.get("type")
+            path = f"sections[{sidx}].blocks[{bidx}]"
             if btype not in allowed:
-                raise ValueError(f"unsupported block type at sections[{sidx}].blocks[{bidx}]: {btype!r}")
+                raise ValueError(f"unsupported block type at {path}: {btype!r}")
             if btype == "table" and (
                 not isinstance(block.get("columns"), list) or not isinstance(block.get("rows"), list)
             ):
-                raise ValueError(f"table at sections[{sidx}].blocks[{bidx}] requires columns and rows arrays")
+                raise ValueError(f"table at {path} requires columns and rows arrays")
+            if btype == "chart":
+                validate_chart_block(block, path)
 
 
 def build_styles(theme: dict[str, Any], regular: str, bold: str) -> dict[str, ParagraphStyle]:
@@ -175,6 +228,8 @@ def build_styles(theme: dict[str, Any], regular: str, bold: str) -> dict[str, Pa
         "bullet": ParagraphStyle("Bullet", parent=styles["BodyText"], fontName=regular, fontSize=9.1, leading=12.4,
                                  textColor=hexcolor(c["body"]), leftIndent=5 * mm, firstLineIndent=-3 * mm,
                                  bulletIndent=1.5 * mm, spaceAfter=1.2 * mm),
+        "caption": ParagraphStyle("Caption", parent=styles["BodyText"], fontName=regular, fontSize=7.6, leading=10,
+                                  textColor=hexcolor(c["muted"]), spaceBefore=1.5 * mm, spaceAfter=3 * mm),
     }
 
 
@@ -267,6 +322,238 @@ def make_callout(item: dict[str, Any], width: float, st: dict[str, ParagraphStyl
     return table
 
 
+def _nice_step(span: float, target_ticks: int = 5) -> float:
+    if span <= 0:
+        return 1.0
+    raw = span / max(target_ticks, 1)
+    magnitude = 10 ** math.floor(math.log10(raw))
+    residual = raw / magnitude
+    if residual <= 1:
+        nice = 1
+    elif residual <= 2:
+        nice = 2
+    elif residual <= 5:
+        nice = 5
+    else:
+        nice = 10
+    return nice * magnitude
+
+
+def _axis_bounds(values: list[float], *, floor_zero: bool = False, target_ticks: int = 5) -> tuple[float, float, float]:
+    low = min(values)
+    high = max(values)
+    if floor_zero:
+        low = min(0.0, low)
+    if math.isclose(low, high):
+        high = low + 1.0
+    span = high - low
+    padding = span * 0.08
+    low -= padding
+    high += padding
+    step = _nice_step(high - low, target_ticks)
+    low = math.floor(low / step) * step
+    high = math.ceil(high / step) * step
+    if floor_zero:
+        low = 0.0
+    if high <= low:
+        high = low + step
+    return low, high, step
+
+
+class LactateHRChart(Flowable):
+    """Vector dual-axis chart for lactate and heart rate over power with LT working bands."""
+
+    def __init__(self, block: dict[str, Any], width: float, theme: dict[str, Any]):
+        super().__init__()
+        self.block = block
+        self.width = width
+        self.height = float(block.get("height_mm", 92)) * mm
+        self.theme = theme
+
+    def draw(self) -> None:
+        c = self.canv
+        colorset = self.theme["colors"]
+        regular, bold = self.theme["_fonts"]
+        data = self.block["data"]
+        bands = self.block.get("threshold_bands", [])
+
+        powers = [float(row["power_w"]) for row in data]
+        lactate = [float(row["lactate_mmol_l"]) for row in data]
+        hr = [float(row["hr_bpm"]) for row in data]
+
+        x_values = list(powers)
+        for band in bands:
+            x_values.extend([float(band["from_w"]), float(band["to_w"])])
+            if "working_w" in band:
+                x_values.append(float(band["working_w"]))
+        x_min_raw, x_max_raw = min(x_values), max(x_values)
+        x_span = max(x_max_raw - x_min_raw, 1.0)
+        x_pad = max(5.0, x_span * 0.045)
+        x_min = x_min_raw - x_pad
+        x_max = x_max_raw + x_pad
+
+        lact_min, lact_max, lact_step = _axis_bounds(lactate, floor_zero=True, target_ticks=5)
+        hr_min, hr_max, hr_step = _axis_bounds(hr, floor_zero=False, target_ticks=5)
+        hr_min = math.floor(hr_min / 10.0) * 10.0
+        hr_max = math.ceil(hr_max / 10.0) * 10.0
+        hr_step = max(10.0, _nice_step(hr_max - hr_min, 5))
+
+        left = 16 * mm
+        right = self.width - 16 * mm
+        bottom = 18 * mm
+        top = self.height - 18 * mm
+        plot_w = right - left
+        plot_h = top - bottom
+
+        def sx(value: float) -> float:
+            return left + (value - x_min) / (x_max - x_min) * plot_w
+
+        def sy_lact(value: float) -> float:
+            return bottom + (value - lact_min) / (lact_max - lact_min) * plot_h
+
+        def sy_hr(value: float) -> float:
+            return bottom + (value - hr_min) / (hr_max - hr_min) * plot_h
+
+        c.setFillColor(hexcolor(colorset["navy"]))
+        c.setFont(bold, 10.5)
+        c.drawString(left, self.height - 7 * mm, self.block.get("title", "Laktat und Herzfrequenz über Leistung"))
+
+        legend_y = self.height - 12 * mm
+        c.setStrokeColor(hexcolor(colorset["navy"]))
+        c.setLineWidth(1.8)
+        c.line(left, legend_y, left + 7 * mm, legend_y)
+        c.circle(left + 3.5 * mm, legend_y, 1.1 * mm, stroke=1, fill=0)
+        c.setFillColor(hexcolor(colorset["body"]))
+        c.setFont(regular, 7.2)
+        c.drawString(left + 9 * mm, legend_y - 2.2, "Laktat (mmol/l)")
+        lx = left + 43 * mm
+        c.setStrokeColor(hexcolor(colorset["teal"]))
+        c.setDash(3, 2)
+        c.line(lx, legend_y, lx + 7 * mm, legend_y)
+        c.setDash()
+        c.setFillColor(hexcolor(colorset["teal"]))
+        c.circle(lx + 3.5 * mm, legend_y, 1.0 * mm, stroke=0, fill=1)
+        c.setFillColor(hexcolor(colorset["body"]))
+        c.drawString(lx + 9 * mm, legend_y - 2.2, "Herzfrequenz (/min)")
+
+        for band in bands:
+            start = sx(float(band["from_w"]))
+            end = sx(float(band["to_w"]))
+            kind = str(band.get("kind", band.get("label", ""))).lower()
+            is_lt2 = "2" in kind
+            fill = colorset["warning_fill"] if is_lt2 else colorset["table_fill"]
+            border = colorset["warning_border"] if is_lt2 else colorset["teal"]
+            c.setFillColor(hexcolor(fill))
+            c.setStrokeColor(hexcolor(border))
+            c.setLineWidth(0.55)
+            c.rect(start, bottom, max(end - start, 0.5), plot_h, stroke=1, fill=1)
+            c.setFillColor(hexcolor(border))
+            c.setFont(bold, 6.8)
+            label = str(band["label"])
+            label_w = c.stringWidth(label, bold, 6.8)
+            c.drawString((start + end - label_w) / 2, top - 3.2 * mm, label)
+            if "working_w" in band:
+                wx = sx(float(band["working_w"]))
+                c.setStrokeColor(hexcolor(border))
+                c.setLineWidth(0.8)
+                c.setDash(2, 2)
+                c.line(wx, bottom, wx, top)
+                c.setDash()
+
+        c.setFont(regular, 6.8)
+        tick = lact_min
+        max_guard = 0
+        while tick <= lact_max + lact_step * 0.25 and max_guard < 20:
+            y = sy_lact(tick)
+            c.setStrokeColor(hexcolor(colorset["border"]))
+            c.setLineWidth(0.35)
+            c.line(left, y, right, y)
+            c.setFillColor(hexcolor(colorset["muted"]))
+            label = f"{tick:.1f}".replace(".0", "")
+            c.drawRightString(left - 2 * mm, y - 2.2, label)
+            tick += lact_step
+            max_guard += 1
+
+        tick = hr_min
+        max_guard = 0
+        while tick <= hr_max + hr_step * 0.25 and max_guard < 20:
+            y = sy_hr(tick)
+            c.setFillColor(hexcolor(colorset["muted"]))
+            c.drawString(right + 2 * mm, y - 2.2, f"{tick:.0f}")
+            tick += hr_step
+            max_guard += 1
+
+        c.setStrokeColor(hexcolor(colorset["muted"]))
+        c.setLineWidth(0.6)
+        c.line(left, bottom, right, bottom)
+        c.line(left, bottom, left, top)
+        c.line(right, bottom, right, top)
+
+        for power in powers:
+            x = sx(power)
+            c.setStrokeColor(hexcolor(colorset["muted"]))
+            c.setLineWidth(0.45)
+            c.line(x, bottom, x, bottom - 1.5 * mm)
+            c.setFillColor(hexcolor(colorset["muted"]))
+            c.setFont(regular, 6.6)
+            label = f"{power:g}"
+            w = c.stringWidth(label, regular, 6.6)
+            c.drawString(x - w / 2, bottom - 5.2 * mm, label)
+
+        c.setFillColor(hexcolor(colorset["body"]))
+        c.setFont(bold, 7.0)
+        x_label = self.block.get("x_label", "Leistung (W)")
+        w = c.stringWidth(x_label, bold, 7.0)
+        c.drawString((left + right - w) / 2, 6 * mm, x_label)
+        c.saveState()
+        c.translate(4.2 * mm, (bottom + top) / 2)
+        c.rotate(90)
+        y_label = self.block.get("left_y_label", "Laktat (mmol/l)")
+        yw = c.stringWidth(y_label, bold, 7.0)
+        c.drawString(-yw / 2, 0, y_label)
+        c.restoreState()
+        c.saveState()
+        c.translate(self.width - 4.2 * mm, (bottom + top) / 2)
+        c.rotate(90)
+        r_label = self.block.get("right_y_label", "Herzfrequenz (/min)")
+        rw = c.stringWidth(r_label, bold, 7.0)
+        c.drawString(-rw / 2, 0, r_label)
+        c.restoreState()
+
+        c.setStrokeColor(hexcolor(colorset["navy"]))
+        c.setFillColor(colors.white)
+        c.setLineWidth(1.8)
+        lact_points = [(sx(p), sy_lact(v)) for p, v in zip(powers, lactate)]
+        for (x1, y1), (x2, y2) in zip(lact_points, lact_points[1:]):
+            c.line(x1, y1, x2, y2)
+        for x, y in lact_points:
+            c.setStrokeColor(hexcolor(colorset["navy"]))
+            c.setFillColor(colors.white)
+            c.circle(x, y, 1.25 * mm, stroke=1, fill=1)
+
+        c.setStrokeColor(hexcolor(colorset["teal"]))
+        c.setFillColor(hexcolor(colorset["teal"]))
+        c.setLineWidth(1.5)
+        c.setDash(4, 2)
+        hr_points = [(sx(p), sy_hr(v)) for p, v in zip(powers, hr)]
+        for (x1, y1), (x2, y2) in zip(hr_points, hr_points[1:]):
+            c.line(x1, y1, x2, y2)
+        c.setDash()
+        for x, y in hr_points:
+            c.setFillColor(hexcolor(colorset["teal"]))
+            c.circle(x, y, 1.1 * mm, stroke=0, fill=1)
+
+
+def make_chart(block: dict[str, Any], width: float, st: dict[str, ParagraphStyle], theme: dict[str, Any]) -> list[Flowable]:
+    chart = LactateHRChart(block, width, theme)
+    items: list[Flowable] = [chart]
+    if block.get("caption"):
+        items.append(ptext(block["caption"], st["caption"]))
+    else:
+        items.append(Spacer(1, 3 * mm))
+    return items
+
+
 def render(input_path: Path, output_path: Path, theme_path: Path) -> None:
     spec = load_json(input_path)
     validate_spec(spec)
@@ -351,6 +638,8 @@ def render(input_path: Path, output_path: Path, theme_path: Path) -> None:
                     story.extend([make_table(block, frame_width, st, theme), Spacer(1, 4 * mm)])
                 elif btype == "callout":
                     story.extend([make_callout(block, frame_width, st, theme), Spacer(1, 3.5 * mm)])
+                elif btype == "chart":
+                    story.extend(make_chart(block, frame_width, st, theme))
                 elif btype == "spacer":
                     story.append(Spacer(1, float(block.get("mm", 3)) * mm))
                 elif btype == "pagebreak":
