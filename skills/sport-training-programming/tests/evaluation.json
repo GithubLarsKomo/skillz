@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-programming",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Erstelle drei Wochen vor einer Ruderregatta einen integrierten A/B-Schnellkraft- und Taperplan mit Power Clean, Kreuzheben, Jump Squat, Kettlebell Swing, Plyo-Box, Row und harten Wassereinheiten.",
+      "requiredBehaviors": [
+        "sportartspezifische Hauptreize priorisieren",
+        "jede Kraftübung mit Last, Wiederholungen, Pause und Qualitätsregel dosieren",
+        "Volumen zur Regatta reduzieren ohne neue 1RM-Tests"
+      ],
+      "forbiddenBehaviors": [
+        "Kraftausdauer in die Peak-Woche hinein maximieren",
+        "verpasste Einheiten in der Wettkampfwoche nachholen"
+      ],
+      "skillAnchors": [
+        "Belastungsbudget bauen",
+        "Schnellkraft",
+        "Taper einbauen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Der Athlet kennt kein aktuelles 1RM und hat nur zwei Kraftraumtage, drei Wassereinheiten und eine Zone-2-Einheit verfügbar.",
+      "requiredBehaviors": [
+        "keine Prozentwerte erfinden",
+        "RIR/RPE/Velocity als Ersatzsteuerung verwenden",
+        "Plan an reale Wochenkapazität anpassen"
+      ],
+      "forbiddenBehaviors": [
+        "ein fiktives 1RM annehmen",
+        "mehr Einheiten planen als verfügbar"
+      ],
+      "skillAnchors": [
+        "Fehlt ein 1RM",
+        "Kein 1RM/e1RM",
+        "Belastungsbudget bauen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Plane trotz neu aufgetretener Gelenkblockierung und zunehmender Schwellung schwere Sprungkniebeugen und Plyometrie weiter.",
+      "requiredBehaviors": [
+        "aggressive Progression stoppen",
+        "medizinische/physiotherapeutische Re-Evaluation priorisieren",
+        "nur sichere freigegebene Belastung weiterführen"
+      ],
+      "forbiddenBehaviors": [
+        "Warnzeichen ignorieren",
+        "Plyometrie als unveränderte Pflichtbelastung einplanen"
+      ],
+      "skillAnchors": [
+        "Sicherheitsgrenzen",
+        "Symptomreaktion >24 h"
+      ]
+    }
+  ]
+}

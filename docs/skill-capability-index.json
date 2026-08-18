@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 117,
-  "entrypointCount": 99,
+  "skillCount": 121,
+  "entrypointCount": 103,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 117,
+  "evaluationSuiteCount": 121,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1057,6 +1057,47 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "dr-komorowski-sport-report-renderer",
+      "description": "Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komorowski-Diagnose-&-Training-Design mit Vektorlogo, Navy/Teal-Farbsystem, Tabellen, Callouts, Kopf-/Fußzeilen und visueller Qualitätskontrolle. Verwenden, wenn ein fertiger fachlicher Inhalt im wiederverwendbaren Dr.-Komorowski-Template ausgegeben werden soll; der Skill erfindet keine Diagnostik oder Trainingslogik.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "outputs": [
+        "dr-komorowski-report.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "dr-komorowski-report.pdf",
+          "ambiguous": false,
+          "producers": [
+            "dr-komorowski-sport-report-renderer"
+          ],
+          "consumerSkills": [
+            "sport-diagnostics-training-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "assets/dr-komorowski-logo.svg",
+        "assets/report-spec.example.json",
+        "assets/report-theme.json",
+        "references/brand-guide.md",
+        "scripts/render_report.py"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -6640,7 +6681,7 @@
     },
     {
       "name": "round-based-requirements-grilling",
-      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten ist eine verpflichtende KI-/ML-Readiness-Prüfung einschließlich Einsatzpotenzial, Architekturvorbereitung, Datensammlung, Labeling und Governance Bestandteil des Grillings. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben.",
+      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Bei Softwareprojekten ist KI-/ML-Readiness verpflichtender Bestandteil des Grillings.",
       "invocation": {
         "userFacing": false,
         "category": null
@@ -6775,6 +6816,114 @@
             "large-work-wayfinder",
             "test-driven-vertical-slice",
             "throwaway-prototype"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-diagnostics-training-report-workflow",
+      "description": "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum visuell geprüften Marken-PDF. Verwenden, wenn Analyse, Trainingsableitung und professioneller Dr.-Komorowski-Report gemeinsam als ein durchgängiger Auftrag gewünscht sind; Fachlogik bleibt in den spezialisierten Skills.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "dr-komorowski-sport-report-renderer",
+        "sport-performance-diagnostics",
+        "sport-training-programming"
+      ],
+      "dependents": [],
+      "outputs": [
+        "sport-report-package"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-report-package",
+          "ambiguous": false,
+          "producers": [
+            "sport-diagnostics-training-report-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-performance-diagnostics",
+      "description": "Wertet sportwissenschaftliche Leistungsdiagnostik wie Laktat-Stufentests, Ergometerdaten, Herzfrequenz, RPE und Erholung strukturiert aus und erzeugt belastbare Arbeitsbereiche mit Unsicherheiten statt Scheingenauigkeit. Verwenden, wenn Testdaten interpretiert, Schwellenmodelle verglichen oder Trainingszonen aus Messreihen abgeleitet werden sollen; nicht für eigenständige medizinische Diagnosen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [],
+      "dependents": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "outputs": [
+        "sport-diagnostics.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-diagnostics.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-performance-diagnostics"
+          ],
+          "consumerSkills": [
+            "sport-diagnostics-training-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-training-programming",
+      "description": "Erstellt aus Zieltermin, Leistungsstand, Trainingshistorie, Kraftwerten, verfügbaren Einheiten und Belastungsgrenzen einen periodisierten Sporttrainingsplan mit konkreten Übungen, Sätzen, Wiederholungen, RIR/Prozentlast, Pausen, Ausdauerzonen, Progression und Taper. Verwenden, wenn aus Diagnostik oder Zielsetzung ein ausführbarer Wochenplan entstehen soll; nicht als medizinische Rehabilitationsfreigabe.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "outputs": [
+        "sport-training-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-training-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-training-programming"
+          ],
+          "consumerSkills": [
+            "sport-diagnostics-training-report-workflow"
           ]
         }
       ],

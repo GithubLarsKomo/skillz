@@ -194,6 +194,13 @@
       ]
     },
     {
+      "name": "dr-komorowski-sport-report-renderer",
+      "requires": [],
+      "outputs": [
+        "dr-komorowski-report.pdf"
+      ]
+    },
+    {
       "name": "engineering-delivery-followup",
       "requires": [
         "deferred-external-action-verification",
@@ -1341,6 +1348,31 @@
         "dependency-order.json",
         "vertical-issues.json",
         "vertical-issues.md"
+      ]
+    },
+    {
+      "name": "sport-diagnostics-training-report-workflow",
+      "requires": [
+        "dr-komorowski-sport-report-renderer",
+        "sport-performance-diagnostics",
+        "sport-training-programming"
+      ],
+      "outputs": [
+        "sport-report-package"
+      ]
+    },
+    {
+      "name": "sport-performance-diagnostics",
+      "requires": [],
+      "outputs": [
+        "sport-diagnostics.json"
+      ]
+    },
+    {
+      "name": "sport-training-programming",
+      "requires": [],
+      "outputs": [
+        "sport-training-plan.json"
       ]
     },
     {
@@ -2596,6 +2628,18 @@
       "to": "conversation-to-spec"
     },
     {
+      "from": "sport-diagnostics-training-report-workflow",
+      "to": "dr-komorowski-sport-report-renderer"
+    },
+    {
+      "from": "sport-diagnostics-training-report-workflow",
+      "to": "sport-performance-diagnostics"
+    },
+    {
+      "from": "sport-diagnostics-training-report-workflow",
+      "to": "sport-training-programming"
+    },
+    {
       "from": "supplier-quality-medical-device",
       "to": "medical-device-qms-iso13485"
     },
@@ -3765,6 +3809,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "dr-komorowski-report.pdf",
+      "producers": [
+        "dr-komorowski-sport-report-renderer"
+      ],
+      "consumerSkills": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "dual-510k-clia-strategy.json",
@@ -6148,6 +6203,37 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "sport-diagnostics.json",
+      "producers": [
+        "sport-performance-diagnostics"
+      ],
+      "consumerSkills": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sport-report-package",
+      "producers": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "sport-training-plan.json",
+      "producers": [
+        "sport-training-programming"
+      ],
+      "consumerSkills": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "stakeholder-questionnaire.json",
       "producers": [
         "external-stakeholder-questionnaire"
@@ -6583,6 +6669,7 @@
     "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
+    "sport-report-package",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "supplier-control-plan.json",
@@ -6728,6 +6815,7 @@
     "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
+    "sport-report-package",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "supplier-control-plan.json",

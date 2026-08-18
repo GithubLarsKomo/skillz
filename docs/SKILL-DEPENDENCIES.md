@@ -296,6 +296,9 @@ graph TD
   regulatory_evidence_traceability --> regulated_product_context
   regulatory_evidence_traceability --> research_to_evidence_note
   spec_to_vertical_issues --> conversation_to_spec
+  sport_diagnostics_training_report_workflow --> dr_komorowski_sport_report_renderer
+  sport_diagnostics_training_report_workflow --> sport_performance_diagnostics
+  sport_diagnostics_training_report_workflow --> sport_training_programming
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -413,6 +416,7 @@ graph TD
 | `domain-model-map.json` | `domain-model-maintenance` | — | unconsumed |
 | `domain-validation.json` | `domain-model-maintenance` | — | unconsumed |
 | `dpia-decision.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
+| `dr-komorowski-report.pdf` | `dr-komorowski-sport-report-renderer` | `sport-diagnostics-training-report-workflow` | inferred |
 | `dual-510k-clia-strategy.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-evidence-package.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
@@ -608,6 +612,9 @@ graph TD
 | `source-context.json` | `source-to-context` | — | unconsumed |
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
+| `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-diagnostics-training-report-workflow` | inferred |
+| `sport-report-package` | `sport-diagnostics-training-report-workflow` | — | unconsumed |
+| `sport-training-plan.json` | `sport-training-programming` | `sport-diagnostics-training-report-workflow` | inferred |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `submission-readiness.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |

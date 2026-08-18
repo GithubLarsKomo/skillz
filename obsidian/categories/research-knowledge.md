@@ -10,7 +10,8 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **2**
+Skills: **3**
 
 - [[skills/research-to-evidence-note|research-to-evidence-note]]
+- [[skills/sport-performance-diagnostics|sport-performance-diagnostics]]
 - [[skills/structured-knowledge-artifact|structured-knowledge-artifact]]

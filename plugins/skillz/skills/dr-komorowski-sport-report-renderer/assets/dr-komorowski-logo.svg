@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="64" viewBox="0 0 260 64" role="img" aria-labelledby="title desc">
+  <title id="title">Dr. Komorowski Diagnose &amp; Training</title>
+  <desc id="desc">DK-Monogramm mit drei teal-farbenen Linien und Wortmarke</desc>
+  <rect x="2" y="8" width="52" height="52" rx="9" fill="none" stroke="#173652" stroke-width="2.5"/>
+  <text x="12" y="45" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#173652">DK</text>
+  <line x1="59" y1="21" x2="82" y2="21" stroke="#2B8884" stroke-width="4"/>
+  <line x1="59" y1="32" x2="91" y2="32" stroke="#2B8884" stroke-width="4"/>
+  <line x1="59" y1="43" x2="77" y2="43" stroke="#2B8884" stroke-width="4"/>
+  <text x="99" y="29" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#173652">DR. KOMOROWSKI</text>
+  <text x="99" y="45" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" font-weight="700" fill="#246F6C">DIAGNOSE &amp; TRAINING</text>
+</svg>

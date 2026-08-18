@@ -1,16 +1,6 @@
 ---
 name: round-based-requirements-grilling
 description: Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Bei Softwareprojekten ist KI-/ML-Readiness verpflichtender Bestandteil des Grillings.
-version: 1.1.0
-status: stable
-owners:
-  - GithubLarsKomo
-requires: []
-outputs:
-  - GRILL-REPORT.md
-  - approved SPEC.md
-lastEvaluated: 2026-08-18
-implicitInvocation: false
 ---
 
 # Round-based Requirements Grilling

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-programming",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "keine Prozentwerte erfinden", "passed": true, "evidence": "Missing 1RM/e1RM explicitly blocks fabricated percentage prescriptions."},
+    {"behavior": "RIR/RPE/Velocity als Ersatzsteuerung verwenden", "passed": true, "evidence": "The prerequisites define RIR/RPE/velocity as valid substitute control methods."},
+    {"behavior": "Plan an reale Wochenkapazität anpassen", "passed": true, "evidence": "Available training days and duration are mandatory constraints."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "ein fiktives 1RM annehmen", "observed": false, "evidence": "The skill prohibits pretending a percentage load when 1RM is unknown."},
+    {"behavior": "mehr Einheiten planen als verfügbar", "observed": false, "evidence": "Weekly availability is a prerequisite and planning constraint."}
+  ],
+  "overall": "pass"
+}

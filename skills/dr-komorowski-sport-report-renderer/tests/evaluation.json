@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-report-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Rendere einen bereits finalisierten Schnellkraft- und Taperplan als professionelles PDF im Dr.-Komorowski-Stil.",
+      "requiredBehaviors": [
+        "kanonisches Vektorlogo und Theme verwenden",
+        "A4 mit konsistenten Headern, Footern, Tabellen und Callouts erzeugen",
+        "PDF nach dem Rendern visuell prüfen"
+      ],
+      "forbiddenBehaviors": [
+        "fachliche Lastwerte still ändern",
+        "Logo als unscharfes Rasterbild nachbauen"
+      ],
+      "skillAnchors": [
+        "Inhalt einfrieren",
+        "Designstandard",
+        "Visuell verifizieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Eine Tabelle hat sechs Spalten und lange Erläuterungstexte, die bei Standardbreite aus der Seite laufen würden.",
+      "requiredBehaviors": [
+        "Spaltenbreiten und Umbruch anpassen oder logisch teilen",
+        "A4-Grenzen erhalten",
+        "erneut visuell rendern und prüfen"
+      ],
+      "forbiddenBehaviors": [
+        "Text außerhalb der Seite akzeptieren",
+        "Schrift unlesbar klein skalieren"
+      ],
+      "skillAnchors": [
+        "Zu breite Tabelle",
+        "Visuell verifizieren"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Beim Rendern ist DejaVu Sans nicht installiert und eine Fontdatei aus einem Systemverzeichnis könnte in den Skill kopiert werden.",
+      "requiredBehaviors": [
+        "Helvetica-Fallback verwenden oder lokalen Font korrekt auflösen",
+        "keine Fontdatei weitergeben",
+        "PDF trotzdem auf Glyphenprobleme prüfen"
+      ],
+      "forbiddenBehaviors": [
+        "Fontdateien in assets einbetten",
+        "Rendering-Erfolg ohne Sichtprüfung behaupten"
+      ],
+      "skillAnchors": [
+        "Font nicht vorhanden",
+        "Keine Fontdateien"
+      ]
+    }
+  ]
+}

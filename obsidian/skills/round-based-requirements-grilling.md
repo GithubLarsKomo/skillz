@@ -57,7 +57,3 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 ## Canonical source
 
 `skills/round-based-requirements-grilling/SKILL.md`
-
-## Runtime authority
-
-Concrete Grilling execution is delegated to the current `main` state of `GithubLarsKomo/grilling`, especially its `SKILL.md` and `site/catalog.json`.

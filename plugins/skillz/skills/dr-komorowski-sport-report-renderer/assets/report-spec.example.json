@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "Beispiel Trainingswissenschaftlicher Bericht",
+    "subject": "Beispiel für das Dr.-Komorowski-Template",
+    "author": "Dr. Komorowski Diagnose- und Trainingszentrum",
+    "date": "18.08.2026",
+    "header_right": "DR. KOMOROWSKI | TRAININGSBERICHT",
+    "footer_left": "Trainingswissenschaftlicher Bericht | 18.08.2026"
+  },
+  "cover": {
+    "eyebrow": "DR. KOMOROWSKI",
+    "brand_heading": "Diagnose- und Trainingszentrum",
+    "title": "BEISPIEL TRAININGSBERICHT",
+    "subtitle": "Wiederverwendbares A4-Template für Sportdiagnostik und Trainingsplanung",
+    "meta_rows": [
+      ["Athlet", "Beispielperson | 45 Jahre"],
+      ["Zeithorizont", "6 Wochen"],
+      ["Ziel", "Leistungsentwicklung mit kontrollierter Belastungssteuerung"],
+      ["Berichtsnummer", "DK-DEMO-001"]
+    ],
+    "callouts": [
+      {
+        "kind": "info",
+        "title": "Planungsprinzip",
+        "text": "Messdaten, Trainingsziel und verfügbare Belastungszeit werden gemeinsam betrachtet."
+      },
+      {
+        "kind": "warning",
+        "title": "Wichtig zur Belastungssteuerung",
+        "text": "Bei neuen medizinischen Warnzeichen wird die Trainingsprogression gestoppt und fachlich abgeklärt."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "1. Ausgangslage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dieses Beispiel demonstriert Absatz-, Tabellen- und Callout-Layout ohne reale personenbezogene Daten."
+        },
+        {
+          "type": "table",
+          "columns": ["Parameter", "Aktueller Stand", "Planungsrelevanz"],
+          "rows": [
+            ["Ausdauer", "stabil", "Basis erhalten"],
+            ["Kraft", "ausbaufähig", "2 strukturierte Einheiten/Woche"]
+          ],
+          "widths": [0.25, 0.30, 0.45]
+        }
+      ]
+    },
+    {
+      "title": "2. Trainingswoche",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Einheit A – Qualität vor Ermüdung"
+        },
+        {
+          "type": "table",
+          "columns": ["Übung", "Sätze × Wdh.", "Intensität", "Pause", "Steuerung"],
+          "rows": [
+            ["Hauptübung", "4 × 3", "RIR 3", "180 s", "saubere, schnelle Wiederholungen"],
+            ["Zugübung", "3 × 6", "RIR 2-3", "120 s", "stabile Technik"]
+          ],
+          "widths": [0.22, 0.16, 0.16, 0.14, 0.32]
+        },
+        {
+          "type": "callout",
+          "kind": "info",
+          "title": "Progression",
+          "text": "Erst steigern, wenn Technik und Folgetagsreaktion stabil bleiben."
+        }
+      ]
+    },
+    {
+      "title": "3. Hinweise",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            "Keine ungeklärten Messwerte ergänzen.",
+            "Trainingslasten nachvollziehbar dokumentieren.",
+            "PDF nach dem Rendern visuell prüfen."
+          ]
+        }
+      ]
+    }
+  ]
+}

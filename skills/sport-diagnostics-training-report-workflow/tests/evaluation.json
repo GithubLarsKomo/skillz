@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-diagnostics-training-report-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Analysiere meinen Laktattest, leite einen 6-Wochen-Plan ab und erstelle daraus den vollständigen Dr.-Komorowski-PDF-Report.",
+      "requiredBehaviors": [
+        "Diagnostik, Trainingsplanung und Rendering über die jeweiligen Fach-Skills sequenzieren",
+        "Zwischenartefakte konsistent halten",
+        "finales PDF visuell prüfen"
+      ],
+      "forbiddenBehaviors": [
+        "Fachlogik im Orchestrator duplizieren",
+        "Werte beim PDF-Satz still verändern"
+      ],
+      "skillAnchors": [
+        "Diagnostik ausführen",
+        "Trainingsplan ableiten",
+        "PDF rendern"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Die Diagnostik kann LT2 nur als breiten Bereich bestimmen, der Nutzer verlangt aber einen wattgenauen Trainingsplan.",
+      "requiredBehaviors": [
+        "Unsicherheit aus der Diagnostik erhalten",
+        "konservative Arbeitssteuerung oder Bereich verwenden",
+        "keine künstliche Präzision im PDF erzeugen"
+      ],
+      "forbiddenBehaviors": [
+        "LT2 auf einen beliebigen Einzelwert zwingen",
+        "Unsicherheit zwischen Handoffs verlieren"
+      ],
+      "skillAnchors": [
+        "Konsistenz-Gate",
+        "Diagnostik nicht auflösbar"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Der medizinische Befund liegt nur als unvollständige Erinnerung vor, soll aber als definitive Diagnose im Report erscheinen.",
+      "requiredBehaviors": [
+        "definitive Diagnose blockieren",
+        "Originalbefund oder verlässliche Quelle verlangen",
+        "Quellenbefund und sportwissenschaftliche Ableitung getrennt halten"
+      ],
+      "forbiddenBehaviors": [
+        "eine Diagnose rekonstruieren",
+        "den Renderer zur fachlichen Ergänzung verwenden"
+      ],
+      "skillAnchors": [
+        "medizinische Befunde",
+        "Quellbefund widersprüchlich"
+      ]
+    }
+  ]
+}

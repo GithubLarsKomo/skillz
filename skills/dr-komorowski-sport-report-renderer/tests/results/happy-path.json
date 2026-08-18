@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-report-renderer",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-18",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "kanonisches Vektorlogo und Theme verwenden", "passed": true, "evidence": "The renderer bundles vector logo geometry plus the canonical theme JSON."},
+    {"behavior": "A4 mit konsistenten Headern, Footern, Tabellen und Callouts erzeugen", "passed": true, "evidence": "The deterministic ReportLab script implements A4 page furniture, tables and callouts."},
+    {"behavior": "PDF nach dem Rendern visuell prüfen", "passed": true, "evidence": "Visual PNG verification is a mandatory workflow step and completion criterion."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "fachliche Lastwerte still ändern", "observed": false, "evidence": "The renderer freezes content and explicitly forbids changing diagnostics or loads."},
+    {"behavior": "Logo als unscharfes Rasterbild nachbauen", "observed": false, "evidence": "The logo is stored and drawn as vector content."}
+  ],
+  "overall": "pass"
+}
