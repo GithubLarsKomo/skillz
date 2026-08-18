@@ -4,56 +4,56 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Run a new requirements-grilling round for a software product, preserve prior decisions, add only uncertainty-reducing questions, rotate access credentials on publication, and prepare a reviewable SPEC handoff after approval.",
+      "input": "Start a new requirements grilling for a software project through the central skillz entry point while preserving the authoritative Grilling runtime, catalog and handoff semantics.",
       "requiredBehaviors": [
-        "preserve prior decisions and publish an immutable new round",
-        "include complete AI and ML readiness before offering SPEC creation",
-        "rotate the token programmatically and keep platform status explicit"
+        "read the current GithubLarsKomo/grilling main SKILL.md before execution",
+        "read the current site/catalog.json and relevant round artifacts",
+        "delegate runtime, authentication, deployment, status and round semantics to the authoritative grilling repository"
       ],
       "forbiddenBehaviors": [
-        "store the final product SPEC in the grilling repository",
-        "reuse the previous token after a publishing push"
+        "copy or invent local runtime, authentication, deployment or status rules",
+        "store the final product SPEC in the grilling repository"
       ],
       "skillAnchors": [
-        "Neue unveränderliche Rundendefinition anlegen",
-        "Verpflichtende KI-/ML-Readiness bei Softwareprojekten",
-        "Tokens dürfen niemals frei erfunden werden"
+        "Autoritative Quelle",
+        "Aktuellen `main`-Stand von `GithubLarsKomo/grilling/SKILL.md` lesen",
+        "Keine Runtime-, Auth-, Deployment- oder Statusregeln aus diesem Repository erfinden oder kopieren"
       ]
     },
     {
       "id": "edge-case",
-      "input": "One grilling is ready for SPEC review while other active and historical grillings must remain accessible, and a non-critical AI detail is still documented as an open roadmap item.",
+      "input": "The central skillz Grilling entry point and GithubLarsKomo/grilling disagree about an execution rule. Continue without creating a second implementation strand.",
       "requiredBehaviors": [
-        "move only the selected grilling to review",
-        "keep the global platform status unchanged",
-        "allow the handoff only when readiness is complete or justified as not applicable"
+        "treat GithubLarsKomo/grilling/SKILL.md as authoritative",
+        "report the divergence as a synchronization error",
+        "avoid compensating for the divergence with a parallel local implementation"
       ],
       "forbiddenBehaviors": [
-        "disable the entire platform because one grilling enters review",
-        "treat a bare statement that no AI is planned as sufficient"
+        "prefer stale local semantics over the authoritative grilling repository",
+        "copy missing implementation rules into the skillz entry point"
       ],
       "skillAnchors": [
-        "Nur dieses Grilling auf `review`",
-        "Den globalen `APP_STATUS` nicht automatisch ändern",
-        "aktuell keine KI geplant"
+        "hat `GithubLarsKomo/grilling/SKILL.md` Vorrang",
+        "Abweichungen sind als Synchronisationsfehler zu behandeln",
+        "dürfen nicht durch eine zweite Implementierungslogik kompensiert werden"
       ]
     },
     {
       "id": "failure-case",
-      "input": "Publish a software grilling whose AI readiness, ground-truth strategy, governance, and safety boundaries are unresolved, while also leaving the old access token valid.",
+      "input": "Execute a requirements grilling from remembered local rules without reading the current grilling repository, catalog or referenced round state.",
       "requiredBehaviors": [
-        "block SPEC creation",
-        "report missing readiness and governance decisions",
-        "reject publication until a new programmatically generated token replaces the old token"
+        "block execution until the authoritative Grilling sources are loaded",
+        "load the catalog and relevant round artifacts before continuing an existing grilling",
+        "apply the authoritative Grilling process unchanged once the sources are available"
       ],
       "forbiddenBehaviors": [
-        "approve a software SPEC without the mandatory readiness section",
-        "keep ACCESS_TOKEN_PREVIOUS or otherwise preserve the old token"
+        "execute from remembered token, runtime or deployment rules",
+        "silently substitute a local Grilling implementation"
       ],
       "skillAnchors": [
-        "Die Abschlussentscheidung `SPEC.md erstellen` darf",
-        "Es gibt keinen `ACCESS_TOKEN_PREVIOUS`",
-        "Harte Grenzen bleiben deterministisch"
+        "Vor jeder Ausführung dieses Skills müssen",
+        "site/catalog.json",
+        "Den dort festgelegten Grilling-Ablauf unverändert anwenden"
       ]
     }
   ]
