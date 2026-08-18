@@ -4,7 +4,7 @@ generated: true
 name: "round-based-requirements-grilling"
 category: "internal"
 userFacing: false
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -50,14 +50,10 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
+- Passed: `False`
 - Cases: `3`
 - Recorded results: `3`
 
 ## Canonical source
 
 `skills/round-based-requirements-grilling/SKILL.md`
-
-## Runtime authority
-
-Concrete Grilling execution is delegated to the current `main` state of `GithubLarsKomo/grilling`, especially its `SKILL.md` and `site/catalog.json`.

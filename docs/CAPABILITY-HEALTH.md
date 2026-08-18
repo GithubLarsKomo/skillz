@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **117**
-- User-facing entrypoints: **99**
-- Evaluation suites: **117**
+- Skills: **121**
+- User-facing entrypoints: **103**
+- Evaluation suites: **121**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **143**
+- Outputs without inferred hard-requires consumers: **144**
 
 ## Evaluation gaps
 
@@ -159,6 +159,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
+- `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
 - `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
