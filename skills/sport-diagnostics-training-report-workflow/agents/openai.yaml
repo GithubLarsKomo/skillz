@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Diagnostics Training Report Workflow"
+  short_description: "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare..."
+policy:
+  allow_implicit_invocation: true
