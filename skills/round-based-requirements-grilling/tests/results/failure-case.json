@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "round-based-requirements-grilling",
   "caseId": "failure-case",
-  "recordedAt": "2026-07-31",
+  "recordedAt": "2026-08-18",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "block SPEC creation", "passed": true, "evidence": "The workflow withholds the SPEC decision because mandatory software-readiness evidence is incomplete."},
-    {"behavior": "report missing readiness and governance decisions", "passed": true, "evidence": "Ground truth, governance, validation, monitoring, and safety-boundary gaps are listed as explicit blockers."},
-    {"behavior": "reject publication until a new programmatically generated token replaces the old token", "passed": true, "evidence": "Publication remains blocked until a cryptographically generated current token is written and the old token is invalidated."}
+    {"behavior": "block execution until the authoritative Grilling sources are loaded", "passed": true, "evidence": "The authoritative-source section requires the current Grilling SKILL.md and catalog before execution."},
+    {"behavior": "load the catalog and relevant round artifacts before continuing an existing grilling", "passed": true, "evidence": "The skill requires site/catalog.json and referenced rounds/reports needed for the next round."},
+    {"behavior": "apply the authoritative Grilling process unchanged once the sources are available", "passed": true, "evidence": "The execution contract requires applying the process defined in the authoritative repository unchanged."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "approve a software SPEC without the mandatory readiness section", "observed": false, "evidence": "No approval or handoff occurs without the dedicated readiness and data-strategy content."},
-    {"behavior": "keep ACCESS_TOKEN_PREVIOUS or otherwise preserve the old token", "observed": false, "evidence": "Only ACCESS_TOKEN_CURRENT is supported and prior credentials are invalidated."}
+    {"behavior": "execute from remembered token, runtime or deployment rules", "observed": false, "evidence": "The router forbids inventing local runtime, auth, deployment and status semantics."},
+    {"behavior": "silently substitute a local Grilling implementation", "observed": false, "evidence": "The skill is explicitly a capability/discovery/router entry point and rejects a parallel implementation strand."}
   ],
   "overall": "pass"
 }
