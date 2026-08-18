@@ -16,7 +16,7 @@ tags:
 
 # round-based-requirements-grilling
 
-Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Bei Softwareprojekten ist eine verpflichtende KI-/ML-Readiness-Prüfung einschließlich Einsatzpotenzial, Architekturvorbereitung, Datensammlung, Labeling und Governance Bestandteil des Grillings. Die generische, token-geschützte WebApp verwaltet parallele aktive und historische Grillings. Eine SPEC.md wird im Chat geprüft und erst nach Approval in ein separates Produkt-Repository übergeben.
+Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Bei Softwareprojekten ist KI-/ML-Readiness verpflichtender Bestandteil des Grillings.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -57,3 +57,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 ## Canonical source
 
 `skills/round-based-requirements-grilling/SKILL.md`
+
+## Runtime authority
+
+Concrete Grilling execution is delegated to the current `main` state of `GithubLarsKomo/grilling`, especially its `SKILL.md` and `site/catalog.json`.
