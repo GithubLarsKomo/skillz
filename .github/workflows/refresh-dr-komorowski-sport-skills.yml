@@ -1,0 +1,44 @@
+name: Refresh Dr Komorowski sport skill metadata
+
+on:
+  push:
+    branches:
+      - feat/dr-komorowski-sport-report-skills
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize agent metadata
+        run: python scripts/materialize_openai_agent_metadata.py
+      - name: Generate canonical repository metadata
+        run: python scripts/generate_repository_metadata.py
+      - name: Rebuild committed OpenAI plugin
+        run: python scripts/build_openai_plugin.py --output plugins/skillz
+      - name: Validate focused repository contracts
+        run: |
+          python -m unittest tests.test_build_openai_plugin
+          python scripts/validate_skills.py
+          python scripts/evaluate_skills.py
+          python scripts/generate_repository_metadata.py --check
+      - name: Commit generated artifacts
+        shell: bash
+        run: |
+          git diff --check
+          if git diff --quiet && git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md .skill-sync.json docs obsidian skills/*/agents/openai.yaml plugins/skillz
+          git commit -m 'Rebuild Skillz distribution for sport skills'
+          git push
