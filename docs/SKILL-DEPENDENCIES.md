@@ -111,6 +111,8 @@ graph TD
   fda_registration_listing_udi --> medical_device_labeling_ifu
   fda_registration_listing_udi --> regulated_product_context
   fda_registration_listing_udi --> regulatory_evidence_traceability
+  freedom_to_operate_assessment --> patent_landscape_analysis
+  freedom_to_operate_assessment --> research_to_evidence_note
   iec62304_software_lifecycle --> design_control_traceability
   iec62304_software_lifecycle --> medical_device_qms_iso13485
   iec62304_software_lifecycle --> medical_device_risk_management_iso14971
@@ -269,6 +271,7 @@ graph TD
   obsidian_adapter --> knowledge_map_generator
   obsidian_adapter --> knowledge_view
   obsidian_adapter --> structured_knowledge_artifact
+  patent_landscape_analysis --> research_to_evidence_note
   process_validation_iq_oq_pq --> design_control_traceability
   process_validation_iq_oq_pq --> medical_device_qms_iso13485
   process_validation_iq_oq_pq --> medical_device_risk_management_iso14971
@@ -302,6 +305,11 @@ graph TD
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
+  technology_due_diligence --> freedom_to_operate_assessment
+  technology_due_diligence --> large_work_wayfinder
+  technology_due_diligence --> patent_landscape_analysis
+  technology_due_diligence --> technology_offer_assessment
+  technology_offer_assessment --> research_to_evidence_note
   test_driven_vertical_slice --> disciplined_diagnosis
   test_driven_vertical_slice --> spec_to_vertical_issues
   throwaway_prototype --> agent_handoff
@@ -400,7 +408,7 @@ graph TD
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
-| `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `technology-due-diligence`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `large-work-wayfinder`, `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
 | `design-control-traceability.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
@@ -420,6 +428,7 @@ graph TD
 | `dual-510k-clia-strategy.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-evidence-package.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
+| `due-diligence-handoff.json` | `technology-due-diligence` | — | unconsumed |
 | `engineering-closure-gaps.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-delivery-status.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
@@ -430,8 +439,8 @@ graph TD
 | `eu-regulatory-investigations.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eudamed-readiness.json` | `eudamed-udi-ivd` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `two-axis-compliance-review` | inferred |
-| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `two-axis-compliance-review` | inferred |
+| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
 | `fda-acceptance-preflight.json` | `fda-acceptance-readiness` | — | unconsumed |
@@ -460,6 +469,10 @@ graph TD
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `finding-closure-status.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `flex-study-needs.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
+| `fto-claim-map.json` | `freedom-to-operate-assessment` | `technology-due-diligence` | inferred |
+| `fto-design-around-options.json` | `freedom-to-operate-assessment` | `technology-due-diligence` | inferred |
+| `fto-risk-heatmap.md` | `freedom-to-operate-assessment` | `technology-due-diligence` | inferred |
+| `fto-scope.json` | `freedom-to-operate-assessment` | `technology-due-diligence` | inferred |
 | `gudid-udi-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
 | `human-procedure-plan.md` | `human-procedure-wizard` | — | unconsumed |
 | `human-procedure-result.json` | `human-procedure-wizard` | — | unconsumed |
@@ -474,7 +487,7 @@ graph TD
 | `inhouse-ivd-transition-readiness.json` | `ivdr-inhouse-health-institution` | — | unconsumed |
 | `inspection-evidence-index.json` | `fda-qmsr-inspection-readiness` | — | unconsumed |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | unconsumed |
-| `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `technology-due-diligence`, `throwaway-prototype` | inferred |
 | `isms-audit-findings.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-plan.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-report.md` | `iso27001-isms-audit` | — | unconsumed |
@@ -531,6 +544,9 @@ graph TD
 | `obsidian-note.md` | `obsidian-adapter` | — | unconsumed |
 | `obsidian-view.base` | `obsidian-adapter` | — | unconsumed |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | unconsumed |
+| `patent-landscape.json` | `patent-landscape-analysis` | `freedom-to-operate-assessment`, `technology-due-diligence` | inferred |
+| `patent-landscape.md` | `patent-landscape-analysis` | `freedom-to-operate-assessment`, `technology-due-diligence` | inferred |
+| `patent-search-log.json` | `patent-landscape-analysis` | `freedom-to-operate-assessment`, `technology-due-diligence` | inferred |
 | `pccp-applicability.json` | `fda-pccp-change-control` | — | unconsumed |
 | `pccp-change-evidence.json` | `fda-pccp-change-control` | — | unconsumed |
 | `pccp-deviation-routing.json` | `fda-pccp-change-control` | — | unconsumed |
@@ -624,6 +640,11 @@ graph TD
 | `supplier-quality-assessment.json` | `supplier-quality-medical-device` | — | unconsumed |
 | `supplier-signal-set.json` | `supplier-quality-medical-device` | — | unconsumed |
 | `synchronization manifest` | `central-skill-repository-curation` | — | unconsumed |
+| `technology-due-diligence.json` | `technology-due-diligence` | — | unconsumed |
+| `technology-due-diligence.md` | `technology-due-diligence` | — | unconsumed |
+| `technology-offer-assessment.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
+| `technology-offer-assessment.md` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
+| `technology-offer-gap-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `trend-signal-set.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | unconsumed |
 | `updated skill repository` | `central-skill-repository-curation` | — | unconsumed |
@@ -641,4 +662,4 @@ graph TD
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
-| `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `technology-due-diligence`, `throwaway-prototype` | inferred |

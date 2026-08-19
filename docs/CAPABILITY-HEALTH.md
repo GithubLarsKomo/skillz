@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **121**
-- User-facing entrypoints: **103**
-- Evaluation suites: **121**
+- Skills: **125**
+- User-facing entrypoints: **107**
+- Evaluation suites: **125**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **144**
+- Outputs without inferred hard-requires consumers: **147**
 
 ## Evaluation gaps
 
@@ -69,6 +69,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`
+- `due-diligence-handoff.json` — producer: `technology-due-diligence`
 - `engineering-closure-gaps.json` — producer: `engineering-delivery-followup`
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
@@ -166,6 +167,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
+- `technology-due-diligence.json` — producer: `technology-due-diligence`
+- `technology-due-diligence.md` — producer: `technology-due-diligence`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
 - `updated skill repository` — producer: `central-skill-repository-curation`
 - `usability-engineering-assessment.json` — producer: `iec62366-usability-engineering`

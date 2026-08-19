@@ -10,8 +10,11 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **3**
+Skills: **6**
 
+- [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
+- [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/research-to-evidence-note|research-to-evidence-note]]
 - [[skills/sport-performance-diagnostics|sport-performance-diagnostics]]
 - [[skills/structured-knowledge-artifact|structured-knowledge-artifact]]
+- [[skills/technology-offer-assessment|technology-offer-assessment]]

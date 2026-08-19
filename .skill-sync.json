@@ -263,6 +263,12 @@
         "agents/openai.yaml": "dd9beb6ddda6a7128aa7851eb59822d8e45e9ca809397e1b2fe12d4fde4f722c"
       }
     },
+    "freedom-to-operate-assessment": {
+      "files": {
+        "SKILL.md": "2d588d206cb43497708814dc202f0244900c5ebdf41bb82fd06d751e326d1c53",
+        "agents/openai.yaml": "09e3d681eb309477530e7c79621c6f8fc085d4c8907e463dd94dcc94ac928c7c"
+      }
+    },
     "human-procedure-wizard": {
       "files": {
         "SKILL.md": "e447fe883e95508a087ea46190131ad0f0dffea928b87dbb96e8a6531484ba5b",
@@ -582,6 +588,12 @@
         "agents/openai.yaml": "9895354261df1c6d40697d0836be07e86c3cd3a67177789cdea4cd410d8d004c"
       }
     },
+    "patent-landscape-analysis": {
+      "files": {
+        "SKILL.md": "d64a6db795d015e721a3394f953ecd7be752c025054933622232db88e02aa70a",
+        "agents/openai.yaml": "67acea37de785e88b6c7ba1a4a88750d4defae39d8ee37117d8456ebf980cf02"
+      }
+    },
     "process-validation-iq-oq-pq": {
       "files": {
         "SKILL.md": "b9334e05466fe6b78674d0cb4fbe8043dfb3480172f95682ee901dcfbfeb55b0",
@@ -714,6 +726,18 @@
         "SKILL.md": "d5dd187e60570493715c2fb0d984626fbd0546fc60ea2e4d2c53804b86d3649b",
         "agents/openai.yaml": "5a71dddcaf2b0e294902a410c01c020d365d922bbefa347d0170ee5464e2b5d5",
         "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    },
+    "technology-due-diligence": {
+      "files": {
+        "SKILL.md": "def3074fdfbea48d4d158b2ef1bde312e3d6af56d4b59a0c50d2aa50faa441e7",
+        "agents/openai.yaml": "5d063f83651f5e531bfd2b0db50fcc2bc76a923a608be8ab06001dee8e5b5070"
+      }
+    },
+    "technology-offer-assessment": {
+      "files": {
+        "SKILL.md": "40c9c359f825fe62d4959c0734b8c89565ac9c63f6362aaa476e179d9f2b8873",
+        "agents/openai.yaml": "e8506c6a872c2fe6162bf8b9d56b9cd60e07a3f2d2146c205628dabdbc6baa8c"
       }
     },
     "test-driven-vertical-slice": {

@@ -35,6 +35,7 @@ Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch
 
 - [[skills/decision-record|decision-record]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
+- [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ## Outputs
@@ -49,18 +50,21 @@ Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch
 
 - [[skills/decision-record|decision-record]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
+- [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ### `investigation-backlog.json`
 
 - [[skills/decision-record|decision-record]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
+- [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ### `wayfinding-brief.md`
 
 - [[skills/decision-record|decision-record]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
+- [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ## Evaluation

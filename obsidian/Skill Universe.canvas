@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n121 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n125 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1065,14 +1065,32 @@
       "x": 6100,
       "y": 0,
       "width": 1120,
-      "height": 240,
+      "height": 380,
       "color": "6"
+    },
+    {
+      "id": "skill-freedom-to-operate-assessment",
+      "type": "file",
+      "file": "skills/freedom-to-operate-assessment.md",
+      "x": 6140,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-patent-landscape-analysis",
+      "type": "file",
+      "file": "skills/patent-landscape-analysis.md",
+      "x": 6470,
+      "y": 70,
+      "width": 300,
+      "height": 110
     },
     {
       "id": "skill-research-to-evidence-note",
       "type": "file",
       "file": "skills/research-to-evidence-note.md",
-      "x": 6140,
+      "x": 6800,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1081,8 +1099,8 @@
       "id": "skill-sport-performance-diagnostics",
       "type": "file",
       "file": "skills/sport-performance-diagnostics.md",
-      "x": 6470,
-      "y": 70,
+      "x": 6140,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1090,8 +1108,17 @@
       "id": "skill-structured-knowledge-artifact",
       "type": "file",
       "file": "skills/structured-knowledge-artifact.md",
+      "x": 6470,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-technology-offer-assessment",
+      "type": "file",
+      "file": "skills/technology-offer-assessment.md",
       "x": 6800,
-      "y": 70,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1174,6 +1201,15 @@
       "type": "file",
       "file": "skills/sport-training-programming.md",
       "x": 8580,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-technology-due-diligence",
+      "type": "file",
+      "file": "skills/technology-due-diligence.md",
+      "x": 8910,
       "y": 210,
       "width": 300,
       "height": 110
@@ -2140,6 +2176,24 @@
       "fromSide": "left",
       "toNode": "skill-regulatory-evidence-traceability",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9c6f7c7bcb51",
+      "fromNode": "skill-freedom-to-operate-assessment",
+      "fromSide": "right",
+      "toNode": "skill-patent-landscape-analysis",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d86c520480f8",
+      "fromNode": "skill-freedom-to-operate-assessment",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3566,6 +3620,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-6a2e517cd81c",
+      "fromNode": "skill-patent-landscape-analysis",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-5ed3beb6859a",
       "fromNode": "skill-process-validation-iq-oq-pq",
       "fromSide": "right",
@@ -3859,6 +3922,51 @@
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-adc6a671542d",
+      "fromNode": "skill-technology-due-diligence",
+      "fromSide": "left",
+      "toNode": "skill-freedom-to-operate-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0b1049ef2ee7",
+      "fromNode": "skill-technology-due-diligence",
+      "fromSide": "left",
+      "toNode": "skill-large-work-wayfinder",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4c4ed0f7e7bc",
+      "fromNode": "skill-technology-due-diligence",
+      "fromSide": "left",
+      "toNode": "skill-patent-landscape-analysis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cc4a8664be54",
+      "fromNode": "skill-technology-due-diligence",
+      "fromSide": "left",
+      "toNode": "skill-technology-offer-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-81e9c7a0ef65",
+      "fromNode": "skill-technology-offer-assessment",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
