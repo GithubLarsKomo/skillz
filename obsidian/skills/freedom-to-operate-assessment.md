@@ -7,7 +7,7 @@ userFacing: true
 evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 6
-recordedResultCount: 3
+recordedResultCount: 5
 sourcePath: "skills/freedom-to-operate-assessment/SKILL.md"
 tags:
   - skill
@@ -62,7 +62,7 @@ Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktion
 - Mode: `compatibility`
 - Passed: `False`
 - Cases: `6`
-- Recorded results: `3`
+- Recorded results: `5`
 
 ## Canonical source
 
