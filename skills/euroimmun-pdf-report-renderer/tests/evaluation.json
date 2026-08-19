@@ -10,14 +10,14 @@
       "skillAnchors": ["Architekturregel", "Ablauf", "Abschlusskriterien"]
     },
     {
-      "id": "pagination-edge",
+      "id": "edge-case",
       "input": "Das DOCX enthält mehrseitige Tabellen und bewusste Seitenumbrüche.",
       "requiredBehaviors": ["Seitenreihenfolge und Tabelleninhalt nach PDF-Konvertierung vergleichen", "Header Footer und Umbrüche visuell auf Reflow prüfen"],
       "forbiddenBehaviors": ["zusätzliche Leer- oder Verlustseiten ignorieren", "sichtbare PDF-Abweichungen per Stempelung kaschieren"],
       "skillAnchors": ["Qualitätsprüfung", "PDF-Reflow weicht sichtbar ab"]
     },
     {
-      "id": "conversion-failure",
+      "id": "failure-case",
       "input": "Auf dem System ist kein LibreOffice/soffice verfügbar.",
       "requiredBehaviors": ["fehlende Konvertierungsabhängigkeit klar melden", "keine PDF-Datei als Erfolg vortäuschen"],
       "forbiddenBehaviors": ["eine leere Datei mit PDF-Endung ausgeben", "erfolgreiche visuelle Prüfung behaupten"],
