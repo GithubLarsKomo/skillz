@@ -7,7 +7,7 @@ userFacing: true
 evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 7
-recordedResultCount: 5
+recordedResultCount: 6
 sourcePath: "skills/technology-offer-assessment/SKILL.md"
 tags:
   - skill
@@ -67,7 +67,7 @@ Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote eviden
 - Mode: `compatibility`
 - Passed: `False`
 - Cases: `7`
-- Recorded results: `5`
+- Recorded results: `6`
 
 ## Canonical source
 
