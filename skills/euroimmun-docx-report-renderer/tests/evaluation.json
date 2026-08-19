@@ -10,11 +10,18 @@
       "skillAnchors": ["Template-Modell", "Ablauf", "Abschlusskriterien"]
     },
     {
-      "id": "wide-table",
+      "id": "edge-case",
       "input": "Der Report enthält eine sechsspaltige Tabelle mit langen Claim- und Evidenztexten.",
       "requiredBehaviors": ["Tabelle innerhalb der A4-Breite halten", "Text umbrechen oder logisch teilen statt unlesbar zu skalieren", "nach Layoutanpassung erneut visuell prüfen"],
       "forbiddenBehaviors": ["Tabellentext aus dem Seitenrand laufen lassen", "Schrift auf unlesbare Größe reduzieren"],
       "skillAnchors": ["Zu breite Tabelle", "Designregeln für das Public-Reference-Template"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Das bereitgestellte Corporate-Template enthält keinen {{REPORT_BODY}}-Platzhalter.",
+      "requiredBehaviors": ["mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "das bereitgestellte Template unverändert lassen"],
+      "forbiddenBehaviors": ["still auf das gebündelte Template zurückfallen", "an beliebiger Position in das Template schreiben"],
+      "skillAnchors": ["Template-Vertrag", "Pflichtplatzhalter fehlen"]
     },
     {
       "id": "template-override",
@@ -22,13 +29,6 @@
       "requiredBehaviors": ["das bereitgestellte Template statt des gebündelten Public-Reference-Templates verwenden", "Header Footer Logo und Corporate Styles des Overrides beibehalten", "nur vereinbarte Platzhalter und Report-Body befüllen"],
       "forbiddenBehaviors": ["Public-Reference-Header über das kontrollierte Template legen", "Corporate Styles eigenmächtig durch Working-Theme-Werte ersetzen"],
       "skillAnchors": ["Template-Vertrag", "Template-Modell"]
-    },
-    {
-      "id": "invalid-template",
-      "input": "Das bereitgestellte Corporate-Template enthält keinen {{REPORT_BODY}}-Platzhalter.",
-      "requiredBehaviors": ["mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "das bereitgestellte Template unverändert lassen"],
-      "forbiddenBehaviors": ["still auf das gebündelte Template zurückfallen", "an beliebiger Position in das Template schreiben"],
-      "skillAnchors": ["Template-Vertrag", "Pflichtplatzhalter fehlen"]
     }
   ]
 }
