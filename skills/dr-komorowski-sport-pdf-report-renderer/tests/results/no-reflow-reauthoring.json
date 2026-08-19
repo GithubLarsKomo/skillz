@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-pdf-report-renderer",
+  "caseId": "no-reflow-reauthoring",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "PDF nicht manuell re-authoren", "passed": true, "evidence": "The architecture prohibits post-conversion PDF layout edits."},
+    {"behavior": "Änderung ausschließlich in der kanonischen DOCX-Quelle vornehmen", "passed": true, "evidence": "All visible layout fixes are routed back to the DOCX spec/template/renderer."},
+    {"behavior": "Paritätsprüfung wiederholen", "passed": true, "evidence": "The workflow requires a fresh page-by-page comparison after regeneration."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "PDF als zweite Layoutwahrheit behandeln", "observed": false, "evidence": "The DOCX is explicitly defined as the single canonical layout source."},
+    {"behavior": "DOCX und PDF absichtlich auseinanderlaufen lassen", "observed": false, "evidence": "Release requires visual parity between both formats."}
+  ],
+  "overall": "pass"
+}

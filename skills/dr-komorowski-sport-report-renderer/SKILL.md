@@ -1,137 +1,86 @@
 ---
 name: dr-komorowski-sport-report-renderer
-description: Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komorowski-Diagnose-&-Training-Design mit Vektorlogo, Navy/Teal-Farbsystem, Tabellen, Callouts, Charts, Kopf-/Fußzeilen und visueller Qualitätskontrolle. Verwenden, wenn ein fertiger fachlicher Inhalt im wiederverwendbaren Dr.-Komorowski-Template ausgegeben werden soll; der Skill erfindet keine Diagnostik oder Trainingslogik.
+description: Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und Trainingsreports auf ReportLab-Basis. Bleibt zur reproduzierbaren Ausgabe älterer Report-Specs mit Vektorlogo und Vektor-Charts erhalten; neue Reports sollen über den kanonischen DOCX- und den daraus abgeleiteten PDF-Renderer laufen.
 userFacing: true
-implicitInvocation: true
+implicitInvocation: false
 category: workflow
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires: []
 outputs:
   - dr-komorowski-report.pdf
-lastEvaluated: 2026-08-18
+lastEvaluated: 2026-08-19
 ---
 
-# Dr. Komorowski Sport Report Renderer
+# Dr. Komorowski Sport Report Renderer — Legacy Direct PDF
 
-Setze bereits fachlich geklärten Inhalt in das etablierte Erscheinungsbild des **Dr. Komorowski Diagnose- und Trainingszentrums**. Der Renderer kapselt Logo, Farben, Typografie, Tabellen, Callouts, Charts, Kopf-/Fußzeilen und Seitenlogik, damit spätere Reports nicht jedes Mal neu gestaltet werden.
+Dieser Skill erhält den bisherigen **ReportLab-Direkt-PDF-Pfad** für die reproduzierbare Ausgabe älterer Dr.-Komorowski-Sportreports. Er wird nicht mehr automatisch ausgewählt.
+
+## Migration
+
+Für neue Reports gilt:
+
+`Report-Spec -> dr-komorowski-sport-docx-report-renderer -> DOCX -> dr-komorowski-sport-pdf-report-renderer -> PDF`
+
+Nutze diesen Legacy-Skill nur, wenn ein älterer Report exakt über den bisherigen ReportLab-Pfad reproduziert werden soll oder die historische vektorbasierte Chartausgabe benötigt wird. Der übergeordnete `sport-diagnostics-training-report-workflow` verwendet für neue Reports den DOCX-first-Pfad.
 
 ## Trigger
 
-Nutze diesen Skill, wenn der Nutzer einen Sportdiagnostik-, Trainings-, Taper-, Test- oder Therapiearbeitsreport ausdrücklich im Dr.-Komorowski-Stil als PDF wünscht oder ein bestehender strukturierter Inhalt genau in dieses Template gesetzt werden soll.
-
-Nicht nutzen, um ungeklärte Testdaten fachlich auszuwerten oder einen Trainingsplan neu zu entwickeln. Dafür zuerst `sport-performance-diagnostics` bzw. `sport-training-programming` verwenden.
+Explizit nutzen bei Aufträgen wie „rendere diesen vorhandenen alten Report-Spec mit dem Legacy-Renderer“ oder „reproduziere das frühere ReportLab-PDF“. Nicht als Standard für neue Reports verwenden.
 
 ## Voraussetzungen
 
-- Ein fachlich freigegebener Report-Inhalt oder ein strukturiertes Report-Spec.
-- Report-Titel, Datum, Dokumenttyp und optional Berichtsnummer.
-- Optional Athleten-/Testmetadaten; personenbezogene Angaben nur übernehmen, wenn sie für das gewünschte Dokument erforderlich sind.
-- Lokale Python-Umgebung mit `reportlab`.
-- Für die visuelle Endprüfung ein PDF-Renderer wie Poppler/PDFium.
+- fachlich finalisierter Inhalt oder vorhandener kompatibler Report-Spec,
+- lokale Python-Umgebung mit `reportlab`,
+- PDF-Renderer für die visuelle Endprüfung.
 
-Die kanonischen Designwerte stehen in `assets/report-theme.json`; das Logo liegt als editierbares `assets/dr-komorowski-logo.svg` vor. Keine Fontdateien in den Skill einbetten oder weitergeben.
+Die historischen Designwerte stehen in `assets/report-theme.json`; das Vektorlogo liegt in `assets/dr-komorowski-logo.svg`. **Keine Fontdateien** in den Skill einbetten oder weitergeben.
 
 ## Ablauf
 
-1. **Inhalt einfrieren.** Fachtext, Tabellen und Zahlen vor dem Layout als Report-Spec strukturieren; der Renderer verändert keine Schwellen, Lasten, Diagnosen oder medizinische Aussagen.
-2. **Template laden.** Farben, Maße und Textrollen aus `assets/report-theme.json` verwenden. Das Logo ist Vektorinhalt, kein Screenshot.
-3. **Report-Spec validieren.** Pflichtfelder, unterstützte Blocktypen, Tabellenstruktur und Chart-Daten prüfen.
-4. **PDF rendern.** `scripts/render_report.py INPUT.json OUTPUT.pdf` verwenden. Unterstützte Blöcke: `heading`, `subheading`, `paragraph`, `bullets`, `table`, `callout`, `chart`, `spacer`, `pagebreak`.
-5. **Kopf-/Fußzeilen prüfen.** Oben rechts Dokumentkontext, unten Dokumenttyp/Datum sowie Seitennummer; Linien dezent in Border-Grau.
-6. **Visuell verifizieren.** PDF mit mindestens einem Renderer in PNGs rendern und auf abgeschnittene Texte, überlaufende Tabellen, fehlerhafte Achsen/Legenden, Glyphenfehler, ungewollte Seitenumbrüche und inkonsistente Abstände prüfen.
-7. **Bei Layoutfehlern korrigieren.** Nicht durch manuelle Leerzeichen oder hart codierte Zeilenumbrüche kaschieren; Spaltenbreiten, Absatzstile, Chart-Höhe oder Blockstruktur korrigieren und erneut rendern.
-8. **Finale Datei benennen.** Aussagekräftiger ASCII-kompatibler Dateiname, PDF-Metadaten setzen und nur die finale Version ausgeben.
+1. **Inhalt einfrieren.** Der Legacy-Renderer verändert keine Schwellen, Lasten, Diagnosen, Trainingswerte oder medizinischen Aussagen.
+2. Report-Spec mit den vom vorhandenen `scripts/render_report.py` unterstützten Blöcken validieren.
+3. Direkt-PDF mit dem bestehenden ReportLab-Renderer erzeugen.
+4. Kopf-/Fußzeilen, Tabellen, Callouts und Charts kontrollieren.
+5. **Visuell verifizieren.** PDF in Seitenbilder rendern und auf Clipping, Überlauf, Glyphenfehler, Achsen/Legenden und Seitenumbrüche prüfen.
+6. Bei Layoutfehlern nur Layoutparameter/Blockstruktur korrigieren, keine Fachwerte.
 
 Beispiel:
 
 ```bash
-python scripts/render_report.py assets/report-spec.example.json /tmp/dr-komorowski-report.pdf
-python scripts/render_report.py assets/report-spec.lactate-chart.example.json /tmp/dr-komorowski-lactate-chart.pdf
+python scripts/render_report.py assets/report-spec.example.json /tmp/dr-komorowski-legacy.pdf
+python scripts/render_report.py assets/report-spec.lactate-chart.example.json /tmp/dr-komorowski-legacy-lactate.pdf
 ```
 
-## Chart-Block: Laktat + Herzfrequenz über Leistung
+## Chart-Kompatibilität
 
-Der Renderer unterstützt einen echten Vektor-Chart mit `type: "chart"` und `chart_type: "lactate_hr_power"`. Er zeichnet:
-
-- Leistung auf der x-Achse,
-- Laktat auf der linken y-Achse,
-- Herzfrequenz auf einer getrennten rechten y-Achse,
-- Messpunkte und Verbindungslinien für beide Reihen,
-- LT1-/LT2-Arbeitsbereiche als vertikale Bänder,
-- optionale Arbeitswerte innerhalb der Bänder als gestrichelte Vertikalen,
-- Titel, Legende, Achsenbeschriftungen und optionale Bildunterschrift.
-
-Minimalbeispiel:
-
-```json
-{
-  "type": "chart",
-  "chart_type": "lactate_hr_power",
-  "title": "Laktat und Herzfrequenz über Leistung",
-  "data": [
-    {"power_w": 100, "lactate_mmol_l": 1.0, "hr_bpm": 108},
-    {"power_w": 125, "lactate_mmol_l": 1.0, "hr_bpm": 116}
-  ],
-  "threshold_bands": [
-    {"label": "LT1", "kind": "lt1", "from_w": 175, "to_w": 185, "working_w": 180},
-    {"label": "LT2", "kind": "lt2", "from_w": 220, "to_w": 230, "working_w": 225}
-  ]
-}
-```
-
-Für `data` sind mindestens zwei Messpunkte erforderlich. `power_w` muss streng aufsteigend sein; `power_w`, `lactate_mmol_l` und `hr_bpm` müssen endliche Zahlen sein. Für jedes Schwellenband muss `to_w > from_w` gelten. Wenn `working_w` angegeben wird, muss der Wert innerhalb des Bandes liegen. `height_mm` ist optional und muss zwischen 60 und 130 mm liegen.
-
-Die Chart-Achsen werden aus den Daten automatisch auf sinnvolle Grenzen und Tick-Abstände skaliert. Die Laktatachse beginnt bei 0; die Herzfrequenzachse erhält eine eigene Skala. Die LT-Bänder sind **Darstellung bereits fachlich bestimmter Arbeitsbereiche**. Der Renderer berechnet oder verschiebt LT1/LT2 nicht.
-
-Referenz: `assets/report-spec.lactate-chart.example.json`.
+Der bestehende `lactate_hr_power`-Block bleibt für historische Specs erhalten. Leistung, Laktat, Herzfrequenz sowie übergebene LT1-/LT2-Bänder werden als ReportLab-Vektorinhalt gerendert. Der Renderer berechnet oder verschiebt LT1/LT2 nicht.
 
 ## Designstandard
 
-Das aktuelle Referenzdesign verwendet:
+Historisches Referenzdesign:
 
-- Navy `#173652` für Marke, Kopfzeile, Hauptüberschriften und Laktatkurve,
-- Dark `#1C2B3A` / Body `#24313E` für Titel und Lesetext,
-- Teal `#2B8884` für Linien, Akzente, Herzfrequenzkurve und LT1-Markierung,
-- Teal Text `#246F6C` für Subheads,
+- Navy `#173652`,
+- Dark `#1C2B3A` / Body `#24313E`,
+- Teal `#2B8884` / Teal Text `#246F6C`,
 - Border `#D6E0E6`, Table Fill `#EDF3F6`, Callout Fill `#F6F8F9`,
-- Warning Fill `#FFF4D6` und Warning Border `#9A6500` für Warnboxen und LT2-Markierung,
-- A4, großzügige Weißräume, serifenlose DejaVu-Sans/Helvetica-Fallbacks.
-
-Weitere Details: `references/brand-guide.md`.
-
-## Prüfungen
-
-Vor Übergabe prüfen:
-
-- Logo bleibt scharf und ist nicht gerastert.
-- Alle Seiten tragen konsistente Kopf-/Fußzeilen.
-- Überschriftenhierarchie ist klar, ohne dekorative Überladung.
-- Tabellen sind auf A4 lesbar; kein Text läuft aus Zellen.
-- Callouts verwenden nur definierte Info-/Warning-Rollen.
-- Charts bleiben Vektorinhalt; Achsen, Messpunkte, Legende und LT-Bänder sind vollständig sichtbar.
-- Bei Dual-Axis-Charts sind Laktat und Herzfrequenz eindeutig den jeweiligen Achsen zugeordnet; keine optische Gleichsetzung unterschiedlicher Einheiten.
-- LT1/LT2-Bänder entsprechen exakt den im Report-Spec übergebenen fachlichen Arbeitsbereichen.
-- Umlaute, Prozentzeichen, ×/x und Sonderzeichen rendern korrekt; bei Rendererproblemen ASCII-kompatible Zeichen bevorzugen.
-- PDF-Metadaten enthalten Titel, Subject und Author ohne unbeabsichtigte personenbezogene Zusatzdaten.
-- Visuelle PNG-Prüfung ist erfolgt.
+- Warning Fill `#FFF4D6` / Warning Border `#9A6500`,
+- A4, Vektorlogo und ReportLab-Vektor-Charts.
 
 ## Fehlerbehandlung
 
-- **ReportLab fehlt:** Abhängigkeit explizit melden; keine leere oder ersatzweise HTML-Datei als PDF ausgeben.
-- **Font nicht vorhanden:** DejaVu Sans über Fontconfig/übliche Systempfade suchen, andernfalls Helvetica-Fallback verwenden; keine Fontdatei in den Skill kopieren.
-- **Zu breite Tabelle:** Spaltenbreiten anpassen, Text umbrechen oder Tabelle in logisch getrennte Tabellen teilen; niemals horizontal aus A4 herauslaufen lassen.
-- **Ungültiger Chart:** bei fehlenden/nichtnumerischen Messpunkten, nicht aufsteigender Leistung oder inkonsistenten LT-Bändern mit Blockindex abbrechen; keine Werte erraten oder sortierend verändern.
-- **Chart zu hoch:** `height_mm` innerhalb 60–130 mm anpassen oder mit einem gezielten `pagebreak` platzieren; nicht aus dem Seitenrahmen skalieren.
-- **Seitenüberlauf:** ReportLab-Flowables und PageBreaks verwenden, keine absolute Positionierung langer Fließtexte.
-- **Ungültiges Blockformat:** mit verständlicher Fehlermeldung und Blockindex abbrechen.
+- **ReportLab fehlt:** Abhängigkeit explizit melden; keine Ersatzdatei als PDF ausgeben.
+- **Font nicht vorhanden:** DejaVu Sans über Systempfade suchen, andernfalls Helvetica-Fallback; keine Fontdatei kopieren.
+- **Zu breite Tabelle:** Spaltenbreiten/Umbruch anpassen oder logisch teilen; niemals horizontal aus A4 laufen lassen.
+- **Ungültiger Chart:** bei fehlenden/nichtnumerischen Punkten, nicht aufsteigender Leistung oder ungültigen LT-Bändern abbrechen; keine Werte erraten oder sortieren.
+- **Seitenüberlauf:** ReportLab-Flowables/PageBreaks verwenden, keine manuellen Leerzeichen-Tricks.
 
 ## Übergabe
 
-Primärer Output ist `dr-komorowski-report.pdf`. Zusätzlich kann die geprüfte Report-Spec zusammen mit einem Render-Preview als Audit-/Reproduktionsartefakt erhalten bleiben. Inhaltliche Änderungen müssen an den vorgelagerten Fach-Skill zurückgegeben werden, nicht im Renderer still korrigiert werden.
+Primärer Output bleibt `dr-komorowski-report.pdf`. Bei neuen Reportaufträgen stattdessen auf die DOCX-first-Pipeline routen und DOCX sowie daraus abgeleitetes PDF gemeinsam ausgeben.
 
 ## Abschlusskriterien
 
-Der Skill ist abgeschlossen, wenn die PDF-Datei mit dem kanonischen Vektorlogo und Theme gerendert, in mindestens einem PDF-Renderer visuell geprüft, frei von Clipping/Überlappungen/Glyphenfehlern und inhaltlich identisch zum freigegebenen Report-Spec ist. Bei Reports mit `chart`-Block müssen zusätzlich beide y-Achsen, alle Datenpunkte und die LT1-/LT2-Arbeitsbereiche korrekt und eindeutig sichtbar sein.
+Der Legacy-Skill ist abgeschlossen, wenn das PDF im historischen Design gerendert, visuell geprüft und inhaltlich identisch zum freigegebenen Spec ist. Er ist **kein** zweiter kanonischer Layoutpfad für neue Dokumente.

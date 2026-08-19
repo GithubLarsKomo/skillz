@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-pdf-report-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Erzeuge aus dem finalen Dr.-Komorowski-DOCX den PDF-Report.",
+      "requiredBehaviors": ["PDF ausschließlich aus dem kanonischen DOCX konvertieren", "keine Inhalte oder Layoutwerte neu authoren", "DOCX- und PDF-Seiten visuell vergleichen"],
+      "forbiddenBehaviors": ["zweite unabhängige PDF-Layoutengine verwenden", "fachliche Werte beim PDF-Schritt ändern"],
+      "skillAnchors": ["Architekturregel", "Ablauf", "Abschlusskriterien"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Nach der Konvertierung verschiebt sich eine lange Trainingsplantabelle um eine Seite.",
+      "requiredBehaviors": ["Abweichung als nicht freigegeben erkennen", "Ursache im DOCX-Spec Template oder DOCX-Renderer korrigieren", "DOCX neu rendern und PDF erneut ableiten"],
+      "forbiddenBehaviors": ["PDF separat zurechtschieben", "Reflow ohne Prüfung akzeptieren"],
+      "skillAnchors": ["Visuelle Parität", "PDF-Reflow"]
+    },
+    {
+      "id": "failure-case",
+      "input": "LibreOffice ist auf dem System nicht verfügbar.",
+      "requiredBehaviors": ["fehlende LibreOffice/soffice-Abhängigkeit konkret melden", "ohne gültige Konvertierung abbrechen"],
+      "forbiddenBehaviors": ["HTML als PDF ausgeben", "leere oder nur umbenannte Datei erzeugen"],
+      "skillAnchors": ["Fehlerbehandlung"]
+    },
+    {
+      "id": "no-reflow-reauthoring",
+      "input": "Im PDF wäre eine manuelle Anpassung der Schriftgröße einfacher als die DOCX-Ursache zu beheben.",
+      "requiredBehaviors": ["PDF nicht manuell re-authoren", "Änderung ausschließlich in der kanonischen DOCX-Quelle vornehmen", "Paritätsprüfung wiederholen"],
+      "forbiddenBehaviors": ["PDF als zweite Layoutwahrheit behandeln", "DOCX und PDF absichtlich auseinanderlaufen lassen"],
+      "skillAnchors": ["Architekturregel", "Visuelle Parität"]
+    }
+  ]
+}

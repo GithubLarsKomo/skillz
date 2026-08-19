@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-docx-report-renderer",
+  "caseId": "template-override",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "das bereitgestellte Template verwenden", "passed": true, "evidence": "The --template path is preferred whenever a valid file is explicitly supplied."},
+    {"behavior": "Header Footer und Styles des Overrides erhalten", "passed": true, "evidence": "The renderer fills tokens and inserts the report body without rebuilding the supplied header/footer or styles."},
+    {"behavior": "nur vereinbarte Tokens und Report-Body befüllen", "passed": true, "evidence": "The template contract enumerates the only required tokens and insertion marker."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "gebündelten Header über das Override legen", "observed": false, "evidence": "The bundled template is not loaded when an explicit valid override is supplied."},
+    {"behavior": "Styles eigenmächtig ersetzen", "observed": false, "evidence": "The override retains its own existing styles; the renderer only uses style names when available."}
+  ],
+  "overall": "pass"
+}

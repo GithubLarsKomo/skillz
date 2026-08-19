@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-docx-report-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Rendere einen finalisierten 12-Wochen-Trainingsplan als editierbares Dr.-Komorowski-DOCX.",
+      "requiredBehaviors": ["kanonisches Dr.-Komorowski-DOCX-Template verwenden", "fachlichen Inhalt unverändert in DOCX-Blöcke überführen", "jede gerenderte DOCX-Seite visuell prüfen"],
+      "forbiddenBehaviors": ["Trainingswerte im Renderer verändern", "ungeprüft direkt ein unabhängiges PDF layouten"],
+      "skillAnchors": ["Kanonische Architektur", "Ablauf", "Abschlusskriterien"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Ein 12-Wochen-Plan enthält lange mehrseitige Tabellen mit fünf bis sechs Spalten.",
+      "requiredBehaviors": ["Tabellen innerhalb der A4-Satzbreite halten", "Datenzeilen mit cantSplit zusammenhalten", "Kopfzeile mehrseitiger Tabellen wiederholen"],
+      "forbiddenBehaviors": ["Tabellenzeilen zwischen Seiten teilen", "Schrift unlesbar klein skalieren"],
+      "skillAnchors": ["Tabellenregeln", "Abschlusskriterien"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Ein bereitgestelltes Sport-DOCX-Template enthält keinen {{REPORT_BODY}}-Platzhalter.",
+      "requiredBehaviors": ["mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "das bereitgestellte Template unverändert lassen"],
+      "forbiddenBehaviors": ["still auf das gebündelte Template zurückfallen", "an beliebiger Stelle in das Template schreiben"],
+      "skillAnchors": ["Template-Vertrag", "Fehlerbehandlung"]
+    },
+    {
+      "id": "template-override",
+      "input": "Ein angepasstes freigegebenes Dr.-Komorowski-DOCX-Template mit allen Pflichtplatzhaltern wurde bereitgestellt.",
+      "requiredBehaviors": ["das bereitgestellte Template verwenden", "Header Footer und Styles des Overrides erhalten", "nur vereinbarte Tokens und Report-Body befüllen"],
+      "forbiddenBehaviors": ["gebündelten Header über das Override legen", "Styles eigenmächtig ersetzen"],
+      "skillAnchors": ["Template-Modell", "Template-Vertrag"]
+    },
+    {
+      "id": "lactate-chart",
+      "input": "Der Report-Spec enthält Leistung, Laktat, Herzfrequenz sowie bereits bestimmte LT1-/LT2-Bänder.",
+      "requiredBehaviors": ["Messpunkte und beide y-Achsen darstellen", "übergebene Schwellenbänder unverändert darstellen", "Chart im DOCX vollständig sichtbar prüfen"],
+      "forbiddenBehaviors": ["LT1 oder LT2 neu berechnen", "Messpunkte sortieren oder interpolieren"],
+      "skillAnchors": ["Laktat-/Herzfrequenz-Chart", "Abschlusskriterien"]
+    }
+  ]
+}

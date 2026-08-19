@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-docx-report-renderer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "passed": true, "evidence": "Template validation counts all required tokens and reports missing placeholders."},
+    {"behavior": "das bereitgestellte Template unverändert lassen", "passed": true, "evidence": "Validation occurs before report-body insertion or output save."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "still auf das gebündelte Template zurückfallen", "observed": false, "evidence": "An explicitly supplied invalid template raises an error rather than falling back."},
+    {"behavior": "an beliebiger Stelle in das Template schreiben", "observed": false, "evidence": "The renderer only writes through the required token contract."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-pdf-report-renderer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "fehlende LibreOffice/soffice-Abhängigkeit konkret melden", "passed": true, "evidence": "The converter checks for soffice/libreoffice before running and raises a concrete error."},
+    {"behavior": "ohne gültige Konvertierung abbrechen", "passed": true, "evidence": "The script requires a non-empty generated PDF before copying the output."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "HTML als PDF ausgeben", "observed": false, "evidence": "No HTML fallback exists in the converter."},
+    {"behavior": "leere oder nur umbenannte Datei erzeugen", "observed": false, "evidence": "The candidate PDF must exist and have non-zero size."}
+  ],
+  "overall": "pass"
+}

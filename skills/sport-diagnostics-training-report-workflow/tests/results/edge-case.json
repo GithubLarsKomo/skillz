@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "sport-diagnostics-training-report-workflow",
   "caseId": "edge-case",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-19",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "Unsicherheit aus der Diagnostik erhalten", "passed": true, "evidence": "The structured diagnostics artifact is preserved through handoffs."},
-    {"behavior": "konservative Arbeitssteuerung oder Bereich verwenden", "passed": true, "evidence": "Unresolved diagnostics explicitly trigger conservative substitute control rather than forced precision."},
-    {"behavior": "keine künstliche Präzision im PDF erzeugen", "passed": true, "evidence": "The consistency gate forbids changing uncertainty at the rendering step."}
+    {"behavior": "Unsicherheit aus der Diagnostik erhalten", "passed": true, "evidence": "The consistency gate preserves uncertainty across specialist handoffs."},
+    {"behavior": "konservative Arbeitssteuerung oder Bereich verwenden", "passed": true, "evidence": "The failure-handling contract permits conservative range-based control rather than false precision."},
+    {"behavior": "keine künstliche Präzision in DOCX oder PDF erzeugen", "passed": true, "evidence": "Rendering is downstream of frozen specialist artifacts and cannot sharpen uncertain values."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "LT2 auf einen beliebigen Einzelwert zwingen", "observed": false, "evidence": "The workflow preserves diagnostic ranges when LT2 is not precisely resolved."},
-    {"behavior": "Unsicherheit zwischen Handoffs verlieren", "observed": false, "evidence": "Structured intermediate artifacts are the source of truth."}
+    {"behavior": "LT2 auf einen beliebigen Einzelwert zwingen", "observed": false, "evidence": "The workflow explicitly blocks forced precision when diagnostics do not support it."},
+    {"behavior": "Unsicherheit zwischen Handoffs verlieren", "observed": false, "evidence": "The workflow requires consistency of diagnostic uncertainty through plan and report artifacts."}
   ],
   "overall": "pass"
 }

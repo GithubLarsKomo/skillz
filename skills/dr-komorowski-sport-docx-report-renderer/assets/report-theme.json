@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "brand": "Dr. Komorowski Sportdiagnose und Trainingszentrum",
+  "page": {
+    "size": "A4",
+    "left_margin_mm": 18,
+    "right_margin_mm": 18,
+    "top_margin_mm": 22,
+    "bottom_margin_mm": 18
+  },
+  "colors": {
+    "navy": "#173652",
+    "dark": "#1C2B3A",
+    "body": "#24313E",
+    "teal": "#2B8884",
+    "teal_text": "#246F6C",
+    "muted": "#6B7785",
+    "border": "#D6E0E6",
+    "table_fill": "#EDF3F6",
+    "callout_fill": "#F6F8F9",
+    "warning_fill": "#FFF4D6",
+    "warning_border": "#9A6500",
+    "white": "#FFFFFF"
+  },
+  "fonts": {
+    "preferred": "Arial",
+    "fallback": "Aptos",
+    "secondary_fallback": "Liberation Sans"
+  },
+  "logo": {
+    "asset": "dr-komorowski-logo.svg",
+    "wordmark": "DR. KOMOROWSKI",
+    "tagline": "SPORTDIAGNOSE UND TRAININGSZENTRUM"
+  },
+  "notes": [
+    "Canonical DOCX-first successor to the established 2026 Dr. Komorowski ReportLab design.",
+    "Do not vendor or distribute font files with this skill.",
+    "New PDFs must be converted from the canonical DOCX rather than independently laid out."
+  ]
+}

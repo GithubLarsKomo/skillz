@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-docx-report-renderer",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Tabellen innerhalb der A4-Satzbreite halten", "passed": true, "evidence": "The table renderer computes bounded column widths from the A4 content width."},
+    {"behavior": "Datenzeilen mit cantSplit zusammenhalten", "passed": true, "evidence": "The renderer adds w:cantSplit to every table row."},
+    {"behavior": "Kopfzeile mehrseitiger Tabellen wiederholen", "passed": true, "evidence": "The renderer marks the first row with w:tblHeader."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Tabellenzeilen zwischen Seiten teilen", "observed": false, "evidence": "The pagination contract explicitly prohibits row splitting."},
+    {"behavior": "Schrift unlesbar klein skalieren", "observed": false, "evidence": "The skill requires wrapping or logical table splitting rather than unreadable font reduction."}
+  ],
+  "overall": "pass"
+}

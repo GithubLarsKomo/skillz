@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-pdf-report-renderer",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "PDF ausschließlich aus dem kanonischen DOCX konvertieren", "passed": true, "evidence": "The skill architecture and conversion script accept the final DOCX as the only layout source."},
+    {"behavior": "keine Inhalte oder Layoutwerte neu authoren", "passed": true, "evidence": "The PDF step performs conversion only and contains no independent layout path."},
+    {"behavior": "DOCX- und PDF-Seiten visuell vergleichen", "passed": true, "evidence": "Page-by-page visual parity is an explicit workflow and completion requirement."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "zweite unabhängige PDF-Layoutengine verwenden", "observed": false, "evidence": "The skill explicitly prohibits an independent PDF layout engine."},
+    {"behavior": "fachliche Werte beim PDF-Schritt ändern", "observed": false, "evidence": "The PDF renderer is conversion-only and presentation-neutral."}
+  ],
+  "overall": "pass"
+}

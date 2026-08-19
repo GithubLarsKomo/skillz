@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "sport-diagnostics-training-report-workflow",
   "caseId": "happy-path",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-19",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "Diagnostik, Trainingsplanung und Rendering über die jeweiligen Fach-Skills sequenzieren", "passed": true, "evidence": "The orchestrator delegates each phase to the dedicated specialist skill."},
-    {"behavior": "Zwischenartefakte konsistent halten", "passed": true, "evidence": "A consistency gate checks zones, loads, dates, exercises and safety constraints."},
-    {"behavior": "finales PDF visuell prüfen", "passed": true, "evidence": "The PDF stage explicitly includes visual verification."}
+    {"behavior": "Diagnostik Trainingsplanung DOCX-Rendering und PDF-Konvertierung über die jeweiligen Skills sequenzieren", "passed": true, "evidence": "The workflow explicitly routes each stage to its specialist skill in sequence."},
+    {"behavior": "DOCX als kanonische Layoutquelle behandeln", "passed": true, "evidence": "Renderer-Routing defines DOCX as the single canonical layout source."},
+    {"behavior": "DOCX und PDF visuell auf Parität prüfen", "passed": true, "evidence": "The parity gate requires page-by-page comparison before package completion."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "Fachlogik im Orchestrator duplizieren", "observed": false, "evidence": "The orchestrator states that specialist logic must not be duplicated."},
-    {"behavior": "Werte beim PDF-Satz still verändern", "observed": false, "evidence": "The report spec may contain only approved values and the renderer cannot alter them."}
+    {"behavior": "Fachlogik im Orchestrator duplizieren", "observed": false, "evidence": "Diagnostics and programming remain delegated to their dedicated skills."},
+    {"behavior": "für neue Reports den Legacy-Direkt-PDF-Renderer automatisch verwenden", "observed": false, "evidence": "The workflow explicitly excludes the legacy direct-PDF path from automatic routing."}
   ],
   "overall": "pass"
 }
