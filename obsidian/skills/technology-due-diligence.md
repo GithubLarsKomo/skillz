@@ -4,10 +4,10 @@ generated: true
 name: "technology-due-diligence"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 6
-recordedResultCount: 5
+recordedResultCount: 6
 sourcePath: "skills/technology-due-diligence/SKILL.md"
 tags:
   - skill
@@ -55,9 +55,9 @@ Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnershi
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `6`
-- Recorded results: `5`
+- Recorded results: `6`
 
 ## Canonical source
 
