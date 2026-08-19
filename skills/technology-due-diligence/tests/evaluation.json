@@ -6,35 +6,36 @@
       "id": "happy-path",
       "input": "Evaluate licensing a biosensor platform for three IVD reference applications: T1D autoantibodies, anti-nephrin autoantibodies and blood pTau217. Technical documents, pilot data, commercial assumptions and public patent evidence are available.",
       "requiredBehaviors": [
-        "coordinate offer assessment patent landscape and scoped FTO outputs rather than reproducing their specialist analyses",
-        "route IVD regulatory and supplier quality questions to the existing specialist capabilities",
-        "produce decision drivers red flags preconditions and one next safe action across the three application scenarios"
+        "classify each specialist domain through the routing gate before invoking or reusing specialist work",
+        "coordinate required offer patent FTO regulatory and supplier outputs rather than reproducing their analyses",
+        "produce decision drivers red flags preconditions a decision posture and one next safe action across the three application scenarios"
       ],
       "forbiddenBehaviors": [
         "create independent claim charts regulatory classifications or supplier approvals inside the orchestrator",
         "invent a composite score without confirmed weighting"
       ],
       "skillAnchors": [
-        "Specialist Evidence statt Zweitanalyse",
-        "keine eigene Patent-, Claim-, Regulatory- oder Supplier-Quality-Fachlogik",
+        "Specialist-Routing-Gate",
+        "decisionPosture.status",
         "nextSafeAction"
       ]
     },
     {
       "id": "edge-case",
-      "input": "The technology evidence is strong, but the FTO specialist reports RED and material AMBER items while intended-use and regulatory-performance assumptions are still unstable before a licensing decision.",
+      "input": "The technology evidence is strong, but the FTO specialist reports a high-priority technical concern and unresolved items while intended-use and regulatory-performance assumptions are still unstable before a licensing decision.",
       "requiredBehaviors": [
-        "prevent a blanket positive due-diligence recommendation despite strong technical evidence",
-        "surface FTO counsel and regulatory preconditions as decision blockers or investigations",
-        "preserve specialist uncertainty and route bounded investigations through the wayfinder"
+        "prevent a blanket supportable decision posture despite strong technical evidence",
+        "surface FTO counsel and regulatory preconditions as blockers or bounded investigations",
+        "preserve specialist uncertainty without translating it into an invented score"
       ],
       "forbiddenBehaviors": [
-        "average FTO RED and regulatory unknowns into a reassuring overall score",
+        "average FTO and regulatory unknowns into a reassuring overall score",
         "silently convert specialist uncertainty into a positive assumption"
       ],
       "skillAnchors": [
         "Kritische Unknowns nicht in Scores verstecken",
-        "large-work-wayfinder"
+        "material-blocker-identified",
+        "not-yet-supportable"
       ]
     },
     {
@@ -42,15 +43,68 @@
       "input": "A draft executive DD invents its own claim charts, chooses an IVDR classification, declares the supplier qualified and summarizes all domains as 82 out of 100 despite unresolved FTO and regulatory gaps.",
       "requiredBehaviors": [
         "reject duplicated specialist analysis and the invented composite score",
-        "mark missing specialist assessments as unknown or not assessed and create bounded next investigations where decision relevant"
+        "mark required missing specialist assessments as blocked or evidence-insufficient and create bounded next investigations only where needed"
       ],
       "forbiddenBehaviors": [
         "simulate legal regulatory supplier or board authority",
         "hide unresolved domain blockers behind a numerical roll-up"
       ],
       "skillAnchors": [
-        "Ein pauschaler Score wie `82/100`",
-        "unknown/not-assessed"
+        "keine eigene Patent-, Claim-, Regulatory- oder Supplier-Quality-Fachlogik",
+        "evidence-insufficient"
+      ]
+    },
+    {
+      "id": "early-technology-scouting",
+      "input": "Compare two early preclinical sensing platforms for research scouting. No product architecture, target commercialization date or fixed market jurisdiction exists yet.",
+      "requiredBehaviors": [
+        "classify technology assessment as required while full FTO is normally not required or optional at this stage",
+        "avoid forcing a claim-by-claim FTO assessment without a stable product baseline",
+        "document why deferred domains are not required for the current decision"
+      ],
+      "forbiddenBehaviors": [
+        "automatically trigger full FTO merely because patents may exist",
+        "manufacture a target jurisdiction solely to satisfy the workflow"
+      ],
+      "skillAnchors": [
+        "frühes Technology Scouting",
+        "NOT_REQUIRED",
+        "OPTIONAL"
+      ]
+    },
+    {
+      "id": "reuse-existing-specialist-outputs",
+      "input": "The target has a current counsel-provided patent/FTO memo, a current regulatory specialist assessment and a completed supplier-quality assessment. The user asks for executive technology due diligence synthesis.",
+      "requiredBehaviors": [
+        "classify the supplied specialist domains as already available",
+        "consume and cite the existing specialist outputs instead of rerunning them",
+        "limit new analysis to missing cross-domain synthesis and decision-relevant gaps"
+      ],
+      "forbiddenBehaviors": [
+        "rerun patent FTO regulatory or supplier analysis simply because the orchestrator can route to those skills",
+        "overwrite specialist uncertainty with a new orchestrator judgment"
+      ],
+      "skillAnchors": [
+        "ALREADY_AVAILABLE",
+        "konsumiert",
+        "statt erneut analysieren"
+      ]
+    },
+    {
+      "id": "simple-dd-no-wayfinder",
+      "input": "A small make/buy DD has complete technical and commercial evidence, no material regulatory or IP trigger, and no blocking investigation. A concise executive synthesis is requested.",
+      "requiredBehaviors": [
+        "complete the due diligence without invoking large-work-wayfinder",
+        "mark non-applicable domains explicitly and produce the decision posture and next safe action directly"
+      ],
+      "forbiddenBehaviors": [
+        "invoke wayfinder merely because it is available",
+        "create artificial investigations to satisfy a workflow template"
+      ],
+      "skillAnchors": [
+        "Wayfinder **nicht** aufgerufen",
+        "not-applicable",
+        "Decision Posture"
       ]
     }
   ]
