@@ -4,10 +4,10 @@ generated: true
 name: "patent-landscape-analysis"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 6
-recordedResultCount: 5
+recordedResultCount: 6
 sourcePath: "skills/patent-landscape-analysis/SKILL.md"
 tags:
   - skill
@@ -55,9 +55,9 @@ Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Paten
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `6`
-- Recorded results: `5`
+- Recorded results: `6`
 
 ## Canonical source
 
