@@ -4,20 +4,20 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Build a patent landscape for a diagnostic biomarker assay field using keywords, CPC/IPC classes, assignees and citation chains, and document family, jurisdiction, status and independent-claim themes as of today.",
+      "input": "Build a patent landscape for a diagnostic biomarker assay field using keywords, CPC/IPC classes, applicants, assignees and citation chains, and document family, jurisdiction, status and independent-claim themes as of today.",
       "requiredBehaviors": [
         "document a reproducible iterative search strategy rather than treating one keyword query as complete",
         "deduplicate publications into families while preserving materially distinct claim-scope branches",
-        "attach freshness and source evidence to decision-relevant legal-status statements"
+        "separate applicants recorded assignees and current ownership verification"
       ],
       "forbiddenBehaviors": [
         "equate family-level relevance with one uniform claim scope",
-        "present the landscape as a patentability or FTO opinion"
+        "present bibliographic assignee data as verified current ownership"
       ],
       "skillAnchors": [
-        "Suchstrategie reproduzierbar dokumentiert",
-        "Ein einzelner Keyword Search darf nicht als vollständige Landschaft ausgegeben werden",
-        "Patentfamilie und Claim Scope dürfen nicht gleichgesetzt werden"
+        "applicants[]",
+        "recordedAssignees[]",
+        "currentOwnership"
       ]
     },
     {
@@ -48,8 +48,59 @@
         "hide missing official evidence behind a completeness claim"
       ],
       "skillAnchors": [
-        "Ein Aggregatorstatus allein ist keine abschließende Statusfeststellung",
-        "partielle Landschaft"
+        "Aggregatorstatus allein",
+        "statusUncertainties"
+      ]
+    },
+    {
+      "id": "search-saturation",
+      "input": "Forty patent families have been identified. Two consecutive high-value search iterations across the remaining key classifications, assignees and citations produce no new core families, while a few low-priority searches remain.",
+      "requiredBehaviors": [
+        "stop broad discovery when the documented saturation criteria are met",
+        "set search saturation to reached or partial with an explicit rationale",
+        "record any remaining high-value searches rather than claiming complete coverage"
+      ],
+      "forbiddenBehaviors": [
+        "continue searching indefinitely without a stopping rule",
+        "claim that saturation guarantees exhaustive patent coverage"
+      ],
+      "skillAnchors": [
+        "Search Saturation",
+        "zwei aufeinanderfolgende",
+        "remainingHighValueSearches"
+      ]
+    },
+    {
+      "id": "contextual-overload",
+      "input": "A broad discovery query yields 500 publications, but triage identifies only 12 core or adjacent families and the remainder are contextual or excluded.",
+      "requiredBehaviors": [
+        "focus official legal-status verification on core families and decision-relevant adjacent families",
+        "avoid a full official-register status deep dive for contextual and excluded results unless they become decision relevant"
+      ],
+      "forbiddenBehaviors": [
+        "perform equal-depth legal-status verification for all 500 discovery results",
+        "treat contextual records as core merely because they were found"
+      ],
+      "skillAnchors": [
+        "Status nach Relevanz-Tier prüfen",
+        "contextual",
+        "excluded"
+      ]
+    },
+    {
+      "id": "ownership-discrimination",
+      "input": "The bibliographic record names Company A as assignee, while a later assignment record suggests Company B may own the US patent but the current chain has not been fully verified.",
+      "requiredBehaviors": [
+        "preserve the bibliographic recorded assignee separately from current ownership",
+        "mark current ownership as unverified until suitable current evidence is available"
+      ],
+      "forbiddenBehaviors": [
+        "state that Company A is the current owner solely from the bibliographic record",
+        "state that Company B is verified current owner without sufficient assignment evidence"
+      ],
+      "skillAnchors": [
+        "Applicant, recorded assignee und current ownership nicht gleichsetzen",
+        "currentOwnership.verified"
       ]
     }
   ]
