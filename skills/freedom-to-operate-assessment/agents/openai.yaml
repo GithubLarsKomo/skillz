@@ -1,5 +1,5 @@
 interface:
   display_name: "Freedom To Operate Assessment"
-  short_description: "Erstellt technische FTO-Screenings mit Claim-by-Claim-Mapping, Risikokategorien, Design-arounds und Counsel-Eskalation."
+  short_description: "Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktionen eine evidenzbasierte technische FTO..."
 policy:
   allow_implicit_invocation: true
