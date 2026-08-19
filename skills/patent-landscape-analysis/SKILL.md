@@ -1,6 +1,6 @@
 ---
 name: patent-landscape-analysis
-description: Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit Suchlogik, Prioritäten, Assignees, Jurisdiktionen, Legal-Status-Freshness und Independent-Claim-Themen; keine Patentability- oder FTO-Opinion.
+description: Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit reproduzierbarer Suchlogik, Search-Saturation, Claim-Scope-Branches, Jurisdiktionen, Legal-Status-Freshness und sauber getrennten Applicant-/Assignee-/Ownership-Daten; keine Patentability- oder FTO-Opinion.
 userFacing: true
 implicitInvocation: true
 category: research-knowledge
@@ -27,7 +27,7 @@ Der Skill ist **keine Patentability-, Validity-, Enforceability- oder FTO-Opinio
 
 ## Trigger
 
-Verwenden bei Patentlandschaft, Patentfamilien, Assignee-/Applicant-Landscape, Schutzrechtslage eines Biomarkers oder Assayprinzips, White-Space-Exploration oder der Frage, welche Familien für eine Technologie relevant sind.
+Verwenden bei Patentlandschaft, Patentfamilien, Applicant-/Assignee-Landscape, Schutzrechtslage eines Biomarkers oder Assayprinzips, White-Space-Exploration oder der Frage, welche Familien für eine Technologie relevant sind.
 
 Nicht verwenden, wenn bereits ein konkretes Produkt gegen konkrete Claims in Zieljurisdiktionen gemappt werden soll; das gehört zu `freedom-to-operate-assessment`.
 
@@ -54,37 +54,63 @@ Erzeuge Suchfacetten aus Kernbegriffen und Synonymen, Biomarker-/Target-Aliasnam
 
 Kombiniere soweit sinnvoll Keyword-, Classification-, Applicant-/Assignee-, Inventor-, Citation- und Family-Relationship-Suchen. Ein einzelner Keyword Search darf nicht als vollständige Landschaft ausgegeben werden.
 
-Für jede Suchiteration dokumentiere Query, Quelle, Datum, Filter, Trefferzahl soweit verfügbar, Ein-/Ausschlusslogik und den Grund für die nächste Iteration.
+Für jede Suchiteration dokumentiere Query, Quelle, Datum, Filter, Trefferzahl soweit verfügbar, Ein-/Ausschlusslogik, neu identifizierte `core`-Familien und den Grund für die nächste Iteration.
 
-### 3. Patentfamilien normalisieren
+### 3. Search Saturation und Stop-Regel anwenden
+
+Eine breit angelegte Discovery-Suche darf beendet werden, wenn alle folgenden Bedingungen erfüllt sind:
+
+1. mindestens zwei aufeinanderfolgende sinnvolle Suchiterationen erzeugen keine neuen `core`-Familien,
+2. zentrale CPC/IPC-Klassen wurden geprüft,
+3. Kern-Applicants/-Assignees sowie Forward-/Backward-Citations der `core`-Familien wurden geprüft, soweit zugänglich,
+4. bekannte Synonyme/Targets/Messprinzipien sind abgedeckt,
+5. verbleibende High-Value-Suchlücken sind explizit dokumentiert.
+
+Führe im Output:
+
+- `searchSaturation.status`: `reached | partial | not-reached`,
+- `searchSaturation.rationale`,
+- `searchSaturation.remainingHighValueSearches[]`.
+
+Saturation ist eine methodische Stop-Regel, keine Garantie vollständiger Patentabdeckung.
+
+### 4. Patentfamilien normalisieren
 
 Gruppiere Publikationen anhand dokumentierter Priority-/Family-Beziehungen. Pro Familie erfasse mindestens:
 
 - `familyId`, `representativePublication`, `earliestPriority`,
 - `priorityApplications[]`, `members[]`,
-- `assignees[]`, `inventors[]`, `jurisdictions[]`,
+- `applicants[]`, `recordedAssignees[]`, `inventors[]`, `jurisdictions[]`,
+- `currentOwnership { value, verified, asOf, source }`,
 - `legalStatus[]` mit `asOf` und Source,
 - `independentClaimThemes[]`, `technologyTags[]`,
 - `relevance` als `core | adjacent | contextual | excluded`,
 - `relevanceRationale`, `statusUncertainties[]`.
 
+**Applicant, recorded assignee und current ownership nicht gleichsetzen.** Bibliografische Assignee-Angaben dürfen nicht als verifizierte aktuelle Rechteinhaberschaft dargestellt werden. `currentOwnership.verified` bleibt `false`, solange keine geeignete aktuelle Ownership-/Assignment-Evidenz vorliegt.
+
 **Continuation-/Divisional-Strukturen separat halten:** gemeinsame Priorität darf unterschiedliche Independent-Claim-Scope-Pfade nicht unsichtbar machen. Wo eine Familie mehrere substantiell unterschiedliche Anspruchspfade besitzt, dokumentiere diese als separate `claimScopeBranches` innerhalb der Familie.
 
-### 4. Status mit Quellenhierarchie prüfen
+### 5. Status nach Relevanz-Tier prüfen
 
-Für bibliografische Discovery dürfen Aggregatoren genutzt werden. Entscheidungsrelevanter Legal Status wird jedoch bevorzugt anhand aktueller offizieller Patentamt-/Registerquellen verifiziert. Ein Aggregatorstatus allein ist keine abschließende Statusfeststellung.
+Für bibliografische Discovery dürfen Aggregatoren genutzt werden. Entscheidungsrelevanter Legal Status wird bevorzugt anhand aktueller offizieller Patentamt-/Registerquellen verifiziert.
 
-Wenn Quellen kollidieren, markiere `statusUncertainties[]`, dokumentiere beide Quellen und senke die Confidence. Zeitabhängige Statusaussagen benötigen immer `asOf`.
+- `core`: offizielle Statusverifikation, soweit entscheidungsrelevant und zugänglich,
+- `adjacent`: vertiefen, wenn der Status Schlussfolgerungen ändern kann,
+- `contextual`: bibliografischer/discovery-level Status genügt normalerweise,
+- `excluded`: kein Status-Deep-Dive.
 
-### 5. Claim-Themen extrahieren
+Ein Aggregatorstatus allein ist keine abschließende Statusfeststellung. Wenn Quellen kollidieren, markiere `statusUncertainties[]`, dokumentiere beide Quellen und senke die Confidence. Zeitabhängige Statusaussagen benötigen immer `asOf`.
+
+### 6. Claim-Themen extrahieren
 
 Fasse Independent Claims semantisch in atomare Themen zusammen, zum Beispiel Target/Biomarker, Reagent/Antibody, Sample, Assay Format, Detection Principle, Signal Processing oder Workflow Steps. Patentfamilie und Claim Scope dürfen nicht gleichgesetzt werden.
 
 Kennzeichne relevante Claim-Elemente, die ein nachgelagertes FTO-Screening prüfen sollte, ohne selbst Read-on oder Infringement festzustellen.
 
-### 6. Landscape synthetisieren
+### 7. Landscape synthetisieren
 
-Erzeuge Technology Clusters, Assignee Map, Jurisdiction Coverage, zeitliche Prioritätslinien und Suchlücken. White Spaces sind als **Recherchehypothesen** zu formulieren, nicht als gesicherte Patentfreiheit.
+Erzeuge Technology Clusters, Applicant-/Assignee Map, Jurisdiction Coverage, zeitliche Prioritätslinien und Suchlücken. White Spaces sind als **Recherchehypothesen** zu formulieren, nicht als gesicherte Patentfreiheit.
 
 ## Output-Verträge
 
@@ -95,8 +121,13 @@ Erzeuge Technology Clusters, Assignee Map, Jurisdiction Coverage, zeitliche Prio
   "scope": {},
   "asOf": "YYYY-MM-DD",
   "searchCoverage": [],
+  "searchSaturation": {
+    "status": "reached|partial|not-reached",
+    "rationale": "",
+    "remainingHighValueSearches": []
+  },
   "families": [],
-  "assigneeMap": [],
+  "applicantAssigneeMap": [],
   "technologyClusters": [],
   "jurisdictionCoverage": [],
   "statusUncertainties": [],
@@ -104,9 +135,9 @@ Erzeuge Technology Clusters, Assignee Map, Jurisdiction Coverage, zeitliche Prio
 }
 ```
 
-`patent-search-log.json` enthält jede Suchiteration mit Quelle, Query, Datum, Filtern, Ergebnisumfang soweit verfügbar, In-/Exclusion-Entscheidungen und Iterationsgrund.
+`patent-search-log.json` enthält jede Suchiteration mit Quelle, Query, Datum, Filtern, Ergebnisumfang soweit verfügbar, neuen `core`-Familien, In-/Exclusion-Entscheidungen und Iterationsgrund.
 
-`patent-landscape.md` ist die menschenlesbare Synthese mit Scope, Methodik, Kernfamilien, Claim-Themen, Status/Freshness, Clustern, Suchlücken und Grenzen.
+`patent-landscape.md` ist die menschenlesbare Synthese mit Scope, Methodik, Search Saturation, Kernfamilien, Claim-Themen, Status/Freshness, Ownership-Uncertainty, Clustern, Suchlücken und Grenzen.
 
 ## Routing
 
@@ -117,24 +148,26 @@ Erzeuge Technology Clusters, Assignee Map, Jurisdiction Coverage, zeitliche Prio
 
 ## Memory Path
 
-Persistenzwürdig sind generische Suchheuristiken, Family-Normalisierungsregeln und abstrahierte Clusterlogik. Konkrete aktuelle Legal-Status-Feststellungen, vertrauliche Produktbezüge und ungeprüfte Assignee-/Ownership-Hypothesen bleiben run-only bzw. benötigen `asOf` und Source References.
+Persistenzwürdig sind generische Suchheuristiken, Saturation-Regeln, Family-Normalisierungsregeln und abstrahierte Clusterlogik. Konkrete aktuelle Legal-Status-/Ownership-Feststellungen, vertrauliche Produktbezüge und ungeprüfte Ownership-Hypothesen bleiben run-only bzw. benötigen `asOf` und Source References.
 
 ## Qualitätsgate
 
 Pass nur wenn:
 
-- **Suchstrategie reproduzierbar dokumentiert** ist,
+- Suchstrategie reproduzierbar dokumentiert ist,
+- `searchSaturation` explizit begründet ist,
 - Familien nachvollziehbar dedupliziert sind,
-- relevante **Continuation-/Divisional-Strukturen separat halten** und nicht verschluckt werden,
+- Applicant/recorded Assignee/current Ownership getrennt bleiben,
+- relevante Continuation-/Divisional-Strukturen separat bleiben,
 - aktuelle Statusaussagen Freshness und Source besitzen,
-- **Patentfamilie und Claim Scope dürfen nicht gleichgesetzt werden**,
-- Aggregatorstatus bei entscheidungsrelevantem Konflikt nicht die Primärquelle ersetzt,
+- Status-Deep-Dive nach Relevanz-Tier erfolgt statt undifferenziert über alle Treffer,
+- Patentfamilie und Claim Scope nicht gleichgesetzt werden,
 - keine FTO-/Validity-/Patentability-Opinion simuliert wird.
 
 ## Fehlerbehandlung
 
-Wenn offizielle Statusquellen fehlen, die Family-Struktur unklar ist oder Suchfacetten große Lücken aufweisen, liefere eine partielle Landschaft mit expliziter Coverage und offenen Fragen. Keine scheinbare Vollständigkeit erzeugen.
+Wenn offizielle Statusquellen fehlen, die Family-Struktur unklar ist oder Suchfacetten große Lücken aufweisen, liefere eine partielle Landschaft mit expliziter Coverage, `searchSaturation.status = partial|not-reached` und offenen Fragen. Keine scheinbare Vollständigkeit erzeugen.
 
 ## Abschlusskriterien
 
-Abgeschlossen ist der Skill, wenn Scope und `asOf` fixiert, Suchiterationen nachvollziehbar, relevante Familien und Claim-Scope-Branches strukturiert, Statusunsicherheiten sichtbar und Suchlücken so dokumentiert sind, dass ein nachgelagertes FTO-Screening ohne erneute Grundlageninventur starten kann.
+Abgeschlossen ist der Skill, wenn Scope und `asOf` fixiert, Suchiterationen nachvollziehbar, Search Saturation begründet, relevante Familien und Claim-Scope-Branches strukturiert, Applicant/Assignee/Ownership sauber getrennt, Statusunsicherheiten sichtbar und Suchlücken dokumentiert sind.
