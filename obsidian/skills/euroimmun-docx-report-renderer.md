@@ -7,7 +7,7 @@ userFacing: true
 evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 4
-recordedResultCount: 4
+recordedResultCount: 6
 sourcePath: "skills/euroimmun-docx-report-renderer/SKILL.md"
 tags:
   - skill
@@ -47,7 +47,7 @@ Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A
 - Mode: `compatibility`
 - Passed: `False`
 - Cases: `4`
-- Recorded results: `4`
+- Recorded results: `6`
 
 ## Canonical source
 
