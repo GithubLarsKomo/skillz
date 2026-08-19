@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-pdf-report-renderer",
+  "caseId": "no-reflow-reauthoring",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Ursache im DOCX oder Template beheben", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
+    {"behavior": "DOCX erneut prüfen und PDF anschließend neu konvertieren", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "PDF separat neu layouten", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."},
+    {"behavior": "DOCX und PDF mit divergierenden Layoutquellen fortführen", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."}
+  ],
+  "overall": "pass"
+}

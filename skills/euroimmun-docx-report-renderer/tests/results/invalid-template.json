@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-docx-report-renderer",
+  "caseId": "invalid-template",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
+    {"behavior": "das bereitgestellte Template unverändert lassen", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "still auf das gebündelte Template zurückfallen", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."},
+    {"behavior": "an beliebiger Position in das Template schreiben", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."}
+  ],
+  "overall": "pass"
+}

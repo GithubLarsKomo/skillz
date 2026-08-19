@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "title": "Technology Due Diligence Report",
+    "subtitle": "Illustrative template validation report",
+    "document_type": "Technology Assessment",
+    "document_id": "EI-DD-2026-001",
+    "date": "19 August 2026",
+    "version": "1.0",
+    "author": "Technology & Compliance",
+    "department": "EUROIMMUN Medizinische Labordiagnostika AG",
+    "subject": "Template validation",
+    "confidentiality": "EUROIMMUN Confidential"
+  },
+  "summary": "This example validates the reusable report template, hierarchy, tables, callouts, pagination and the current public-reference EUROIMMUN header. It contains no project-confidential facts.",
+  "sections": [
+    {
+      "title": "Executive Summary",
+      "blocks": [
+        {"type": "paragraph", "text": "The document renderer keeps substantive content separate from layout. A report specification can therefore be reused for DOCX and PDF output without maintaining two independent visual systems."},
+        {"type": "callout", "kind": "decision", "title": "Decision posture", "text": "Template architecture is suitable for controlled internal working reports. For formal external documents, an approved current corporate template should be supplied through the template override."},
+        {"type": "bullets", "items": ["One canonical DOCX layout source", "Reusable header, footer and styles", "Visual QA before release", "PDF conversion without content re-authoring"]}
+      ]
+    },
+    {
+      "title": "Evidence Overview",
+      "blocks": [
+        {"type": "table", "columns": ["Domain", "Evidence", "Status", "Next action"], "widths": [1.25, 2.4, 1.0, 2.0], "rows": [
+          ["Technology", "Structured source package and performance data", "Available", "Verify transferability"],
+          ["IP", "Patent landscape and claim mapping", "Conditional", "Confirm jurisdiction scope"],
+          ["Regulatory", "Target-use and market assumptions", "Partial", "Close classification gaps"],
+          ["Commercial", "Supplier proposal and cost model", "Partial", "Validate scale assumptions"]]},
+        {"type": "callout", "kind": "warning", "title": "Open item", "text": "The public-reference header is not a substitute for an internally controlled corporate letterhead where document control requires one."}
+      ]
+    },
+    {
+      "title": "Long-form Layout Check",
+      "blocks": [
+        {"type": "paragraph", "text": "This paragraph intentionally contains enough text to exercise line wrapping and spacing. The renderer should preserve a restrained corporate appearance with generous white space, a clear green accent, black body text and a stable header and footer on every page. Long reports should remain readable without manual spacing hacks or hard-coded page coordinates."},
+        {"type": "table", "columns": ["Item", "Description", "Evidence source", "Owner", "Priority", "Disposition"], "widths": [0.8, 2.8, 2.0, 1.0, 0.8, 1.6], "rows": [
+          ["A-01", "Representative long description used to test wrapping inside a six-column table without shrinking the type below a readable working-report size.", "Vendor specification and internal verification package", "Team A", "High", "Open"],
+          ["A-02", "Second representative row with enough text to force multi-line cells and validate vertical alignment and row growth.", "Independent publication plus raw data", "Team B", "Medium", "Conditional"],
+          ["A-03", "Third row for consistent borders, header fill and page-width behavior.", "Regulatory certificate", "Team C", "Low", "Closed"]]},
+        {"type": "pagebreak"},
+        {"type": "heading", "level": 2, "text": "Controlled-template override"},
+        {"type": "paragraph", "text": "When an approved internal EUROIMMUN template is available, it should replace the bundled public-reference template via --template. The renderer validates required placeholders and fails clearly if the supplied template is incompatible instead of silently reverting to another letterhead."}
+      ]
+    }
+  ]
+}
