@@ -26,6 +26,8 @@ jobs:
         run: python scripts/materialize_openai_agent_metadata.py --check
       - name: Test OpenAI plugin distribution
         run: python -m unittest tests.test_build_openai_plugin
+      - name: Test OpenAI plugin provenance stamping
+        run: python -m unittest tests.test_build_openai_plugin_provenance
       - name: Check generated repository metadata
         run: python scripts/generate_repository_metadata.py --check
       - name: Test metadata generator
@@ -34,10 +36,16 @@ jobs:
         run: python -m unittest tests.test_generate_dependency_graph
       - name: Test capability index generator
         run: python -m unittest tests.test_generate_capability_index
+      - name: Test capability index provenance stamper
+        run: python -m unittest tests.test_stamp_capability_index
       - name: Test Obsidian skill universe generator
         run: python -m unittest tests.test_generate_obsidian_skill_universe
       - name: Test capability index query CLI
         run: python -m unittest tests.test_query_capabilities
+      - name: Test skill freshness status resolver
+        run: python -m unittest tests.test_skill_status
+      - name: Test skills status CLI integration
+        run: python -m unittest tests.test_query_capabilities_status
       - name: Test structured capability resolver
         run: python -m unittest tests.test_resolve_capabilities
       - name: Test capability intent compiler
