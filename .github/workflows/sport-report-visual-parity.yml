@@ -30,22 +30,6 @@ jobs:
           sudo apt-get install -y -qq --no-install-recommends libreoffice-writer poppler-utils fonts-liberation >/dev/null
       - name: Verify controlled template override contract
         run: python skills/dr-komorowski-sport-docx-report-renderer/scripts/verify_template_override_contract.py
-      - name: Materialize generated state for reconciliation
-        run: |
-          python scripts/generate_repository_metadata.py
-          python scripts/build_openai_plugin.py --output plugins/skillz
-      - name: Upload generated state
-        uses: actions/upload-artifact@v4
-        with:
-          name: sport-generated-state
-          path: |
-            .skill-sync.json
-            README.md
-            docs
-            plugins/skillz
-          if-no-files-found: error
-          include-hidden-files: true
-          retention-days: 2
       - name: Render training-plan reference pair
         run: |
           mkdir -p artifacts/sport-visual-qa/training-plan
