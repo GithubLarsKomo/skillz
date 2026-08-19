@@ -1480,7 +1480,9 @@
       "outputs": [
         "technology-offer-assessment.json",
         "technology-offer-assessment.md",
-        "technology-offer-gap-set.json"
+        "technology-offer-gap-set.json",
+        "technology-offer-question-set.json",
+        "technology-offer-question-set.md"
       ]
     },
     {
@@ -6588,6 +6590,28 @@
     },
     {
       "output": "technology-offer-gap-set.json",
+      "producers": [
+        "technology-offer-assessment"
+      ],
+      "consumerSkills": [
+        "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "technology-offer-question-set.json",
+      "producers": [
+        "technology-offer-assessment"
+      ],
+      "consumerSkills": [
+        "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "technology-offer-question-set.md",
       "producers": [
         "technology-offer-assessment"
       ],

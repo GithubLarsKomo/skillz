@@ -12,8 +12,8 @@
     "workflow"
   ],
   "evaluationSuiteCount": 129,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 12,
   "skills": [
     {
       "name": "agent-handoff",
@@ -7436,7 +7436,7 @@
     },
     {
       "name": "technology-offer-assessment",
-      "description": "Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Vendor Dependency, Red Flags und offene Fragen; keine Vertragsrechts- oder FTO-Analyse.",
+      "description": "Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Vendor Dependency, Red Flags und offene Fragen und leitet daraus priorisierte Fragen für Vendor-Meetings und interne Stakeholder ab; keine Vertragsrechts- oder FTO-Analyse.",
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
@@ -7450,7 +7450,9 @@
       "outputs": [
         "technology-offer-assessment.json",
         "technology-offer-assessment.md",
-        "technology-offer-gap-set.json"
+        "technology-offer-gap-set.json",
+        "technology-offer-question-set.json",
+        "technology-offer-question-set.md"
       ],
       "outputContracts": [
         {
@@ -7482,6 +7484,26 @@
           "consumerSkills": [
             "technology-due-diligence"
           ]
+        },
+        {
+          "output": "technology-offer-question-set.json",
+          "ambiguous": false,
+          "producers": [
+            "technology-offer-assessment"
+          ],
+          "consumerSkills": [
+            "technology-due-diligence"
+          ]
+        },
+        {
+          "output": "technology-offer-question-set.md",
+          "ambiguous": false,
+          "producers": [
+            "technology-offer-assessment"
+          ],
+          "consumerSkills": [
+            "technology-due-diligence"
+          ]
         }
       ],
       "portableFiles": [
@@ -7489,9 +7511,9 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 5,
+        "caseCount": 7,
         "recordedResultCount": 5,
-        "passed": true
+        "passed": false
       }
     },
     {
