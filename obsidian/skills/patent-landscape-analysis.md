@@ -7,7 +7,7 @@ userFacing: true
 evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 6
-recordedResultCount: 4
+recordedResultCount: 5
 sourcePath: "skills/patent-landscape-analysis/SKILL.md"
 tags:
   - skill
@@ -57,7 +57,7 @@ Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Paten
 - Mode: `compatibility`
 - Passed: `False`
 - Cases: `6`
-- Recorded results: `4`
+- Recorded results: `5`
 
 ## Canonical source
 
