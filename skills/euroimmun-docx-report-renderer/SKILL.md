@@ -28,13 +28,13 @@ Nicht nutzen, um die zugrunde liegende fachliche Analyse neu zu erfinden. Wenn I
 
 Die kanonische Layoutquelle ist ein DOCX-Template.
 
-- Bundled fallback: `assets/euroimmun-report-template.docx`
+- Bundled fallback template: als repo-kompatible Textrepräsentation `assets/euroimmun-report-template.docx.b64` hinterlegt. `scripts/build_template.py` ist die editierbare Generatorquelle; der Renderer dekodiert die geprüfte DOCX-Vorlage bei Bedarf in-memory.
 - Theme/Brand-Metadaten: `assets/report-theme.json`
 - Editierbare Logo-Referenz: `assets/euroimmun-logo-public-reference.svg`
 - Beispiel-Spec: `assets/report-spec.example.json`
 - Kontrolliertes Template-Override: `--template PATH.docx`
 
-Das gebündelte Template ist eine **Public-Reference-Vorlage** auf Basis des seit Juli 2025 ausgerollten öffentlichen EUROIMMUN-From-Revvity-Auftritts. Es ist kein Ersatz für ein intern dokumentenlenkungsseitig freigegebenes Corporate-Template. Für formale externe oder kontrollierte Dokumente hat ein aktuelles freigegebenes internes Template Vorrang.
+Die gebündelte Template-Definition ist eine **Public-Reference-Vorlage** auf Basis des seit Juli 2025 ausgerollten öffentlichen EUROIMMUN-From-Revvity-Auftritts. Es ist kein Ersatz für ein intern dokumentenlenkungsseitig freigegebenes Corporate-Template. Für formale externe oder kontrollierte Dokumente hat ein aktuelles freigegebenes internes Template Vorrang.
 
 Der aktuelle öffentliche Kopf enthält die kleingeschriebene EUROIMMUN-Wortmarke mit `From Revvity` und das grüne Titerplane-Symbol. Der Footer des Public-Reference-Templates führt `EUROIMMUN Medizinische Labordiagnostika AG · Seekamp 31 · 23560 Lübeck`.
 
@@ -88,7 +88,7 @@ Callout-Rollen: `info`, `warning`, `decision`, `neutral`.
 ## Ablauf
 
 1. **Inhalt einfrieren.** Fachtext, Tabellen, Bilder und Schlussfolgerungen als Report-Spec strukturieren. Der Renderer ändert keine Assay-Performance, Claim-Mappings, regulatorischen Bewertungen, Zahlen oder Managemententscheidungen.
-2. **Template bestimmen.** Wenn ein freigegebenes aktuelles Corporate-Template bereitgestellt wurde, dieses verwenden. Sonst Public-Reference-Template nutzen und dessen Status transparent halten.
+2. **Template bestimmen.** Wenn ein freigegebenes aktuelles Corporate-Template bereitgestellt wurde, dieses verwenden. Sonst die hinterlegte Public-Reference-DOCX-Vorlage aus `assets/euroimmun-report-template.docx.b64` verwenden und deren Status transparent halten. Die binäre DOCX-Datei selbst wird wegen des textbasierten Skill-Repo-Vertrags nicht direkt versioniert; die Base64-Repräsentation, der Builder, Theme und Logo-Referenz bilden gemeinsam die versionierte Template-Quelle.
 3. **Template-Vertrag validieren.** Alle Pflichtplatzhalter müssen vorhanden sein.
 4. **Report rendern.** `scripts/render_report.py INPUT.json OUTPUT.docx [--template TEMPLATE.docx]` verwenden.
 5. **Struktur prüfen.** A4, Header/Footer, Styles, Tabellenbreiten, Callouts, Bilder, Überschriftenhierarchie und Dokument-Metadaten prüfen.
@@ -127,7 +127,7 @@ Die konkrete Farbdefinition im Public-Reference-Theme ist eine reproduzierbare A
 ## Fehlerbehandlung
 
 - **python-docx fehlt:** Abhängigkeit melden; keine Fake-DOCX-Datei erzeugen.
-- **Template fehlt:** abbrechen.
+- **Public-Reference-Template fehlt:** aus `assets/euroimmun-report-template.docx.b64` laden; fehlt oder ist diese Repräsentation ungültig, mit `scripts/build_template.py` neu erzeugen beziehungsweise den Fehler melden; schlägt das fehl, abbrechen. Bei einem ausdrücklich bereitgestellten Corporate-Template niemals automatisch ersetzen.
 - **Pflichtplatzhalter fehlen:** mit konkreter Token-Liste abbrechen; kein stilles Fallback.
 - **Bild fehlt:** mit Blockpfad abbrechen; kein Platzhalterbild erfinden.
 - **Zu breite Tabelle:** relative Breiten anpassen, Text umbrechen oder Tabelle logisch teilen; nicht unlesbar klein skalieren.

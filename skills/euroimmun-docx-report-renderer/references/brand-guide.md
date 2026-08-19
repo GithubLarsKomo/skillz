@@ -26,7 +26,7 @@ Current public legal/contact reference:
 
 ## Bundled working design
 
-The bundled DOCX template reproduces the public logo structure with an editable local reference asset and uses a working green for deterministic rendering. This green is **not represented as an internally controlled corporate Pantone/RGB specification**.
+The bundled DOCX template snapshot (stored as `assets/euroimmun-report-template.docx.b64`) reproduces the public logo structure with an editable local reference asset and uses a working green for deterministic rendering. This green is **not represented as an internally controlled corporate Pantone/RGB specification**.
 
 For formal, external or document-controlled use, supply the current approved internal DOCX template with the required placeholder contract. The approved template takes precedence over every bundled visual value.
 
@@ -41,7 +41,7 @@ The public-reference header uses:
 
 ## Footer contract
 
-The bundled footer uses the current legal entity and Lübeck headquarters address plus the requested confidentiality classification. It deliberately avoids renderer-dependent page-number fields. An approved corporate template may provide its own page fields and footer structure.
+The bundled template footer uses the current legal entity and Lübeck headquarters address plus the requested confidentiality classification. It deliberately avoids renderer-dependent page-number fields. An approved corporate template may provide its own page fields and footer structure.
 
 ## Fonts
 

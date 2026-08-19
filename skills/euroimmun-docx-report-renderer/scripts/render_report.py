@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import argparse, json, math
+import argparse, base64, io, json, math
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -17,6 +17,7 @@ except ImportError as exc:
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_TEMPLATE = ROOT / "assets/euroimmun-report-template.docx"
+DEFAULT_TEMPLATE_B64 = ROOT / "assets/euroimmun-report-template.docx.b64"
 DEFAULT_THEME = ROOT / "assets/report-theme.json"
 TOKENS = {"{{DOCUMENT_TYPE}}", "{{DOCUMENT_ID}}", "{{DATE}}", "{{CONFIDENTIALITY}}", "{{REPORT_BODY}}"}
 
@@ -197,8 +198,17 @@ def render_blocks(doc, mark, spec, theme, base: Path):
 
 def render(spec_path: Path, output: Path, template: Path, theme_path: Path):
     spec=load_json(spec_path); validate(spec); theme=load_json(theme_path)
-    if not template.is_file(): raise ValueError(f"template not found: {template}")
-    doc=Document(str(template)); replace_tokens(doc,spec["metadata"]); mark=marker(doc); render_blocks(doc,mark,spec,theme,spec_path.parent)
+    if template.is_file():
+        doc = Document(str(template))
+    elif template == DEFAULT_TEMPLATE and DEFAULT_TEMPLATE_B64.is_file():
+        try:
+            raw = base64.b64decode(DEFAULT_TEMPLATE_B64.read_text(encoding="ascii"), validate=True)
+        except (OSError, ValueError) as exc:
+            raise ValueError(f"invalid bundled template representation: {DEFAULT_TEMPLATE_B64}") from exc
+        doc = Document(io.BytesIO(raw))
+    else:
+        raise ValueError(f"template not found: {template}")
+    replace_tokens(doc,spec["metadata"]); mark=marker(doc); render_blocks(doc,mark,spec,theme,spec_path.parent)
     mark._p.getparent().remove(mark._p); props=doc.core_properties; props.title=spec["metadata"]["title"]; props.author=spec["metadata"].get("author") or "EUROIMMUN Medizinische Labordiagnostika AG"
     output.parent.mkdir(parents=True,exist_ok=True); doc.save(str(output))
 
