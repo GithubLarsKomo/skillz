@@ -46,6 +46,7 @@ graph TD
   eudamed_udi_ivd --> medical_device_labeling_ifu
   eudamed_udi_ivd --> regulated_product_context
   eudamed_udi_ivd --> regulatory_evidence_traceability
+  euroimmun_pdf_report_renderer --> euroimmun_docx_report_renderer
   evidence_based_causal_investigation --> research_to_evidence_note
   fda_510k_predicate_strategy --> fda_device_classification_product_code
   fda_510k_predicate_strategy --> regulated_product_context
@@ -434,6 +435,8 @@ graph TD
 | `eu-regulatory-assessment.md` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eu-regulatory-investigations.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eudamed-readiness.json` | `eudamed-udi-ivd` | — | unconsumed |
+| `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | inferred |
+| `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
 | `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |

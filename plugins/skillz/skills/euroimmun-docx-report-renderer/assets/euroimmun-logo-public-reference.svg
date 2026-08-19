@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="175" viewBox="0 0 1000 175">
+  <rect width="1000" height="175" fill="white" fill-opacity="0"/>
+  <text x="12" y="88" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="400" fill="#171717">euroimmun</text>
+  <text x="14" y="140" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="400" fill="#171717">From Revvity</text>
+  <g fill="#79C143">
+    <rect x="650" y="54" width="180" height="8" rx="3"/>
+    <rect x="650" y="118" width="180" height="8" rx="3"/>
+    <circle cx="680" cy="90" r="18"/><circle cx="720" cy="90" r="18"/><circle cx="760" cy="90" r="18"/><circle cx="800" cy="90" r="18"/>
+  </g>
+</svg>

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Euroimmun Pdf Report Renderer"
+  short_description: "Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit identischem Styling und aktuellem EUROI..."
+policy:
+  allow_implicit_invocation: true

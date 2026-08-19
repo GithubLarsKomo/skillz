@@ -239,6 +239,22 @@
       ]
     },
     {
+      "name": "euroimmun-docx-report-renderer",
+      "requires": [],
+      "outputs": [
+        "euroimmun-report.docx"
+      ]
+    },
+    {
+      "name": "euroimmun-pdf-report-renderer",
+      "requires": [
+        "euroimmun-docx-report-renderer"
+      ],
+      "outputs": [
+        "euroimmun-report.pdf"
+      ]
+    },
+    {
       "name": "evidence-based-causal-investigation",
       "requires": [
         "research-to-evidence-note"
@@ -1671,6 +1687,10 @@
     {
       "from": "eudamed-udi-ivd",
       "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "euroimmun-pdf-report-renderer",
+      "to": "euroimmun-docx-report-renderer"
     },
     {
       "from": "evidence-based-causal-investigation",
@@ -4008,6 +4028,26 @@
       "output": "eudamed-readiness.json",
       "producers": [
         "eudamed-udi-ivd"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "euroimmun-report.docx",
+      "producers": [
+        "euroimmun-docx-report-renderer"
+      ],
+      "consumerSkills": [
+        "euroimmun-pdf-report-renderer"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "euroimmun-report.pdf",
+      "producers": [
+        "euroimmun-pdf-report-renderer"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -6774,6 +6814,7 @@
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
+    "euroimmun-report.pdf",
     "execution plan",
     "expert handoff",
     "fda-acceptance-preflight.json",
@@ -6930,6 +6971,7 @@
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
+    "euroimmun-report.pdf",
     "execution plan",
     "expert handoff",
     "fda-acceptance-preflight.json",
