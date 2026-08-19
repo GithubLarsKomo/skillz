@@ -1,0 +1,5 @@
+interface:
+  display_name: "Technology Due Diligence"
+  short_description: "Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition oder Make/Buy aus Offer..."
+policy:
+  allow_implicit_invocation: true

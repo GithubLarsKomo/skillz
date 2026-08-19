@@ -1,0 +1,5 @@
+interface:
+  display_name: "Freedom To Operate Assessment"
+  short_description: "Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktionen eine evidenzbasierte technische FTO..."
+policy:
+  allow_implicit_invocation: true
