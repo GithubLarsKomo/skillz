@@ -116,8 +116,10 @@
         "assets/report-spec.lactate.example.json": "c193e2abb2af66b2bb9be3fd305f275f612a15f7d87e8b89779dae149b80d4e0",
         "assets/report-theme.json": "bd73d925888252ad3e92c3bc25bb4adaac6c51c45f9b7e6a90c5cfbfb1c04712",
         "references/brand-guide.md": "b35c66b0364f4b8a1ef663be4f05f1921a16e61469fc54c029b3f7472834c245",
+        "scripts/_render_report_core.py": "628697e9be35e931fa0371bce20aaf35af0669bc627c4e2fafe33a3a34dfa2c5",
         "scripts/build_template.py": "f928a51e7114eb4310e8ce9365f48d31cd2a8a15881a059e5b113978504f9705",
-        "scripts/render_report.py": "628697e9be35e931fa0371bce20aaf35af0669bc627c4e2fafe33a3a34dfa2c5"
+        "scripts/render_report.py": "c7185c2dffcd389515f327e1dbc263024529d7cedd0d463f1d1823d465eacde3",
+        "scripts/verify_template_override_contract.py": "cebb02175a91c979b4f323a0f33e289d41ffd3a7431b0f63d419154358665096"
       }
     },
     "dr-komorowski-sport-pdf-report-renderer": {

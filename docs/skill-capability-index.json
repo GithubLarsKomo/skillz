@@ -1101,8 +1101,10 @@
         "assets/report-spec.lactate.example.json",
         "assets/report-theme.json",
         "references/brand-guide.md",
+        "scripts/_render_report_core.py",
         "scripts/build_template.py",
-        "scripts/render_report.py"
+        "scripts/render_report.py",
+        "scripts/verify_template_override_contract.py"
       ],
       "evaluation": {
         "mode": "compatibility",
