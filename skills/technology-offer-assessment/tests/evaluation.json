@@ -8,16 +8,19 @@
       "requiredBehaviors": [
         "compare both offers against identical decision criteria and explicit requirements",
         "separate vendor claims from confirmed evidence using evidence origin type independence and confidence",
-        "make commercial assumptions quantity and time specific and route IP regulatory and supplier questions"
+        "make commercial assumptions quantity and time specific and route IP regulatory and supplier questions",
+        "derive a prioritized stakeholder question set from decision-relevant gaps rather than from a generic checklist"
       ],
       "forbiddenBehaviors": [
         "reward one offer for providing more marketing detail by silently changing the comparison criteria",
-        "infer FTO or regulatory approval from the offer documents"
+        "infer FTO or regulatory approval from the offer documents",
+        "add generic vendor questions that cannot be traced to an assessment gap red flag assumption or open decision"
       ],
       "skillAnchors": [
         "evidenceOrigin",
         "evidenceType",
-        "independence"
+        "independence",
+        "technology-offer-question-set.json"
       ]
     },
     {
@@ -26,7 +29,8 @@
       "requiredBehaviors": [
         "keep the sensitivity and maturity claims visible but lower confidence based on evidence origin type and independence",
         "mark unverified production readiness and scale capability as unknown or conditional",
-        "capture missing sample size comparator replication and transferability evidence where relevant"
+        "capture missing sample size comparator replication and transferability evidence where relevant",
+        "turn the decision-relevant evidence gaps into high-priority vendor questions requesting the specific missing evidence"
       ],
       "forbiddenBehaviors": [
         "convert marketing claims into confirmed performance facts",
@@ -35,7 +39,8 @@
       "skillAnchors": [
         "replicationStatus",
         "transferabilityToTargetUse",
-        "Production Readiness"
+        "Production Readiness",
+        "expectedEvidence"
       ]
     },
     {
@@ -89,6 +94,45 @@
         "Technischer Fit und Commercial Feasibility bleiben getrennte Dimensionen",
         "vendor dependency/switching burden",
         "Strategic fit gehört nicht in diesen Skill"
+      ]
+    },
+    {
+      "id": "vendor-and-internal-meeting-questions",
+      "input": "The assessment finds three critical unknowns before the next meeting: the vendor has not demonstrated LoD in the target matrix, manufacturing scale evidence is missing, and internally no acceptance criterion has been agreed for maximum hands-on time. Prepare the questions for the next discussion.",
+      "requiredBehaviors": [
+        "derive each question from the identified assessment gap and preserve source gap traceability",
+        "route target-matrix LoD and manufacturing evidence questions to the vendor and the hands-on-time acceptance criterion to internal stakeholders",
+        "prioritize questions by decision impact and state the expected evidence or answer needed",
+        "produce a meeting-ready master question set with separate vendor and internal sections"
+      ],
+      "forbiddenBehaviors": [
+        "ask the vendor to define the internal hands-on-time acceptance criterion",
+        "mix internal notes or negotiation thresholds into the vendor-facing question wording",
+        "pad the meeting with generic technology questions unrelated to the assessment"
+      ],
+      "skillAnchors": [
+        "audience: vendor | internal | both",
+        "sourceGapIds",
+        "Questions for the Offering Party",
+        "Questions for Internal Stakeholders"
+      ]
+    },
+    {
+      "id": "shared-question-confidentiality",
+      "input": "A commercial gap requires both sides to clarify the viable annual volume. The vendor needs to state pricing tiers and minimum commitments, while internally the team must define the demand range it can realistically support. The internal ceiling must not be disclosed to the vendor.",
+      "requiredBehaviors": [
+        "represent the common information need as a shared question intent while allowing separate vendor and internal wording",
+        "ask the vendor for pricing tiers and minimum commitments and ask internal stakeholders for the supportable demand range",
+        "preserve confidentiality by not exposing the internal ceiling or negotiation position in vendor wording"
+      ],
+      "forbiddenBehaviors": [
+        "copy the internal volume ceiling into the vendor-facing question",
+        "use audience both with one identical wording when the two sides require different confidential framing"
+      ],
+      "skillAnchors": [
+        "vendorWording",
+        "internalWording",
+        "vertraulichen internen Informationen"
       ]
     }
   ]
