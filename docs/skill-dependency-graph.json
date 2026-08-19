@@ -194,6 +194,22 @@
       ]
     },
     {
+      "name": "dr-komorowski-sport-docx-report-renderer",
+      "requires": [],
+      "outputs": [
+        "dr-komorowski-sport-report.docx"
+      ]
+    },
+    {
+      "name": "dr-komorowski-sport-pdf-report-renderer",
+      "requires": [
+        "dr-komorowski-sport-docx-report-renderer"
+      ],
+      "outputs": [
+        "dr-komorowski-sport-report.pdf"
+      ]
+    },
+    {
       "name": "dr-komorowski-sport-report-renderer",
       "requires": [],
       "outputs": [
@@ -1392,7 +1408,8 @@
     {
       "name": "sport-diagnostics-training-report-workflow",
       "requires": [
-        "dr-komorowski-sport-report-renderer",
+        "dr-komorowski-sport-docx-report-renderer",
+        "dr-komorowski-sport-pdf-report-renderer",
         "sport-performance-diagnostics",
         "sport-training-programming"
       ],
@@ -1651,6 +1668,10 @@
     {
       "from": "domain-model-maintenance",
       "to": "two-axis-code-review"
+    },
+    {
+      "from": "dr-komorowski-sport-pdf-report-renderer",
+      "to": "dr-komorowski-sport-docx-report-renderer"
     },
     {
       "from": "engineering-delivery-followup",
@@ -2702,7 +2723,11 @@
     },
     {
       "from": "sport-diagnostics-training-report-workflow",
-      "to": "dr-komorowski-sport-report-renderer"
+      "to": "dr-komorowski-sport-docx-report-renderer"
+    },
+    {
+      "from": "sport-diagnostics-training-report-workflow",
+      "to": "dr-komorowski-sport-pdf-report-renderer"
     },
     {
       "from": "sport-diagnostics-training-report-workflow",
@@ -3895,6 +3920,27 @@
       "output": "dr-komorowski-report.pdf",
       "producers": [
         "dr-komorowski-sport-report-renderer"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "dr-komorowski-sport-report.docx",
+      "producers": [
+        "dr-komorowski-sport-docx-report-renderer"
+      ],
+      "consumerSkills": [
+        "dr-komorowski-sport-pdf-report-renderer",
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "dr-komorowski-sport-report.pdf",
+      "producers": [
+        "dr-komorowski-sport-pdf-report-renderer"
       ],
       "consumerSkills": [
         "sport-diagnostics-training-report-workflow"
@@ -6806,6 +6852,7 @@
     "domain-model-map.json",
     "domain-validation.json",
     "dpia-decision.json",
+    "dr-komorowski-report.pdf",
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
@@ -6963,6 +7010,7 @@
     "domain-model-map.json",
     "domain-validation.json",
     "dpia-decision.json",
+    "dr-komorowski-report.pdf",
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",

@@ -1,0 +1,91 @@
+name: Sport report visual parity
+
+on:
+  pull_request:
+    paths:
+      - 'skills/dr-komorowski-sport-docx-report-renderer/**'
+      - 'skills/dr-komorowski-sport-pdf-report-renderer/**'
+      - 'skills/sport-diagnostics-training-report-workflow/**'
+      - '.github/workflows/sport-report-visual-parity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual-parity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python rendering dependencies
+        timeout-minutes: 2
+        run: python -m pip install --disable-pip-version-check python-docx pillow
+      - name: Install headless system rendering dependencies
+        timeout-minutes: 7
+        run: |
+          set -euxo pipefail
+          sudo env DEBIAN_FRONTEND=noninteractive timeout --signal=KILL 90s \
+            apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 update
+          sudo env DEBIAN_FRONTEND=noninteractive timeout --signal=KILL 360s \
+            apt-get -o DPkg::Lock::Timeout=45 -y --no-install-recommends \
+            install libreoffice-writer-nogui poppler-utils fonts-liberation
+          command -v libreoffice || command -v soffice
+          command -v pdftoppm
+          command -v pdftotext
+          fc-match 'Liberation Sans'
+      - name: Verify controlled template override contract
+        run: python skills/dr-komorowski-sport-docx-report-renderer/scripts/verify_template_override_contract.py
+      - name: Render training-plan reference pair
+        run: |
+          mkdir -p artifacts/sport-visual-qa/training-plan
+          python skills/dr-komorowski-sport-docx-report-renderer/scripts/render_report.py \
+            skills/dr-komorowski-sport-docx-report-renderer/assets/report-spec.example.json \
+            artifacts/sport-visual-qa/training-plan/training-plan.docx
+          python skills/dr-komorowski-sport-pdf-report-renderer/scripts/render_pdf.py \
+            artifacts/sport-visual-qa/training-plan/training-plan.docx \
+            artifacts/sport-visual-qa/training-plan/training-plan.pdf
+          python skills/dr-komorowski-sport-pdf-report-renderer/scripts/verify_visual_parity.py \
+            artifacts/sport-visual-qa/training-plan/training-plan.docx \
+            artifacts/sport-visual-qa/training-plan/training-plan.pdf \
+            artifacts/sport-visual-qa/training-plan/parity \
+            --dpi 171 --max-mae 0.25 --max-changed-fraction 0.001 --pixel-threshold 8
+      - name: Render lactate-report reference pair
+        run: |
+          mkdir -p artifacts/sport-visual-qa/lactate-report
+          python skills/dr-komorowski-sport-docx-report-renderer/scripts/render_report.py \
+            skills/dr-komorowski-sport-docx-report-renderer/assets/report-spec.lactate.example.json \
+            artifacts/sport-visual-qa/lactate-report/lactate-report.docx
+          python skills/dr-komorowski-sport-pdf-report-renderer/scripts/render_pdf.py \
+            artifacts/sport-visual-qa/lactate-report/lactate-report.docx \
+            artifacts/sport-visual-qa/lactate-report/lactate-report.pdf
+          python skills/dr-komorowski-sport-pdf-report-renderer/scripts/verify_visual_parity.py \
+            artifacts/sport-visual-qa/lactate-report/lactate-report.docx \
+            artifacts/sport-visual-qa/lactate-report/lactate-report.pdf \
+            artifacts/sport-visual-qa/lactate-report/parity \
+            --dpi 171 --max-mae 0.25 --max-changed-fraction 0.001 --pixel-threshold 8
+      - name: Summarize parity results
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for name in ('training-plan', 'lactate-report'):
+              path = Path('artifacts/sport-visual-qa') / name / 'parity' / 'visual-parity.json'
+              data = json.loads(path.read_text(encoding='utf-8'))
+              print(name, json.dumps(data['summary'], sort_keys=True), 'PASS' if data['pass'] else 'FAIL')
+              if not data['pass']:
+                  raise SystemExit(1)
+          PY
+      - name: Upload page images and parity reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sport-report-visual-parity
+          path: artifacts/sport-visual-qa
+          if-no-files-found: warn
+          retention-days: 14

@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n127 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n129 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1170,10 +1170,28 @@
       "color": "2"
     },
     {
+      "id": "skill-dr-komorowski-sport-docx-report-renderer",
+      "type": "file",
+      "file": "skills/dr-komorowski-sport-docx-report-renderer.md",
+      "x": 8580,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-dr-komorowski-sport-pdf-report-renderer",
+      "type": "file",
+      "file": "skills/dr-komorowski-sport-pdf-report-renderer.md",
+      "x": 8910,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-dr-komorowski-sport-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-report-renderer.md",
-      "x": 8580,
+      "x": 9240,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1182,8 +1200,8 @@
       "id": "skill-euroimmun-docx-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-docx-report-renderer.md",
-      "x": 8910,
-      "y": 70,
+      "x": 8580,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1191,8 +1209,8 @@
       "id": "skill-euroimmun-pdf-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-pdf-report-renderer.md",
-      "x": 9240,
-      "y": 70,
+      "x": 8910,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1200,7 +1218,7 @@
       "id": "skill-human-procedure-wizard",
       "type": "file",
       "file": "skills/human-procedure-wizard.md",
-      "x": 8580,
+      "x": 9240,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1209,8 +1227,8 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 8910,
-      "y": 210,
+      "x": 8580,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1218,8 +1236,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 9240,
-      "y": 210,
+      "x": 8910,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1227,7 +1245,7 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 8580,
+      "x": 9240,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1527,6 +1545,15 @@
       "fromNode": "skill-domain-model-maintenance",
       "fromSide": "left",
       "toNode": "skill-two-axis-code-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-42d5b2f12510",
+      "fromNode": "skill-dr-komorowski-sport-pdf-report-renderer",
+      "fromSide": "left",
+      "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
@@ -3890,11 +3917,20 @@
       "label": "requires"
     },
     {
-      "id": "requires-98ee79c48baf",
+      "id": "requires-f9f360d89e41",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "left",
-      "toNode": "skill-dr-komorowski-sport-report-renderer",
-      "toSide": "right",
+      "fromSide": "right",
+      "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d8fff5f8fd1e",
+      "fromNode": "skill-sport-diagnostics-training-report-workflow",
+      "fromSide": "right",
+      "toNode": "skill-dr-komorowski-sport-pdf-report-renderer",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },

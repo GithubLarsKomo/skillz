@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "12-Wochen Trainingsplan",
+    "subtitle": "Ganzkörperkraft, Zone 2 und belastungsadaptierte Progression",
+    "date": "19.08.2026",
+    "document_type": "Trainingsplan",
+    "document_id": "DK-ST-2026-001",
+    "version": "1.0",
+    "athlete": "Beispielathlet",
+    "sport": "Rudern",
+    "test_or_phase": "Aufbau / Return to Performance",
+    "author": "Dr. Komorowski Sportdiagnose und Trainingszentrum",
+    "confidentiality": "Vertraulich"
+  },
+  "summary": "Der Plan kombiniert drei kontrollierte Ganzkörpereinheiten mit drei Zone-2-Einheiten. Progression erfolgt nur bei stabiler Belastungsverträglichkeit am Folgetag.",
+  "sections": [
+    {
+      "title": "Trainingssteuerung",
+      "blocks": [
+        {"type": "bullets", "items": ["Kraft: technische Qualität vor Lastprogression.", "Zone 2: Talk-Test / RPE 2–3.", "Progression nur, wenn Symptome am Folgemorgen auf Ausgangsniveau sind."]},
+        {"type": "callout", "kind": "warning", "title": "Belastungsampel", "text": "Bei deutlicher Schmerz- oder Schwellungszunahme keine geplante Progression durchführen und Belastung fachlich neu bewerten."}
+      ]
+    },
+    {
+      "title": "Woche 1",
+      "blocks": [
+        {"type": "subheading", "text": "Kraft A"},
+        {
+          "type": "table",
+          "columns": ["Übung", "Sätze × Wdh.", "RIR", "Pause", "Hinweis"],
+          "widths": [2.2, 1.2, 0.7, 0.9, 2.8],
+          "rows": [
+            ["Romanian Deadlift", "2 × 12", "4", "120 s", "Kontrollierte Exzentrik, keine erzwungene ROM."],
+            ["Brustpresse sitzend", "2 × 12", "3", "90 s", "Schulterblätter stabil halten."],
+            ["Rudern brustgestützt", "2 × 12", "3", "90 s", "Rumpf ruhig, Zug zum unteren Rippenbogen."],
+            ["Dead Bug", "2 × 6/Seite", "3", "45–60 s", "Atmung und Rumpfspannung priorisieren."]
+          ]
+        },
+        {"type": "subheading", "text": "Zone 2"},
+        {
+          "type": "table",
+          "columns": ["Tag", "Dauer", "Kadenz", "Intensität", "Hinweis"],
+          "widths": [1, 1, 1.2, 1.7, 3.1],
+          "rows": [
+            ["Dienstag", "30 min", "85–95 rpm", "RPE 2–3", "Gleichmäßig, niedriger Widerstand."],
+            ["Donnerstag", "35 min", "85–95 rpm", "RPE 2–3", "Bei Symptomen alternative entlastende Modalität."],
+            ["Samstag", "40 min", "85–95 rpm", "RPE 2–3", "Lange ruhige Einheit, keine Schwellenfahrt."]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -37,6 +37,7 @@ graph TD
   domain_model_maintenance --> decision_record
   domain_model_maintenance --> test_driven_vertical_slice
   domain_model_maintenance --> two_axis_code_review
+  dr_komorowski_sport_pdf_report_renderer --> dr_komorowski_sport_docx_report_renderer
   engineering_delivery_followup --> deferred_external_action_verification
   engineering_delivery_followup --> two_axis_code_review
   eu_mdr_ivdr_regulatory_specialist --> medical_device_risk_management_iso14971
@@ -299,7 +300,8 @@ graph TD
   regulatory_evidence_traceability --> regulated_product_context
   regulatory_evidence_traceability --> research_to_evidence_note
   spec_to_vertical_issues --> conversation_to_spec
-  sport_diagnostics_training_report_workflow --> dr_komorowski_sport_report_renderer
+  sport_diagnostics_training_report_workflow --> dr_komorowski_sport_docx_report_renderer
+  sport_diagnostics_training_report_workflow --> dr_komorowski_sport_pdf_report_renderer
   sport_diagnostics_training_report_workflow --> sport_performance_diagnostics
   sport_diagnostics_training_report_workflow --> sport_training_programming
   supplier_quality_medical_device --> medical_device_qms_iso13485
@@ -421,7 +423,9 @@ graph TD
 | `domain-model-map.json` | `domain-model-maintenance` | — | unconsumed |
 | `domain-validation.json` | `domain-model-maintenance` | — | unconsumed |
 | `dpia-decision.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
-| `dr-komorowski-report.pdf` | `dr-komorowski-sport-report-renderer` | `sport-diagnostics-training-report-workflow` | inferred |
+| `dr-komorowski-report.pdf` | `dr-komorowski-sport-report-renderer` | — | unconsumed |
+| `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` | `dr-komorowski-sport-pdf-report-renderer`, `sport-diagnostics-training-report-workflow` | inferred |
+| `dr-komorowski-sport-report.pdf` | `dr-komorowski-sport-pdf-report-renderer` | `sport-diagnostics-training-report-workflow` | inferred |
 | `dual-510k-clia-strategy.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-evidence-package.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |

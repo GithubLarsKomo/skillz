@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **127**
-- User-facing entrypoints: **109**
-- Evaluation suites: **127**
+- Skills: **129**
+- User-facing entrypoints: **111**
+- Evaluation suites: **129**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **155**
+- Outputs without inferred hard-requires consumers: **156**
 
 ## Evaluation gaps
 
@@ -66,6 +66,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `domain-model-map.json` — producer: `domain-model-maintenance`
 - `domain-validation.json` — producer: `domain-model-maintenance`
 - `dpia-decision.json` — producer: `medical-device-privacy-gdpr-bdsg`
+- `dr-komorowski-report.pdf` — producer: `dr-komorowski-sport-report-renderer`
 - `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`

@@ -106,10 +106,34 @@
         "agents/openai.yaml": "1c3abbb8a5ea19b19ae160de776858514ec462573166f2f4f814ec737fbe72f4"
       }
     },
+    "dr-komorowski-sport-docx-report-renderer": {
+      "files": {
+        "SKILL.md": "7f03bf64251318ff0e373d5c9275fa4a943844b0c0eb9da3aeabc2b86f54c62d",
+        "agents/openai.yaml": "816ef6da6e51a7379877da79479f74b25e34db076df4e3664050ea9604cbcaed",
+        "assets/dr-komorowski-logo.svg": "58df47ff34a430106625e05041886b4aa4c5410fb74cdc5b33ef66d6b2ff0a62",
+        "assets/dr-komorowski-report-template.docx.b64": "27db05d3a1fd0be59579572e74c5fc73c05b0d30dd6f13e62569e5280a8302ab",
+        "assets/report-spec.example.json": "b827547c6e68113fbb1b3a241d1f3cf83d2ea4fe194c1b9a8fa797931d86ad41",
+        "assets/report-spec.lactate.example.json": "c193e2abb2af66b2bb9be3fd305f275f612a15f7d87e8b89779dae149b80d4e0",
+        "assets/report-theme.json": "bd73d925888252ad3e92c3bc25bb4adaac6c51c45f9b7e6a90c5cfbfb1c04712",
+        "references/brand-guide.md": "b35c66b0364f4b8a1ef663be4f05f1921a16e61469fc54c029b3f7472834c245",
+        "scripts/_render_report_core.py": "628697e9be35e931fa0371bce20aaf35af0669bc627c4e2fafe33a3a34dfa2c5",
+        "scripts/build_template.py": "f928a51e7114eb4310e8ce9365f48d31cd2a8a15881a059e5b113978504f9705",
+        "scripts/render_report.py": "c7185c2dffcd389515f327e1dbc263024529d7cedd0d463f1d1823d465eacde3",
+        "scripts/verify_template_override_contract.py": "cebb02175a91c979b4f323a0f33e289d41ffd3a7431b0f63d419154358665096"
+      }
+    },
+    "dr-komorowski-sport-pdf-report-renderer": {
+      "files": {
+        "SKILL.md": "1abaecf62ccfef044ee596eee43238c182ea6e393469aaacea47bc23ecf8f22e",
+        "agents/openai.yaml": "4c493e92d9f7e27839e5568ea34f510fbae8d6293c2950148ef763500f9dfeba",
+        "scripts/render_pdf.py": "b9b8cdb03fad2f82022f7e715b666948366fe4d36f8f648fcda8ee29e4b9a663",
+        "scripts/verify_visual_parity.py": "2a8f66c67a71874d83e3d9a43047c4553583a56c9b9cc5ced8c2381566d5e56f"
+      }
+    },
     "dr-komorowski-sport-report-renderer": {
       "files": {
-        "SKILL.md": "e6ad3b26bd16dcd4dcb84d3193cb3a49f7f8699f2f8f608a45144d2d1663518e",
-        "agents/openai.yaml": "b0944358945520a61045f12901e826496e1258d8dc37384a77ff8204ed5f6300",
+        "SKILL.md": "ec67cc5aaa9eb4009ef79685597879b19c533eba02607543967ede98993989ff",
+        "agents/openai.yaml": "0735e9ffef42734fc8be84c80d16adb4dd0fddbce05b1e4c5914679b84f7fbb6",
         "assets/dr-komorowski-logo.svg": "f76a60ab95974b888a434489d964b632cfec2b0e9365c39ec4bca19154b3e8d1",
         "assets/report-spec.example.json": "983a2e0f02ec205e2ba4d8748b6310562b4da8eb9ac98b915423ef57830bc9fb",
         "assets/report-spec.lactate-chart.example.json": "fc68a74da4ac731fc5a8d02cec5804d1e37128314de234690d1a720791ac2d15",
@@ -713,7 +737,7 @@
     },
     "sport-diagnostics-training-report-workflow": {
       "files": {
-        "SKILL.md": "ce792cb780441265ddde21593e1d6fd89972fbf3f6afeb377f951a52fe15f971",
+        "SKILL.md": "7d2a7bf80b3ee682c640b0ea1380f15fdb297e947cca2d91ce7054ee01b29d35",
         "agents/openai.yaml": "8c3ed9360ffe5e9bfc2946ae8a5cca42adaffbc47c0ae6a74ce2b07cfdcb80ed"
       }
     },

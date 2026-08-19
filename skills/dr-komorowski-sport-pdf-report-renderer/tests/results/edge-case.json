@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-pdf-report-renderer",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Abweichung als nicht freigegeben erkennen", "passed": true, "evidence": "Any visible DOCX/PDF reflow is explicitly treated as a failed parity gate."},
+    {"behavior": "Ursache im DOCX-Spec Template oder DOCX-Renderer korrigieren", "passed": true, "evidence": "The skill routes layout defects back to the canonical DOCX source."},
+    {"behavior": "DOCX neu rendern und PDF erneut ableiten", "passed": true, "evidence": "The recovery workflow requires regeneration from DOCX and repeated parity QA."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "PDF separat zurechtschieben", "observed": false, "evidence": "Independent PDF editing is explicitly prohibited."},
+    {"behavior": "Reflow ohne Prüfung akzeptieren", "observed": false, "evidence": "Visual parity is mandatory before release."}
+  ],
+  "overall": "pass"
+}

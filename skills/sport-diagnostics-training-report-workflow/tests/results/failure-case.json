@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "sport-diagnostics-training-report-workflow",
   "caseId": "failure-case",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-19",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "definitive Diagnose blockieren", "passed": true, "evidence": "The prerequisites prohibit reconstructing a diagnosis from memory."},
-    {"behavior": "Originalbefund oder verlässliche Quelle verlangen", "passed": true, "evidence": "A medical source report or reliable source is required before definitive use."},
-    {"behavior": "Quellenbefund und sportwissenschaftliche Ableitung getrennt halten", "passed": true, "evidence": "The consistency checks explicitly separate medical source findings from sport-science implications."}
+    {"behavior": "Paritäts-Gate als fehlgeschlagen behandeln", "passed": true, "evidence": "The workflow requires parity before the package is considered complete."},
+    {"behavior": "Ursache im DOCX-Pfad korrigieren", "passed": true, "evidence": "PDF reflow is explicitly routed back to the canonical DOCX source."},
+    {"behavior": "PDF erneut aus dem korrigierten DOCX ableiten", "passed": true, "evidence": "The recovery path requires fresh conversion from the corrected DOCX."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "eine Diagnose rekonstruieren", "observed": false, "evidence": "Reconstruction from incomplete memory is explicitly prohibited."},
-    {"behavior": "den Renderer zur fachlichen Ergänzung verwenden", "observed": false, "evidence": "The renderer is presentation-only and content changes return upstream."}
+    {"behavior": "PDF separat editieren", "observed": false, "evidence": "The workflow prohibits independent PDF fixes."},
+    {"behavior": "abweichende DOCX- und PDF-Versionen freigeben", "observed": false, "evidence": "Package completion requires confirmed DOCX/PDF parity."}
   ],
   "overall": "pass"
 }

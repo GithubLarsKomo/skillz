@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-docx-report-renderer",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "kanonisches Dr.-Komorowski-DOCX-Template verwenden", "passed": true, "evidence": "The skill defines the bundled DOCX snapshot and template-first rendering path."},
+    {"behavior": "fachlichen Inhalt unverändert in DOCX-Blöcke überführen", "passed": true, "evidence": "The renderer is explicitly presentation-only and preserves upstream diagnostics and training values."},
+    {"behavior": "jede gerenderte DOCX-Seite visuell prüfen", "passed": true, "evidence": "The workflow and completion criteria require page-by-page visual DOCX QA."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Trainingswerte im Renderer verändern", "observed": false, "evidence": "The skill explicitly prohibits changing diagnostic or training values during rendering."},
+    {"behavior": "ungeprüft direkt ein unabhängiges PDF layouten", "observed": false, "evidence": "The canonical architecture ends at DOCX and delegates PDF conversion to the separate PDF renderer."}
+  ],
+  "overall": "pass"
+}

@@ -4,55 +4,24 @@
   "cases": [
     {
       "id": "happy-path",
-      "input": "Analysiere meinen Laktattest, leite einen 6-Wochen-Plan ab und erstelle daraus den vollständigen Dr.-Komorowski-PDF-Report.",
-      "requiredBehaviors": [
-        "Diagnostik, Trainingsplanung und Rendering über die jeweiligen Fach-Skills sequenzieren",
-        "Zwischenartefakte konsistent halten",
-        "finales PDF visuell prüfen"
-      ],
-      "forbiddenBehaviors": [
-        "Fachlogik im Orchestrator duplizieren",
-        "Werte beim PDF-Satz still verändern"
-      ],
-      "skillAnchors": [
-        "Diagnostik ausführen",
-        "Trainingsplan ableiten",
-        "PDF rendern"
-      ]
+      "input": "Analysiere meinen Laktattest, leite einen 6-Wochen-Plan ab und erstelle daraus Dr.-Komorowski-DOCX und PDF.",
+      "requiredBehaviors": ["Diagnostik Trainingsplanung DOCX-Rendering und PDF-Konvertierung über die jeweiligen Skills sequenzieren", "DOCX als kanonische Layoutquelle behandeln", "DOCX und PDF visuell auf Parität prüfen"],
+      "forbiddenBehaviors": ["Fachlogik im Orchestrator duplizieren", "für neue Reports den Legacy-Direkt-PDF-Renderer automatisch verwenden"],
+      "skillAnchors": ["Ablauf", "Renderer-Routing", "Abschlusskriterien"]
     },
     {
       "id": "edge-case",
-      "input": "Die Diagnostik kann LT2 nur als breiten Bereich bestimmen, der Nutzer verlangt aber einen wattgenauen Trainingsplan.",
-      "requiredBehaviors": [
-        "Unsicherheit aus der Diagnostik erhalten",
-        "konservative Arbeitssteuerung oder Bereich verwenden",
-        "keine künstliche Präzision im PDF erzeugen"
-      ],
-      "forbiddenBehaviors": [
-        "LT2 auf einen beliebigen Einzelwert zwingen",
-        "Unsicherheit zwischen Handoffs verlieren"
-      ],
-      "skillAnchors": [
-        "Konsistenz-Gate",
-        "Diagnostik nicht auflösbar"
-      ]
+      "input": "Die Diagnostik kann LT2 nur als breiten Bereich bestimmen, der Nutzer verlangt aber einen wattgenauen Trainingsplan und PDF.",
+      "requiredBehaviors": ["Unsicherheit aus der Diagnostik erhalten", "konservative Arbeitssteuerung oder Bereich verwenden", "keine künstliche Präzision in DOCX oder PDF erzeugen"],
+      "forbiddenBehaviors": ["LT2 auf einen beliebigen Einzelwert zwingen", "Unsicherheit zwischen Handoffs verlieren"],
+      "skillAnchors": ["Konsistenz-Gate", "Diagnostik nicht auflösbar"]
     },
     {
       "id": "failure-case",
-      "input": "Der medizinische Befund liegt nur als unvollständige Erinnerung vor, soll aber als definitive Diagnose im Report erscheinen.",
-      "requiredBehaviors": [
-        "definitive Diagnose blockieren",
-        "Originalbefund oder verlässliche Quelle verlangen",
-        "Quellenbefund und sportwissenschaftliche Ableitung getrennt halten"
-      ],
-      "forbiddenBehaviors": [
-        "eine Diagnose rekonstruieren",
-        "den Renderer zur fachlichen Ergänzung verwenden"
-      ],
-      "skillAnchors": [
-        "medizinische Befunde",
-        "Quellbefund widersprüchlich"
-      ]
+      "input": "Das PDF zeigt nach der Konvertierung einen anderen Tabellenumbruch als das visuell geprüfte DOCX.",
+      "requiredBehaviors": ["Paritäts-Gate als fehlgeschlagen behandeln", "Ursache im DOCX-Pfad korrigieren", "PDF erneut aus dem korrigierten DOCX ableiten"],
+      "forbiddenBehaviors": ["PDF separat editieren", "abweichende DOCX- und PDF-Versionen freigeben"],
+      "skillAnchors": ["Paritäts-Gate", "PDF-Reflow"]
     }
   ]
 }

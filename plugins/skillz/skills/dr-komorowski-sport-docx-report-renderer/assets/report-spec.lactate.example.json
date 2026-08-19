@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "title": "Laktat-Leistungsdiagnostik",
+    "subtitle": "Stufentest Fahrrad · 4-min-Stufen",
+    "date": "19.08.2026",
+    "document_type": "Leistungsdiagnostik",
+    "document_id": "DK-LT-2026-001",
+    "version": "1.0",
+    "athlete": "Beispielathlet",
+    "sport": "Radsport / Ausdauer",
+    "test_or_phase": "Laktatstufentest",
+    "confidentiality": "Vertraulich"
+  },
+  "summary": "Die Grafik stellt die fachlich bereits bestimmten Laktat- und Herzfrequenzwerte sowie die übergebenen LT1-/LT2-Arbeitsbereiche dar. Der Renderer berechnet keine Schwellen.",
+  "sections": [
+    {
+      "title": "Messwerte",
+      "blocks": [
+        {
+          "type": "chart",
+          "chart_type": "lactate_hr_power",
+          "title": "Laktat und Herzfrequenz über Leistung",
+          "width_mm": 166,
+          "data": [
+            {"power_w": 100, "lactate_mmol_l": 1.0, "hr_bpm": 108},
+            {"power_w": 125, "lactate_mmol_l": 1.0, "hr_bpm": 116},
+            {"power_w": 150, "lactate_mmol_l": 1.1, "hr_bpm": 124},
+            {"power_w": 175, "lactate_mmol_l": 1.4, "hr_bpm": 134},
+            {"power_w": 200, "lactate_mmol_l": 2.1, "hr_bpm": 145},
+            {"power_w": 225, "lactate_mmol_l": 3.8, "hr_bpm": 158},
+            {"power_w": 250, "lactate_mmol_l": 6.8, "hr_bpm": 170}
+          ],
+          "threshold_bands": [
+            {"label": "LT1", "kind": "lt1", "from_w": 175, "to_w": 185, "working_w": 180},
+            {"label": "LT2", "kind": "lt2", "from_w": 220, "to_w": 230, "working_w": 225}
+          ],
+          "caption": "LT1/LT2 sind übergebene fachliche Arbeitsbereiche und werden vom Renderer nicht berechnet."
+        },
+        {
+          "type": "table",
+          "columns": ["Leistung", "Laktat", "Herzfrequenz"],
+          "widths": [1, 1, 1],
+          "rows": [["100 W", "1.0 mmol/L", "108 bpm"], ["175 W", "1.4 mmol/L", "134 bpm"], ["225 W", "3.8 mmol/L", "158 bpm"], ["250 W", "6.8 mmol/L", "170 bpm"]]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "dr-komorowski-sport-docx-report-renderer",
+  "caseId": "lactate-chart",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Messpunkte und beide y-Achsen darstellen", "passed": true, "evidence": "The lactate_hr_power renderer draws separate lactate and heart-rate scales with both data series."},
+    {"behavior": "übergebene Schwellenbänder unverändert darstellen", "passed": true, "evidence": "Threshold bands are read from the report spec and rendered as provided."},
+    {"behavior": "Chart im DOCX vollständig sichtbar prüfen", "passed": true, "evidence": "The completion criteria require page-rendered visual QA including charts."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "LT1 oder LT2 neu berechnen", "observed": false, "evidence": "The skill explicitly states that thresholds are representation-only inputs."},
+    {"behavior": "Messpunkte sortieren oder interpolieren", "observed": false, "evidence": "Strictly increasing power is validated and invalid data abort rather than being rewritten."}
+  ],
+  "overall": "pass"
+}
