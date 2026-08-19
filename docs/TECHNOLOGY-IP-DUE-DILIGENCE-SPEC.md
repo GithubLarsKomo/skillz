@@ -13,6 +13,8 @@ Die vier Skills sind:
 
 Der Cluster ist insbesondere für technologieintensive IVD-/MedTech-Szenarien geeignet, bleibt aber soweit möglich domänenneutral. Medical-Device-/IVD-spezifische Regulatory- und Supplier-Fragen werden an bestehende Spezial-Skills geroutet.
 
+> **Implementation status (2026-08-19):** implemented on `feat/technology-ip-due-diligence`, including canonical OpenAI agent metadata, three recorded evaluation cases per skill, generated capability/dependency metadata, Obsidian projections and OpenAI plugin distribution. The standard repository validation workflow passed on GitHub Actions run 542.
+
 ---
 
 ## Architekturprinzipien
@@ -79,72 +81,188 @@ outputs:
   - technology-offer-gap-set.json
 ```
 
+## Eingaben
+
+Mindestens:
+
+- `decisionContext`: welche Entscheidung soll vorbereitet werden?
+- `intendedUseOrWorkflow`: geplanter Einsatz,
+- `requirements`: Must-haves und Nice-to-haves,
+- eine oder mehrere Offerten bzw. Herstellerunterlagen,
+- `asOf` für volatile Angaben.
+
+Optional:
+
+- eigene Versuchs-/Pilotdaten,
+- historische Anbieterperformance,
+- Regulatory-/Quality-Kontext,
+- aktuelle Commercial Terms,
+- bestehende IP-/Lizenzinformationen.
+
 ## Bewertungsdimensionen
 
-1. **Scope & intended use** — angebotene Technologie, Produktgrenzen, Zielanwendung, Sample/Workflow, Nutzeranforderungen.
-2. **Claim inventory** — explizite technische, Performance-, Kosten-, Throughput-, Robustness-, Regulatory- und Scale Claims.
-3. **Evidence quality** — direct/derived/unknown; Primärdaten vs. Marketing; unabhängige Replikation; Aktualität.
-4. **Technical fit** — Messprinzip, Sensitivität, Dynamikbereich, Interferenzen, Multiplexing, Matrixkompatibilität, Automatisierbarkeit, Software/Data Integration.
-5. **Maturity & validation** — Prototype/Pilot/production-relevant evidence; keine erfundene TRL-Zahl bei fehlender Evidenz.
-6. **Operational fit** — Hardware, Consumables, Calibration/QC, Training, Maintenance, throughput, turnaround, failure modes.
-7. **Scale & supply** — Fertigung, kritische Komponenten, Single Source, reproducibility, transferability, capacity evidence.
-8. **Quality/regulatory hooks** — für Medical Device/IVD nur Screening und Routing; Detailanalyse an bestehende Skills.
-9. **IP/licensing dependencies** — bekannte proprietäre Reagenzien, Software, Patente, Lizenzen, field-of-use restrictions; keine FTO-Schlussfolgerung.
-10. **Commercial model** — CAPEX/OPEX, consumables, minimum volumes, license/royalty, service, switching cost, lock-in, assumptions.
-11. **Strategic fit** — Differenzierung, internal capability gap, make/buy implications, reversibility.
-12. **Red flags / questions** — nur entscheidungsrelevante Punkte.
+### Technology / analytical fit
 
-## Routing
+- Mess-/Detektionsprinzip,
+- Sensitivität / LOD / LOQ soweit relevant,
+- Dynamikbereich,
+- Präzision,
+- Interferenzen / Matrixeffekte,
+- Multiplexing,
+- Sample Volume,
+- Reagent Stability,
+- Calibration / QC,
+- Throughput / TAT.
 
-- belastbare externe Recherche → `research-to-evidence-note`
-- Medical-Device-/IVD-Supplier-QMS → `supplier-quality-medical-device`
-- Regulatory Strategy → `medical-device-regulatory-strategy` bzw. passende EU/FDA-Spezial-Skills
-- fehlende Informationen des Anbieters → `external-stakeholder-questionnaire`
-- IP/FTO-Vertiefung → `patent-landscape-analysis` / `freedom-to-operate-assessment`
+### Maturity / validation
+
+- Research Prototype,
+- engineered prototype,
+- pilot-ready,
+- production-relevant,
+- reproduzierbare Performance,
+- Transferability,
+- Validation Depth,
+- Longitudinal / Multi-site Evidence soweit relevant.
+
+Keine numerische TRL erzwingen, wenn sie nicht sinnvoll evidenzierbar ist.
+
+### Integration / operations
+
+- Automatisierbarkeit,
+- Hardware-/Software-Abhängigkeiten,
+- Workflow Changes,
+- Data Integration,
+- Maintenance,
+- Training,
+- Calibration/QC Burden,
+- Operational Failure Modes.
+
+### Scale / supply / quality
+
+- kritische Komponenten,
+- Single Sources,
+- Capacity,
+- Manufacturing Complexity,
+- Lot-to-lot Risks,
+- Quality-System-Kontext.
+
+Medical-Device-/IVD-Supplier-Qualification bleibt bei `supplier-quality-medical-device`.
+
+### IP / licensing dependencies
+
+- bekannte proprietäre Reagenzien,
+- Antikörper-/Binder-Abhängigkeiten,
+- Plattformpatente,
+- Software-/Algorithmuslizenzen,
+- Field-of-Use Restrictions,
+- Royalties.
+
+Keine FTO-Schlussfolgerung im Offer Skill.
+
+### Commercial model
+
+- CAPEX,
+- OPEX,
+- Consumables,
+- Service,
+- Minimum Volumes,
+- Royalties,
+- Milestones,
+- Switching Costs,
+- Vendor Lock-in.
+
+Preise benötigen Datum, Menge/Volumen und Quelle. Keine scheinpräzise TCO-Rechnung mit fehlenden Inputs.
+
+## Evidence-Regeln
+
+- Marketingclaim ≠ bestätigte Performance.
+- Nicht publizierte Anbieterdaten sind als Vendor Evidence kenntlich zu machen.
+- Eigene Verifikationsdaten sind von Vendor Data zu trennen.
+- Für externe Recherche `research-to-evidence-note` verwenden.
+- Unzugängliche oder fehlende Daten bleiben `unknown`.
+
+## Fit-Kategorien
+
+Pro Dimension:
+
+- `strong`
+- `conditional`
+- `weak`
+- `unknown`
+
+Keine Gesamtpunktzahl ohne explizit bestätigte Gewichtung.
+
+## Kernworkflow
+
+1. Decision Context und Anforderungen fixieren.
+2. Offerten/Claims inventarisieren.
+3. Evidence je Claim klassifizieren.
+4. Technischen Fit gegen Anforderungen bewerten.
+5. Maturity/Transferability bewerten.
+6. Integration/Operational Burden prüfen.
+7. Scale/Supply/Quality Hooks identifizieren.
+8. IP/Licensing Dependencies inventarisieren.
+9. Commercial Model mit expliziten Annahmen strukturieren.
+10. Red Flags, Decision Drivers und offene Fragen ableiten.
+11. Spezialfragen routen.
 
 ## Output-Vertrag
 
 `technology-offer-assessment.json` enthält mindestens:
 
-- `scope`, `decisionContext`, `asOf`
-- `offers[]`
-- `requirements[]`
-- `claims[]` mit Evidence-Referenzen
-- `assessmentDimensions[]`
-- `fit`: `strong | conditional | weak | unknown`
-- `redFlags[]`
-- `commercialAssumptions[]`
-- `ipDependencies[]`
-- `regulatoryRouting[]`
-- `decisionDrivers[]`
-- `recommendation` mit expliziten Preconditions
+```json
+{
+  "scope": {},
+  "decisionContext": {},
+  "asOf": "YYYY-MM-DD",
+  "requirements": [],
+  "offers": [],
+  "claims": [],
+  "assessmentDimensions": [],
+  "fit": [],
+  "redFlags": [],
+  "commercialAssumptions": [],
+  "ipDependencies": [],
+  "regulatoryRouting": [],
+  "decisionDrivers": [],
+  "recommendation": {
+    "status": "...",
+    "preconditions": []
+  }
+}
+```
 
-`technology-offer-gap-set.json` enthält offene technische, evidenzielle, regulatorische, IP-, kommerzielle und Supplier-Fragen mit Priorität und `decisionImpact`.
+`technology-offer-gap-set.json` enthält offene Fragen mit:
 
-## Qualitätsgate
+- `question`,
+- `domain`,
+- `priority`,
+- `decisionImpact`,
+- `evidenceNeeded`,
+- `ownerOrSource`.
 
-Pass nur wenn:
+## Übergaben
 
-- Marketing Claims und bestätigte Evidenz getrennt sind,
-- mehrere Angebote entlang identischer Kriterien verglichen werden,
-- fehlende Daten als `unknown` statt positiv interpretiert werden,
-- Preis-/Kostenannahmen zeitlich und mengenbezogen kenntlich sind,
-- Regulatory-/Supplier-/IP-Fragen korrekt geroutet werden,
-- keine Vertragsrechts- oder FTO-Opinion simuliert wird.
+- Patent Landscape → `patent-landscape-analysis`
+- konkretes FTO → `freedom-to-operate-assessment`
+- Supplier QMS → `supplier-quality-medical-device`
+- IVD/Medical Device Regulatory → bestehende Regulatory-Skills
+- fehlende Anbieterinformationen → `external-stakeholder-questionnaire`
 
 ## Evaluation
 
 ### Happy Path
 
-Zwei Anbieter bieten Biosensor-Plattformen für denselben IVD-Workflow an. Technische Spezifikationen, Pilotdaten und Preisannahmen liegen vor. Ergebnis: vergleichbare Matrix, evidenzbasierte Fit-Bewertung, Red Flags und priorisierte Anbieterfragen.
+Zwei Anbieter werden anhand derselben Requirements und aktueller Evidenz verglichen; technische und kommerzielle Unterschiede sind nachvollziehbar.
 
-### Edge Case
+### Grenzfall
 
-Ein Anbieter behauptet sehr hohe analytische Sensitivität, liefert aber nur Marketinggrafiken und keine unabhängigen oder methodisch ausreichenden Daten. Ergebnis: Claim bleibt sichtbar, Evidence Confidence niedrig, Entscheidung wird an konkrete Verifikationsdaten geknüpft.
+Anbieter behauptet außergewöhnliche Sensitivität und Produktionsreife, liefert aber nur ausgewählte Prototype-Daten. Erwartung: Claim bleibt sichtbar, Confidence niedrig/conditional, zusätzliche Verifikation wird konkret benannt.
 
-### Failure Case
+### Fehlerfall
 
-Eine Offerte wird allein anhand der Broschüre als „marktreif, regulatorisch geeignet und IP-sicher“ bewertet. Der Skill muss diese Schlussfolgerung verwerfen und die drei Dimensionen getrennt behandeln.
+Pitch Deck wird allein zur Aussage „market ready, regulatorily suitable and IP safe“ verwendet. Erwartung: stoppen, drei getrennte Fragen routen.
 
 ---
 
@@ -152,16 +270,16 @@ Eine Offerte wird allein anhand der Broschüre als „marktreif, regulatorisch g
 
 ## Skill-Grenze
 
-Dieser Skill verwandelt eine definierte Technologiefrage, Suchstrategie und zugängliche Patentquellen in eine deduplizierte, zeitbezogene Patentfamilienlandschaft und endet, wenn relevante Familien, Claim-Themen, Status, Jurisdiktionen, Suchabdeckung, Konflikte und offene Suchlücken nachvollziehbar dokumentiert sind.
+Dieser Skill verwandelt eine definierte Technologiefrage und zugängliche Patent-/Registerquellen in eine deduplizierte Patentfamilienlandschaft mit reproduzierbarer Suchstrategie, Claim-Themen, Jurisdiktionen, Legal-Status-Freshness, Unsicherheiten und offenen Suchfragen.
 
 ## Trigger
 
-- „Erstelle eine Patentlandschaft zu …“
-- „Welche Patentfamilien und Assignees sind in diesem Feld relevant?“
-- „Welche Schutzrechte decken diese Technologie / diesen Biomarker / dieses Assayprinzip ab?“
-- „Zeige White Spaces, Prioritäten und relevante Familien.“
+- „Erstelle ein Patent Landscape zu …“
+- „Welche Patentfamilien schützen diese Technologie?“
+- „Welche Assignees sind in diesem Assay-/Biomarkerfeld aktiv?“
+- „Welche Claims/Familien sind für diese Plattform relevant?“
 
-Nicht verwenden als Patentability Opinion, Prior-Art-Gutachten oder FTO-Schlussfolgerung.
+Nicht für produktkonkrete FTO-Schlussfolgerungen verwenden.
 
 ## Vorgeschlagenes Frontmatter
 
@@ -183,80 +301,121 @@ outputs:
   - patent-search-log.json
 ```
 
-## Suchmodell
+## Suchraum
 
-Die Suchstrategie kombiniert soweit relevant:
+Mögliche Facetten:
 
-- Kernbegriffe und Synonyme,
-- Biomarker-/Target-Namen und Aliasnamen,
-- Mess-/Assayprinzipien,
-- CPC/IPC-Klassen,
-- Assignee/Applicant/Inventor,
-- Citation chains,
-- priority/continuation/divisional relationships,
-- Familienmitglieder in Zieljurisdiktionen.
+- Keywords / Synonyme,
+- Biomarker-/Target-Namen,
+- Assay-/Detection-Prinzip,
+- CPC/IPC,
+- Applicant/Assignee,
+- Inventor,
+- Citations,
+- Family Relations,
+- relevante Produkte/Reagenztypen.
 
-Die Suche muss iterativ dokumentiert werden. Ein einzelner Keyword Search darf nicht als vollständige Landschaft ausgegeben werden.
+Eine Keyword-Suche allein ist keine belastbare Landscape-Methodik.
 
-## Familienmodell
+## Family Normalization
 
-Pro Familie mindestens:
+Pro Family mindestens:
 
-- `familyId`
-- `representativePublication`
-- `earliestPriority`
-- `priorityApplications[]`
-- `members[]`
-- `assignees[]`
-- `inventors[]`
-- `jurisdictions[]`
-- `legalStatus[]` mit `asOf` und Source
-- `independentClaimThemes[]`
-- `technologyTags[]`
-- `relevance`: `core | adjacent | contextual | excluded`
-- `relevanceRationale`
-- `statusUncertainties[]`
+```json
+{
+  "familyId": "...",
+  "representativePublication": "...",
+  "earliestPriority": "YYYY-MM-DD",
+  "priorityApplications": [],
+  "members": [],
+  "assignees": [],
+  "inventors": [],
+  "jurisdictions": [],
+  "legalStatus": [],
+  "claimScopeBranches": [],
+  "independentClaimThemes": [],
+  "technologyTags": [],
+  "relevance": "core|adjacent|contextual|excluded",
+  "relevanceRationale": "...",
+  "statusUncertainties": []
+}
+```
 
-Deduplizierung nach nachvollziehbarer Family-Definition; unterschiedliche Continuation-/Divisional-Claim-Scope-Pfade dürfen nicht durch grobe Familienbildung unsichtbar werden.
+### Continuations / Divisionals
 
-## Quellenhierarchie
+Gemeinsame Priorität bedeutet nicht identischen Claim Scope. Parallel laufende Continuations, Divisionals oder national unterschiedliche Claim Sets müssen sichtbar bleiben, wenn sie für die Analyse relevant unterschiedlich sind.
 
-Bevorzugt werden aktuelle offizielle Register bzw. Patentamtquellen für Status und bibliografische Daten. Aggregatoren können Discovery beschleunigen, ersetzen aber bei entscheidungsrelevantem Legal Status nicht die verifizierte Primärquelle.
+## Legal Status
+
+Discovery-Datenbanken dürfen zur Suche genutzt werden. Materiell entscheidungsrelevanter aktueller Status sollte bevorzugt gegen offizielle Register/Patentämter geprüft werden.
+
+Jede zeitabhängige Statusaussage enthält:
+
+- Jurisdiktion,
+- Member/Publication/Patent,
+- Status,
+- `asOf`,
+- Source,
+- Confidence/Uncertainty.
 
 ## Claim-Themen
 
-Der Skill darf Independent Claims semantisch thematisieren und relevante Claim-Elemente für nachgelagerte Analyse markieren. Er darf keine endgültige Claim Construction behaupten.
+Independent Claims semantisch zerlegen, z. B.:
 
-## Output-Vertrag
+- Target/Biomarker,
+- Reagent/Antibody,
+- Sample,
+- Assay Format,
+- Detection Principle,
+- Signal Processing,
+- Workflow Steps.
 
-`patent-landscape.json` enthält Scope, asOf, Search Coverage, Families, Assignee Map, Technology Clusters, Jurisdiction Coverage, Status Uncertainties und Open Search Questions.
+Keine verbindliche Claim Construction simulieren.
 
-`patent-search-log.json` enthält Query, Quelle, Datum, Filter, Trefferzahl soweit verfügbar, Ein-/Ausschlusslogik und Iterationsgrund.
+## Search Log
 
-## Qualitätsgate
+Jede Search Iteration dokumentiert:
 
-Pass nur wenn:
+```json
+{
+  "source": "...",
+  "query": "...",
+  "date": "YYYY-MM-DD",
+  "filters": [],
+  "resultCount": null,
+  "inclusionLogic": "...",
+  "exclusionLogic": "...",
+  "iterationReason": "..."
+}
+```
 
-- Suchstrategie reproduzierbar dokumentiert ist,
-- Familien nachvollziehbar dedupliziert sind,
-- relevante Continuation-/Divisional-Strukturen nicht verschluckt werden,
-- aktuelle Statusaussagen eine Freshness-/Source-Referenz besitzen,
-- Patentfamilie und Claim Scope nicht gleichgesetzt werden,
-- kein FTO-/Validity-/Patentability-Urteil simuliert wird.
+## White Space
+
+White Spaces werden als **Recherchehypothese** formuliert. Kein „niemand hat das patentiert“ aus einer begrenzten Suche ableiten.
+
+## Übergabe an FTO
+
+Markiere pro Kernfamilie:
+
+- relevante Jurisdiction Members,
+- potenziell relevante Independent Claims,
+- Claim-Element-Themen,
+- Statusunsicherheiten,
+- offene Search/Prosecution-Fragen.
 
 ## Evaluation
 
 ### Happy Path
 
-Für ein diagnostisches Biomarker-/Assayfeld werden Keyword-, Classification-, Assignee- und Citation-Suchen kombiniert. Ergebnis: deduplizierte Kernfamilien, Claim-Themen, Status und dokumentierte Search Coverage.
+Keyword/CPC/Assignee/Citation-Suche identifiziert überlappende Publikationen, dedupliziert sie in Familien und hält Claim-Scope-Unterschiede sichtbar.
 
-### Edge Case
+### Grenzfall
 
-Eine Kernfamilie besitzt parallele US continuations und EP divisionals mit abweichenden Independent Claims. Ergebnis: gemeinsame Priorität bleibt sichtbar, unterschiedliche Claim-Scope-Pfade werden separat markiert.
+US Continuation und EP Divisional teilen Priorität, aber Claims unterscheiden sich. Erwartung: gemeinsame Family-Beziehung plus separate Claim-Scope-Branches.
 
-### Failure Case
+### Fehlerfall
 
-Ein Aggregator zeigt „active“, während das offizielle Register ein anderes Statusbild nahelegt. Der Skill darf den Aggregatorstatus nicht als endgültige Wahrheit übernehmen.
+Aggregator nennt Family „active“, offizielles Register widerspricht oder ist unklar. Erwartung: Statusunsicherheit bleibt sichtbar, keine definitive Statusaussage.
 
 ---
 
@@ -264,14 +423,7 @@ Ein Aggregator zeigt „active“, während das offizielle Register ein anderes 
 
 ## Skill-Grenze
 
-Dieser Skill verwandelt eine klar definierte Produkt-/Prozesskonfiguration, Zieljurisdiktionen, Commercial Acts und relevante aktive/pending Patentansprüche in eine elementweise technische FTO-Screening-Heatmap und endet, wenn potenzielle Read-ons, fehlende Elemente, Statusunsicherheiten, Design-around-Hypothesen und Counsel-Eskalationen explizit sind.
-
-## Trigger
-
-- „Mach eine FTO-Analyse / FTO-Heatmap.“
-- „Mappe dieses Produkt gegen Patentclaims.“
-- „Welche Patentfamilien sind für die Vermarktung in EU/US kritisch?“
-- „Welche Design-around-Optionen gibt es?“
+Dieser Skill verwandelt eine definierte Produkt-/Prozesskonfiguration, Zieljurisdiktionen und relevante Claims in eine technische Claim-by-Claim-FTO-Vorprüfung mit evidenzbasiertem Element-Mapping, Screening-Risikokategorien, Design-around-Hypothesen und Counsel-Eskalationen.
 
 ## Vorgeschlagenes Frontmatter
 
@@ -295,130 +447,163 @@ outputs:
   - fto-design-around-options.json
 ```
 
-## Voraussetzungen
+## FTO Scope
 
-Vor Claim-Mapping fixieren:
+Vor jeder Bewertung fixieren:
 
-1. konkrete Produkt-/Assay-/Prozesskonfiguration,
-2. wesentliche technische Merkmale,
-3. Zieljurisdiktionen,
-4. relevante wirtschaftliche Handlungen soweit bekannt (`make`, `use`, `sell`, `offer for sale`, `import` oder jurisdiktionsspezifische Entsprechungen),
-5. `asOf`,
-6. relevante Patentfamilien/Claims,
-7. bekannte Lizenz-/Ownership-Informationen.
+```json
+{
+  "productConfiguration": {},
+  "technicalFeatureBaseline": [],
+  "jurisdictions": [],
+  "commercialActs": [],
+  "asOf": "YYYY-MM-DD",
+  "exclusions": [],
+  "assumptions": []
+}
+```
 
-Eine FTO ohne konkrete Konfiguration oder Jurisdiktion bleibt unzulässig breit und muss als Scope Gap markiert werden.
+Keine Aussage „FTO“ ohne diesen Scope.
 
-## Claim-by-Claim-Modell
+## Claim Mapping
 
-Pro relevantem Independent Claim:
+Pro Claim:
 
-- Claim-Identifier und Jurisdiktion
-- verified current status / uncertainty
-- decomposed required elements
-- product/process feature evidence
-- element mapping: `present | likely-present | absent | unknown | interpretation-dependent`
-- mapping confidence
-- source references
-- dependent claims mit zusätzlicher Relevanz
-- prosecution/claim-construction questions, wenn entscheidungsrelevant
-- escalation flag
+```json
+{
+  "patentOrApplication": "...",
+  "jurisdiction": "...",
+  "claimId": "...",
+  "claimType": "independent",
+  "grantState": "granted|pending|unknown",
+  "legalStatus": "...",
+  "statusAsOf": "YYYY-MM-DD",
+  "statusSource": "...",
+  "elements": [
+    {
+      "element": "...",
+      "mapping": "present|likely-present|absent|unknown|interpretation-dependent",
+      "featureEvidence": [],
+      "confidence": "high|medium|low"
+    }
+  ],
+  "dependentClaims": [],
+  "screeningRisk": "RED|AMBER|GREEN|GREY",
+  "counselEscalation": false,
+  "openQuestions": []
+}
+```
 
-Der Skill verwendet bewusst `potential read-on` oder `screening concern`, nicht `infringement`.
+## Kernregel
 
-## Screening-Risikokategorien
+Ein potentieller Full Read-on benötigt Betrachtung **aller erforderlichen Claim-Elemente**. Topic Similarity oder Patent-Family-Relevance ersetzt kein Claim Chart.
+
+## Risikokategorien
 
 ### RED — potential full read-on
 
-Alle erforderlichen Elemente eines relevanten aktuell durchsetzbar erscheinenden Independent Claims sind auf Basis der verfügbaren technischen Evidenz `present`/`likely-present`; oder es fehlt nur eine claim-construction-relevante Auslegung. Zwingende Counsel-Eskalation.
+Alle erforderlichen Elemente eines relevant erscheinenden aktuellen Independent Claims sind `present`/`likely-present`, oder eine materielle Claim-Construction-Frage trennt vom Full Read-on.
+
+→ Mandatory Patent Counsel.
 
 ### AMBER — material uncertainty
 
-Plausible Überschneidung, aber Status, Claim Construction, Produktausprägung, Pending Claim Scope, Prosecution History oder ein technisches Element bleibt entscheidungsrelevant unklar.
+Materielle Überschneidung, aber entscheidende Unsicherheit bei:
+
+- Claim Construction,
+- Produkteigenschaft,
+- Status,
+- Pending Claim Scope,
+- Prosecution History,
+- Ownership/License.
+
+→ Counsel/Investigation abhängig von Commercial Impact.
 
 ### GREEN — no current full read-on identified
 
-Mindestens ein erforderliches Element ist evidenzbasiert `absent`, oder der relevante Anspruch ist für die betrachtete Jurisdiktion verifiziert nicht mehr in Kraft. Dies ist ausdrücklich **keine globale FTO-Freigabe**.
+Mindestens ein erforderliches Element ist evidenzbasiert `absent`, oder der konkret betrachtete Claim ist in der betrachteten Jurisdiktion verifiziert nicht relevant in Kraft.
+
+**Nicht formulieren:** „Product does not infringe.“
+
+Stattdessen:
+
+> No current full read-on was identified for the reviewed claims, configuration, jurisdiction and as-of date.
 
 ### GREY — insufficient evidence
 
-Scope, Produktkonfiguration, Status oder Claim-Text reicht für eine belastbare technische Vorprüfung nicht aus.
+Scope, Produktfeature, Claim Text oder Status reicht nicht zur belastbaren technischen Vorprüfung.
 
-## Pending Applications
+## Granted vs Pending
 
-Pending Claims werden getrennt von erteilten Ansprüchen bewertet. Mögliche zukünftige Claim Scope darf nicht wie ein aktuelles Ausschließlichkeitsrecht behandelt werden, muss aber als strategisches Risiko sichtbar bleiben.
+Pending Claims separat behandeln:
+
+- können sich ändern,
+- sind strategisch relevant,
+- sind nicht identisch mit einem aktuell erteilten Ausschließlichkeitsrecht.
 
 ## Design-around
 
-Design-around-Hypothesen müssen:
+Jede Hypothese benötigt:
 
-- auf konkrete notwendige Claim-Elemente zielen,
-- technisch plausibel beschrieben sein,
-- Performance-/Regulatory-/Manufacturing-Auswirkungen markieren,
-- neue Patent-/FTO-Fragen ausweisen,
-- keine Umgehung gesetzlicher Pflichten empfehlen.
+```json
+{
+  "targetClaimElement": "...",
+  "technicalChange": "...",
+  "feasibility": "high|medium|low|unknown",
+  "performanceImpact": "...",
+  "manufacturingImpact": "...",
+  "regulatoryImpact": "...",
+  "newIpQuestions": [],
+  "verificationNeeded": []
+}
+```
 
-## Output-Vertrag
+Ein Design-around ist keine FTO-Freigabe und wird nach Änderung erneut gescreent.
 
-`fto-scope.json`: Produktkonfiguration, Technical Feature Baseline, Jurisdiktionen, Commercial Acts, asOf, Exclusions, Assumptions.
-
-`fto-claim-map.json`: Familien/Patente/Claims, Elementzerlegung, Feature Mapping, Status/Freshness, Evidence und Risk Category.
-
-`fto-design-around-options.json`: Option, targeted claim element, technical change, feasibility, performance impact, regulatory impact, new-IP implications, validation needs.
-
-## Counsel-Eskalation
+## Counsel Escalation
 
 Mandatory bei:
 
 - RED,
-- AMBER mit hoher kommerzieller Relevanz,
-- unklarer Claim Construction,
-- komplexer prosecution history,
-- Doctrine-of-Equivalents-/Äquivalenzfragen,
-- unklarer Ownership/License Chain,
-- imminent launch / transaction closing.
+- kommerziell relevantem AMBER,
+- Claim-Construction-Frage,
+- komplexer Prosecution History,
+- Equivalents-/Äquivalenzfragen,
+- Ownership-/License-Uncertainty,
+- imminent Launch / Closing.
 
-## Qualitätsgate
+## Verbotene Schlussfolgerungen
 
-Pass nur wenn:
+Der Skill darf als abschließendes Rechtsurteil nicht behaupten:
 
-- Scope/Jurisdiktion/asOf fixiert sind,
-- relevante Claims elementweise statt nur thematisch gemappt werden,
-- Status aktuell verifiziert oder ausdrücklich unsicher ist,
-- Patentfamilie nicht mit einem einzigen Claim Scope gleichgesetzt wird,
-- Pending und granted getrennt bleiben,
-- `GREEN` nie als globale Non-Infringement-Freigabe formuliert wird,
-- Counsel-Eskalationen sichtbar sind,
-- Design-arounds an konkrete Claim-Elemente gebunden sind.
+- „infringes“,
+- „does not infringe“,
+- „valid/invalid“,
+- „enforceable/unenforceable“.
 
 ## Evaluation
 
 ### Happy Path
 
-Ein diagnostischer Bluttest ist technisch detailliert beschrieben; US- und EP-Zielmarkt sind definiert; mehrere relevante Patentfamilien liegen vor. Ergebnis: Claim-by-Claim-Heatmap, RED/AMBER/GREEN/GREY, konkrete Design-around-Hypothesen und Counsel-Eskalation.
+Definierter Assay + konkrete US/EP Claims + aktueller Status → elementweises Mapping und jurisdiction-spezifische Heatmap.
 
-### Edge Case
+### Grenzfall
 
-Eine Familie ist in EP abgelaufen, besitzt aber eine laufende US continuation mit abweichenden Claims. Ergebnis: keine globale Familienbewertung; Jurisdiktion und Claim Scope bleiben getrennt.
+EP Family Member expired, US Continuation live, weitere Pending Continuation. Erwartung: keine Family-weite grüne Freigabe; Claims/Jurisdiktionen getrennt.
 
-### Failure Case
+### Fehlerfall
 
-Der Skill schreibt „Produkt verletzt Patent X nicht“, weil ein Aggregator die Familie als expired zeigt. Diese Aussage muss verworfen werden; Status, Jurisdiktion, konkrete Claims und technische Elemente sind erneut zu prüfen.
+User fordert „Product X does not infringe because Google Patents says expired“. Erwartung: verweigert definitive Aussage, prüft Jurisdiktion/Claim/Status, nutzt GREY/AMBER soweit Evidenz fehlt.
 
 ---
 
 # 4. `technology-due-diligence`
 
-## Skill-Grenze
+## Rolle
 
-Dieser Skill verwandelt einen bestätigten Due-Diligence-Entscheidungskontext in einen priorisierten, evidenzbasierten Technology/IP/Offer-Due-Diligence-Status und endet, wenn Fach-Skills koordiniert, kritische Unsicherheiten sichtbar, Entscheidungstreiber priorisiert und nächste sichere Aktionen festgelegt sind.
+Dünner Orchestrator für Licensing, Partnership, Acquisition, Strategic Investment, Make/Buy oder Supplier Selection.
 
-## Trigger
-
-- „Mach eine Technology Due Diligence zu Unternehmen/Plattform X.“
-- „Bewerte diese Technologie für Licensing, Partnership, Acquisition oder Make/Buy.“
-- „Führe Technik, IP/FTO, Regulatory, Supplier/Scale und Commercial Readiness zusammen.“
-- „Erstelle ein Executive DD Assessment.“
+Er konsumiert Specialist Outputs; er erzeugt keine zweite Patent-/FTO-/Regulatory-/Supplier-Analyse.
 
 ## Vorgeschlagenes Frontmatter
 
@@ -445,150 +630,242 @@ outputs:
 
 ## Decision Context
 
-Mindestens erfassen:
+Mindestens:
 
-- transaction/decision type: `license | partnership | acquisition | make-buy | supplier-selection | strategic-investment | other`
-- target technology/product
-- intended use / commercial objective
-- target markets/jurisdictions
-- decision deadline / stage soweit bekannt
-- must-have criteria
-- risk appetite / irreversible decisions soweit explizit bekannt
+- Decision Type,
+- Target Technology/Product,
+- Intended Use,
+- Commercial Objective,
+- Target Markets/Jurisdictions,
+- Decision Stage/Deadline,
+- Must-have Criteria,
+- Risk Appetite soweit explizit bestätigt,
+- `asOf`.
 
-## Orchestrationslogik
+## Orchestrierung
 
-1. **Scope & hypotheses** fixieren.
-2. **Evidence base** über `research-to-evidence-note` in den Fach-Skills aufbauen.
-3. **Technology/offer fit** über `technology-offer-assessment`.
-4. **Patent landscape** über `patent-landscape-analysis`.
-5. **FTO screening** nur für konkret definierte Produkt-/Prozesskonfigurationen über `freedom-to-operate-assessment`.
-6. **Regulatory** bei IVD/Medical Device an bestehende Regulatory Skills routen.
-7. **Supplier/quality/scale** bei Medical Device/IVD an `supplier-quality-medical-device` und passende QMS-/Validation-Skills routen.
-8. Ergebnisse in gemeinsame Decision Dimensions überführen.
-9. Red Flags, Unknowns, Evidence Gaps, reversible/irreversible decisions und investigation backlog priorisieren.
-10. Bei blockierender Unsicherheit begrenzte Investigations an `large-work-wayfinder` übergeben.
+### Technology
 
-## Gemeinsame Decision Dimensions
+`technology-offer-assessment`
 
-- technical differentiation
-- performance evidence
-- maturity/transferability
-- integration burden
-- manufacturing/scale/supply risk
-- regulatory feasibility/readiness
-- patent position / landscape density
-- FTO screening risk
-- licensing dependencies
-- commercial model / cost structure
-- strategic fit / lock-in
-- critical unknowns
+### IP Landscape
 
-## Red-Flag-Priorisierung
+`patent-landscape-analysis`
 
-Jeder Red Flag Record enthält:
+### FTO
 
-- `issue`
-- `domain`
-- `evidence`
-- `confidence`
-- `impact`
-- `reversibility`
-- `decisionTiming`
-- `owner/authority`
-- `nextEvidence`
-- `stopCondition`
+`freedom-to-operate-assessment`
 
-Keine Gesamtpunktzahl erfinden, wenn die Gewichtung nicht vom Nutzer/Entscheidungskontext bestätigt ist.
+### Regulatory
 
-## Output-Vertrag
+Für IVD/Medical Device passende bestehende Regulatory-Skills.
 
-`technology-due-diligence.json` enthält Scope, Decision Context, Specialist Assessments, Cross-Domain Dependencies, Red Flags, Unknowns, Decision Drivers, Options, Preconditions und Recommendation.
+### Supplier / Quality / Scale
 
-`due-diligence-handoff.json` ist Wayfinder-kompatibel mit mindestens:
+`supplier-quality-medical-device` und bestehende QMS/Validation Skills.
 
-`facts, assumptions, hypotheses, unknowns, blockers, decisions, investigations, risks, nextSafeAction`.
+## Cross-Domain Dependencies
 
-## Qualitätsgate
+Der Orchestrator modelliert Abhängigkeiten, z. B.:
 
-Pass nur wenn:
+- Design-around → Performance + Regulatory Evidence ändern,
+- proprietärer Binder → IP + Supply + Cost koppeln,
+- neue Sample Prep → Technical Fit + FTO + Regulatory ändern,
+- Manufacturing Change → Scale + Quality + Regulatory beeinflussen.
 
-- der Orchestrator keine Claim-/Regulatory-/Supplier-Fachanalyse dupliziert,
-- Ergebnisse auf Specialist Evidence zurückgeführt werden,
-- kritische Unknowns nicht in Scores versteckt werden,
-- FTO als Screening und nicht als Legal Opinion behandelt wird,
-- volatile Inputs `asOf` besitzen,
-- eine Empfehlung Preconditions und Abbruchkriterien enthält,
-- nächste Aktionen ohne versteckte Annahmen ausführbar sind.
+## Decision Dimensions
 
-## Evaluation
+- technical differentiation,
+- performance evidence,
+- maturity/transferability,
+- integration burden,
+- manufacturing/scale/supply risk,
+- regulatory feasibility/readiness,
+- patent position / landscape density,
+- FTO screening risk,
+- licensing dependencies,
+- commercial model / cost structure,
+- strategic fit / lock-in,
+- critical unknowns.
 
-### Happy Path
+Keine Gesamtpunktzahl ohne bestätigte Gewichtung.
 
-Eine neue Biosensorplattform soll für mehrere Immunoassay-Anwendungen lizenziert werden. Es liegen technische Unterlagen, Pilotdaten, Preisannahmen und öffentliche Patentquellen vor. Der Orchestrator koordiniert Offer Assessment, Patent Landscape, FTO Screening und relevante IVD-Spezialbewertungen und liefert ein Executive DD mit klaren Go/Conditional-Go/No-Go-Treibern.
+## Red Flag Record
 
-### Edge Case
-
-Technische Daten sind stark, aber FTO ist AMBER/RED und regulatorische Intended-Use-/Performance-Annahmen sind noch instabil. Ergebnis: keine pauschale positive DD; klare Preconditions, Counsel-/Regulatory-Eskalationen und begrenzte Investigations.
-
-### Failure Case
-
-Der Orchestrator erzeugt selbst Claim Charts, erfindet eine Regulatory Classification und mittelt alle Unsicherheiten in einen „82/100“-Score. Der Lauf muss als Architektur-/Qualitätsfehler gelten.
-
----
-
-# Kompositionsgraph
-
-```text
-research-to-evidence-note
-        │
-        ├── technology-offer-assessment
-        │       ├── optional: external-stakeholder-questionnaire
-        │       ├── optional: supplier-quality-medical-device
-        │       └── optional: regulatory specialist skills
-        │
-        └── patent-landscape-analysis
-                 │
-                 └── freedom-to-operate-assessment
-
-technology-offer-assessment ─┐
-patent-landscape-analysis ────┼── technology-due-diligence ── large-work-wayfinder
-freedom-to-operate-assessment ┘
+```json
+{
+  "issue": "...",
+  "domain": "technology|ip|fto|regulatory|quality|supply|commercial|strategy",
+  "evidence": [],
+  "confidence": "high|medium|low",
+  "impact": "...",
+  "reversibility": "...",
+  "decisionTiming": "...",
+  "ownerOrAuthority": "...",
+  "nextEvidence": "...",
+  "stopCondition": "..."
+}
 ```
 
+## Recommendation
+
+Mögliche Zustände:
+
+- `go`
+- `conditional-go`
+- `hold`
+- `no-go`
+- `insufficient-evidence`
+
+Recommendation benötigt immer:
+
+- Decision Drivers,
+- Preconditions,
+- Blockers,
+- Authority Boundaries,
+- Next Safe Action.
+
+## Wayfinder-Handoff
+
+```json
+{
+  "facts": [],
+  "assumptions": [],
+  "hypotheses": [],
+  "unknowns": [],
+  "blockers": [],
+  "decisions": [],
+  "investigations": [],
+  "risks": [],
+  "nextSafeAction": "..."
+}
+```
+
+Investigations sind begrenzt und enthalten Frage, benötigte Evidenz, Stop Condition und Nicht-Ziele.
+
 ---
 
-# IVD-spezifische Referenzfälle für spätere Evaluation
+# IVD-Referenzfälle für integrierte Evaluation
 
-Die folgenden Fälle sind geeignete Fixtures, ohne produktspezifische vertrauliche Daten im Skill zu verankern:
+Die Skills bleiben generisch. Für End-to-End-Evaluationen sollen jedoch drei typische IVD-Szenarien als Fixtures verwendet werden.
 
-## Autoantikörper-Test / Typ-1-Diabetes
+## T1D Autoantikörper
 
-Prüfpunkte: Antigenpräsentation, Konformation, Multiplexing, Cutoff-/Calibration-Konzept, Präzision, Interferenzen, Probenmatrix, Reagent/antigen IP, assay-method claims.
+Beispielkontext:
+
+- Autoantibody Detection,
+- mehrere Antigene/Targets,
+- hoher Wert von Multiplexing,
+- Sensitivitäts-/Spezifitäts- und Interferenzfragen,
+- Antigen-/Assayformat-IP,
+- Plattform-/Detection-IP.
+
+Testziel:
+
+- Technology Fit und FTO nicht vermischen,
+- target-/reagent-/format-/detectionbezogene Patent Claims differenzieren.
 
 ## Anti-Nephrin-Autoantikörper
 
-Prüfpunkte: native/rekombinante Antigenkonformation, Antikörperbindung, CBA-vs.-solid-phase implications, analytische/klinische Evidenz, target/epitope/method claims, Plattformtransfer.
+Beispielkontext:
 
-## pTau217-Antigentest in Blut
+- neuer/entwickelnder Biomarker,
+- begrenztere Evidenzbasis,
+- Target-/Epitope-/Reagent-Fragen,
+- mögliche proprietäre Binder/Antigene,
+- erhöhte Unsicherheit bei Clinical/Commercial Maturity.
 
-Prüfpunkte: sehr niedrige Konzentrationen, capture/detection antibody pair, phospho-epitope specificity, high-sensitivity detection, matrix/sample handling, antibody/epitope/method patent families, licensing dependencies.
+Testziel:
 
-Die Referenzfälle dürfen Evaluation und Beispiele speisen, aber die Skills selbst bleiben technologieagnostisch und enthalten keine Anbieter- oder Projektgeheimnisse.
+- Evidence Gaps bleiben sichtbar,
+- Patent Search behauptet keine Vollständigkeit,
+- Commercial Potential ersetzt keine Analytical/Clinical Evidence.
+
+## pTau217 im Blut
+
+Beispielkontext:
+
+- sehr niedrige Analytenkonzentration,
+- hohe Sensitivitätsanforderung,
+- Antibody Pair / Epitope / Calibration / Detection Platform,
+- intensive Biomarker-/Immunoassay-IP-Landschaft,
+- mögliche Licensing Dependencies.
+
+Testziel:
+
+- assay-spezifische Product Baseline vor FTO fixieren,
+- Binder-/Epitope-/Format-/Detection Claims getrennt mappen,
+- Design-around auf Performance-/Regulatory-Auswirkungen prüfen.
 
 ---
 
-# Nicht-Ziele des Clusters
+# Gemeinsame Qualitätsregeln
 
-Nicht Bestandteil:
+## Quellenhierarchie
 
-- verbindliche Rechtsberatung oder Legal Opinion,
-- Patentability-/Validity-/Enforceability-Gutachten,
-- Vertragsprüfung oder Vertragsverhandlung,
-- automatische Patentüberwachung als Dauerprozess,
-- eigenständige Marktgrößen-/TAM-/Forecast-Modellierung,
-- eigenständige Regulatory Classification außerhalb bestehender Regulatory Skills,
-- eigenständiges Supplier-QMS-System,
-- Investment-Committee-Memo- oder Board-Drafting; nachgelagerte Document Skills können die DD-Artefakte konsumieren.
+Je nach Claim:
+
+1. offizielle/primäre Register bzw. Patentdokumente,
+2. Hersteller-/Vertrags-/Projektquelle für eigene Eigenschaften,
+3. hochwertige wissenschaftliche Primär-/Sekundärliteratur,
+4. Aggregatoren zur Discovery,
+5. schwächere kontextuelle Quellen nur mit sichtbarer Einschränkung.
+
+## Freshness
+
+Aktualitätskritisch:
+
+- Patent Legal Status,
+- Pending Claim Scope,
+- Ownership/Assignment,
+- Preise,
+- Lieferbedingungen,
+- Regulatory Status,
+- Produkt-/Plattformverfügbarkeit.
+
+Diese Claims benötigen `asOf`.
+
+## Confidentiality / Memory
+
+Run-only bzw. projektgebunden:
+
+- konkrete vertrauliche Offerten,
+- Preise/Vertragsbedingungen,
+- nicht öffentliche Performance-Daten,
+- konkrete Produktfeatures vor Launch,
+- Counsel Advice,
+- aktuelle License Negotiations.
+
+Persistenzwürdig:
+
+- generische Bewertungsdimensionen,
+- Claim-Mapping-Schema,
+- Search-/Family-Heuristiken,
+- Risikokategorien,
+- abstrahierte DD-Kompositionsmuster.
+
+---
+
+# Dependency Graph
+
+```text
+research-to-evidence-note
+    ├── technology-offer-assessment
+    └── patent-landscape-analysis
+            └── freedom-to-operate-assessment
+
+technology-offer-assessment ─┐
+patent-landscape-analysis ────┼── technology-due-diligence
+freedom-to-operate-assessment ┤
+large-work-wayfinder ─────────┘
+
+optional IVD/MedTech routing:
+technology-due-diligence
+    ├── regulatory specialist skills
+    └── supplier-quality-medical-device
+```
+
+Der Regulatory-/Supplier-Pfad ist bewusst kein harter `requires`-Pfad des generischen Orchestrators.
 
 ---
 
@@ -598,20 +875,27 @@ Nicht Bestandteil:
 2. `freedom-to-operate-assessment`
 3. `technology-offer-assessment`
 4. `technology-due-diligence`
+5. Capability Index / Dependency Graph regenerieren
+6. integrierte IVD-Fixtures ausführen
+7. fokussierten Pull Request eröffnen
 
-Begründung: FTO benötigt einen stabilen Patent-Landscape-Vertrag; der Orchestrator soll erst entstehen, wenn die drei Fach-Skills belastbar definiert und evaluiert sind.
+Diese Reihenfolge minimiert die Gefahr, dass der Orchestrator Fachlogik enthält, bevor stabile Specialist Outputs existieren.
 
 ---
 
-# Definition of Done für die Implementierung
+# Definition of Done für den Cluster
 
 Der Cluster ist implementiert, wenn:
 
-- für alle vier Skills `SKILL.md` mit eindeutiger Grenze, Triggern, Workflow, Output-Verträgen und Qualitätsgate existiert,
-- pro Skill mindestens Happy Path, Edge Case und Failure Case als `tests/evaluation.json` vorliegen,
-- die Dependencies im Repository-Graph valide sind,
-- der Capability Index die vier neuen Entry Points enthält,
-- bestehende Skills nicht funktional dupliziert werden,
-- FTO-Sicherheits-/Legal-Grenzen in Routing und Outputs explizit getestet werden,
-- die IVD-Referenzfälle mindestens einmal als integrierte Komposition evaluiert wurden,
-- der Branch-Diff geprüft und die Repository-Evaluation grün ist.
+- alle vier `SKILL.md` vorhanden sind,
+- jeder Skill einen präzisen Trigger und Nicht-Ziele besitzt,
+- keine Output-Namenskollision mit vorhandenen Skills besteht,
+- Dependencies im Capability Graph korrekt erscheinen,
+- jeder Skill Happy Path, Grenzfall und Fehlerfall besitzt,
+- FTO niemals Legal Counsel simuliert,
+- Legal Status/Freshness/Jurisdiction in Patent-/FTO-Outputs sichtbar sind,
+- der Orchestrator keine Specialist Logic dupliziert,
+- die drei IVD-Referenzfälle die integrierte Komposition erfolgreich prüfen,
+- Capability Index und README aktualisiert sind,
+- Repository-Evaluation grün ist,
+- ein Review-fähiger PR existiert.
