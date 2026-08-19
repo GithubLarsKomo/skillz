@@ -13,7 +13,7 @@ Die vier Skills sind:
 
 Der Cluster ist insbesondere für technologieintensive IVD-/MedTech-Szenarien geeignet, bleibt aber soweit möglich domänenneutral. Medical-Device-/IVD-spezifische Regulatory- und Supplier-Fragen werden an bestehende Spezial-Skills geroutet.
 
-> **Implementation status (2026-08-19):** implemented on `feat/technology-ip-due-diligence`, including canonical OpenAI agent metadata, three recorded evaluation cases per skill, generated capability/dependency metadata, Obsidian projections and OpenAI plugin distribution. The standard repository validation workflow passed on GitHub Actions run 544.
+> **Implementation status (2026-08-19):** implemented on `feat/technology-ip-due-diligence`, including canonical OpenAI agent metadata, three recorded evaluation cases per skill, generated capability/dependency metadata, Obsidian projections and OpenAI plugin distribution. The standard repository validation workflow passes on the implemented branch state.
 
 ---
 
@@ -578,8 +578,8 @@ Der Skill darf als abschließendes Rechtsurteil nicht behaupten:
 
 - „infringes“,
 - „does not infringe“,
-- „valid/invalid“,
-- „enforceable/unenforceable“.
+- „valid/invalid`,
+- `enforceable/unenforceable`.
 
 ## Evaluation
 
