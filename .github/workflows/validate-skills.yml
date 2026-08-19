@@ -22,6 +22,17 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'feat/sport-docx-pdf-report-pipeline'
         run: |
           python -m pip install --quiet python-docx pillow
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('skills/dr-komorowski-sport-docx-report-renderer/scripts/render_report.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'base64.b64decode(DEFAULT_TEMPLATE_B64.read_text(encoding="ascii"), validate=True)'
+          new = 'base64.b64decode(DEFAULT_TEMPLATE_B64.read_text(encoding="ascii").strip(), validate=True)'
+          if old in text:
+              path.write_text(text.replace(old, new), encoding='utf-8', newline='\n')
+          elif new not in text:
+              raise SystemExit('expected template decode expression not found')
+          PY
           python skills/dr-komorowski-sport-docx-report-renderer/scripts/build_template.py --snapshot skills/dr-komorowski-sport-docx-report-renderer/assets/dr-komorowski-report-template.docx.b64
           python scripts/materialize_openai_agent_metadata.py
           python scripts/generate_repository_metadata.py
