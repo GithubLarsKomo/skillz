@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **121**
-- User-facing entrypoints: **103**
-- Evaluation suites: **121**
+- Skills: **125**
+- User-facing entrypoints: **107**
+- Evaluation suites: **125**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **144**
+- Outputs without inferred hard-requires consumers: **154**
 
 ## Evaluation gaps
 
@@ -69,6 +69,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`
+- `due-diligence-handoff.json` — producer: `technology-due-diligence`
 - `engineering-closure-gaps.json` — producer: `engineering-delivery-followup`
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
@@ -85,6 +86,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-response-package.md` — producer: `fda-additional-information-response`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
+- `fto-claim-map.json` — producer: `freedom-to-operate-assessment`
+- `fto-design-around-options.json` — producer: `freedom-to-operate-assessment`
+- `fto-risk-heatmap.md` — producer: `freedom-to-operate-assessment`
+- `fto-scope.json` — producer: `freedom-to-operate-assessment`
 - `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
@@ -123,6 +128,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `obsidian-note.md` — producer: `obsidian-adapter`
 - `obsidian-view.base` — producer: `obsidian-adapter`
 - `opaque-analysis-evidence.md` — producer: `opaque-system-analysis`
+- `patent-landscape.json` — producer: `patent-landscape-analysis`
+- `patent-landscape.md` — producer: `patent-landscape-analysis`
+- `patent-search-log.json` — producer: `patent-landscape-analysis`
 - `pccp-applicability.json` — producer: `fda-pccp-change-control`
 - `pccp-change-evidence.json` — producer: `fda-pccp-change-control`
 - `pccp-deviation-routing.json` — producer: `fda-pccp-change-control`
@@ -166,6 +174,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
+- `technology-due-diligence.json` — producer: `technology-due-diligence`
+- `technology-due-diligence.md` — producer: `technology-due-diligence`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
 - `updated skill repository` — producer: `central-skill-repository-curation`
 - `usability-engineering-assessment.json` — producer: `iec62366-usability-engineering`

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "skill": "technology-offer-assessment",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Compare two biosensor technology offers for the same IVD workflow using a common requirement set, vendor specifications, pilot data, integration constraints and dated commercial assumptions.",
+      "requiredBehaviors": [
+        "compare both offers against identical decision criteria and explicit requirements",
+        "separate vendor claims from confirmed evidence using evidence origin type independence and confidence",
+        "make commercial assumptions quantity and time specific and route IP regulatory and supplier questions"
+      ],
+      "forbiddenBehaviors": [
+        "reward one offer for providing more marketing detail by silently changing the comparison criteria",
+        "infer FTO or regulatory approval from the offer documents"
+      ],
+      "skillAnchors": [
+        "evidenceOrigin",
+        "evidenceType",
+        "independence"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A vendor claims exceptional analytical sensitivity and production readiness but provides only marketing graphics, selected prototype results and no independent replication or manufacturing-capability evidence.",
+      "requiredBehaviors": [
+        "keep the sensitivity and maturity claims visible but lower confidence based on evidence origin type and independence",
+        "mark unverified production readiness and scale capability as unknown or conditional",
+        "capture missing sample size comparator replication and transferability evidence where relevant"
+      ],
+      "forbiddenBehaviors": [
+        "convert marketing claims into confirmed performance facts",
+        "assign production readiness from brochure language alone"
+      ],
+      "skillAnchors": [
+        "replicationStatus",
+        "transferabilityToTargetUse",
+        "Production Readiness"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft offer analysis concludes that the platform is ready for the target workflow solely from a pitch deck and an attractive price quote, while regulatory and IP questions remain unassessed.",
+      "requiredBehaviors": [
+        "reject the combined conclusion as unsupported",
+        "separate technical maturity regulatory assessment and IP FTO into their proper evidence and routing paths"
+      ],
+      "forbiddenBehaviors": [
+        "treat price attractiveness as evidence of technical or regulatory suitability",
+        "simulate contract-law or FTO conclusions"
+      ],
+      "skillAnchors": [
+        "Regulatory-/Supplier-/IP-Fragen",
+        "keine FTO-Schlussfolgerung"
+      ]
+    },
+    {
+      "id": "asymmetric-documentation",
+      "input": "Vendor A supplies one hundred pages of polished marketing and specifications with no independent replication. Vendor B supplies ten pages containing a small independent validation study with raw-data access. Both are assessed against the same requirements.",
+      "requiredBehaviors": [
+        "keep the comparison criteria identical for both vendors",
+        "distinguish evidence volume from evidence quality and independence",
+        "give the independent validation stronger evidentiary weight where otherwise comparable"
+      ],
+      "forbiddenBehaviors": [
+        "reward Vendor A simply because it supplied more pages",
+        "treat specifications and independent validation as equivalent evidence types"
+      ],
+      "skillAnchors": [
+        "Informationsmenge ist keine Evidenzqualität",
+        "third-party",
+        "validation"
+      ]
+    },
+    {
+      "id": "technical-commercial-separation",
+      "input": "Vendor A has clearly stronger technical performance for the target assay but requires an uneconomic minimum volume, high switching cost and expensive proprietary consumables.",
+      "requiredBehaviors": [
+        "rate technical fit independently from commercial feasibility and vendor dependency",
+        "allow strong technical fit to coexist with weak or conditional commercial fit",
+        "surface switching burden without making the overall strategic-fit decision"
+      ],
+      "forbiddenBehaviors": [
+        "downgrade technical performance merely because the offer is expensive",
+        "collapse technical and commercial dimensions into a single score",
+        "make a strategic-fit conclusion that belongs to the due-diligence orchestrator"
+      ],
+      "skillAnchors": [
+        "Technischer Fit und Commercial Feasibility bleiben getrennte Dimensionen",
+        "vendor dependency/switching burden",
+        "Strategic fit gehört nicht in diesen Skill"
+      ]
+    }
+  ]
+}

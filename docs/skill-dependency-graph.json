@@ -502,6 +502,18 @@
       ]
     },
     {
+      "name": "freedom-to-operate-assessment",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "fto-claim-map.json",
+        "fto-design-around-options.json",
+        "fto-risk-heatmap.md",
+        "fto-scope.json"
+      ]
+    },
+    {
       "name": "human-procedure-wizard",
       "requires": [],
       "outputs": [
@@ -1175,6 +1187,17 @@
       ]
     },
     {
+      "name": "patent-landscape-analysis",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "patent-landscape.json",
+        "patent-landscape.md",
+        "patent-search-log.json"
+      ]
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "requires": [
         "design-control-traceability",
@@ -1403,6 +1426,28 @@
         "execution plan",
         "expert handoff",
         "progress summary"
+      ]
+    },
+    {
+      "name": "technology-due-diligence",
+      "requires": [
+        "technology-offer-assessment"
+      ],
+      "outputs": [
+        "due-diligence-handoff.json",
+        "technology-due-diligence.json",
+        "technology-due-diligence.md"
+      ]
+    },
+    {
+      "name": "technology-offer-assessment",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "outputs": [
+        "technology-offer-assessment.json",
+        "technology-offer-assessment.md",
+        "technology-offer-gap-set.json"
       ]
     },
     {
@@ -1886,6 +1931,10 @@
     {
       "from": "fda-registration-listing-udi",
       "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "freedom-to-operate-assessment",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "iec62304-software-lifecycle",
@@ -2520,6 +2569,10 @@
       "to": "structured-knowledge-artifact"
     },
     {
+      "from": "patent-landscape-analysis",
+      "to": "research-to-evidence-note"
+    },
+    {
       "from": "process-validation-iq-oq-pq",
       "to": "design-control-traceability"
     },
@@ -2650,6 +2703,14 @@
     {
       "from": "supplier-quality-medical-device",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "technology-due-diligence",
+      "to": "technology-offer-assessment"
+    },
+    {
+      "from": "technology-offer-assessment",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "test-driven-vertical-slice",
@@ -3849,6 +3910,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "due-diligence-handoff.json",
+      "producers": [
+        "technology-due-diligence"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "engineering-closure-gaps.json",
       "producers": [
         "engineering-delivery-followup"
@@ -3966,13 +4036,16 @@
         "fda-510k-predicate-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
+        "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
+        "patent-landscape-analysis",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
       "ambiguous": false,
@@ -3990,13 +4063,16 @@
         "fda-510k-predicate-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
+        "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
+        "patent-landscape-analysis",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
       "ambiguous": false,
@@ -4301,6 +4377,42 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "fto-claim-map.json",
+      "producers": [
+        "freedom-to-operate-assessment"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fto-design-around-options.json",
+      "producers": [
+        "freedom-to-operate-assessment"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fto-risk-heatmap.md",
+      "producers": [
+        "freedom-to-operate-assessment"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fto-scope.json",
+      "producers": [
+        "freedom-to-operate-assessment"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "gudid-udi-readiness.json",
@@ -5048,6 +5160,33 @@
       "output": "opaque-analysis-evidence.md",
       "producers": [
         "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "patent-landscape.json",
+      "producers": [
+        "patent-landscape-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "patent-landscape.md",
+      "producers": [
+        "patent-landscape-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "patent-search-log.json",
+      "producers": [
+        "patent-landscape-analysis"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -6322,6 +6461,57 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "technology-due-diligence.json",
+      "producers": [
+        "technology-due-diligence"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "technology-due-diligence.md",
+      "producers": [
+        "technology-due-diligence"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "technology-offer-assessment.json",
+      "producers": [
+        "technology-offer-assessment"
+      ],
+      "consumerSkills": [
+        "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "technology-offer-assessment.md",
+      "producers": [
+        "technology-offer-assessment"
+      ],
+      "consumerSkills": [
+        "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "technology-offer-gap-set.json",
+      "producers": [
+        "technology-offer-assessment"
+      ],
+      "consumerSkills": [
+        "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "trend-signal-set.json",
       "producers": [
         "ivdr-pms-vigilance"
@@ -6579,6 +6769,7 @@
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
+    "due-diligence-handoff.json",
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
@@ -6595,6 +6786,10 @@
     "fda-response-package.md",
     "finding-action-plan.json",
     "finding-closure-status.json",
+    "fto-claim-map.json",
+    "fto-design-around-options.json",
+    "fto-risk-heatmap.md",
+    "fto-scope.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -6633,6 +6828,9 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "patent-landscape.json",
+    "patent-landscape.md",
+    "patent-search-log.json",
     "pccp-applicability.json",
     "pccp-change-evidence.json",
     "pccp-deviation-routing.json",
@@ -6676,6 +6874,8 @@
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
+    "technology-due-diligence.json",
+    "technology-due-diligence.md",
     "ui-prototype-plan.md",
     "updated skill repository",
     "usability-engineering-assessment.json",
@@ -6725,6 +6925,7 @@
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
+    "due-diligence-handoff.json",
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
@@ -6741,6 +6942,10 @@
     "fda-response-package.md",
     "finding-action-plan.json",
     "finding-closure-status.json",
+    "fto-claim-map.json",
+    "fto-design-around-options.json",
+    "fto-risk-heatmap.md",
+    "fto-scope.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -6779,6 +6984,9 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "patent-landscape.json",
+    "patent-landscape.md",
+    "patent-search-log.json",
     "pccp-applicability.json",
     "pccp-change-evidence.json",
     "pccp-deviation-routing.json",
@@ -6822,6 +7030,8 @@
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
+    "technology-due-diligence.json",
+    "technology-due-diligence.md",
     "ui-prototype-plan.md",
     "updated skill repository",
     "usability-engineering-assessment.json",

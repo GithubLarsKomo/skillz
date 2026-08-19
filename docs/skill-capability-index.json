@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 121,
-  "entrypointCount": 103,
+  "skillCount": 125,
+  "entrypointCount": 107,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 121,
+  "evaluationSuiteCount": 125,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -2396,6 +2396,67 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "freedom-to-operate-assessment",
+      "description": "Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktionen eine evidenzbasierte technische FTO-Vorprüfung mit Claim-by-Claim-Mapping, getrenntem Technical Mapping und Rights Status, Screening-Priorität, Unsicherheiten, Counsel-Eskalation und versionierten Design-around-Hypothesen; keine anwaltliche FTO Opinion oder verbindliche Claim Construction.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "fto-claim-map.json",
+        "fto-design-around-options.json",
+        "fto-risk-heatmap.md",
+        "fto-scope.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fto-claim-map.json",
+          "ambiguous": false,
+          "producers": [
+            "freedom-to-operate-assessment"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fto-design-around-options.json",
+          "ambiguous": false,
+          "producers": [
+            "freedom-to-operate-assessment"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fto-risk-heatmap.md",
+          "ambiguous": false,
+          "producers": [
+            "freedom-to-operate-assessment"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fto-scope.json",
+          "ambiguous": false,
+          "producers": [
+            "freedom-to-operate-assessment"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 6,
+        "recordedResultCount": 6,
         "passed": true
       }
     },
@@ -5668,6 +5729,58 @@
       }
     },
     {
+      "name": "patent-landscape-analysis",
+      "description": "Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit reproduzierbarer Suchlogik, Search-Saturation, Claim-Scope-Branches, Jurisdiktionen, Legal-Status-Freshness und sauber getrennten Applicant-/Assignee-/Ownership-Daten; keine Patentability- oder FTO-Opinion.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "patent-landscape.json",
+        "patent-landscape.md",
+        "patent-search-log.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "patent-landscape.json",
+          "ambiguous": false,
+          "producers": [
+            "patent-landscape-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "patent-landscape.md",
+          "ambiguous": false,
+          "producers": [
+            "patent-landscape-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "patent-search-log.json",
+          "ambiguous": false,
+          "producers": [
+            "patent-landscape-analysis"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 6,
+        "recordedResultCount": 6,
+        "passed": true
+      }
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "description": "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierten Kriterien, Revalidierung und Change-Traceability.",
       "invocation": {
@@ -6610,13 +6723,16 @@
         "fda-510k-predicate-strategy",
         "fda-device-classification-product-code",
         "fda-medical-device-ivd-regulatory-specialist",
+        "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
+        "patent-landscape-analysis",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
       "outputs": [
@@ -6637,13 +6753,16 @@
             "fda-510k-predicate-strategy",
             "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
+            "freedom-to-operate-assessment",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
+            "patent-landscape-analysis",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
+            "technology-offer-assessment",
             "two-axis-compliance-review"
           ]
         },
@@ -6660,13 +6779,16 @@
             "fda-510k-predicate-strategy",
             "fda-device-classification-product-code",
             "fda-medical-device-ivd-regulatory-specialist",
+            "freedom-to-operate-assessment",
             "ivdr-scientific-validity",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
+            "patent-landscape-analysis",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
+            "technology-offer-assessment",
             "two-axis-compliance-review"
           ]
         }
@@ -7094,6 +7216,118 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "technology-due-diligence",
+      "description": "Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition, Make/Buy, Supplier Selection oder Investment, entscheidet zuerst über benötigte Specialist Depth und priorisiert Red Flags, Unknowns und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "technology-offer-assessment"
+      ],
+      "dependents": [],
+      "outputs": [
+        "due-diligence-handoff.json",
+        "technology-due-diligence.json",
+        "technology-due-diligence.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "due-diligence-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "technology-due-diligence"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "technology-due-diligence.json",
+          "ambiguous": false,
+          "producers": [
+            "technology-due-diligence"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "technology-due-diligence.md",
+          "ambiguous": false,
+          "producers": [
+            "technology-due-diligence"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 6,
+        "recordedResultCount": 6,
+        "passed": true
+      }
+    },
+    {
+      "name": "technology-offer-assessment",
+      "description": "Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Vendor Dependency, Red Flags und offene Fragen; keine Vertragsrechts- oder FTO-Analyse.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "technology-due-diligence"
+      ],
+      "outputs": [
+        "technology-offer-assessment.json",
+        "technology-offer-assessment.md",
+        "technology-offer-gap-set.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "technology-offer-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "technology-offer-assessment"
+          ],
+          "consumerSkills": [
+            "technology-due-diligence"
+          ]
+        },
+        {
+          "output": "technology-offer-assessment.md",
+          "ambiguous": false,
+          "producers": [
+            "technology-offer-assessment"
+          ],
+          "consumerSkills": [
+            "technology-due-diligence"
+          ]
+        },
+        {
+          "output": "technology-offer-gap-set.json",
+          "ambiguous": false,
+          "producers": [
+            "technology-offer-assessment"
+          ],
+          "consumerSkills": [
+            "technology-due-diligence"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 5,
+        "recordedResultCount": 5,
         "passed": true
       }
     },

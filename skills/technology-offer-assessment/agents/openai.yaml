@@ -1,0 +1,5 @@
+interface:
+  display_name: "Technology Offer Assessment"
+  short_description: "Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegr..."
+policy:
+  allow_implicit_invocation: true
