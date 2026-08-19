@@ -4,10 +4,10 @@ generated: true
 name: "technology-offer-assessment"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 5
-recordedResultCount: 4
+recordedResultCount: 5
 sourcePath: "skills/technology-offer-assessment/SKILL.md"
 tags:
   - skill
@@ -55,9 +55,9 @@ Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote eviden
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `5`
-- Recorded results: `4`
+- Recorded results: `5`
 
 ## Canonical source
 
