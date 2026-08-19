@@ -1,0 +1,70 @@
+name: Fix sport template override contract
+
+on:
+  push:
+    branches:
+      - feat/sport-docx-pdf-report-pipeline
+
+permissions:
+  contents: write
+
+jobs:
+  fix-and-materialize:
+    runs-on: ubuntu-24.04
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/sport-docx-pdf-report-pipeline
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install renderer dependencies
+        run: python -m pip install --quiet python-docx pillow
+      - name: Patch template token contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('skills/dr-komorowski-sport-docx-report-renderer/scripts/render_report.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'TOKENS = {"{{DOCUMENT_TYPE}}", "{{DOCUMENT_ID}}", "{{DATE}}", "{{CONFIDENTIALITY}}", "{{REPORT_BODY}}"}\n',
+              'METADATA_TOKENS = {"{{DOCUMENT_TYPE}}", "{{DOCUMENT_ID}}", "{{DATE}}", "{{CONFIDENTIALITY}}"}\nREPORT_BODY_TOKEN = "{{REPORT_BODY}}"\nTOKENS = METADATA_TOKENS | {REPORT_BODY_TOKEN}\n',
+          )
+          start = text.index('def replace_tokens(doc, meta: dict[str, Any]) -> None:\n')
+          end = text.index('\ndef add_p(doc, mark, text: str = "", style: str = "Normal"):', start)
+          replacement = '''def document_parts(doc) -> Iterable:\n    yield doc\n    for section in doc.sections:\n        yield section.header\n        yield section.footer\n\n\ndef _replace_in_paragraph(p, token: str, value: str) -> None:\n    if token not in p.text:\n        return\n    text = p.text.replace(token, value)\n    if p.runs:\n        p.runs[0].text = text\n        for run in p.runs[1:]:\n            run.text = ""\n    else:\n        p.add_run(text)\n\n\ndef replace_tokens(doc, meta: dict[str, Any]) -> None:\n    counts = {token: 0 for token in METADATA_TOKENS}\n    for part in document_parts(doc):\n        for p in paragraphs(part):\n            for token in METADATA_TOKENS:\n                if token in p.text:\n                    counts[token] += 1\n    missing = [token for token, count in counts.items() if not count]\n    if missing:\n        raise ValueError("template missing required token(s): " + ", ".join(sorted(missing)))\n\n    values = {\n        "{{DOCUMENT_TYPE}}": str(meta.get("document_type", "")),\n        "{{DOCUMENT_ID}}": str(meta.get("document_id", "")),\n        "{{DATE}}": str(meta.get("date", "")),\n        "{{CONFIDENTIALITY}}": str(meta.get("confidentiality", "Vertraulich")),\n    }\n    for part in document_parts(doc):\n        for p in paragraphs(part):\n            for token, value in values.items():\n                _replace_in_paragraph(p, token, value)\n\n    unresolved = sorted(\n        token\n        for token in METADATA_TOKENS\n        if any(token in p.text for part in document_parts(doc) for p in paragraphs(part))\n    )\n    if unresolved:\n        raise ValueError("template left unresolved token(s): " + ", ".join(unresolved))\n\n\ndef marker(doc):\n    top_level = [p for p in doc.paragraphs if REPORT_BODY_TOKEN in p.text]\n    total = sum(\n        1\n        for part in document_parts(doc)\n        for p in paragraphs(part)\n        if REPORT_BODY_TOKEN in p.text\n    )\n    if len(top_level) != 1 or total != 1:\n        raise ValueError(\n            "template requires exactly one top-level {{REPORT_BODY}} paragraph and no nested copies"\n        )\n    return top_level[0]\n\n'''
+          text = text[:start] + replacement + text[end + 1:]
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Add override regression to visual gate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.github/workflows/sport-report-visual-parity.yml')
+          text = path.read_text(encoding='utf-8')
+          needle = '      - name: Render training-plan reference pair\n'
+          step = '''      - name: Verify controlled template override contract\n        run: python skills/dr-komorowski-sport-docx-report-renderer/scripts/verify_template_override_contract.py\n'''
+          if step not in text:
+              text = text.replace(needle, step + needle)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Verify override regression now
+        run: python skills/dr-komorowski-sport-docx-report-renderer/scripts/verify_template_override_contract.py
+      - name: Materialize generated repository state
+        run: |
+          python scripts/generate_repository_metadata.py
+          python scripts/build_openai_plugin.py --output plugins/skillz
+      - name: Commit fix and generated state
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add skills/dr-komorowski-sport-docx-report-renderer/scripts/render_report.py \
+                  skills/dr-komorowski-sport-docx-report-renderer/scripts/verify_template_override_contract.py \
+                  .github/workflows/sport-report-visual-parity.yml \
+                  .skill-sync.json README.md docs plugins/skillz
+          if ! git diff --cached --quiet; then
+            git commit -m "fix: enforce sport template override token contract"
+            git push origin HEAD:feat/sport-docx-pdf-report-pipeline
+          fi
