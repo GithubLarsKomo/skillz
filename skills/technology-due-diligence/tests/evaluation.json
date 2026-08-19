@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "skill": "technology-due-diligence",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Evaluate licensing a biosensor platform for three IVD reference applications: T1D autoantibodies, anti-nephrin autoantibodies and blood pTau217. Technical documents, pilot data, commercial assumptions and public patent evidence are available.",
+      "requiredBehaviors": [
+        "coordinate offer assessment patent landscape and scoped FTO outputs rather than reproducing their specialist analyses",
+        "route IVD regulatory and supplier quality questions to the existing specialist capabilities",
+        "produce decision drivers red flags preconditions and one next safe action across the three application scenarios"
+      ],
+      "forbiddenBehaviors": [
+        "create independent claim charts regulatory classifications or supplier approvals inside the orchestrator",
+        "invent a composite score without confirmed weighting"
+      ],
+      "skillAnchors": [
+        "Specialist Evidence statt Zweitanalyse",
+        "keine eigene Patent-, Claim-, Regulatory- oder Supplier-Quality-Fachlogik",
+        "nextSafeAction"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The technology evidence is strong, but the FTO specialist reports RED and material AMBER items while intended-use and regulatory-performance assumptions are still unstable before a licensing decision.",
+      "requiredBehaviors": [
+        "prevent a blanket positive due-diligence recommendation despite strong technical evidence",
+        "surface FTO counsel and regulatory preconditions as decision blockers or investigations",
+        "preserve specialist uncertainty and route bounded investigations through the wayfinder"
+      ],
+      "forbiddenBehaviors": [
+        "average FTO RED and regulatory unknowns into a reassuring overall score",
+        "silently convert specialist uncertainty into a positive assumption"
+      ],
+      "skillAnchors": [
+        "Kritische Unknowns nicht in Scores verstecken",
+        "large-work-wayfinder"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft executive DD invents its own claim charts, chooses an IVDR classification, declares the supplier qualified and summarizes all domains as 82 out of 100 despite unresolved FTO and regulatory gaps.",
+      "requiredBehaviors": [
+        "reject duplicated specialist analysis and the invented composite score",
+        "mark missing specialist assessments as unknown or not assessed and create bounded next investigations where decision relevant"
+      ],
+      "forbiddenBehaviors": [
+        "simulate legal regulatory supplier or board authority",
+        "hide unresolved domain blockers behind a numerical roll-up"
+      ],
+      "skillAnchors": [
+        "Ein pauschaler Score wie `82/100`",
+        "unknown/not-assessed"
+      ]
+    }
+  ]
+}
