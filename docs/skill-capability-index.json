@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 125,
-  "entrypointCount": 107,
+  "skillCount": 127,
+  "entrypointCount": 109,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 125,
+  "evaluationSuiteCount": 127,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1266,6 +1266,84 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "euroimmun-docx-report-renderer",
+      "description": "Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im aktuellen EUROIMMUN-From-Revvity-Erscheinungsbild. Nutzt ein im Skill hinterlegtes Public-Reference-DOCX-Template mit aktuellem 2025+-Kopf und unterstützt ein kontrolliertes internes Corporate-Template als Override, ohne fachliche Inhalte zu erfinden oder zu verändern.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "euroimmun-pdf-report-renderer"
+      ],
+      "outputs": [
+        "euroimmun-report.docx"
+      ],
+      "outputContracts": [
+        {
+          "output": "euroimmun-report.docx",
+          "ambiguous": false,
+          "producers": [
+            "euroimmun-docx-report-renderer"
+          ],
+          "consumerSkills": [
+            "euroimmun-pdf-report-renderer"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "assets/euroimmun-logo-public-reference.svg",
+        "assets/euroimmun-report-template.docx.b64",
+        "assets/report-spec.example.json",
+        "assets/report-theme.json",
+        "references/brand-guide.md",
+        "scripts/build_template.py",
+        "scripts/render_report.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "euroimmun-pdf-report-renderer",
+      "description": "Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit identischem Styling und aktuellem EUROIMMUN-From-Revvity-Kopf. Verwendet den DOCX-Renderer als einzige Layoutquelle, konvertiert ohne inhaltliches Re-Authoring und erzwingt eine visuelle PDF-Endkontrolle.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "euroimmun-docx-report-renderer"
+      ],
+      "dependents": [],
+      "outputs": [
+        "euroimmun-report.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "euroimmun-report.pdf",
+          "ambiguous": false,
+          "producers": [
+            "euroimmun-pdf-report-renderer"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "scripts/render_pdf.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },

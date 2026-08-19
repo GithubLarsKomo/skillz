@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-docx-report-renderer",
+  "caseId": "template-override",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "das bereitgestellte Template statt des gebündelten Public-Reference-Templates verwenden", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
+    {"behavior": "Header Footer Logo und Corporate Styles des Overrides beibehalten", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
+    {"behavior": "nur vereinbarte Platzhalter und Report-Body befüllen", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Public-Reference-Header über das kontrollierte Template legen", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."},
+    {"behavior": "Corporate Styles eigenmächtig durch Working-Theme-Werte ersetzen", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."}
+  ],
+  "overall": "pass"
+}

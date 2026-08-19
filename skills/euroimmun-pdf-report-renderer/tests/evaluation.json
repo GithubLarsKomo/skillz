@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-pdf-report-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Erzeuge aus dem final geprüften EUROIMMUN-DOCX einen PDF-Report.",
+      "requiredBehaviors": ["kanonisches DOCX als einzige Layoutquelle verwenden", "DOCX ohne inhaltliches Re-Authoring zu PDF konvertieren", "jede PDF-Seite nach der Konvertierung visuell prüfen"],
+      "forbiddenBehaviors": ["eine zweite unabhängige PDF-Layoutengine aufbauen", "fachliche Inhalte bei der Konvertierung ändern"],
+      "skillAnchors": ["Architekturregel", "Ablauf", "Abschlusskriterien"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Das DOCX enthält mehrseitige Tabellen und bewusste Seitenumbrüche.",
+      "requiredBehaviors": ["Seitenreihenfolge und Tabelleninhalt nach PDF-Konvertierung vergleichen", "Header Footer und Umbrüche visuell auf Reflow prüfen"],
+      "forbiddenBehaviors": ["zusätzliche Leer- oder Verlustseiten ignorieren", "sichtbare PDF-Abweichungen per Stempelung kaschieren"],
+      "skillAnchors": ["Qualitätsprüfung", "PDF-Reflow weicht sichtbar ab"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Auf dem System ist kein LibreOffice/soffice verfügbar.",
+      "requiredBehaviors": ["fehlende Konvertierungsabhängigkeit klar melden", "keine PDF-Datei als Erfolg vortäuschen"],
+      "forbiddenBehaviors": ["eine leere Datei mit PDF-Endung ausgeben", "erfolgreiche visuelle Prüfung behaupten"],
+      "skillAnchors": ["LibreOffice/soffice fehlt", "Conversion schlägt fehl"]
+    },
+    {
+      "id": "no-reflow-reauthoring",
+      "input": "Im PDF wirkt eine Tabelle breiter als im DOCX und könnte direkt im PDF umgebaut werden.",
+      "requiredBehaviors": ["Ursache im DOCX oder Template beheben", "DOCX erneut prüfen und PDF anschließend neu konvertieren"],
+      "forbiddenBehaviors": ["PDF separat neu layouten", "DOCX und PDF mit divergierenden Layoutquellen fortführen"],
+      "skillAnchors": ["Architekturregel", "Bei Reflow- oder Konvertierungsfehlern nicht im PDF reparieren"]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-docx-report-renderer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "passed": true, "evidence": "The template contract requires an explicit abort listing missing required tokens."},
+    {"behavior": "das bereitgestellte Template unverändert lassen", "passed": true, "evidence": "The renderer validates the supplied template before report generation and does not mutate the source template."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "still auf das gebündelte Template zurückfallen", "observed": false, "evidence": "The skill explicitly forbids silent fallback when the user supplied a controlled template."},
+    {"behavior": "an beliebiger Position in das Template schreiben", "observed": false, "evidence": "The renderer is constrained to the documented placeholder contract and report-body marker."}
+  ],
+  "overall": "pass"
+}

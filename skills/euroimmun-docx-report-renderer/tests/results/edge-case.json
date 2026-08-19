@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-docx-report-renderer",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Tabelle innerhalb der A4-Breite halten", "passed": true, "evidence": "The skill requires relative table widths, wrapping or logical splitting within the A4 content width."},
+    {"behavior": "Text umbrechen oder logisch teilen statt unlesbar zu skalieren", "passed": true, "evidence": "The error-handling contract explicitly prefers wrapping or logical table splitting over unreadable font reduction."},
+    {"behavior": "nach Layoutanpassung erneut visuell prüfen", "passed": true, "evidence": "The workflow requires re-rendering and page-by-page visual QA after layout corrections."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Tabellentext aus dem Seitenrand laufen lassen", "observed": false, "evidence": "The A4 layout rules and final visual QA prohibit page-edge overflow."},
+    {"behavior": "Schrift auf unlesbare Größe reduzieren", "observed": false, "evidence": "The skill explicitly prohibits solving wide tables by shrinking text to an unreadable size."}
+  ],
+  "overall": "pass"
+}

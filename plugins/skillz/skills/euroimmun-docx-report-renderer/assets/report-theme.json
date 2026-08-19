@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "brand": "EUROIMMUN From Revvity",
+  "brandReference": {
+    "status": "public-reference",
+    "asOf": "2026-08-19",
+    "rebrandEffective": "2025-07",
+    "officialLogoAsset": "https://www.euroimmun.com/fileadmin/user_upload/Locations/Logos/EUROIMMUN_short_head_RGB.svg",
+    "legalEntity": "EUROIMMUN Medizinische Labordiagnostika AG",
+    "address": "Seekamp 31, 23560 Lübeck",
+    "notes": [
+      "The bundled template reproduces the current public 2025+ EUROIMMUN visual identity for internal working reports.",
+      "For controlled corporate or external use, prefer an approved current internal EUROIMMUN DOCX template supplied via --template.",
+      "Do not vendor or distribute font files with this skill."
+    ]
+  },
+  "page": {
+    "size": "A4",
+    "left_margin_mm": 20,
+    "right_margin_mm": 20,
+    "top_margin_mm": 24,
+    "bottom_margin_mm": 18
+  },
+  "colors": {
+    "green": "#79C143",
+    "green_dark": "#579827",
+    "green_light": "#EEF8E7",
+    "black": "#171717",
+    "body": "#242424",
+    "muted": "#63666A",
+    "border": "#D7DED5",
+    "table_label_fill": "#F2F5F1",
+    "callout_fill": "#F4F8F1",
+    "neutral_fill": "#F6F6F6",
+    "warning_fill": "#FFF7E6",
+    "warning_border": "#A66B00",
+    "decision_fill": "#EEF8E7",
+    "white": "#FFFFFF"
+  },
+  "fonts": {
+    "preferred": "Arial",
+    "fallback": "Aptos",
+    "secondary_fallback": "Liberation Sans"
+  }
+}

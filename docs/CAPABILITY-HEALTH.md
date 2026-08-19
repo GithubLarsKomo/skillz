@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **125**
-- User-facing entrypoints: **107**
-- Evaluation suites: **125**
+- Skills: **127**
+- User-facing entrypoints: **109**
+- Evaluation suites: **127**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **154**
+- Outputs without inferred hard-requires consumers: **155**
 
 ## Evaluation gaps
 
@@ -74,6 +74,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
+- `euroimmun-report.pdf` — producer: `euroimmun-pdf-report-renderer`
 - `execution plan` — producer: `synapse-orchestrator`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`

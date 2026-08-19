@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-docx-report-renderer",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "aktuelles Public-Reference-EUROIMMUN-Template oder bereitgestelltes kontrolliertes Template verwenden", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
+    {"behavior": "fachlichen Inhalt unverändert in strukturierte DOCX-Blöcke überführen", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
+    {"behavior": "jede gerenderte DOCX-Seite visuell prüfen", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "Analyseergebnisse im Renderer neu erfinden", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."},
+    {"behavior": "Public-Reference-Template als intern freigegebenes Corporate Template ausgeben", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."}
+  ],
+  "overall": "pass"
+}
