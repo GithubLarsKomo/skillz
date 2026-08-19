@@ -1,5 +1,5 @@
 interface:
   display_name: "Patent Landscape Analysis"
-  short_description: "Erstellt deduplizierte Patentfamilienlandschaften mit Claim-Themen, Status-Freshness und reproduzierbarer Suchlogik."
+  short_description: "Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtsla..."
 policy:
   allow_implicit_invocation: true
