@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "skill": "patent-landscape-analysis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a patent landscape for a diagnostic biomarker assay field using keywords, CPC/IPC classes, assignees and citation chains, and document family, jurisdiction, status and independent-claim themes as of today.",
+      "requiredBehaviors": [
+        "document a reproducible iterative search strategy rather than treating one keyword query as complete",
+        "deduplicate publications into families while preserving materially distinct claim-scope branches",
+        "attach freshness and source evidence to decision-relevant legal-status statements"
+      ],
+      "forbiddenBehaviors": [
+        "equate family-level relevance with one uniform claim scope",
+        "present the landscape as a patentability or FTO opinion"
+      ],
+      "skillAnchors": [
+        "Suchstrategie reproduzierbar dokumentiert",
+        "Ein einzelner Keyword Search darf nicht als vollständige Landschaft ausgegeben werden",
+        "Patentfamilie und Claim Scope dürfen nicht gleichgesetzt werden"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A core family has parallel US continuations and EP divisionals sharing priority but containing materially different independent claims and partially different status histories.",
+      "requiredBehaviors": [
+        "preserve common priority while representing distinct continuation and divisional claim-scope branches separately",
+        "report jurisdiction-specific status and uncertainty instead of one global family status"
+      ],
+      "forbiddenBehaviors": [
+        "collapse divergent continuation or divisional claims into a single generic family claim theme",
+        "infer current enforceability from shared priority alone"
+      ],
+      "skillAnchors": [
+        "Continuation-/Divisional-Strukturen separat halten",
+        "claimScopeBranches"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A commercial patent aggregator labels a relevant family active, but an official register appears inconsistent and some target-jurisdiction members cannot be verified.",
+      "requiredBehaviors": [
+        "keep the aggregator useful for discovery but verify material status against official sources where accessible",
+        "mark unresolved status and jurisdiction coverage as explicit uncertainty or search gaps"
+      ],
+      "forbiddenBehaviors": [
+        "treat the aggregator active label as final legal status",
+        "hide missing official evidence behind a completeness claim"
+      ],
+      "skillAnchors": [
+        "Ein Aggregatorstatus allein ist keine abschließende Statusfeststellung",
+        "partielle Landschaft"
+      ]
+    }
+  ]
+}
