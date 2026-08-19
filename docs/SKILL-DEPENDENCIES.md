@@ -648,6 +648,8 @@ graph TD
 | `technology-offer-assessment.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-assessment.md` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-gap-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
+| `technology-offer-question-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
+| `technology-offer-question-set.md` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `trend-signal-set.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | unconsumed |
 | `updated skill repository` | `central-skill-repository-curation` | — | unconsumed |
