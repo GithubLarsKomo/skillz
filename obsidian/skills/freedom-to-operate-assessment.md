@@ -4,10 +4,10 @@ generated: true
 name: "freedom-to-operate-assessment"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 6
-recordedResultCount: 5
+recordedResultCount: 6
 sourcePath: "skills/freedom-to-operate-assessment/SKILL.md"
 tags:
   - skill
@@ -60,9 +60,9 @@ Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktion
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `6`
-- Recorded results: `5`
+- Recorded results: `6`
 
 ## Canonical source
 
