@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "skill": "freedom-to-operate-assessment",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a technical FTO screening for a fully specified diagnostic blood assay intended for US and EP commercialization, using concrete granted and pending claims, current status evidence and product feature evidence.",
+      "requiredBehaviors": [
+        "freeze product configuration jurisdictions commercial acts and as-of date before claim mapping",
+        "map every required element of each relevant independent claim to product or process evidence",
+        "assign RED AMBER GREEN or GREY per claim and jurisdiction with mandatory counsel escalation where material"
+      ],
+      "forbiddenBehaviors": [
+        "state a final infringement or non-infringement legal conclusion",
+        "treat a GREEN screening result as a global FTO clearance"
+      ],
+      "skillAnchors": [
+        "Scope/Jurisdiktion/asOf fixieren",
+        "alle erforderlichen Elemente",
+        "GREEN nie als globale Non-Infringement-Freigabe formulieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A patent family is expired in EP but has a live US continuation with amended independent claims and a pending continuation whose scope may change before launch.",
+      "requiredBehaviors": [
+        "evaluate EP and US members and claim sets separately rather than assigning one family-wide risk",
+        "keep granted and pending claims separate while exposing the pending scope as strategic uncertainty",
+        "escalate interpretation-dependent or commercially material AMBER questions to patent counsel"
+      ],
+      "forbiddenBehaviors": [
+        "use the expired EP member to clear the US product",
+        "treat pending claims as an already enforceable granted right"
+      ],
+      "skillAnchors": [
+        "Pending und granted getrennt halten",
+        "Patentfamilie nicht mit einem einzigen Claim Scope gleichsetzen",
+        "Mandatory Counsel Escalation"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The user asks for the sentence product X does not infringe patent Y because a patent aggregator labels the family expired, but no jurisdiction-specific claim status or element mapping has been verified.",
+      "requiredBehaviors": [
+        "reject the requested definitive non-infringement conclusion",
+        "require jurisdiction-specific status and concrete claim-element mapping before any technical screening category",
+        "return GREY or AMBER with evidence gaps and counsel escalation when material"
+      ],
+      "forbiddenBehaviors": [
+        "use an aggregator expired label as sufficient FTO evidence",
+        "skip claim elements and issue a legal clearance statement"
+      ],
+      "skillAnchors": [
+        "keine anwaltliche FTO Opinion",
+        "Ein Aggregator-Label wie `expired` darf niemals allein eine globale Freigabe begründen"
+      ]
+    }
+  ]
+}
