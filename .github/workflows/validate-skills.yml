@@ -26,15 +26,16 @@ jobs:
         run: python -m unittest tests.test_release_bundle
       - name: Validate per-skill OpenAI agent metadata
         run: python scripts/materialize_openai_agent_metadata.py --check
-      - name: Materialize generated metadata for DD branch
+      - name: Materialize generated artifacts for DD branch
         if: github.event_name == 'pull_request' && github.head_ref == 'feat/technology-ip-due-diligence'
         run: |
           python scripts/generate_repository_metadata.py
+          python scripts/build_openai_plugin.py --output plugins/skillz
           if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore: regenerate skill metadata"
+            git commit -m "chore: regenerate skill distribution"
             git push origin HEAD:${{ github.head_ref }}
           fi
       - name: Test OpenAI plugin distribution
