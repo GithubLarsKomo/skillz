@@ -1,0 +1,21 @@
+name: Cleanup merged DD branch
+
+on:
+  push:
+    branches: [feat/euroimmun-report-renderers]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Delete merged technology IP due diligence branch
+        run: |
+          if git ls-remote --exit-code --heads origin feat/technology-ip-due-diligence >/dev/null 2>&1; then
+            git push origin --delete feat/technology-ip-due-diligence
+          else
+            echo "Branch already absent"
+          fi
