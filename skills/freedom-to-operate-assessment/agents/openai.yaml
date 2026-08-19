@@ -1,0 +1,5 @@
+interface:
+  display_name: "Freedom To Operate Assessment"
+  short_description: "Erstellt technische FTO-Screenings mit Claim-by-Claim-Mapping, Risikokategorien, Design-arounds und Counsel-Eskalation."
+policy:
+  allow_implicit_invocation: true
