@@ -6,8 +6,17 @@ import json
 import sys
 from pathlib import Path
 
+from skill_status import (
+    installed_identity,
+    load_distribution_manifest,
+    render_human as render_status_human,
+    resolve_status,
+)
+
 SCHEMA_VERSION = 1
-DEFAULT_INDEX = Path(__file__).resolve().parents[1] / "docs" / "skill-capability-index.json"
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_INDEX = ROOT / "docs" / "skill-capability-index.json"
+DEFAULT_VERSION = ROOT / "VERSION"
 VALID_MODES = {"rubric", "compatibility", "none"}
 
 
@@ -130,6 +139,48 @@ def listing_payload(mode: str, query: str | None, skills: list[dict]) -> dict:
     }
 
 
+def provenance(index: dict) -> dict:
+    value = index.get("provenance", {})
+    return value if isinstance(value, dict) else {}
+
+
+def repository_version(index: dict, override: str | None = None) -> str | None:
+    if override and override.strip():
+        return override.strip()
+    value = provenance(index).get("version")
+    if value is not None and str(value).strip():
+        return str(value).strip()
+    try:
+        return DEFAULT_VERSION.read_text(encoding="utf-8").strip() or None
+    except OSError:
+        return None
+
+
+def build_status_payload(
+    index: dict,
+    *,
+    repository_head: str | None,
+    repository_version_override: str | None,
+    installed_manifest: Path | None,
+    installed_commit: str | None,
+    installed_version: str | None,
+) -> dict:
+    meta = provenance(index)
+    head = repository_head or (str(meta.get("commitSha")) if meta.get("commitSha") is not None else None)
+    runtime_version = installed_version
+    runtime_commit = installed_commit
+    if installed_manifest is not None:
+        manifest_version, manifest_commit = installed_identity(load_distribution_manifest(installed_manifest))
+        runtime_version = runtime_version or manifest_version
+        runtime_commit = runtime_commit or manifest_commit
+    return resolve_status(
+        repository_head=head,
+        repository_version=repository_version(index, repository_version_override),
+        installed_commit=runtime_commit,
+        installed_version=runtime_version,
+    )
+
+
 def render_human(kind: str, value: object) -> str:
     if kind == "skill":
         assert isinstance(value, dict)
@@ -151,6 +202,9 @@ def render_human(kind: str, value: object) -> str:
                 suffix = "" if skill["userFacing"] else " [internal]"
                 lines.append(f"- {skill['name']}{suffix} — {skill['description']}")
         return "\n".join(lines) if lines else "(no matches)"
+    if kind == "status":
+        assert isinstance(value, dict)
+        return render_status_human(value)
     assert isinstance(value, list)
     return "\n".join(value) if value else "(no matches)"
 
@@ -159,9 +213,14 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Query the committed skill capability index deterministically.")
     parser.add_argument("--index", type=Path, default=DEFAULT_INDEX, help=argparse.SUPPRESS)
     parser.add_argument("--json", action="store_true", help="Emit stable JSON output.")
+    parser.add_argument("--repository-head", help="Live repository HEAD SHA used by `/skills status`.")
+    parser.add_argument("--repository-version", help="Repository version override used by `/skills status`.")
+    parser.add_argument("--installed-manifest", type=Path, help="Installed skillz-distribution-manifest.json used by `/skills status`.")
+    parser.add_argument("--installed-commit", help="Installed source commit override used by `/skills status`.")
+    parser.add_argument("--installed-version", help="Installed plugin version override used by `/skills status`.")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--skill")
-    group.add_argument("--skills", nargs="?", const="", metavar="QUERY", help="List user-facing entrypoints; use 'all' for every skill.")
+    group.add_argument("--skills", nargs="?", const="", metavar="QUERY", help="List user-facing entrypoints; use 'all' for every skill or 'status' for freshness.")
     group.add_argument("--requires")
     group.add_argument("--output")
     group.add_argument("--evaluation-mode", choices=sorted(VALID_MODES))
@@ -176,6 +235,16 @@ def main(argv: list[str] | None = None) -> int:
         kind = "list"
         if args.skill:
             kind, result = "skill", get_skill(index, args.skill)
+        elif args.skills is not None and args.skills.strip().casefold() == "status":
+            kind = "status"
+            result = build_status_payload(
+                index,
+                repository_head=args.repository_head,
+                repository_version_override=args.repository_version,
+                installed_manifest=args.installed_manifest,
+                installed_commit=args.installed_commit,
+                installed_version=args.installed_version,
+            )
         elif args.skills is not None:
             mode, matches = query_skill_listing(index, args.skills)
             kind, result = "skills", listing_payload(mode, args.skills, matches)
@@ -198,7 +267,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     if args.json:
-        if kind == "skill" or kind == "skills":
+        if kind in {"skill", "skills", "status"}:
             payload = result
         else:
             payload = {"matches": result, "count": len(result)}
