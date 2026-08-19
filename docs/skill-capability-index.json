@@ -12,8 +12,8 @@
     "workflow"
   ],
   "evaluationSuiteCount": 127,
-  "evaluationPassed": false,
-  "evaluationErrorCount": 6,
+  "evaluationPassed": true,
+  "evaluationErrorCount": 0,
   "skills": [
     {
       "name": "agent-handoff",
@@ -1308,8 +1308,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 4,
-        "recordedResultCount": 6,
-        "passed": false
+        "recordedResultCount": 4,
+        "passed": true
       }
     },
     {
@@ -1344,7 +1344,7 @@
         "mode": "compatibility",
         "caseCount": 4,
         "recordedResultCount": 4,
-        "passed": false
+        "passed": true
       }
     },
     {

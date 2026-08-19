@@ -4,10 +4,10 @@ generated: true
 name: "euroimmun-docx-report-renderer"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 4
-recordedResultCount: 6
+recordedResultCount: 4
 sourcePath: "skills/euroimmun-docx-report-renderer/SKILL.md"
 tags:
   - skill
@@ -45,9 +45,9 @@ Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `4`
-- Recorded results: `6`
+- Recorded results: `4`
 
 ## Canonical source
 
