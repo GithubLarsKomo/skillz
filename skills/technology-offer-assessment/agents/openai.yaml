@@ -1,0 +1,5 @@
+interface:
+  display_name: "Technology Offer Assessment"
+  short_description: "Bewertet Technologieofferten evidenzbasiert auf Fit, Reifegrad, Kosten, Scale, IP-Abhängigkeiten und Red Flags."
+policy:
+  allow_implicit_invocation: true
