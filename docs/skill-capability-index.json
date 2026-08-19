@@ -1141,7 +1141,8 @@
       ],
       "portableFiles": [
         "agents/openai.yaml",
-        "scripts/render_pdf.py"
+        "scripts/render_pdf.py",
+        "scripts/verify_visual_parity.py"
       ],
       "evaluation": {
         "mode": "compatibility",

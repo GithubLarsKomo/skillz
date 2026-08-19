@@ -124,7 +124,8 @@
       "files": {
         "SKILL.md": "1abaecf62ccfef044ee596eee43238c182ea6e393469aaacea47bc23ecf8f22e",
         "agents/openai.yaml": "4c493e92d9f7e27839e5568ea34f510fbae8d6293c2950148ef763500f9dfeba",
-        "scripts/render_pdf.py": "b9b8cdb03fad2f82022f7e715b666948366fe4d36f8f648fcda8ee29e4b9a663"
+        "scripts/render_pdf.py": "b9b8cdb03fad2f82022f7e715b666948366fe4d36f8f648fcda8ee29e4b9a663",
+        "scripts/verify_visual_parity.py": "2a8f66c67a71874d83e3d9a43047c4553583a56c9b9cc5ced8c2381566d5e56f"
       }
     },
     "dr-komorowski-sport-report-renderer": {
