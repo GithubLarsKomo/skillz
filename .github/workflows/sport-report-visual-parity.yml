@@ -66,8 +66,8 @@ jobs:
             artifacts/sport-visual-qa/lactate-report/lactate-report.pdf
           python skills/dr-komorowski-sport-pdf-report-renderer/scripts/verify_visual_parity.py \
             artifacts/sport-visual-qa/lactate-report/lactate-report.docx \
-            artifacts/sport-visual-qa/lactate-report/parity \
             artifacts/sport-visual-qa/lactate-report/lactate-report.pdf \
+            artifacts/sport-visual-qa/lactate-report/parity \
             --dpi 171 --max-mae 0.25 --max-changed-fraction 0.001 --pixel-threshold 8
       - name: Summarize parity results
         run: |
