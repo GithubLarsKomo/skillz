@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dr Komorowski Sport Docx Report Renderer"
+  short_description: "Rendert fachlich finalisierte Sportdiagnostik-, Trainings- und Reha-Inhalte als editierbares A4-DOCX im Dr.-Komorowsk..."
+policy:
+  allow_implicit_invocation: true

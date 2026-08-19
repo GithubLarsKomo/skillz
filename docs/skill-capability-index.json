@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 127,
-  "entrypointCount": 109,
+  "skillCount": 129,
+  "entrypointCount": 111,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 127,
+  "evaluationSuiteCount": 129,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1066,16 +1066,99 @@
       }
     },
     {
-      "name": "dr-komorowski-sport-report-renderer",
-      "description": "Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komorowski-Diagnose-&-Training-Design mit Vektorlogo, Navy/Teal-Farbsystem, Tabellen, Callouts, Charts, Kopf-/Fußzeilen und visueller Qualitätskontrolle. Verwenden, wenn ein fertiger fachlicher Inhalt im wiederverwendbaren Dr.-Komorowski-Template ausgegeben werden soll; der Skill erfindet keine Diagnostik oder Trainingslogik.",
+      "name": "dr-komorowski-sport-docx-report-renderer",
+      "description": "Rendert fachlich finalisierte Sportdiagnostik-, Trainings- und Reha-Inhalte als editierbares A4-DOCX im Dr.-Komorowski-Sportdiagnose-und-Trainingszentrum-Design. Nutzt ein im Skill hinterlegtes kanonisches DOCX-Template, unterstützt kontrollierte Template-Overrides, Sporttabellen und Laktat-/Herzfrequenz-Charts und verändert keine fachlichen Aussagen.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [],
       "dependents": [
+        "dr-komorowski-sport-pdf-report-renderer",
         "sport-diagnostics-training-report-workflow"
       ],
+      "outputs": [
+        "dr-komorowski-sport-report.docx"
+      ],
+      "outputContracts": [
+        {
+          "output": "dr-komorowski-sport-report.docx",
+          "ambiguous": false,
+          "producers": [
+            "dr-komorowski-sport-docx-report-renderer"
+          ],
+          "consumerSkills": [
+            "dr-komorowski-sport-pdf-report-renderer",
+            "sport-diagnostics-training-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "assets/dr-komorowski-logo.svg",
+        "assets/dr-komorowski-report-template.docx.b64",
+        "assets/report-spec.example.json",
+        "assets/report-spec.lactate.example.json",
+        "assets/report-theme.json",
+        "references/brand-guide.md",
+        "scripts/build_template.py",
+        "scripts/render_report.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 5,
+        "recordedResultCount": 5,
+        "passed": true
+      }
+    },
+    {
+      "name": "dr-komorowski-sport-pdf-report-renderer",
+      "description": "Erzeugt aus dem kanonischen Dr.-Komorowski-Sport-DOCX ein professionelles PDF mit identischem Styling. Nutzt den DOCX-Renderer als einzige Layoutquelle, führt keine fachliche oder gestalterische Neuerfindung durch und verlangt eine seitenweise visuelle Paritätsprüfung zwischen DOCX-Rendering und PDF.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "dr-komorowski-sport-docx-report-renderer"
+      ],
+      "dependents": [
+        "sport-diagnostics-training-report-workflow"
+      ],
+      "outputs": [
+        "dr-komorowski-sport-report.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "dr-komorowski-sport-report.pdf",
+          "ambiguous": false,
+          "producers": [
+            "dr-komorowski-sport-pdf-report-renderer"
+          ],
+          "consumerSkills": [
+            "sport-diagnostics-training-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "scripts/render_pdf.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "dr-komorowski-sport-report-renderer",
+      "description": "Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und Trainingsreports auf ReportLab-Basis. Bleibt zur reproduzierbaren Ausgabe älterer Report-Specs mit Vektorlogo und Vektor-Charts erhalten; neue Reports sollen über den kanonischen DOCX- und den daraus abgeleiteten PDF-Renderer laufen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [],
       "outputs": [
         "dr-komorowski-report.pdf"
       ],
@@ -1086,9 +1169,7 @@
           "producers": [
             "dr-komorowski-sport-report-renderer"
           ],
-          "consumerSkills": [
-            "sport-diagnostics-training-report-workflow"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -7033,13 +7114,14 @@
     },
     {
       "name": "sport-diagnostics-training-report-workflow",
-      "description": "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum visuell geprüften Marken-PDF. Verwenden, wenn Analyse, Trainingsableitung und professioneller Dr.-Komorowski-Report gemeinsam als ein durchgängiger Auftrag gewünscht sind; Fachlogik bleibt in den spezialisierten Skills.",
+      "description": "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
-        "dr-komorowski-sport-report-renderer",
+        "dr-komorowski-sport-docx-report-renderer",
+        "dr-komorowski-sport-pdf-report-renderer",
         "sport-performance-diagnostics",
         "sport-training-programming"
       ],

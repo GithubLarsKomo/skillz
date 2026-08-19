@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dr Komorowski Sport Pdf Report Renderer"
+  short_description: "Erzeugt aus dem kanonischen Dr.-Komorowski-Sport-DOCX ein professionelles PDF mit identischem Styling. Nutzt den DOCX..."
+policy:
+  allow_implicit_invocation: true

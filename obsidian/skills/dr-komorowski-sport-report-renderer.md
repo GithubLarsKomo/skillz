@@ -16,7 +16,7 @@ tags:
 
 # dr-komorowski-sport-report-renderer
 
-Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen A4-PDF-Report im etablierten Dr.-Komorowski-Diagnose-&-Training-Design mit Vektorlogo, Navy/Teal-Farbsystem, Tabellen, Callouts, Charts, Kopf-/Fußzeilen und visueller Qualitätskontrolle. Verwenden, wenn ein fertiger fachlicher Inhalt im wiederverwendbaren Dr.-Komorowski-Template ausgegeben werden soll; der Skill erfindet keine Diagnostik oder Trainingslogik.
+Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und Trainingsreports auf ReportLab-Basis. Bleibt zur reproduzierbaren Ausgabe älterer Report-Specs mit Vektorlogo und Vektor-Charts erhalten; neue Reports sollen über den kanonischen DOCX- und den daraus abgeleiteten PDF-Renderer laufen.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -30,7 +30,7 @@ Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen 
 
 ## Required by
 
-- [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- —
 
 ## Outputs
 
@@ -40,7 +40,7 @@ Rendert strukturierte Sportdiagnostik- und Trainingsinhalte als professionellen 
 
 ### `dr-komorowski-report.pdf`
 
-- [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- Terminal or currently unconsumed output.
 
 ## Evaluation
 
