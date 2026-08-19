@@ -4,9 +4,9 @@ generated: true
 name: "patent-landscape-analysis"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 3
+caseCount: 6
 recordedResultCount: 3
 sourcePath: "skills/patent-landscape-analysis/SKILL.md"
 tags:
@@ -16,7 +16,7 @@ tags:
 
 # patent-landscape-analysis
 
-Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit Suchlogik, Prioritäten, Assignees, Jurisdiktionen, Legal-Status-Freshness und Independent-Claim-Themen; keine Patentability- oder FTO-Opinion.
+Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit reproduzierbarer Suchlogik, Search-Saturation, Claim-Scope-Branches, Jurisdiktionen, Legal-Status-Freshness und sauber getrennten Applicant-/Assignee-/Ownership-Daten; keine Patentability- oder FTO-Opinion.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -30,8 +30,7 @@ Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Paten
 
 ## Required by
 
-- [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
-- [[skills/technology-due-diligence|technology-due-diligence]]
+- —
 
 ## Outputs
 
@@ -43,24 +42,21 @@ Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Paten
 
 ### `patent-landscape.json`
 
-- [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
-- [[skills/technology-due-diligence|technology-due-diligence]]
+- Terminal or currently unconsumed output.
 
 ### `patent-landscape.md`
 
-- [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
-- [[skills/technology-due-diligence|technology-due-diligence]]
+- Terminal or currently unconsumed output.
 
 ### `patent-search-log.json`
 
-- [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
-- [[skills/technology-due-diligence|technology-due-diligence]]
+- Terminal or currently unconsumed output.
 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `3`
+- Passed: `False`
+- Cases: `6`
 - Recorded results: `3`
 
 ## Canonical source

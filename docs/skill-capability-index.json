@@ -12,8 +12,8 @@
     "workflow"
   ],
   "evaluationSuiteCount": 125,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 71,
   "skills": [
     {
       "name": "agent-handoff",
@@ -2401,18 +2401,15 @@
     },
     {
       "name": "freedom-to-operate-assessment",
-      "description": "Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktionen eine evidenzbasierte technische FTO-Vorprüfung mit Claim-by-Claim-Mapping, Legal-Status-Freshness, Screening-Risikokategorien, Unsicherheiten, Counsel-Eskalation und Design-around-Hypothesen; keine anwaltliche FTO Opinion oder verbindliche Claim Construction.",
+      "description": "Erstellt für eine definierte Produkt-/Prozesskonfiguration und Zieljurisdiktionen eine evidenzbasierte technische FTO-Vorprüfung mit Claim-by-Claim-Mapping, getrenntem Technical Mapping und Rights Status, Screening-Priorität, Unsicherheiten, Counsel-Eskalation und versionierten Design-around-Hypothesen; keine anwaltliche FTO Opinion oder verbindliche Claim Construction.",
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
       },
       "requires": [
-        "patent-landscape-analysis",
         "research-to-evidence-note"
       ],
-      "dependents": [
-        "technology-due-diligence"
-      ],
+      "dependents": [],
       "outputs": [
         "fto-claim-map.json",
         "fto-design-around-options.json",
@@ -2426,9 +2423,7 @@
           "producers": [
             "freedom-to-operate-assessment"
           ],
-          "consumerSkills": [
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "fto-design-around-options.json",
@@ -2436,9 +2431,7 @@
           "producers": [
             "freedom-to-operate-assessment"
           ],
-          "consumerSkills": [
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "fto-risk-heatmap.md",
@@ -2446,9 +2439,7 @@
           "producers": [
             "freedom-to-operate-assessment"
           ],
-          "consumerSkills": [
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "fto-scope.json",
@@ -2456,9 +2447,7 @@
           "producers": [
             "freedom-to-operate-assessment"
           ],
-          "consumerSkills": [
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -2466,9 +2455,9 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
+        "caseCount": 6,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {
@@ -3834,7 +3823,6 @@
       "dependents": [
         "decision-record",
         "medical-device-regulatory-strategy",
-        "technology-due-diligence",
         "throwaway-prototype"
       ],
       "outputs": [
@@ -3852,7 +3840,6 @@
           "consumerSkills": [
             "decision-record",
             "medical-device-regulatory-strategy",
-            "technology-due-diligence",
             "throwaway-prototype"
           ]
         },
@@ -3865,7 +3852,6 @@
           "consumerSkills": [
             "decision-record",
             "medical-device-regulatory-strategy",
-            "technology-due-diligence",
             "throwaway-prototype"
           ]
         },
@@ -3878,7 +3864,6 @@
           "consumerSkills": [
             "decision-record",
             "medical-device-regulatory-strategy",
-            "technology-due-diligence",
             "throwaway-prototype"
           ]
         }
@@ -5745,7 +5730,7 @@
     },
     {
       "name": "patent-landscape-analysis",
-      "description": "Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit Suchlogik, Prioritäten, Assignees, Jurisdiktionen, Legal-Status-Freshness und Independent-Claim-Themen; keine Patentability- oder FTO-Opinion.",
+      "description": "Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit reproduzierbarer Suchlogik, Search-Saturation, Claim-Scope-Branches, Jurisdiktionen, Legal-Status-Freshness und sauber getrennten Applicant-/Assignee-/Ownership-Daten; keine Patentability- oder FTO-Opinion.",
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
@@ -5753,10 +5738,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
-      "dependents": [
-        "freedom-to-operate-assessment",
-        "technology-due-diligence"
-      ],
+      "dependents": [],
       "outputs": [
         "patent-landscape.json",
         "patent-landscape.md",
@@ -5769,10 +5751,7 @@
           "producers": [
             "patent-landscape-analysis"
           ],
-          "consumerSkills": [
-            "freedom-to-operate-assessment",
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "patent-landscape.md",
@@ -5780,10 +5759,7 @@
           "producers": [
             "patent-landscape-analysis"
           ],
-          "consumerSkills": [
-            "freedom-to-operate-assessment",
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "patent-search-log.json",
@@ -5791,10 +5767,7 @@
           "producers": [
             "patent-landscape-analysis"
           ],
-          "consumerSkills": [
-            "freedom-to-operate-assessment",
-            "technology-due-diligence"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -5802,9 +5775,9 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
+        "caseCount": 6,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {
@@ -7248,15 +7221,12 @@
     },
     {
       "name": "technology-due-diligence",
-      "description": "Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition oder Make/Buy aus Offer/Technology Assessment, Patent Landscape, technischer FTO-Vorprüfung und optionalen Regulatory-/Supplier-Spezialbewertungen; priorisiert Red Flags, Unknowns, Entscheidungstreiber und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.",
+      "description": "Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition, Make/Buy, Supplier Selection oder Investment, entscheidet zuerst über benötigte Specialist Depth und priorisiert Red Flags, Unknowns und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
-        "freedom-to-operate-assessment",
-        "large-work-wayfinder",
-        "patent-landscape-analysis",
         "technology-offer-assessment"
       ],
       "dependents": [],
@@ -7296,14 +7266,14 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
+        "caseCount": 6,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {
       "name": "technology-offer-assessment",
-      "description": "Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Red Flags und offene Fragen; keine Vertragsrechts- oder FTO-Analyse.",
+      "description": "Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Vendor Dependency, Red Flags und offene Fragen; keine Vertragsrechts- oder FTO-Analyse.",
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
@@ -7356,9 +7326,9 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
+        "caseCount": 5,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {

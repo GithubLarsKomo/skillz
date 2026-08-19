@@ -2180,15 +2180,6 @@
       "label": "requires"
     },
     {
-      "id": "requires-9c6f7c7bcb51",
-      "fromNode": "skill-freedom-to-operate-assessment",
-      "fromSide": "right",
-      "toNode": "skill-patent-landscape-analysis",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
       "id": "requires-d86c520480f8",
       "fromNode": "skill-freedom-to-operate-assessment",
       "fromSide": "right",
@@ -3921,33 +3912,6 @@
       "fromNode": "skill-supplier-quality-medical-device",
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-adc6a671542d",
-      "fromNode": "skill-technology-due-diligence",
-      "fromSide": "left",
-      "toNode": "skill-freedom-to-operate-assessment",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-0b1049ef2ee7",
-      "fromNode": "skill-technology-due-diligence",
-      "fromSide": "left",
-      "toNode": "skill-large-work-wayfinder",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-4c4ed0f7e7bc",
-      "fromNode": "skill-technology-due-diligence",
-      "fromSide": "left",
-      "toNode": "skill-patent-landscape-analysis",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"

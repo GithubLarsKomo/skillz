@@ -265,7 +265,7 @@
     },
     "freedom-to-operate-assessment": {
       "files": {
-        "SKILL.md": "2d588d206cb43497708814dc202f0244900c5ebdf41bb82fd06d751e326d1c53",
+        "SKILL.md": "7c4688afc0ed7f1b2e09f9487224bbfd804d1e64018c020a7fe9b8e13580311a",
         "agents/openai.yaml": "09e3d681eb309477530e7c79621c6f8fc085d4c8907e463dd94dcc94ac928c7c"
       }
     },
@@ -590,7 +590,7 @@
     },
     "patent-landscape-analysis": {
       "files": {
-        "SKILL.md": "d64a6db795d015e721a3394f953ecd7be752c025054933622232db88e02aa70a",
+        "SKILL.md": "c756e5f16ec1232b3dcbbf95b10327e9ca57fd6178e7b86d05dfda1845361a73",
         "agents/openai.yaml": "67acea37de785e88b6c7ba1a4a88750d4defae39d8ee37117d8456ebf980cf02"
       }
     },
@@ -730,13 +730,13 @@
     },
     "technology-due-diligence": {
       "files": {
-        "SKILL.md": "def3074fdfbea48d4d158b2ef1bde312e3d6af56d4b59a0c50d2aa50faa441e7",
-        "agents/openai.yaml": "5d063f83651f5e531bfd2b0db50fcc2bc76a923a608be8ab06001dee8e5b5070"
+        "SKILL.md": "6c1dd81486a42ccf9d0a74fd457478c62a61cdc0675e83577a29da6edb1e4dbe",
+        "agents/openai.yaml": "f311e8e2849ec4540e32bc6113a6a28a9abff77913a939384067c0153a87194e"
       }
     },
     "technology-offer-assessment": {
       "files": {
-        "SKILL.md": "40c9c359f825fe62d4959c0734b8c89565ac9c63f6362aaa476e179d9f2b8873",
+        "SKILL.md": "32eb0a2bacb580fcde65ed357440ac81a7cb6cc905506edca4bd2081aabfc62a",
         "agents/openai.yaml": "e8506c6a872c2fe6162bf8b9d56b9cd60e07a3f2d2146c205628dabdbc6baa8c"
       }
     },

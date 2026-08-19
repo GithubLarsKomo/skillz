@@ -4,9 +4,9 @@ generated: true
 name: "technology-offer-assessment"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 3
+caseCount: 5
 recordedResultCount: 3
 sourcePath: "skills/technology-offer-assessment/SKILL.md"
 tags:
@@ -16,7 +16,7 @@ tags:
 
 # technology-offer-assessment
 
-Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Red Flags und offene Fragen; keine Vertragsrechts- oder FTO-Analyse.
+Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote evidenzbasiert auf technischen Fit, Reifegrad, Performance Claims, Integration, Skalierung, Supply/Quality, kommerzielle Bedingungen, IP-Abhängigkeiten, Vendor Dependency, Red Flags und offene Fragen; keine Vertragsrechts- oder FTO-Analyse.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -55,8 +55,8 @@ Bewertet konkrete Technologieofferten oder vergleichbare Anbieterangebote eviden
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `3`
+- Passed: `False`
+- Cases: `5`
 - Recorded results: `3`
 
 ## Canonical source

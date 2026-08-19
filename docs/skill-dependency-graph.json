@@ -504,7 +504,6 @@
     {
       "name": "freedom-to-operate-assessment",
       "requires": [
-        "patent-landscape-analysis",
         "research-to-evidence-note"
       ],
       "outputs": [
@@ -1432,9 +1431,6 @@
     {
       "name": "technology-due-diligence",
       "requires": [
-        "freedom-to-operate-assessment",
-        "large-work-wayfinder",
-        "patent-landscape-analysis",
         "technology-offer-assessment"
       ],
       "outputs": [
@@ -1935,10 +1931,6 @@
     {
       "from": "fda-registration-listing-udi",
       "to": "regulatory-evidence-traceability"
-    },
-    {
-      "from": "freedom-to-operate-assessment",
-      "to": "patent-landscape-analysis"
     },
     {
       "from": "freedom-to-operate-assessment",
@@ -2711,18 +2703,6 @@
     {
       "from": "supplier-quality-medical-device",
       "to": "two-axis-compliance-review"
-    },
-    {
-      "from": "technology-due-diligence",
-      "to": "freedom-to-operate-assessment"
-    },
-    {
-      "from": "technology-due-diligence",
-      "to": "large-work-wayfinder"
-    },
-    {
-      "from": "technology-due-diligence",
-      "to": "patent-landscape-analysis"
     },
     {
       "from": "technology-due-diligence",
@@ -3708,7 +3688,6 @@
       "consumerSkills": [
         "decision-record",
         "medical-device-regulatory-strategy",
-        "technology-due-diligence",
         "throwaway-prototype"
       ],
       "ambiguous": false,
@@ -4404,44 +4383,36 @@
       "producers": [
         "freedom-to-operate-assessment"
       ],
-      "consumerSkills": [
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "fto-design-around-options.json",
       "producers": [
         "freedom-to-operate-assessment"
       ],
-      "consumerSkills": [
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "fto-risk-heatmap.md",
       "producers": [
         "freedom-to-operate-assessment"
       ],
-      "consumerSkills": [
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "fto-scope.json",
       "producers": [
         "freedom-to-operate-assessment"
       ],
-      "consumerSkills": [
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "gudid-udi-readiness.json",
@@ -4590,7 +4561,6 @@
       "consumerSkills": [
         "decision-record",
         "medical-device-regulatory-strategy",
-        "technology-due-diligence",
         "throwaway-prototype"
       ],
       "ambiguous": false,
@@ -5200,36 +5170,27 @@
       "producers": [
         "patent-landscape-analysis"
       ],
-      "consumerSkills": [
-        "freedom-to-operate-assessment",
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "patent-landscape.md",
       "producers": [
         "patent-landscape-analysis"
       ],
-      "consumerSkills": [
-        "freedom-to-operate-assessment",
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "patent-search-log.json",
       "producers": [
         "patent-landscape-analysis"
       ],
-      "consumerSkills": [
-        "freedom-to-operate-assessment",
-        "technology-due-diligence"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "pccp-applicability.json",
@@ -6760,7 +6721,6 @@
       "consumerSkills": [
         "decision-record",
         "medical-device-regulatory-strategy",
-        "technology-due-diligence",
         "throwaway-prototype"
       ],
       "ambiguous": false,
@@ -6826,6 +6786,10 @@
     "fda-response-package.md",
     "finding-action-plan.json",
     "finding-closure-status.json",
+    "fto-claim-map.json",
+    "fto-design-around-options.json",
+    "fto-risk-heatmap.md",
+    "fto-scope.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -6864,6 +6828,9 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "patent-landscape.json",
+    "patent-landscape.md",
+    "patent-search-log.json",
     "pccp-applicability.json",
     "pccp-change-evidence.json",
     "pccp-deviation-routing.json",
@@ -6975,6 +6942,10 @@
     "fda-response-package.md",
     "finding-action-plan.json",
     "finding-closure-status.json",
+    "fto-claim-map.json",
+    "fto-design-around-options.json",
+    "fto-risk-heatmap.md",
+    "fto-scope.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -7013,6 +6984,9 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "patent-landscape.json",
+    "patent-landscape.md",
+    "patent-search-log.json",
     "pccp-applicability.json",
     "pccp-change-evidence.json",
     "pccp-deviation-routing.json",

@@ -4,9 +4,9 @@ generated: true
 name: "technology-due-diligence"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 3
+caseCount: 6
 recordedResultCount: 3
 sourcePath: "skills/technology-due-diligence/SKILL.md"
 tags:
@@ -16,7 +16,7 @@ tags:
 
 # technology-due-diligence
 
-Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition oder Make/Buy aus Offer/Technology Assessment, Patent Landscape, technischer FTO-Vorprüfung und optionalen Regulatory-/Supplier-Spezialbewertungen; priorisiert Red Flags, Unknowns, Entscheidungstreiber und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.
+Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition, Make/Buy, Supplier Selection oder Investment, entscheidet zuerst über benötigte Specialist Depth und priorisiert Red Flags, Unknowns und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,9 +26,6 @@ Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnershi
 
 ## Requires
 
-- [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
-- [[skills/large-work-wayfinder|large-work-wayfinder]]
-- [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/technology-offer-assessment|technology-offer-assessment]]
 
 ## Required by
@@ -58,8 +55,8 @@ Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnershi
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `3`
+- Passed: `False`
+- Cases: `6`
 - Recorded results: `3`
 
 ## Canonical source

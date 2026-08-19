@@ -1,19 +1,19 @@
 ---
 name: technology-due-diligence
-description: Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition oder Make/Buy aus Offer/Technology Assessment, Patent Landscape, technischer FTO-Vorprüfung und optionalen Regulatory-/Supplier-Spezialbewertungen; priorisiert Red Flags, Unknowns, Entscheidungstreiber und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.
+description: Orchestriert evidenzbasierte Technology-Due-Diligence für Licensing, Partnership, Acquisition, Make/Buy, Supplier Selection oder Investment, entscheidet zuerst über benötigte Specialist Depth und priorisiert Red Flags, Unknowns und nächste sichere Aktionen ohne Fachlogik der Spezial-Skills zu duplizieren.
 ---
 
 # Technology Due Diligence
 
 ## Zweck und Grenze
 
-Orchestriere eine entscheidungsorientierte Technology/IP/Offer-Due-Diligence aus bestehenden Spezialbewertungen. Der Skill führt Ergebnisse zusammen, priorisiert Cross-Domain-Red-Flags und Unknowns und erzeugt eine sichere nächste Aktion.
+Orchestriere eine entscheidungsorientierte Technology Due Diligence aus bestehenden oder bei Bedarf erzeugten Spezialbewertungen. Der Skill führt Ergebnisse zusammen, priorisiert Cross-Domain-Red-Flags und Unknowns und erzeugt eine sichere nächste Aktion.
 
 Der Orchestrator enthält **keine eigene Patent-, Claim-, Regulatory- oder Supplier-Quality-Fachlogik**. Er delegiert diese Domänen und darf deren Unsicherheit nicht durch einen künstlichen Score verdecken.
 
 ## Trigger
 
-Verwenden bei Technology Due Diligence für Licensing, Partnership, Acquisition, Strategic Investment, Make/Buy oder Supplier Selection, wenn technische Eignung, IP/FTO, Regulatory, Supply/Scale und kommerzielle Readiness zusammengeführt werden sollen.
+Verwenden bei Technology Due Diligence für Licensing, Partnership, Acquisition, Strategic Investment, Make/Buy oder Supplier Selection, wenn mehrere technische, IP-, Regulatory-, Supply/Scale- oder kommerzielle Aspekte zusammengeführt werden sollen.
 
 ## Decision Context
 
@@ -36,23 +36,51 @@ Keine nicht bestätigte Gewichtung oder Risikoneigung erfinden.
 
 Trenne Facts, Assumptions, Hypotheses, Unknowns, Blockers und bereits autorisierte Decisions. Definiere die kleinste Due-Diligence-Frage, die für die aktuelle Entscheidung beantwortet werden muss.
 
-### 2. Specialist Assessments koordinieren
+### 2. Specialist-Routing-Gate
 
-- Technology/Offer Fit → `technology-offer-assessment`
-- Patent Landscape → `patent-landscape-analysis`
-- konkretes FTO Screening → `freedom-to-operate-assessment`
-- Regulatory für IVD/Medical Device → bestehende Regulatory-Specialist-Skills
-- Supplier/Quality/Scale → `supplier-quality-medical-device` und passende QMS-/Validation-Skills
+Klassifiziere jede Domäne vor einem Specialist-Aufruf als:
 
-**Specialist Evidence statt Zweitanalyse:** Der Orchestrator konsumiert die strukturierten Outputs und reproduziert keine Claim Charts, Classification oder Supplier Qualification.
+`REQUIRED | OPTIONAL | NOT_REQUIRED | ALREADY_AVAILABLE | BLOCKED`
 
-### 3. Cross-Domain Dependencies modellieren
+Mindestens für:
+
+- technology / offer,
+- patent landscape,
+- FTO,
+- regulatory,
+- supplier / quality,
+- commercial / strategic.
+
+Routing-Regeln:
+
+- frühes Technology Scouting ohne konkrete Commercialization-Entscheidung → FTO normalerweise `NOT_REQUIRED` oder `OPTIONAL`,
+- Licensing/Acquisition mit konkretem Produkt und Zielmärkten vor Commercialization → FTO typischerweise `REQUIRED`,
+- vorhandene belastbare Counsel-/Regulatory-/Supplier-Outputs → `ALREADY_AVAILABLE` und konsumieren statt erneut analysieren,
+- Supplier Selection ohne relevante proprietäre IP-Trigger → Patent Landscape/FTO nicht automatisch starten,
+- Make/Buy vor Architektur-Freeze → Claim-by-Claim-FTO kann verfrüht sein und bleibt ggf. `OPTIONAL` oder `BLOCKED` bis eine stabile Baseline existiert.
+
+Nicht anwendbare Domänen werden als `NOT_REQUIRED` dokumentiert; fehlende Domains dürfen nicht künstlich mit Findings gefüllt werden.
+
+### 3. Specialist Assessments koordinieren
+
+Je nach Routing Gate:
+
+- Technology/Offer Fit → `technology-offer-assessment`,
+- Patent Landscape → `patent-landscape-analysis`,
+- konkretes FTO Screening → `freedom-to-operate-assessment`,
+- Regulatory für IVD/Medical Device → bestehende Regulatory-Specialist-Skills,
+- Supplier/Quality/Scale → `supplier-quality-medical-device` und passende QMS-/Validation-Skills,
+- komplexe begrenzte Investigationen → `large-work-wayfinder` nur bei Bedarf.
+
+**Specialist Evidence statt Zweitanalyse:** Der Orchestrator konsumiert vorhandene strukturierte Outputs und reproduziert keine Claim Charts, Classification oder Supplier Qualification.
+
+### 4. Cross-Domain Dependencies modellieren
 
 Verbinde technische Designentscheidungen mit FTO, Regulatory, Manufacturing, Supply und Commercial Model. Beispiele: ein Design-around kann Performance und Regulatory Evidence ändern; ein proprietäres Reagenz kann IP-, Supplier- und Cost-Risk koppeln.
 
-### 4. Gemeinsame Decision Dimensions konsolidieren
+### 5. Anwendbare Decision Dimensions konsolidieren
 
-Mindestens:
+Bewerte nur anwendbare Dimensionen und markiere andere als `not-applicable`:
 
 - technical differentiation,
 - performance evidence,
@@ -61,7 +89,7 @@ Mindestens:
 - manufacturing/scale/supply risk,
 - regulatory feasibility/readiness,
 - patent position / landscape density,
-- FTO screening risk,
+- FTO screening concern,
 - licensing dependencies,
 - commercial model / cost structure,
 - strategic fit / lock-in,
@@ -69,19 +97,30 @@ Mindestens:
 
 Keine Gesamtpunktzahl erfinden, wenn die Gewichtung nicht bestätigt ist.
 
-### 5. Red Flags und Unknowns priorisieren
+### 6. Red Flags und Unknowns priorisieren
 
 Jeder Red Flag Record enthält `issue`, `domain`, `evidence`, `confidence`, `impact`, `reversibility`, `decisionTiming`, `owner/authority`, `nextEvidence` und `stopCondition`.
 
-**Kritische Unknowns nicht in Scores verstecken.** Ein materielles RED/AMBER-FTO oder instabiler Regulatory Context kann eine positive technische Bewertung blockieren.
+**Kritische Unknowns nicht in Scores verstecken.** Ein materieller FTO-Screening-Concern oder instabiler Regulatory Context kann eine positive technische Bewertung blockieren.
 
-### 6. Investigations begrenzen
+### 7. Investigations begrenzen
 
-Wenn kritische Unsicherheit die nächste Entscheidung blockiert, übergib eine kleine Menge begrenzter Untersuchungen an `large-work-wayfinder`. Jede Investigation benötigt eine einzelne Frage, Evidence Need, Stop Condition und Nicht-Ziele.
+Nur wenn kritische Unsicherheit die nächste Entscheidung blockiert und eine mehrstufige Untersuchung nötig ist, übergib eine kleine Menge begrenzter Untersuchungen an `large-work-wayfinder`. Jede Investigation benötigt eine einzelne Frage, Evidence Need, Stop Condition und Nicht-Ziele.
 
-### 7. Recommendation mit Preconditions formulieren
+Für einfache DDs ohne solche offenen Investigationen wird Wayfinder **nicht** aufgerufen.
 
-Recommendation kann z. B. `go | conditional-go | hold | no-go | insufficient-evidence` sein, muss aber Decision Drivers, Preconditions, Autoritätsgrenzen und Abbruchkriterien nennen. Der Skill simuliert keine Board-, Legal-, Regulatory- oder Investment-Committee-Freigabe.
+### 8. Decision Posture mit Preconditions formulieren
+
+Der Orchestrator trifft keine Board-/Management-/Legal-/Regulatory-Entscheidung. Er erzeugt stattdessen:
+
+- `decisionPosture.status`: `supportable | supportable-with-preconditions | not-yet-supportable | evidence-insufficient | material-blocker-identified`,
+- `decisionOwner`,
+- `authorityRequired`,
+- `decisionDrivers[]`,
+- `preconditions[]`,
+- `materialBlockers[]`,
+- `stopConditions[]`,
+- `nextSafeAction`.
 
 ## Output-Verträge
 
@@ -92,6 +131,7 @@ Recommendation kann z. B. `go | conditional-go | hold | no-go | insufficient-evi
   "scope": {},
   "decisionContext": {},
   "asOf": "YYYY-MM-DD",
+  "domainRouting": [],
   "specialistAssessments": [],
   "crossDomainDependencies": [],
   "redFlags": [],
@@ -99,13 +139,13 @@ Recommendation kann z. B. `go | conditional-go | hold | no-go | insufficient-evi
   "decisionDrivers": [],
   "options": [],
   "preconditions": [],
-  "recommendation": {}
+  "decisionPosture": {}
 }
 ```
 
-`due-diligence-handoff.json` ist Wayfinder-kompatibel und enthält mindestens `facts, assumptions, hypotheses, unknowns, blockers, decisions, investigations, risks, nextSafeAction`.
+`due-diligence-handoff.json` ist Wayfinder-kompatibel und enthält mindestens `facts, assumptions, hypotheses, unknowns, blockers, decisions, investigations, risks, nextSafeAction`. Es wird auch dann erzeugt, wenn keine Wayfinder-Investigation nötig ist.
 
-`technology-due-diligence.md` ist das Executive Assessment mit Scope, Kernbefunden, Domain-Status, Red Flags, Preconditions und nächster sicherer Aktion.
+`technology-due-diligence.md` ist das Executive Assessment mit Scope, Domain Routing, Kernbefunden, Red Flags, Preconditions, Decision Posture und nächster sicherer Aktion.
 
 ## IVD-Komposition
 
@@ -113,30 +153,33 @@ Bei IVD-/MedTech-Fällen können Referenzszenarien wie Autoantikörpertests, Ant
 
 ## Legal-/Regulatory-Grenzen
 
-FTO bleibt technische Vorprüfung und Counsel-Eskalation; Regulatory Readiness bleibt Specialist Assessment. Der Orchestrator darf weder „IP safe“ noch „regulatory approved“ behaupten, wenn diese Aussage nicht durch zuständige Evidenz/Autorität belegt ist.
+FTO bleibt technische Vorprüfung und Counsel-Eskalation; Regulatory Readiness bleibt Specialist Assessment. Der Orchestrator darf keine entsprechende Rechts- oder Behördenfreigabe simulieren.
 
 ## Memory Path
 
-Persistenzwürdig sind generische DD-Dimensionen, Handoff-Schema und abstrahierte Cross-Domain-Abhängigkeiten. Konkrete Transaktionsdaten, Preise, vertrauliche Target-Daten, Patentstatus, Legal Advice und Entscheidungsfristen bleiben run-only oder kontrolliert projektgebunden.
+Persistenzwürdig sind generische DD-Dimensionen, Routing-Regeln, Handoff-Schema und abstrahierte Cross-Domain-Abhängigkeiten. Konkrete Transaktionsdaten, Preise, vertrauliche Target-Daten, Patentstatus, Legal Advice und Entscheidungsfristen bleiben run-only oder kontrolliert projektgebunden.
 
 ## Qualitätsgate
 
 Pass nur wenn:
 
-- **keine eigene Patent-, Claim-, Regulatory- oder Supplier-Quality-Fachlogik** dupliziert wird,
+- jede relevante Domäne vor Aufruf durch das Routing Gate klassifiziert wurde,
+- keine eigene Patent-, Claim-, Regulatory- oder Supplier-Quality-Fachlogik dupliziert wird,
+- `ALREADY_AVAILABLE`-Outputs konsumiert statt erneut erzeugt werden,
+- `NOT_REQUIRED` nicht künstlich analysiert wird,
+- `large-work-wayfinder` nur bei tatsächlich komplexen Investigationen aufgerufen wird,
 - Specialist Ergebnisse auf deren Evidence zurückgeführt werden,
-- **Kritische Unknowns nicht in Scores verstecken** eingehalten wird,
-- FTO als Screening und nicht als Legal Opinion behandelt wird,
+- kritische Unknowns nicht in Scores versteckt werden,
 - volatile Inputs `asOf` besitzen,
-- Recommendation Preconditions und Stop Conditions enthält,
+- Decision Posture statt autoritativem Go/No-Go verwendet wird,
 - `nextSafeAction` ohne versteckte Fachannahmen ausführbar ist.
 
 ## Fehlerbehandlung
 
-Wenn Specialist Assessments fehlen, darf der Orchestrator deren Fachresultat nicht erfinden. Er markiert den Domain-Status als `unknown/not-assessed`, erzeugt bei Entscheidungsrelevanz eine begrenzte Investigation und stoppt vor einer scheinpräzisen Gesamtbewertung.
+Wenn ein `REQUIRED` Specialist Assessment fehlt oder `BLOCKED` ist, darf der Orchestrator dessen Fachresultat nicht erfinden. Er markiert den Domain-Status entsprechend und setzt den Decision Posture auf `not-yet-supportable` oder `evidence-insufficient`, sofern die Lücke entscheidungsrelevant ist.
 
-Ein pauschaler Score wie `82/100`, der technische Stärke, FTO-RED und regulatorische Unsicherheit mittelt, ist ein Qualitätsfehler.
+Ein pauschaler Score, der technische Stärke und materielle FTO-/Regulatory-Unknowns mittelt, ist ein Qualitätsfehler.
 
 ## Abschlusskriterien
 
-Abgeschlossen ist der Skill, wenn Specialist Assessments sauber koordiniert, Cross-Domain-Abhängigkeiten und kritische Unsicherheiten sichtbar, Red Flags priorisiert, Recommendation und Preconditions explizit und genau eine nächste sichere Aktion definiert sind.
+Abgeschlossen ist der Skill, wenn Domain Routing explizit, vorhandene Specialist Assessments wiederverwendet, nur erforderliche neue Assessments angestoßen, Cross-Domain-Abhängigkeiten sichtbar, Red Flags priorisiert, Decision Posture und Preconditions explizit und genau eine nächste sichere Aktion definiert sind.
