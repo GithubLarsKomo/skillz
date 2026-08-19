@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-pdf-report-renderer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "fehlende Konvertierungsabhängigkeit klar melden", "passed": true, "evidence": "The error-handling contract requires an explicit LibreOffice/soffice dependency error."},
+    {"behavior": "keine PDF-Datei als Erfolg vortäuschen", "passed": true, "evidence": "The converter requires a real non-empty PDF output before reporting success."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "eine leere Datei mit PDF-Endung ausgeben", "observed": false, "evidence": "The converter rejects absent or zero-length PDF output."},
+    {"behavior": "erfolgreiche visuelle Prüfung behaupten", "observed": false, "evidence": "The skill requires actual PDF page rendering and visual QA before final status."}
+  ],
+  "overall": "pass"
+}

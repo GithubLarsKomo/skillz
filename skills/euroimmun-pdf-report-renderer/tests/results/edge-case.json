@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-pdf-report-renderer",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-19",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "Seitenreihenfolge und Tabelleninhalt nach PDF-Konvertierung vergleichen", "passed": true, "evidence": "The PDF QA contract requires checking page order and content against the canonical DOCX after conversion."},
+    {"behavior": "Header Footer und Umbrüche visuell auf Reflow prüfen", "passed": true, "evidence": "The workflow requires page-by-page visual comparison of header, footer and pagination after conversion."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "zusätzliche Leer- oder Verlustseiten ignorieren", "observed": false, "evidence": "The quality checklist explicitly rejects extra blank pages or missing pages."},
+    {"behavior": "sichtbare PDF-Abweichungen per Stempelung kaschieren", "observed": false, "evidence": "The architecture requires fixing the DOCX/template and reconverting rather than patching the PDF."}
+  ],
+  "overall": "pass"
+}
