@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import io
 import json
+import re
 import shutil
 import tarfile
 from pathlib import Path
@@ -14,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SYNC = ROOT / ".skill-sync.json"
 VERSION = ROOT / "VERSION"
 TEMPLATE = ROOT / "distribution" / "openai-plugin" / ".codex-plugin" / "plugin.json"
+SHA_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 
 
 def normalized_bytes(path: Path) -> bytes:
@@ -27,6 +29,15 @@ def sha256_bytes(data: bytes) -> str:
 
 def source_sha(path: Path) -> str:
     return sha256_bytes(normalized_bytes(path))
+
+
+def normalize_source_commit(value: str | None) -> str | None:
+    if value is None or not value.strip():
+        return None
+    normalized = value.strip().lower()
+    if not SHA_RE.fullmatch(normalized):
+        raise ValueError("source commit must be a full 40-character Git commit SHA")
+    return normalized
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -112,8 +123,9 @@ def validate_plugin_manifest(value: dict[str, Any], expected_version: str) -> No
             raise ValueError(f"plugin interface.{key} required")
 
 
-def build(output: Path) -> dict[str, Any]:
+def build(output: Path, source_commit: str | None = None) -> dict[str, Any]:
     version = VERSION.read_text(encoding="utf-8").strip()
+    source_commit = normalize_source_commit(source_commit)
     sync = load_json(SYNC)
     if sync.get("schemaVersion") != 2 or not isinstance(sync.get("skills"), dict):
         raise ValueError("unsupported .skill-sync.json")
@@ -167,6 +179,8 @@ def build(output: Path) -> dict[str, Any]:
         "pluginManifestSha256": sha256_bytes(plugin_bytes),
         "skills": skills_manifest,
     }
+    if source_commit is not None:
+        manifest["sourceCommit"] = source_commit
     manifest_bytes = (json.dumps(manifest, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
     (output / "skillz-distribution-manifest.json").write_bytes(manifest_bytes)
     validate_bundle(output, manifest)
@@ -177,6 +191,8 @@ def validate_bundle(output: Path, manifest: dict[str, Any] | None = None) -> Non
     plugin = load_json(output / ".codex-plugin" / "plugin.json")
     validate_plugin_manifest(plugin, VERSION.read_text(encoding="utf-8").strip())
     manifest = manifest or load_json(output / "skillz-distribution-manifest.json")
+    if "sourceCommit" in manifest:
+        normalize_source_commit(str(manifest["sourceCommit"]))
     for name, spec in sorted(manifest["skills"].items()):
         skill_md = output / "skills" / name / "SKILL.md"
         if not skill_md.is_file():
@@ -218,15 +234,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build a deterministic OpenAI/Codex plugin bundle from canonical Skillz sources.")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--archive", type=Path)
+    parser.add_argument("--source-commit", help="Full Git commit SHA to stamp into the distribution manifest.")
     args = parser.parse_args()
     try:
-        manifest = build(args.output.resolve())
+        manifest = build(args.output.resolve(), source_commit=args.source_commit)
         if args.archive:
             write_deterministic_tar(args.output.resolve(), args.archive.resolve())
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 2
-    print(json.dumps({"ok": True, "pluginVersion": manifest["pluginVersion"], "skillCount": len(manifest["skills"]), "output": str(args.output.resolve())}, sort_keys=True))
+    print(json.dumps({"ok": True, "pluginVersion": manifest["pluginVersion"], "skillCount": len(manifest["skills"]), "output": str(args.output.resolve()), "sourceCommit": manifest.get("sourceCommit")}, sort_keys=True))
     return 0
 
 
