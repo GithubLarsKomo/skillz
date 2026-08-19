@@ -6,30 +6,16 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Materialize reviewed skill artifacts
-        if: github.event_name == 'pull_request' && github.head_ref == 'feat/technology-ip-due-diligence'
-        run: |
-          python scripts/generate_repository_metadata.py
-          python scripts/build_openai_plugin.py --output plugins/skillz
-          if ! git diff --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "chore: regenerate reviewed skill artifacts"
-            git push origin HEAD:${{ github.head_ref }}
-          fi
       - name: Test skillz bootstrap installer
         run: python -m unittest tests.test_bootstrap_skillz
       - name: Test clean-room beta installation path
