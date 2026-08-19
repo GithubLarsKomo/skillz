@@ -49,6 +49,54 @@ python scripts/query_capabilities.py --skill large-work-wayfinder
 
 Use `--json` for stable machine-readable output.
 
+## Provenance and `/skills status`
+
+A committed file cannot truthfully contain the SHA of the commit that contains that same SHA field: changing the field changes the commit. Therefore the canonical committed capability index stays deterministic and provenance is stamped into a **runtime copy** after the source commit is known.
+
+Create an exact runtime index with repository, ref, version, and full source commit SHA:
+
+```bash
+python scripts/stamp_capability_index.py \
+  --commit "$GIT_COMMIT" \
+  --output build/skill-capability-index.json
+```
+
+The stamped copy contains:
+
+```json
+"provenance": {
+  "repository": "GithubLarsKomo/skillz",
+  "ref": "main",
+  "version": "0.1.0-beta.1",
+  "commitSha": "<full-40-character-sha>"
+}
+```
+
+OpenAI/Codex plugin builds can carry the same exact source identity in `skillz-distribution-manifest.json`:
+
+```bash
+python scripts/build_openai_plugin.py \
+  --output build/skillz \
+  --source-commit "$GIT_COMMIT"
+```
+
+`/skills status` compares the live repository HEAD with the installed/runtime source identity. The deterministic CLI equivalent is:
+
+```bash
+python scripts/query_capabilities.py \
+  --skills status \
+  --repository-head "$LIVE_GITHUB_HEAD" \
+  --installed-manifest /path/to/skillz-distribution-manifest.json
+```
+
+Status semantics are deliberately fail-closed:
+
+- `current`: installed source commit exactly equals live repository HEAD.
+- `stale`: installed source commit differs from live HEAD, or (when no exact commit is available) the installed version differs from the repository version.
+- `unknown`: exact freshness cannot be proven, for example an older install reports the same version but no source commit.
+
+A matching version alone must never be reported as `current`. Exact currentness requires the source commit SHA.
+
 ## Discovery, exact resolution, and natural-language interpretation
 
 Keep the repository's existing boundaries intact instead of adding a second hand-written router:
@@ -76,6 +124,12 @@ helpers from user-facing entrypoints.
 `/skills <query>` filters the user-facing entrypoints using current index
 metadata. The assistant may explain relevance, but must not invent a skill
 that is absent from the index.
+
+`/skills status` resolves the live GitHub HEAD for GithubLarsKomo/skillz and
+compares it with exact installed/runtime provenance when available. Report
+current only for an exact source-commit match, stale for a mismatch, and
+unknown when the installed source commit cannot be established. A matching
+version without a source commit is not proof of currentness.
 
 `/skill <name>` shows that indexed skill's purpose, category, dependencies,
 outputs, and likely downstream skills. Listing a skill does not execute it.
