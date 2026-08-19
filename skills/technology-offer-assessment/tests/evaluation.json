@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "skill": "technology-offer-assessment",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Compare two biosensor technology offers for the same IVD workflow using a common requirement set, vendor specifications, pilot data, integration constraints and dated commercial assumptions.",
+      "requiredBehaviors": [
+        "compare both offers against identical decision criteria and explicit requirements",
+        "separate vendor claims from confirmed evidence and assign unknown where evidence is missing",
+        "make commercial assumptions quantity and time specific and route IP regulatory and supplier questions"
+      ],
+      "forbiddenBehaviors": [
+        "reward one offer for providing more marketing detail by silently changing the comparison criteria",
+        "infer FTO or regulatory approval from the offer documents"
+      ],
+      "skillAnchors": [
+        "identischer Kriterien",
+        "Marketing Claims und bestätigte Evidenz getrennt halten",
+        "keine FTO-Schlussfolgerung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A vendor claims exceptional analytical sensitivity and production readiness but provides only marketing graphics, selected prototype results and no independent replication or manufacturing-capability evidence.",
+      "requiredBehaviors": [
+        "keep the sensitivity and maturity claims visible but lower confidence based on the weak evidence basis",
+        "mark unverified production readiness and scale capability as unknown or conditional",
+        "identify the specific verification data that could change the decision"
+      ],
+      "forbiddenBehaviors": [
+        "convert marketing claims into confirmed performance facts",
+        "assign market readiness from brochure language alone"
+      ],
+      "skillAnchors": [
+        "fehlende Daten als unknown",
+        "nur Marketingmaterial"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft offer analysis concludes that the platform is market ready, regulatorily suitable and IP safe solely from a pitch deck and an attractive price quote.",
+      "requiredBehaviors": [
+        "reject the combined market-ready regulatory and IP-safe conclusion as unsupported",
+        "separate technical maturity regulatory assessment and IP FTO into their proper evidence and routing paths"
+      ],
+      "forbiddenBehaviors": [
+        "treat price attractiveness as evidence of technical or regulatory suitability",
+        "simulate contract-law or FTO conclusions"
+      ],
+      "skillAnchors": [
+        "marktreif, regulatorisch geeignet oder IP-sicher",
+        "Regulatory-/Supplier-/IP-Fragen korrekt geroutet"
+      ]
+    }
+  ]
+}
