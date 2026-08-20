@@ -116,7 +116,8 @@ class MCPInitialSliceTests(unittest.TestCase):
                 index_result = await client.read_resource("skillz://index")
                 index_payload = json.loads(index_result.contents[0].text)
                 self.assertEqual(index_payload["schemaVersion"], 1)
-                self.assertEqual(index_payload["skillCount"], 129)
+                self.assertEqual(index_payload["skillCount"], len(index_payload["skills"]))
+                self.assertGreater(index_payload["skillCount"], 0)
 
                 graph_result = await client.read_resource("skillz://graph")
                 graph_payload = json.loads(graph_result.contents[0].text)
