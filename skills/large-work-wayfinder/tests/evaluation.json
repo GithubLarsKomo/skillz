@@ -14,7 +14,13 @@
         "implement the feature during exploration",
         "choose speculative architecture before reducing critical uncertainty"
       ],
-      "skillAnchors": ["Ausgangslage fixieren", "Untersuchungs-Issues schneiden", "genau eine ausführbare nächste Aktion"]
+      "skillAnchors": [
+        "Ausgangslage fixieren",
+        "Untersuchungs-Issues schneiden",
+        "genau eine ausführbare nächste Aktion",
+        "Pre-Spec Wayfinding",
+        "conversation-to-spec"
+      ]
     },
     {
       "id": "edge-case",
@@ -28,7 +34,13 @@
         "claim external evidence was observed",
         "silently make the architecture decision"
       ],
-      "skillAnchors": ["autorisierungspflichtige Entscheidungen", "zur Autorisierung blockiert", "ohne weitere Interpretation ausführbar"]
+      "skillAnchors": [
+        "autorisierungspflichtige Entscheidungen",
+        "zur Autorisierung blockiert",
+        "ohne weitere Interpretation ausführbar",
+        "Post-Spec Wayfinding",
+        "spec-to-vertical-issues"
+      ]
     },
     {
       "id": "failure-case",
@@ -42,7 +54,13 @@
         "continue with unbounded exploration",
         "hide uncertainty behind estimates or green CI"
       ],
-      "skillAnchors": ["Stoppe und begrenze neu", "Vermeide doppelte Spikes", "Trenne bestätigte Fakten"]
+      "skillAnchors": [
+        "Stoppe und begrenze neu",
+        "Vermeide doppelte Spikes",
+        "Trenne bestätigte Fakten",
+        "Wayfinder entdeckt neue Produktentscheidung",
+        "round-based-requirements-grilling"
+      ]
     }
   ]
 }
