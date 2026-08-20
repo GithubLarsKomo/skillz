@@ -3,7 +3,6 @@ name: frontend-design-review
 description: Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.
 userFacing: false
 implicitInvocation: true
-category: engineering
 version: 0.1.0
 status: candidate
 owners:
