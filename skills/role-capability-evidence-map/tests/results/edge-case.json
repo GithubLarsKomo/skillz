@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "role-capability-evidence-map",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "classify the criterion as partially-evidenced rather than strongly-evidenced", "passed": true, "evidence": "The skill defines partially-evidenced for relevant evidence whose scope or attribution remains incomplete; the P&L example uses exactly this state."},
+    {"behavior": "preserve the supporting GM and scope claims", "passed": true, "evidence": "The worked example retains the General Manager and global sales/operations claims as supportingClaimRefs."},
+    {"behavior": "state that explicit P&L ownership is not established", "passed": true, "evidence": "The P&L example explicitly states that business-unit scope is documented while explicit P&L ownership is not established."},
+    {"behavior": "create an interview gap for direct financial accountability", "passed": true, "evidence": "The worked example creates an interview-gap asking for direct revenue, margin and P&L accountability."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "infer P&L ownership solely from the General Manager title", "observed": false, "evidence": "The mapping rules require explicit evidence and the worked example refuses title-only inference."},
+    {"behavior": "state that the person has no P&L experience", "observed": false, "evidence": "The not-evidenced rule explicitly forbids converting missing public evidence into a negative factual assertion."}
+  ],
+  "overall": "pass"
+}
