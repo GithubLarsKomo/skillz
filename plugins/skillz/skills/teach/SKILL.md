@@ -27,10 +27,10 @@ Der Skill wird **nur explizit gestartet**. Eine normale Bitte wie „erkläre mi
 - `learning-next-step` wählt die nächste pädagogische Herausforderung.
 - `learning-assessment-spec` definiert, welche Evidenz für einen Kompetenzsprung erforderlich ist.
 - `learning-assessment` interpretiert tatsächliche Lern-/Prüfungsevidenz.
-- `exam-trainer-catalog-builder` übersetzt eine freigegebene Übungsabsicht in den ETF-Vertrag `etf-teach-catalog`; er besitzt keine Fachwahrheit oder Schedulerlogik.
+- `exam-trainer-catalog-builder` übersetzt eine freigegebene Übungsabsicht in den ETF-Vertrag `etf-teach-catalog`; bei gewünschter gemeinsamer Wiederverwendung darf er nur einen approval-pflichtigen Hosted-Release-Kandidaten vorbereiten, keine Publikationsfreigabe erteilen.
 - `exam-trainer-result-import` übersetzt den ETF-Vertrag `etf-teach-review-evidence` in provider-neutrale Laufzeitevidenz; er vergibt keine Kompetenzstufe.
-- `structured-knowledge-artifact` kann bestätigte Mission-, Kompetenz- oder Referenzinhalte optional provider-neutral verpacken; `knowledge-view` und `knowledge-map-generator` dürfen diese projizieren, besitzen aber nicht die Lernsemantik.
-- `exam-trainer-framework` (ETF) bleibt externe Runtime für Spaced Retrieval, adaptive Lernsitzungen, ReviewEvents und Prüfungen.
+- `structured-knowledge-artifact` kann bestätigte Mission-, Kompetenz- oder Referenzinhalte optional provider-neutral verpackt; `knowledge-view` und `knowledge-map-generator` dürfen diese projizieren, besitzen aber nicht die Lernsemantik.
+- `exam-trainer-framework` (ETF) bleibt externe Runtime für Spaced Retrieval, adaptive Lernsitzungen, ReviewEvents, Prüfungen und den kontrollierten Hosted-Catalog-Publikationsprozess.
 
 **Coverage ist kein Lernen.** Material darf nicht als beherrscht markiert werden, nur weil es erklärt, gelesen oder einmal gezeigt wurde.
 
@@ -90,13 +90,28 @@ Für eine ETF-Übergabe erzeuge zunächst einen provider-neutralen `learning-pra
   "assessmentSpecRef": "...",
   "sourceRefs": [],
   "runtime": "exam-trainer-framework",
-  "publicationIntent": "draft|personal-local-runtime"
+  "publicationIntent": "draft|personal-local-runtime|shared-release-candidate"
 }
 ```
 
-`publicationIntent` ist optional. Ohne explizite Angabe gilt `draft`. `personal-local-runtime` erlaubt nur eine persönliche lokale Runtime-Freigabe nach den Gates des `exam-trainer-catalog-builder`; es ist keine formale Trainings- oder QMS-Freigabe.
+`publicationIntent` ist optional. Ohne explizite Angabe gilt `draft`.
 
-Delegiere anschließend an `exam-trainer-catalog-builder`, der daraus den ETF-v1-Vertrag `etf-teach-catalog` erzeugt. Teach darf keine parallele ETF-Katalogstruktur oder eigene Scheduling-Metadaten einführen.
+- `personal-local-runtime` erlaubt nur eine persönliche lokale Runtime-Freigabe nach den Gates des `exam-trainer-catalog-builder`; es ist keine formale Trainings- oder QMS-Freigabe.
+- `shared-release-candidate` bedeutet nur, dass zusätzlich zum ETF-Katalog ein `etf-hosted-release-candidate.json` zur kontrollierten ETF-Release-Prüfung vorbereitet werden soll. Der Candidate MUSS `approvalRequired=true` tragen und darf weder `approved:true` noch einen erfundenen Registry-Hash oder eine bereits erfolgte Veröffentlichung behaupten.
+
+Delegiere anschließend an `exam-trainer-catalog-builder`, der daraus den ETF-v1-Vertrag `etf-teach-catalog` und bei `shared-release-candidate` das nicht freigegebene Candidate-Artefakt erzeugt. Teach darf keine parallele ETF-Katalogstruktur, eigene Scheduling-Metadaten oder eine eigene Registry-Publikationslogik einführen.
+
+### 5a. Shared Release nur als Kandidat vorbereiten
+
+Wenn ein wiederverwendbarer Hosted Catalog gewünscht ist:
+
+1. stelle sicher, dass fachliche Evidenz, Mission, Assessment-Spec und Provenance vollständig genug für einen Review-Kandidaten sind,
+2. fordere `publicationIntent=shared-release-candidate` an,
+3. bewahre alle offenen Inhalts-, Asset-, Provenance- oder Assessment-Probleme im Candidate,
+4. übergib Katalog und Candidate an den kontrollierten ETF-Publikationsprozess,
+5. behaupte erst nach dortiger expliziter Freigabe und technischer Validierung, dass ein Shared Release veröffentlicht ist.
+
+Teach darf niemals selbst `approved:true` setzen, SHA-256-Registry-Hashes vorwegnehmen oder aus persönlicher Runtime-Fähigkeit eine Shared-Release-Freigabe ableiten.
 
 ### 6. Evidenz bewerten
 
@@ -150,10 +165,13 @@ Nutze fällige oder schwach belegte Kompetenzen als semantischen Review-Fokus. E
 - Rohdaten privater Connectoren, Zugangsdaten und unnötige personenbezogene Daten bleiben laufzeitgebunden.
 - Dauerhafte globale Kommunikationspräferenzen gehören zu `communication-memory-governance`, nicht in den Kompetenzzustand.
 - ETF-Lernerhistorie bleibt standardmäßig lokal in ETF; Teach fordert nur den für semantische Bewertungen benötigten Evidence-Scope an.
+- Hosted-Release-Kandidaten enthalten Lerninhalt und notwendige Provenance, aber keine Learner-History, ReviewEvents, Scheduler-/FSRS-Zustände oder private Missionsdaten, die für die gemeinsame Veröffentlichung nicht erforderlich sind.
 
 ## Formale Trainingsgrenze
 
 Ein Teach-/ETF-Ergebnis darf nicht eigenständig als formale Qualifikation, QMS-Schulung, Autorisierung oder Zertifizierung ausgegeben werden. Dafür ist ein separat kontrollierter Trainingsrecord-Workflow mit zuständiger Autorität erforderlich.
+
+Ebenso ist ein `shared-release-candidate` keine organisatorische oder technische Publikationsfreigabe. Die tatsächliche Hosted-Veröffentlichung gehört zum kontrollierten ETF-Release-Prozess.
 
 ## Fehlerbehandlung
 
@@ -162,7 +180,8 @@ Ein Teach-/ETF-Ergebnis darf nicht eigenständig als formale Qualifikation, QMS-
 - Ist ETF nicht verfügbar, kann Teach mit dialogischen Retrieval-/Transferaufgaben fortfahren, darf aber keine ETF-ReviewEvents erfinden.
 - Ist ein ETF-Bundle unbekannter Version oder scope-inkonsistent, lasse es vom Adapter blockieren statt es heuristisch umzudeuten.
 - Ist die Mission zu breit, schneide ein kohärentes Lernziel statt beliebig viele Themen parallel zu verfolgen.
+- Verlangt ein Shared-Release-Aufruf unmittelbare Publikation ohne ETF-Release-Review, erzeuge höchstens einen nicht freigegebenen Candidate und weise die fehlende Freigabe explizit aus.
 
 ## Abschlusskriterien
 
-Ein Teach-Zyklus ist abgeschlossen, wenn die aktive Mission dokumentiert ist, verwendete fachliche Claims nachvollziehbar sind, der aktuelle Kompetenzzustand nur nachgewiesene Fähigkeiten enthält, der nächste Schritt begründet ist und jede Runtime-Übergabe einen expliziten portablen Vertrag besitzt.
+Ein Teach-Zyklus ist abgeschlossen, wenn die aktive Mission dokumentiert ist, verwendete fachliche Claims nachvollziehbar sind, der aktuelle Kompetenzzustand nur nachgewiesene Fähigkeiten enthält, der nächste Schritt begründet ist und jede Runtime-Übergabe einen expliziten portablen Vertrag besitzt. Bei gewünschter gemeinsamer Wiederverwendung darf ein approval-pflichtiger Hosted-Release-Kandidat vorbereitet sein; ein tatsächliches Shared Release gilt erst nach expliziter ETF-/Maintainer-Freigabe und technischer Registry-Validierung als veröffentlicht.
