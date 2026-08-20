@@ -1,0 +1,70 @@
+name: Materialize frontend design branch
+
+on:
+  push:
+    branches: [feat/personal-frontend-design]
+    paths:
+      - ".frontend-design-materialize-trigger"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-frontend-design-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test dependency graph contracts
+        run: python -m unittest tests.test_generate_dependency_graph
+      - name: Test metadata schema validator
+        run: python -m unittest tests.test_validate_metadata_schemas
+      - name: Test role selection artifact schemas
+        run: python -m unittest tests.test_role_selection_artifact_schemas
+      - name: Test role selection routing policy
+        run: python -m unittest tests.test_role_selection_routing_policy
+      - name: Materialize OpenAI agent metadata
+        run: python scripts/materialize_openai_agent_metadata.py
+      - name: Generate repository metadata
+        run: python scripts/generate_repository_metadata.py
+      - name: Build committed OpenAI plugin bundle
+        run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
+      - name: Verify OpenAI agent metadata is reproducible
+        run: python scripts/materialize_openai_agent_metadata.py --check
+      - name: Verify generated metadata is reproducible
+        run: python scripts/generate_repository_metadata.py --check
+      - name: Validate repository contracts
+        run: python scripts/validate_skills.py
+      - name: Evaluate skill suites
+        run: python scripts/evaluate_skills.py
+      - name: Commit generated artifacts
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "Generated artifacts already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            README.md \
+            .skill-sync.json \
+            docs/skill-dependency-graph.json \
+            docs/SKILL-DEPENDENCIES.md \
+            docs/skill-capability-index.json \
+            docs/CAPABILITY-HEALTH.md \
+            obsidian \
+            plugins/skillz \
+            skills/*/SKILL.md \
+            skills/*/agents/openai.yaml
+          git commit -m "Regenerate frontend design skill artifacts"
+          git push origin HEAD:"$GITHUB_REF_NAME"
