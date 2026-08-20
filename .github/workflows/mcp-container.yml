@@ -17,6 +17,10 @@ jobs:
         run: docker build --tag skillz-mcp:ci .
       - name: Start protected container
         run: |
+          set -euo pipefail
+          STATIC_TOKEN='skz_ci_chatgpt_windows_0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+          STATIC_HASH=$(printf '%s' "$STATIC_TOKEN" | sha256sum | awk '{print $1}')
+          echo "SKILLZ_CI_STATIC_TOKEN=$STATIC_TOKEN" >> "$GITHUB_ENV"
           docker run --detach --name skillz-mcp-ci \
             --publish 18000:8000 \
             --env SKILLZ_MCP_AUTH_ISSUER_URL=https://auth.ratzeburg-ai.de/application/o/skillz/ \
@@ -25,9 +29,10 @@ jobs:
             --env SKILLZ_MCP_AUTH_AUDIENCE=https://skillz.ratzeburg-ai.de/mcp \
             --env SKILLZ_MCP_AUTH_REQUIRED_SCOPES=skillz:read \
             --env SKILLZ_MCP_AUTH_ALGORITHMS=RS256 \
+            --env SKILLZ_MCP_STATIC_TOKEN_HASHES=chatgpt-windows-ci=$STATIC_HASH \
             --env SKILLZ_MCP_COMMIT_SHA=${GITHUB_SHA} \
             skillz-mcp:ci
-      - name: Verify health, discovery, and anonymous auth boundary
+      - name: Verify health, discovery, and auth boundaries
         run: |
           set -euo pipefail
           ready=0
@@ -72,6 +77,30 @@ jobs:
           test "$code" = "401"
           grep -qi '^www-authenticate:.*Bearer' /tmp/skillz-anon-headers.txt
           grep -qi 'resource_metadata=' /tmp/skillz-anon-headers.txt
+
+          static_code=$(curl --silent --output /tmp/skillz-static.txt --write-out '%{http_code}' \
+            --header 'Host: skillz.ratzeburg-ai.de' \
+            --header "Authorization: Bearer $SKILLZ_CI_STATIC_TOKEN" \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data '{}' \
+            http://127.0.0.1:18000/mcp)
+          test "$static_code" != "401"
+          test "$static_code" != "403"
+
+          revoked_code=$(curl --silent --output /tmp/skillz-revoked.txt --write-out '%{http_code}' \
+            --header 'Host: skillz.ratzeburg-ai.de' \
+            --header 'Authorization: Bearer skz_revoked_abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data '{}' \
+            http://127.0.0.1:18000/mcp)
+          test "$revoked_code" = "401"
+
+          if docker logs skillz-mcp-ci 2>&1 | grep -F "$SKILLZ_CI_STATIC_TOKEN"; then
+            echo 'static bearer token leaked into logs' >&2
+            exit 1
+          fi
       - name: Show logs on failure
         if: failure()
         run: docker logs skillz-mcp-ci || true
