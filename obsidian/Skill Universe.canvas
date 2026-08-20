@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n133 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n138 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -20,10 +20,19 @@
       "color": "1"
     },
     {
+      "id": "skill-author-voice-profiler",
+      "type": "file",
+      "file": "skills/author-voice-profiler.md",
+      "x": 40,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-communication-memory-governance",
       "type": "file",
       "file": "skills/communication-memory-governance.md",
-      "x": 40,
+      "x": 370,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1166,7 +1175,7 @@
       "x": 8540,
       "y": 0,
       "width": 1120,
-      "height": 800,
+      "height": 940,
       "color": "2"
     },
     {
@@ -1242,11 +1251,47 @@
       "height": 110
     },
     {
+      "id": "skill-llm-prose-pattern-audit",
+      "type": "file",
+      "file": "skills/llm-prose-pattern-audit.md",
+      "x": 9240,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-precision-language-rewriter",
+      "type": "file",
+      "file": "skills/precision-language-rewriter.md",
+      "x": 8580,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-precision-writing-revision",
+      "type": "file",
+      "file": "skills/precision-writing-revision.md",
+      "x": 8910,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-rewrite-fidelity-verifier",
+      "type": "file",
+      "file": "skills/rewrite-fidelity-verifier.md",
+      "x": 9240,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-role-architecture",
       "type": "file",
       "file": "skills/role-architecture.md",
-      "x": 9240,
-      "y": 350,
+      "x": 8580,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1254,8 +1299,8 @@
       "id": "skill-role-requirements-grilling",
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
-      "x": 8580,
-      "y": 490,
+      "x": 8910,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1263,8 +1308,8 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 8910,
-      "y": 490,
+      "x": 9240,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1272,8 +1317,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 9240,
-      "y": 490,
+      "x": 8580,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -1281,8 +1326,8 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 8580,
-      "y": 630,
+      "x": 8910,
+      "y": 770,
       "width": 300,
       "height": 110
     }
@@ -2947,9 +2992,9 @@
     {
       "id": "requires-60cb2dad71cf",
       "fromNode": "skill-job-description-authoring",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-role-architecture",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3719,6 +3764,42 @@
       "label": "requires"
     },
     {
+      "id": "requires-d05ce925c71d",
+      "fromNode": "skill-precision-writing-revision",
+      "fromSide": "left",
+      "toNode": "skill-author-voice-profiler",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-84a1b7d47c8c",
+      "fromNode": "skill-precision-writing-revision",
+      "fromSide": "right",
+      "toNode": "skill-llm-prose-pattern-audit",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-97f0b5cb6601",
+      "fromNode": "skill-precision-writing-revision",
+      "fromSide": "left",
+      "toNode": "skill-precision-language-rewriter",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-06bbff5be0b2",
+      "fromNode": "skill-precision-writing-revision",
+      "fromSide": "right",
+      "toNode": "skill-rewrite-fidelity-verifier",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-5ed3beb6859a",
       "fromNode": "skill-process-validation-iq-oq-pq",
       "fromSide": "right",
@@ -3973,9 +4054,9 @@
     {
       "id": "requires-f9f360d89e41",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4000,9 +4081,9 @@
     {
       "id": "requires-f8d7f10ec331",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-training-programming",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },

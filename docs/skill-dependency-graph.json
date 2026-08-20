@@ -39,6 +39,15 @@
       ]
     },
     {
+      "name": "author-voice-profiler",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "author-voice-profile.json",
+        "author-voice-profile.md"
+      ]
+    },
+    {
       "name": "candidate-role-fit-assessment",
       "requires": [
         "role-architecture"
@@ -963,6 +972,15 @@
       ]
     },
     {
+      "name": "llm-prose-pattern-audit",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "prose-audit.json",
+        "prose-audit.md"
+      ]
+    },
+    {
       "name": "mdcg-guidance-navigator",
       "requires": [
         "regulated-product-context",
@@ -1360,6 +1378,29 @@
       ]
     },
     {
+      "name": "precision-language-rewriter",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "revised-text",
+        "rewrite-change-map.json"
+      ]
+    },
+    {
+      "name": "precision-writing-revision",
+      "requires": [
+        "author-voice-profiler",
+        "llm-prose-pattern-audit",
+        "precision-language-rewriter",
+        "rewrite-fidelity-verifier"
+      ],
+      "consumes": [],
+      "outputs": [
+        "final-revised-text",
+        "precision-writing-report.json"
+      ]
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "requires": [
         "design-control-traceability",
@@ -1519,6 +1560,15 @@
       "outputs": [
         "evidence-note.json",
         "evidence-note.md"
+      ]
+    },
+    {
+      "name": "rewrite-fidelity-verifier",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "fidelity-review.md",
+        "rewrite-fidelity.json"
       ]
     },
     {
@@ -2801,6 +2851,22 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "precision-writing-revision",
+      "to": "author-voice-profiler"
+    },
+    {
+      "from": "precision-writing-revision",
+      "to": "llm-prose-pattern-audit"
+    },
+    {
+      "from": "precision-writing-revision",
+      "to": "precision-language-rewriter"
+    },
+    {
+      "from": "precision-writing-revision",
+      "to": "rewrite-fidelity-verifier"
+    },
+    {
       "from": "process-validation-iq-oq-pq",
       "to": "design-control-traceability"
     },
@@ -3180,6 +3246,28 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "author-voice-profile.json",
+      "producers": [
+        "author-voice-profiler"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "author-voice-profile.md",
+      "producers": [
+        "author-voice-profiler"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "beta-readiness.json",
@@ -4566,6 +4654,17 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "fidelity-review.md",
+      "producers": [
+        "rewrite-fidelity-verifier"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "field-action-closure-readiness.json",
       "producers": [
         "medical-device-field-action-effectiveness"
@@ -4680,6 +4779,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "final-revised-text",
+      "producers": [
+        "precision-writing-revision"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "finding-action-plan.json",
@@ -5669,6 +5777,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "precision-writing-report.json",
+      "producers": [
+        "precision-writing-revision"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "predicate-candidate-set.json",
       "producers": [
         "fda-510k-predicate-strategy"
@@ -5764,6 +5881,28 @@
       "consumerSkills": [
         "decision-and-follow-up-tracker",
         "qms-management-review-governance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "prose-audit.json",
+      "producers": [
+        "llm-prose-pattern-audit"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "prose-audit.md",
+      "producers": [
+        "llm-prose-pattern-audit"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6453,6 +6592,39 @@
       ],
       "consumerSkills": [
         "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "revised-text",
+      "producers": [
+        "precision-language-rewriter"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "rewrite-change-map.json",
+      "producers": [
+        "precision-language-rewriter"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "rewrite-fidelity.json",
+      "producers": [
+        "rewrite-fidelity-verifier"
+      ],
+      "consumerSkills": [
+        "precision-writing-revision"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7222,6 +7394,7 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "final-revised-text",
     "finding-action-plan.json",
     "finding-closure-status.json",
     "fto-claim-map.json",
@@ -7278,6 +7451,7 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "precision-writing-report.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -7386,6 +7560,7 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "final-revised-text",
     "finding-action-plan.json",
     "finding-closure-status.json",
     "fto-claim-map.json",
@@ -7442,6 +7617,7 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "precision-writing-report.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
