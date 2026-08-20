@@ -9,7 +9,7 @@ requires: []
 outputs:
   - GRILL-REPORT.md
   - approved SPEC.md
-lastEvaluated: 2026-08-18
+lastEvaluated: 2026-08-20
 implicitInvocation: false
 ---
 
