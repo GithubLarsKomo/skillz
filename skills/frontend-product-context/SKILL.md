@@ -3,7 +3,6 @@ name: frontend-product-context
 description: Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Repository-Evidenz und lässt alle nicht bereits bestätigten Produkt-, Zielgruppen-, Register-, Marken- und Accessibility-Entscheidungen anschließend in einem eigenen fokussierten Grilling bestätigen.
 userFacing: false
 implicitInvocation: true
-category: engineering
 version: 0.1.0
 status: candidate
 owners:
@@ -92,4 +91,4 @@ Stoppe vor dem Schreiben, wenn Register, Nutzer, Zweck oder Accessibility materi
 
 ## Abschluss
 
-Abgeschlossen ist der Skill, wenn ein bestätigtes, nachvollziehbares und **autoritativen `PRODUCT.md`** vorliegt und offene technische oder fachliche Punkte explizit geroutet sind.
+Abgeschlossen ist der Skill, wenn ein bestätigtes, nachvollziehbares und **autoritäres `PRODUCT.md`** vorliegt und offene technische oder fachliche Punkte explizit geroutet sind.
