@@ -58,3 +58,36 @@ def read_utf8_text(root: Path, relative_path: str, *, max_bytes: int = DEFAULT_M
         raise ValueError("resource is not valid UTF-8 text") from exc
     except OSError as exc:
         raise LookupError(f"cannot read resource: {relative_path}") from exc
+
+
+def describe_path(root: Path, relative_path: str) -> dict:
+    """Return safe metadata for a file or one-level directory listing without serving bytes."""
+    path = safe_relative_path(root, relative_path)
+    if not path.exists():
+        raise LookupError(f"resource does not exist: {relative_path}")
+    if path.is_file():
+        return {
+            "path": decoded_path(relative_path),
+            "type": "file",
+            "size": path.stat().st_size,
+        }
+    if not path.is_dir():
+        raise LookupError(f"unsupported resource type: {relative_path}")
+
+    entries: list[dict] = []
+    for child in sorted(path.iterdir(), key=lambda item: item.name):
+        rel = child.relative_to(root.resolve()).as_posix()
+        safe_child = safe_relative_path(root, rel)
+        entries.append(
+            {
+                "name": child.name,
+                "path": rel,
+                "type": "directory" if safe_child.is_dir() else "file",
+                "size": safe_child.stat().st_size if safe_child.is_file() else None,
+            }
+        )
+    return {
+        "path": decoded_path(relative_path),
+        "type": "directory",
+        "entries": entries,
+    }
