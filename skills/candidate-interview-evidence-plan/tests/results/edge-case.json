@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "candidate-interview-evidence-plan",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "formulate a neutral evidence-reconciliation question", "passed": true, "evidence": "The Evidence Reconciliation pattern asks the candidate to clarify differing public scope information without asserting deception."},
+    {"behavior": "reference the conflicting context without accusation", "passed": true, "evidence": "The skill explicitly instructs that a source conflict may be described as context but not framed as an accusation."},
+    {"behavior": "preserve the unresolved state until the answer is obtained", "passed": true, "evidence": "Conflicting evidence remains unresolved until interview evidence or later verification actually resolves it."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "accuse the candidate of misrepresentation", "observed": false, "evidence": "The interview guidance explicitly forbids presenting a source discrepancy as an accusation."},
+    {"behavior": "silently pick one source as true without evidence", "observed": false, "evidence": "The plan preserves contradictions and uses interview clarification rather than silently selecting one source."}
+  ],
+  "overall": "pass"
+}
