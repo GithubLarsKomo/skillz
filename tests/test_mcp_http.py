@@ -18,6 +18,18 @@ def free_local_port() -> int:
         return int(sock.getsockname()[1])
 
 
+async def wait_for_port(host: str, port: int) -> None:
+    for _ in range(50):
+        try:
+            reader, writer = await asyncio.open_connection(host, port)
+            writer.close()
+            await writer.wait_closed()
+            return
+        except OSError:
+            await asyncio.sleep(0.1)
+    raise AssertionError("HTTP MCP server did not become reachable")
+
+
 class MCPHTTPIntegrationTests(unittest.TestCase):
     def test_stateless_streamable_http_serves_same_read_only_surface(self) -> None:
         async def run() -> None:
@@ -42,18 +54,8 @@ class MCPHTTPIntegrationTests(unittest.TestCase):
             )
             url = f"http://127.0.0.1:{port}/mcp"
             try:
-                client: Client | None = None
-                for _ in range(40):
-                    try:
-                        candidate = Client(url)
-                        await candidate.__aenter__()
-                        client = candidate
-                        break
-                    except Exception:
-                        await asyncio.sleep(0.1)
-                self.assertIsNotNone(client, "HTTP MCP server did not become reachable")
-                assert client is not None
-                try:
+                await wait_for_port("127.0.0.1", port)
+                async with Client(url) as client:
                     tools = await client.list_tools()
                     names = {tool.name for tool in tools.tools}
                     self.assertIn("search_skills", names)
@@ -66,8 +68,6 @@ class MCPHTTPIntegrationTests(unittest.TestCase):
 
                     resource = await client.read_resource("skillz://status")
                     self.assertTrue(resource.contents)
-                finally:
-                    await client.__aexit__(None, None, None)
             finally:
                 process.terminate()
                 try:
