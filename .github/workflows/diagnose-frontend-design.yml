@@ -1,0 +1,36 @@
+name: Diagnose frontend design branch
+
+on:
+  push:
+    branches: [feat/personal-frontend-design]
+    paths:
+      - ".frontend-design-diagnose-trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run focused diagnostics
+        shell: bash
+        run: |
+          set +e
+          python scripts/generate_repository_metadata.py > .frontend-design-generate.log 2>&1
+          echo $? > .frontend-design-generate.exit
+          python scripts/evaluate_skills.py > .frontend-design-evaluate.log 2>&1
+          echo $? > .frontend-design-evaluate.exit
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .frontend-design-generate.log .frontend-design-generate.exit .frontend-design-evaluate.log .frontend-design-evaluate.exit
+          git commit -m "Record frontend design generator diagnostics"
+          git push origin HEAD:"$GITHUB_REF_NAME"
