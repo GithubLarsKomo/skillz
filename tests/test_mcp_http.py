@@ -78,6 +78,29 @@ class MCPHTTPIntegrationTests(unittest.TestCase):
 
         asyncio.run(run())
 
+    def test_unauthenticated_remote_bind_is_rejected(self) -> None:
+        completed = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "skillz_mcp",
+                "--repository-root",
+                str(ROOT),
+                "--transport",
+                "streamable-http",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertIn("requires authentication", completed.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
