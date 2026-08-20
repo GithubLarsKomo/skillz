@@ -9,6 +9,7 @@ from skillz_core import (
     catalog_identity,
     consumer_info,
     dependency_traversal,
+    describe_path,
     get_skill,
     invocation,
     listing_payload,
@@ -17,7 +18,9 @@ from skillz_core import (
     normalize_constraints,
     producer_info,
     query_skill_listing,
+    read_utf8_text,
     resolve,
+    safe_relative_path,
     validate_catalog as validate_catalog_core,
 )
 
@@ -34,6 +37,7 @@ def create_server(
     index_path = root / "docs" / "skill-capability-index.json"
     graph_path = root / "docs" / "skill-dependency-graph.json"
     version_path = root / "VERSION"
+    skills_root = (root / "skills").resolve()
     index = load_index(index_path)
     graph = load_graph(graph_path)
     identity = catalog_identity(
@@ -45,6 +49,20 @@ def create_server(
     )
     resource_meta = {"catalogHash": identity["catalogHash"]}
     server = MCPServer("skillz-mcp")
+
+    def skill_metadata(name: str) -> dict[str, Any]:
+        skill = dict(get_skill(index, name))
+        skill["resourceUris"] = {
+            "metadata": f"skillz://skills/{name}",
+            "body": f"skillz://skills/{name}/SKILL.md",
+            "references": f"skillz://skills/{name}/references/",
+            "assets": f"skillz://skills/{name}/assets",
+        }
+        return skill
+
+    def skill_root(name: str) -> Path:
+        get_skill(index, name)
+        return safe_relative_path(skills_root, name)
 
     @server.tool()
     def search_skills(
@@ -76,13 +94,7 @@ def create_server(
     @server.tool(name="get_skill")
     def get_skill_metadata(name: str) -> dict[str, Any]:
         """Return exact indexed metadata for one skill; no fuzzy fallback and no execution."""
-        skill = dict(get_skill(index, name))
-        skill["resourceUris"] = {
-            "metadata": f"skillz://skills/{name}",
-            "body": f"skillz://skills/{name}/SKILL.md",
-            "references": f"skillz://skills/{name}/references/",
-        }
-        return skill
+        return skill_metadata(name)
 
     @server.tool()
     def resolve_capabilities(
@@ -158,5 +170,63 @@ def create_server(
     )
     def skillz_status() -> dict[str, Any]:
         return identity
+
+    @server.resource(
+        "skillz://skills/{name}",
+        name="skill_metadata",
+        description="Compact indexed metadata for one exact Skillz skill.",
+        mime_type="application/json",
+        meta=resource_meta,
+    )
+    def skill_metadata_resource(name: str) -> dict[str, Any]:
+        return skill_metadata(name)
+
+    @server.resource(
+        "skillz://skills/{name}/SKILL.md",
+        name="skill_body",
+        description="Canonical SKILL.md body for one exact Skillz skill.",
+        mime_type="text/markdown; charset=utf-8",
+        meta=resource_meta,
+    )
+    def skill_body_resource(name: str) -> str:
+        return read_utf8_text(skill_root(name), "SKILL.md")
+
+    @server.resource(
+        "skillz://skills/{name}/references/{+relative_path}",
+        name="skill_reference",
+        description="Bounded UTF-8 text reference beneath an exact Skillz skill.",
+        mime_type="text/plain; charset=utf-8",
+        meta=resource_meta,
+    )
+    def skill_reference_resource(name: str, relative_path: str) -> str:
+        references_root = safe_relative_path(skill_root(name), "references")
+        return read_utf8_text(references_root, relative_path)
+
+    @server.resource(
+        "skillz://skills/{name}/assets",
+        name="skill_assets",
+        description="Metadata-only listing of the assets directory for one exact Skillz skill.",
+        mime_type="application/json",
+        meta=resource_meta,
+    )
+    def skill_assets_resource(name: str) -> dict[str, Any]:
+        root_path = skill_root(name)
+        assets_root = safe_relative_path(root_path, "assets")
+        if not assets_root.exists():
+            return {"skill": name, "path": "assets", "type": "directory", "entries": []}
+        payload = describe_path(root_path, "assets")
+        return {"skill": name, **payload}
+
+    @server.resource(
+        "skillz://skills/{name}/assets/{+relative_path}",
+        name="skill_asset_metadata",
+        description="Metadata for an asset path; binary asset contents are never served.",
+        mime_type="application/json",
+        meta=resource_meta,
+    )
+    def skill_asset_metadata_resource(name: str, relative_path: str) -> dict[str, Any]:
+        assets_root = safe_relative_path(skill_root(name), "assets")
+        payload = describe_path(assets_root, relative_path)
+        return {"skill": name, **payload}
 
     return server
