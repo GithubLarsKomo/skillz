@@ -25,6 +25,8 @@ from skillz_core import (
     validate_catalog as validate_catalog_core,
 )
 
+from .observability import log_catalog_loaded, operational_logging
+
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -53,6 +55,8 @@ def create_server(
     )
     resource_meta = {"catalogHash": identity["catalogHash"]}
     server = MCPServer("skillz-mcp")
+    server.middleware.append(operational_logging)
+    log_catalog_loaded(identity)
 
     def skill_metadata(name: str) -> dict[str, Any]:
         skill = dict(get_skill(index, name))
