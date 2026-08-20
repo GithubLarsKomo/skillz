@@ -24,6 +24,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          for path in \
+            skills/learning-assessment/SKILL.md \
+            skills/learning-assessment-spec/SKILL.md \
+            skills/learning-mission/SKILL.md \
+            skills/learning-next-step/SKILL.md \
+            skills/learning-state/SKILL.md; do
+            sed -i '/^category: productivity$/d' "$path"
+          done
           source_commit="$(git rev-parse HEAD)"
           python scripts/materialize_openai_agent_metadata.py
           python scripts/generate_repository_metadata.py
