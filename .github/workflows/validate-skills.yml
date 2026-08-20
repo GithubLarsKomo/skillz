@@ -3,7 +3,7 @@ name: Validate skills
 on:
   pull_request:
   push:
-    branches: [main, feat/role-job-architecture]
+    branches: [main]
 
 permissions:
   contents: read
