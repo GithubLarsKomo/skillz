@@ -1,5 +1,5 @@
 interface:
   display_name: "Frontend Design Director"
-  short_description: "Orchestriert autoritativen Projektkontext, Shaping und Review für hochwertige Frontend-Designarbeit."
+  short_description: "Orchestriert Frontend-Designarbeit für Websites, Landingpages, Apps und Dashboards aus autoritativem PRODUCT.md und D..."
 policy:
   allow_implicit_invocation: true
