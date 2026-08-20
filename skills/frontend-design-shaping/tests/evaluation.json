@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "frontend-design-shaping",
+  "cases": [
+    {"id":"happy-path","input":"Shape a new app dashboard with confirmed PRODUCT.md and DESIGN.md.","requiredBehaviors":["reuse already confirmed project decisions","ask only material surface-specific gaps","produce a design brief before implementation"],"forbiddenBehaviors":["repeat confirmed product and design questions","start coding before the brief is confirmed"],"skillAnchors":["Keine bestätigte Entscheidung erneut fragen","Nur materielle Lücken klären","Die Implementierung startet erst nach expliziter Bestätigung"]},
+    {"id":"edge-case","input":"A greenfield landing page has no settled visual direction but PRODUCT.md and DESIGN.md define the base system.","requiredBehaviors":["generate two to three visual probes when native capability is available","use probes as direction tests rather than final UX specifications","document any local override explicitly"],"forbiddenBehaviors":["skip probes for a genuinely new direction","treat generated visuals as the final accessible implementation spec"],"skillAnchors":["2–3 visuelle Probes","keine finale UX-Spezifikation","Surface-Overrides kontrollieren"]},
+    {"id":"failure-case","input":"A small existing component tweak is about to trigger a wholesale redesign and a fresh requirements interview.","requiredBehaviors":["prefer evolutionary change for existing UI","avoid probes without genuine directional uncertainty","do not re-ask confirmed decisions"],"forbiddenBehaviors":["run a full new grilling for already confirmed context","redesign the whole surface just to be novel"],"skillAnchors":["Bestehende UI: erst Bestand analysieren","echter Richtungsunsicherheit","Keine bestätigte Entscheidung erneut fragen"]}
+  ]
+}

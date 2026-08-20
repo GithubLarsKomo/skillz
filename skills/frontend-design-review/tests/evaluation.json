@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "frontend-design-review",
+  "cases": [
+    {"id":"happy-path","input":"Review a completed frontend against the project's confirmed design context.","requiredBehaviors":["review against PRODUCT.md DESIGN.md and the feature brief","prioritize findings with evidence and verification criteria","distinguish normative violations from preferences"],"forbiddenBehaviors":["change code during the review","treat every stylistic preference as a defect"],"skillAnchors":["Lies `PRODUCT.md`, `DESIGN.md`","Jedes Finding enthält","als Präferenz gekennzeichnet"]},
+    {"id":"edge-case","input":"A review finds a local pattern that would be better as a global design-system rule.","requiredBehaviors":["flag the global-impact recommendation for design re-grilling","keep the review from silently changing DESIGN.md","provide the smallest useful recommendation"],"forbiddenBehaviors":["edit DESIGN.md directly from review","hide global impact as a surface-only polish"],"skillAnchors":["requires-design-regrilling","Keine stille Designsystemänderung","kleinste sinnvolle Änderung"]},
+    {"id":"failure-case","input":"A polished-looking page uses generic AI card grids and glass effects but matches no confirmed project rule.","requiredBehaviors":["call out AI-slop patterns explicitly","preserve evolutionary improvement rather than gratuitous redesign","ground findings in authority or user impact"],"forbiddenBehaviors":["praise generic AI patterns because they look polished","redesign the whole product without evidence"],"skillAnchors":["AI-Slop-Antipatterns werden nicht schöngeredet","evolutionär verbessert","verletzte Autorität oder Heuristik"]}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "frontend-product-context",
+  "cases": [
+    {"id":"happy-path","input":"Create PRODUCT.md for an existing product with useful README and brand evidence.","requiredBehaviors":["inspect repository evidence before asking questions","run a dedicated PRODUCT grilling for open decisions","write PRODUCT.md only from a confirmed grilling handoff"],"forbiddenBehaviors":["treat repository evidence as final product decisions","ask visual token questions in the PRODUCT grilling"],"skillAnchors":["Repo-Evidenz erheben","PRODUCT-Grilling eröffnen oder fortsetzen","Nur bestätigte Entscheidungen schreiben"]},
+    {"id":"edge-case","input":"An existing PRODUCT.md conflicts with new feature assumptions.","requiredBehaviors":["keep the existing authoritative PRODUCT.md until a replacement is approved","open a focused PRODUCT re-grilling for durable changes","keep visual styling decisions out of PRODUCT.md"],"forbiddenBehaviors":["silently rewrite PRODUCT.md from feature work","let a surface override redefine the product context"],"skillAnchors":["bleibt bis zur Freigabe einer neuen Fassung gültig","neues fokussiertes PRODUCT-Grilling","Surface-Override darf niemals `PRODUCT.md` still umdefinieren"]},
+    {"id":"failure-case","input":"The repository strongly suggests a target audience, so the agent proposes writing PRODUCT.md without asking.","requiredBehaviors":["reject inference-only authoring","require confirmed grilling decisions","separate facts hypotheses and open questions"],"forbiddenBehaviors":["write PRODUCT.md solely from repo inference","present an unconfirmed audience as authoritative"],"skillAnchors":["Repo-Evidenz ersetzt kein Grilling","erst aus einem bestätigten Grilling-Handoff","Trenne Fakten"]}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "frontend-design-system-context",
+  "cases": [
+    {"id":"happy-path","input":"Create DESIGN.md after PRODUCT.md is approved and the repo already contains CSS tokens and components.","requiredBehaviors":["analyze existing visual evidence first","run a dedicated DESIGN grilling for open system decisions","write DESIGN.md only after confirmation"],"forbiddenBehaviors":["treat existing tokens as automatically authoritative","skip the design grilling because the UI is consistent"],"skillAnchors":["Visuellen Ist-Zustand analysieren","DESIGN-Grilling eröffnen oder fortsetzen","Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff"]},
+    {"id":"edge-case","input":"A feature needs a one-off dense dark surface that differs from the project design system.","requiredBehaviors":["allow an explicitly scoped local surface override","keep DESIGN.md unchanged for a local exception","re-grill DESIGN.md if the exception becomes a durable system rule"],"forbiddenBehaviors":["silently globalize the local override","change DESIGN.md during feature implementation without grilling"],"skillAnchors":["lokalen Surface-Override","neues fokussiertes DESIGN-Grilling","Feature-Arbeit darf das Dokument nicht stillschweigend mutieren"]},
+    {"id":"failure-case","input":"The existing Tailwind theme looks polished, so the agent copies it into DESIGN.md as final truth.","requiredBehaviors":["treat existing tokens as evidence only","require confirmed design decisions","stop on material conflicts with PRODUCT.md or brand evidence"],"forbiddenBehaviors":["make existing tokens authoritative by inspection","resolve technical uncertainty as a style choice"],"skillAnchors":["Bestehende Tokens sind Evidenz, nicht automatisch Entscheidung","erst durch bestätigte Antworten normativ","Stoppe vor dem Schreiben"]}
+  ]
+}

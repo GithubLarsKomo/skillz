@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "frontend-design-director",
+  "cases": [
+    {"id":"happy-path","input":"Design a new landing page in a repository with confirmed PRODUCT.md and DESIGN.md.","requiredBehaviors":["respect PRODUCT.md and DESIGN.md as authoritative","route a new surface to frontend-design-shaping","pass personal defaults only as overridable hypotheses"],"forbiddenBehaviors":["replace project rules with personal defaults","skip project context because the requested style seems obvious"],"skillAnchors":["PRODUCT.md und DESIGN.md sind autoritativ","Neue oder wesentlich veränderte Surface/Feature","Persönliche Design-Defaults sind Hypothesen"]},
+    {"id":"edge-case","input":"The user likes a visual direction in one project and asks for another feature elsewhere.","requiredBehaviors":["keep a one-off project choice project-scoped","only send repeated or explicitly durable preferences to communication-memory-governance","preserve the authority hierarchy"],"forbiddenBehaviors":["promote a single project choice to global taste","let Impeccable heuristics override confirmed project decisions"],"skillAnchors":["Eine einzelne Auswahl","communication-memory-governance","Allgemeine Impeccable-inspirierte Heuristiken"]},
+    {"id":"failure-case","input":"A design request arrives without confirmed PRODUCT.md or DESIGN.md and the agent wants to start coding.","requiredBehaviors":["route first to frontend-product-context","route next to frontend-design-system-context","reject skipping the required grillings"],"forbiddenBehaviors":["start implementation immediately","infer authoritative product and design context from repository evidence alone"],"skillAnchors":["Fehlt ein bestätigtes `PRODUCT.md`","Fehlt danach ein bestätigtes `DESIGN.md`","ersetzt aber niemals das jeweils erforderliche Grilling"]}
+  ]
+}
