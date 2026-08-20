@@ -1,0 +1,5 @@
+interface:
+  display_name: "Teach"
+  short_description: "Orchestriert auf ausdrücklichen Wunsch einen zustandsbehafteten Lernprozess mit Lernmission, evidenzbasiertem Stoff,..."
+policy:
+  allow_implicit_invocation: false

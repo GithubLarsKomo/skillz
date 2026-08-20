@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning State"
+  short_description: "Pflegt einen portablen semantischen Lernzustand aus nachgewiesenen Kompetenzen, relevantem Vorwissen, Fehlvorstellung..."
+policy:
+  allow_implicit_invocation: true

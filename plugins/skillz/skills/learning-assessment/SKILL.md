@@ -1,16 +1,6 @@
 ---
 name: learning-assessment
 description: Bewertet beobachtete Lern-, ETF- oder Praxisevidenz gegen eine learning-assessment-spec und leitet daraus eine begründete Kompetenzempfehlung ab. Verwenden nach Retrieval, Anwendung, Transfer, ETF-ReviewEvents, Prüfung oder realer Aufgabe; aktualisiert den dauerhaften learning-state nicht selbst und behandelt Prozentwerte nicht automatisch als Kompetenz.
-userFacing: false
-implicitInvocation: true
-version: 0.1.0
-status: draft
-owners:
-  - GithubLarsKomo
-requires:
-  - learning-assessment-spec
-outputs:
-  - learning-assessment.json
 ---
 
 # Learning Assessment

@@ -1,16 +1,6 @@
 ---
 name: learning-state
 description: Pflegt einen portablen semantischen Lernzustand aus nachgewiesenen Kompetenzen, relevantem Vorwissen, Fehlvorstellungen, Lücken und kurzen Learning Records. Verwenden, wenn Lern- oder Prüfungsevidenz in dauerhaften Kompetenzzustand überführt oder ein bestehender Zustand nachvollziehbar revidiert werden soll; nicht als Roh-Eventlog oder Scheduler.
-userFacing: false
-implicitInvocation: true
-version: 0.1.0
-status: draft
-owners:
-  - GithubLarsKomo
-requires: []
-outputs:
-  - learning-state.json
-  - learning-record.md
 ---
 
 # Learning State

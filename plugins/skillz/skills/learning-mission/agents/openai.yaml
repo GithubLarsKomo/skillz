@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Mission"
+  short_description: "Definiert oder revidiert ein einzelnes kohärentes Lernziel als portablen Vertrag mit Warum, beobachtbaren Erfolgskrit..."
+policy:
+  allow_implicit_invocation: true

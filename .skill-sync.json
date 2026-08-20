@@ -476,6 +476,36 @@
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
+    "learning-assessment": {
+      "files": {
+        "SKILL.md": "4e5edcfed1f81a5e1550142156cbdf2ddd2db53978c121c0827ce740e16b1a88",
+        "agents/openai.yaml": "93221f2ebfdc3eb7c907ec7af8ce5b10c58692be6f221dd2ef7da66950781e9a"
+      }
+    },
+    "learning-assessment-spec": {
+      "files": {
+        "SKILL.md": "072079d4a439ead04b3ba9f8e1a412c1434569fe65bfa0cb1367b6ea80c88133",
+        "agents/openai.yaml": "f68b3da077b07d41f14078ec4068804ddccc849e34207790353c359a063016c6"
+      }
+    },
+    "learning-mission": {
+      "files": {
+        "SKILL.md": "70e05a09af92e9586e785f3ee1a6828d95b9a84c6d79c1676dfcd306781f30c1",
+        "agents/openai.yaml": "0a81d1221948e3db53346dd4d5685d19574e2a612e25f89088df4ffdff6ce8a6"
+      }
+    },
+    "learning-next-step": {
+      "files": {
+        "SKILL.md": "628e0be1ed9e0a3aa86c5fe684a0f906bc939c0c991e99a056bc43de1c91d349",
+        "agents/openai.yaml": "68238b1da9372ec31773882616e856e1d6e9c2b6e4797442f1b163526271dfa6"
+      }
+    },
+    "learning-state": {
+      "files": {
+        "SKILL.md": "b24f41523abb1fd2fa232e0a46f82adbf76e66a96af22959dd10a203c5784728",
+        "agents/openai.yaml": "90eb9ba04930faf757713ee0146e056254551bb5a2bbc643564056fbfbf8e230"
+      }
+    },
     "mdcg-guidance-navigator": {
       "files": {
         "SKILL.md": "22de3cb3f00a065ec6b344dba56ba8cfc9591da46d54511c9b5939f7ad83007c",
@@ -794,6 +824,12 @@
         "SKILL.md": "d5dd187e60570493715c2fb0d984626fbd0546fc60ea2e4d2c53804b86d3649b",
         "agents/openai.yaml": "5a71dddcaf2b0e294902a410c01c020d365d922bbefa347d0170ee5464e2b5d5",
         "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    },
+    "teach": {
+      "files": {
+        "SKILL.md": "371c953ced26f7206d41344434e76209ab58027ced92e21b9fbfaea59fd5cb26",
+        "agents/openai.yaml": "21ee825f58350cea92fec25ce4e28101bb11ecc47aae4b63ffcf8ce880292df7"
       }
     },
     "technology-due-diligence": {

@@ -1,17 +1,6 @@
 ---
 name: learning-next-step
 description: Wählt aus Lernmission, aktuellem Kompetenzzustand, offenen Lücken und verfügbarer Evidenz genau den nächsten pädagogischen Schritt mit kalibrierter Schwierigkeit. Verwenden, wenn zwischen Erklärung, Beispiel, Retrieval, Anwendung, Transfer, ETF-Lernsitzung, Prüfung oder realer Aufgabe entschieden werden soll; nicht als Scheduler einzelner Wiederholungskarten.
-userFacing: false
-implicitInvocation: true
-version: 0.1.0
-status: draft
-owners:
-  - GithubLarsKomo
-requires:
-  - learning-mission
-  - learning-state
-outputs:
-  - learning-next-step.json
 ---
 
 # Learning Next Step

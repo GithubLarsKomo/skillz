@@ -1,15 +1,6 @@
 ---
 name: learning-mission
 description: Definiert oder revidiert ein einzelnes kohärentes Lernziel als portablen Vertrag mit Warum, beobachtbaren Erfolgskriterien, Constraints und Out-of-Scope. Verwenden, wenn ein Teach-Lernworkspace gestartet, geschärft oder aufgrund neuer Realität bewusst geändert wird; nicht zum Bewerten von Kompetenz oder Planen einzelner Übungen.
-userFacing: false
-implicitInvocation: true
-version: 0.1.0
-status: draft
-owners:
-  - GithubLarsKomo
-requires: []
-outputs:
-  - learning-mission.json
 ---
 
 # Learning Mission

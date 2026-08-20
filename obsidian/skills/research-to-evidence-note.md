@@ -45,6 +45,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 - [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/regulatory-change-monitoring|regulatory-change-monitoring]]
 - [[skills/regulatory-evidence-traceability|regulatory-evidence-traceability]]
+- [[skills/teach|teach]]
 - [[skills/technology-offer-assessment|technology-offer-assessment]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
 
@@ -72,6 +73,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 - [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/regulatory-change-monitoring|regulatory-change-monitoring]]
 - [[skills/regulatory-evidence-traceability|regulatory-evidence-traceability]]
+- [[skills/teach|teach]]
 - [[skills/technology-offer-assessment|technology-offer-assessment]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
 
@@ -92,6 +94,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 - [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/regulatory-change-monitoring|regulatory-change-monitoring]]
 - [[skills/regulatory-evidence-traceability|regulatory-evidence-traceability]]
+- [[skills/teach|teach]]
 - [[skills/technology-offer-assessment|technology-offer-assessment]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
 

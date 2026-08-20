@@ -1,17 +1,6 @@
 ---
 name: learning-assessment-spec
 description: Definiert provider-neutral, welche beobachtbare Evidenz erforderlich ist, um eine Lernkompetenz von Einführung über Retrieval und Anwendung bis Transfer belastbar hochzustufen. Verwenden vor Quiz, Fallaufgabe, ETF-Prüfung oder realer Praxisbewertung; erzeugt selbst keine ETF-Karten und bewertet keine Antwort.
-userFacing: false
-implicitInvocation: true
-version: 0.1.0
-status: draft
-owners:
-  - GithubLarsKomo
-requires:
-  - learning-mission
-  - learning-state
-outputs:
-  - learning-assessment-spec.json
 ---
 
 # Learning Assessment Spec
