@@ -26,6 +26,8 @@ jobs:
         run: python -m unittest tests.test_graph_identity
       - name: Test safe catalog validation core
         run: python -m unittest tests.test_catalog_validation
+      - name: Test MCP resource path policy
+        run: python -m unittest tests.test_mcp_resource_policy
       - name: Test skillz bootstrap installer
         run: python -m unittest tests.test_bootstrap_skillz
       - name: Test clean-room beta installation path
