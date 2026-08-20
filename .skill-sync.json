@@ -719,7 +719,7 @@
     },
     "round-based-requirements-grilling": {
       "files": {
-        "SKILL.md": "025ce24c85c2c897ab4cab843fec2070730d3f7cb2fbe7d2a5ccd2df1ee6b694",
+        "SKILL.md": "2189988f844eb53ef8a0dc003a7cff960d7009c58f304b855d0ada3327a881e7",
         "agents/openai.yaml": "dd83c237fe3023e9d5acb23ab1f500b0b2fd2fa438c2011738dce1b5dff71b72"
       }
     },
