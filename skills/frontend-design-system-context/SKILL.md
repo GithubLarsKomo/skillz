@@ -3,7 +3,6 @@ name: frontend-design-system-context
 description: Erzeugt oder aktualisiert den autoritativen visuellen und interaktiven Projektkontext in DESIGN.md. Nutzt ein bestätigtes PRODUCT.md und analysiert vorhandene Tokens, Komponenten, Screens und Assets als Evidenz; alle offenen visuellen Systementscheidungen werden in einem eigenen fokussierten Grilling bestätigt.
 userFacing: false
 implicitInvocation: true
-category: engineering
 version: 0.1.0
 status: candidate
 owners:
@@ -103,4 +102,4 @@ Stoppe vor dem Schreiben bei unbestätigten materiellen Konflikten zwischen `PRO
 
 ## Abschluss
 
-Abgeschlossen ist der Skill, wenn ein bestätigtes **autoritativen `DESIGN.md`** vorliegt, seine Provenance nachvollziehbar ist und lokale Abweichungen nicht als globale Regeln eingeschmuggelt wurden.
+Abgeschlossen ist der Skill, wenn ein bestätigtes **autoritäres `DESIGN.md`** vorliegt, seine Provenance nachvollziehbar ist und lokale Abweichungen nicht als globale Regeln eingeschmuggelt wurden.
