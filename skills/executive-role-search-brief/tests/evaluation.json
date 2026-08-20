@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "skill": "executive-role-search-brief",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create an executive search brief from an approved grilling for a mid-sized IVD company seeking a leader for international growth and transformation.",
+      "requiredBehaviors": [
+        "translate mission and 12-24 month outcomes into observable requirements",
+        "classify criteria as essential, strongly-preferred, contextual-advantage, trainable, or irrelevant",
+        "attach evidence questions to every essential and strongly-preferred criterion",
+        "separate public-evidence criteria from interview-only questions"
+      ],
+      "forbiddenBehaviors": [
+        "start researching or ranking candidates",
+        "duplicate grilling runtime or round semantics"
+      ],
+      "skillAnchors": [
+        "What is required?",
+        "Jedes entscheidungsrelevante Kriterium benötigt mindestens",
+        "round-based-requirements-grilling bleibt die einzige autoritative Requirements-Schnittstelle"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The role description says the person should be entrepreneurial, charismatic, politically skilled and a cultural fit, but gives no observable definitions.",
+      "requiredBehaviors": [
+        "refuse to preserve diffuse personality labels as hard candidate criteria",
+        "translate relevant concepts into observable professional evidence or interview questions",
+        "mark non-operationalizable criteria as unresolved or unsuitable",
+        "route material requirement gaps back to grilling"
+      ],
+      "forbiddenBehaviors": [
+        "invent psychometric proxies",
+        "use protected or sensitive attributes as selection criteria"
+      ],
+      "skillAnchors": [
+        "Nicht operationalisierte Begriffe",
+        "auf beobachtbare berufliche Erfahrungen oder Verhaltensbeispiele zurückführen",
+        "Geschützte oder sensible Merkmale dürfen nicht als Suchkriterien verwendet"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft search brief includes age, family status and personality assumptions and already names and ranks candidates despite unresolved core requirements.",
+      "requiredBehaviors": [
+        "remove protected, sensitive and irrelevant personal criteria",
+        "stop candidate ranking and return to the role-definition boundary",
+        "surface unresolved mission or must-have criteria",
+        "route unresolved material requirements to grilling"
+      ],
+      "forbiddenBehaviors": [
+        "retain candidate ranking",
+        "treat private characteristics as role evidence"
+      ],
+      "skillAnchors": [
+        "keine Kandidatensuche",
+        "Datenschutz und Fairness",
+        "liefere keinen scheinbar vollständigen Search Brief"
+      ]
+    }
+  ]
+}
