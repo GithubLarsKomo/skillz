@@ -1,0 +1,53 @@
+name: Sync generated metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/generate_repository_metadata.py"
+      - "scripts/generate_dependency_graph.py"
+      - "scripts/generate_capability_index.py"
+      - "scripts/generate_capability_health.py"
+      - "scripts/generate_obsidian_skill_universe.py"
+      - ".github/workflows/sync-generated-metadata.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-generated-metadata-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate repository metadata
+        run: python scripts/generate_repository_metadata.py
+      - name: Verify generated metadata is reproducible
+        run: python scripts/generate_repository_metadata.py --check
+      - name: Validate repository contracts
+        run: python scripts/validate_skills.py
+      - name: Evaluate skill suites
+        run: python scripts/evaluate_skills.py
+      - name: Commit generated metadata
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "Generated metadata already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md .skill-sync.json docs/skill-dependency-graph.json docs/SKILL-DEPENDENCIES.md docs/skill-capability-index.json docs/CAPABILITY-HEALTH.md obsidian
+          git commit -m "Regenerate skill repository metadata"
+          git push origin HEAD:main
