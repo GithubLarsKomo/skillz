@@ -29,10 +29,11 @@ def type_matches(value: object, expected: str) -> bool:
         "array": list,
         "string": str,
         "integer": int,
+        "number": (int, float),
         "boolean": bool,
         "null": type(None),
     }
-    if expected == "integer" and isinstance(value, bool):
+    if expected in {"integer", "number"} and isinstance(value, bool):
         return False
     return isinstance(value, mapping[expected])
 
@@ -77,6 +78,14 @@ def validate(value: object, schema: dict, path: str = "$") -> list[str]:
             return errors
         if len(value) < minimum:
             errors.append(f"{path}: array length {len(value)} is less than minItems {minimum}")
+
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        minimum = schema.get("minimum")
+        maximum = schema.get("maximum")
+        if minimum is not None and value < minimum:
+            errors.append(f"{path}: value {value!r} is less than minimum {minimum!r}")
+        if maximum is not None and value > maximum:
+            errors.append(f"{path}: value {value!r} is greater than maximum {maximum!r}")
 
     if isinstance(value, dict):
         required = schema.get("required", [])
