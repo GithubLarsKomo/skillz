@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-state",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Update a mission's learning state after separate evidence shows successful retrieval and later representative application of one competency.",
+      "requiredBehaviors": [
+        "map evidence to the matching competence level",
+        "preserve evidence references for every promotion",
+        "keep prior knowledge distinct from demonstrated competence",
+        "write a concise learning record only for substantive change"
+      ],
+      "forbiddenBehaviors": [
+        "promote application evidence directly to transfer without novel-context evidence",
+        "copy the full raw ETF event stream into every learning record"
+      ],
+      "skillAnchors": [
+        "Exposition allein erzeugt keinen Kompetenzsprung",
+        "Jeder Kompetenzsprung braucht mindestens eine nachvollziehbare Evidenzreferenz",
+        "Learning Record nur bei substantieller Änderung erzeugen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Earlier work suggested strong knowledge, but a recent representative task shows regression and a previously recorded misconception has now been corrected.",
+      "requiredBehaviors": [
+        "preserve conflicting evidence instead of selecting only the highest historical state",
+        "mark the misconception corrected rather than deleting it",
+        "record correction evidence and current uncertainty or regression"
+      ],
+      "forbiddenBehaviors": [
+        "erase the earlier misconception",
+        "blindly keep the highest prior competence level"
+      ],
+      "skillAnchors": [
+        "Eine korrigierte Fehlvorstellung wird nicht aus der Historie gelöscht",
+        "Bei Konflikten markiere Unsicherheit oder Regression",
+        "nicht die Provenance löschen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A lesson was read once and a draft state marks the learner transfer-demonstrated and formally qualified, without any assessment evidence.",
+      "requiredBehaviors": [
+        "reject the competence promotion",
+        "keep the item introduced at most",
+        "reject the formal qualification claim"
+      ],
+      "forbiddenBehaviors": [
+        "treat lesson coverage as transfer evidence",
+        "claim certification or QMS authorization"
+      ],
+      "skillAnchors": [
+        "Coverage is not learning",
+        "lehne den Übergang ab",
+        "keine formale Qualifikation"
+      ]
+    }
+  ]
+}

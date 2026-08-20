@@ -1,5 +1,0 @@
-interface:
-  display_name: "Precision Language Rewriter"
-  short_description: "Überarbeitet deutsche und englische Reports, Memos und Sachtexte in den Modi light, author oder editorial auf Präzisi..."
-policy:
-  allow_implicit_invocation: true

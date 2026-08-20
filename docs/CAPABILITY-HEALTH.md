@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **138**
-- User-facing entrypoints: **120**
-- Evaluation suites: **138**
+- Skills: **139**
+- User-facing entrypoints: **116**
+- Evaluation suites: **139**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
-- Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **164**
+- Ambiguous outputs (multiple producers): **3**
+- Outputs without inferred hard-requires consumers: **163**
 
 ## Evaluation gaps
 
@@ -22,7 +22,9 @@ None.
 
 ## Ambiguous outputs
 
-None.
+- `learning-mission.json` — producers: `learning-mission`, `teach`
+- `learning-next-step.json` — producers: `learning-next-step`, `teach`
+- `learning-state.json` — producers: `learning-state`, `teach`
 
 ## Outputs without inferred consumers
 
@@ -88,7 +90,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
-- `final-revised-text` — producer: `precision-writing-revision`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `fto-claim-map.json` — producer: `freedom-to-operate-assessment`
@@ -115,6 +116,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `ivdr-fsca-authority-followup.json` — producer: `ivdr-fsca-status-final-reporting`
 - `ivdr-vigilance-final-report-package.json` — producer: `ivdr-fsca-status-final-reporting`
 - `job-description.md` — producer: `job-description-authoring`
+- `learning-practice-request.json` — producer: `teach`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
@@ -145,7 +147,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
-- `precision-writing-report.json` — producer: `precision-writing-revision`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`

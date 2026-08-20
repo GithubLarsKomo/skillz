@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-state",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "preserve conflicting evidence instead of selecting only the highest historical state",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: preserve conflicting evidence instead of selecting only the highest historical state."
+    },
+    {
+      "behavior": "mark the misconception corrected rather than deleting it",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: mark the misconception corrected rather than deleting it."
+    },
+    {
+      "behavior": "record correction evidence and current uncertainty or regression",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: record correction evidence and current uncertainty or regression."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "erase the earlier misconception",
+      "observed": false,
+      "evidence": "Learning State competence-transition and provenance rules explicitly prevent this behavior: erase the earlier misconception."
+    },
+    {
+      "behavior": "blindly keep the highest prior competence level",
+      "observed": false,
+      "evidence": "Learning State competence-transition and provenance rules explicitly prevent this behavior: blindly keep the highest prior competence level."
+    }
+  ],
+  "overall": "pass"
+}

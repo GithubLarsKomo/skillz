@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-mission",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "state a concrete why",
+      "passed": true,
+      "evidence": "Learning Mission core workflow and quality rules explicitly encode this behavior: state a concrete why."
+    },
+    {
+      "behavior": "express success as observable capabilities",
+      "passed": true,
+      "evidence": "Learning Mission core workflow and quality rules explicitly encode this behavior: express success as observable capabilities."
+    },
+    {
+      "behavior": "separate constraints from out-of-scope items",
+      "passed": true,
+      "evidence": "Learning Mission core workflow and quality rules explicitly encode this behavior: separate constraints from out-of-scope items."
+    },
+    {
+      "behavior": "produce a stable portable mission identity",
+      "passed": true,
+      "evidence": "Learning Mission core workflow and quality rules explicitly encode this behavior: produce a stable portable mission identity."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "treat lesson coverage as success",
+      "observed": false,
+      "evidence": "Learning Mission core workflow and quality rules explicitly prevent this behavior: treat lesson coverage as success."
+    },
+    {
+      "behavior": "claim that the learner already has the target competence",
+      "observed": false,
+      "evidence": "Learning Mission core workflow and quality rules explicitly prevent this behavior: claim that the learner already has the target competence."
+    }
+  ],
+  "overall": "pass"
+}

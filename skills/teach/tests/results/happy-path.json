@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "teach",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "create or reuse an explicit learning mission",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: create or reuse an explicit learning mission."
+    },
+    {
+      "behavior": "keep domain truth with specialist skills or trusted evidence",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: keep domain truth with specialist skills or trusted evidence."
+    },
+    {
+      "behavior": "separate exposure from demonstrated competence",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: separate exposure from demonstrated competence."
+    },
+    {
+      "behavior": "produce a provider-neutral ETF practice request when spaced practice is appropriate",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: produce a provider-neutral ETF practice request when spaced practice is appropriate."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "mark presented material as mastered",
+      "observed": false,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly prevent this behavior: mark presented material as mastered."
+    },
+    {
+      "behavior": "implement a second spaced-repetition scheduler inside Teach",
+      "observed": false,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly prevent this behavior: implement a second spaced-repetition scheduler inside Teach."
+    }
+  ],
+  "overall": "pass"
+}

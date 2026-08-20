@@ -108,7 +108,8 @@ class OpenAIPluginDistributionTests(unittest.TestCase):
     def test_committed_marketplace_bundle_is_current(self):
         with tempfile.TemporaryDirectory() as td:
             rebuilt = Path(td) / "skillz"
-            mod.build(rebuilt)
+            committed_manifest = mod.load_json(COMMITTED_PLUGIN / "skillz-distribution-manifest.json")
+            mod.build(rebuilt, source_commit=committed_manifest.get("sourceCommit"))
             self.assertEqual(tree_digest(COMMITTED_PLUGIN), tree_digest(rebuilt))
 
     def test_deterministic_tar_is_byte_identical(self):

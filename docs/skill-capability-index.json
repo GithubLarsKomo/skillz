@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 138,
-  "entrypointCount": 120,
+  "skillCount": 139,
+  "entrypointCount": 116,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 138,
+  "evaluationSuiteCount": 139,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -192,53 +192,6 @@
             "audit-inspection-finding-response"
           ],
           "consumerSkills": []
-        }
-      ],
-      "portableFiles": [
-        "agents/openai.yaml"
-      ],
-      "evaluation": {
-        "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
-        "passed": true
-      }
-    },
-    {
-      "name": "author-voice-profiler",
-      "description": "Extrahiert aus authentischen deutschen oder englischen Referenztexten ein beobachtbares, genrebezogenes Author-Voice-Profil für spätere Textüberarbeitung, ohne psychologische Eigenschaften zu erfinden oder Rohkorpora unnötig zu persistieren. Verwenden, wenn ein Rewriter reproduzierbar näher an einer bestätigten persönlichen Schreibweise arbeiten soll.",
-      "invocation": {
-        "userFacing": true,
-        "category": "communication-memory"
-      },
-      "requires": [],
-      "dependents": [
-        "precision-writing-revision"
-      ],
-      "outputs": [
-        "author-voice-profile.json",
-        "author-voice-profile.md"
-      ],
-      "outputContracts": [
-        {
-          "output": "author-voice-profile.json",
-          "ambiguous": false,
-          "producers": [
-            "author-voice-profiler"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
-          ]
-        },
-        {
-          "output": "author-voice-profile.md",
-          "ambiguous": false,
-          "producers": [
-            "author-voice-profiler"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
-          ]
         }
       ],
       "portableFiles": [
@@ -4191,46 +4144,201 @@
       }
     },
     {
-      "name": "llm-prose-pattern-audit",
-      "description": "Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generischer LLM-Prosa wie Signifikanzinflation, Pseudoanalyse, rhetorische Templates, Synonymvariation, Hedging, Nominalstil und syntaktische Gleichförmigkeit, ohne daraus KI-Autorschaft zu behaupten. Verwenden vor sprachgenauer Überarbeitung oder zur Stil-Diagnose.",
+      "name": "learning-assessment",
+      "description": "Bewertet beobachtete Lern-, ETF- oder Praxisevidenz gegen eine learning-assessment-spec und leitet daraus eine begründete Kompetenzempfehlung ab. Verwenden nach Retrieval, Anwendung, Transfer, ETF-ReviewEvents, Prüfung oder realer Aufgabe; aktualisiert den dauerhaften learning-state nicht selbst und behandelt Prozentwerte nicht automatisch als Kompetenz.",
       "invocation": {
-        "userFacing": true,
-        "category": "workflow"
+        "userFacing": false,
+        "category": null
       },
-      "requires": [],
+      "requires": [
+        "learning-assessment-spec"
+      ],
       "dependents": [
-        "precision-writing-revision"
+        "teach"
       ],
       "outputs": [
-        "prose-audit.json",
-        "prose-audit.md"
+        "learning-assessment.json"
       ],
       "outputContracts": [
         {
-          "output": "prose-audit.json",
+          "output": "learning-assessment.json",
           "ambiguous": false,
           "producers": [
-            "llm-prose-pattern-audit"
+            "learning-assessment"
           ],
           "consumerSkills": [
-            "precision-writing-revision"
-          ]
-        },
-        {
-          "output": "prose-audit.md",
-          "ambiguous": false,
-          "producers": [
-            "llm-prose-pattern-audit"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
+            "teach"
           ]
         }
       ],
       "portableFiles": [
-        "agents/openai.yaml",
-        "references/pattern-taxonomy.md",
-        "scripts/style_metrics.py"
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "learning-assessment-spec",
+      "description": "Definiert provider-neutral, welche beobachtbare Evidenz erforderlich ist, um eine Lernkompetenz von Einführung über Retrieval und Anwendung bis Transfer belastbar hochzustufen. Verwenden vor Quiz, Fallaufgabe, ETF-Prüfung oder realer Praxisbewertung; erzeugt selbst keine ETF-Karten und bewertet keine Antwort.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-mission",
+        "learning-state"
+      ],
+      "dependents": [
+        "learning-assessment",
+        "teach"
+      ],
+      "outputs": [
+        "learning-assessment-spec.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-assessment-spec.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-assessment-spec"
+          ],
+          "consumerSkills": [
+            "learning-assessment",
+            "teach"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "learning-mission",
+      "description": "Definiert oder revidiert ein einzelnes kohärentes Lernziel als portablen Vertrag mit Warum, beobachtbaren Erfolgskriterien, Constraints und Out-of-Scope. Verwenden, wenn ein Teach-Lernworkspace gestartet, geschärft oder aufgrund neuer Realität bewusst geändert wird; nicht zum Bewerten von Kompetenz oder Planen einzelner Übungen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "learning-assessment-spec",
+        "learning-next-step",
+        "teach"
+      ],
+      "outputs": [
+        "learning-mission.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-mission.json",
+          "ambiguous": true,
+          "producers": [
+            "learning-mission",
+            "teach"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "learning-next-step",
+      "description": "Wählt aus Lernmission, aktuellem Kompetenzzustand, offenen Lücken und verfügbarer Evidenz genau den nächsten pädagogischen Schritt mit kalibrierter Schwierigkeit. Verwenden, wenn zwischen Erklärung, Beispiel, Retrieval, Anwendung, Transfer, ETF-Lernsitzung, Prüfung oder realer Aufgabe entschieden werden soll; nicht als Scheduler einzelner Wiederholungskarten.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-mission",
+        "learning-state"
+      ],
+      "dependents": [
+        "teach"
+      ],
+      "outputs": [
+        "learning-next-step.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-next-step.json",
+          "ambiguous": true,
+          "producers": [
+            "learning-next-step",
+            "teach"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "learning-state",
+      "description": "Pflegt einen portablen semantischen Lernzustand aus nachgewiesenen Kompetenzen, relevantem Vorwissen, Fehlvorstellungen, Lücken und kurzen Learning Records. Verwenden, wenn Lern- oder Prüfungsevidenz in dauerhaften Kompetenzzustand überführt oder ein bestehender Zustand nachvollziehbar revidiert werden soll; nicht als Roh-Eventlog oder Scheduler.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "learning-assessment-spec",
+        "learning-next-step",
+        "teach"
+      ],
+      "outputs": [
+        "learning-record.md",
+        "learning-state.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-record.md",
+          "ambiguous": false,
+          "producers": [
+            "learning-state"
+          ],
+          "consumerSkills": [
+            "learning-assessment-spec",
+            "learning-next-step",
+            "teach"
+          ]
+        },
+        {
+          "output": "learning-state.json",
+          "ambiguous": true,
+          "producers": [
+            "learning-state",
+            "teach"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -6142,99 +6250,6 @@
       }
     },
     {
-      "name": "precision-language-rewriter",
-      "description": "Überarbeitet deutsche und englische Reports, Memos und Sachtexte in den Modi light, author oder editorial auf Präzision, idiomatische Sprache, Genrepassung und optional bestätigte Author Voice, ohne neue Sachinformation zu erzeugen oder fachliche Terminologie zugunsten künstlicher Variation zu verwässern.",
-      "invocation": {
-        "userFacing": true,
-        "category": "workflow"
-      },
-      "requires": [],
-      "dependents": [
-        "precision-writing-revision"
-      ],
-      "outputs": [
-        "revised-text",
-        "rewrite-change-map.json"
-      ],
-      "outputContracts": [
-        {
-          "output": "revised-text",
-          "ambiguous": false,
-          "producers": [
-            "precision-language-rewriter"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
-          ]
-        },
-        {
-          "output": "rewrite-change-map.json",
-          "ambiguous": false,
-          "producers": [
-            "precision-language-rewriter"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
-          ]
-        }
-      ],
-      "portableFiles": [
-        "agents/openai.yaml"
-      ],
-      "evaluation": {
-        "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
-        "passed": true
-      }
-    },
-    {
-      "name": "precision-writing-revision",
-      "description": "Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, Memos und Sachtexte durch Muster-Audit, optionales Author-Voice-Profil, Precision Rewrite und anschließende Fidelity-Prüfung. Verwenden, wenn ein vollständiger wiederholbarer Editierworkflow statt einer isolierten Umformulierung gewünscht ist.",
-      "invocation": {
-        "userFacing": true,
-        "category": "workflow"
-      },
-      "requires": [
-        "author-voice-profiler",
-        "llm-prose-pattern-audit",
-        "precision-language-rewriter",
-        "rewrite-fidelity-verifier"
-      ],
-      "dependents": [],
-      "outputs": [
-        "final-revised-text",
-        "precision-writing-report.json"
-      ],
-      "outputContracts": [
-        {
-          "output": "final-revised-text",
-          "ambiguous": false,
-          "producers": [
-            "precision-writing-revision"
-          ],
-          "consumerSkills": []
-        },
-        {
-          "output": "precision-writing-report.json",
-          "ambiguous": false,
-          "producers": [
-            "precision-writing-revision"
-          ],
-          "consumerSkills": []
-        }
-      ],
-      "portableFiles": [
-        "agents/openai.yaml"
-      ],
-      "evaluation": {
-        "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
-        "passed": true
-      }
-    },
-    {
       "name": "process-validation-iq-oq-pq",
       "description": "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierten Kriterien, Revalidierung und Change-Traceability.",
       "invocation": {
@@ -7186,6 +7201,7 @@
         "patent-landscape-analysis",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "teach",
         "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
@@ -7216,6 +7232,7 @@
             "patent-landscape-analysis",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
+            "teach",
             "technology-offer-assessment",
             "two-axis-compliance-review"
           ]
@@ -7242,6 +7259,7 @@
             "patent-landscape-analysis",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
+            "teach",
             "technology-offer-assessment",
             "two-axis-compliance-review"
           ]
@@ -7249,54 +7267,6 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
-      ],
-      "evaluation": {
-        "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
-        "passed": true
-      }
-    },
-    {
-      "name": "rewrite-fidelity-verifier",
-      "description": "Vergleicht Ausgangs- und überarbeiteten Sachtext auf fachliche und epistemische Treue, einschließlich Zahlen, Quellen, Terminologie, Negationen, Modalität, Bedingungen, Kausalität und Claims. Verwenden nach sprachlicher Überarbeitung, um stilistische Verbesserung von inhaltlicher Veränderung zu trennen.",
-      "invocation": {
-        "userFacing": true,
-        "category": "workflow"
-      },
-      "requires": [],
-      "dependents": [
-        "precision-writing-revision"
-      ],
-      "outputs": [
-        "fidelity-review.md",
-        "rewrite-fidelity.json"
-      ],
-      "outputContracts": [
-        {
-          "output": "fidelity-review.md",
-          "ambiguous": false,
-          "producers": [
-            "rewrite-fidelity-verifier"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
-          ]
-        },
-        {
-          "output": "rewrite-fidelity.json",
-          "ambiguous": false,
-          "producers": [
-            "rewrite-fidelity-verifier"
-          ],
-          "consumerSkills": [
-            "precision-writing-revision"
-          ]
-        }
-      ],
-      "portableFiles": [
-        "agents/openai.yaml",
-        "scripts/fidelity_tokens.py"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -7820,6 +7790,75 @@
       "portableFiles": [
         "agents/openai.yaml",
         "references/commands.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "teach",
+      "description": "Orchestriert auf ausdrücklichen Wunsch einen zustandsbehafteten Lernprozess mit Lernmission, evidenzbasiertem Stoff, nachgewiesener Kompetenz, adaptivem nächsten Schritt und Übergaben an die Exam-Trainer-Lernruntime. Verwenden bei `/teach`, beim gezielten Erlernen eines Themas oder mit `/teach skill <skill-name>`; nicht für gewöhnliche Einzelerklärungen ohne Lernworkspace.",
+      "invocation": {
+        "userFacing": true,
+        "category": "productivity"
+      },
+      "requires": [
+        "learning-assessment",
+        "learning-assessment-spec",
+        "learning-mission",
+        "learning-next-step",
+        "learning-state",
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "learning-mission.json",
+        "learning-next-step.json",
+        "learning-practice-request.json",
+        "learning-state.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-mission.json",
+          "ambiguous": true,
+          "producers": [
+            "learning-mission",
+            "teach"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "learning-next-step.json",
+          "ambiguous": true,
+          "producers": [
+            "learning-next-step",
+            "teach"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "learning-practice-request.json",
+          "ambiguous": false,
+          "producers": [
+            "teach"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "learning-state.json",
+          "ambiguous": true,
+          "producers": [
+            "learning-state",
+            "teach"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
       ],
       "evaluation": {
         "mode": "compatibility",

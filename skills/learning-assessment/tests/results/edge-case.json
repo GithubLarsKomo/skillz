@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "keep the critical error visible",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: keep the critical error visible."
+    },
+    {
+      "behavior": "treat evidence breadth separately from overall score",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: treat evidence breadth separately from overall score."
+    },
+    {
+      "behavior": "return insufficient evidence when the spec is not sufficiently covered",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: return insufficient evidence when the spec is not sufficiently covered."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "convert the high percentage directly into transfer competence",
+      "observed": false,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly prevent this behavior: convert the high percentage directly into transfer competence."
+    },
+    {
+      "behavior": "hide the critical error inside an average",
+      "observed": false,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly prevent this behavior: hide the critical error inside an average."
+    }
+  ],
+  "overall": "pass"
+}

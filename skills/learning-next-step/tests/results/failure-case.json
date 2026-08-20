@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-next-step",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "block the premature transfer exam",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: block the premature transfer exam."
+    },
+    {
+      "behavior": "resolve the evidence gap or teach prerequisites first",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: resolve the evidence gap or teach prerequisites first."
+    },
+    {
+      "behavior": "choose an achievable intermediate step",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: choose an achievable intermediate step."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "treat excessive difficulty as automatically desirable",
+      "observed": false,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly prevent this behavior: treat excessive difficulty as automatically desirable."
+    },
+    {
+      "behavior": "build an exam on unverified domain claims",
+      "observed": false,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly prevent this behavior: build an exam on unverified domain claims."
+    }
+  ],
+  "overall": "pass"
+}

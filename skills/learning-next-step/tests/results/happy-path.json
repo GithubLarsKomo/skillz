@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-next-step",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "choose representative application rather than more basic recall",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: choose representative application rather than more basic recall."
+    },
+    {
+      "behavior": "state why the step matches the current competence level",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: state why the step matches the current competence level."
+    },
+    {
+      "behavior": "define evidence needed and a stop condition",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: define evidence needed and a stop condition."
+    },
+    {
+      "behavior": "keep card-level scheduling with ETF",
+      "passed": true,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly encode this behavior: keep card-level scheduling with ETF."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "calculate FSRS intervals",
+      "observed": false,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly prevent this behavior: calculate FSRS intervals."
+    },
+    {
+      "behavior": "jump straight to formal qualification",
+      "observed": false,
+      "evidence": "Learning Next Step decision logic and scheduler boundary explicitly prevent this behavior: jump straight to formal qualification."
+    }
+  ],
+  "overall": "pass"
+}

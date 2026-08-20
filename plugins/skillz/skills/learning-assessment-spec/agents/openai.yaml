@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Assessment Spec"
+  short_description: "Definiert provider-neutral, welche beobachtbare Evidenz erforderlich ist, um eine Lernkompetenz von Einführung über R..."
+policy:
+  allow_implicit_invocation: true

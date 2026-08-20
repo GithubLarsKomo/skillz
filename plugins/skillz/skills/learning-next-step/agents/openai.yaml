@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Next Step"
+  short_description: "Wählt aus Lernmission, aktuellem Kompetenzzustand, offenen Lücken und verfügbarer Evidenz genau den nächsten pädagogi..."
+policy:
+  allow_implicit_invocation: true

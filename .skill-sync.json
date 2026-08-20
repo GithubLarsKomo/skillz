@@ -22,12 +22,6 @@
         "agents/openai.yaml": "a60046b65776e1d7b36a1a7059696b273d064c8b503700d2a9bb28302ed7b15a"
       }
     },
-    "author-voice-profiler": {
-      "files": {
-        "SKILL.md": "0b5ad6e581410f7343bdc0ec594735cdf5818e9f5d85be94e9d70c6eb8666c01",
-        "agents/openai.yaml": "a3fdeef069401fb781689caf6796a113cd73db13ab8321a8ffdab3cd94e2452e"
-      }
-    },
     "candidate-role-fit-assessment": {
       "files": {
         "SKILL.md": "6f1830956bdd0708f0853ea7fb2a15c59f0b2ee80b4262e54def332b6095ac44",
@@ -482,12 +476,34 @@
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
-    "llm-prose-pattern-audit": {
+    "learning-assessment": {
       "files": {
-        "SKILL.md": "e305a53a3861d7c08342a6dc1a035b2fcd1a8d6505a72ac9e4d490bea0f7cd4e",
-        "agents/openai.yaml": "b5ec611d063040080f92959aebae5d2b3e06f793fb9ae57457c2cd3b430d57f8",
-        "references/pattern-taxonomy.md": "9db1b3b0145d2dbbd3daadc434268969e4272ab292d4c45b9ea1be91bd39ca6d",
-        "scripts/style_metrics.py": "ed12b866a8c25b7315455a1dd3b4b3dc20dd0106c24923364614a0024e8bf5ef"
+        "SKILL.md": "4e5edcfed1f81a5e1550142156cbdf2ddd2db53978c121c0827ce740e16b1a88",
+        "agents/openai.yaml": "93221f2ebfdc3eb7c907ec7af8ce5b10c58692be6f221dd2ef7da66950781e9a"
+      }
+    },
+    "learning-assessment-spec": {
+      "files": {
+        "SKILL.md": "072079d4a439ead04b3ba9f8e1a412c1434569fe65bfa0cb1367b6ea80c88133",
+        "agents/openai.yaml": "f68b3da077b07d41f14078ec4068804ddccc849e34207790353c359a063016c6"
+      }
+    },
+    "learning-mission": {
+      "files": {
+        "SKILL.md": "70e05a09af92e9586e785f3ee1a6828d95b9a84c6d79c1676dfcd306781f30c1",
+        "agents/openai.yaml": "0a81d1221948e3db53346dd4d5685d19574e2a612e25f89088df4ffdff6ce8a6"
+      }
+    },
+    "learning-next-step": {
+      "files": {
+        "SKILL.md": "628e0be1ed9e0a3aa86c5fe684a0f906bc939c0c991e99a056bc43de1c91d349",
+        "agents/openai.yaml": "68238b1da9372ec31773882616e856e1d6e9c2b6e4797442f1b163526271dfa6"
+      }
+    },
+    "learning-state": {
+      "files": {
+        "SKILL.md": "b24f41523abb1fd2fa232e0a46f82adbf76e66a96af22959dd10a203c5784728",
+        "agents/openai.yaml": "90eb9ba04930faf757713ee0146e056254551bb5a2bbc643564056fbfbf8e230"
       }
     },
     "mdcg-guidance-navigator": {
@@ -664,18 +680,6 @@
         "agents/openai.yaml": "67acea37de785e88b6c7ba1a4a88750d4defae39d8ee37117d8456ebf980cf02"
       }
     },
-    "precision-language-rewriter": {
-      "files": {
-        "SKILL.md": "650b51e8ad7fe0712f486c2571431286624e99599912648f4d791dfc5834160b",
-        "agents/openai.yaml": "9b568ff5a94ac234bf484fc2f896b58d37015aa9eb383e684b52d2267ca7e0a7"
-      }
-    },
-    "precision-writing-revision": {
-      "files": {
-        "SKILL.md": "f67b8b073d236b66c0a421759cbb3b3984f9382b5e1804cf2d0c9a14b64dfd43",
-        "agents/openai.yaml": "eeec69b963850ad8fa311bae565099fa08b80056209c388113705cb4d9a26bc3"
-      }
-    },
     "process-validation-iq-oq-pq": {
       "files": {
         "SKILL.md": "b9334e05466fe6b78674d0cb4fbe8043dfb3480172f95682ee901dcfbfeb55b0",
@@ -755,13 +759,6 @@
         "agents/openai.yaml": "ef3d890b2870ab7c1feb4d86d15da1ef94eb8ab53aea400538a4ace3a444330a"
       }
     },
-    "rewrite-fidelity-verifier": {
-      "files": {
-        "SKILL.md": "452709290a2d66542d8f9c3b67e605611dce72c5c5306743cf0c952fd8fd006f",
-        "agents/openai.yaml": "81ab4bc6390ce66b9dbf657eb1976fff39352aa6b98226c5a56d32f4bb9dcb37",
-        "scripts/fidelity_tokens.py": "59fce4badf25da52d61e60b9da3aebe16751372a376d61699c3548c9f99f9733"
-      }
-    },
     "role-architecture": {
       "files": {
         "SKILL.md": "79647ece72e575eedfd467fa61123fdfa3e898664ad3f80dae849c505efd995e",
@@ -827,6 +824,12 @@
         "SKILL.md": "d5dd187e60570493715c2fb0d984626fbd0546fc60ea2e4d2c53804b86d3649b",
         "agents/openai.yaml": "5a71dddcaf2b0e294902a410c01c020d365d922bbefa347d0170ee5464e2b5d5",
         "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    },
+    "teach": {
+      "files": {
+        "SKILL.md": "371c953ced26f7206d41344434e76209ab58027ced92e21b9fbfaea59fd5cb26",
+        "agents/openai.yaml": "21ee825f58350cea92fec25ce4e28101bb11ecc47aae4b63ffcf8ce880292df7"
       }
     },
     "technology-due-diligence": {
