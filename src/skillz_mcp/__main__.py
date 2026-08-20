@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 
 from mcp.server.transport_security import TransportSecuritySettings
 
-from .auth import RemoteAuthConfig, auth_config_from_env
+from .auth import RemoteAuthConfig, auth_config_from_env, build_token_verifier, static_tokens_from_env
 from .server import create_server
 
 LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
@@ -50,7 +50,7 @@ def main() -> None:
         "--transport",
         choices=("stdio", "streamable-http"),
         default="stdio",
-        help="MCP transport; remote HTTP requires OAuth resource-server configuration.",
+        help="MCP transport; remote HTTP requires configured authentication.",
     )
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
@@ -58,9 +58,14 @@ def main() -> None:
 
     try:
         auth_config = auth_config_from_env()
+        static_credentials = static_tokens_from_env()
         max_request_bytes = _max_request_bytes()
     except ValueError as exc:
         parser.error(str(exc))
+
+    token_verifier = None
+    if auth_config is not None:
+        token_verifier = build_token_verifier(auth_config, static_credentials=static_credentials)
 
     runtime_commit = os.environ.get("SKILLZ_MCP_COMMIT_SHA") or os.environ.get("SOURCE_COMMIT")
     runtime_version = os.environ.get("SKILLZ_MCP_VERSION")
@@ -69,6 +74,7 @@ def main() -> None:
         runtime_commit=runtime_commit,
         runtime_version=runtime_version,
         auth_config=auth_config,
+        token_verifier=token_verifier,
     )
 
     if args.transport == "stdio":
