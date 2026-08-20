@@ -60,6 +60,23 @@ def read_utf8_text(root: Path, relative_path: str, *, max_bytes: int = DEFAULT_M
         raise LookupError(f"cannot read resource: {relative_path}") from exc
 
 
+def read_flat_text(
+    root: Path,
+    name: str,
+    *,
+    allowed_suffixes: tuple[str, ...],
+    max_bytes: int = DEFAULT_MAX_TEXT_BYTES,
+) -> str:
+    """Read a single named text file from a flat allowlisted namespace."""
+    decoded = decoded_path(name)
+    posix = PurePosixPath(decoded)
+    if len(posix.parts) != 1 or posix.name != decoded:
+        raise ValueError("resource name must be a single file name")
+    if not any(decoded.endswith(suffix) for suffix in allowed_suffixes):
+        raise ValueError(f"unsupported resource extension: {decoded}")
+    return read_utf8_text(root, decoded, max_bytes=max_bytes)
+
+
 def describe_path(root: Path, relative_path: str) -> dict:
     """Return safe metadata for a file or one-level directory listing without serving bytes."""
     path = safe_relative_path(root, relative_path)
