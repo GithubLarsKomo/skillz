@@ -1,5 +1,5 @@
 interface:
   display_name: "Candidate Interview Evidence Plan"
-  short_description: "Übersetzt rollenbezogene Evidenzlücken in priorisierte, faire Interview- und Referenzfragen ohne Pseudo-Psychometrie oder Fit-Score."
+  short_description: "Übersetzt rollenbezogene Evidence Gaps und Widersprüche in priorisierte, faire Interview- und Referenzfragen für Führ..."
 policy:
   allow_implicit_invocation: true
