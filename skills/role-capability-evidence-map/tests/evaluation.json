@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "edge-case-partial-pnl",
+      "id": "edge-case",
       "input": "The role requires direct P&L responsibility. The person was a General Manager with documented global sales and operations responsibility, but no source explicitly confirms P&L ownership.",
       "requiredBehaviors": [
         "classify the criterion as partially-evidenced rather than strongly-evidenced",
