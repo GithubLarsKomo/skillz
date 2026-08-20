@@ -27,11 +27,33 @@ Recommended baseline:
 - Client type: public for PKCE-based interactive clients unless a specific MCP client requires a confidential pre-registered client
 - Signing algorithm/key: RSA / `RS256`
 - Authorization flow: Authorization Code with PKCE (`S256`)
+- `Include claims in id_token`: enabled (authentik default; required for the audience mapping below to enter the signed access token)
 - Required Skillz scope: `skillz:read`
 - Additional interactive scopes: `openid profile email offline_access`
 - Redirect URIs: exact URIs supplied by each pre-registered MCP client; do not use wildcard redirect URIs
 
-The custom `skillz:read` scope should be implemented as an authentik OAuth2 scope mapping. Enable the `offline_access` scope mapping when a client needs refresh tokens. MCP 2026-07-28 permits pre-registration, so authentik does not need Dynamic Client Registration or Client ID Metadata Documents for this deployment model.
+### Resource-bound audience mapping
+
+MCP clients identify the target server as `https://skillz.ratzeburg-ai.de/mcp`. The MCP resource server must reject tokens that are not intended for that resource.
+
+authentik normally initializes the JWT `aud` claim from the OAuth provider client ID. For this dedicated provider, override that value through the `skillz:read` scope mapping so the signed access token is resource-bound.
+
+Create an OAuth2 Scope Mapping:
+
+- Name: `Skillz MCP read`
+- Scope name: `skillz:read`
+- Description: `Read Skillz capability metadata through MCP`
+- Expression:
+
+```python
+return {
+    "aud": "https://skillz.ratzeburg-ai.de/mcp",
+}
+```
+
+Attach this mapping to the Skillz OAuth2 provider. Keep `Include claims in id_token` enabled. authentik's access-token construction preserves the OAuth client identifier separately in `azp`, while mapped claims are merged into the signed JWT; the server therefore validates the MCP resource URI as `aud` and records `azp` only as client identity.
+
+Enable the managed `offline_access` scope mapping when a client needs refresh tokens. MCP 2026-07-28 permits client pre-registration, so pre-registration is the baseline deployment model. If the selected MCP client requires Dynamic Client Registration or Client ID Metadata Documents, verify that capability separately before production cutover rather than weakening the resource-server checks.
 
 Expected authentik endpoints for the `skillz` application slug:
 
@@ -64,20 +86,20 @@ Set these runtime variables in Coolify:
 SKILLZ_MCP_AUTH_ISSUER_URL=https://auth.ratzeburg-ai.de/application/o/skillz/
 SKILLZ_MCP_AUTH_RESOURCE_URL=https://skillz.ratzeburg-ai.de/mcp
 SKILLZ_MCP_AUTH_JWKS_URL=https://auth.ratzeburg-ai.de/application/o/skillz/jwks/
-SKILLZ_MCP_AUTH_AUDIENCE=<authentik-provider-client-id>
+SKILLZ_MCP_AUTH_AUDIENCE=https://skillz.ratzeburg-ai.de/mcp
 SKILLZ_MCP_AUTH_REQUIRED_SCOPES=skillz:read
 SKILLZ_MCP_AUTH_ALGORITHMS=RS256
 SKILLZ_MCP_MAX_REQUEST_BYTES=262144
 SKILLZ_MCP_COMMIT_SHA=$SOURCE_COMMIT
 ```
 
-`SKILLZ_MCP_AUTH_AUDIENCE` must match the `aud` value authentik emits in access tokens for the configured provider. For the normal authentik OAuth2 provider this is expected to be the provider/client identifier; verify one issued access token before production cutover rather than weakening audience validation.
+The process fails closed if `SKILLZ_MCP_AUTH_AUDIENCE` differs from `SKILLZ_MCP_AUTH_RESOURCE_URL`, if any remote auth URL is not HTTPS, or if a symmetric JWT algorithm is configured.
 
 Coolify provides `SOURCE_COMMIT` for Git-backed applications. Mapping it into `SKILLZ_MCP_COMMIT_SHA` makes the exact deployed source commit visible through `catalog_status` and `skillz://status` without copying `.git` into the production image.
 
 ## Transport security
 
-For authenticated remote HTTP, the process binds to `0.0.0.0:8000`, but MCP transport security allowlists the hostname and origin derived from `SKILLZ_MCP_AUTH_RESOURCE_URL`. With the production values this allows `skillz.ratzeburg-ai.de` and `https://skillz.ratzeburg-ai.de` while retaining DNS-rebinding protection.
+For authenticated remote HTTP, the process binds to `0.0.0.0:8000`, but MCP transport security allowlists the hostname and origin derived from `SKILLZ_MCP_AUTH_RESOURCE_URL`. With the production values this allows `skillz.ratzeburg-ai.de` and `https://skillz.ratzeburg-ai.de` while retaining DNS-rebinding protection. Loopback hostnames are also allowed solely so Docker/Coolify can perform the internal `/healthz` liveness check.
 
 The default MCP request-body limit is 256 KiB. It can be changed with `SKILLZ_MCP_MAX_REQUEST_BYTES`, but the process rejects values above 4 MiB.
 
@@ -91,15 +113,16 @@ The following checks define the minimum remote acceptance gate:
 2. An unauthenticated request to `/mcp` returns `401`, not a browser redirect.
 3. The `WWW-Authenticate` header contains an RFC 9728 `resource_metadata` URL.
 4. `GET https://skillz.ratzeburg-ai.de/.well-known/oauth-protected-resource/mcp` identifies the Skillz resource, authentik issuer, and `skillz:read` scope.
-5. authentik OIDC discovery reports PKCE `S256`; clients must refuse a provider that does not advertise PKCE support.
-6. A token with the wrong issuer, audience, signature, expiration, or missing `skillz:read` scope cannot access MCP.
-7. A valid token can list tools/resources and call `catalog_status`.
-8. `catalog_status` reports the deployed `SOURCE_COMMIT` and expected catalog hash/freshness.
-9. No MCP handler exposes repository writes, arbitrary subprocess execution, provider calls, or skill execution.
+5. authentik OIDC discovery reports PKCE `S256`; interactive clients must refuse a provider that does not advertise PKCE support.
+6. Decode one issued Skillz access token before cutover and verify `iss=https://auth.ratzeburg-ai.de/application/o/skillz/`, `aud=https://skillz.ratzeburg-ai.de/mcp`, a non-empty `sub`, and scope `skillz:read`.
+7. A token with the wrong issuer, resource audience, signature, expiration, or missing `skillz:read` scope cannot access MCP.
+8. A valid token can list tools/resources and call `catalog_status`.
+9. `catalog_status` reports the deployed `SOURCE_COMMIT` and expected catalog hash/freshness.
+10. No MCP handler exposes repository writes, arbitrary subprocess execution, provider calls, or skill execution.
 
 ## Client registration
 
-The current production model uses OAuth client pre-registration in authentik. For each MCP client:
+The baseline production model uses OAuth client pre-registration in authentik. For each MCP client:
 
 1. obtain its exact redirect URI(s),
 2. register those URIs in the Skillz authentik OAuth provider,
@@ -107,7 +130,9 @@ The current production model uses OAuth client pre-registration in authentik. Fo
 4. request `skillz:read`; for durable interactive access also request `offline_access`,
 5. use Authorization Code + PKCE S256.
 
-If future clients require Client ID Metadata Documents rather than pre-registration, treat that as a separate authorization-server compatibility change. Do not add a second OAuth implementation inside Skillz MCP merely to emulate an authorization server.
+ChatGPT custom MCP apps support OAuth and should have refresh-token/offline access enabled so authorization survives access-token expiry. The exact callback URI must be copied from the client setup UI at registration time; do not guess it.
+
+If future clients require Dynamic Client Registration or Client ID Metadata Documents rather than pre-registration, treat that as an authorization-server compatibility change. Do not add a second OAuth implementation inside Skillz MCP merely to emulate an authorization server.
 
 ## Upstream references
 
