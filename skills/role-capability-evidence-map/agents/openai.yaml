@@ -1,0 +1,5 @@
+interface:
+  display_name: "Role Capability Evidence Map"
+  short_description: "Ordnet rollenbezogene Anforderungen gegen belegte berufliche Evidenz und trennt Stärken, Lücken, Widersprüche und Interviewbedarf."
+policy:
+  allow_implicit_invocation: true
