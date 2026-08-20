@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "skill": "job-description-authoring",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create an internal job description, executive-search brief and public posting from an approved role architecture without changing the role itself.",
+      "requiredBehaviors": [
+        "create three audience-specific projections of the same normative role",
+        "trace every hard requirement to the role architecture",
+        "keep candidate assessment anchored to role architecture rather than public copy"
+      ],
+      "forbiddenBehaviors": [
+        "invent new must-have criteria for marketing appeal",
+        "change decision rights or scope while drafting copy"
+      ],
+      "skillAnchors": ["Drei Projektionen", "Jede harte Anforderung", "kein Bewertungsmaßstab für Kandidaten"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The internal role architecture contains sensitive turnaround context that should not be disclosed in the public posting.",
+      "requiredBehaviors": [
+        "preserve the underlying role semantics",
+        "abstract confidential context appropriately in public copy",
+        "record the difference as a communication decision rather than a role change"
+      ],
+      "forbiddenBehaviors": [
+        "publish confidential internal detail unnecessarily",
+        "delete the underlying success requirement from the normative role"
+      ],
+      "skillAnchors": ["vertrauliche Inhalte", "Kommunikationsentscheidung", "normative Bedeutung"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Make the posting more selective by adding elite university, exact age range and a specific prior title that are absent from the role architecture.",
+      "requiredBehaviors": [
+        "reject unsupported selection criteria",
+        "retain only role-related capability and outcome requirements",
+        "route genuine role changes back to role-architecture"
+      ],
+      "forbiddenBehaviors": [
+        "add unsupported prestige or personal filters",
+        "silently modify the normative role while authoring"
+      ],
+      "skillAnchors": ["keine neuen Must-haves", "Keine diskriminierenden oder sachfremden Kriterien", "zurück zu `role-architecture`"]
+    }
+  ]
+}

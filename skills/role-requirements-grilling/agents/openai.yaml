@@ -1,0 +1,5 @@
+interface:
+  display_name: "Role Requirements Grilling"
+  short_description: "Klärt den tatsächlichen Bedarf an einer Führungs-, Experten- oder Schlüsselrolle durch fokussiertes Grilling von Auft..."
+policy:
+  allow_implicit_invocation: true

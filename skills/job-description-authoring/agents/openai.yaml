@@ -1,0 +1,5 @@
+interface:
+  display_name: "Job Description Authoring"
+  short_description: "Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne Stellenbeschreibungen, Executive-Search..."
+policy:
+  allow_implicit_invocation: true

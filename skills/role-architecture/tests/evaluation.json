@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "skill": "role-architecture",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Turn an approved requirements handoff for a new COO-like transformation role into a normative role model and scorecard before recruiting begins.",
+      "requiredBehaviors": [
+        "define purpose outcomes accountabilities decision rights scope interfaces and non-goals",
+        "separate capabilities from evidence proxies and credentials",
+        "produce a role scorecard usable by both authoring and candidate assessment"
+      ],
+      "forbiddenBehaviors": [
+        "turn the architecture directly into marketing copy",
+        "derive requirements from the job title alone"
+      ],
+      "skillAnchors": ["normative Modell der Stelle", "Capability-Logik", "Role Scorecard"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A specific industry background is preferred by one stakeholder but the required outcomes can be demonstrated through several adjacent industries.",
+      "requiredBehaviors": [
+        "model the underlying capability rather than the preferred proxy",
+        "retain industry experience only as one possible evidence proxy",
+        "avoid an unjustified knockout criterion"
+      ],
+      "forbiddenBehaviors": [
+        "make the preferred industry automatically mandatory",
+        "hide the proxy decision inside the scorecard"
+      ],
+      "skillAnchors": ["Evidence proxy", "nicht automatisch als Must-have", "knockout: true"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Build the role architecture from a prestigious title, elite degree and vague personality traits without defined outcomes or decision rights.",
+      "requiredBehaviors": [
+        "reject title prestige and unsupported credentials as the role model",
+        "require observable outcomes and mandate before approval",
+        "keep job-description authoring downstream of normative role architecture"
+      ],
+      "forbiddenBehaviors": [
+        "approve a role architecture without purpose outcomes or decision rights",
+        "encode irrelevant personal traits in the scorecard"
+      ],
+      "skillAnchors": ["ohne den Inhalt aus dem Titel abzuleiten", "beobachtbare Ergebnisse", "job-description-authoring"]
+    }
+  ]
+}
