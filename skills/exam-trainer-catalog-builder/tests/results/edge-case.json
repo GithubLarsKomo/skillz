@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-catalog-builder",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior":"keep unsupported transfer material from being presented as sufficiently assessed","passed":true,"evidence":"The assessment section says a Variant set may not claim a higher competence class than task and allowed support can actually test."},
+    {"behavior":"preserve draft status when runtime release gates are not satisfied","passed":true,"evidence":"Status defaults to draft and released is allowed only after all five explicit personal-local runtime gates are satisfied."},
+    {"behavior":"reuse stable competency identity rather than silently minting replacement KnowledgeItems","passed":true,"evidence":"The KnowledgeItem rules require existing competency/concept ids as the identity basis and prohibit creating a new item merely for another question formulation."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior":"promote a question variant beyond the evidence level supported by its assessment spec","observed":false,"evidence":"The skill explicitly maps retrieval, application and transfer to matching task evidence and blocks unsupported higher-level claims."},
+    {"behavior":"silently repair inconsistent mission or source identifiers by inventing new identifiers","observed":false,"evidence":"Error handling blocks mismatched mission identities and says inconsistent ids must not be silently replaced."}
+  ],
+  "overall": "pass"
+}
