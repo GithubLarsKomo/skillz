@@ -5,15 +5,34 @@ from typing import Any
 
 from mcp.server import MCPServer
 
-from skillz_core import get_skill, invocation, listing_payload, load_index, query_skill_listing
+from skillz_core import (
+    catalog_identity,
+    consumer_info,
+    dependency_traversal,
+    get_skill,
+    invocation,
+    listing_payload,
+    load_graph,
+    load_index,
+    producer_info,
+    query_skill_listing,
+)
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 
 
-def create_server(repository_root: Path | None = None) -> MCPServer:
+def create_server(
+    repository_root: Path | None = None,
+    *,
+    runtime_commit: str | None = None,
+    runtime_version: str | None = None,
+) -> MCPServer:
     root = (repository_root or DEFAULT_ROOT).resolve()
     index_path = root / "docs" / "skill-capability-index.json"
+    graph_path = root / "docs" / "skill-dependency-graph.json"
+    version_path = root / "VERSION"
     index = load_index(index_path)
+    graph = load_graph(graph_path)
     server = MCPServer("skillz-mcp")
 
     @server.tool()
@@ -53,5 +72,35 @@ def create_server(repository_root: Path | None = None) -> MCPServer:
             "references": f"skillz://skills/{name}/references/",
         }
         return skill
+
+    @server.tool()
+    def get_dependencies(
+        name: str,
+        direction: str = "requires",
+        transitive: bool = False,
+    ) -> dict[str, Any]:
+        """Traverse declared skill dependencies deterministically without inference."""
+        return dependency_traversal(graph, name, direction=direction, transitive=transitive)
+
+    @server.tool()
+    def find_producers(output: str) -> dict[str, Any]:
+        """Return every exact declared producer for an output, preserving ambiguity."""
+        return producer_info(index, output)
+
+    @server.tool()
+    def find_consumers(output: str, producer: str | None = None) -> dict[str, Any]:
+        """Return consumers declared in outputContracts only."""
+        return consumer_info(index, output, producer=producer)
+
+    @server.tool()
+    def catalog_status() -> dict[str, Any]:
+        """Return deterministic identity and fail-closed freshness for the loaded catalog."""
+        return catalog_identity(
+            index,
+            graph,
+            version_path=version_path,
+            runtime_commit=runtime_commit,
+            runtime_version=runtime_version,
+        )
 
     return server
