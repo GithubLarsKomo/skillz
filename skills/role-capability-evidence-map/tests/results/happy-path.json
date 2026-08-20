@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "skill": "role-capability-evidence-map",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "assess each role criterion independently", "passed": true, "evidence": "The mapping workflow starts from each role criterion and requires a separate assessment state per criterion."},
+    {"behavior": "preserve claim provenance for every assessment", "passed": true, "evidence": "Every positive or negative mapping must retain supporting and contradicting claim references, with traceability through capability to source."},
+    {"behavior": "distinguish strongly-evidenced from partially-evidenced criteria", "passed": true, "evidence": "The assessment model defines distinct strongly-evidenced and partially-evidenced states with different evidentiary thresholds."},
+    {"behavior": "route unresolved gaps by gap type", "passed": true, "evidence": "Research, interview, reference and role-definition gaps are typed separately and routed to the appropriate upstream or downstream capability."},
+    {"behavior": "avoid any overall candidate score", "passed": true, "evidence": "The skill explicitly prohibits numeric, ordinal and implicit overall candidate scores or rankings."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "rank or recommend the candidate for hire", "observed": false, "evidence": "Candidate ranking and hire recommendations are explicitly outside the decision boundary."},
+    {"behavior": "invent person facts not present in the professional profile", "observed": false, "evidence": "The skill prohibits creating new person facts and routes missing evidence back to professional-person-research."}
+  ],
+  "overall": "pass"
+}
