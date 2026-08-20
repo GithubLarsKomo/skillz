@@ -1,5 +1,6 @@
 from .catalog import (
     SCHEMA_VERSION,
+    VALID_MODES,
     get_skill,
     invocation,
     listing_payload,
@@ -25,6 +26,7 @@ from .status import (
 
 __all__ = [
     "SCHEMA_VERSION",
+    "VALID_MODES",
     "build_status_payload",
     "get_skill",
     "installed_identity",
