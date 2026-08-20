@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "executive-role-search-brief",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "translate mission and 12-24 month outcomes into observable requirements", "passed": true, "evidence": "The skill requires a mission stated in observable impact and explicit expected outcomes for the next 12-24 months."},
+    {"behavior": "classify criteria as essential, strongly-preferred, contextual-advantage, trainable, or irrelevant", "passed": true, "evidence": "The criteria model defines exactly these five classes and requires each criterion to be assigned to one."},
+    {"behavior": "attach evidence questions to every essential and strongly-preferred criterion", "passed": true, "evidence": "The checks require every essential and strongly-preferred criterion to contain evidence questions."},
+    {"behavior": "separate public-evidence criteria from interview-only questions", "passed": true, "evidence": "The operationalization model contains an interviewOnly flag and the output separates interview-only questions from public-evidence criteria."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "start researching or ranking candidates", "observed": false, "evidence": "The purpose boundary explicitly excludes candidate research, ranking and hiring decisions."},
+    {"behavior": "duplicate grilling runtime or round semantics", "observed": false, "evidence": "The skill delegates unresolved requirements to round-based-requirements-grilling and forbids a parallel grilling runtime or round model."}
+  ],
+  "overall": "pass"
+}
