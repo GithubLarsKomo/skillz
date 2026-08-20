@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-result-import",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior":"block unknown evidence formats or versions rather than guessing","passed":true,"evidence":"Error handling explicitly blocks unknown format/version instead of heuristically interpreting it."},
+    {"behavior":"surface scope and duplicate-event conflicts instead of silently accepting them","passed":true,"evidence":"The skill requires scope preservation, flags events outside scope, and treats duplicate event ids with conflicting content as conflicts."},
+    {"behavior":"exclude scheduler session and unrelated local state from normalized learning evidence","passed":true,"evidence":"Provider-neutral and privacy sections explicitly exclude Classic/FSRS scheduler state, sessions, backups and unrelated local history."},
+    {"behavior":"refuse to assign transfer-demonstrated or any other competence state","passed":true,"evidence":"The handoff section prohibits direct competence promotion and assigns semantic interpretation to learning-assessment."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior":"heuristically reinterpret an unsupported ETF contract version","observed":false,"evidence":"Unsupported ETF evidence versions are a blocking error by contract."},
+    {"behavior":"pass FSRS scheduler or full local session state into learning assessment as required evidence","observed":false,"evidence":"The skill explicitly forbids importing scheduler/session state and passes only the scoped exported evidence bundle."}
+  ],
+  "overall": "pass"
+}
