@@ -53,7 +53,7 @@ PASS frontend-design-director (compatibility, 3 cases)
 PASS frontend-design-review (compatibility, 3 cases)
 PASS frontend-design-shaping (compatibility, 3 cases)
 PASS frontend-design-system-context (compatibility, 3 cases)
-FAIL frontend-product-context (compatibility, 3 cases)
+PASS frontend-product-context (compatibility, 3 cases)
 PASS human-procedure-wizard (compatibility, 3 cases)
 PASS iec62304-software-lifecycle (compatibility, 3 cases)
 PASS iec62366-usability-engineering (compatibility, 3 cases)
@@ -137,9 +137,7 @@ PASS round-based-requirements-grilling (compatibility, 3 cases)
 PASS source-to-context (compatibility, 3 cases)
 PASS spec-to-vertical-issues (compatibility, 3 cases)
 PASS sport-diagnostics-training-report-workflow (compatibility, 3 cases)
-PASS sport-performance-diagnostics (compatibility, 3 cases)Evaluation failed:
-- skills/frontend-product-context/tests/evaluation.json:happy-path: anchor not found in SKILL.md: 'Repo-Evidenz erheben'
-
+PASS sport-performance-diagnostics (compatibility, 3 cases)
 PASS sport-training-programming (compatibility, 3 cases)
 PASS structured-knowledge-artifact (compatibility, 3 cases)
 PASS supplier-quality-medical-device (compatibility, 3 cases)
@@ -151,4 +149,4 @@ PASS test-driven-vertical-slice (compatibility, 3 cases)
 PASS throwaway-prototype (compatibility, 3 cases)
 PASS two-axis-code-review (compatibility, 3 cases)
 PASS two-axis-compliance-review (compatibility, 3 cases)
-Summary: 151 suites, FAIL
+Summary: 151 suites, PASS
