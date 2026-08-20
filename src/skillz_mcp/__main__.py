@@ -73,7 +73,7 @@ def main() -> None:
         return
 
     if args.host not in LOOPBACK_HOSTS and auth_config is None:
-        parser.error("remote Streamable HTTP requires OAuth authentication configuration")
+        parser.error("remote Streamable HTTP requires authentication; configure OAuth resource-server settings")
 
     try:
         transport_security = _transport_security(auth_config)
