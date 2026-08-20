@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "precision-writing-revision",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Run a full author-mode revision of an English IVD report using an existing voice profile and structured evidence claims.",
+      "requiredBehaviors": ["run audit before rewrite", "lock evidence and terminology before editing", "verify fidelity before final output"],
+      "forbiddenBehaviors": ["skip fidelity verification", "duplicate specialist skill logic in the orchestrator"],
+      "skillAnchors": ["dünner Orchestrator", "Fidelity Lock", "Verification"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Author mode is requested but no profile exists and the fidelity verifier returns review for one modal phrase.",
+      "requiredBehaviors": ["fall back transparently from author voice", "revise only the flagged phrase and re-run verification"],
+      "forbiddenBehaviors": ["invent a voice profile", "rewrite the entire document again without need"],
+      "skillAnchors": ["Fehlt ein Profil", "Bei `review` nur markierte Stellen nacharbeiten"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The rewrite reads better but the verifier identifies an added clinical claim and a changed number.",
+      "requiredBehaviors": ["block finalization", "revert or obtain explicit factual authorization before continuing"],
+      "forbiddenBehaviors": ["accept style quality over fidelity"],
+      "skillAnchors": ["Fidelity vor Stil", "Kein finaler Text bei ungeklärtem Hard Fail"]
+    }
+  ]
+}

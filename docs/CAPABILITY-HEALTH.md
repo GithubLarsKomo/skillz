@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **139**
-- User-facing entrypoints: **116**
-- Evaluation suites: **139**
+- Skills: **144**
+- User-facing entrypoints: **121**
+- Evaluation suites: **144**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **163**
+- Outputs without inferred hard-requires consumers: **165**
 
 ## Evaluation gaps
 
@@ -90,6 +90,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
+- `final-revised-text` — producer: `precision-writing-revision`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `fto-claim-map.json` — producer: `freedom-to-operate-assessment`
@@ -147,6 +148,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
+- `precision-writing-report.json` — producer: `precision-writing-revision`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Precision Writing Revision"
+  short_description: "Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, Memos und Sachtexte durch Muster-Audit..."
+policy:
+  allow_implicit_invocation: true

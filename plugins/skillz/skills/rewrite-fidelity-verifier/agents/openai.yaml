@@ -1,0 +1,5 @@
+interface:
+  display_name: "Rewrite Fidelity Verifier"
+  short_description: "Vergleicht Ausgangs- und überarbeiteten Sachtext auf fachliche und epistemische Treue, einschließlich Zahlen, Quellen..."
+policy:
+  allow_implicit_invocation: true

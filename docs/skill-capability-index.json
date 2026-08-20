@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 139,
-  "entrypointCount": 116,
+  "skillCount": 144,
+  "entrypointCount": 121,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 139,
+  "evaluationSuiteCount": 144,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -192,6 +192,53 @@
             "audit-inspection-finding-response"
           ],
           "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "author-voice-profiler",
+      "description": "Extrahiert aus authentischen deutschen oder englischen Referenztexten ein beobachtbares, genrebezogenes Author-Voice-Profil für spätere Textüberarbeitung, ohne psychologische Eigenschaften zu erfinden oder Rohkorpora unnötig zu persistieren. Verwenden, wenn ein Rewriter reproduzierbar näher an einer bestätigten persönlichen Schreibweise arbeiten soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "communication-memory"
+      },
+      "requires": [],
+      "dependents": [
+        "precision-writing-revision"
+      ],
+      "outputs": [
+        "author-voice-profile.json",
+        "author-voice-profile.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "author-voice-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "author-voice-profiler"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        },
+        {
+          "output": "author-voice-profile.md",
+          "ambiguous": false,
+          "producers": [
+            "author-voice-profiler"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
         }
       ],
       "portableFiles": [
@@ -4348,6 +4395,55 @@
       }
     },
     {
+      "name": "llm-prose-pattern-audit",
+      "description": "Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generischer LLM-Prosa wie Signifikanzinflation, Pseudoanalyse, rhetorische Templates, Synonymvariation, Hedging, Nominalstil und syntaktische Gleichförmigkeit, ohne daraus KI-Autorschaft zu behaupten. Verwenden vor sprachgenauer Überarbeitung oder zur Stil-Diagnose.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "precision-writing-revision"
+      ],
+      "outputs": [
+        "prose-audit.json",
+        "prose-audit.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "prose-audit.json",
+          "ambiguous": false,
+          "producers": [
+            "llm-prose-pattern-audit"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        },
+        {
+          "output": "prose-audit.md",
+          "ambiguous": false,
+          "producers": [
+            "llm-prose-pattern-audit"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/pattern-taxonomy.md",
+        "scripts/style_metrics.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "mdcg-guidance-navigator",
       "description": "Ermittelt für Medical-Device-/IVD-Fragen die aktuell anwendbaren MDCG-Dokumente aus offiziellen EU-Quellen, inklusive Revision, Status, Scope, Freshness und Änderungen gegenüber einem früheren Stand. Verwenden, wenn aktuelle MDCG-Guidance identifiziert oder ein Guidance-Set aktualisiert werden muss; der Skill entscheidet selbst keine Compliance oder Klassifikation.",
       "invocation": {
@@ -6250,6 +6346,99 @@
       }
     },
     {
+      "name": "precision-language-rewriter",
+      "description": "Überarbeitet deutsche und englische Reports, Memos und Sachtexte in den Modi light, author oder editorial auf Präzision, idiomatische Sprache, Genrepassung und optional bestätigte Author Voice, ohne neue Sachinformation zu erzeugen oder fachliche Terminologie zugunsten künstlicher Variation zu verwässern.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "precision-writing-revision"
+      ],
+      "outputs": [
+        "revised-text",
+        "rewrite-change-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "revised-text",
+          "ambiguous": false,
+          "producers": [
+            "precision-language-rewriter"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        },
+        {
+          "output": "rewrite-change-map.json",
+          "ambiguous": false,
+          "producers": [
+            "precision-language-rewriter"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "precision-writing-revision",
+      "description": "Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, Memos und Sachtexte durch Muster-Audit, optionales Author-Voice-Profil, Precision Rewrite und anschließende Fidelity-Prüfung. Verwenden, wenn ein vollständiger wiederholbarer Editierworkflow statt einer isolierten Umformulierung gewünscht ist.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "author-voice-profiler",
+        "llm-prose-pattern-audit",
+        "precision-language-rewriter",
+        "rewrite-fidelity-verifier"
+      ],
+      "dependents": [],
+      "outputs": [
+        "final-revised-text",
+        "precision-writing-report.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "final-revised-text",
+          "ambiguous": false,
+          "producers": [
+            "precision-writing-revision"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "precision-writing-report.json",
+          "ambiguous": false,
+          "producers": [
+            "precision-writing-revision"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "description": "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierten Kriterien, Revalidierung und Change-Traceability.",
       "invocation": {
@@ -7267,6 +7456,54 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "rewrite-fidelity-verifier",
+      "description": "Vergleicht Ausgangs- und überarbeiteten Sachtext auf fachliche und epistemische Treue, einschließlich Zahlen, Quellen, Terminologie, Negationen, Modalität, Bedingungen, Kausalität und Claims. Verwenden nach sprachlicher Überarbeitung, um stilistische Verbesserung von inhaltlicher Veränderung zu trennen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "precision-writing-revision"
+      ],
+      "outputs": [
+        "fidelity-review.md",
+        "rewrite-fidelity.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fidelity-review.md",
+          "ambiguous": false,
+          "producers": [
+            "rewrite-fidelity-verifier"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        },
+        {
+          "output": "rewrite-fidelity.json",
+          "ambiguous": false,
+          "producers": [
+            "rewrite-fidelity-verifier"
+          ],
+          "consumerSkills": [
+            "precision-writing-revision"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "scripts/fidelity_tokens.py"
       ],
       "evaluation": {
         "mode": "compatibility",

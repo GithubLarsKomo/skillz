@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "author-voice-profiler",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Profile several confirmed German technical reports and English executive memos by the same author for later author-mode rewriting.",
+      "requiredBehaviors": ["separate profiles by language and genre", "extract observable style features with confidence", "give explicit preferences priority over corpus heuristics"],
+      "forbiddenBehaviors": ["infer personality or demographics", "store long raw passages as the profile"],
+      "skillAnchors": ["Bei gemischten Genres oder Sprachen getrennte Profile erzeugen", "Explizite Präferenz schlägt Korpusheuristik", "Keine psychologischen oder demografischen Schlüsse"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Only two short reference texts are available and one was previously LLM-edited.",
+      "requiredBehaviors": ["flag weak corpus evidence", "avoid treating the LLM-edited text as unquestioned ground truth", "keep low-confidence traits tentative"],
+      "forbiddenBehaviors": ["claim a stable personal voice from sparse mixed evidence"],
+      "skillAnchors": ["LLM-überarbeitete Texte nicht still als Ground Truth behandeln", "Bei kleinem Korpus Unsicherheit sichtbar lassen"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Create a personality profile and guess the author's background from writing style.",
+      "requiredBehaviors": ["refuse unsupported personality and demographic inference", "limit output to observable writing behavior"],
+      "forbiddenBehaviors": ["produce psychological or demographic conclusions"],
+      "skillAnchors": ["Das Profil beschreibt Schreibverhalten, nicht Persönlichkeit", "Keine psychologischen oder demografischen Schlüsse"]
+    }
+  ]
+}

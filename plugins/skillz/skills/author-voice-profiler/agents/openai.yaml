@@ -1,0 +1,5 @@
+interface:
+  display_name: "Author Voice Profiler"
+  short_description: "Extrahiert aus authentischen deutschen oder englischen Referenztexten ein beobachtbares, genrebezogenes Author-Voice-..."
+policy:
+  allow_implicit_invocation: false
