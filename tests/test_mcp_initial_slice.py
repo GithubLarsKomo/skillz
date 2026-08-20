@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import unittest
 from pathlib import Path
 
@@ -99,6 +100,32 @@ class MCPInitialSliceTests(unittest.TestCase):
                 assert validation.structured_content is not None
                 self.assertTrue(validation.structured_content["valid"], validation.structured_content["errors"])
                 self.assertEqual(validation.structured_content["errorCount"], 0)
+
+        asyncio.run(run())
+
+    def test_mcp_lists_and_reads_catalog_resources(self) -> None:
+        async def run() -> None:
+            async with Client(create_server(ROOT)) as client:
+                listed = await client.list_resources()
+                by_uri = {str(resource.uri): resource for resource in listed.resources}
+                self.assertTrue({"skillz://index", "skillz://graph", "skillz://status"}.issubset(by_uri))
+                for uri in ("skillz://index", "skillz://graph", "skillz://status"):
+                    self.assertEqual(by_uri[uri].mime_type, "application/json")
+                    self.assertIsNotNone(by_uri[uri].meta)
+
+                index_result = await client.read_resource("skillz://index")
+                index_payload = json.loads(index_result.contents[0].text)
+                self.assertEqual(index_payload["schemaVersion"], 1)
+                self.assertEqual(index_payload["skillCount"], 129)
+
+                graph_result = await client.read_resource("skillz://graph")
+                graph_payload = json.loads(graph_result.contents[0].text)
+                self.assertEqual(graph_payload["schemaVersion"], 1)
+                self.assertTrue(graph_payload["skills"])
+
+                status_result = await client.read_resource("skillz://status")
+                status_payload = json.loads(status_result.contents[0].text)
+                self.assertEqual(len(status_payload["catalogHash"]), 64)
 
         asyncio.run(run())
 
