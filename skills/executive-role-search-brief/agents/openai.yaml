@@ -1,0 +1,5 @@
+interface:
+  display_name: "Executive Role Search Brief"
+  short_description: "Operationalisiert Grilling-Ergebnisse zu evidenzprüfbaren Rollen- und Search-Kriterien."
+policy:
+  allow_implicit_invocation: true
