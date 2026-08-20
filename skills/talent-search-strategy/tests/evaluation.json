@@ -22,7 +22,7 @@
       ]
     },
     {
-      "id": "edge-case-rare-combination",
+      "id": "edge-case",
       "input": "The role requires deep scientific expertise plus full CEO P&L responsibility in a small internationally active diagnostics company, creating a very narrow search space.",
       "requiredBehaviors": [
         "surface the rarity as a search risk",
