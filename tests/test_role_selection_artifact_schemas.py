@@ -117,13 +117,21 @@ class RoleSelectionArtifactSchemaTests(unittest.TestCase):
                     "evidence": [],
                     "assessment": "No sufficient evidence available yet.",
                     "verificationQuestion": "Describe a turnaround you personally led and quantify the result.",
-                }
+                },
+                {
+                    "dimensionId": "CAP-002",
+                    "evidenceClass": "verified",
+                    "confidence": "high",
+                    "evidence": ["Primary evidence of technical-operational integration."],
+                    "assessment": "Directly supported by available evidence.",
+                    "verificationQuestion": None,
+                },
             ],
-            "verifiedStrengths": [],
+            "verifiedStrengths": ["Technical-operational integration"],
             "evidenceGaps": ["Turnaround outcome evidence"],
             "contradictions": [],
             "knockoutStatus": "unknown",
-            "overallConfidence": "low",
+            "overallConfidence": "medium",
             "recommendedVerification": ["Structured interview"],
             "limitations": ["Public evidence is incomplete."],
         }
@@ -164,6 +172,19 @@ class RoleSelectionArtifactSchemaTests(unittest.TestCase):
         ids = [item["id"] for item in data["dimensions"]]
         self.assertNotEqual(len(ids), len(set(ids)))
 
+    def test_knockout_requires_documented_rationale(self):
+        valid = copy.deepcopy(self.scorecard)
+        valid["dimensions"][0]["knockout"] = True
+        valid["dimensions"][0]["knockoutRationale"] = "Mandatory legal qualification for the role."
+        self.assertTrue(
+            all(not item["knockout"] or bool(item["knockoutRationale"]) for item in valid["dimensions"])
+        )
+        invalid = copy.deepcopy(valid)
+        invalid["dimensions"][0]["knockoutRationale"] = None
+        self.assertFalse(
+            all(not item["knockout"] or bool(item["knockoutRationale"]) for item in invalid["dimensions"])
+        )
+
     def test_architecture_and_scorecard_versions_must_match(self):
         self.assertEqual(self.architecture["roleArchitectureId"], self.scorecard["roleArchitectureId"])
         self.assertEqual(self.architecture["version"], self.scorecard["roleArchitectureVersion"])
@@ -175,6 +196,12 @@ class RoleSelectionArtifactSchemaTests(unittest.TestCase):
         self.assertEqual(self.fit["roleArchitectureId"], self.architecture["roleArchitectureId"])
         self.assertEqual(self.fit["roleArchitectureVersion"], self.architecture["version"])
         self.assertEqual(self.fit["scoringModelVersion"], self.scorecard["scoringModelVersion"])
+
+    def test_candidate_fit_covers_every_scorecard_dimension_once(self):
+        scorecard_ids = {item["id"] for item in self.scorecard["dimensions"]}
+        assessment_ids = [item["dimensionId"] for item in self.fit["dimensionAssessments"]]
+        self.assertEqual(set(assessment_ids), scorecard_ids)
+        self.assertEqual(len(assessment_ids), len(set(assessment_ids)))
 
     def test_candidate_review_requires_prefrozen_scoring(self):
         self.assertTrue(self.scorecard["approvedBeforeCandidateReview"])
