@@ -18,6 +18,7 @@ from skillz_core import (
     normalize_constraints,
     producer_info,
     query_skill_listing,
+    read_flat_text,
     read_utf8_text,
     resolve,
     safe_relative_path,
@@ -38,6 +39,9 @@ def create_server(
     graph_path = root / "docs" / "skill-dependency-graph.json"
     version_path = root / "VERSION"
     skills_root = (root / "skills").resolve()
+    schemas_root = (root / "schemas").resolve()
+    contracts_root = (root / "contracts").resolve()
+    docs_root = (root / "docs").resolve()
     index = load_index(index_path)
     graph = load_graph(graph_path)
     identity = catalog_identity(
@@ -228,5 +232,35 @@ def create_server(
         assets_root = safe_relative_path(skill_root(name), "assets")
         payload = describe_path(assets_root, relative_path)
         return {"skill": name, **payload}
+
+    @server.resource(
+        "skillz://schemas/{name}",
+        name="repository_schema",
+        description="One named JSON Schema from the repository schemas namespace.",
+        mime_type="application/schema+json",
+        meta=resource_meta,
+    )
+    def repository_schema_resource(name: str) -> str:
+        return read_flat_text(schemas_root, name, allowed_suffixes=(".schema.json",))
+
+    @server.resource(
+        "skillz://contracts/{name}",
+        name="repository_contract",
+        description="One named JSON contract schema from the repository contracts namespace.",
+        mime_type="application/schema+json",
+        meta=resource_meta,
+    )
+    def repository_contract_resource(name: str) -> str:
+        return read_flat_text(contracts_root, name, allowed_suffixes=(".schema.json",))
+
+    @server.resource(
+        "skillz://docs/{name}",
+        name="repository_documentation",
+        description="One top-level Markdown document from the repository docs namespace.",
+        mime_type="text/markdown; charset=utf-8",
+        meta=resource_meta,
+    )
+    def repository_documentation_resource(name: str) -> str:
+        return read_flat_text(docs_root, name, allowed_suffixes=(".md", ".MD"))
 
     return server
