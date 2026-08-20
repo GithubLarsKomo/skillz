@@ -4,6 +4,7 @@ import asyncio
 import json
 import subprocess
 import sys
+import unittest
 from pathlib import Path
 
 from mcp import Client
@@ -35,51 +36,54 @@ def run_json_cli(*args: str) -> dict:
     return json.loads(completed.stdout)
 
 
-def test_query_cli_matches_core_exact_skill() -> None:
-    index = load_index(INDEX_PATH)
-    expected = get_skill(index, "disciplined-diagnosis")
-    actual = run_json_cli(str(QUERY_CLI), "--skill", "disciplined-diagnosis", "--json")
-    assert actual == expected
+class CLIMCPParityTests(unittest.TestCase):
+    def test_query_cli_matches_core_exact_skill(self) -> None:
+        index = load_index(INDEX_PATH)
+        expected = get_skill(index, "disciplined-diagnosis")
+        actual = run_json_cli(str(QUERY_CLI), "--skill", "disciplined-diagnosis", "--json")
+        self.assertEqual(actual, expected)
 
-
-def test_query_cli_matches_core_listing() -> None:
-    index = load_index(INDEX_PATH)
-    mode, matches = query_skill_listing(index, "diagnosis")
-    expected = listing_payload(mode, "diagnosis", matches)
-    actual = run_json_cli(str(QUERY_CLI), "--skills", "diagnosis", "--json")
-    assert actual == expected
-
-
-def test_resolver_cli_matches_core() -> None:
-    index = load_index(INDEX_PATH)
-    constraints = normalize_constraints(["agent-handoff.json"], [], [], "irrelevant")
-    expected = resolve(index, constraints)
-    actual = run_json_cli(str(RESOLVER_CLI), "--output", "agent-handoff.json", "--json")
-    assert actual == expected
-
-
-def test_mcp_matches_core_for_initial_tools() -> None:
-    async def run() -> None:
+    def test_query_cli_matches_core_listing(self) -> None:
         index = load_index(INDEX_PATH)
         mode, matches = query_skill_listing(index, "diagnosis")
-        expected_search = listing_payload(mode, "diagnosis", matches[:10])
-        expected_skill = get_skill(index, "disciplined-diagnosis")
+        expected = listing_payload(mode, "diagnosis", matches)
+        actual = run_json_cli(str(QUERY_CLI), "--skills", "diagnosis", "--json")
+        self.assertEqual(actual, expected)
 
-        async with Client(create_server(ROOT)) as client:
-            search = await client.call_tool("search_skills", {"query": "diagnosis", "limit": 10})
-            assert search.is_error is False
-            assert search.structured_content == expected_search
+    def test_resolver_cli_matches_core(self) -> None:
+        index = load_index(INDEX_PATH)
+        constraints = normalize_constraints(["agent-handoff.json"], [], [], "irrelevant")
+        expected = resolve(index, constraints)
+        actual = run_json_cli(str(RESOLVER_CLI), "--output", "agent-handoff.json", "--json")
+        self.assertEqual(actual, expected)
 
-            detail = await client.call_tool("get_skill", {"name": "disciplined-diagnosis"})
-            assert detail.is_error is False
-            assert detail.structured_content is not None
-            actual_skill = dict(detail.structured_content)
-            resource_uris = actual_skill.pop("resourceUris")
-            assert actual_skill == expected_skill
-            assert resource_uris == {
-                "metadata": "skillz://skills/disciplined-diagnosis",
-                "body": "skillz://skills/disciplined-diagnosis/SKILL.md",
-                "references": "skillz://skills/disciplined-diagnosis/references/",
-            }
+    def test_mcp_matches_core_for_initial_tools(self) -> None:
+        async def run() -> None:
+            index = load_index(INDEX_PATH)
+            mode, matches = query_skill_listing(index, "diagnosis")
+            expected_search = listing_payload(mode, "diagnosis", matches[:10])
+            expected_skill = get_skill(index, "disciplined-diagnosis")
 
-    asyncio.run(run())
+            async with Client(create_server(ROOT)) as client:
+                search = await client.call_tool("search_skills", {"query": "diagnosis", "limit": 10})
+                self.assertFalse(search.is_error)
+                self.assertEqual(search.structured_content, expected_search)
+
+                detail = await client.call_tool("get_skill", {"name": "disciplined-diagnosis"})
+                self.assertFalse(detail.is_error)
+                self.assertIsNotNone(detail.structured_content)
+                assert detail.structured_content is not None
+                actual_skill = dict(detail.structured_content)
+                resource_uris = actual_skill.pop("resourceUris")
+                self.assertEqual(actual_skill, expected_skill)
+                self.assertEqual(resource_uris, {
+                    "metadata": "skillz://skills/disciplined-diagnosis",
+                    "body": "skillz://skills/disciplined-diagnosis/SKILL.md",
+                    "references": "skillz://skills/disciplined-diagnosis/references/",
+                })
+
+        asyncio.run(run())
+
+
+if __name__ == "__main__":
+    unittest.main()
