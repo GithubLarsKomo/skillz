@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/precision-writing-author-voice]
     paths:
       - "skills/**"
       - "scripts/materialize_openai_agent_metadata.py"
