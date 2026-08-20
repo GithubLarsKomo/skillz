@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 146,
-  "entrypointCount": 121,
+  "skillCount": 151,
+  "entrypointCount": 122,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 146,
+  "evaluationSuiteCount": 151,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -410,6 +410,7 @@
       },
       "requires": [],
       "dependents": [
+        "frontend-design-director",
         "memory-sync-reconciliation"
       ],
       "outputs": [
@@ -424,6 +425,7 @@
             "communication-memory-governance"
           ],
           "consumerSkills": [
+            "frontend-design-director",
             "memory-sync-reconciliation"
           ]
         },
@@ -434,6 +436,7 @@
             "communication-memory-governance"
           ],
           "consumerSkills": [
+            "frontend-design-director",
             "memory-sync-reconciliation"
           ]
         }
@@ -2797,6 +2800,271 @@
       }
     },
     {
+      "name": "frontend-design-director",
+      "description": "Orchestriert Frontend-Designarbeit für Websites, Landingpages, Apps und Dashboards aus autoritativem PRODUCT.md und DESIGN.md, persönlichem Designprofil, featurebezogenem Shaping und evidenzbasiertem Review. Verwenden für Design, Redesign, UX/UI-Verbesserung, Kritik, Audit oder Polish; nicht für reine Backend-Arbeit.",
+      "invocation": {
+        "userFacing": true,
+        "category": "engineering"
+      },
+      "requires": [
+        "communication-memory-governance",
+        "frontend-design-review",
+        "frontend-design-shaping",
+        "frontend-design-system-context",
+        "frontend-product-context"
+      ],
+      "dependents": [],
+      "outputs": [
+        "frontend-design-handoff.md",
+        "frontend-design-routing.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "frontend-design-handoff.md",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-director"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "frontend-design-routing.json",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-director"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/impeccable-provenance.md",
+        "references/personal-design-defaults.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "frontend-design-review",
+      "description": "Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "frontend-design-system-context",
+        "frontend-product-context"
+      ],
+      "dependents": [
+        "frontend-design-director"
+      ],
+      "outputs": [
+        "frontend-design-findings.json",
+        "frontend-design-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "frontend-design-findings.json",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-review"
+          ],
+          "consumerSkills": [
+            "frontend-design-director"
+          ]
+        },
+        {
+          "output": "frontend-design-review.md",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-review"
+          ],
+          "consumerSkills": [
+            "frontend-design-director"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "frontend-design-shaping",
+      "description": "Klärt eine konkrete neue oder wesentlich veränderte Frontend-Surface vor Implementierung auf Basis des autoritativen PRODUCT.md und DESIGN.md. Fragt nur materielle neue Entscheidungen ab, erzeugt bei Greenfield oder echter Richtungsunsicherheit visuelle Probes und liefert einen bestätigbaren frontend-design-brief.md mit expliziten lokalen Overrides.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "frontend-design-system-context",
+        "frontend-product-context",
+        "large-work-wayfinder",
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [
+        "frontend-design-director"
+      ],
+      "outputs": [
+        "frontend-design-brief.md",
+        "frontend-shaping-handoff.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "frontend-design-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-shaping"
+          ],
+          "consumerSkills": [
+            "frontend-design-director"
+          ]
+        },
+        {
+          "output": "frontend-shaping-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-shaping"
+          ],
+          "consumerSkills": [
+            "frontend-design-director"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "frontend-design-system-context",
+      "description": "Erzeugt oder aktualisiert den autoritativen visuellen und interaktiven Projektkontext in DESIGN.md. Nutzt ein bestätigtes PRODUCT.md und analysiert vorhandene Tokens, Komponenten, Screens und Assets als Evidenz; alle offenen visuellen Systementscheidungen werden in einem eigenen fokussierten Grilling bestätigt.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "frontend-product-context",
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [
+        "frontend-design-director",
+        "frontend-design-review",
+        "frontend-design-shaping"
+      ],
+      "outputs": [
+        "DESIGN.md",
+        "frontend-design-system-context-handoff.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "DESIGN.md",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-system-context"
+          ],
+          "consumerSkills": [
+            "frontend-design-director",
+            "frontend-design-review",
+            "frontend-design-shaping"
+          ]
+        },
+        {
+          "output": "frontend-design-system-context-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-system-context"
+          ],
+          "consumerSkills": [
+            "frontend-design-director",
+            "frontend-design-review",
+            "frontend-design-shaping"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "frontend-product-context",
+      "description": "Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Repository-Evidenz und lässt alle nicht bereits bestätigten Produkt-, Zielgruppen-, Register-, Marken- und Accessibility-Entscheidungen anschließend in einem eigenen fokussierten Grilling bestätigen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [
+        "frontend-design-director",
+        "frontend-design-review",
+        "frontend-design-shaping",
+        "frontend-design-system-context"
+      ],
+      "outputs": [
+        "PRODUCT.md",
+        "frontend-product-context-handoff.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "PRODUCT.md",
+          "ambiguous": false,
+          "producers": [
+            "frontend-product-context"
+          ],
+          "consumerSkills": [
+            "frontend-design-director",
+            "frontend-design-review",
+            "frontend-design-shaping",
+            "frontend-design-system-context"
+          ]
+        },
+        {
+          "output": "frontend-product-context-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "frontend-product-context"
+          ],
+          "consumerSkills": [
+            "frontend-design-director",
+            "frontend-design-review",
+            "frontend-design-shaping",
+            "frontend-design-system-context"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "human-procedure-wizard",
       "description": "Führt sicher durch unvermeidbare menschliche Schritte in ansonsten agentengesteuerten Workflows, etwa Dashboard-Aktionen, Freigaben, Secret-Eingaben, physische Bestätigungen oder irreversible Cutover-Gates. Verwenden, wenn ein Agent den nächsten Schritt nicht selbst ausführen darf oder kann und danach verifizierbar weiterarbeiten soll; nicht für normale Anforderungsklärung oder reine Übergaben.",
       "invocation": {
@@ -4209,6 +4477,7 @@
       ],
       "dependents": [
         "decision-record",
+        "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
@@ -4226,6 +4495,7 @@
           ],
           "consumerSkills": [
             "decision-record",
+            "frontend-design-shaping",
             "medical-device-regulatory-strategy",
             "throwaway-prototype"
           ]
@@ -4238,6 +4508,7 @@
           ],
           "consumerSkills": [
             "decision-record",
+            "frontend-design-shaping",
             "medical-device-regulatory-strategy",
             "throwaway-prototype"
           ]
@@ -4250,6 +4521,7 @@
           ],
           "consumerSkills": [
             "decision-record",
+            "frontend-design-shaping",
             "medical-device-regulatory-strategy",
             "throwaway-prototype"
           ]
@@ -7703,6 +7975,9 @@
       },
       "requires": [],
       "dependents": [
+        "frontend-design-shaping",
+        "frontend-design-system-context",
+        "frontend-product-context",
         "role-requirements-grilling"
       ],
       "outputs": [
@@ -7717,6 +7992,9 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
+            "frontend-design-shaping",
+            "frontend-design-system-context",
+            "frontend-product-context",
             "role-requirements-grilling"
           ]
         },
@@ -7727,6 +8005,9 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
+            "frontend-design-shaping",
+            "frontend-design-system-context",
+            "frontend-product-context",
             "role-requirements-grilling"
           ]
         }

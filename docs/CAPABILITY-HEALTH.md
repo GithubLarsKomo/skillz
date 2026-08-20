@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **146**
-- User-facing entrypoints: **121**
-- Evaluation suites: **146**
+- Skills: **151**
+- User-facing entrypoints: **122**
+- Evaluation suites: **151**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **165**
+- Outputs without inferred hard-requires consumers: **167**
 
 ## Evaluation gaps
 
@@ -93,6 +93,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `final-revised-text` — producer: `precision-writing-revision`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
+- `frontend-design-handoff.md` — producer: `frontend-design-director`
+- `frontend-design-routing.json` — producer: `frontend-design-director`
 - `fto-claim-map.json` — producer: `freedom-to-operate-assessment`
 - `fto-design-around-options.json` — producer: `freedom-to-operate-assessment`
 - `fto-risk-heatmap.md` — producer: `freedom-to-operate-assessment`

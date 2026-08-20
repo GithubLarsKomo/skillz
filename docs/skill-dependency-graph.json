@@ -636,6 +636,70 @@
       ]
     },
     {
+      "name": "frontend-design-director",
+      "requires": [
+        "communication-memory-governance",
+        "frontend-design-review",
+        "frontend-design-shaping",
+        "frontend-design-system-context",
+        "frontend-product-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "frontend-design-handoff.md",
+        "frontend-design-routing.json"
+      ]
+    },
+    {
+      "name": "frontend-design-review",
+      "requires": [
+        "frontend-design-system-context",
+        "frontend-product-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "frontend-design-findings.json",
+        "frontend-design-review.md"
+      ]
+    },
+    {
+      "name": "frontend-design-shaping",
+      "requires": [
+        "frontend-design-system-context",
+        "frontend-product-context",
+        "large-work-wayfinder",
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [],
+      "outputs": [
+        "frontend-design-brief.md",
+        "frontend-shaping-handoff.json"
+      ]
+    },
+    {
+      "name": "frontend-design-system-context",
+      "requires": [
+        "frontend-product-context",
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [],
+      "outputs": [
+        "DESIGN.md",
+        "frontend-design-system-context-handoff.json"
+      ]
+    },
+    {
+      "name": "frontend-product-context",
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [],
+      "outputs": [
+        "PRODUCT.md",
+        "frontend-product-context-handoff.json"
+      ]
+    },
+    {
       "name": "human-procedure-wizard",
       "requires": [],
       "consumes": [],
@@ -2311,6 +2375,62 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "frontend-design-director",
+      "to": "communication-memory-governance"
+    },
+    {
+      "from": "frontend-design-director",
+      "to": "frontend-design-review"
+    },
+    {
+      "from": "frontend-design-director",
+      "to": "frontend-design-shaping"
+    },
+    {
+      "from": "frontend-design-director",
+      "to": "frontend-design-system-context"
+    },
+    {
+      "from": "frontend-design-director",
+      "to": "frontend-product-context"
+    },
+    {
+      "from": "frontend-design-review",
+      "to": "frontend-design-system-context"
+    },
+    {
+      "from": "frontend-design-review",
+      "to": "frontend-product-context"
+    },
+    {
+      "from": "frontend-design-shaping",
+      "to": "frontend-design-system-context"
+    },
+    {
+      "from": "frontend-design-shaping",
+      "to": "frontend-product-context"
+    },
+    {
+      "from": "frontend-design-shaping",
+      "to": "large-work-wayfinder"
+    },
+    {
+      "from": "frontend-design-shaping",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "frontend-design-system-context",
+      "to": "frontend-product-context"
+    },
+    {
+      "from": "frontend-design-system-context",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "frontend-product-context",
+      "to": "round-based-requirements-grilling"
+    },
+    {
       "from": "iec62304-software-lifecycle",
       "to": "design-control-traceability"
     },
@@ -3236,12 +3356,42 @@
   ],
   "outputContracts": [
     {
+      "output": "DESIGN.md",
+      "producers": [
+        "frontend-design-system-context"
+      ],
+      "consumerSkills": [
+        "frontend-design-director",
+        "frontend-design-review",
+        "frontend-design-shaping"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "GRILL-REPORT.md",
       "producers": [
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
+        "frontend-design-shaping",
+        "frontend-design-system-context",
+        "frontend-product-context",
         "role-requirements-grilling"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "PRODUCT.md",
+      "producers": [
+        "frontend-product-context"
+      ],
+      "consumerSkills": [
+        "frontend-design-director",
+        "frontend-design-review",
+        "frontend-design-shaping",
+        "frontend-design-system-context"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3718,6 +3868,7 @@
         "communication-memory-governance"
       ],
       "consumerSkills": [
+        "frontend-design-director",
         "memory-sync-reconciliation"
       ],
       "ambiguous": false,
@@ -4206,6 +4357,7 @@
       ],
       "consumerSkills": [
         "decision-record",
+        "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
@@ -4980,6 +5132,95 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "frontend-design-brief.md",
+      "producers": [
+        "frontend-design-shaping"
+      ],
+      "consumerSkills": [
+        "frontend-design-director"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "frontend-design-findings.json",
+      "producers": [
+        "frontend-design-review"
+      ],
+      "consumerSkills": [
+        "frontend-design-director"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "frontend-design-handoff.md",
+      "producers": [
+        "frontend-design-director"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "frontend-design-review.md",
+      "producers": [
+        "frontend-design-review"
+      ],
+      "consumerSkills": [
+        "frontend-design-director"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "frontend-design-routing.json",
+      "producers": [
+        "frontend-design-director"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "frontend-design-system-context-handoff.json",
+      "producers": [
+        "frontend-design-system-context"
+      ],
+      "consumerSkills": [
+        "frontend-design-director",
+        "frontend-design-review",
+        "frontend-design-shaping"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "frontend-product-context-handoff.json",
+      "producers": [
+        "frontend-product-context"
+      ],
+      "consumerSkills": [
+        "frontend-design-director",
+        "frontend-design-review",
+        "frontend-design-shaping",
+        "frontend-design-system-context"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "frontend-shaping-handoff.json",
+      "producers": [
+        "frontend-design-shaping"
+      ],
+      "consumerSkills": [
+        "frontend-design-director"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "fto-claim-map.json",
       "producers": [
         "freedom-to-operate-assessment"
@@ -5161,6 +5402,7 @@
       ],
       "consumerSkills": [
         "decision-record",
+        "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
@@ -5749,6 +5991,7 @@
         "communication-memory-governance"
       ],
       "consumerSkills": [
+        "frontend-design-director",
         "memory-sync-reconciliation"
       ],
       "ambiguous": false,
@@ -6760,6 +7003,9 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
+        "frontend-design-shaping",
+        "frontend-design-system-context",
+        "frontend-product-context",
         "role-requirements-grilling"
       ],
       "ambiguous": false,
@@ -7574,6 +7820,7 @@
       ],
       "consumerSkills": [
         "decision-record",
+        "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
       ],
@@ -7645,6 +7892,8 @@
     "final-revised-text",
     "finding-action-plan.json",
     "finding-closure-status.json",
+    "frontend-design-handoff.md",
+    "frontend-design-routing.json",
     "fto-claim-map.json",
     "fto-design-around-options.json",
     "fto-risk-heatmap.md",
@@ -7812,6 +8061,8 @@
     "final-revised-text",
     "finding-action-plan.json",
     "finding-closure-status.json",
+    "frontend-design-handoff.md",
+    "frontend-design-routing.json",
     "fto-claim-map.json",
     "fto-design-around-options.json",
     "fto-risk-heatmap.md",

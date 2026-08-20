@@ -30,6 +30,7 @@ Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Ein
 
 ## Required by
 
+- [[skills/frontend-design-director|frontend-design-director]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 
 ## Outputs
@@ -41,10 +42,12 @@ Verwaltet stabile Kommunikationspräferenzen und bestätigte Langzeit-Memory-Ein
 
 ### `communication-profile.json`
 
+- [[skills/frontend-design-director|frontend-design-director]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 
 ### `memory-ledger.json`
 
+- [[skills/frontend-design-director|frontend-design-director]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 
 ## Evaluation

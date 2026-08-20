@@ -337,6 +337,38 @@
         "agents/openai.yaml": "09e3d681eb309477530e7c79621c6f8fc085d4c8907e463dd94dcc94ac928c7c"
       }
     },
+    "frontend-design-director": {
+      "files": {
+        "SKILL.md": "6f29a5c20f1b4c7fe455cb588381a6a524e51216277492026869b8c0d1b061d0",
+        "agents/openai.yaml": "b5e15b22ad69153b1407a1a0ea5de4040929377bae58da312067bcccfad6c038",
+        "references/impeccable-provenance.md": "1b3c09abcc539b5e8d3d356351e40b75eaa1e175a8b3f36758f938ea7fc7dde8",
+        "references/personal-design-defaults.md": "411fe810d55f07e438ec2ce7c0aff703f9a11d43f284f6381871db1ea0fec1d2"
+      }
+    },
+    "frontend-design-review": {
+      "files": {
+        "SKILL.md": "cce11014d796d5f04c28640f9aa7bae7a6d64265c0e4ff54b7da07d45863afb9",
+        "agents/openai.yaml": "def055f64ed61bcbab9cbe0f03156cb415e8d6e84ad6a10c68d776bec0b1808c"
+      }
+    },
+    "frontend-design-shaping": {
+      "files": {
+        "SKILL.md": "b8642f2899dfd8a479e26f38aa54a35cb2f2841ba847741c6ea1bdd1d41345ae",
+        "agents/openai.yaml": "194c27b1833a3cab0502771f5a7db455fe26e9929ebea0e2a9b7dc4ceae3d99d"
+      }
+    },
+    "frontend-design-system-context": {
+      "files": {
+        "SKILL.md": "4e649fe4f3e1b374d7d4eb658399bed29e0d6565e0ce0f257003685e1e52edfd",
+        "agents/openai.yaml": "2b01df44f8aa421e62acbd37eed591ed69f83bab5a4adbe6701a3802369e1fe4"
+      }
+    },
+    "frontend-product-context": {
+      "files": {
+        "SKILL.md": "72781eb83a9697e1a773cb6b720154a4f0d0b6d2f3caf9501cdfe1f72e0dd19d",
+        "agents/openai.yaml": "3e29131a317a316a645a3e4d93c909dbb0fd9ebec22c68ade910a931e8cceb87"
+      }
+    },
     "human-procedure-wizard": {
       "files": {
         "SKILL.md": "e447fe883e95508a087ea46190131ad0f0dffea928b87dbb96e8a6531484ba5b",

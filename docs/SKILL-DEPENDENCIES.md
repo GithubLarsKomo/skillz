@@ -117,6 +117,20 @@ graph TD
   fda_registration_listing_udi --> regulated_product_context
   fda_registration_listing_udi --> regulatory_evidence_traceability
   freedom_to_operate_assessment --> research_to_evidence_note
+  frontend_design_director --> communication_memory_governance
+  frontend_design_director --> frontend_design_review
+  frontend_design_director --> frontend_design_shaping
+  frontend_design_director --> frontend_design_system_context
+  frontend_design_director --> frontend_product_context
+  frontend_design_review --> frontend_design_system_context
+  frontend_design_review --> frontend_product_context
+  frontend_design_shaping --> frontend_design_system_context
+  frontend_design_shaping --> frontend_product_context
+  frontend_design_shaping --> large_work_wayfinder
+  frontend_design_shaping --> round_based_requirements_grilling
+  frontend_design_system_context --> frontend_product_context
+  frontend_design_system_context --> round_based_requirements_grilling
+  frontend_product_context --> round_based_requirements_grilling
   iec62304_software_lifecycle --> design_control_traceability
   iec62304_software_lifecycle --> medical_device_qms_iso13485
   iec62304_software_lifecycle --> medical_device_risk_management_iso14971
@@ -361,7 +375,9 @@ graph TD
 
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `role-requirements-grilling` | inferred |
+| `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling` | inferred |
+| `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `acceptance-gaps.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `adverse-event-code-set.json` | `medical-device-adverse-event-coding` | — | unconsumed |
@@ -406,7 +422,7 @@ graph TD
 | `clinical-evidence-impact-map.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-performance-evidence.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `clinical-performance-study-plan.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
-| `communication-profile.json` | `communication-memory-governance` | `memory-sync-reconciliation` | inferred |
+| `communication-profile.json` | `communication-memory-governance` | `frontend-design-director`, `memory-sync-reconciliation` | inferred |
 | `communication-profile.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `complaint-closure-readiness.json` | `medical-device-complaint-handling` | `medical-device-adverse-event-coding`, `medical-device-complaint-customer-followup`, `medical-device-complaint-regulatory-routing` | inferred |
 | `complaint-intake-handoff.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
@@ -444,7 +460,7 @@ graph TD
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
-| `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
 | `design-control-traceability.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
@@ -513,6 +529,14 @@ graph TD
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `finding-closure-status.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `flex-study-needs.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
+| `frontend-design-brief.md` | `frontend-design-shaping` | `frontend-design-director` | inferred |
+| `frontend-design-findings.json` | `frontend-design-review` | `frontend-design-director` | inferred |
+| `frontend-design-handoff.md` | `frontend-design-director` | — | unconsumed |
+| `frontend-design-review.md` | `frontend-design-review` | `frontend-design-director` | inferred |
+| `frontend-design-routing.json` | `frontend-design-director` | — | unconsumed |
+| `frontend-design-system-context-handoff.json` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
+| `frontend-product-context-handoff.json` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
+| `frontend-shaping-handoff.json` | `frontend-design-shaping` | `frontend-design-director` | inferred |
 | `fto-claim-map.json` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-design-around-options.json` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-risk-heatmap.md` | `freedom-to-operate-assessment` | — | unconsumed |
@@ -531,7 +555,7 @@ graph TD
 | `inhouse-ivd-transition-readiness.json` | `ivdr-inhouse-health-institution` | — | unconsumed |
 | `inspection-evidence-index.json` | `fda-qmsr-inspection-readiness` | — | unconsumed |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | unconsumed |
-| `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `isms-audit-findings.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-plan.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-report.md` | `iso27001-isms-audit` | — | unconsumed |
@@ -585,7 +609,7 @@ graph TD
 | `measurement-system-assessment.json` | `measurement-system-validation` | — | unconsumed |
 | `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | inferred |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | inferred |
-| `memory-ledger.json` | `communication-memory-governance` | `memory-sync-reconciliation` | inferred |
+| `memory-ledger.json` | `communication-memory-governance` | `frontend-design-director`, `memory-sync-reconciliation` | inferred |
 | `memory-ledger.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
@@ -662,7 +686,7 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
 | `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | `role-requirements-grilling` | inferred |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
@@ -730,4 +754,4 @@ graph TD
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
-| `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |

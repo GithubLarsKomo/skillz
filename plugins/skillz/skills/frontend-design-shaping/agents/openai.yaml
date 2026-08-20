@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frontend Design Shaping"
+  short_description: "Klärt eine konkrete neue oder wesentlich veränderte Frontend-Surface vor Implementierung auf Basis des autoritativen..."
+policy:
+  allow_implicit_invocation: true
