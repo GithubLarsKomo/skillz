@@ -24,6 +24,8 @@ jobs:
         run: python -m unittest tests.test_cli_mcp_parity
       - name: Test graph and catalog identity core
         run: python -m unittest tests.test_graph_identity
+      - name: Test safe catalog validation core
+        run: python -m unittest tests.test_catalog_validation
       - name: Test skillz bootstrap installer
         run: python -m unittest tests.test_bootstrap_skillz
       - name: Test clean-room beta installation path
