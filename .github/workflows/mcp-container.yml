@@ -22,12 +22,12 @@ jobs:
             --env SKILLZ_MCP_AUTH_ISSUER_URL=https://auth.ratzeburg-ai.de/application/o/skillz/ \
             --env SKILLZ_MCP_AUTH_RESOURCE_URL=https://skillz.ratzeburg-ai.de/mcp \
             --env SKILLZ_MCP_AUTH_JWKS_URL=https://auth.ratzeburg-ai.de/application/o/skillz/jwks/ \
-            --env SKILLZ_MCP_AUTH_AUDIENCE=ci-client \
+            --env SKILLZ_MCP_AUTH_AUDIENCE=https://skillz.ratzeburg-ai.de/mcp \
             --env SKILLZ_MCP_AUTH_REQUIRED_SCOPES=skillz:read \
             --env SKILLZ_MCP_AUTH_ALGORITHMS=RS256 \
             --env SKILLZ_MCP_COMMIT_SHA=${GITHUB_SHA} \
             skillz-mcp:ci
-      - name: Verify health and anonymous auth boundary
+      - name: Verify health, discovery, and anonymous auth boundary
         run: |
           set -euo pipefail
           ready=0
@@ -48,12 +48,30 @@ jobs:
           payload = json.loads(Path('/tmp/skillz-health.json').read_text())
           assert payload == {'status': 'ok'}, payload
           PY
-          code=$(curl --silent --output /tmp/skillz-anon.txt --write-out '%{http_code}' \
+
+          curl --fail --silent --show-error \
+            --header 'Host: skillz.ratzeburg-ai.de' \
+            http://127.0.0.1:18000/.well-known/oauth-protected-resource/mcp \
+            >/tmp/skillz-resource-metadata.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path('/tmp/skillz-resource-metadata.json').read_text())
+          assert payload['resource'] == 'https://skillz.ratzeburg-ai.de/mcp', payload
+          assert payload['authorization_servers'] == ['https://auth.ratzeburg-ai.de/application/o/skillz/'], payload
+          assert payload['scopes_supported'] == ['skillz:read'], payload
+          PY
+
+          code=$(curl --silent --dump-header /tmp/skillz-anon-headers.txt \
+            --output /tmp/skillz-anon.txt --write-out '%{http_code}' \
+            --header 'Host: skillz.ratzeburg-ai.de' \
             --request POST \
             --header 'Content-Type: application/json' \
             --data '{}' \
             http://127.0.0.1:18000/mcp)
           test "$code" = "401"
+          grep -qi '^www-authenticate:.*Bearer' /tmp/skillz-anon-headers.txt
+          grep -qi 'resource_metadata=' /tmp/skillz-anon-headers.txt
       - name: Show logs on failure
         if: failure()
         run: docker logs skillz-mcp-ci || true
