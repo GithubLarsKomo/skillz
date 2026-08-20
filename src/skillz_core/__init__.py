@@ -5,6 +5,7 @@ from .catalog import (
     listing_payload,
     load_index,
     names,
+    query_mode,
     query_output,
     query_portable,
     query_requires,
@@ -12,20 +13,37 @@ from .catalog import (
     skills_by_name,
 )
 from .resolver import normalize_constraints, resolve, validate_known_constraints
+from .status import (
+    build_status_payload,
+    installed_identity,
+    load_distribution_manifest,
+    provenance,
+    render_status_human,
+    repository_version,
+    resolve_status,
+)
 
 __all__ = [
     "SCHEMA_VERSION",
+    "build_status_payload",
     "get_skill",
+    "installed_identity",
     "invocation",
     "listing_payload",
+    "load_distribution_manifest",
     "load_index",
     "names",
     "normalize_constraints",
+    "provenance",
+    "query_mode",
     "query_output",
     "query_portable",
     "query_requires",
     "query_skill_listing",
+    "render_status_human",
+    "repository_version",
     "resolve",
+    "resolve_status",
     "skills_by_name",
     "validate_known_constraints",
 ]
