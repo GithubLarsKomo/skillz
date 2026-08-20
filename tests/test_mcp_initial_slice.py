@@ -186,6 +186,44 @@ class MCPInitialSliceTests(unittest.TestCase):
 
         asyncio.run(run())
 
+    def test_mcp_repository_metadata_resources_are_narrow_and_text_only(self) -> None:
+        async def run() -> None:
+            async with Client(create_server(ROOT)) as client:
+                templates = await client.list_resource_templates()
+                template_uris = {template.uri_template for template in templates.resource_templates}
+                self.assertTrue(
+                    {
+                        "skillz://schemas/{name}",
+                        "skillz://contracts/{name}",
+                        "skillz://docs/{name}",
+                    }.issubset(template_uris)
+                )
+
+                schema_result = await client.read_resource("skillz://schemas/capability-intent-v1.schema.json")
+                schema_payload = json.loads(schema_result.contents[0].text)
+                self.assertIsInstance(schema_payload, dict)
+
+                contract_result = await client.read_resource(
+                    "skillz://contracts/compliance-traceability-v1.schema.json"
+                )
+                contract_payload = json.loads(contract_result.contents[0].text)
+                self.assertIsInstance(contract_payload, dict)
+
+                docs_result = await client.read_resource("skillz://docs/MCP-ARCHITECTURE.md")
+                self.assertIn("MCP", docs_result.contents[0].text)
+
+                for uri in (
+                    "skillz://schemas/capability-intent-v1.txt",
+                    "skillz://contracts/compliance-traceability-v1.txt",
+                    "skillz://docs/MCP-ARCHITECTURE.json",
+                    "skillz://docs/%252e%252e%2FVERSION.md",
+                ):
+                    with self.subTest(uri=uri):
+                        with self.assertRaises(Exception):
+                            await client.read_resource(uri)
+
+        asyncio.run(run())
+
 
 if __name__ == "__main__":
     unittest.main()
