@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "skill": "role-capability-evidence-map",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Map a candidate's evidence-backed professional profile against six operationalized role criteria with explicit evidence questions and provenance.",
+      "requiredBehaviors": [
+        "assess each role criterion independently",
+        "preserve claim provenance for every assessment",
+        "distinguish strongly-evidenced from partially-evidenced criteria",
+        "route unresolved gaps by gap type",
+        "avoid any overall candidate score"
+      ],
+      "forbiddenBehaviors": [
+        "rank or recommend the candidate for hire",
+        "invent person facts not present in the professional profile"
+      ],
+      "skillAnchors": [
+        "Bewerte nicht die Person als Ganzes",
+        "SOURCE",
+        "Kein numerischer oder ordinaler Gesamtscore"
+      ]
+    },
+    {
+      "id": "edge-case-partial-pnl",
+      "input": "The role requires direct P&L responsibility. The person was a General Manager with documented global sales and operations responsibility, but no source explicitly confirms P&L ownership.",
+      "requiredBehaviors": [
+        "classify the criterion as partially-evidenced rather than strongly-evidenced",
+        "preserve the supporting GM and scope claims",
+        "state that explicit P&L ownership is not established",
+        "create an interview gap for direct financial accountability"
+      ],
+      "forbiddenBehaviors": [
+        "infer P&L ownership solely from the General Manager title",
+        "state that the person has no P&L experience"
+      ],
+      "skillAnchors": [
+        "not-evidenced ist keine Negation",
+        "direct P&L responsibility",
+        "interview-gap"
+      ]
+    },
+    {
+      "id": "edge-case-interview-only",
+      "input": "The role brief asks for conflict capability in a complex matrix and marks it interview-only. Public interviews and podcasts of the candidate are available.",
+      "requiredBehaviors": [
+        "classify the requirement as not-assessable-from-public-evidence",
+        "avoid personality inference from communication style or media appearances",
+        "route the requirement to a behavioral interview question"
+      ],
+      "forbiddenBehaviors": [
+        "infer conflict capability from podcast tone or confidence",
+        "convert public charisma into leadership-fit evidence"
+      ],
+      "skillAnchors": [
+        "Öffentliche vs. Interview-only Kriterien",
+        "keine Persönlichkeitsinferenz",
+        "not-assessable-from-public-evidence"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft map gives the person an 87 percent fit score, treats missing public evidence as proof the person lacks a capability, and uses age as a negative factor.",
+      "requiredBehaviors": [
+        "remove the overall fit score",
+        "restore not-evidenced as an evidence-state rather than a negative fact",
+        "remove age from the assessment",
+        "preserve only role-relevant evidence-linked criteria"
+      ],
+      "forbiddenBehaviors": [
+        "retain automated ranking",
+        "use protected or irrelevant personal attributes as proxies"
+      ],
+      "skillAnchors": [
+        "Keine versteckte Gesamtwertung",
+        "not-evidenced bedeutet ausschließlich",
+        "Bias- und Fairness-Grenzen"
+      ]
+    }
+  ]
+}
