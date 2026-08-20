@@ -4,12 +4,15 @@ description: Erzeugt aus einer freigegebenen Role Architecture zielgruppengerech
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
   - role-architecture
+consumes:
+  - role-architecture.json
+  - role-scorecard.json
 outputs:
   - job-description.md
   - executive-search-brief.md
@@ -19,70 +22,76 @@ lastEvaluated: 2026-08-20
 
 # Job Description Authoring
 
-## Zweck und Abgrenzung
+## Trigger
 
-Dieser Skill beantwortet: **Wie beschreiben wir eine bereits definierte Rolle korrekt, verständlich und zielgruppengerecht?**
+Verwenden, wenn eine bereits freigegebene Role Architecture kommunikativ in interne Stellenbeschreibung, Executive-Search-Brief oder öffentliche Ausschreibung übersetzt werden soll. Dieser Skill beantwortet: **Wie beschreiben wir eine bereits definierte Rolle korrekt, verständlich und zielgruppengerecht?**
 
-Die freigegebene `role-architecture` ist normativ. Dieser Skill darf weder neue Must-haves erfinden noch Mandat, Entscheidungsrechte, Scorecard oder Scope verändern. Bei einem echten inhaltlichen Änderungsbedarf zurück zu `role-architecture`.
+Die freigegebene `role-architecture` ist normativ. Dieser Skill darf **keine neuen Must-haves** erfinden und weder Mandat, Entscheidungsrechte, Scorecard noch Scope verändern.
 
-## Eintritt und Freigabe-Gate
+## Voraussetzungen
 
 Erforderlich sind:
 
 - `role-architecture.json` mit `status=approved`,
-- die zugehörige `role-scorecard.json` mit derselben `roleArchitectureId` und `roleArchitectureVersion`,
+- zugehörige `role-scorecard.json` mit `status=approved`,
+- identische `roleArchitectureId` und `roleArchitectureVersion`,
 - kein bekannter normativer Widerspruch zwischen Architektur und Scorecard.
 
-Eine `draft`-, `review`- oder `superseded`-Architektur darf nicht als aktuelle Basis verwendet werden. Stimmen ID oder Version der Scorecard nicht überein, wird die Autorenerstellung blockiert, bis der normative Satz konsistent ist.
+Eine `draft`-, `review`- oder `superseded`-Architektur darf nicht als aktuelle Basis verwendet werden. Stimmen ID oder Version der Scorecard nicht überein, wird die Autorenerstellung blockiert.
 
-## Drei Projektionen
+## Ablauf
 
-### Interne Stellenbeschreibung
+### Drei Projektionen
+
+#### Interne Stellenbeschreibung
 
 `job-description.md` enthält mindestens Zweck, organisatorische Einordnung, Accountabilities, Entscheidungsrechte, Scope, Schnittstellen, Erfolgsmaßstäbe und Capability-Anforderungen. Sie darf intern präziser sein als die öffentliche Fassung.
 
-### Executive-Search-Brief
+#### Executive-Search-Brief
 
-`executive-search-brief.md` ergänzt Suchkontext, Veränderungsauftrag, kritische Erfolgsfaktoren, Must-have-Capabilities, plausible Evidence-Proxys, bewusst offene Karrierepfade, Interview-Schwerpunkte und bekannte Fehlbesetzungsrisiken. Vertrauliche Inhalte nur im zulässigen internen Rahmen.
+`executive-search-brief.md` ergänzt Suchkontext, Veränderungsauftrag, kritische Erfolgsfaktoren, Must-have-Capabilities, plausible Evidence-Proxys, bewusst offene Karrierepfade, Interview-Schwerpunkte und bekannte Fehlbesetzungsrisiken. **Vertrauliche Inhalte** nur im zulässigen internen Rahmen.
 
-### Öffentliche Ausschreibung
+#### Öffentliche Ausschreibung
 
-`public-job-posting.md` übersetzt die Architektur in klare, inklusive und attraktive Sprache. Sie trennt Verantwortungen von Anforderungen, reduziert unnötige Credentials und vermeidet interne vertrauliche Details. Keine diskriminierenden oder sachfremden Kriterien.
+`public-job-posting.md` übersetzt die Architektur in klare, inklusive und attraktive Sprache. Sie trennt Verantwortungen von Anforderungen, reduziert unnötige Credentials und vermeidet interne vertrauliche Details. **Keine diskriminierenden oder sachfremden Kriterien.**
 
-## Traceability
+### Traceability
 
-Jede harte Anforderung muss auf eine Capability, ein Outcome, ein Risiko oder eine zwingende Rahmenbedingung der Role Architecture zurückführbar sein. Formulierungsfreiheit darf die normative Bedeutung nicht verschieben.
+**Jede harte Anforderung** muss auf Capability, Outcome, Risiko oder zwingende Rahmenbedingung der Role Architecture zurückführbar sein. Formulierungsfreiheit darf die **normative Bedeutung** nicht verschieben.
 
-Kennzeichne Unterschiede zwischen interner und öffentlicher Darstellung als Kommunikationsentscheidung, nicht als Änderung der Rolle.
+Kennzeichne Unterschiede zwischen interner und öffentlicher Darstellung als **Kommunikationsentscheidung**, nicht als Änderung der Rolle. Jede erzeugte Fassung hält `roleArchitectureId` und `roleArchitectureVersion` im Dokumentkopf oder in maschinenlesbaren Begleitmetadaten fest.
 
-Jede erzeugte Fassung muss die verwendete `roleArchitectureId` und `roleArchitectureVersion` im Dokumentkopf oder in maschinenlesbarer Begleitmetadaten festhalten.
+### Versionierung und Staleness
 
-## Qualitätsprüfung
+Wird Role Architecture oder Scorecard durch eine neue freigegebene Version ersetzt, **werden alle aus der alten Version abgeleiteten Fassungen `stale`**. Sie dürfen archiviert und nachvollzogen, aber nicht als aktuelle Ausschreibungs- oder Search-Basis weiterverwendet werden. Die drei Projektionen werden gegen die neue Version neu erzeugt oder explizit revalidiert.
 
-Prüfe:
+## Prüfungen
 
-- stimmt der Zweck mit der Role Architecture überein,
-- fehlen oder entstehen keine Entscheidungsrechte,
-- wurden Must-haves nicht durch attraktive Wunschmerkmale erweitert,
-- sind Outcomes konkreter als Aktivitätslisten,
-- sind Anforderungen inklusiv und funktionsbezogen,
-- sind vertrauliche Inhalte angemessen abstrahiert,
-- bleibt die öffentliche Fassung realistisch statt werblicher Überhöhung.
+Prüfe vor Abschluss:
 
-## Verbotene Übergänge
+- Zweck und Outcomes stimmen mit der Role Architecture überein.
+- Es fehlen oder entstehen keine Entscheidungsrechte.
+- Must-haves wurden nicht durch attraktive Wunschmerkmale erweitert.
+- Outcomes bleiben konkreter als Aktivitätslisten.
+- Anforderungen sind inklusiv und funktionsbezogen.
+- Vertrauliche Inhalte sind angemessen abstrahiert.
+- Öffentliche Fassung bleibt realistisch statt werblicher Überhöhung.
+- Alle Fassungen referenzieren dieselbe freigegebene normative Version.
+
+## Fehlerbehandlung
+
+Bei echtem inhaltlichem Änderungsbedarf **zurück zu `role-architecture`**; keine normative Änderung im Authoring verstecken. Ist die Architektur nicht approved oder die Scorecard-Version inkonsistent, die Ausgabe blockieren statt auf einer vermeintlich aktuellen Fassung weiterzuarbeiten.
+
+### Verbotene Übergänge
 
 - Kein direkter Einstieg aus `role-requirements-grilling`; zuerst muss eine freigegebene `role-architecture` entstehen.
-- Keine Änderung der normativen Rolle innerhalb dieses Skills; echte Rollenänderungen gehen zurück zu `role-architecture`.
+- Keine Änderung der normativen Rolle innerhalb dieses Skills.
 - `public-job-posting.md`, `job-description.md` und `executive-search-brief.md` sind keine normative Bewertungsbasis für `candidate-role-fit-assessment`.
-
-## Versionierung und Staleness
-
-Wird die zugrunde liegende Role Architecture oder Scorecard durch eine neue freigegebene Version ersetzt, werden alle aus der alten Version abgeleiteten Fassungen `stale`. Sie dürfen archiviert und nachvollzogen, aber nicht als aktuelle Ausschreibungs- oder Search-Basis weiterverwendet werden. Die drei Projektionen müssen gegen die neue freigegebene Version neu erzeugt oder explizit als unverändert revalidiert werden.
 
 ## Übergabe
 
-Die Job Description ist **kein Bewertungsmaßstab für Kandidaten**, wenn sie aus Kommunikationsgründen verkürzt ist. `candidate-role-fit-assessment` verwendet immer die zugrunde liegende `role-architecture.json` und `role-scorecard.json` als normative Basis.
+Die Job Description ist **kein Bewertungsmaßstab für Kandidaten**, wenn sie aus Kommunikationsgründen verkürzt ist. `candidate-role-fit-assessment` verwendet immer `role-architecture.json` und `role-scorecard.json` als normative Basis; die Kommunikationsartefakte dürfen nur ergänzender Kontext sein.
 
-## Abschluss
+## Abschlusskriterien
 
 Abgeschlossen ist der Skill, wenn alle erzeugten Fassungen denselben Rollenauftrag korrekt projizieren, die verwendete normative Version referenzieren, zielgruppengerecht differenziert sind und keine neuen Auswahlkriterien einführen.
