@@ -1,8 +1,13 @@
 import json
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from generate_repository_metadata import parse_frontmatter  # noqa: E402
+
 POLICY = ROOT / "docs" / "role-selection-routing-policy.json"
 
 
@@ -12,10 +17,54 @@ class RoleSelectionRoutingPolicyTests(unittest.TestCase):
         cls.policy = json.loads(POLICY.read_text(encoding="utf-8"))
         cls.transitions = {item["id"]: item for item in cls.policy["transitions"]}
         cls.scenarios = {item["id"]: item for item in cls.policy["scenarios"]}
+        cls.skill_metadata = {}
+        for stage, definition in cls.policy["stages"].items():
+            slug = definition["skill"]
+            path = ROOT / "skills" / slug / "SKILL.md"
+            cls.skill_metadata[stage] = parse_frontmatter(path)
 
     def test_stage_ownership_is_distinct(self):
         owners = [item["owns"] for item in self.policy["stages"].values()]
         self.assertEqual(len(owners), len(set(owners)))
+
+    def test_all_policy_stage_skills_exist(self):
+        for stage, definition in self.policy["stages"].items():
+            path = ROOT / "skills" / definition["skill"] / "SKILL.md"
+            with self.subTest(stage=stage):
+                self.assertTrue(path.exists())
+
+    def test_policy_stage_outputs_match_frontmatter_outputs(self):
+        for stage, definition in self.policy["stages"].items():
+            declared = set(self.skill_metadata[stage].get("outputs", []))
+            expected = set(definition["produces"])
+            with self.subTest(stage=stage):
+                self.assertEqual(expected, declared)
+
+    def test_artifact_consumption_matches_handoff_contracts(self):
+        self.assertEqual(
+            self.skill_metadata["architecture"].get("consumes"),
+            ["role-requirements-handoff.json"],
+        )
+        expected_normative = {"role-architecture.json", "role-scorecard.json"}
+        self.assertEqual(set(self.skill_metadata["authoring"].get("consumes", [])), expected_normative)
+        self.assertEqual(set(self.skill_metadata["assessment"].get("consumes", [])), expected_normative)
+
+        self.assertIn(
+            "role-requirements-handoff.json",
+            self.transitions["T1-requirements-to-architecture"]["handoff"],
+        )
+        for transition_id in ("T3-architecture-to-authoring", "T4-architecture-to-assessment"):
+            self.assertEqual(
+                set(self.transitions[transition_id]["handoff"]),
+                expected_normative,
+            )
+
+    def test_grilling_facade_is_not_implicitly_invoked(self):
+        self.assertEqual(self.skill_metadata["requirements"].get("implicitInvocation"), "false")
+        self.assertEqual(
+            self.skill_metadata["requirements"].get("requires"),
+            ["round-based-requirements-grilling"],
+        )
 
     def test_role_architecture_is_normative_hub(self):
         self.assertEqual(self.transitions["T3-architecture-to-authoring"]["from"], "architecture")
@@ -25,9 +74,17 @@ class RoleSelectionRoutingPolicyTests(unittest.TestCase):
 
     def test_grilling_is_preferred_but_not_hard_required_for_architecture(self):
         role_arch = (ROOT / "skills" / "role-architecture" / "SKILL.md").read_text(encoding="utf-8")
-        self.assertIn("requires: []", role_arch)
+        self.assertEqual(self.skill_metadata["architecture"].get("requires"), [])
         self.assertIn("äquivalente bestätigte Evidenz", role_arch)
         self.assertEqual(self.transitions["T2-evidence-direct-to-architecture"]["to"], "architecture")
+
+    def test_forbidden_bypasses_are_not_encoded_as_hard_dependencies(self):
+        authoring_requires = set(self.skill_metadata["authoring"].get("requires", []))
+        assessment_requires = set(self.skill_metadata["assessment"].get("requires", []))
+        self.assertNotIn("role-requirements-grilling", authoring_requires)
+        self.assertNotIn("role-requirements-grilling", assessment_requires)
+        self.assertEqual(authoring_requires, {"role-architecture"})
+        self.assertEqual(assessment_requires, {"role-architecture"})
 
     def test_no_direct_requirements_to_authoring_or_assessment(self):
         forbidden = {(item["from"], item["to"]) for item in self.policy["forbiddenTransitions"]}
@@ -39,6 +96,7 @@ class RoleSelectionRoutingPolicyTests(unittest.TestCase):
         self.assertIn(("public-job-posting.md", "assessment"), forbidden)
         scenario = self.scenarios["S4-assessment-from-public-posting"]
         self.assertEqual(scenario["expected"], "blocked")
+        self.assertNotIn("public-job-posting.md", self.skill_metadata["assessment"].get("consumes", []))
 
     def test_draft_architecture_blocks_downstream_use(self):
         scenario = self.scenarios["S5-draft-architecture"]
@@ -115,7 +173,7 @@ class RoleSelectionRoutingPolicyTests(unittest.TestCase):
                 "werden alle aus der alten Version abgeleiteten Fassungen `stale`",
             ],
             "candidate-role-fit-assessment": [
-                "scoringFrozenBeforeCandidate" if False else "vor Sichtung dieses Kandidaten",
+                "vor Sichtung dieses Kandidaten",
                 "assessmentStatus: current | stale",
                 "Verbotene Übergänge",
                 "muss gegen die neue normative Version erneut bewertet werden",
