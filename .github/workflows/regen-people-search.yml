@@ -1,0 +1,59 @@
+name: Regenerate people-search metadata
+
+on:
+  push:
+    branches:
+      - feat/people-research-executive-search
+    paths:
+      - .github/workflows/regen-people-search.yml
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/people-research-executive-search
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Materialize canonical agent metadata
+        run: python scripts/materialize_openai_agent_metadata.py
+      - name: Generate repository metadata
+        run: python scripts/generate_repository_metadata.py
+      - name: Evaluate skill suites
+        run: python scripts/evaluate_skills.py
+      - name: Validate repository contracts
+        run: python scripts/validate_skills.py
+      - name: Verify generated metadata is stable
+        run: |
+          python scripts/materialize_openai_agent_metadata.py --check
+          python scripts/generate_repository_metadata.py --check
+      - name: Commit deterministic generated artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t changed < <(git status --porcelain=v1 | sed -E 's/^.. //')
+          if [ "${#changed[@]}" -eq 0 ]; then
+            echo "No generated metadata changes."
+            exit 0
+          fi
+          for path in "${changed[@]}"; do
+            case "$path" in
+              README.md|.skill-sync.json|docs/*|obsidian/*|skills/*/agents/openai.yaml)
+                ;;
+              *)
+                echo "Refusing unexpected generated path: $path" >&2
+                exit 1
+                ;;
+            esac
+            git add -- "$path"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Regenerate skill repository metadata"
+          git push origin HEAD:feat/people-research-executive-search
