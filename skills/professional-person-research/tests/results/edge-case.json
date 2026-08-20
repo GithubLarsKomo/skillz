@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "skill": "professional-person-research",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "produce a partial profile rather than fill missing career history", "passed": true, "evidence": "Sparse-evidence handling requires a partial profile and explicitly forbids filling missing career periods."},
+    {"behavior": "mark the LinkedIn claim as self-reported professional evidence", "passed": true, "evidence": "Professional self-presentation is a separate source tier and self-reported professional claims are a distinct claim type."},
+    {"behavior": "keep the conflicting start dates visible", "passed": true, "evidence": "The timeline rules prohibit silently harmonizing conflicting employment dates."},
+    {"behavior": "lower confidence where evidence is sparse or contradictory", "passed": true, "evidence": "Sparse and conflicting evidence must remain visible with reduced or unresolved confidence."},
+    {"behavior": "distinguish not-found from does-not-exist", "passed": true, "evidence": "The Negative Evidence section explicitly defines not-found as distinct from a factual negation."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent missing employment periods", "observed": false, "evidence": "The error handling forbids completion of missing career periods when evidence is sparse."},
+    {"behavior": "silently harmonize conflicting dates", "observed": false, "evidence": "Conflicting dates must remain visible with their source provenance."}
+  ],
+  "overall": "pass"
+}
