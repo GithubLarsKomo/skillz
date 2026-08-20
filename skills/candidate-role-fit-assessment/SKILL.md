@@ -4,7 +4,7 @@ description: Bewertet eine konkrete Person evidenzbasiert gegen eine freigegeben
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -24,6 +24,17 @@ lastEvaluated: 2026-08-20
 Dieser Skill beantwortet: **Wie gut belegt die verfügbare Evidenz, dass diese konkrete Person zu der normativ definierten Rolle passt, und was muss noch verifiziert werden?**
 
 Normative Bewertungsbasis sind `role-architecture.json` und `role-scorecard.json`, nicht die verkürzte öffentliche Job Description. Der Skill trifft keine finale Einstellungsentscheidung und erfindet keine fehlenden Kandidateninformationen.
+
+## Eintritt und Freigabe-Gate
+
+Erforderlich sind:
+
+- `role-architecture.json` mit `status=approved`,
+- `role-scorecard.json` mit `status=approved`,
+- exakt übereinstimmende `roleArchitectureId` und `roleArchitectureVersion`,
+- eine vor Sichtung dieses Kandidaten freigegebene `scoringModelVersion`.
+
+Fehlt eines dieser Gates, wird die Bewertung blockiert. Eine öffentliche Ausschreibung, ein Search Brief oder eine frühere Kandidatenbewertung kann diese normative Basis nicht ersetzen.
 
 ## Evidenzklassen
 
@@ -47,7 +58,9 @@ Für jede Scorecard-Dimension dokumentiere:
 - Confidence,
 - offene Verifikationsfrage.
 
-Ein numerischer Fit-Score ist nur zulässig, wenn Gewichte und Scoringregeln vor Sichtung des Kandidaten festgelegt wurden. `unknown` ist nicht automatisch negativ und darf nicht als Null-Eignung codiert werden. Knockout-Kriterien dürfen nur aus der freigegebenen Role Architecture stammen.
+Ein numerischer Fit-Score ist nur zulässig, wenn Gewichte und Scoringregeln vor Sichtung des Kandidaten festgelegt und freigegeben wurden. `unknown` ist nicht automatisch negativ und darf nicht als Null-Eignung codiert werden. Knockout-Kriterien dürfen nur aus der freigegebenen Role Architecture stammen.
+
+Gewichte, Dimensionen, Mindestniveaus oder Knockouts dürfen während oder nach Sichtung eines Kandidaten nicht verändert werden, um dessen Fit zu verbessern oder zu verschlechtern. Falls eine echte Rollenänderung erforderlich ist, wird sie unabhängig vom Kandidaten in `role-architecture` begründet und versioniert; anschließend werden alle Kandidaten gegen dieselbe neue freigegebene Version neu bewertet.
 
 ## Fairness und Datenschutz
 
@@ -70,7 +83,10 @@ Bevorzugte Struktur:
 
 `candidate-role-fit.json` enthält mindestens:
 
+- `roleArchitectureId`,
 - `roleArchitectureVersion`,
+- `scoringModelVersion`,
+- `assessmentStatus: current | stale`,
 - `candidateEvidenceScope`,
 - `dimensionAssessments`,
 - `verifiedStrengths`,
@@ -83,10 +99,19 @@ Bevorzugte Struktur:
 
 `candidate-role-fit.md` ist die lesbare, quellenbezogene Fassung. Formuliere keine Gewissheit, die über die Evidenz hinausgeht.
 
-## Rücksprung
+## Verbotene Übergänge
+
+- Kein Assessment ohne freigegebene Role Architecture und passende freigegebene Scorecard.
+- Keine Bewertung ausschließlich gegen `public-job-posting.md`, `job-description.md` oder `executive-search-brief.md`.
+- Keine direkte Übernahme von Kandidatenevidenz in neue Rollenanforderungen oder Scorecard-Gewichte.
+- Kein Vergleich verschiedener Kandidaten auf unterschiedlichen Role-Architecture- oder Scoring-Versionen, sofern das Ergebnis als gemeinsame Rangfolge interpretiert werden soll.
+
+## Rücksprung und Invalidierung
 
 Wenn die Kandidatenbewertung zeigt, dass das Rollenmodell selbst unklar, widersprüchlich oder auf ungeeigneten Proxys basiert, nicht den Kandidaten passend rechnen. Zurück zu `role-architecture`; falls dahinter eine echte Stakeholder-Entscheidung fehlt, weiter zu `role-requirements-grilling`.
 
+Wird danach eine neue Role-Architecture- oder Scorecard-Version freigegeben, wird die bisherige Bewertung `stale`. Sie bleibt nachvollziehbar, darf aber nicht als aktuelle Fit-Bewertung oder Vergleichsbasis dienen. Der Kandidat muss gegen die neue normative Version erneut bewertet werden.
+
 ## Abschluss
 
-Abgeschlossen ist der Skill, wenn jede relevante Fit-Aussage evidenzklassifiziert, Lücken explizit und die nächsten Verifikationsfragen auf die entscheidungsrelevanten Unsicherheiten fokussiert sind.
+Abgeschlossen ist der Skill, wenn jede relevante Fit-Aussage evidenzklassifiziert, Lücken explizit, normative Versionen festgehalten und die nächsten Verifikationsfragen auf die entscheidungsrelevanten Unsicherheiten fokussiert sind.
