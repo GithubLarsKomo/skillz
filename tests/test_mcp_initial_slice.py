@@ -130,6 +130,62 @@ class MCPInitialSliceTests(unittest.TestCase):
 
         asyncio.run(run())
 
+    def test_mcp_skill_resources_support_progressive_disclosure(self) -> None:
+        async def run() -> None:
+            async with Client(create_server(ROOT)) as client:
+                templates = await client.list_resource_templates()
+                template_uris = {template.uri_template for template in templates.resource_templates}
+                self.assertTrue(
+                    {
+                        "skillz://skills/{name}",
+                        "skillz://skills/{name}/SKILL.md",
+                        "skillz://skills/{name}/references/{+relative_path}",
+                        "skillz://skills/{name}/assets/{+relative_path}",
+                    }.issubset(template_uris)
+                )
+
+                metadata_result = await client.read_resource("skillz://skills/disciplined-diagnosis")
+                metadata = json.loads(metadata_result.contents[0].text)
+                self.assertEqual(metadata["name"], "disciplined-diagnosis")
+                self.assertEqual(metadata["resourceUris"]["body"], "skillz://skills/disciplined-diagnosis/SKILL.md")
+
+                body_result = await client.read_resource("skillz://skills/disciplined-diagnosis/SKILL.md")
+                body = body_result.contents[0].text
+                self.assertIn("name: disciplined-diagnosis", body)
+                self.assertGreater(len(body), 100)
+
+                reference_result = await client.read_resource(
+                    "skillz://skills/dr-komorowski-sport-report-renderer/references/brand-guide.md"
+                )
+                self.assertGreater(len(reference_result.contents[0].text), 100)
+
+                assets_result = await client.read_resource(
+                    "skillz://skills/dr-komorowski-sport-report-renderer/assets"
+                )
+                assets = json.loads(assets_result.contents[0].text)
+                self.assertEqual(assets["skill"], "dr-komorowski-sport-report-renderer")
+                self.assertEqual(assets["type"], "directory")
+                asset_names = {entry["name"] for entry in assets["entries"]}
+                self.assertIn("dr-komorowski-logo.svg", asset_names)
+
+                asset_metadata_result = await client.read_resource(
+                    "skillz://skills/dr-komorowski-sport-report-renderer/assets/dr-komorowski-logo.svg"
+                )
+                asset_metadata = json.loads(asset_metadata_result.contents[0].text)
+                self.assertEqual(asset_metadata["type"], "file")
+                self.assertGreater(asset_metadata["size"], 0)
+                self.assertNotIn("content", asset_metadata)
+                self.assertNotIn("bytes", asset_metadata)
+
+                with self.assertRaises(Exception):
+                    await client.read_resource("skillz://skills/not-a-real-skill")
+                with self.assertRaises(Exception):
+                    await client.read_resource(
+                        "skillz://skills/dr-komorowski-sport-report-renderer/references/%252e%252e%2FSKILL.md"
+                    )
+
+        asyncio.run(run())
+
 
 if __name__ == "__main__":
     unittest.main()
