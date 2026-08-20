@@ -17,7 +17,9 @@
       "skillAnchors": [
         "Autoritative Quelle",
         "Aktuellen `main`-Stand von `GithubLarsKomo/grilling/SKILL.md` lesen",
-        "Keine Runtime-, Auth-, Deployment- oder Statusregeln aus diesem Repository erfinden oder kopieren"
+        "Keine Runtime-, Auth-, Deployment- oder Statusregeln aus diesem Repository erfinden oder kopieren",
+        "requirements-handoff.json",
+        "conversation-to-spec"
       ]
     },
     {
@@ -35,7 +37,9 @@
       "skillAnchors": [
         "hat `GithubLarsKomo/grilling/SKILL.md` Vorrang",
         "Abweichungen sind als Synchronisationsfehler zu behandeln",
-        "dürfen nicht durch eine zweite Implementierungslogik kompensiert werden"
+        "dürfen nicht durch eine zweite Implementierungslogik kompensiert werden",
+        "Fehlende technische Evidenz",
+        "large-work-wayfinder"
       ]
     },
     {
@@ -53,7 +57,8 @@
       "skillAnchors": [
         "Vor jeder Ausführung dieses Skills müssen",
         "site/catalog.json",
-        "Den dort festgelegten Grilling-Ablauf unverändert anwenden"
+        "Den dort festgelegten Grilling-Ablauf unverändert anwenden",
+        "nicht selbst die normative Produkt-`SPEC.md`"
       ]
     }
   ]
