@@ -201,7 +201,7 @@
     },
     "exam-trainer-catalog-builder": {
       "files": {
-        "SKILL.md": "e8a05b8192ff2de2feb9bb846aa2f5c9a696dd01e0121122eb41553e1ac6b32d",
+        "SKILL.md": "9306d60f06a47a86bc29373832ec55d51fb654f183deb808aad15709a392d5e6",
         "agents/openai.yaml": "858099523cf438c535d7ca5b1933a19ba54f70095d765a6b8eac9a120312e338"
       }
     },
@@ -905,7 +905,7 @@
     },
     "teach": {
       "files": {
-        "SKILL.md": "905236324918d9d44f054526c6355702f9fc3ae7c4eaf780520dab98464fba41",
+        "SKILL.md": "840b9c64bc9ac736a258dd05418f2c27ddd8cff2832f78b78e6a7f3e3a1a2ca8",
         "agents/openai.yaml": "21ee825f58350cea92fec25ce4e28101bb11ecc47aae4b63ffcf8ce880292df7"
       }
     },

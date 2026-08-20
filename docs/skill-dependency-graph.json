@@ -338,6 +338,7 @@
       ],
       "consumes": [],
       "outputs": [
+        "etf-hosted-release-candidate.json",
         "etf-teach-catalog.json"
       ]
     },
@@ -4658,6 +4659,17 @@
       "consumerSkills": [
         "fda-acceptance-readiness",
         "fda-additional-information-response"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "etf-hosted-release-candidate.json",
+      "producers": [
+        "exam-trainer-catalog-builder"
+      ],
+      "consumerSkills": [
+        "teach"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"

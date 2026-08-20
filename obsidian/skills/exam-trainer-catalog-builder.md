@@ -16,7 +16,7 @@ tags:
 
 # exam-trainer-catalog-builder
 
-Übersetzt eine explizite Teach-Lernübergabe mit Lernmission, Kompetenzbezug, Assessment-Spec und belegten Inhalten in den portablen ETF-Vertrag `etf-teach-catalog` mit stabilen KnowledgeItems und QuestionVariants. Verwenden, wenn Skillz Lernmaterial an exam-trainer-framework übergeben soll; recherchiert keine Fachwahrheit, schedult nichts und erzeugt keine formale Trainingsfreigabe.
+Übersetzt eine explizite Teach-Lernübergabe mit Lernmission, Kompetenzbezug, Assessment-Spec und belegten Inhalten in den portablen ETF-Vertrag `etf-teach-catalog` mit stabilen KnowledgeItems und QuestionVariants. Verwenden, wenn Skillz Lernmaterial an exam-trainer-framework übergeben oder einen kontrollierten Shared-Release-Kandidaten vorbereiten soll; recherchiert keine Fachwahrheit, schedult nichts und erzeugt keine formale Trainings- oder Publikationsfreigabe.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -35,9 +35,14 @@ tags:
 
 ## Outputs
 
+- `etf-hosted-release-candidate.json`
 - `etf-teach-catalog.json`
 
 ## Output consumers
+
+### `etf-hosted-release-candidate.json`
+
+- [[skills/teach|teach]]
 
 ### `etf-teach-catalog.json`
 

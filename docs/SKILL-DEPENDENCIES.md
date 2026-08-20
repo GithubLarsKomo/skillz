@@ -488,6 +488,7 @@ graph TD
 | `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `estar-content-map.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
+| `etf-hosted-release-candidate.json` | `exam-trainer-catalog-builder` | `teach` | inferred |
 | `etf-teach-catalog.json` | `exam-trainer-catalog-builder` | `teach` | inferred |
 | `eu-regulatory-assessment.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eu-regulatory-assessment.md` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |

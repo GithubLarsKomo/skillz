@@ -1584,7 +1584,7 @@
     },
     {
       "name": "exam-trainer-catalog-builder",
-      "description": "Übersetzt eine explizite Teach-Lernübergabe mit Lernmission, Kompetenzbezug, Assessment-Spec und belegten Inhalten in den portablen ETF-Vertrag `etf-teach-catalog` mit stabilen KnowledgeItems und QuestionVariants. Verwenden, wenn Skillz Lernmaterial an exam-trainer-framework übergeben soll; recherchiert keine Fachwahrheit, schedult nichts und erzeugt keine formale Trainingsfreigabe.",
+      "description": "Übersetzt eine explizite Teach-Lernübergabe mit Lernmission, Kompetenzbezug, Assessment-Spec und belegten Inhalten in den portablen ETF-Vertrag `etf-teach-catalog` mit stabilen KnowledgeItems und QuestionVariants. Verwenden, wenn Skillz Lernmaterial an exam-trainer-framework übergeben oder einen kontrollierten Shared-Release-Kandidaten vorbereiten soll; recherchiert keine Fachwahrheit, schedult nichts und erzeugt keine formale Trainings- oder Publikationsfreigabe.",
       "invocation": {
         "userFacing": false,
         "category": null
@@ -1597,9 +1597,20 @@
         "teach"
       ],
       "outputs": [
+        "etf-hosted-release-candidate.json",
         "etf-teach-catalog.json"
       ],
       "outputContracts": [
+        {
+          "output": "etf-hosted-release-candidate.json",
+          "ambiguous": false,
+          "producers": [
+            "exam-trainer-catalog-builder"
+          ],
+          "consumerSkills": [
+            "teach"
+          ]
+        },
         {
           "output": "etf-teach-catalog.json",
           "ambiguous": false,
