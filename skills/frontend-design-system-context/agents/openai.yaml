@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frontend Design System Context"
+  short_description: "Erzeugt DESIGN.md aus PRODUCT.md, Repo-Evidenz und einem eigenen bestätigten Design-Grilling."
+policy:
+  allow_implicit_invocation: true

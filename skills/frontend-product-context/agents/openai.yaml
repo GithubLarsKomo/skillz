@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frontend Product Context"
+  short_description: "Erzeugt PRODUCT.md aus Repo-Evidenz und einem eigenen bestätigten Produkt-Grilling."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frontend Design Director"
+  short_description: "Orchestriert autoritativen Projektkontext, Shaping und Review für hochwertige Frontend-Designarbeit."
+policy:
+  allow_implicit_invocation: true
