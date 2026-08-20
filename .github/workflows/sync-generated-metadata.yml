@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/role-job-architecture]
     paths:
       - "skills/**"
       - "scripts/materialize_openai_agent_metadata.py"
@@ -21,7 +21,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-generated-metadata-main
+  group: sync-generated-metadata-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -70,4 +70,4 @@ jobs:
             skills/*/SKILL.md \
             skills/*/agents/openai.yaml
           git commit -m "Regenerate skill repository artifacts"
-          git push origin HEAD:main
+          git push origin HEAD:"$GITHUB_REF_NAME"
