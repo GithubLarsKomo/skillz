@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "role-scorecard-v1.schema.json",
+  "title": "Role Scorecard v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "roleArchitectureId", "roleArchitectureVersion", "scoringModelVersion",
+    "status", "approvedBeforeCandidateReview", "dimensions", "approvedAt", "approvalAuthority"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "roleArchitectureId": {"type": "string", "minLength": 1},
+    "roleArchitectureVersion": {"type": "string", "minLength": 1},
+    "scoringModelVersion": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "approved", "superseded"]},
+    "approvedBeforeCandidateReview": {"type": "boolean"},
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "definition", "weight", "evidence", "minimumLevel", "knockout", "knockoutRationale", "tracesTo"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "definition": {"type": "string", "minLength": 1},
+          "weight": {"type": "number", "minimum": 0, "maximum": 1},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "minimumLevel": {"type": ["string", "null"]},
+          "knockout": {"type": "boolean"},
+          "knockoutRationale": {"type": ["string", "null"]},
+          "tracesTo": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "approvedAt": {"type": ["string", "null"]},
+    "approvalAuthority": {"type": ["string", "null"]}
+  }
+}
