@@ -6,6 +6,7 @@
       "requires": [
         "iterate-software-projects"
       ],
+      "consumes": [],
       "outputs": [
         "agent-handoff.json",
         "agent-handoff.md"
@@ -17,6 +18,7 @@
         "disciplined-diagnosis",
         "iterate-software-projects"
       ],
+      "consumes": [],
       "outputs": [
         "architecture-review.json",
         "architecture-review.md",
@@ -29,6 +31,7 @@
         "decision-record",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "audit-finding-response-map.json",
         "finding-action-plan.json",
@@ -36,10 +39,26 @@
       ]
     },
     {
+      "name": "candidate-role-fit-assessment",
+      "requires": [
+        "role-architecture"
+      ],
+      "consumes": [
+        "role-architecture.json",
+        "role-scorecard.json"
+      ],
+      "outputs": [
+        "candidate-interview-question-set.md",
+        "candidate-role-fit.json",
+        "candidate-role-fit.md"
+      ]
+    },
+    {
       "name": "central-skill-repository-curation",
       "requires": [
         "composable-skill-factory"
       ],
+      "consumes": [],
       "outputs": [
         "synchronization manifest",
         "updated skill repository"
@@ -53,6 +72,7 @@
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "clinical-evidence-actions.json",
         "clinical-evidence-delta.json",
@@ -62,6 +82,7 @@
     {
       "name": "communication-memory-governance",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "communication-profile.json",
         "memory-ledger.json"
@@ -70,6 +91,7 @@
     {
       "name": "composable-skill-factory",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "evaluation evidence",
         "pull request",
@@ -82,6 +104,7 @@
         "regulated-product-context",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "change-impact-assessment.json",
         "controlled-document-plan.md",
@@ -91,6 +114,7 @@
     {
       "name": "conversation-to-spec",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "SPEC.md",
         "consistency report",
@@ -102,6 +126,7 @@
       "requires": [
         "inbox-action-triage"
       ],
+      "consumes": [],
       "outputs": [
         "review-brief.json",
         "review-brief.md"
@@ -114,6 +139,7 @@
         "meeting-preparation",
         "project-status-brief"
       ],
+      "consumes": [],
       "outputs": [
         "decision-follow-up-register.json",
         "decision-follow-up-register.md"
@@ -127,6 +153,7 @@
         "throwaway-prototype",
         "two-axis-code-review"
       ],
+      "consumes": [],
       "outputs": [
         "decision-record.json",
         "decision-record.md"
@@ -135,6 +162,7 @@
     {
       "name": "deferred-external-action-verification",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "continuation result",
         "verified terminal status",
@@ -149,6 +177,7 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "change-verification-needs.json",
         "design-change-impact.json",
@@ -162,6 +191,7 @@
         "regulated-product-context",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "design-control-traceability.json",
         "design-evidence-gaps.json"
@@ -172,6 +202,7 @@
       "requires": [
         "iterate-software-projects"
       ],
+      "consumes": [],
       "outputs": [
         "diagnosis-report.json",
         "diagnosis-residual-risk-handoff.json",
@@ -187,6 +218,7 @@
         "test-driven-vertical-slice",
         "two-axis-code-review"
       ],
+      "consumes": [],
       "outputs": [
         "domain-change-plan.md",
         "domain-model-map.json",
@@ -196,6 +228,7 @@
     {
       "name": "dr-komorowski-sport-docx-report-renderer",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "dr-komorowski-sport-report.docx"
       ]
@@ -205,6 +238,7 @@
       "requires": [
         "dr-komorowski-sport-docx-report-renderer"
       ],
+      "consumes": [],
       "outputs": [
         "dr-komorowski-sport-report.pdf"
       ]
@@ -212,6 +246,7 @@
     {
       "name": "dr-komorowski-sport-report-renderer",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "dr-komorowski-report.pdf"
       ]
@@ -222,6 +257,7 @@
         "deferred-external-action-verification",
         "two-axis-code-review"
       ],
+      "consumes": [],
       "outputs": [
         "engineering-closure-gaps.json",
         "engineering-delivery-status.json",
@@ -235,6 +271,7 @@
         "regulated-product-context",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "eu-regulatory-assessment.json",
         "eu-regulatory-assessment.md",
@@ -249,6 +286,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "eudamed-readiness.json",
         "ivd-udi-data-set.json"
@@ -257,6 +295,7 @@
     {
       "name": "euroimmun-docx-report-renderer",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "euroimmun-report.docx"
       ]
@@ -266,6 +305,7 @@
       "requires": [
         "euroimmun-docx-report-renderer"
       ],
+      "consumes": [],
       "outputs": [
         "euroimmun-report.pdf"
       ]
@@ -275,6 +315,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "causal-investigation.json",
         "causal-investigation.md"
@@ -283,6 +324,7 @@
     {
       "name": "external-stakeholder-questionnaire",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "stakeholder-questionnaire.json",
         "stakeholder-questionnaire.md"
@@ -296,6 +338,7 @@
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "predicate-candidate-set.json",
         "predicate-strategy.md"
@@ -308,6 +351,7 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "se-evidence-gaps.json",
         "substantial-equivalence-assessment.json",
@@ -321,6 +365,7 @@
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "acceptance-gaps.json",
         "fda-acceptance-preflight.json"
@@ -333,6 +378,7 @@
         "fda-estar-submission-builder",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "fda-request-issue-map.json",
         "fda-response-package.md",
@@ -347,6 +393,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "complaint-regulatory-actions.json",
         "mdr-reportability-assessment.json"
@@ -360,6 +407,7 @@
         "medical-device-capa",
         "medical-device-risk-management-iso14971"
       ],
+      "consumes": [],
       "outputs": [
         "correction-removal-action-plan.json",
         "correction-removal-assessment.json",
@@ -373,6 +421,7 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "de-novo-risk-control-rationale.md",
         "special-controls-matrix.json"
@@ -386,6 +435,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "de-novo-evidence-gaps.json",
         "de-novo-strategy.json"
@@ -398,6 +448,7 @@
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "fda-device-classification.json",
         "fda-product-code-evidence.json"
@@ -410,6 +461,7 @@
         "fda-ivd-clia-waiver",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "dual-510k-clia-strategy.json",
         "dual-evidence-package.json",
@@ -422,6 +474,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "estar-content-map.json",
         "submission-readiness.json"
@@ -435,6 +488,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "clia-evidence-gaps.json",
         "clia-waiver-strategy.json",
@@ -448,6 +502,7 @@
         "regulated-product-context",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "fda-regulatory-assessment.json",
         "fda-regulatory-assessment.md",
@@ -462,6 +517,7 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "pccp-applicability.json",
         "pccp-change-evidence.json",
@@ -475,6 +531,7 @@
         "iso13485-qms-audit",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "inspection-evidence-index.json",
         "qmsr-inspection-readiness.json"
@@ -487,6 +544,7 @@
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "qmsr-gap-assessment.md",
         "qmsr-iso13485-delta.json"
@@ -499,6 +557,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "qsub-briefing-package.md",
         "qsub-commitments.json",
@@ -513,6 +572,7 @@
         "quality-record-integrity",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "fda-recall-authority-state.json",
         "fda-recall-status-report.json",
@@ -527,6 +587,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "fda-device-listing-readiness.json",
         "fda-registration-readiness.json",
@@ -538,6 +599,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "fto-claim-map.json",
         "fto-design-around-options.json",
@@ -548,6 +610,7 @@
     {
       "name": "human-procedure-wizard",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "human-procedure-plan.md",
         "human-procedure-result.json"
@@ -561,6 +624,7 @@
         "medical-device-risk-management-iso14971",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "software-evidence-gaps.json",
         "software-lifecycle-assessment.json",
@@ -575,6 +639,7 @@
         "medical-device-risk-management-iso14971",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "usability-engineering-assessment.json",
         "usability-evidence-gaps.json",
@@ -589,6 +654,7 @@
         "disciplined-diagnosis",
         "test-driven-vertical-slice"
       ],
+      "consumes": [],
       "outputs": [
         "implementation-evidence.json",
         "implementation-residual-risk-handoff.json",
@@ -598,6 +664,7 @@
     {
       "name": "inbox-action-triage",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "inbox-triage.json",
         "inbox-triage.md"
@@ -609,6 +676,7 @@
         "medical-device-qms-iso13485",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "qms-audit-findings.json",
         "qms-audit-plan.json",
@@ -621,6 +689,7 @@
         "medical-device-isms-governance",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "isms-audit-findings.json",
         "isms-audit-plan.json",
@@ -630,6 +699,7 @@
     {
       "name": "iterate-software-projects",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "engineering-iteration-state.json",
         "next increment",
@@ -644,6 +714,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "analytical-performance-assessment.json",
         "analytical-performance-plan.json",
@@ -658,6 +729,7 @@
         "mdcg-guidance-navigator",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "class-d-conformity-plan.json",
         "class-d-external-dependencies.json"
@@ -671,6 +743,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "clinical-performance-evidence.json",
         "clinical-performance-study-plan.json",
@@ -686,6 +759,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "cdx-consultation-readiness.json",
         "cdx-medicinal-product-linkage.json",
@@ -699,6 +773,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "ivdr-classification-assessment.json",
         "ivdr-classification-rationale.md"
@@ -711,6 +786,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "ivdr-economic-operator-escalation-log.json",
         "ivdr-economic-operator-obligation-map.json",
@@ -727,6 +803,7 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "field-safety-notice-content.json",
         "ivdr-fsca-assessment.json",
@@ -741,6 +818,7 @@
         "medical-device-field-action-effectiveness",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "ivdr-authority-state.json",
         "ivdr-fsca-authority-followup.json",
@@ -756,6 +834,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "inhouse-ivd-condition-map.json",
         "inhouse-ivd-eligibility.json",
@@ -770,6 +849,7 @@
         "ivdr-scientific-validity",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "ivdr-performance-evaluation-gaps.json",
         "ivdr-performance-evaluation.json"
@@ -782,6 +862,7 @@
         "mdcg-guidance-navigator",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "per-traceability.json",
         "performance-evaluation-report.md"
@@ -795,6 +876,7 @@
         "medical-device-risk-management-iso14971",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "pmpf-evaluation-report.md",
         "pmpf-plan.json",
@@ -811,6 +893,7 @@
         "regulatory-evidence-traceability",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "ivdr-pms-assessment.json",
         "trend-signal-set.json",
@@ -824,9 +907,25 @@
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "scientific-validity-assessment.json",
         "scientific-validity-report.md"
+      ]
+    },
+    {
+      "name": "job-description-authoring",
+      "requires": [
+        "role-architecture"
+      ],
+      "consumes": [
+        "role-architecture.json",
+        "role-scorecard.json"
+      ],
+      "outputs": [
+        "executive-search-brief.md",
+        "job-description.md",
+        "public-job-posting.md"
       ]
     },
     {
@@ -834,6 +933,7 @@
       "requires": [
         "structured-knowledge-artifact"
       ],
+      "consumes": [],
       "outputs": [
         "knowledge-map.json"
       ]
@@ -843,6 +943,7 @@
       "requires": [
         "structured-knowledge-artifact"
       ],
+      "consumes": [],
       "outputs": [
         "knowledge-view.json"
       ]
@@ -854,6 +955,7 @@
         "architecture-deepening-review",
         "disciplined-diagnosis"
       ],
+      "consumes": [],
       "outputs": [
         "dependency-graph.json",
         "investigation-backlog.json",
@@ -867,6 +969,7 @@
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "mdcg-guidance-changes.json",
         "mdcg-guidance-set.json"
@@ -879,6 +982,7 @@
         "medical-device-qms-iso13485",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "mdsap-audit-scope.json",
         "mdsap-evidence-gaps.json",
@@ -892,6 +996,7 @@
         "medical-device-risk-management-iso14971",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "measurement-capability-study.json",
         "measurement-evidence-gaps.json",
@@ -904,6 +1009,7 @@
         "medical-device-complaint-handling",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "adverse-event-code-set.json",
         "adverse-event-coding-delta.json",
@@ -917,6 +1023,7 @@
         "medical-device-qms-iso13485",
         "medical-device-risk-management-iso14971"
       ],
+      "consumes": [],
       "outputs": [
         "capa-effectiveness-plan.json",
         "capa-plan.json",
@@ -930,6 +1037,7 @@
         "quality-record-integrity",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "customer-communication-record.json",
         "customer-followup-evidence.json",
@@ -943,6 +1051,7 @@
         "quality-record-integrity",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "complaint-closure-readiness.json",
         "complaint-investigation-plan.json",
@@ -960,6 +1069,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "complaint-regulatory-routing.json",
         "regulatory-awareness-timeline.json",
@@ -971,6 +1081,7 @@
       "requires": [
         "quality-record-integrity"
       ],
+      "consumes": [],
       "outputs": [
         "complaint-intake-handoff.json",
         "customer-contact-record.json",
@@ -985,6 +1096,7 @@
         "medical-device-risk-management-iso14971",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "cybersecurity-evidence-map.json",
         "cybersecurity-lifecycle-assessment.json",
@@ -998,6 +1110,7 @@
         "quality-record-integrity",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "field-action-communication-state.json",
         "field-action-notice-package.json",
@@ -1014,6 +1127,7 @@
         "medical-device-risk-management-iso14971",
         "quality-record-integrity"
       ],
+      "consumes": [],
       "outputs": [
         "field-action-closure-readiness.json",
         "field-action-effectiveness-assessment.json",
@@ -1027,6 +1141,7 @@
         "medical-device-field-action-communication",
         "quality-record-integrity"
       ],
+      "consumes": [],
       "outputs": [
         "field-action-disposition-evidence.json",
         "field-action-physical-execution-plan.json",
@@ -1039,6 +1154,7 @@
         "regulated-product-context",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "isms-governance-assessment.json",
         "isms-governance.md",
@@ -1052,6 +1168,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "ifu-content-structure.md",
         "labeling-content-map.json",
@@ -1066,6 +1183,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "pms-management-review-input.json",
         "pms-review-status.json",
@@ -1080,6 +1198,7 @@
         "research-to-evidence-note",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "dpia-decision.json",
         "privacy-assessment.json",
@@ -1092,6 +1211,7 @@
         "regulated-product-context",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "qms-gap-analysis.json",
         "qms-process-map.json",
@@ -1107,6 +1227,7 @@
         "medical-device-risk-management-iso14971",
         "regulated-product-context"
       ],
+      "consumes": [],
       "outputs": [
         "regulatory-strategy.json",
         "regulatory-strategy.md",
@@ -1119,6 +1240,7 @@
         "regulated-product-context",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "risk-management-analysis.json",
         "risk-management-analysis.md",
@@ -1131,6 +1253,7 @@
         "medical-device-customer-contact-intake",
         "quality-record-integrity"
       ],
+      "consumes": [],
       "outputs": [
         "service-complaint-handoff.json",
         "service-event-quality-record.json",
@@ -1142,6 +1265,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "meeting-prep.json",
         "meeting-prep.md"
@@ -1152,6 +1276,7 @@
       "requires": [
         "communication-memory-governance"
       ],
+      "consumes": [],
       "outputs": [
         "communication-profile.merged.json",
         "memory-ledger.merged.json",
@@ -1167,6 +1292,7 @@
         "test-driven-vertical-slice",
         "two-axis-code-review"
       ],
+      "consumes": [],
       "outputs": [
         "conflict-residual-risk-handoff.json",
         "conflict-resolution-evidence.json",
@@ -1180,6 +1306,7 @@
         "medical-device-risk-management-iso14971",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "containment-actions.json",
         "mrb-disposition-decision.json",
@@ -1193,6 +1320,7 @@
         "knowledge-view",
         "structured-knowledge-artifact"
       ],
+      "consumes": [],
       "outputs": [
         "obsidian-candidate.json",
         "obsidian-map.canvas",
@@ -1203,6 +1331,7 @@
     {
       "name": "opaque-system-analysis",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "opaque-analysis-evidence.md",
         "recovered-system-model.json",
@@ -1212,6 +1341,7 @@
     {
       "name": "openasr-offline-model-import",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "import verification",
         "installed OpenASR model"
@@ -1222,6 +1352,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "patent-landscape.json",
         "patent-landscape.md",
@@ -1235,6 +1366,7 @@
         "medical-device-qms-iso13485",
         "medical-device-risk-management-iso14971"
       ],
+      "consumes": [],
       "outputs": [
         "process-validation-assessment.json",
         "process-validation-protocol.md",
@@ -1246,6 +1378,7 @@
       "requires": [
         "iterate-software-projects"
       ],
+      "consumes": [],
       "outputs": [
         "beta-readiness.json",
         "beta-readiness.md",
@@ -1256,6 +1389,7 @@
     {
       "name": "project-status-brief",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "project-status.json",
         "project-status.md"
@@ -1268,6 +1402,7 @@
         "deferred-external-action-verification",
         "qms-management-review-governance"
       ],
+      "consumes": [],
       "outputs": [
         "management-review-effectiveness-gaps.json",
         "management-review-follow-up-status.json",
@@ -1283,6 +1418,7 @@
         "medical-device-qms-iso13485",
         "project-status-brief"
       ],
+      "consumes": [],
       "outputs": [
         "management-review-actions.json",
         "management-review-brief.json",
@@ -1296,6 +1432,7 @@
         "medical-device-qms-iso13485",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "quality-record-integrity-assessment.json",
         "record-integrity-gaps.json",
@@ -1305,6 +1442,7 @@
     {
       "name": "regulated-product-context",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "regulated-product-context.json",
         "regulated-product-context.md"
@@ -1317,6 +1455,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "change-integration-status.json",
         "lifecycle-impact-gates.json",
@@ -1329,6 +1468,7 @@
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "regulatory-change-events.json",
         "regulatory-change-watch-status.json",
@@ -1343,6 +1483,7 @@
         "regulated-product-context",
         "regulatory-evidence-traceability"
       ],
+      "consumes": [],
       "outputs": [
         "claim-conflicts.json",
         "claims-consistency-map.json",
@@ -1355,6 +1496,7 @@
         "regulated-product-context",
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "regulatory-evidence-gaps.json",
         "regulatory-evidence-map.json"
@@ -1363,6 +1505,7 @@
     {
       "name": "repository-skill-bootstrap",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "docs/agents/CONFIG.md",
         "docs/agents/CONTEXT.md",
@@ -1372,14 +1515,39 @@
     {
       "name": "research-to-evidence-note",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "evidence-note.json",
         "evidence-note.md"
       ]
     },
     {
+      "name": "role-architecture",
+      "requires": [],
+      "consumes": [
+        "role-requirements-handoff.json"
+      ],
+      "outputs": [
+        "role-architecture.json",
+        "role-architecture.md",
+        "role-scorecard.json"
+      ]
+    },
+    {
+      "name": "role-requirements-grilling",
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [],
+      "outputs": [
+        "role-requirements-handoff.json",
+        "role-requirements-report.md"
+      ]
+    },
+    {
       "name": "round-based-requirements-grilling",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "GRILL-REPORT.md",
         "requirements-handoff.json"
@@ -1388,6 +1556,7 @@
     {
       "name": "source-to-context",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "source-context.json",
         "source-context.md"
@@ -1398,6 +1567,7 @@
       "requires": [
         "conversation-to-spec"
       ],
+      "consumes": [],
       "outputs": [
         "dependency-order.json",
         "vertical-issues.json",
@@ -1412,6 +1582,7 @@
         "sport-performance-diagnostics",
         "sport-training-programming"
       ],
+      "consumes": [],
       "outputs": [
         "sport-report-package"
       ]
@@ -1419,6 +1590,7 @@
     {
       "name": "sport-performance-diagnostics",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "sport-diagnostics.json"
       ]
@@ -1426,6 +1598,7 @@
     {
       "name": "sport-training-programming",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "sport-training-plan.json"
       ]
@@ -1433,6 +1606,7 @@
     {
       "name": "structured-knowledge-artifact",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "knowledge-artifact.json",
         "knowledge-artifact.md"
@@ -1445,6 +1619,7 @@
         "medical-device-risk-management-iso14971",
         "two-axis-compliance-review"
       ],
+      "consumes": [],
       "outputs": [
         "supplier-control-plan.json",
         "supplier-quality-assessment.json",
@@ -1454,6 +1629,7 @@
     {
       "name": "synapse-orchestrator",
       "requires": [],
+      "consumes": [],
       "outputs": [
         "execution plan",
         "expert handoff",
@@ -1465,6 +1641,7 @@
       "requires": [
         "technology-offer-assessment"
       ],
+      "consumes": [],
       "outputs": [
         "due-diligence-handoff.json",
         "technology-due-diligence.json",
@@ -1476,6 +1653,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "technology-offer-assessment.json",
         "technology-offer-assessment.md",
@@ -1490,6 +1668,7 @@
         "disciplined-diagnosis",
         "spec-to-vertical-issues"
       ],
+      "consumes": [],
       "outputs": [
         "verification-report.md",
         "vertical-slice-evidence.json",
@@ -1504,6 +1683,7 @@
         "large-work-wayfinder",
         "spec-to-vertical-issues"
       ],
+      "consumes": [],
       "outputs": [
         "disposal-record.json",
         "prototype-brief.md",
@@ -1518,6 +1698,7 @@
         "disciplined-diagnosis",
         "implement-from-issue"
       ],
+      "consumes": [],
       "outputs": [
         "delivery-review-handoff.json",
         "quality-review.json",
@@ -1530,6 +1711,7 @@
       "requires": [
         "research-to-evidence-note"
       ],
+      "consumes": [],
       "outputs": [
         "compliance-evidence-effectiveness.json",
         "compliance-requirement-coverage.json",
@@ -1557,6 +1739,10 @@
     {
       "from": "audit-inspection-finding-response",
       "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "candidate-role-fit-assessment",
+      "to": "role-architecture"
     },
     {
       "from": "central-skill-repository-curation",
@@ -2271,6 +2457,10 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "job-description-authoring",
+      "to": "role-architecture"
+    },
+    {
       "from": "knowledge-map-generator",
       "to": "structured-knowledge-artifact"
     },
@@ -2715,6 +2905,10 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "role-requirements-grilling",
+      "to": "round-based-requirements-grilling"
+    },
+    {
       "from": "spec-to-vertical-issues",
       "to": "conversation-to-spec"
     },
@@ -2799,15 +2993,44 @@
       "to": "research-to-evidence-note"
     }
   ],
+  "consumptionEdges": [
+    {
+      "consumer": "candidate-role-fit-assessment",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "candidate-role-fit-assessment",
+      "artifact": "role-scorecard.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "job-description-authoring",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "job-description-authoring",
+      "artifact": "role-scorecard.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "role-architecture",
+      "artifact": "role-requirements-handoff.json",
+      "producer": "role-requirements-grilling"
+    }
+  ],
   "outputContracts": [
     {
       "output": "GRILL-REPORT.md",
       "producers": [
         "round-based-requirements-grilling"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "role-requirements-grilling"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "SPEC.md",
@@ -2980,6 +3203,33 @@
       "output": "beta-runbook.md",
       "producers": [
         "project-beta-readiness"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "candidate-interview-question-set.md",
+      "producers": [
+        "candidate-role-fit-assessment"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "candidate-role-fit.json",
+      "producers": [
+        "candidate-role-fit-assessment"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "candidate-role-fit.md",
+      "producers": [
+        "candidate-role-fit-assessment"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -4161,6 +4411,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "executive-search-brief.md",
+      "producers": [
+        "job-description-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "expert handoff",
       "producers": [
         "synapse-orchestrator"
@@ -4851,6 +5110,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "job-description.md",
+      "producers": [
+        "job-description-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "knowledge-artifact.json",
       "producers": [
         "structured-knowledge-artifact"
@@ -5523,6 +5791,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "public-job-posting.md",
+      "producers": [
+        "job-description-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "pull request",
       "producers": [
         "composable-skill-factory"
@@ -6095,9 +6372,11 @@
       "producers": [
         "round-based-requirements-grilling"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "role-requirements-grilling"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "resolved-change-brief.md",
@@ -6291,6 +6570,59 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "role-architecture.json",
+      "producers": [
+        "role-architecture"
+      ],
+      "consumerSkills": [
+        "candidate-role-fit-assessment",
+        "job-description-authoring"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "role-architecture.md",
+      "producers": [
+        "role-architecture"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "role-requirements-handoff.json",
+      "producers": [
+        "role-requirements-grilling"
+      ],
+      "consumerSkills": [
+        "role-architecture"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "role-requirements-report.md",
+      "producers": [
+        "role-requirements-grilling"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "role-scorecard.json",
+      "producers": [
+        "role-architecture"
+      ],
+      "consumerSkills": [
+        "candidate-role-fit-assessment",
+        "job-description-authoring"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
     },
     {
       "output": "scientific-validity-assessment.json",
@@ -6830,7 +7162,6 @@
     }
   ],
   "unconsumedOutputs": [
-    "GRILL-REPORT.md",
     "acceptance-gaps.json",
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
@@ -6839,6 +7170,9 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "candidate-interview-question-set.md",
+    "candidate-role-fit.json",
+    "candidate-role-fit.md",
     "cdx-consultation-readiness.json",
     "cdx-medicinal-product-linkage.json",
     "cdx-scope-assessment.json",
@@ -6878,6 +7212,7 @@
     "eudamed-readiness.json",
     "euroimmun-report.pdf",
     "execution plan",
+    "executive-search-brief.md",
     "expert handoff",
     "fda-acceptance-preflight.json",
     "fda-device-listing-readiness.json",
@@ -6912,6 +7247,7 @@
     "ivdr-economic-operator-propagation-state.json",
     "ivdr-fsca-authority-followup.json",
     "ivdr-vigilance-final-report-package.json",
+    "job-description.md",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
@@ -6948,6 +7284,7 @@
     "process-validation-protocol.md",
     "process-validation-strategy.json",
     "progress summary",
+    "public-job-posting.md",
     "qmsr-inspection-readiness.json",
     "qsub-briefing-package.md",
     "qsub-commitments.json",
@@ -6962,9 +7299,10 @@
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
-    "requirements-handoff.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
+    "role-architecture.md",
+    "role-requirements-report.md",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
@@ -6988,7 +7326,6 @@
     "vigilance-entry-handoff.json"
   ],
   "orphanOutputs": [
-    "GRILL-REPORT.md",
     "acceptance-gaps.json",
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
@@ -6997,6 +7334,9 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "candidate-interview-question-set.md",
+    "candidate-role-fit.json",
+    "candidate-role-fit.md",
     "cdx-consultation-readiness.json",
     "cdx-medicinal-product-linkage.json",
     "cdx-scope-assessment.json",
@@ -7036,6 +7376,7 @@
     "eudamed-readiness.json",
     "euroimmun-report.pdf",
     "execution plan",
+    "executive-search-brief.md",
     "expert handoff",
     "fda-acceptance-preflight.json",
     "fda-device-listing-readiness.json",
@@ -7070,6 +7411,7 @@
     "ivdr-economic-operator-propagation-state.json",
     "ivdr-fsca-authority-followup.json",
     "ivdr-vigilance-final-report-package.json",
+    "job-description.md",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
@@ -7106,6 +7448,7 @@
     "process-validation-protocol.md",
     "process-validation-strategy.json",
     "progress summary",
+    "public-job-posting.md",
     "qmsr-inspection-readiness.json",
     "qsub-briefing-package.md",
     "qsub-commitments.json",
@@ -7120,9 +7463,10 @@
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
-    "requirements-handoff.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
+    "role-architecture.md",
+    "role-requirements-report.md",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",

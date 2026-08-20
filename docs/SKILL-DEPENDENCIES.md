@@ -1,6 +1,6 @@
 # Skill Dependency Graph
 
-Generated from canonical `requires` and `outputs` frontmatter. Do not edit manually.
+Generated from canonical `requires`, `consumes`, and `outputs` frontmatter. Do not edit manually.
 
 ```mermaid
 graph TD
@@ -9,6 +9,7 @@ graph TD
   architecture_deepening_review --> iterate_software_projects
   audit_inspection_finding_response --> decision_record
   audit_inspection_finding_response --> regulatory_evidence_traceability
+  candidate_role_fit_assessment --> role_architecture
   central_skill_repository_curation --> composable_skill_factory
   clinical_evidence_update_impact --> decision_record
   clinical_evidence_update_impact --> regulated_product_context
@@ -187,6 +188,7 @@ graph TD
   ivdr_scientific_validity --> regulated_product_context
   ivdr_scientific_validity --> regulatory_evidence_traceability
   ivdr_scientific_validity --> research_to_evidence_note
+  job_description_authoring --> role_architecture
   knowledge_map_generator --> structured_knowledge_artifact
   knowledge_view --> structured_knowledge_artifact
   large_work_wayfinder --> agent_handoff
@@ -298,6 +300,7 @@ graph TD
   regulatory_claims_consistency --> regulatory_evidence_traceability
   regulatory_evidence_traceability --> regulated_product_context
   regulatory_evidence_traceability --> research_to_evidence_note
+  role_requirements_grilling --> round_based_requirements_grilling
   spec_to_vertical_issues --> conversation_to_spec
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_docx_report_renderer
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_pdf_report_renderer
@@ -321,13 +324,25 @@ graph TD
   two_axis_compliance_review --> research_to_evidence_note
 ```
 
+## Artifact consumption
+
+`requires` declares hard skill prerequisites. `consumes` declares concrete artifacts a skill can consume without creating a hard prerequisite edge. For backward compatibility, outputs of a required skill are inferred as consumed only when the consumer declares no explicit `consumes` list. Explicit artifact consumption therefore takes precedence over broad legacy inference.
+
+| Consumer | Artifact | Producer |
+|---|---|---|
+| `candidate-role-fit-assessment` | `role-architecture.json` | `role-architecture` |
+| `candidate-role-fit-assessment` | `role-scorecard.json` | `role-architecture` |
+| `job-description-authoring` | `role-architecture.json` | `role-architecture` |
+| `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
+| `role-architecture` | `role-requirements-handoff.json` | `role-requirements-grilling` |
+
 ## Output contracts
 
-`consumerSkills` are inferred only from hard `requires` edges to a unique producer; ambiguous producers never receive inferred consumers. A missing inferred consumer is reported as `unconsumed`, not as an orphan verdict: terminal user-facing artifacts are valid outputs.
+`consumerSkills` prefer explicit `consumes` declarations. Legacy consumer inference from hard `requires` remains only for consumers without an explicit artifact list. Ambiguous producers are never guessed. A missing consumer is reported as `unconsumed`, not as an error: terminal user-facing artifacts are valid outputs.
 
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | — | unconsumed |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `role-requirements-grilling` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `acceptance-gaps.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `adverse-event-code-set.json` | `medical-device-adverse-event-coding` | — | unconsumed |
@@ -344,6 +359,9 @@ graph TD
 | `beta-readiness.json` | `project-beta-readiness` | — | unconsumed |
 | `beta-readiness.md` | `project-beta-readiness` | — | unconsumed |
 | `beta-runbook.md` | `project-beta-readiness` | — | unconsumed |
+| `candidate-interview-question-set.md` | `candidate-role-fit-assessment` | — | unconsumed |
+| `candidate-role-fit.json` | `candidate-role-fit-assessment` | — | unconsumed |
+| `candidate-role-fit.md` | `candidate-role-fit-assessment` | — | unconsumed |
 | `capa-effectiveness-plan.json` | `medical-device-capa` | `fda-corrections-removals`, `ivdr-field-safety-corrective-action`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `capa-plan.json` | `medical-device-capa` | `fda-corrections-removals`, `ivdr-field-safety-corrective-action`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `capa-status.md` | `medical-device-capa` | `fda-corrections-removals`, `ivdr-field-safety-corrective-action`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
@@ -443,6 +461,7 @@ graph TD
 | `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
+| `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
 | `fda-acceptance-preflight.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `fda-device-classification.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver` | inferred |
@@ -509,6 +528,7 @@ graph TD
 | `ivdr-performance-evaluation.json` | `ivdr-performance-evaluation` | `ivdr-class-d-conformity`, `ivdr-companion-diagnostic-consultation`, `ivdr-performance-evaluation-report`, `ivdr-pmpf` | inferred |
 | `ivdr-pms-assessment.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ivdr-vigilance-final-report-package.json` | `ivdr-fsca-status-final-reporting` | — | unconsumed |
+| `job-description.md` | `job-description-authoring` | — | unconsumed |
 | `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | inferred |
 | `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | inferred |
 | `knowledge-map.json` | `knowledge-map-generator` | `obsidian-adapter` | inferred |
@@ -573,6 +593,7 @@ graph TD
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `prototype-brief.md` | `throwaway-prototype` | `decision-record` | inferred |
 | `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | inferred |
+| `public-job-posting.md` | `job-description-authoring` | — | unconsumed |
 | `pull request` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
 | `qms-audit-findings.json` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `mdsap-audit-readiness`, `qms-management-review-governance` | inferred |
 | `qms-audit-plan.json` | `iso13485-qms-audit` | `fda-qmsr-inspection-readiness`, `mdsap-audit-readiness`, `qms-management-review-governance` | inferred |
@@ -606,7 +627,7 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
 | `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | — | unconsumed |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `role-requirements-grilling` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
@@ -617,6 +638,11 @@ graph TD
 | `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
+| `role-architecture.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring` | explicit |
+| `role-architecture.md` | `role-architecture` | — | unconsumed |
+| `role-requirements-handoff.json` | `role-requirements-grilling` | `role-architecture` | explicit |
+| `role-requirements-report.md` | `role-requirements-grilling` | — | unconsumed |
+| `role-scorecard.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring` | explicit |
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `se-evidence-gaps.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Role Architecture"
+  short_description: "Überführt bestätigte Rollenanforderungen in ein normatives Rollenmodell mit Zweck, Outcomes, Verantwortungs- und Ents..."
+policy:
+  allow_implicit_invocation: true

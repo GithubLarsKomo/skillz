@@ -22,6 +22,12 @@
         "agents/openai.yaml": "a60046b65776e1d7b36a1a7059696b273d064c8b503700d2a9bb28302ed7b15a"
       }
     },
+    "candidate-role-fit-assessment": {
+      "files": {
+        "SKILL.md": "6f1830956bdd0708f0853ea7fb2a15c59f0b2ee80b4262e54def332b6095ac44",
+        "agents/openai.yaml": "36828f75b7133f799d68a5f8097caeb765ff66567a00aae0cf752ce83bda6158"
+      }
+    },
     "central-skill-repository-curation": {
       "files": {
         "SKILL.md": "49c2256014e1d7301256c78de29ff9dab738781c93226a2f8ad55b7288283ede",
@@ -446,6 +452,12 @@
         "agents/openai.yaml": "3dc85d29b239777aad454613479074eb32aaac4b286acfa65bedadf559830d8a"
       }
     },
+    "job-description-authoring": {
+      "files": {
+        "SKILL.md": "e28970aab139dc1d9db4333cb0d28a35c65cf41fbb0a4be48f2e80dcf92d031a",
+        "agents/openai.yaml": "f99c6dd925b2823c03793968d5d7ee9edfd633172ba866b1ecb4e0532ba6c75d"
+      }
+    },
     "knowledge-map-generator": {
       "files": {
         "SKILL.md": "ab1f00550a3e1b78ee6e299368df498ddc98dee2b46c4f1334a0e0c13aaa2931",
@@ -715,6 +727,18 @@
       "files": {
         "SKILL.md": "a89aeb93b0028bf26ee3f12f949c6f710ab35e25a1f81a1e1cabcff6c45e8e1e",
         "agents/openai.yaml": "ef3d890b2870ab7c1feb4d86d15da1ef94eb8ab53aea400538a4ace3a444330a"
+      }
+    },
+    "role-architecture": {
+      "files": {
+        "SKILL.md": "1d426a473fc43d6ffa862820f3102dd66a3f626e912c18c39d92ece7709691f1",
+        "agents/openai.yaml": "9329003798128fcdeefd51fea0fac5a045bb4dd1cef85c7fcada305706051cc4"
+      }
+    },
+    "role-requirements-grilling": {
+      "files": {
+        "SKILL.md": "7925d7291867653ee4d6393048d161662da34aefa7b90034e7bf9d82b6158253",
+        "agents/openai.yaml": "b69d1dc4d4e97ac20b61b5a0e5b9f45a1ae4e42982db521f49a8405a8ea42e35"
       }
     },
     "round-based-requirements-grilling": {

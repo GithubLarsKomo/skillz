@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **129**
-- User-facing entrypoints: **111**
-- Evaluation suites: **129**
+- Skills: **133**
+- User-facing entrypoints: **115**
+- Evaluation suites: **133**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **156**
+- Outputs without inferred hard-requires consumers: **162**
 
 ## Evaluation gaps
 
@@ -28,7 +28,6 @@ None.
 
 These are **not automatically defects**. The dependency graph infers consumers only from hard `requires` edges. User-facing reports, installed artifacts, runbooks, exported notes and other terminal products are expected to appear here. Treat this list as a review queue, not as an orphan verdict.
 
-- `GRILL-REPORT.md` — producer: `round-based-requirements-grilling`
 - `acceptance-gaps.json` — producer: `fda-acceptance-readiness`
 - `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
@@ -37,6 +36,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
+- `candidate-interview-question-set.md` — producer: `candidate-role-fit-assessment`
+- `candidate-role-fit.json` — producer: `candidate-role-fit-assessment`
+- `candidate-role-fit.md` — producer: `candidate-role-fit-assessment`
 - `cdx-consultation-readiness.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `cdx-medicinal-product-linkage.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
@@ -76,6 +78,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
 - `euroimmun-report.pdf` — producer: `euroimmun-pdf-report-renderer`
 - `execution plan` — producer: `synapse-orchestrator`
+- `executive-search-brief.md` — producer: `job-description-authoring`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
 - `fda-device-listing-readiness.json` — producer: `fda-registration-listing-udi`
@@ -110,6 +113,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `ivdr-economic-operator-propagation-state.json` — producer: `ivdr-economic-operator-postmarket-propagation`
 - `ivdr-fsca-authority-followup.json` — producer: `ivdr-fsca-status-final-reporting`
 - `ivdr-vigilance-final-report-package.json` — producer: `ivdr-fsca-status-final-reporting`
+- `job-description.md` — producer: `job-description-authoring`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
@@ -146,6 +150,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `process-validation-protocol.md` — producer: `process-validation-iq-oq-pq`
 - `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
 - `progress summary` — producer: `synapse-orchestrator`
+- `public-job-posting.md` — producer: `job-description-authoring`
 - `qmsr-inspection-readiness.json` — producer: `fda-qmsr-inspection-readiness`
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
@@ -160,9 +165,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
-- `requirements-handoff.json` — producer: `round-based-requirements-grilling`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
+- `role-architecture.md` — producer: `role-architecture`
+- `role-requirements-report.md` — producer: `role-requirements-grilling`
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`

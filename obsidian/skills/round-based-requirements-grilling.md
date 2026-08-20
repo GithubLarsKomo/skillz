@@ -30,7 +30,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 
 ## Required by
 
-- —
+- [[skills/role-requirements-grilling|role-requirements-grilling]]
 
 ## Outputs
 
@@ -41,11 +41,11 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 
 ### `GRILL-REPORT.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/role-requirements-grilling|role-requirements-grilling]]
 
 ### `requirements-handoff.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/role-requirements-grilling|role-requirements-grilling]]
 
 ## Evaluation
 

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Candidate Role Fit Assessment"
+  short_description: "Bewertet eine konkrete Person evidenzbasiert gegen eine freigegebene Role Architecture und Scorecard, trennt belegte..."
+policy:
+  allow_implicit_invocation: true

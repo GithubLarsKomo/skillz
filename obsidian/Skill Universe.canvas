@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n129 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n133 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1166,14 +1166,23 @@
       "x": 8540,
       "y": 0,
       "width": 1120,
-      "height": 520,
+      "height": 800,
       "color": "2"
+    },
+    {
+      "id": "skill-candidate-role-fit-assessment",
+      "type": "file",
+      "file": "skills/candidate-role-fit-assessment.md",
+      "x": 8580,
+      "y": 70,
+      "width": 300,
+      "height": 110
     },
     {
       "id": "skill-dr-komorowski-sport-docx-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-docx-report-renderer.md",
-      "x": 8580,
+      "x": 8910,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1182,7 +1191,7 @@
       "id": "skill-dr-komorowski-sport-pdf-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-pdf-report-renderer.md",
-      "x": 8910,
+      "x": 9240,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1191,8 +1200,8 @@
       "id": "skill-dr-komorowski-sport-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-report-renderer.md",
-      "x": 9240,
-      "y": 70,
+      "x": 8580,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1200,7 +1209,7 @@
       "id": "skill-euroimmun-docx-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-docx-report-renderer.md",
-      "x": 8580,
+      "x": 8910,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1209,7 +1218,7 @@
       "id": "skill-euroimmun-pdf-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-pdf-report-renderer.md",
-      "x": 8910,
+      "x": 9240,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1218,8 +1227,35 @@
       "id": "skill-human-procedure-wizard",
       "type": "file",
       "file": "skills/human-procedure-wizard.md",
+      "x": 8580,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-job-description-authoring",
+      "type": "file",
+      "file": "skills/job-description-authoring.md",
+      "x": 8910,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-role-architecture",
+      "type": "file",
+      "file": "skills/role-architecture.md",
       "x": 9240,
-      "y": 210,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-role-requirements-grilling",
+      "type": "file",
+      "file": "skills/role-requirements-grilling.md",
+      "x": 8580,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1227,8 +1263,8 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 8580,
-      "y": 350,
+      "x": 8910,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1236,8 +1272,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 8910,
-      "y": 350,
+      "x": 9240,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1245,8 +1281,8 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 9240,
-      "y": 350,
+      "x": 8580,
+      "y": 630,
       "width": 300,
       "height": 110
     }
@@ -1294,6 +1330,15 @@
       "fromSide": "left",
       "toNode": "skill-regulatory-evidence-traceability",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-560bf758b3fb",
+      "fromNode": "skill-candidate-role-fit-assessment",
+      "fromSide": "right",
+      "toNode": "skill-role-architecture",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2900,6 +2945,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-60cb2dad71cf",
+      "fromNode": "skill-job-description-authoring",
+      "fromSide": "right",
+      "toNode": "skill-role-architecture",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-3e650f290a75",
       "fromNode": "skill-knowledge-map-generator",
       "fromSide": "right",
@@ -3895,6 +3949,15 @@
       "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
       "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2bf26b635521",
+      "fromNode": "skill-role-requirements-grilling",
+      "fromSide": "left",
+      "toNode": "skill-round-based-requirements-grilling",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },

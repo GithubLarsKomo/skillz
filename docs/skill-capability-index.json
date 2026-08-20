@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 129,
-  "entrypointCount": 111,
+  "skillCount": 133,
+  "entrypointCount": 115,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 129,
+  "evaluationSuiteCount": 133,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -190,6 +190,58 @@
           "ambiguous": false,
           "producers": [
             "audit-inspection-finding-response"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "candidate-role-fit-assessment",
+      "description": "Bewertet eine konkrete Person evidenzbasiert gegen eine freigegebene Role Architecture und Scorecard, trennt belegte Fakten, plausible Inferenz und Unbekanntes und erzeugt gezielte Verifikations- und Interviewfragen. Verwenden für Führungs-, Experten- und Schlüsselrollen, ohne aus öffentlicher Sichtbarkeit oder Lebenslauf-Proxys unbelegte Eignung abzuleiten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "role-architecture"
+      ],
+      "dependents": [],
+      "outputs": [
+        "candidate-interview-question-set.md",
+        "candidate-role-fit.json",
+        "candidate-role-fit.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "candidate-interview-question-set.md",
+          "ambiguous": false,
+          "producers": [
+            "candidate-role-fit-assessment"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "candidate-role-fit.json",
+          "ambiguous": false,
+          "producers": [
+            "candidate-role-fit-assessment"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "candidate-role-fit.md",
+          "ambiguous": false,
+          "producers": [
+            "candidate-role-fit-assessment"
           ],
           "consumerSkills": []
         }
@@ -3894,6 +3946,58 @@
       }
     },
     {
+      "name": "job-description-authoring",
+      "description": "Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne Stellenbeschreibungen, Executive-Search-Briefs und öffentliche Ausschreibungen, ohne Mandat, Anforderungen oder Auswahlkriterien neu zu erfinden. Verwenden, wenn ein normatives Rollenmodell kommunikativ übersetzt werden soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "role-architecture"
+      ],
+      "dependents": [],
+      "outputs": [
+        "executive-search-brief.md",
+        "job-description.md",
+        "public-job-posting.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "executive-search-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "job-description-authoring"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "job-description.md",
+          "ambiguous": false,
+          "producers": [
+            "job-description-authoring"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "public-job-posting.md",
+          "ambiguous": false,
+          "producers": [
+            "job-description-authoring"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "knowledge-map-generator",
       "description": "Projiziert vorhandene strukturierte Wissensartefakte und explizite Relationen in einen provider-neutralen Graphen aus Nodes, Edges und optionalen Groups. Verwenden, wenn Projekt-, Architektur-, Decision-, Domain- oder Memory-Zusammenhänge visualisiert oder an JSON Canvas, Mermaid, Graphviz, Neo4j oder andere Renderer übergeben werden sollen; der Skill erfindet keine fehlenden Beziehungen.",
       "invocation": {
@@ -6965,6 +7069,110 @@
       }
     },
     {
+      "name": "role-architecture",
+      "description": "Überführt bestätigte Rollenanforderungen in ein normatives Rollenmodell mit Zweck, Outcomes, Verantwortungs- und Entscheidungsrechten, Scope, Schnittstellen, Erfolgskriterien und begründeten Capability-Anforderungen. Verwenden, wenn definiert werden soll, welche Rolle die Organisation tatsächlich braucht, bevor Ausschreibung oder Kandidatenbewertung beginnen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "candidate-role-fit-assessment",
+        "job-description-authoring"
+      ],
+      "outputs": [
+        "role-architecture.json",
+        "role-architecture.md",
+        "role-scorecard.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "role-architecture.json",
+          "ambiguous": false,
+          "producers": [
+            "role-architecture"
+          ],
+          "consumerSkills": [
+            "candidate-role-fit-assessment",
+            "job-description-authoring"
+          ]
+        },
+        {
+          "output": "role-architecture.md",
+          "ambiguous": false,
+          "producers": [
+            "role-architecture"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "role-scorecard.json",
+          "ambiguous": false,
+          "producers": [
+            "role-architecture"
+          ],
+          "consumerSkills": [
+            "candidate-role-fit-assessment",
+            "job-description-authoring"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "role-requirements-grilling",
+      "description": "Klärt den tatsächlichen Bedarf an einer Führungs-, Experten- oder Schlüsselrolle durch fokussiertes Grilling von Auftrag, Ergebnissen, Entscheidungsrechten, Schnittstellen, Kontext, Muss-Kriterien und bewusst ausgeschlossenen Anforderungen. Verwenden, bevor eine Role Architecture oder Stellenbeschreibung entworfen wird.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [],
+      "outputs": [
+        "role-requirements-handoff.json",
+        "role-requirements-report.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "role-requirements-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "role-requirements-grilling"
+          ],
+          "consumerSkills": [
+            "role-architecture"
+          ]
+        },
+        {
+          "output": "role-requirements-report.md",
+          "ambiguous": false,
+          "producers": [
+            "role-requirements-grilling"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "round-based-requirements-grilling",
       "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.",
       "invocation": {
@@ -6972,7 +7180,9 @@
         "category": null
       },
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "role-requirements-grilling"
+      ],
       "outputs": [
         "GRILL-REPORT.md",
         "requirements-handoff.json"
@@ -6984,7 +7194,9 @@
           "producers": [
             "round-based-requirements-grilling"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "role-requirements-grilling"
+          ]
         },
         {
           "output": "requirements-handoff.json",
@@ -6992,7 +7204,9 @@
           "producers": [
             "round-based-requirements-grilling"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "role-requirements-grilling"
+          ]
         }
       ],
       "portableFiles": [
