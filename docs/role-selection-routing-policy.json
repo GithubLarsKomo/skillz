@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "policyId": "role-selection-routing-v1",
+  "stages": {
+    "requirements": {
+      "skill": "role-requirements-grilling",
+      "owns": "role-requirements-clarification",
+      "produces": ["role-requirements-handoff.json", "role-requirements-report.md"]
+    },
+    "architecture": {
+      "skill": "role-architecture",
+      "owns": "normative-role-model",
+      "produces": ["role-architecture.json", "role-architecture.md", "role-scorecard.json"]
+    },
+    "authoring": {
+      "skill": "job-description-authoring",
+      "owns": "audience-specific-role-communication",
+      "produces": ["job-description.md", "executive-search-brief.md", "public-job-posting.md"]
+    },
+    "assessment": {
+      "skill": "candidate-role-fit-assessment",
+      "owns": "candidate-evidence-against-normative-role",
+      "produces": ["candidate-role-fit.json", "candidate-role-fit.md", "candidate-interview-question-set.md"]
+    }
+  },
+  "gates": {
+    "requirementsResolved": "No blocking stakeholder decision about role purpose, outcomes, mandate, scope, or essential capabilities remains unresolved.",
+    "architectureApproved": "role-architecture.json has status=approved.",
+    "scorecardApproved": "role-scorecard.json has status=approved and matches roleArchitectureId and roleArchitectureVersion exactly.",
+    "scoringFrozenBeforeCandidate": "scoringModelVersion, weights, minimum levels, and knockouts were approved before the assessed candidate was viewed.",
+    "sameNormativeVersionForComparison": "Candidates in a comparative ranking use the same roleArchitectureVersion and scoringModelVersion."
+  },
+  "transitions": [
+    {
+      "id": "T1-requirements-to-architecture",
+      "from": "requirements",
+      "to": "architecture",
+      "requires": ["requirementsResolved"],
+      "handoff": ["role-requirements-handoff.json"]
+    },
+    {
+      "id": "T2-evidence-direct-to-architecture",
+      "from": "confirmed-equivalent-evidence",
+      "to": "architecture",
+      "requires": ["requirementsResolved"],
+      "handoff": ["confirmed role evidence"],
+      "note": "Role Requirements Grilling is preferred but not mandatory when equivalent confirmed evidence already exists."
+    },
+    {
+      "id": "T3-architecture-to-authoring",
+      "from": "architecture",
+      "to": "authoring",
+      "requires": ["architectureApproved", "scorecardApproved"],
+      "handoff": ["role-architecture.json", "role-scorecard.json"]
+    },
+    {
+      "id": "T4-architecture-to-assessment",
+      "from": "architecture",
+      "to": "assessment",
+      "requires": ["architectureApproved", "scorecardApproved", "scoringFrozenBeforeCandidate"],
+      "handoff": ["role-architecture.json", "role-scorecard.json"]
+    },
+    {
+      "id": "T5-authoring-to-architecture",
+      "from": "authoring",
+      "to": "architecture",
+      "requires": ["normativeRoleChangeNeeded"],
+      "handoff": ["requested role change", "affected normative elements"]
+    },
+    {
+      "id": "T6-assessment-to-architecture",
+      "from": "assessment",
+      "to": "architecture",
+      "requires": ["roleModelDefectDiscovered"],
+      "handoff": ["model defect", "affected dimensions", "candidate-independent rationale"]
+    },
+    {
+      "id": "T7-architecture-to-requirements",
+      "from": "architecture",
+      "to": "requirements",
+      "requires": ["blockingStakeholderDecisionDiscovered"],
+      "handoff": ["decision question", "affected role elements"]
+    }
+  ],
+  "forbiddenTransitions": [
+    {
+      "from": "requirements",
+      "to": "authoring",
+      "reason": "A normative approved Role Architecture is mandatory before job-description authoring."
+    },
+    {
+      "from": "requirements",
+      "to": "assessment",
+      "reason": "Candidate assessment requires an approved Role Architecture and matching approved scorecard."
+    },
+    {
+      "from": "authoring",
+      "to": "assessment",
+      "reason": "Job descriptions and postings are communication projections, not normative candidate-assessment inputs."
+    },
+    {
+      "from": "public-job-posting.md",
+      "to": "assessment",
+      "reason": "Public copy may be intentionally abbreviated and cannot replace role-architecture.json and role-scorecard.json."
+    },
+    {
+      "from": "draft-or-review-architecture",
+      "to": "authoring",
+      "reason": "Only status=approved may be used as current authoring basis."
+    },
+    {
+      "from": "draft-or-review-architecture",
+      "to": "assessment",
+      "reason": "Only approved architecture and scorecard may be used for candidate assessment."
+    },
+    {
+      "from": "assessment",
+      "to": "scorecard-mutation-for-current-candidate",
+      "reason": "Candidate evidence must not be used to tune weights, thresholds, or knockouts for that candidate."
+    }
+  ],
+  "versioning": {
+    "normativeKeys": ["roleArchitectureId", "roleArchitectureVersion", "scoringModelVersion"],
+    "approvalStatuses": ["draft", "review", "approved", "superseded"],
+    "staleRule": "Any downstream artifact derived from a superseded roleArchitectureVersion or scoringModelVersion becomes stale and must not be used as current output.",
+    "revalidationRule": "Job-description projections may be regenerated or explicitly revalidated; candidate assessments must be rerun against the new normative version.",
+    "comparisonRule": "A comparative candidate ranking is valid only when all compared candidates use the same normative role and scoring versions."
+  },
+  "scorecardInvariants": [
+    "active weights sum to 1.0",
+    "dimension ids are unique",
+    "each dimension traces to a capability outcome or mandatory constraint",
+    "each knockout has a documented mandatory rationale",
+    "weights thresholds and knockouts are approved before candidate review",
+    "role architecture and scorecard ids and versions match exactly"
+  ],
+  "scenarios": [
+    {
+      "id": "S1-normal-end-to-end",
+      "class": "happy-path",
+      "expectedPath": ["requirements", "architecture", "authoring"],
+      "parallelAllowed": ["architecture", "assessment"]
+    },
+    {
+      "id": "S2-direct-authoring-bypass",
+      "class": "forbidden",
+      "attemptedPath": ["requirements", "authoring"],
+      "expected": "blocked"
+    },
+    {
+      "id": "S3-assessment-without-architecture",
+      "class": "forbidden",
+      "attemptedPath": ["candidate-evidence", "assessment"],
+      "expected": "blocked"
+    },
+    {
+      "id": "S4-assessment-from-public-posting",
+      "class": "forbidden",
+      "attemptedPath": ["public-job-posting.md", "assessment"],
+      "expected": "blocked"
+    },
+    {
+      "id": "S5-draft-architecture",
+      "class": "approval-gate",
+      "conditions": {"architectureStatus": "draft"},
+      "blockedTargets": ["authoring", "assessment"]
+    },
+    {
+      "id": "S6-scorecard-version-mismatch",
+      "class": "version-gate",
+      "conditions": {"architectureVersion": "2", "scorecardRoleArchitectureVersion": "1"},
+      "blockedTargets": ["authoring", "assessment"]
+    },
+    {
+      "id": "S7-authoring-discovers-role-change",
+      "class": "return",
+      "expectedPath": ["authoring", "architecture", "authoring"]
+    },
+    {
+      "id": "S8-assessment-discovers-role-model-defect",
+      "class": "return",
+      "expectedPath": ["assessment", "architecture", "assessment"]
+    },
+    {
+      "id": "S9-assessment-discovers-stakeholder-decision",
+      "class": "return",
+      "expectedPath": ["assessment", "architecture", "requirements", "architecture", "assessment"]
+    },
+    {
+      "id": "S10-architecture-version-change",
+      "class": "invalidation",
+      "conditions": {"oldVersion": "1", "newApprovedVersion": "2"},
+      "expectedStale": ["job-description.md", "executive-search-brief.md", "public-job-posting.md", "candidate-role-fit.json"]
+    },
+    {
+      "id": "S11-scorecard-after-candidate",
+      "class": "forbidden",
+      "attemptedAction": "change scorecard weights after seeing candidate",
+      "expected": "blocked"
+    },
+    {
+      "id": "S12-unknown-evidence",
+      "class": "evidence",
+      "conditions": {"candidateEvidence": "missing", "contraryEvidence": false},
+      "expectedClassification": "unknown",
+      "mustNotEqual": "failed"
+    },
+    {
+      "id": "S13-cross-version-ranking",
+      "class": "version-gate",
+      "conditions": {"candidateAArchitectureVersion": "1", "candidateBArchitectureVersion": "2"},
+      "expected": "no-common-ranking-until-reassessment"
+    }
+  ]
+}
