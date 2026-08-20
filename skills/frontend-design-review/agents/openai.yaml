@@ -1,5 +1,5 @@
 interface:
   display_name: "Frontend Design Review"
-  short_description: "Prüft Frontend-Oberflächen gegen PRODUCT.md, DESIGN.md, Brief, Accessibility und Anti-Slop-Regeln."
+  short_description: "Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Featu..."
 policy:
   allow_implicit_invocation: true
