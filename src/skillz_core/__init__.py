@@ -34,6 +34,7 @@ from .status import (
     repository_version,
     resolve_status,
 )
+from .validation import validate_catalog
 
 __all__ = [
     "GRAPH_SCHEMA_VERSION",
@@ -69,5 +70,6 @@ __all__ = [
     "resolve",
     "resolve_status",
     "skills_by_name",
+    "validate_catalog",
     "validate_known_constraints",
 ]
