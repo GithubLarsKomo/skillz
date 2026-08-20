@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "talent-search-strategy",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "create core, adjacent and wildcard talent pools", "passed": true, "evidence": "The strategy model explicitly separates core target companies, adjacent talent pools and wildcard hypotheses."},
+    {"behavior": "derive role families from required capabilities rather than exact title matching", "passed": true, "evidence": "The workflow requires role-family derivation from capability patterns and explicitly warns against exact-title-only search."},
+    {"behavior": "document explicit search hypotheses with linked criteria", "passed": true, "evidence": "Each search hypothesis must include rationale and links to relevant role criteria."},
+    {"behavior": "keep concrete candidate discovery separate from person evaluation", "passed": true, "evidence": "The skill boundary treats search-space design and discovery separately from professional-person-research and role-capability mapping."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "rank candidates inside the search strategy", "observed": false, "evidence": "Candidate ranking is outside the search-strategy scope."},
+    {"behavior": "treat company prestige as evidence of role fit", "observed": false, "evidence": "Target-company relevance must be evidence-backed or explicitly hypothetical; prestige is not accepted as fit evidence."}
+  ],
+  "overall": "pass"
+}
