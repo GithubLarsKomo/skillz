@@ -27,8 +27,7 @@ def create_server(repository_root: Path | None = None) -> MCPServer:
             raise ValueError("limit must be between 1 and 100")
         mode, matches = query_skill_listing(index, "all" if include_internal and not query.strip() else query)
         if include_internal and query.strip():
-            normalized = query.strip().casefold()
-            terms = [term for term in normalized.split() if term]
+            terms = [term for term in query.strip().casefold().split() if term]
             matches = []
             for skill in index["skills"]:
                 meta = invocation(skill)
@@ -43,8 +42,8 @@ def create_server(repository_root: Path | None = None) -> MCPServer:
         matches = matches[:limit]
         return listing_payload(mode, query, matches)
 
-    @server.tool()
-    def get_skill_tool(name: str) -> dict:
+    @server.tool(name="get_skill")
+    def get_skill_metadata(name: str) -> dict:
         """Return exact indexed metadata for one skill; no fuzzy fallback and no execution."""
         skill = dict(get_skill(index, name))
         skill["resourceUris"] = {
