@@ -18,7 +18,8 @@ def load_index(path: Path) -> dict:
         raise ValueError(
             f"unsupported capability index schemaVersion {data.get('schemaVersion')!r}; expected {SCHEMA_VERSION}"
         )
-    if not isinstance(data.get("skills"), list):
+    skills = data.get("skills")
+    if not isinstance(skills, list):
         raise ValueError("capability index skills must be a list")
     return data
 
@@ -28,8 +29,6 @@ def skills_by_name(index: dict) -> dict[str, dict]:
     for item in index["skills"]:
         if not isinstance(item, dict) or not isinstance(item.get("name"), str):
             raise ValueError("capability index contains an invalid skill record")
-        if item["name"] in result:
-            raise ValueError(f"duplicate skill: {item['name']}")
         result[item["name"]] = item
     return result
 
@@ -63,6 +62,15 @@ def query_output(index: dict, output: str) -> list[dict]:
     if not matches:
         raise LookupError(f"unknown output: {output}")
     return matches
+
+
+def query_mode(index: dict, mode: str) -> list[dict]:
+    if mode not in VALID_MODES:
+        raise ValueError(f"unsupported evaluation mode: {mode}")
+    return sorted(
+        [skill for skill in index["skills"] if skill.get("evaluation", {}).get("mode") == mode],
+        key=lambda item: item["name"],
+    )
 
 
 def query_portable(index: dict, with_files: bool) -> list[dict]:
