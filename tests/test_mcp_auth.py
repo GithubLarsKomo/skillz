@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ISSUER = "https://auth.ratzeburg-ai.de/application/o/skillz/"
 RESOURCE = "https://skillz.ratzeburg-ai.de/mcp"
 JWKS = "https://auth.ratzeburg-ai.de/application/o/skillz/jwks/"
-AUDIENCE = "skillz-test-client"
+AUDIENCE = RESOURCE
 
 
 def config() -> RemoteAuthConfig:
@@ -42,7 +42,7 @@ class StaticVerifier(TokenVerifier):
 
 
 class MCPAuthTests(unittest.TestCase):
-    def test_auth_config_is_opt_in_and_partial_config_fails_closed(self) -> None:
+    def test_auth_config_is_opt_in_and_remote_config_fails_closed(self) -> None:
         self.assertIsNone(auth_config_from_env({}))
         with self.assertRaises(ValueError):
             auth_config_from_env({"SKILLZ_MCP_AUTH_ISSUER_URL": ISSUER})
@@ -52,14 +52,44 @@ class MCPAuthTests(unittest.TestCase):
                 "SKILLZ_MCP_AUTH_ISSUER_URL": ISSUER,
                 "SKILLZ_MCP_AUTH_RESOURCE_URL": RESOURCE,
                 "SKILLZ_MCP_AUTH_JWKS_URL": JWKS,
-                "SKILLZ_MCP_AUTH_AUDIENCE": AUDIENCE,
+                "SKILLZ_MCP_AUTH_AUDIENCE": RESOURCE,
                 "SKILLZ_MCP_AUTH_REQUIRED_SCOPES": "skillz:read offline_access",
             }
         )
         assert loaded is not None
         self.assertEqual(loaded.required_scopes, ("skillz:read", "offline_access"))
+        self.assertEqual(loaded.audience, loaded.resource_url)
 
-    def test_authentik_jwt_verifier_checks_signature_issuer_audience_and_claims(self) -> None:
+        with self.assertRaises(ValueError):
+            auth_config_from_env(
+                {
+                    "SKILLZ_MCP_AUTH_ISSUER_URL": ISSUER,
+                    "SKILLZ_MCP_AUTH_RESOURCE_URL": RESOURCE,
+                    "SKILLZ_MCP_AUTH_JWKS_URL": JWKS,
+                    "SKILLZ_MCP_AUTH_AUDIENCE": "some-oauth-client-id",
+                }
+            )
+        with self.assertRaises(ValueError):
+            auth_config_from_env(
+                {
+                    "SKILLZ_MCP_AUTH_ISSUER_URL": "http://auth.example.test/issuer/",
+                    "SKILLZ_MCP_AUTH_RESOURCE_URL": RESOURCE,
+                    "SKILLZ_MCP_AUTH_JWKS_URL": JWKS,
+                    "SKILLZ_MCP_AUTH_AUDIENCE": RESOURCE,
+                }
+            )
+        with self.assertRaises(ValueError):
+            auth_config_from_env(
+                {
+                    "SKILLZ_MCP_AUTH_ISSUER_URL": ISSUER,
+                    "SKILLZ_MCP_AUTH_RESOURCE_URL": RESOURCE,
+                    "SKILLZ_MCP_AUTH_JWKS_URL": JWKS,
+                    "SKILLZ_MCP_AUTH_AUDIENCE": RESOURCE,
+                    "SKILLZ_MCP_AUTH_ALGORITHMS": "HS256",
+                }
+            )
+
+    def test_authentik_jwt_verifier_checks_signature_issuer_resource_audience_and_claims(self) -> None:
         async def run() -> None:
             private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
             public_jwk = json.loads(jwt.algorithms.RSAAlgorithm.to_jwk(private_key.public_key()))
@@ -74,7 +104,7 @@ class MCPAuthTests(unittest.TestCase):
                 {
                     "iss": ISSUER,
                     "sub": "user-123",
-                    "aud": AUDIENCE,
+                    "aud": RESOURCE,
                     "azp": "mcp-client-123",
                     "scope": "openid profile skillz:read",
                     "iat": now,
@@ -91,12 +121,13 @@ class MCPAuthTests(unittest.TestCase):
             self.assertEqual(result.subject, "user-123")
             self.assertIn("skillz:read", result.scopes)
             self.assertEqual(result.resource, RESOURCE)
+            self.assertEqual(result.claims["aud"], RESOURCE)
 
             wrong_audience = jwt.encode(
                 {
                     "iss": ISSUER,
                     "sub": "user-123",
-                    "aud": "other-audience",
+                    "aud": "https://other.example.test/mcp",
                     "scope": "skillz:read",
                     "exp": now + 300,
                 },
