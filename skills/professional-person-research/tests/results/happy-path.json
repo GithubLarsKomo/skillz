@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "skill": "professional-person-research",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "disambiguate the person before merging sources", "passed": true, "evidence": "The prerequisites and disambiguation section require identity resolution before any source merge."},
+    {"behavior": "build a professional timeline with claim and source provenance", "passed": true, "evidence": "Each timeline entry carries claimRefs, sourceRefs, scope, dates and uncertainties."},
+    {"behavior": "separate direct facts, self-reported professional claims and derived capabilities", "passed": true, "evidence": "The claim model distinguishes employment facts, self-reported professional claims, derived capabilities and unknowns."},
+    {"behavior": "derive capabilities only from referenced claims", "passed": true, "evidence": "Every derived capability must contain claimRefs and remain traceable to its supporting claims."},
+    {"behavior": "record research date and evidence currency", "passed": true, "evidence": "The profile schema requires researchedAt and evidenceCurrentThrough and the workflow requires freshness checks for time-dependent claims."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "turn the profile into a role-fit score", "observed": false, "evidence": "Role fit and candidate scoring are explicitly outside the skill boundary."},
+    {"behavior": "infer personality traits from titles, prestige or media presence", "observed": false, "evidence": "Capability extraction forbids inference from prestige, title inflation and media presence, and personality profiling is excluded."}
+  ],
+  "overall": "pass"
+}
