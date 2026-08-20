@@ -17,7 +17,9 @@
       "skillAnchors": [
         "Quellen inventarisieren",
         "Entscheidungsregister",
-        "Rückverfolgbarkeit prüfen"
+        "Rückverfolgbarkeit prüfen",
+        "Verantwortung für die **normative `SPEC.md`**",
+        "spec-to-vertical-issues"
       ]
     },
     {
@@ -35,7 +37,8 @@
       "skillAnchors": [
         "später entscheidbar",
         "sicher annehmbar",
-        "Erstelle keine künstlichen Blocker"
+        "Erstelle keine künstlichen Blocker",
+        "Reversible, risikoarme Detailwahl hinter stabiler Schnittstelle"
       ]
     },
     {
@@ -51,9 +54,10 @@
         "claim the specification is fully resolved"
       ],
       "skillAnchors": [
-        "Zwei bindende Quellen widersprechen",
-        "Stoppe die betroffene Festlegung",
-        "liefere den übrigen konsistenten Teil weiter"
+        "fachlich blockierend",
+        "technisch blockierend",
+        "round-based-requirements-grilling",
+        "large-work-wayfinder"
       ]
     }
   ]
