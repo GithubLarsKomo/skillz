@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "skill": "professional-person-research",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Research a named diagnostics executive using current employer biographies, company announcements, patents, publications and reputable professional sources, then build a reusable professional evidence profile.",
+      "requiredBehaviors": [
+        "disambiguate the person before merging sources",
+        "build a professional timeline with claim and source provenance",
+        "separate direct facts, self-reported professional claims and derived capabilities",
+        "derive capabilities only from referenced claims",
+        "record research date and evidence currency"
+      ],
+      "forbiddenBehaviors": [
+        "turn the profile into a role-fit score",
+        "infer personality traits from titles, prestige or media presence"
+      ],
+      "skillAnchors": [
+        "What professional evidence exists about this person?",
+        "Job Title != Capability",
+        "Jede Capability muss auf ihre Claims zurückverfolgbar bleiben"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Only a current company bio, an old speaker profile and a self-reported LinkedIn claim are available, while two sources disagree about the start year of a prior role.",
+      "requiredBehaviors": [
+        "produce a partial profile rather than fill missing career history",
+        "mark the LinkedIn claim as self-reported professional evidence",
+        "keep the conflicting start dates visible",
+        "lower confidence where evidence is sparse or contradictory",
+        "distinguish not-found from does-not-exist"
+      ],
+      "forbiddenBehaviors": [
+        "invent missing employment periods",
+        "silently harmonize conflicting dates"
+      ],
+      "skillAnchors": [
+        "Negative Evidence",
+        "Widersprechende Zeitangaben nicht stillschweigend harmonisieren",
+        "Sparse Evidence"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft profile attributes all company growth to the executive, treats missing P&L evidence as proof of no P&L experience, and includes private health and family information found online.",
+      "requiredBehaviors": [
+        "reject unsupported individual attribution of company outcomes",
+        "replace absence claims with not-found language unless explicit evidence exists",
+        "remove irrelevant sensitive and private information from the professional profile",
+        "restore the fact-inference boundary"
+      ],
+      "forbiddenBehaviors": [
+        "persist sensitive personal information because it is public",
+        "state unsupported causal achievement claims as fact"
+      ],
+      "skillAnchors": [
+        "Company Success != Individual Achievement",
+        "Nicht gefundene Information wird als not-found dokumentiert",
+        "Nicht zu recherchierende oder zu persistierende Bereiche"
+      ]
+    }
+  ]
+}
