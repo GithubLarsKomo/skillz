@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "skill": "candidate-interview-evidence-plan",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "prioritize essential unresolved criteria", "passed": true, "evidence": "The interview plan orders open topics by role priority and unresolved evidence relevance, with essential criteria first."},
+    {"behavior": "ask concrete scope and attribution questions", "passed": true, "evidence": "The question patterns explicitly cover scope verification and achievement attribution rather than generic self-assessment."},
+    {"behavior": "translate behavioral criteria into situation-based questions", "passed": true, "evidence": "Behavioral evidence is elicited through concrete situation, action and outcome questions rather than personality labels."},
+    {"behavior": "preserve evidence context and criterion linkage", "passed": true, "evidence": "Each interview topic retains its originating role criterion and evidence-gap context."},
+    {"behavior": "separate interview topics from reference-check topics", "passed": true, "evidence": "The output model distinguishes candidate interview questions from topics that should instead be verified through references."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "produce a personality score", "observed": false, "evidence": "Pseudo-psychometric scoring and personality inference are explicitly prohibited."},
+    {"behavior": "make a hire recommendation", "observed": false, "evidence": "The skill ends at evidence clarification and does not make a hiring recommendation."}
+  ],
+  "overall": "pass"
+}
