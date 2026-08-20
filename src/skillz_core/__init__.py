@@ -13,6 +13,17 @@ from .catalog import (
     query_skill_listing,
     skills_by_name,
 )
+from .graph import (
+    GRAPH_SCHEMA_VERSION,
+    VALID_DIRECTIONS,
+    adjacency,
+    consumer_info,
+    dependency_traversal,
+    graph_by_name,
+    load_graph,
+    producer_info,
+)
+from .identity import catalog_hash, catalog_identity, freshness
 from .resolver import normalize_constraints, resolve, validate_known_constraints
 from .status import (
     build_status_payload,
@@ -25,17 +36,28 @@ from .status import (
 )
 
 __all__ = [
+    "GRAPH_SCHEMA_VERSION",
     "SCHEMA_VERSION",
+    "VALID_DIRECTIONS",
     "VALID_MODES",
+    "adjacency",
     "build_status_payload",
+    "catalog_hash",
+    "catalog_identity",
+    "consumer_info",
+    "dependency_traversal",
+    "freshness",
     "get_skill",
+    "graph_by_name",
     "installed_identity",
     "invocation",
     "listing_payload",
     "load_distribution_manifest",
+    "load_graph",
     "load_index",
     "names",
     "normalize_constraints",
+    "producer_info",
     "provenance",
     "query_mode",
     "query_output",
