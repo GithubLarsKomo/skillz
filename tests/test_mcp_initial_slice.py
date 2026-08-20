@@ -27,13 +27,23 @@ class MCPInitialSliceTests(unittest.TestCase):
         self.assertTrue(matches)
         self.assertTrue(all(item.get("invocation", {}).get("userFacing") is True for item in matches))
 
-    def test_mcp_lists_and_calls_initial_tools(self) -> None:
+    def test_mcp_lists_and_calls_read_only_tools(self) -> None:
         async def run() -> None:
             server = create_server(ROOT)
             async with Client(server) as client:
                 listed = await client.list_tools()
                 names = {tool.name for tool in listed.tools}
-                self.assertTrue({"search_skills", "get_skill"}.issubset(names))
+                self.assertTrue(
+                    {
+                        "search_skills",
+                        "get_skill",
+                        "resolve_capabilities",
+                        "get_dependencies",
+                        "find_producers",
+                        "find_consumers",
+                        "catalog_status",
+                    }.issubset(names)
+                )
 
                 search = await client.call_tool("search_skills", {"query": "diagnosis", "limit": 10})
                 self.assertFalse(search.is_error)
@@ -47,6 +57,41 @@ class MCPInitialSliceTests(unittest.TestCase):
                 assert detail.structured_content is not None
                 self.assertEqual(detail.structured_content["name"], "disciplined-diagnosis")
                 self.assertTrue(detail.structured_content["resourceUris"]["body"].endswith("/SKILL.md"))
+
+                resolved = await client.call_tool(
+                    "resolve_capabilities",
+                    {"outputs": ["agent-handoff.json"], "portable_files": "irrelevant"},
+                )
+                self.assertFalse(resolved.is_error)
+                assert resolved.structured_content is not None
+                self.assertIn("agent-handoff", [item["name"] for item in resolved.structured_content["candidates"]])
+
+                dependencies = await client.call_tool(
+                    "get_dependencies",
+                    {"name": "agent-handoff", "direction": "requires", "transitive": False},
+                )
+                self.assertFalse(dependencies.is_error)
+                assert dependencies.structured_content is not None
+                self.assertIn("iterate-software-projects", dependencies.structured_content["skills"])
+
+                producers = await client.call_tool("find_producers", {"output": "agent-handoff.json"})
+                self.assertFalse(producers.is_error)
+                assert producers.structured_content is not None
+                self.assertEqual(producers.structured_content["producers"], ["agent-handoff"])
+                self.assertFalse(producers.structured_content["ambiguous"])
+
+                consumers = await client.call_tool("find_consumers", {"output": "agent-handoff.json"})
+                self.assertFalse(consumers.is_error)
+                assert consumers.structured_content is not None
+                self.assertGreaterEqual(consumers.structured_content["contractCount"], 1)
+
+                status = await client.call_tool("catalog_status", {})
+                self.assertFalse(status.is_error)
+                assert status.structured_content is not None
+                self.assertEqual(status.structured_content["indexSchemaVersion"], 1)
+                self.assertEqual(status.structured_content["graphSchemaVersion"], 1)
+                self.assertEqual(len(status.structured_content["catalogHash"]), 64)
+                self.assertIn(status.structured_content["freshness"], {"current", "stale", "unknown", "not-compared"})
 
         asyncio.run(run())
 
