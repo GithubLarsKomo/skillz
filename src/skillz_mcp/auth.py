@@ -5,6 +5,7 @@ import os
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass
 from typing import Any
+from urllib.parse import urlparse
 
 import httpx
 import jwt
@@ -13,6 +14,7 @@ from mcp.server.auth.settings import AuthSettings
 from pydantic import AnyHttpUrl
 
 JWKSLoader = Callable[[], Awaitable[Mapping[str, Any]]]
+ALLOWED_SIGNING_ALGORITHMS = frozenset({"RS256", "ES256", "ES384", "ES512"})
 
 
 @dataclass(frozen=True)
@@ -42,8 +44,14 @@ _AUTH_ENV_KEYS = (
 )
 
 
+def _require_https(name: str, value: str) -> None:
+    parsed = urlparse(value)
+    if parsed.scheme != "https" or not parsed.hostname:
+        raise ValueError(f"{name} must be an absolute HTTPS URL")
+
+
 def auth_config_from_env(environ: Mapping[str, str] | None = None) -> RemoteAuthConfig | None:
-    """Load auth config only when explicitly configured; reject partial remote auth."""
+    """Load auth config only when explicitly configured; reject partial or weak remote auth."""
     env = environ if environ is not None else os.environ
     present = {key: str(env.get(key, "")).strip() for key in _AUTH_ENV_KEYS}
     if not any(present.values()):
@@ -51,6 +59,12 @@ def auth_config_from_env(environ: Mapping[str, str] | None = None) -> RemoteAuth
     missing = [key for key, value in present.items() if not value]
     if missing:
         raise ValueError(f"incomplete MCP auth configuration; missing: {', '.join(missing)}")
+
+    _require_https("SKILLZ_MCP_AUTH_ISSUER_URL", present["SKILLZ_MCP_AUTH_ISSUER_URL"])
+    _require_https("SKILLZ_MCP_AUTH_RESOURCE_URL", present["SKILLZ_MCP_AUTH_RESOURCE_URL"])
+    _require_https("SKILLZ_MCP_AUTH_JWKS_URL", present["SKILLZ_MCP_AUTH_JWKS_URL"])
+    if present["SKILLZ_MCP_AUTH_AUDIENCE"] != present["SKILLZ_MCP_AUTH_RESOURCE_URL"]:
+        raise ValueError("SKILLZ_MCP_AUTH_AUDIENCE must equal SKILLZ_MCP_AUTH_RESOURCE_URL")
 
     scopes = tuple(
         item for item in str(env.get("SKILLZ_MCP_AUTH_REQUIRED_SCOPES", "skillz:read")).replace(",", " ").split() if item
@@ -63,6 +77,9 @@ def auth_config_from_env(environ: Mapping[str, str] | None = None) -> RemoteAuth
     )
     if not algorithms:
         raise ValueError("SKILLZ_MCP_AUTH_ALGORITHMS must contain at least one algorithm")
+    unsupported = sorted(set(algorithms) - ALLOWED_SIGNING_ALGORITHMS)
+    if unsupported:
+        raise ValueError(f"unsupported MCP JWT signing algorithms: {', '.join(unsupported)}")
 
     return RemoteAuthConfig(
         issuer_url=present["SKILLZ_MCP_AUTH_ISSUER_URL"],
@@ -164,7 +181,7 @@ class AuthentikJWTTokenVerifier(TokenVerifier):
                 options={"require": ["aud", "exp", "iss", "sub"]},
             )
             subject = str(claims["sub"])
-            client_id = str(claims.get("azp") or claims.get("client_id") or self.config.audience)
+            client_id = str(claims.get("azp") or claims.get("client_id") or "unknown-oauth-client")
             expires_at = int(claims["exp"])
             return AccessToken(
                 token=token,
@@ -173,7 +190,7 @@ class AuthentikJWTTokenVerifier(TokenVerifier):
                 expires_at=expires_at,
                 resource=self.config.resource_url,
                 subject=subject,
-                claims={"iss": str(claims["iss"])},
+                claims={"iss": str(claims["iss"]), "aud": claims["aud"]},
             )
         except (jwt.InvalidTokenError, httpx.HTTPError, KeyError, TypeError, ValueError):
             return None
