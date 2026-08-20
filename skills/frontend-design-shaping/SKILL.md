@@ -3,7 +3,6 @@ name: frontend-design-shaping
 description: Klärt eine konkrete neue oder wesentlich veränderte Frontend-Surface vor Implementierung auf Basis des autoritativen PRODUCT.md und DESIGN.md. Fragt nur materielle neue Entscheidungen ab, erzeugt bei Greenfield oder echter Richtungsunsicherheit visuelle Probes und liefert einen bestätigbaren frontend-design-brief.md mit expliziten lokalen Overrides.
 userFacing: false
 implicitInvocation: true
-category: engineering
 version: 0.1.0
 status: candidate
 owners:
