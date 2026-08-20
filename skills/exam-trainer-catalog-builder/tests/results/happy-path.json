@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-catalog-builder",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior":"emit the exact etf-teach-catalog v1 envelope with cards present","passed":true,"evidence":"The skill defines format etf-teach-catalog version 1 and explicitly requires catalog.cards to exist even for native Teach catalogs."},
+    {"behavior":"model stable semantic KnowledgeItems with multiple QuestionVariants instead of duplicate progress identities","passed":true,"evidence":"KnowledgeItem rules define one durable semantic object and QuestionVariants as multiple retrieval/application surfaces sharing the same knowledgeItemId."},
+    {"behavior":"preserve mission and source provenance on generated learning content","passed":true,"evidence":"The Provenance section requires missionId plus available sourceSkill, sourceRefs and sourceCommit to be carried into ETF content."},
+    {"behavior":"keep scheduling and competence interpretation outside the adapter","passed":true,"evidence":"Ownership boundaries assign scheduling to ETF and later competence interpretation to learning-assessment."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior":"invent unsupported domain claims while translating content","observed":false,"evidence":"The input and error-handling rules explicitly route missing domain evidence back to specialist/evidence skills and say not to invent it."},
+    {"behavior":"treat personal runtime release as formal qualification or QMS approval","observed":false,"evidence":"The status section states that personal-local runtime release is not formal training approval, QMS approval or certification."}
+  ],
+  "overall": "pass"
+}

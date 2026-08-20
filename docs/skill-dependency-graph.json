@@ -331,6 +331,25 @@
       ]
     },
     {
+      "name": "exam-trainer-catalog-builder",
+      "requires": [
+        "learning-assessment-spec",
+        "learning-mission"
+      ],
+      "consumes": [],
+      "outputs": [
+        "etf-teach-catalog.json"
+      ]
+    },
+    {
+      "name": "exam-trainer-result-import",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-runtime-evidence.json"
+      ]
+    },
+    {
       "name": "external-stakeholder-questionnaire",
       "requires": [],
       "consumes": [],
@@ -1738,6 +1757,8 @@
     {
       "name": "teach",
       "requires": [
+        "exam-trainer-catalog-builder",
+        "exam-trainer-result-import",
         "learning-assessment",
         "learning-assessment-spec",
         "learning-mission",
@@ -2020,6 +2041,14 @@
     {
       "from": "evidence-based-causal-investigation",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "exam-trainer-catalog-builder",
+      "to": "learning-assessment-spec"
+    },
+    {
+      "from": "exam-trainer-catalog-builder",
+      "to": "learning-mission"
     },
     {
       "from": "fda-510k-predicate-strategy",
@@ -3092,6 +3121,14 @@
     {
       "from": "supplier-quality-medical-device",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "teach",
+      "to": "exam-trainer-catalog-builder"
+    },
+    {
+      "from": "teach",
+      "to": "exam-trainer-result-import"
     },
     {
       "from": "teach",
@@ -4474,6 +4511,17 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "etf-teach-catalog.json",
+      "producers": [
+        "exam-trainer-catalog-builder"
+      ],
+      "consumerSkills": [
+        "teach"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "eu-regulatory-assessment.json",
       "producers": [
         "eu-mdr-ivdr-regulatory-specialist"
@@ -5421,6 +5469,7 @@
         "learning-assessment-spec"
       ],
       "consumerSkills": [
+        "exam-trainer-catalog-builder",
         "learning-assessment",
         "teach"
       ],
@@ -5475,6 +5524,17 @@
       "consumerSkills": [
         "learning-assessment-spec",
         "learning-next-step",
+        "teach"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-runtime-evidence.json",
+      "producers": [
+        "exam-trainer-result-import"
+      ],
+      "consumerSkills": [
         "teach"
       ],
       "ambiguous": false,

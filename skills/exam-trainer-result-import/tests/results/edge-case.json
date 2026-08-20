@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-result-import",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior":"retain explicitly requested KnowledgeItems with zero reviews as unobserved evidence","passed":true,"evidence":"The missing-evidence rule explicitly retains requested KnowledgeItems with reviewCount=0 and defines them as unobserved rather than failed."},
+    {"behavior":"preserve partial and incorrect ReviewEvents without converting them into automatic regression","passed":true,"evidence":"Events are grouped without reinterpretation and the adapter explicitly forbids automatic regression from individual errors."},
+    {"behavior":"verify ETF summary counts against the events included in the bundle","passed":true,"evidence":"The ETF-Summary section requires consistency verification and marks obvious summary/event disagreement as a conflict."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior":"treat zero ReviewEvents as a failed assessment","observed":false,"evidence":"The skill explicitly states that empty evidence is not the same as poor performance."},
+    {"behavior":"discard difficult evidence merely to make the imported summary cleaner","observed":false,"evidence":"Scope and event-preservation rules require included evidence to remain visible, including partial and incorrect outcomes."}
+  ],
+  "overall": "pass"
+}

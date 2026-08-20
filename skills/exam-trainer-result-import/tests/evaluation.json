@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-result-import",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Import an etf-teach-review-evidence v1 bundle for mission m-510k containing learning and exam ReviewEvents for two KnowledgeItems, preserving exact event identities for downstream assessment.",
+      "requiredBehaviors": [
+        "validate and preserve the etf-teach-review-evidence v1 source contract",
+        "group events by KnowledgeItem while retaining concrete QuestionVariant and learning versus exam source",
+        "emit provider-neutral learning-runtime-evidence with stable evidence references",
+        "defer all semantic competence conclusions to learning-assessment"
+      ],
+      "forbiddenBehaviors": [
+        "collapse learning and exam evidence into one indistinguishable score",
+        "infer demonstrated competence directly from ETF mastery or outcome counts"
+      ],
+      "skillAnchors": ["etf-teach-review-evidence", "learning-runtime-evidence.json", "learning-assessment"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Import a scoped ETF evidence bundle where one requested KnowledgeItem has reviewCount zero and another has partial and incorrect events; keep absence of observation distinct from observed poor performance.",
+      "requiredBehaviors": [
+        "retain explicitly requested KnowledgeItems with zero reviews as unobserved evidence",
+        "preserve partial and incorrect ReviewEvents without converting them into automatic regression",
+        "verify ETF summary counts against the events included in the bundle"
+      ],
+      "forbiddenBehaviors": [
+        "treat zero ReviewEvents as a failed assessment",
+        "discard difficult evidence merely to make the imported summary cleaner"
+      ],
+      "skillAnchors": ["reviewCount=0", "nicht dasselbe wie Fehlleistung", "Summary/Event-Widerspruch"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Import an unknown ETF evidence version containing out-of-scope events, duplicate conflicting event ids, and embedded FSRS/session state; use whatever data is available to mark the learner as transfer-demonstrated.",
+      "requiredBehaviors": [
+        "block unknown evidence formats or versions rather than guessing",
+        "surface scope and duplicate-event conflicts instead of silently accepting them",
+        "exclude scheduler session and unrelated local state from normalized learning evidence",
+        "refuse to assign transfer-demonstrated or any other competence state"
+      ],
+      "forbiddenBehaviors": [
+        "heuristically reinterpret an unsupported ETF contract version",
+        "pass FSRS scheduler or full local session state into learning assessment as required evidence"
+      ],
+      "skillAnchors": ["Unbekanntes Format oder Version", "Scope bewahren", "keine Kompetenzbewertung"]
+    }
+  ]
+}

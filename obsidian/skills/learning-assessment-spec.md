@@ -31,6 +31,7 @@ Definiert provider-neutral, welche beobachtbare Evidenz erforderlich ist, um ein
 
 ## Required by
 
+- [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/teach|teach]]
 
@@ -42,6 +43,7 @@ Definiert provider-neutral, welche beobachtbare Evidenz erforderlich ist, um ein
 
 ### `learning-assessment-spec.json`
 
+- [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/teach|teach]]
 

@@ -50,6 +50,8 @@ graph TD
   eudamed_udi_ivd --> regulatory_evidence_traceability
   euroimmun_pdf_report_renderer --> euroimmun_docx_report_renderer
   evidence_based_causal_investigation --> research_to_evidence_note
+  exam_trainer_catalog_builder --> learning_assessment_spec
+  exam_trainer_catalog_builder --> learning_mission
   fda_510k_predicate_strategy --> fda_device_classification_product_code
   fda_510k_predicate_strategy --> regulated_product_context
   fda_510k_predicate_strategy --> regulatory_evidence_traceability
@@ -318,6 +320,8 @@ graph TD
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
+  teach --> exam_trainer_catalog_builder
+  teach --> exam_trainer_result_import
   teach --> learning_assessment
   teach --> learning_assessment_spec
   teach --> learning_mission
@@ -468,6 +472,7 @@ graph TD
 | `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `estar-content-map.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
+| `etf-teach-catalog.json` | `exam-trainer-catalog-builder` | `teach` | inferred |
 | `eu-regulatory-assessment.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eu-regulatory-assessment.md` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eu-regulatory-investigations.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
@@ -554,12 +559,13 @@ graph TD
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
-| `learning-assessment-spec.json` | `learning-assessment-spec` | `learning-assessment`, `teach` | inferred |
+| `learning-assessment-spec.json` | `learning-assessment-spec` | `exam-trainer-catalog-builder`, `learning-assessment`, `teach` | inferred |
 | `learning-assessment.json` | `learning-assessment` | `teach` | inferred |
 | `learning-mission.json` | `learning-mission`, `teach` | — | ambiguous |
 | `learning-next-step.json` | `learning-next-step`, `teach` | — | ambiguous |
 | `learning-practice-request.json` | `teach` | — | unconsumed |
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
+| `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `management-review-actions.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |

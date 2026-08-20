@@ -30,6 +30,7 @@ Definiert oder revidiert ein einzelnes kohärentes Lernziel als portablen Vertra
 
 ## Required by
 
+- [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
 - [[skills/learning-assessment-spec|learning-assessment-spec]]
 - [[skills/learning-next-step|learning-next-step]]
 - [[skills/teach|teach]]

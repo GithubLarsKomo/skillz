@@ -26,6 +26,8 @@ Orchestriert auf ausdrücklichen Wunsch einen zustandsbehafteten Lernprozess mit
 
 ## Requires
 
+- [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
+- [[skills/exam-trainer-result-import|exam-trainer-result-import]]
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/learning-assessment-spec|learning-assessment-spec]]
 - [[skills/learning-mission|learning-mission]]

@@ -199,6 +199,18 @@
         "agents/openai.yaml": "dcd784158a4737ba3f6e9e9d1b3be8821b3f30c5825572be4f7e11afc55ce160"
       }
     },
+    "exam-trainer-catalog-builder": {
+      "files": {
+        "SKILL.md": "e8a05b8192ff2de2feb9bb846aa2f5c9a696dd01e0121122eb41553e1ac6b32d",
+        "agents/openai.yaml": "858099523cf438c535d7ca5b1933a19ba54f70095d765a6b8eac9a120312e338"
+      }
+    },
+    "exam-trainer-result-import": {
+      "files": {
+        "SKILL.md": "99d9fc1e56495f916b9c8630f625833c0ba3865ef66e0ca9583a699fd5c6fa82",
+        "agents/openai.yaml": "3fc1eea03631b8bce57f1ad6a32c2c1739a49b35fe4a480d5fa80caa792e5209"
+      }
+    },
     "external-stakeholder-questionnaire": {
       "files": {
         "SKILL.md": "0bd78fe449d0573aab2fcfb1fa7c5745cccaaa271292d0d4c32f74386c8706cd",
@@ -861,7 +873,7 @@
     },
     "teach": {
       "files": {
-        "SKILL.md": "371c953ced26f7206d41344434e76209ab58027ced92e21b9fbfaea59fd5cb26",
+        "SKILL.md": "905236324918d9d44f054526c6355702f9fc3ae7c4eaf780520dab98464fba41",
         "agents/openai.yaml": "21ee825f58350cea92fec25ce4e28101bb11ecc47aae4b63ffcf8ce880292df7"
       }
     },

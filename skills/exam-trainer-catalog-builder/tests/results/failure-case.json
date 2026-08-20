@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-catalog-builder",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior":"block output when mission identity is inconsistent","passed":true,"evidence":"Error handling explicitly blocks output when the mission is missing or missionId differs across inputs."},
+    {"behavior":"route missing or conflicting domain evidence back to an evidence or specialist skill","passed":true,"evidence":"The skill delegates missing evidence to the responsible specialist skill or research-to-evidence-note and routes conflicting sources back to evidence/domain handling."},
+    {"behavior":"refuse to embed a second scheduler or progress model","passed":true,"evidence":"Ownership and quality-gate sections explicitly keep scheduling in ETF and prohibit a second scheduler/progress semantic."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior":"fabricate source-backed-looking claims to complete the catalog","observed":false,"evidence":"The adapter is expressly forbidden from inventing domain truth and must block or route unresolved evidence instead."},
+    {"behavior":"embed ETF scheduling mechanics inside the Skillz catalog adapter","observed":false,"evidence":"The skill states that ETF owns scheduling/runtime and the adapter only owns the catalog projection."}
+  ],
+  "overall": "pass"
+}

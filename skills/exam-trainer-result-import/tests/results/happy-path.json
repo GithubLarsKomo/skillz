@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-result-import",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior":"validate and preserve the etf-teach-review-evidence v1 source contract","passed":true,"evidence":"The skill names etf-teach-review-evidence as the normative input format, supports version 1, and requires format/version validation before normalization."},
+    {"behavior":"group events by KnowledgeItem while retaining concrete QuestionVariant and learning versus exam source","passed":true,"evidence":"Normalization rules group by knowledgeItemId while explicitly preserving questionVariantId and source=learning|exam."},
+    {"behavior":"emit provider-neutral learning-runtime-evidence with stable evidence references","passed":true,"evidence":"The output contract is learning-runtime-evidence.json and requires stable evidenceRefs while excluding IndexedDB, scheduler and UI internals."},
+    {"behavior":"defer all semantic competence conclusions to learning-assessment","passed":true,"evidence":"Ownership and handoff sections assign competence interpretation exclusively to learning-assessment and list prohibited direct promotion rules."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior":"collapse learning and exam evidence into one indistinguishable score","observed":false,"evidence":"The skill explicitly requires learning and exam origin to remain distinguishable and forbids collapsing them when interpretation depends on source."},
+    {"behavior":"infer demonstrated competence directly from ETF mastery or outcome counts","observed":false,"evidence":"The handoff section explicitly forbids mappings such as masteryAfter=5 or correct>=N directly to demonstrated competence."}
+  ],
+  "overall": "pass"
+}

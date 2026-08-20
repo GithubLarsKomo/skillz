@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 144,
+  "skillCount": 146,
   "entrypointCount": 121,
   "entrypointCategories": [
     "communication-memory",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 144,
+  "evaluationSuiteCount": 146,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1566,6 +1566,81 @@
           ],
           "consumerSkills": [
             "medical-device-capa"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "exam-trainer-catalog-builder",
+      "description": "Übersetzt eine explizite Teach-Lernübergabe mit Lernmission, Kompetenzbezug, Assessment-Spec und belegten Inhalten in den portablen ETF-Vertrag `etf-teach-catalog` mit stabilen KnowledgeItems und QuestionVariants. Verwenden, wenn Skillz Lernmaterial an exam-trainer-framework übergeben soll; recherchiert keine Fachwahrheit, schedult nichts und erzeugt keine formale Trainingsfreigabe.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-assessment-spec",
+        "learning-mission"
+      ],
+      "dependents": [
+        "teach"
+      ],
+      "outputs": [
+        "etf-teach-catalog.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "etf-teach-catalog.json",
+          "ambiguous": false,
+          "producers": [
+            "exam-trainer-catalog-builder"
+          ],
+          "consumerSkills": [
+            "teach"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "exam-trainer-result-import",
+      "description": "Übersetzt den von exam-trainer-framework exportierten Vertrag `etf-teach-review-evidence` in provider-neutrale, referenzierbare Laufzeitevidenz für `learning-assessment`. Verwenden nach ETF-Lern- oder Prüfungssitzungen; bewahrt ReviewEvent-Herkunft und IDs, importiert keine Scheduler-Interna und vergibt selbst keine Kompetenzstufe.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "teach"
+      ],
+      "outputs": [
+        "learning-runtime-evidence.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-runtime-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "exam-trainer-result-import"
+          ],
+          "consumerSkills": [
+            "teach"
           ]
         }
       ],
@@ -4240,6 +4315,7 @@
         "learning-state"
       ],
       "dependents": [
+        "exam-trainer-catalog-builder",
         "learning-assessment",
         "teach"
       ],
@@ -4254,6 +4330,7 @@
             "learning-assessment-spec"
           ],
           "consumerSkills": [
+            "exam-trainer-catalog-builder",
             "learning-assessment",
             "teach"
           ]
@@ -4278,6 +4355,7 @@
       },
       "requires": [],
       "dependents": [
+        "exam-trainer-catalog-builder",
         "learning-assessment-spec",
         "learning-next-step",
         "teach"
@@ -8043,6 +8121,8 @@
         "category": "productivity"
       },
       "requires": [
+        "exam-trainer-catalog-builder",
+        "exam-trainer-result-import",
         "learning-assessment",
         "learning-assessment-spec",
         "learning-mission",

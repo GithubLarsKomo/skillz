@@ -1,0 +1,5 @@
+interface:
+  display_name: "Exam Trainer Result Import"
+  short_description: "Übersetzt den von exam-trainer-framework exportierten Vertrag `etf-teach-review-evidence` in provider-neutrale, refer..."
+policy:
+  allow_implicit_invocation: true

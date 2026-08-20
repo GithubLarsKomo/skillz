@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n144 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n146 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -162,7 +162,7 @@
       "x": 2440,
       "y": 0,
       "width": 1120,
-      "height": 1220,
+      "height": 1360,
       "color": "3"
     },
     {
@@ -202,11 +202,29 @@
       "height": 110
     },
     {
+      "id": "skill-exam-trainer-catalog-builder",
+      "type": "file",
+      "file": "skills/exam-trainer-catalog-builder.md",
+      "x": 2810,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-exam-trainer-result-import",
+      "type": "file",
+      "file": "skills/exam-trainer-result-import.md",
+      "x": 3140,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-knowledge-map-generator",
       "type": "file",
       "file": "skills/knowledge-map-generator.md",
-      "x": 2810,
-      "y": 210,
+      "x": 2480,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -214,8 +232,8 @@
       "id": "skill-knowledge-view",
       "type": "file",
       "file": "skills/knowledge-view.md",
-      "x": 3140,
-      "y": 210,
+      "x": 2810,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -223,7 +241,7 @@
       "id": "skill-learning-assessment",
       "type": "file",
       "file": "skills/learning-assessment.md",
-      "x": 2480,
+      "x": 3140,
       "y": 350,
       "width": 300,
       "height": 110
@@ -232,8 +250,8 @@
       "id": "skill-learning-assessment-spec",
       "type": "file",
       "file": "skills/learning-assessment-spec.md",
-      "x": 2810,
-      "y": 350,
+      "x": 2480,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -241,8 +259,8 @@
       "id": "skill-learning-mission",
       "type": "file",
       "file": "skills/learning-mission.md",
-      "x": 3140,
-      "y": 350,
+      "x": 2810,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -250,7 +268,7 @@
       "id": "skill-learning-next-step",
       "type": "file",
       "file": "skills/learning-next-step.md",
-      "x": 2480,
+      "x": 3140,
       "y": 490,
       "width": 300,
       "height": 110
@@ -259,8 +277,8 @@
       "id": "skill-learning-state",
       "type": "file",
       "file": "skills/learning-state.md",
-      "x": 2810,
-      "y": 490,
+      "x": 2480,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -268,8 +286,8 @@
       "id": "skill-memory-sync-reconciliation",
       "type": "file",
       "file": "skills/memory-sync-reconciliation.md",
-      "x": 3140,
-      "y": 490,
+      "x": 2810,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -277,7 +295,7 @@
       "id": "skill-merge-conflict-resolution",
       "type": "file",
       "file": "skills/merge-conflict-resolution.md",
-      "x": 2480,
+      "x": 3140,
       "y": 630,
       "width": 300,
       "height": 110
@@ -286,8 +304,8 @@
       "id": "skill-obsidian-adapter",
       "type": "file",
       "file": "skills/obsidian-adapter.md",
-      "x": 2810,
-      "y": 630,
+      "x": 2480,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -295,8 +313,8 @@
       "id": "skill-opaque-system-analysis",
       "type": "file",
       "file": "skills/opaque-system-analysis.md",
-      "x": 3140,
-      "y": 630,
+      "x": 2810,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -304,7 +322,7 @@
       "id": "skill-openasr-offline-model-import",
       "type": "file",
       "file": "skills/openasr-offline-model-import.md",
-      "x": 2480,
+      "x": 3140,
       "y": 770,
       "width": 300,
       "height": 110
@@ -313,8 +331,8 @@
       "id": "skill-regulated-product-context",
       "type": "file",
       "file": "skills/regulated-product-context.md",
-      "x": 2810,
-      "y": 770,
+      "x": 2480,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -322,8 +340,8 @@
       "id": "skill-regulatory-evidence-traceability",
       "type": "file",
       "file": "skills/regulatory-evidence-traceability.md",
-      "x": 3140,
-      "y": 770,
+      "x": 2810,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -331,7 +349,7 @@
       "id": "skill-round-based-requirements-grilling",
       "type": "file",
       "file": "skills/round-based-requirements-grilling.md",
-      "x": 2480,
+      "x": 3140,
       "y": 910,
       "width": 300,
       "height": 110
@@ -340,8 +358,8 @@
       "id": "skill-source-to-context",
       "type": "file",
       "file": "skills/source-to-context.md",
-      "x": 2810,
-      "y": 910,
+      "x": 2480,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -349,8 +367,8 @@
       "id": "skill-synapse-orchestrator",
       "type": "file",
       "file": "skills/synapse-orchestrator.md",
-      "x": 3140,
-      "y": 910,
+      "x": 2810,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -358,7 +376,7 @@
       "id": "skill-test-driven-vertical-slice",
       "type": "file",
       "file": "skills/test-driven-vertical-slice.md",
-      "x": 2480,
+      "x": 3140,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -367,8 +385,8 @@
       "id": "skill-two-axis-compliance-review",
       "type": "file",
       "file": "skills/two-axis-compliance-review.md",
-      "x": 2810,
-      "y": 1050,
+      "x": 2480,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1678,9 +1696,9 @@
     {
       "id": "requires-17832d64e64b",
       "fromNode": "skill-domain-model-maintenance",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-test-driven-vertical-slice",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -1797,6 +1815,24 @@
       "fromNode": "skill-evidence-based-causal-investigation",
       "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9da430f128a8",
+      "fromNode": "skill-exam-trainer-catalog-builder",
+      "fromSide": "left",
+      "toNode": "skill-learning-assessment-spec",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9f756a100a18",
+      "fromNode": "skill-exam-trainer-catalog-builder",
+      "fromSide": "right",
+      "toNode": "skill-learning-mission",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -3100,9 +3136,9 @@
     {
       "id": "requires-7e8646c03e52",
       "fromNode": "skill-learning-assessment",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-learning-assessment-spec",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3127,18 +3163,18 @@
     {
       "id": "requires-65d2727d3af1",
       "fromNode": "skill-learning-next-step",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-learning-mission",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-4d61136b6dcd",
       "fromNode": "skill-learning-next-step",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-learning-state",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3766,9 +3802,9 @@
     {
       "id": "requires-ebbf5f44655d",
       "fromNode": "skill-merge-conflict-resolution",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-deferred-external-action-verification",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4209,6 +4245,24 @@
       "fromNode": "skill-supplier-quality-medical-device",
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-50711c1add45",
+      "fromNode": "skill-teach",
+      "fromSide": "left",
+      "toNode": "skill-exam-trainer-catalog-builder",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-53b62a75ad24",
+      "fromNode": "skill-teach",
+      "fromSide": "left",
+      "toNode": "skill-exam-trainer-result-import",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
