@@ -1,5 +1,5 @@
 interface:
   display_name: "Executive Role Search Brief"
-  short_description: "Operationalisiert Grilling-Ergebnisse zu evidenzprüfbaren Rollen- und Search-Kriterien."
+  short_description: "Übersetzt Unternehmenskontext und Ergebnisse eines Requirements-Grillings in einen operationalisierbaren Search Brief..."
 policy:
   allow_implicit_invocation: true
