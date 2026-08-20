@@ -84,6 +84,13 @@ class MetadataSchemaTests(unittest.TestCase):
         self.assertTrue(any("minItems 1" in item for item in errors))
         self.assertEqual([], module.validate(["x"], {"type": "array", "minItems": 1, "items": {"type": "string"}}))
 
+    def test_number_minimum_and_maximum_are_enforced(self):
+        schema = {"type": "number", "minimum": 0, "maximum": 1}
+        self.assertEqual([], module.validate(0.4, schema))
+        self.assertTrue(any("less than minimum" in item for item in module.validate(-0.1, schema)))
+        self.assertTrue(any("greater than maximum" in item for item in module.validate(1.1, schema)))
+        self.assertTrue(any("expected type" in item for item in module.validate(True, schema)))
+
 
 if __name__ == "__main__":
     unittest.main()
