@@ -1,0 +1,62 @@
+name: MCP container
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build production image
+        run: docker build --tag skillz-mcp:ci .
+      - name: Start protected container
+        run: |
+          docker run --detach --name skillz-mcp-ci \
+            --publish 18000:8000 \
+            --env SKILLZ_MCP_AUTH_ISSUER_URL=https://auth.ratzeburg-ai.de/application/o/skillz/ \
+            --env SKILLZ_MCP_AUTH_RESOURCE_URL=https://skillz.ratzeburg-ai.de/mcp \
+            --env SKILLZ_MCP_AUTH_JWKS_URL=https://auth.ratzeburg-ai.de/application/o/skillz/jwks/ \
+            --env SKILLZ_MCP_AUTH_AUDIENCE=ci-client \
+            --env SKILLZ_MCP_AUTH_REQUIRED_SCOPES=skillz:read \
+            --env SKILLZ_MCP_AUTH_ALGORITHMS=RS256 \
+            --env SKILLZ_MCP_COMMIT_SHA=${GITHUB_SHA} \
+            skillz-mcp:ci
+      - name: Verify health and anonymous auth boundary
+        run: |
+          set -euo pipefail
+          ready=0
+          for i in $(seq 1 40); do
+            if curl --fail --silent --show-error http://127.0.0.1:18000/healthz >/tmp/skillz-health.json; then
+              ready=1
+              break
+            fi
+            sleep 0.25
+          done
+          if [ "$ready" -ne 1 ]; then
+            docker logs skillz-mcp-ci
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path('/tmp/skillz-health.json').read_text())
+          assert payload == {'status': 'ok'}, payload
+          PY
+          code=$(curl --silent --output /tmp/skillz-anon.txt --write-out '%{http_code}' \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data '{}' \
+            http://127.0.0.1:18000/mcp)
+          test "$code" = "401"
+      - name: Show logs on failure
+        if: failure()
+        run: docker logs skillz-mcp-ci || true
+      - name: Stop container
+        if: always()
+        run: docker rm --force skillz-mcp-ci || true
