@@ -25,7 +25,7 @@ from .graph import (
 )
 from .identity import catalog_hash, catalog_identity, freshness
 from .resolver import normalize_constraints, resolve, validate_known_constraints
-from .resources import DEFAULT_MAX_TEXT_BYTES, decoded_path, read_utf8_text, safe_relative_path
+from .resources import DEFAULT_MAX_TEXT_BYTES, decoded_path, describe_path, read_utf8_text, safe_relative_path
 from .status import (
     build_status_payload,
     installed_identity,
@@ -50,6 +50,7 @@ __all__ = [
     "consumer_info",
     "decoded_path",
     "dependency_traversal",
+    "describe_path",
     "freshness",
     "get_skill",
     "graph_by_name",
