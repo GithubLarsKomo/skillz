@@ -31,10 +31,11 @@ def load_skills(root: Path) -> dict[str, dict[str, list[str]]]:
         slug = path.parent.name
         fm = parse_frontmatter(path)
         requires = as_list(fm.get("requires"), "requires", path)
+        consumes = as_list(fm.get("consumes"), "consumes", path)
         outputs = as_list(fm.get("outputs"), "outputs", path)
         if slug in requires:
             raise ValueError(f"{path}: self-dependency '{slug}'")
-        skills[slug] = {"requires": requires, "outputs": outputs}
+        skills[slug] = {"requires": requires, "consumes": consumes, "outputs": outputs}
     for slug, meta in skills.items():
         for dep in meta["requires"]:
             if dep not in skills:
@@ -77,19 +78,53 @@ def build_graph(root: Path) -> dict[str, object]:
 
     producers: dict[str, list[str]] = defaultdict(list)
     dependents: dict[str, list[str]] = defaultdict(list)
+    explicit_consumers: dict[str, list[str]] = defaultdict(list)
+
     for slug, meta in skills.items():
         for output in meta["outputs"]:
             producers[output].append(slug)
         for dependency in meta["requires"]:
             dependents[dependency].append(slug)
 
+    for slug, meta in skills.items():
+        for artifact in meta["consumes"]:
+            owners = producers.get(artifact, [])
+            if not owners:
+                raise ValueError(f"skills/{slug}/SKILL.md: unknown consumed artifact '{artifact}'")
+            if len(owners) > 1:
+                raise ValueError(
+                    f"skills/{slug}/SKILL.md: consumed artifact '{artifact}' has ambiguous producers: "
+                    + ", ".join(sorted(owners))
+                )
+            if owners[0] == slug:
+                raise ValueError(f"skills/{slug}/SKILL.md: self-consumption of '{artifact}'")
+            explicit_consumers[artifact].append(slug)
+
     output_contracts = []
     unconsumed_outputs: list[str] = []
     for output in sorted(producers):
         owners = sorted(producers[output])
         ambiguous = len(owners) > 1
-        consumer_skills = sorted(dependents.get(owners[0], [])) if not ambiguous else []
-        consumption_status = "ambiguous" if ambiguous else ("inferred" if consumer_skills else "unconsumed")
+        if ambiguous:
+            consumer_skills: list[str] = []
+            consumption_status = "ambiguous"
+        else:
+            owner = owners[0]
+            explicit = set(explicit_consumers.get(output, []))
+            inferred = {
+                consumer
+                for consumer in dependents.get(owner, [])
+                if not skills[consumer]["consumes"]
+            }
+            consumer_skills = sorted(explicit | inferred)
+            if explicit and inferred:
+                consumption_status = "mixed"
+            elif explicit:
+                consumption_status = "explicit"
+            elif inferred:
+                consumption_status = "inferred"
+            else:
+                consumption_status = "unconsumed"
         output_contracts.append({
             "output": output,
             "producers": owners,
@@ -106,6 +141,7 @@ def build_graph(root: Path) -> dict[str, object]:
             {
                 "name": slug,
                 "requires": sorted(meta["requires"]),
+                "consumes": sorted(meta["consumes"]),
                 "outputs": sorted(meta["outputs"]),
             }
             for slug, meta in sorted(skills.items())
@@ -114,6 +150,11 @@ def build_graph(root: Path) -> dict[str, object]:
             {"from": slug, "to": dep}
             for slug, meta in sorted(skills.items())
             for dep in sorted(meta["requires"])
+        ],
+        "consumptionEdges": [
+            {"consumer": slug, "artifact": artifact, "producer": producers[artifact][0]}
+            for slug, meta in sorted(skills.items())
+            for artifact in sorted(meta["consumes"])
         ],
         "outputContracts": output_contracts,
         "unconsumedOutputs": unconsumed_outputs,
@@ -129,7 +170,7 @@ def render_markdown(graph: dict[str, object]) -> str:
     lines = [
         "# Skill Dependency Graph",
         "",
-        "Generated from canonical `requires` and `outputs` frontmatter. Do not edit manually.",
+        "Generated from canonical `requires`, `consumes`, and `outputs` frontmatter. Do not edit manually.",
         "",
         "```mermaid",
         "graph TD",
@@ -145,9 +186,26 @@ def render_markdown(graph: dict[str, object]) -> str:
     lines.extend([
         "```",
         "",
+        "## Artifact consumption",
+        "",
+        "`requires` declares hard skill prerequisites. `consumes` declares concrete artifacts a skill can consume without creating a hard prerequisite edge. For backward compatibility, outputs of a required skill are inferred as consumed only when the consumer declares no explicit `consumes` list. Explicit artifact consumption therefore takes precedence over broad legacy inference.",
+        "",
+        "| Consumer | Artifact | Producer |",
+        "|---|---|---|",
+    ])
+    consumption_edges = graph["consumptionEdges"]
+    assert isinstance(consumption_edges, list)
+    if consumption_edges:
+        for edge in consumption_edges:
+            assert isinstance(edge, dict)
+            lines.append(f"| `{edge['consumer']}` | `{edge['artifact']}` | `{edge['producer']}` |")
+    else:
+        lines.append("| — | — | — |")
+    lines.extend([
+        "",
         "## Output contracts",
         "",
-        "`consumerSkills` are inferred only from hard `requires` edges to a unique producer; ambiguous producers never receive inferred consumers. A missing inferred consumer is reported as `unconsumed`, not as an orphan verdict: terminal user-facing artifacts are valid outputs.",
+        "`consumerSkills` prefer explicit `consumes` declarations. Legacy consumer inference from hard `requires` remains only for consumers without an explicit artifact list. Ambiguous producers are never guessed. A missing consumer is reported as `unconsumed`, not as an error: terminal user-facing artifacts are valid outputs.",
         "",
         "| Output | Producers | Consumer skills | Status |",
         "|---|---|---|---|",
@@ -156,10 +214,10 @@ def render_markdown(graph: dict[str, object]) -> str:
     assert isinstance(contracts, list)
     for item in contracts:
         assert isinstance(item, dict)
-        producers = ", ".join(f"`{x}`" for x in item["producers"])
+        producers_text = ", ".join(f"`{x}`" for x in item["producers"])
         consumers = ", ".join(f"`{x}`" for x in item["consumerSkills"]) or "—"
         status = str(item["consumptionStatus"])
-        lines.append(f"| `{item['output']}` | {producers} | {consumers} | {status} |")
+        lines.append(f"| `{item['output']}` | {producers_text} | {consumers} | {status} |")
     if not contracts:
         lines.append("| — | — | — | no outputs declared |")
     return "\n".join(lines) + "\n"
