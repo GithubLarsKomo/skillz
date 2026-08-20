@@ -34,9 +34,11 @@ def config() -> RemoteAuthConfig:
 
 class StaticVerifier(TokenVerifier):
     async def verify_token(self, token: str) -> AccessToken | None:
-        if token != "valid-token":
-            return None
-        return AccessToken(token=token, client_id="test-client", scopes=["skillz:read"], subject="test-user")
+        if token == "valid-token":
+            return AccessToken(token=token, client_id="test-client", scopes=["skillz:read"], subject="test-user")
+        if token == "no-scope-token":
+            return AccessToken(token=token, client_id="test-client", scopes=["openid"], subject="test-user")
+        return None
 
 
 class MCPAuthTests(unittest.TestCase):
@@ -106,7 +108,7 @@ class MCPAuthTests(unittest.TestCase):
 
         asyncio.run(run())
 
-    def test_http_auth_exposes_rfc9728_metadata_and_blocks_anonymous_mcp(self) -> None:
+    def test_http_auth_exposes_rfc9728_metadata_and_blocks_unauthorized_mcp(self) -> None:
         async def run() -> None:
             server = create_server(ROOT, auth_config=config(), token_verifier=StaticVerifier())
             security = TransportSecuritySettings(
@@ -141,6 +143,14 @@ class MCPAuthTests(unittest.TestCase):
 
                 invalid = await client.post("/mcp", json={}, headers={"Authorization": "Bearer invalid-token"})
                 self.assertEqual(invalid.status_code, 401)
+
+                insufficient = await client.post(
+                    "/mcp", json={}, headers={"Authorization": "Bearer no-scope-token"}
+                )
+                self.assertEqual(insufficient.status_code, 403)
+                scope_challenge = insufficient.headers.get("www-authenticate", "")
+                self.assertIn("insufficient_scope", scope_challenge)
+                self.assertIn("skillz:read", scope_challenge)
 
         asyncio.run(run())
 
