@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **25**
+Skills: **29**
 
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
@@ -18,6 +18,10 @@ Skills: **25**
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
 - [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
 - [[skills/exam-trainer-result-import|exam-trainer-result-import]]
+- [[skills/frontend-design-review|frontend-design-review]]
+- [[skills/frontend-design-shaping|frontend-design-shaping]]
+- [[skills/frontend-design-system-context|frontend-design-system-context]]
+- [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/learning-assessment|learning-assessment]]

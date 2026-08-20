@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frontend Design System Context"
+  short_description: "Erzeugt oder aktualisiert den autoritativen visuellen und interaktiven Projektkontext in DESIGN.md. Nutzt ein bestäti..."
+policy:
+  allow_implicit_invocation: true

@@ -10,13 +10,14 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **12**
+Skills: **13**
 
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/conversation-to-spec|conversation-to-spec]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
+- [[skills/frontend-design-director|frontend-design-director]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
