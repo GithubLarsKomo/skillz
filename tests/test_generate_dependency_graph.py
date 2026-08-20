@@ -12,23 +12,34 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from generate_dependency_graph import build_graph, render_json, run  # noqa: E402
 
 
-SKILL = """---\nname: {name}\ndescription: A sufficiently long description for dependency graph testing.\n{requires_line}{requires}{outputs_line}{outputs}---\n\n## Trigger\nTest.\n"""
+SKILL = """---\nname: {name}\ndescription: A sufficiently long description for dependency graph testing.\n{requires_line}{requires}{consumes_line}{consumes}{outputs_line}{outputs}---\n\n## Trigger\nTest.\n"""
 
 
-def write_skill(root: Path, name: str, requires: list[str] | None = None, outputs: list[str] | None = None) -> None:
+def write_skill(
+    root: Path,
+    name: str,
+    requires: list[str] | None = None,
+    consumes: list[str] | None = None,
+    outputs: list[str] | None = None,
+) -> None:
     path = root / "skills" / name / "SKILL.md"
     path.parent.mkdir(parents=True, exist_ok=True)
     requires = requires or []
+    consumes = consumes or []
     outputs = outputs or []
     requires_line = "requires:\n" if requires else "requires: []\n"
+    consumes_line = "consumes:\n" if consumes else "consumes: []\n"
     outputs_line = "outputs:\n" if outputs else "outputs: []\n"
     req = "".join(f"  - {item}\n" for item in requires)
+    con = "".join(f"  - {item}\n" for item in consumes)
     out = "".join(f"  - {item}\n" for item in outputs)
     path.write_text(
         SKILL.format(
             name=name,
             requires_line=requires_line,
             requires=req,
+            consumes_line=consumes_line,
+            consumes=con,
             outputs_line=outputs_line,
             outputs=out,
         ),
@@ -49,8 +60,59 @@ class DependencyGraphTests(unittest.TestCase):
             self.assertEqual(graph["requirementEdges"], [{"from": "b", "to": "a"}])
             contracts = {item["output"]: item for item in graph["outputContracts"]}
             self.assertEqual(contracts["contract-a"]["consumerSkills"], ["b"])
+            self.assertEqual(contracts["contract-a"]["consumptionStatus"], "inferred")
             self.assertNotIn("contract-a", graph["orphanOutputs"])
             self.assertIn("contract-b", graph["orphanOutputs"])
+
+    def test_explicit_consumes_tracks_artifact_without_hard_dependency(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_skill(root, "producer", outputs=["handoff.json", "report.md"])
+            write_skill(root, "consumer", consumes=["handoff.json"])
+            graph = build_graph(root)
+            self.assertEqual(graph["requirementEdges"], [])
+            self.assertEqual(
+                graph["consumptionEdges"],
+                [{"consumer": "consumer", "artifact": "handoff.json", "producer": "producer"}],
+            )
+            contracts = {item["output"]: item for item in graph["outputContracts"]}
+            self.assertEqual(contracts["handoff.json"]["consumerSkills"], ["consumer"])
+            self.assertEqual(contracts["handoff.json"]["consumptionStatus"], "explicit")
+            self.assertEqual(contracts["report.md"]["consumerSkills"], [])
+
+    def test_explicit_consumes_overrides_broad_required_skill_inference(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_skill(root, "producer", outputs=["normative.json", "human.md", "scorecard.json"])
+            write_skill(root, "consumer", requires=["producer"], consumes=["normative.json", "scorecard.json"])
+            graph = build_graph(root)
+            contracts = {item["output"]: item for item in graph["outputContracts"]}
+            self.assertEqual(contracts["normative.json"]["consumerSkills"], ["consumer"])
+            self.assertEqual(contracts["scorecard.json"]["consumerSkills"], ["consumer"])
+            self.assertEqual(contracts["human.md"]["consumerSkills"], [])
+
+    def test_unknown_consumed_artifact_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_skill(root, "consumer", consumes=["missing.json"])
+            with self.assertRaisesRegex(ValueError, "unknown consumed artifact"):
+                build_graph(root)
+
+    def test_ambiguous_consumed_artifact_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_skill(root, "a", outputs=["shared.json"])
+            write_skill(root, "b", outputs=["shared.json"])
+            write_skill(root, "consumer", consumes=["shared.json"])
+            with self.assertRaisesRegex(ValueError, "ambiguous producers"):
+                build_graph(root)
+
+    def test_self_consumption_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_skill(root, "a", consumes=["own.json"], outputs=["own.json"])
+            with self.assertRaisesRegex(ValueError, "self-consumption"):
+                build_graph(root)
 
     def test_ambiguous_output_is_recorded_without_invented_consumers(self):
         with tempfile.TemporaryDirectory() as tmp:
