@@ -39,7 +39,7 @@ Definiere mindestens:
 
 ### Normativer Artefaktvertrag
 
-`role-architecture.json` enthält mindestens:
+`role-architecture.json` folgt `schemas/role-architecture-v1.schema.json` und enthält mindestens:
 
 - `schemaVersion: 1`,
 - `roleArchitectureId`,
@@ -64,7 +64,7 @@ Ein früherer Titel, eine bestimmte Unternehmensgröße, Branche oder Ausbildung
 
 ### Role Scorecard
 
-`role-scorecard.json` gehört immer zu genau einer Role-Architecture-Version und enthält mindestens:
+`role-scorecard.json` folgt `schemas/role-scorecard-v1.schema.json`, gehört immer zu genau einer Role-Architecture-Version und enthält mindestens:
 
 - `schemaVersion: 1`,
 - `roleArchitectureId`,
@@ -87,6 +87,7 @@ Kandidatenevidenz darf niemals als Begründung dienen, Role Architecture oder Sc
 
 Vor einer Freigabe prüfen:
 
+- `role-architecture.json` und `role-scorecard.json` validieren gegen ihre v1-Schemas.
 - Summe der aktiven Gewichte = `1.0`.
 - Dimension-IDs sind eindeutig.
 - Jede Dimension verweist auf Capability, Outcome oder zwingende Rollenanforderung.
@@ -113,4 +114,4 @@ Eine `draft`-, `review`- oder `superseded`-Architektur darf nicht als aktuelle n
 
 ## Abschlusskriterien
 
-Abgeschlossen ist die Role Architecture, wenn Auftrag, Outcomes, Mandat, Scope, Capability-Modell und **Role Scorecard** konsistent, versioniert, rückverfolgbar und als normative Basis für Kommunikation und Auswahl ausdrücklich freigegeben sind.
+Abgeschlossen ist die Role Architecture, wenn Auftrag, Outcomes, Mandat, Scope, Capability-Modell und **Role Scorecard** konsistent, schema-validiert, versioniert, rückverfolgbar und als normative Basis für Kommunikation und Auswahl ausdrücklich freigegeben sind.

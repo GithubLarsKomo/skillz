@@ -731,7 +731,7 @@
     },
     "role-architecture": {
       "files": {
-        "SKILL.md": "1d426a473fc43d6ffa862820f3102dd66a3f626e912c18c39d92ece7709691f1",
+        "SKILL.md": "79647ece72e575eedfd467fa61123fdfa3e898664ad3f80dae849c505efd995e",
         "agents/openai.yaml": "9329003798128fcdeefd51fea0fac5a045bb4dd1cef85c7fcada305706051cc4"
       }
     },
