@@ -1,0 +1,5 @@
+interface:
+  display_name: "Professional Person Research"
+  short_description: "Erstellt quellenbasierte berufliche Personenprofile mit Timeline, Claims, Capabilities und Evidenzlücken."
+policy:
+  allow_implicit_invocation: true
