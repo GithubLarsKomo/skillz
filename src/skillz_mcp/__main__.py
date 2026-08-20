@@ -22,9 +22,12 @@ def _transport_security(auth_config: RemoteAuthConfig | None) -> TransportSecuri
         raise ValueError("SKILLZ_MCP_AUTH_RESOURCE_URL must be an absolute HTTP(S) URL")
     host = parsed.hostname
     origin = f"{parsed.scheme}://{parsed.netloc}"
+    allowed_hosts = [host, f"{host}:*"]
+    for loopback in sorted(LOOPBACK_HOSTS):
+        allowed_hosts.extend((loopback, f"{loopback}:*"))
     return TransportSecuritySettings(
         enable_dns_rebinding_protection=True,
-        allowed_hosts=[host, f"{host}:*"],
+        allowed_hosts=allowed_hosts,
         allowed_origins=[origin],
     )
 
