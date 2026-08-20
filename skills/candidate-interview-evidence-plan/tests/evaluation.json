@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "edge-case-conflicting-public-scope",
+      "id": "edge-case",
       "input": "Two public sources disagree on the candidate's responsibility level during the same period. Prepare a question to reconcile the evidence.",
       "requiredBehaviors": [
         "formulate a neutral evidence-reconciliation question",
