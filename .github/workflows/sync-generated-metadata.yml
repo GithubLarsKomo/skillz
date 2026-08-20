@@ -35,6 +35,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Test dependency graph contracts
+        run: python -m unittest tests.test_generate_dependency_graph
+      - name: Test metadata schema validator
+        run: python -m unittest tests.test_validate_metadata_schemas
+      - name: Test role selection artifact schemas
+        run: python -m unittest tests.test_role_selection_artifact_schemas
+      - name: Test role selection routing policy
+        run: python -m unittest tests.test_role_selection_routing_policy
       - name: Materialize OpenAI agent metadata
         run: python scripts/materialize_openai_agent_metadata.py
       - name: Generate repository metadata
