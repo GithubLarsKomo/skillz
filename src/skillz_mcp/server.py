@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 from mcp.server import MCPServer
 
@@ -21,7 +22,7 @@ def create_server(repository_root: Path | None = None) -> MCPServer:
         category: str | None = None,
         include_internal: bool = False,
         limit: int = 25,
-    ) -> dict:
+    ) -> dict[str, Any]:
         """Search the canonical Skillz capability index without executing skills."""
         if limit < 1 or limit > 100:
             raise ValueError("limit must be between 1 and 100")
@@ -43,7 +44,7 @@ def create_server(repository_root: Path | None = None) -> MCPServer:
         return listing_payload(mode, query, matches)
 
     @server.tool(name="get_skill")
-    def get_skill_metadata(name: str) -> dict:
+    def get_skill_metadata(name: str) -> dict[str, Any]:
         """Return exact indexed metadata for one skill; no fuzzy fallback and no execution."""
         skill = dict(get_skill(index, name))
         skill["resourceUris"] = {
