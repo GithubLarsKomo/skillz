@@ -6,179 +6,29 @@ import json
 import sys
 from pathlib import Path
 
-from skill_status import (
-    installed_identity,
-    load_distribution_manifest,
-    render_human as render_status_human,
-    resolve_status,
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from skillz_core import (
+    VALID_MODES,
+    build_status_payload,
+    get_skill,
+    invocation,
+    listing_payload,
+    load_index,
+    names,
+    query_mode,
+    query_output,
+    query_portable,
+    query_requires,
+    query_skill_listing,
+    render_status_human,
 )
 
-SCHEMA_VERSION = 1
-ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INDEX = ROOT / "docs" / "skill-capability-index.json"
 DEFAULT_VERSION = ROOT / "VERSION"
-VALID_MODES = {"rubric", "compatibility", "none"}
-
-
-def load_index(path: Path) -> dict:
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise ValueError(f"cannot read capability index: {exc}") from exc
-    if not isinstance(data, dict):
-        raise ValueError("capability index root must be an object")
-    if data.get("schemaVersion") != SCHEMA_VERSION:
-        raise ValueError(
-            f"unsupported capability index schemaVersion {data.get('schemaVersion')!r}; expected {SCHEMA_VERSION}"
-        )
-    skills = data.get("skills")
-    if not isinstance(skills, list):
-        raise ValueError("capability index skills must be a list")
-    return data
-
-
-def skills_by_name(index: dict) -> dict[str, dict]:
-    result: dict[str, dict] = {}
-    for item in index["skills"]:
-        if not isinstance(item, dict) or not isinstance(item.get("name"), str):
-            raise ValueError("capability index contains an invalid skill record")
-        result[item["name"]] = item
-    return result
-
-
-def get_skill(index: dict, name: str) -> dict:
-    skill = skills_by_name(index).get(name)
-    if skill is None:
-        raise LookupError(f"unknown skill: {name}")
-    return skill
-
-
-def query_requires(index: dict, dependency: str) -> list[dict]:
-    if dependency not in skills_by_name(index):
-        raise LookupError(f"unknown skill: {dependency}")
-    return sorted(
-        [skill for skill in index["skills"] if dependency in skill.get("requires", [])],
-        key=lambda item: item["name"],
-    )
-
-
-def query_output(index: dict, output: str) -> list[dict]:
-    matches = sorted(
-        [skill for skill in index["skills"] if output in skill.get("outputs", [])],
-        key=lambda item: item["name"],
-    )
-    if not matches:
-        raise LookupError(f"unknown output: {output}")
-    return matches
-
-
-def query_mode(index: dict, mode: str) -> list[dict]:
-    if mode not in VALID_MODES:
-        raise ValueError(f"unsupported evaluation mode: {mode}")
-    return sorted(
-        [skill for skill in index["skills"] if skill.get("evaluation", {}).get("mode") == mode],
-        key=lambda item: item["name"],
-    )
-
-
-def query_portable(index: dict, with_files: bool) -> list[dict]:
-    return sorted(
-        [skill for skill in index["skills"] if bool(skill.get("portableFiles", [])) is with_files],
-        key=lambda item: item["name"],
-    )
-
-
-def names(items: list[dict]) -> list[str]:
-    return [item["name"] for item in items]
-
-
-def invocation(skill: dict) -> dict:
-    value = skill.get("invocation", {})
-    return value if isinstance(value, dict) else {}
-
-
-def query_skill_listing(index: dict, query: str | None) -> tuple[str, list[dict]]:
-    normalized = (query or "").strip().casefold()
-    include_all = normalized == "all"
-    terms = [] if include_all else [term for term in normalized.split() if term]
-    matches: list[dict] = []
-    for skill in index["skills"]:
-        meta = invocation(skill)
-        if not include_all and not bool(meta.get("userFacing", False)):
-            continue
-        category = str(meta.get("category") or "internal")
-        haystack = " ".join((skill.get("name", ""), skill.get("description", ""), category)).casefold()
-        if terms and not all(term in haystack for term in terms):
-            continue
-        matches.append(skill)
-    return ("all" if include_all else "entrypoints"), sorted(
-        matches,
-        key=lambda item: (str(invocation(item).get("category") or "internal"), item["name"]),
-    )
-
-
-def listing_payload(mode: str, query: str | None, skills: list[dict]) -> dict:
-    categories: dict[str, list[dict]] = {}
-    for skill in skills:
-        meta = invocation(skill)
-        category = str(meta.get("category") or "internal")
-        categories.setdefault(category, []).append({
-            "name": skill["name"],
-            "description": skill.get("description", ""),
-            "userFacing": bool(meta.get("userFacing", False)),
-        })
-    return {
-        "schemaVersion": 1,
-        "mode": mode,
-        "query": None if not query or query.strip().casefold() == "all" else query.strip(),
-        "count": len(skills),
-        "categories": [
-            {"category": category, "skills": categories[category]}
-            for category in sorted(categories)
-        ],
-    }
-
-
-def provenance(index: dict) -> dict:
-    value = index.get("provenance", {})
-    return value if isinstance(value, dict) else {}
-
-
-def repository_version(index: dict, override: str | None = None) -> str | None:
-    if override and override.strip():
-        return override.strip()
-    value = provenance(index).get("version")
-    if value is not None and str(value).strip():
-        return str(value).strip()
-    try:
-        return DEFAULT_VERSION.read_text(encoding="utf-8").strip() or None
-    except OSError:
-        return None
-
-
-def build_status_payload(
-    index: dict,
-    *,
-    repository_head: str | None,
-    repository_version_override: str | None,
-    installed_manifest: Path | None,
-    installed_commit: str | None,
-    installed_version: str | None,
-) -> dict:
-    meta = provenance(index)
-    head = repository_head or (str(meta.get("commitSha")) if meta.get("commitSha") is not None else None)
-    runtime_version = installed_version
-    runtime_commit = installed_commit
-    if installed_manifest is not None:
-        manifest_version, manifest_commit = installed_identity(load_distribution_manifest(installed_manifest))
-        runtime_version = runtime_version or manifest_version
-        runtime_commit = runtime_commit or manifest_commit
-    return resolve_status(
-        repository_head=head,
-        repository_version=repository_version(index, repository_version_override),
-        installed_commit=runtime_commit,
-        installed_version=runtime_version,
-    )
 
 
 def render_human(kind: str, value: object) -> str:
@@ -239,6 +89,7 @@ def main(argv: list[str] | None = None) -> int:
             kind = "status"
             result = build_status_payload(
                 index,
+                version_path=DEFAULT_VERSION,
                 repository_head=args.repository_head,
                 repository_version_override=args.repository_version,
                 installed_manifest=args.installed_manifest,
