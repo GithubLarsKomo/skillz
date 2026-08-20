@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "talent-search-strategy",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "remove age-based targeting", "passed": true, "evidence": "The fairness section excludes age and other protected personal characteristics from sourcing filters."},
+    {"behavior": "broaden role families based on capabilities", "passed": true, "evidence": "The skill requires role families and career patterns to be derived from required capabilities rather than exact title matching."},
+    {"behavior": "require evidence or hypothesis status for target-company relevance", "passed": true, "evidence": "Target-company relevance is recorded through explicit search hypotheses with rationale, evidence and status."},
+    {"behavior": "preserve professional relevance and source transparency", "passed": true, "evidence": "The strategy keeps sourcing criteria professionally relevant and separates supported facts from untested search hypotheses."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "use protected personal attributes as sourcing filters", "observed": false, "evidence": "Protected and sensitive personal attributes are explicitly excluded from search filters."},
+    {"behavior": "retain title-only search logic", "observed": false, "evidence": "The workflow explicitly rejects exact-title-only search and broadens to capability-relevant role families."}
+  ],
+  "overall": "pass"
+}
