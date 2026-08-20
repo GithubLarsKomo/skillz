@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/teach-hosted-release-candidate]
+    branches: [main]
     paths:
       - "skills/**"
       - "scripts/materialize_openai_agent_metadata.py"
