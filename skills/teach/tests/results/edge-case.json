@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "teach",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "preserve prior knowledge separately until sufficiently evidenced",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: preserve prior knowledge separately until sufficiently evidenced."
+    },
+    {
+      "behavior": "avoid teaching unsupported claims as facts",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: avoid teaching unsupported claims as facts."
+    },
+    {
+      "behavior": "continue with dialogic retrieval or transfer tasks without inventing ETF events",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: continue with dialogic retrieval or transfer tasks without inventing ETF events."
+    },
+    {
+      "behavior": "select a next step from the actual competence state",
+      "passed": true,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly encode this behavior: select a next step from the actual competence state."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent ETF ReviewEvents",
+      "observed": false,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly prevent this behavior: invent ETF ReviewEvents."
+    },
+    {
+      "behavior": "reset the mission simply because the runtime is unavailable",
+      "observed": false,
+      "evidence": "Teach workflow and ownership-boundary sections explicitly prevent this behavior: reset the mission simply because the runtime is unavailable."
+    }
+  ],
+  "overall": "pass"
+}

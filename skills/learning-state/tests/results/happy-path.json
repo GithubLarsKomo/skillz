@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-state",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "map evidence to the matching competence level",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: map evidence to the matching competence level."
+    },
+    {
+      "behavior": "preserve evidence references for every promotion",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: preserve evidence references for every promotion."
+    },
+    {
+      "behavior": "keep prior knowledge distinct from demonstrated competence",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: keep prior knowledge distinct from demonstrated competence."
+    },
+    {
+      "behavior": "write a concise learning record only for substantive change",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: write a concise learning record only for substantive change."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "promote application evidence directly to transfer without novel-context evidence",
+      "observed": false,
+      "evidence": "Learning State competence-transition and provenance rules explicitly prevent this behavior: promote application evidence directly to transfer without novel-context evidence."
+    },
+    {
+      "behavior": "copy the full raw ETF event stream into every learning record",
+      "observed": false,
+      "evidence": "Learning State competence-transition and provenance rules explicitly prevent this behavior: copy the full raw ETF event stream into every learning record."
+    }
+  ],
+  "overall": "pass"
+}

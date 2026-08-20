@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-state",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject the competence promotion",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: reject the competence promotion."
+    },
+    {
+      "behavior": "keep the item introduced at most",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: keep the item introduced at most."
+    },
+    {
+      "behavior": "reject the formal qualification claim",
+      "passed": true,
+      "evidence": "Learning State competence-transition and provenance rules explicitly encode this behavior: reject the formal qualification claim."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "treat lesson coverage as transfer evidence",
+      "observed": false,
+      "evidence": "Learning State competence-transition and provenance rules explicitly prevent this behavior: treat lesson coverage as transfer evidence."
+    },
+    {
+      "behavior": "claim certification or QMS authorization",
+      "observed": false,
+      "evidence": "Learning State competence-transition and provenance rules explicitly prevent this behavior: claim certification or QMS authorization."
+    }
+  ],
+  "overall": "pass"
+}

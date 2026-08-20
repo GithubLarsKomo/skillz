@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment-spec",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "state the competence transition explicitly",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: state the competence transition explicitly."
+    },
+    {
+      "behavior": "define observable application evidence",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: define observable application evidence."
+    },
+    {
+      "behavior": "specify allowed support and critical errors",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: specify allowed support and critical errors."
+    },
+    {
+      "behavior": "remain provider-neutral about runtime implementation",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: remain provider-neutral about runtime implementation."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "generate ETF card JSON directly",
+      "observed": false,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly prevent this behavior: generate ETF card JSON directly."
+    },
+    {
+      "behavior": "treat a percentage alone as competence semantics",
+      "observed": false,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly prevent this behavior: treat a percentage alone as competence semantics."
+    }
+  ],
+  "overall": "pass"
+}
