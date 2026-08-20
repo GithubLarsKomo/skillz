@@ -21,17 +21,17 @@ The index uses `schemaVersion: 1` and contains repository-wide evaluation counts
 - `name` and canonical frontmatter `description`
 - hard `requires` dependencies and reverse `dependents`
 - declared `outputs`
-- `outputContracts` copied from the dependency-graph semantics, including ambiguity and conservative consumer inference
-- portable synchronized files under `references/`, `scripts/`, and `assets/`
+- `outputContracts` copied from the dependency-graph semantics, including ambiguity and consumer relationships derived from explicit `consumes` metadata or conservative legacy `requires` inference
+- portable synchronized files under `references/`, `scripts`, `assets/`, and `agents/`
 - evaluation mode: `rubric`, `compatibility`, or `none`
 - deterministic case/result counts and committed-baseline pass state
 
-The generator reuses `generate_dependency_graph.build_graph()` and `evaluate_skills.run()` rather than implementing parallel dependency or scoring rules.
+The generator reuses `generate_dependency_graph.build_graph()` and `evaluate_skills.run()` rather than implementing parallel dependency, artifact-consumption, or scoring rules.
 
-Ambiguous output producers remain explicitly ambiguous. The index never invents producer/consumer relationships.
+Explicit `consumes` declarations are represented through the dependency graph's output contracts. The capability-index skill object deliberately remains compact and does not duplicate the full consumption-edge list. Ambiguous output producers remain explicitly ambiguous; the index never invents producer/consumer relationships.
 
 ## Consumption contract
 
-Consumers may use this file to inspect capabilities and composition constraints without reparsing all source files. They must still treat `SKILL.md`, evaluation fixtures, and repository generators as the source of truth.
+Consumers may use this file to inspect capabilities and composition constraints without reparsing all source files. They must still treat `SKILL.md`, evaluation fixtures, repository generators, and `docs/skill-dependency-graph.json` as the source of truth for detailed artifact-consumption edges.
 
 The file is generated and must not be edited manually. CI verifies it through the existing read-only repository metadata check.
