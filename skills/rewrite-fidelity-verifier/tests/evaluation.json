@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "rewrite-fidelity-verifier",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Compare a rewritten report that shortens prose while preserving all numbers, citations, claims, negations and uncertainty.",
+      "requiredBehaviors": ["check deterministic fidelity tokens", "compare semantic modality and claims", "classify harmless clarification separately from content changes"],
+      "forbiddenBehaviors": ["treat token equality as semantic proof"],
+      "skillAnchors": ["Deterministische Token-Gleichheit beweist keine semantische Gleichheit", "clarified", "Claims, Negationen, Bedingungen"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The rewrite changes 'the available information does not allow quality to be assessed' to 'quality is unknown' while retaining all numbers and citations.",
+      "requiredBehaviors": ["flag epistemic shift despite token preservation", "route the difference to semantic review"],
+      "forbiddenBehaviors": ["mark pass only because numbers match"],
+      "skillAnchors": ["epistemisch unterschiedliche Aussagen dürfen nicht gleichgesetzt werden", "potentially_changed"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The rewrite adds a new conclusion that the assay is clinically superior and changes 92% to 95%.",
+      "requiredBehaviors": ["hard fail the added claim", "hard fail the unauthorized numeric change"],
+      "forbiddenBehaviors": ["accept new conclusions as stylistic clarification"],
+      "skillAnchors": ["Ein neu hinzugefügter fachlicher Claim ist ein Hard Fail", "Zahlen- oder Quellenänderungen ohne expliziten Auftrag sind Hard Fail"]
+    }
+  ]
+}

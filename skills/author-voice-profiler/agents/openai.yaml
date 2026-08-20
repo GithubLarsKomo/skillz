@@ -1,0 +1,5 @@
+interface:
+  display_name: "Author Voice Profiler"
+  short_description: "Erstellt ein beobachtbares DE/EN-Autorenstilprofil aus bestätigten Referenztexten."
+policy:
+  allow_implicit_invocation: false

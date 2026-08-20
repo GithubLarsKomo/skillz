@@ -1,0 +1,5 @@
+interface:
+  display_name: "Rewrite Fidelity Verifier"
+  short_description: "Prüft Rewrite gegen Quelle auf Fakten-, Claim-, Modalitäts- und Quellen-Treue."
+policy:
+  allow_implicit_invocation: true

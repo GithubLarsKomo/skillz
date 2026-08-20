@@ -1,0 +1,5 @@
+interface:
+  display_name: "LLM Prose Pattern Audit"
+  short_description: "Findet redaktionell relevante generische LLM-Prosemuster in deutschen und englischen Sachtexten."
+policy:
+  allow_implicit_invocation: true

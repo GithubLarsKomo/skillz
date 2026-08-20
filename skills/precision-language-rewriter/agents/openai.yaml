@@ -1,0 +1,5 @@
+interface:
+  display_name: "Precision Language Rewriter"
+  short_description: "Überarbeitet DE/EN-Sachtexte präzise in light-, author- oder editorial-Modus."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Precision Writing Revision"
+  short_description: "Orchestriert Audit, Author Voice, präzisen Rewrite und Fidelity-Prüfung für DE/EN-Texte."
+policy:
+  allow_implicit_invocation: true

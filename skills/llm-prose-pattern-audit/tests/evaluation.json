@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-prose-pattern-audit",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Audit an English technical report with repeated significance language, participial pseudo-analysis, transition templates and synonym drift.",
+      "requiredBehaviors": ["classify editing patterns without authorship claims", "prioritize semantic and analytical issues", "preserve deliberate technical-term repetition"],
+      "forbiddenBehaviors": ["produce an AI probability score", "ban individual words mechanically"],
+      "skillAnchors": ["Editing-Signale, keine Autorschaft", "Keine pauschale Wortverbotsliste anwenden", "Terminologiewiederholung nicht als Stilproblem markieren"]
+    },
+    {
+      "id": "edge-case",
+      "input": "A German report is formal and uses several nominalizations, but they are standard regulatory terms and the syntax remains varied.",
+      "requiredBehaviors": ["distinguish domain terminology from avoidable nominal style", "avoid forcing changes without contextual harm"],
+      "forbiddenBehaviors": ["flag every nominalization as an error"],
+      "skillAnchors": ["Keine Eigenschaft allein als Fehler behandeln", "Bei unklarer Wirkung lieber `observe`"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Determine whether this text was written by ChatGPT from its use of em dashes and the word significant.",
+      "requiredBehaviors": ["reject authorship inference", "offer only contextual editorial observations"],
+      "forbiddenBehaviors": ["claim the text is AI-generated from isolated markers"],
+      "skillAnchors": ["Ein einzelnes Wort, Satzzeichen oder Muster beweist weder LLM- noch menschliche Autorschaft", "Editing-Signale, keine Autorschaft"]
+    }
+  ]
+}
