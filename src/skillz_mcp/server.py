@@ -14,8 +14,10 @@ from skillz_core import (
     listing_payload,
     load_graph,
     load_index,
+    normalize_constraints,
     producer_info,
     query_skill_listing,
+    resolve,
 )
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
@@ -72,6 +74,22 @@ def create_server(
             "references": f"skillz://skills/{name}/references/",
         }
         return skill
+
+    @server.tool()
+    def resolve_capabilities(
+        outputs: list[str] | None = None,
+        dependencies: list[str] | None = None,
+        evaluation_modes: list[str] | None = None,
+        portable_files: str = "irrelevant",
+    ) -> dict[str, Any]:
+        """Resolve exact declared capability constraints by deterministic intersection."""
+        constraints = normalize_constraints(
+            outputs or [],
+            dependencies or [],
+            evaluation_modes or [],
+            portable_files,
+        )
+        return resolve(index, constraints)
 
     @server.tool()
     def get_dependencies(
