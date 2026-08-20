@@ -46,6 +46,7 @@ Der Skill wird **nur explizit gestartet**. Eine normale Bitte wie „erkläre mi
 - `learning-next-step` wählt die nächste pädagogische Herausforderung.
 - `learning-assessment-spec` definiert, welche Evidenz für einen Kompetenzsprung erforderlich ist.
 - `learning-assessment` interpretiert tatsächliche Lern-/Prüfungsevidenz.
+- `structured-knowledge-artifact` kann bestätigte Mission-, Kompetenz- oder Referenzinhalte optional provider-neutral verpacken; `knowledge-view` und `knowledge-map-generator` dürfen diese projizieren, besitzen aber nicht die Lernsemantik.
 - `exam-trainer-framework` (ETF) bleibt externe Runtime für Spaced Retrieval, adaptive Lernsitzungen, ReviewEvents und Prüfungen.
 
 **Coverage ist kein Lernen.** Material darf nicht als beherrscht markiert werden, nur weil es erklärt, gelesen oder einmal gezeigt wurde.
@@ -125,6 +126,8 @@ Unterscheide mindestens:
 ### 7. Lernzustand aktualisieren
 
 `learning-state` übernimmt nur belegte Änderungen. Lernrecords entstehen bei tatsächlich nachgewiesenem Verständnis, relevantem Vorwissen, korrigierter Fehlvorstellung oder einer begründeten Missionsänderung.
+
+Bestätigte semantische Artefakte können anschließend über `structured-knowledge-artifact` adressierbar verpackt und über `knowledge-view` oder `knowledge-map-generator` projiziert werden. Diese optionale Verpackung verändert weder Kompetenzbewertung noch Lernzustand.
 
 ### 8. Schleife fortsetzen oder sauber beenden
 
