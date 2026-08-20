@@ -10,6 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **1**
+Skills: **2**
 
+- [[skills/author-voice-profiler|author-voice-profiler]]
 - [[skills/communication-memory-governance|communication-memory-governance]]

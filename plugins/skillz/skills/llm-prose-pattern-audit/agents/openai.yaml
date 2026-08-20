@@ -1,0 +1,5 @@
+interface:
+  display_name: "Llm Prose Pattern Audit"
+  short_description: "Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generischer LLM-Prosa wie Signifikanzinflati..."
+policy:
+  allow_implicit_invocation: true
