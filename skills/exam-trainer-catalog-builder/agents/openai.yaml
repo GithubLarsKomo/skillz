@@ -1,0 +1,5 @@
+interface:
+  display_name: "Exam Trainer Catalog Builder"
+  short_description: "Übersetzt eine explizite Teach-Lernübergabe mit Lernmission, Kompetenzbezug, Assessment-Spec und belegten Inhalten in..."
+policy:
+  allow_implicit_invocation: true

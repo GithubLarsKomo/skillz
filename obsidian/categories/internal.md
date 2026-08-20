@@ -10,12 +10,14 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **23**
+Skills: **25**
 
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
+- [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
+- [[skills/exam-trainer-result-import|exam-trainer-result-import]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/learning-assessment|learning-assessment]]

@@ -27,6 +27,8 @@ Der Skill wird **nur explizit gestartet**. Eine normale Bitte wie „erkläre mi
 - `learning-next-step` wählt die nächste pädagogische Herausforderung.
 - `learning-assessment-spec` definiert, welche Evidenz für einen Kompetenzsprung erforderlich ist.
 - `learning-assessment` interpretiert tatsächliche Lern-/Prüfungsevidenz.
+- `exam-trainer-catalog-builder` übersetzt eine freigegebene Übungsabsicht in den ETF-Vertrag `etf-teach-catalog`; er besitzt keine Fachwahrheit oder Schedulerlogik.
+- `exam-trainer-result-import` übersetzt den ETF-Vertrag `etf-teach-review-evidence` in provider-neutrale Laufzeitevidenz; er vergibt keine Kompetenzstufe.
 - `structured-knowledge-artifact` kann bestätigte Mission-, Kompetenz- oder Referenzinhalte optional provider-neutral verpacken; `knowledge-view` und `knowledge-map-generator` dürfen diese projizieren, besitzen aber nicht die Lernsemantik.
 - `exam-trainer-framework` (ETF) bleibt externe Runtime für Spaced Retrieval, adaptive Lernsitzungen, ReviewEvents und Prüfungen.
 
@@ -87,17 +89,22 @@ Für eine ETF-Übergabe erzeuge zunächst einen provider-neutralen `learning-pra
   "mode": "retrieval|application|transfer|exam",
   "assessmentSpecRef": "...",
   "sourceRefs": [],
-  "runtime": "exam-trainer-framework"
+  "runtime": "exam-trainer-framework",
+  "publicationIntent": "draft|personal-local-runtime"
 }
 ```
 
-Phase 1 definiert nur diesen semantischen Request. ETF-spezifische Katalog-/ReviewEvent-Adapter gehören in die Interoperabilitätsphase.
+`publicationIntent` ist optional. Ohne explizite Angabe gilt `draft`. `personal-local-runtime` erlaubt nur eine persönliche lokale Runtime-Freigabe nach den Gates des `exam-trainer-catalog-builder`; es ist keine formale Trainings- oder QMS-Freigabe.
+
+Delegiere anschließend an `exam-trainer-catalog-builder`, der daraus den ETF-v1-Vertrag `etf-teach-catalog` erzeugt. Teach darf keine parallele ETF-Katalogstruktur oder eigene Scheduling-Metadaten einführen.
 
 ### 6. Evidenz bewerten
 
-Wenn der Lernende eine Übung, Aufgabe oder Prüfung abgeschlossen hat, nutze `learning-assessment`. Eine Prozentzahl allein darf keinen Kompetenzzustand bestimmen.
+Wenn der Lernende eine ETF-Übung oder Prüfung abgeschlossen hat, fordere von ETF nur den für Mission und KnowledgeItems benötigten `etf-teach-review-evidence`-Scope an. Übergib dieses Bundle zuerst an `exam-trainer-result-import` und anschließend gemeinsam mit der passenden `learning-assessment-spec.json` an `learning-assessment`.
 
-Unterscheide mindestens:
+Bei dialogischen oder realen Aufgaben ohne ETF kann `learning-assessment` die beobachtete Evidenz direkt bewerten.
+
+Eine Prozentzahl allein darf keinen Kompetenzzustand bestimmen. Unterscheide mindestens:
 
 - `introduced`,
 - `retrieval-demonstrated`,
@@ -142,7 +149,7 @@ Nutze fällige oder schwach belegte Kompetenzen als semantischen Review-Fokus. E
 - Missions- und Kompetenzzustand darf im Lernworkspace persistent sein.
 - Rohdaten privater Connectoren, Zugangsdaten und unnötige personenbezogene Daten bleiben laufzeitgebunden.
 - Dauerhafte globale Kommunikationspräferenzen gehören zu `communication-memory-governance`, nicht in den Kompetenzzustand.
-- ETF-Lernerhistorie bleibt standardmäßig lokal in ETF; Teach referenziert nur die für semantische Bewertungen benötigte Evidenz.
+- ETF-Lernerhistorie bleibt standardmäßig lokal in ETF; Teach fordert nur den für semantische Bewertungen benötigten Evidence-Scope an.
 
 ## Formale Trainingsgrenze
 
@@ -153,6 +160,7 @@ Ein Teach-/ETF-Ergebnis darf nicht eigenständig als formale Qualifikation, QMS-
 - Fehlt belastbare Evidenz, kennzeichne die Lücke und lehre die Aussage nicht als gesicherte Tatsache.
 - Widerspricht neue Evidenz dem bisherigen Lernzustand, bewahre die Provenance und korrigiere den Zustand explizit.
 - Ist ETF nicht verfügbar, kann Teach mit dialogischen Retrieval-/Transferaufgaben fortfahren, darf aber keine ETF-ReviewEvents erfinden.
+- Ist ein ETF-Bundle unbekannter Version oder scope-inkonsistent, lasse es vom Adapter blockieren statt es heuristisch umzudeuten.
 - Ist die Mission zu breit, schneide ein kohärentes Lernziel statt beliebig viele Themen parallel zu verfolgen.
 
 ## Abschlusskriterien
