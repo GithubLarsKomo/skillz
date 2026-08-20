@@ -1,5 +1,5 @@
 interface:
   display_name: "Frontend Product Context"
-  short_description: "Erzeugt PRODUCT.md aus Repo-Evidenz und einem eigenen bestätigten Produkt-Grilling."
+  short_description: "Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Re..."
 policy:
   allow_implicit_invocation: true
