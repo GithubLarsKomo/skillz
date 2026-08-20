@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
+import hmac
+import json
+import logging
 import os
-from collections.abc import Awaitable, Callable, Mapping
+import re
+from collections.abc import Awaitable, Callable, Mapping, Sequence
 from dataclasses import dataclass
 from typing import Any
 from urllib.parse import urlparse
@@ -15,6 +20,9 @@ from pydantic import AnyHttpUrl
 
 JWKSLoader = Callable[[], Awaitable[Mapping[str, Any]]]
 ALLOWED_SIGNING_ALGORITHMS = frozenset({"RS256", "ES256", "ES384", "ES512"})
+STATIC_TOKEN_ENV = "SKILLZ_MCP_STATIC_TOKEN_HASHES"
+_STATIC_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
+_AUTH_LOGGER = logging.getLogger("skillz_mcp.auth")
 
 
 @dataclass(frozen=True)
@@ -36,6 +44,14 @@ class RemoteAuthConfig:
         )
 
 
+@dataclass(frozen=True)
+class StaticTokenCredential:
+    """One revocable static credential stored server-side only as a SHA-256 digest."""
+
+    identifier: str
+    sha256_hex: str
+
+
 _AUTH_ENV_KEYS = (
     "SKILLZ_MCP_AUTH_ISSUER_URL",
     "SKILLZ_MCP_AUTH_RESOURCE_URL",
@@ -48,6 +64,42 @@ def _require_https(name: str, value: str) -> None:
     parsed = urlparse(value)
     if parsed.scheme != "https" or not parsed.hostname:
         raise ValueError(f"{name} must be an absolute HTTPS URL")
+
+
+def hash_static_token(token: str) -> str:
+    """Return the server-side digest representation for a high-entropy bearer token."""
+    if len(token) < 32:
+        raise ValueError("static MCP bearer token must contain at least 32 characters")
+    return hashlib.sha256(token.encode("utf-8")).hexdigest()
+
+
+def static_tokens_from_env(environ: Mapping[str, str] | None = None) -> tuple[StaticTokenCredential, ...]:
+    """Parse `id=sha256hex` credentials; no clear-text server-side token configuration is accepted."""
+    env = environ if environ is not None else os.environ
+    raw = str(env.get(STATIC_TOKEN_ENV, "")).strip()
+    if not raw:
+        return ()
+
+    normalized = raw.replace(";", ",").replace("\n", ",")
+    credentials: list[StaticTokenCredential] = []
+    seen: set[str] = set()
+    for entry in (item.strip() for item in normalized.split(",")):
+        if not entry:
+            continue
+        identifier, separator, digest = entry.partition("=")
+        identifier = identifier.strip()
+        digest = digest.strip().lower()
+        if not separator or not _STATIC_ID_RE.fullmatch(identifier):
+            raise ValueError(f"invalid static MCP token entry: {entry!r}")
+        if identifier in seen:
+            raise ValueError(f"duplicate static MCP token identifier: {identifier}")
+        if not re.fullmatch(r"[0-9a-f]{64}", digest):
+            raise ValueError(f"static MCP token {identifier!r} must be configured as a SHA-256 hex digest")
+        credentials.append(StaticTokenCredential(identifier=identifier, sha256_hex=digest))
+        seen.add(identifier)
+    if not credentials:
+        raise ValueError(f"{STATIC_TOKEN_ENV} does not contain any usable credentials")
+    return tuple(credentials)
 
 
 def auth_config_from_env(environ: Mapping[str, str] | None = None) -> RemoteAuthConfig | None:
@@ -190,7 +242,82 @@ class AuthentikJWTTokenVerifier(TokenVerifier):
                 expires_at=expires_at,
                 resource=self.config.resource_url,
                 subject=subject,
-                claims={"iss": str(claims["iss"]), "aud": claims["aud"]},
+                claims={"iss": str(claims["iss"]), "aud": claims["aud"], "auth_type": "oauth_jwt"},
             )
         except (jwt.InvalidTokenError, httpx.HTTPError, KeyError, TypeError, ValueError):
             return None
+
+
+class StaticBearerTokenVerifier(TokenVerifier):
+    """Verify named high-entropy bearer tokens against server-side SHA-256 digests."""
+
+    def __init__(
+        self,
+        credentials: Sequence[StaticTokenCredential],
+        *,
+        resource_url: str,
+        scope: str = "skillz:read",
+    ) -> None:
+        self.credentials = tuple(credentials)
+        self.resource_url = resource_url
+        self.scope = scope
+
+    async def verify_token(self, token: str) -> AccessToken | None:
+        digest = hashlib.sha256(token.encode("utf-8")).hexdigest()
+        matched: StaticTokenCredential | None = None
+        for credential in self.credentials:
+            if hmac.compare_digest(digest, credential.sha256_hex):
+                matched = credential
+        if matched is None:
+            return None
+
+        _AUTH_LOGGER.info(
+            json.dumps(
+                {
+                    "event": "static_bearer_authenticated",
+                    "credentialId": matched.identifier,
+                    "scope": self.scope,
+                },
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        )
+        identity = f"static:{matched.identifier}"
+        return AccessToken(
+            token=token,
+            client_id=identity,
+            scopes=[self.scope],
+            resource=self.resource_url,
+            subject=identity,
+            claims={"auth_type": "static_bearer", "credential_id": matched.identifier},
+        )
+
+
+class CompositeTokenVerifier(TokenVerifier):
+    """Accept a token when one configured verifier accepts it, preserving verifier order."""
+
+    def __init__(self, verifiers: Sequence[TokenVerifier]) -> None:
+        self.verifiers = tuple(verifiers)
+        if not self.verifiers:
+            raise ValueError("composite token verifier requires at least one verifier")
+
+    async def verify_token(self, token: str) -> AccessToken | None:
+        for verifier in self.verifiers:
+            result = await verifier.verify_token(token)
+            if result is not None:
+                return result
+        return None
+
+
+def build_token_verifier(
+    config: RemoteAuthConfig,
+    *,
+    static_credentials: Sequence[StaticTokenCredential] = (),
+    oauth_verifier: TokenVerifier | None = None,
+) -> TokenVerifier:
+    """Build the production verifier: static read-only credentials first, Authentik OAuth second."""
+    oauth = oauth_verifier or AuthentikJWTTokenVerifier(config)
+    if not static_credentials:
+        return oauth
+    static = StaticBearerTokenVerifier(static_credentials, resource_url=config.resource_url)
+    return CompositeTokenVerifier((static, oauth))
