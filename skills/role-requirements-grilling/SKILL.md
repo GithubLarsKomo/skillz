@@ -4,7 +4,7 @@ description: Klärt den tatsächlichen Bedarf an einer Führungs-, Experten- ode
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -61,6 +61,9 @@ Trenne bestätigte Organisationsfakten, Stakeholder-Präferenzen, Annahmen und H
 
 Erzeuge `role-requirements-handoff.json` mit mindestens:
 
+- `handoffId`,
+- `version`,
+- `status: draft | review | approved | superseded`,
 - `rolePurpose`,
 - `businessContext`,
 - `outcomes`,
@@ -73,11 +76,16 @@ Erzeuge `role-requirements-handoff.json` mit mindestens:
 - `nonRequirements`,
 - `successEvidence`,
 - `openDecisions`,
-- `sources`.
+- `sources`,
+- `approvedAt` und `approvalAuthority`, wenn `status=approved`.
 
 Zusätzlich `role-requirements-report.md` als lesbare Fassung.
 
-Wenn blockierende Rollenentscheidungen geklärt sind, Übergabe an `role-architecture`. Keine Job Description direkt aus dem Grilling erzeugen.
+Nur ein Handoff ohne blockierende Rollenentscheidung darf als `approved` markiert werden. Wenn blockierende Rollenentscheidungen geklärt sind, Übergabe an `role-architecture`. Keine Job Description direkt aus dem Grilling erzeugen.
+
+## Lebenszyklus
+
+Wird ein bereits verwendeter Requirements-Handoff fachlich geändert, erhält er eine neue Version. Eine frühere Version bleibt nachvollziehbar, wird aber `superseded`. Abgeleitete Role Architectures müssen ihre konkrete `sourceHandoffId` und `sourceHandoffVersion` festhalten; sie werden nicht stillschweigend auf einen geänderten Handoff umgebogen.
 
 ## Abschluss
 
