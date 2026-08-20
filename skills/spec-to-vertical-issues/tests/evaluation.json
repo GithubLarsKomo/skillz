@@ -17,7 +17,9 @@
       "skillAnchors": [
         "Vertikale Slice-Regel",
         "Rückverfolgbarkeit bewahren",
-        "dependency-order.json"
+        "dependency-order.json",
+        "erst nach erfolgreichem `conversation-to-spec`",
+        "ausdrücklicher SPEC-Freigabe"
       ]
     },
     {
@@ -53,7 +55,9 @@
       "skillAnchors": [
         "Keine getrennten horizontalen Issues",
         "blockieren die betroffenen Issues",
-        "früheste blockierende Entscheidung"
+        "früheste blockierende Entscheidung",
+        "large-work-wayfinder",
+        "conversation-to-spec"
       ]
     }
   ]
