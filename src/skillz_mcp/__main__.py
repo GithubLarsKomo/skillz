@@ -5,6 +5,8 @@ from pathlib import Path
 
 from .server import create_server
 
+LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the read-only Skillz MCP server.")
@@ -13,7 +15,7 @@ def main() -> None:
         "--transport",
         choices=("stdio", "streamable-http"),
         default="stdio",
-        help="MCP transport; HTTP binds to localhost by default and is unauthenticated in Phase 1.",
+        help="MCP transport; HTTP is loopback-only until remote authentication is implemented.",
     )
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
@@ -23,6 +25,8 @@ def main() -> None:
     if args.transport == "stdio":
         server.run(transport="stdio")
         return
+    if args.host not in LOOPBACK_HOSTS:
+        parser.error("remote Streamable HTTP requires authentication; only loopback hosts are allowed")
     server.run(
         transport="streamable-http",
         host=args.host,
