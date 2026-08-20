@@ -42,6 +42,7 @@ class MCPInitialSliceTests(unittest.TestCase):
                         "find_producers",
                         "find_consumers",
                         "catalog_status",
+                        "validate_catalog",
                     }.issubset(names)
                 )
 
@@ -92,6 +93,12 @@ class MCPInitialSliceTests(unittest.TestCase):
                 self.assertEqual(status.structured_content["graphSchemaVersion"], 1)
                 self.assertEqual(len(status.structured_content["catalogHash"]), 64)
                 self.assertIn(status.structured_content["freshness"], {"current", "stale", "unknown", "not-compared"})
+
+                validation = await client.call_tool("validate_catalog", {})
+                self.assertFalse(validation.is_error)
+                assert validation.structured_content is not None
+                self.assertTrue(validation.structured_content["valid"], validation.structured_content["errors"])
+                self.assertEqual(validation.structured_content["errorCount"], 0)
 
         asyncio.run(run())
 
