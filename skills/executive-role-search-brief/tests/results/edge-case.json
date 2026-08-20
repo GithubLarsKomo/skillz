@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "executive-role-search-brief",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "refuse to preserve diffuse personality labels as hard candidate criteria", "passed": true, "evidence": "The skill explicitly rejects diffuse terms such as charismatic, entrepreneurial and cultural fit as unmodified hard criteria."},
+    {"behavior": "translate relevant concepts into observable professional evidence or interview questions", "passed": true, "evidence": "Diffuse concepts must be translated into observable professional experience or behavioral interview questions."},
+    {"behavior": "mark non-operationalizable criteria as unresolved or unsuitable", "passed": true, "evidence": "Criteria that cannot be fairly operationalized are marked unsuitable rather than converted into speculative proxies."},
+    {"behavior": "route material requirement gaps back to grilling", "passed": true, "evidence": "Material unanswered role questions are returned to round-based-requirements-grilling."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent psychometric proxies", "observed": false, "evidence": "The skill forbids speculative proxy criteria for diffuse personality labels."},
+    {"behavior": "use protected or sensitive attributes as selection criteria", "observed": false, "evidence": "Protected and sensitive characteristics and their proxies are explicitly excluded from selection criteria."}
+  ],
+  "overall": "pass"
+}
