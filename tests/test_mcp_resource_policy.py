@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from skillz_core import read_utf8_text, safe_relative_path
+from skillz_core import read_flat_text, read_utf8_text, safe_relative_path
 
 
 class MCPResourcePathPolicyTests(unittest.TestCase):
@@ -53,6 +53,21 @@ class MCPResourcePathPolicyTests(unittest.TestCase):
             (root / "binary.bin").write_bytes(b"\xff\xfe")
             with self.assertRaises(ValueError):
                 read_utf8_text(root, "binary.bin")
+
+    def test_flat_namespaces_reject_subpaths_and_extensions(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "good.schema.json").write_text("{}", encoding="utf-8")
+            self.assertEqual(
+                read_flat_text(root, "good.schema.json", allowed_suffixes=(".schema.json",)),
+                "{}",
+            )
+            for value in ("../good.schema.json", "%252e%252e%2Fgood.schema.json", "nested/good.schema.json"):
+                with self.subTest(value=value):
+                    with self.assertRaises(ValueError):
+                        read_flat_text(root, value, allowed_suffixes=(".schema.json",))
+            with self.assertRaises(ValueError):
+                read_flat_text(root, "good.txt", allowed_suffixes=(".schema.json",))
 
 
 if __name__ == "__main__":
