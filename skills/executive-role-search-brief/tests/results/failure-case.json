@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "executive-role-search-brief",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "remove protected, sensitive and irrelevant personal criteria", "passed": true, "evidence": "The privacy and fairness boundary excludes protected, sensitive and professionally irrelevant personal characteristics from the search brief."},
+    {"behavior": "stop candidate ranking and return to the role-definition boundary", "passed": true, "evidence": "The skill boundary explicitly excludes candidate ranking and ends at operationalized role requirements."},
+    {"behavior": "surface unresolved mission or must-have criteria", "passed": true, "evidence": "Unknowns and grillingQuestions are required outputs when mission or essential criteria remain unresolved."},
+    {"behavior": "route unresolved material requirements to grilling", "passed": true, "evidence": "The error handling routes material unresolved requirements back to round-based-requirements-grilling."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "retain candidate ranking", "observed": false, "evidence": "Candidate ranking is outside the scope and is explicitly prohibited."},
+    {"behavior": "treat private characteristics as role evidence", "observed": false, "evidence": "Private and sensitive characteristics are excluded from role evidence and search criteria."}
+  ],
+  "overall": "pass"
+}
