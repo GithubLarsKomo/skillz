@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "check each required evidence criterion",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: check each required evidence criterion."
+    },
+    {
+      "behavior": "respect the observed evidence level",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: respect the observed evidence level."
+    },
+    {
+      "behavior": "produce a reasoned promotion recommendation",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: produce a reasoned promotion recommendation."
+    },
+    {
+      "behavior": "leave durable state mutation to learning-state",
+      "passed": true,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly encode this behavior: leave durable state mutation to learning-state."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "promote beyond the observed assessment level",
+      "observed": false,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly prevent this behavior: promote beyond the observed assessment level."
+    },
+    {
+      "behavior": "directly rewrite learning-state",
+      "observed": false,
+      "evidence": "Learning Assessment evidence-level, sufficiency, and state-mutation rules explicitly prevent this behavior: directly rewrite learning-state."
+    }
+  ],
+  "overall": "pass"
+}

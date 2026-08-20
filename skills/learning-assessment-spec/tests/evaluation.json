@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment-spec",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Define evidence needed to move one competency from retrieval-demonstrated to application-demonstrated using either dialog or ETF.",
+      "requiredBehaviors": [
+        "state the competence transition explicitly",
+        "define observable application evidence",
+        "specify allowed support and critical errors",
+        "remain provider-neutral about runtime implementation"
+      ],
+      "forbiddenBehaviors": [
+        "generate ETF card JSON directly",
+        "treat a percentage alone as competence semantics"
+      ],
+      "skillAnchors": [
+        "welcher Nachweis für eine konkrete Kompetenztransition benötigt wird",
+        "Ein Gesamtprozentsatz allein ist keine hinreichende Semantik",
+        "Runtime neutral halten"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A complex competency may need more than one observation, but there is no justified universal item count.",
+      "requiredBehaviors": [
+        "derive evidence breadth from complexity and error risk",
+        "avoid arbitrary pseudo-precision",
+        "distinguish insufficient evidence from failed evidence"
+      ],
+      "forbiddenBehaviors": [
+        "invent an unsupported universal minimum item count",
+        "equate missing observations with an incorrect answer"
+      ],
+      "skillAnchors": [
+        "keine willkürliche Mindestzahl",
+        "Evidenz unzureichend statt „failed“",
+        "minimumObservations` muss begründet sein"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft assessment calls a near-copy of a practiced example a transfer test and uses lesson completion as the main success criterion.",
+      "requiredBehaviors": [
+        "reject lesson completion as competence evidence",
+        "reject the near-copy as strong transfer evidence",
+        "require observable performance and sufficient novelty"
+      ],
+      "forbiddenBehaviors": [
+        "promote recall or coverage to transfer",
+        "hide the lack of authoritative answer basis"
+      ],
+      "skillAnchors": [
+        "Recall-Evidenz darf keinen Transferstatus begründen",
+        "Transfer verlangt ausreichend Neuheit",
+        "Wenn das Assessment nur Aktivität misst"
+      ]
+    }
+  ]
+}

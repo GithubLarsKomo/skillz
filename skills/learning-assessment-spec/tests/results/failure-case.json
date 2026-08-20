@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment-spec",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject lesson completion as competence evidence",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: reject lesson completion as competence evidence."
+    },
+    {
+      "behavior": "reject the near-copy as strong transfer evidence",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: reject the near-copy as strong transfer evidence."
+    },
+    {
+      "behavior": "require observable performance and sufficient novelty",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: require observable performance and sufficient novelty."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "promote recall or coverage to transfer",
+      "observed": false,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly prevent this behavior: promote recall or coverage to transfer."
+    },
+    {
+      "behavior": "hide the lack of authoritative answer basis",
+      "observed": false,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly prevent this behavior: hide the lack of authoritative answer basis."
+    }
+  ],
+  "overall": "pass"
+}

@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **133**
-- User-facing entrypoints: **115**
-- Evaluation suites: **133**
+- Skills: **139**
+- User-facing entrypoints: **116**
+- Evaluation suites: **139**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
-- Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **162**
+- Ambiguous outputs (multiple producers): **3**
+- Outputs without inferred hard-requires consumers: **163**
 
 ## Evaluation gaps
 
@@ -22,7 +22,9 @@ None.
 
 ## Ambiguous outputs
 
-None.
+- `learning-mission.json` — producers: `learning-mission`, `teach`
+- `learning-next-step.json` — producers: `learning-next-step`, `teach`
+- `learning-state.json` — producers: `learning-state`, `teach`
 
 ## Outputs without inferred consumers
 
@@ -114,6 +116,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `ivdr-fsca-authority-followup.json` — producer: `ivdr-fsca-status-final-reporting`
 - `ivdr-vigilance-final-report-package.json` — producer: `ivdr-fsca-status-final-reporting`
 - `job-description.md` — producer: `job-description-authoring`
+- `learning-practice-request.json` — producer: `teach`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`

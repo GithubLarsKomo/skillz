@@ -42,7 +42,7 @@ Diese Ausbaustufe erweitert das Repository von einem Engineering-System zu einem
 5. `decision-record`: Entscheidungen mit Kontext, Optionen, Begründung, Risiken, Gültigkeitsannahmen und Revisionsauslösern dokumentieren.
 6. `knowledge-ingestion`: Dokumente und Medien kontrolliert extrahieren, strukturieren, verschlagworten, verknüpfen und an RAG-, Obsidian-, Affine- oder Graph-Systeme übergeben.
 7. `project-status-brief`: Repository-, Issue-, CI-, Deployment- und Entscheidungsstand zu einem belastbaren Projektstatus mit Blockern und nächstem Inkrement zusammenführen.
-8. `teach-with-state`: Lernziele, Vorwissen, Erklärungen, Übungen und Lernfortschritt über mehrere Sitzungen hinweg strukturiert verwalten.
+8. `teach`: Lernmission, evidenzbasiertes Wissen, nachgewiesene Kompetenz und nächste Herausforderungen über mehrere Sitzungen orchestrieren; `exam-trainer-framework` dient dabei ohne Fork als gemeinsame Learning-, Spaced-Retrieval- und Assessment-Runtime, Anki als sicherer Content-Import. Architektur und Phasen sind in [`TEACH-INTEGRATION-SPEC.md`](TEACH-INTEGRATION-SPEC.md) festgelegt.
 9. `document-production`: Aus bestätigten Fakten und Vorgaben konsistente Berichte, Memos, SOP-nahe Dokumente oder Präsentationsgrundlagen mit Review-Gates erstellen.
 
 ### Abschlusskriterien

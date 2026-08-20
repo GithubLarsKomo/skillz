@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Evaluate representative application evidence against a prior assessment spec and return a promotion recommendation without mutating learning state.",
+      "requiredBehaviors": [
+        "check each required evidence criterion",
+        "respect the observed evidence level",
+        "produce a reasoned promotion recommendation",
+        "leave durable state mutation to learning-state"
+      ],
+      "forbiddenBehaviors": [
+        "promote beyond the observed assessment level",
+        "directly rewrite learning-state"
+      ],
+      "skillAnchors": [
+        "Die Bewertung darf nie höher sein als das tatsächlich beobachtete Evidenzniveau",
+        "Die Empfehlung ist Input für `learning-state`",
+        "verändert den dauerhaften `learning-state` nicht direkt"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "An ETF exam has a high overall score but includes one critical conceptual error and too few independent observations for the target competency.",
+      "requiredBehaviors": [
+        "keep the critical error visible",
+        "treat evidence breadth separately from overall score",
+        "return insufficient evidence when the spec is not sufficiently covered"
+      ],
+      "forbiddenBehaviors": [
+        "convert the high percentage directly into transfer competence",
+        "hide the critical error inside an average"
+      ],
+      "skillAnchors": [
+        "`92 %` ist daher kein eigenständiger Kompetenzstatus",
+        "Ein kritischer Fehler kann einen ansonsten hohen Gesamtscore entwerten",
+        "`insufficient-evidence`, nicht automatisch `failed`"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "There is no prior assessment spec, evidence references are missing, and a reviewer wants to invent a pass threshold after seeing the result.",
+      "requiredBehaviors": [
+        "reject the post-hoc pass rule",
+        "mark the evidence as not durably promotable",
+        "request a valid assessment spec and stable evidence references"
+      ],
+      "forbiddenBehaviors": [
+        "invent an opportunistic threshold",
+        "claim formal qualification"
+      ],
+      "skillAnchors": [
+        "Fehlt eine Assessment-Spec",
+        "Fehlen stabile Evidenzreferenzen",
+        "keine formale Zertifizierung"
+      ]
+    }
+  ]
+}

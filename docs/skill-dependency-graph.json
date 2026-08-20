@@ -963,6 +963,55 @@
       ]
     },
     {
+      "name": "learning-assessment",
+      "requires": [
+        "learning-assessment-spec"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-assessment.json"
+      ]
+    },
+    {
+      "name": "learning-assessment-spec",
+      "requires": [
+        "learning-mission",
+        "learning-state"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-assessment-spec.json"
+      ]
+    },
+    {
+      "name": "learning-mission",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-mission.json"
+      ]
+    },
+    {
+      "name": "learning-next-step",
+      "requires": [
+        "learning-mission",
+        "learning-state"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-next-step.json"
+      ]
+    },
+    {
+      "name": "learning-state",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-record.md",
+        "learning-state.json"
+      ]
+    },
+    {
       "name": "mdcg-guidance-navigator",
       "requires": [
         "regulated-product-context",
@@ -1634,6 +1683,24 @@
         "execution plan",
         "expert handoff",
         "progress summary"
+      ]
+    },
+    {
+      "name": "teach",
+      "requires": [
+        "learning-assessment",
+        "learning-assessment-spec",
+        "learning-mission",
+        "learning-next-step",
+        "learning-state",
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-mission.json",
+        "learning-next-step.json",
+        "learning-practice-request.json",
+        "learning-state.json"
       ]
     },
     {
@@ -2481,6 +2548,26 @@
       "to": "disciplined-diagnosis"
     },
     {
+      "from": "learning-assessment",
+      "to": "learning-assessment-spec"
+    },
+    {
+      "from": "learning-assessment-spec",
+      "to": "learning-mission"
+    },
+    {
+      "from": "learning-assessment-spec",
+      "to": "learning-state"
+    },
+    {
+      "from": "learning-next-step",
+      "to": "learning-mission"
+    },
+    {
+      "from": "learning-next-step",
+      "to": "learning-state"
+    },
+    {
       "from": "mdcg-guidance-navigator",
       "to": "regulated-product-context"
     },
@@ -2939,6 +3026,30 @@
     {
       "from": "supplier-quality-medical-device",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "teach",
+      "to": "learning-assessment"
+    },
+    {
+      "from": "teach",
+      "to": "learning-assessment-spec"
+    },
+    {
+      "from": "teach",
+      "to": "learning-mission"
+    },
+    {
+      "from": "teach",
+      "to": "learning-next-step"
+    },
+    {
+      "from": "teach",
+      "to": "learning-state"
+    },
+    {
+      "from": "teach",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "technology-due-diligence",
@@ -4368,6 +4479,7 @@
         "patent-landscape-analysis",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "teach",
         "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
@@ -4395,6 +4507,7 @@
         "patent-landscape-analysis",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "teach",
         "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
@@ -5193,6 +5306,81 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-assessment-spec.json",
+      "producers": [
+        "learning-assessment-spec"
+      ],
+      "consumerSkills": [
+        "learning-assessment",
+        "teach"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-assessment.json",
+      "producers": [
+        "learning-assessment"
+      ],
+      "consumerSkills": [
+        "teach"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-mission.json",
+      "producers": [
+        "learning-mission",
+        "teach"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "learning-next-step.json",
+      "producers": [
+        "learning-next-step",
+        "teach"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "learning-practice-request.json",
+      "producers": [
+        "teach"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "learning-record.md",
+      "producers": [
+        "learning-state"
+      ],
+      "consumerSkills": [
+        "learning-assessment-spec",
+        "learning-next-step",
+        "teach"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-state.json",
+      "producers": [
+        "learning-state",
+        "teach"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
     },
     {
       "output": "lifecycle-impact-gates.json",
@@ -7248,6 +7436,7 @@
     "ivdr-fsca-authority-followup.json",
     "ivdr-vigilance-final-report-package.json",
     "job-description.md",
+    "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
@@ -7412,6 +7601,7 @@
     "ivdr-fsca-authority-followup.json",
     "ivdr-vigilance-final-report-package.json",
     "job-description.md",
+    "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",

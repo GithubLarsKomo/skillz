@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "skill": "teach",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Explicitly start /teach for a bounded topic, establish a mission, use trusted evidence, choose a next challenge, and hand spaced practice to ETF without duplicating its scheduler.",
+      "requiredBehaviors": [
+        "create or reuse an explicit learning mission",
+        "keep domain truth with specialist skills or trusted evidence",
+        "separate exposure from demonstrated competence",
+        "produce a provider-neutral ETF practice request when spaced practice is appropriate"
+      ],
+      "forbiddenBehaviors": [
+        "mark presented material as mastered",
+        "implement a second spaced-repetition scheduler inside Teach"
+      ],
+      "skillAnchors": [
+        "Coverage ist kein Lernen",
+        "Teach beschreibt **was** geübt beziehungsweise geprüft werden soll",
+        "Ein Teach-Zyklus ist abgeschlossen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The learner has strong prior knowledge in one sub-area, weak evidence in another, and ETF is temporarily unavailable.",
+      "requiredBehaviors": [
+        "preserve prior knowledge separately until sufficiently evidenced",
+        "avoid teaching unsupported claims as facts",
+        "continue with dialogic retrieval or transfer tasks without inventing ETF events",
+        "select a next step from the actual competence state"
+      ],
+      "forbiddenBehaviors": [
+        "invent ETF ReviewEvents",
+        "reset the mission simply because the runtime is unavailable"
+      ],
+      "skillAnchors": [
+        "Erfasse vorhandenes Wissen zunächst als `priorKnowledge`",
+        "ETF nicht verfügbar",
+        "darf aber keine ETF-ReviewEvents erfinden"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A normal one-off request says 'explain X', and a draft implementation silently creates persistent learning state and later calls a high quiz percentage formal qualification.",
+      "requiredBehaviors": [
+        "refuse implicit creation of a persistent Teach workspace",
+        "avoid translating a percentage directly into competence",
+        "reject any claim of formal qualification from Teach or ETF evidence alone"
+      ],
+      "forbiddenBehaviors": [
+        "start /teach implicitly",
+        "claim QMS qualification or certification"
+      ],
+      "skillAnchors": [
+        "Der Skill wird **nur explizit gestartet**",
+        "Eine Prozentzahl allein darf keinen Kompetenzzustand bestimmen",
+        "Formale Trainingsgrenze"
+      ]
+    }
+  ]
+}

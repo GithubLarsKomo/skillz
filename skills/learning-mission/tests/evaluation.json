@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-mission",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Turn a concrete learning goal with a real-world purpose and a few constraints into one mission with observable success criteria.",
+      "requiredBehaviors": [
+        "state a concrete why",
+        "express success as observable capabilities",
+        "separate constraints from out-of-scope items",
+        "produce a stable portable mission identity"
+      ],
+      "forbiddenBehaviors": [
+        "treat lesson coverage as success",
+        "claim that the learner already has the target competence"
+      ],
+      "skillAnchors": [
+        "Eine Mission beschreibt einen kohärenten Outcome",
+        "Bloße Stoffabdeckung ist kein Erfolgskriterium",
+        "Die Mission enthält keine behauptete Kompetenz"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The user names a broad field and an existing mission, but new constraints materially change what success should mean.",
+      "requiredBehaviors": [
+        "narrow the first coherent outcome instead of inventing a complete curriculum",
+        "make the mission revision explicit",
+        "record the reason for a material mission change"
+      ],
+      "forbiddenBehaviors": [
+        "silently rewrite the previous mission",
+        "mix several independent outcomes into one mission"
+      ],
+      "skillAnchors": [
+        "Eine vorhandene Mission darf nicht stillschweigend umgeschrieben werden",
+        "markiere offene Zielklärung",
+        "revisionReason"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft mission says success means 'read all chapters' and includes private credentials copied from the learning context.",
+      "requiredBehaviors": [
+        "replace activity-based success with an observable capability",
+        "remove credentials and unnecessary private data",
+        "keep the mission limited to information needed for learning"
+      ],
+      "forbiddenBehaviors": [
+        "persist credentials",
+        "accept content coverage as demonstrated success"
+      ],
+      "skillAnchors": [
+        "Erfolgskriterien beschreiben Kompetenz, nicht Unterrichtsaktivität",
+        "Credentials",
+        "nur für den Lernzweck notwendige Informationen"
+      ]
+    }
+  ]
+}

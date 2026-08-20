@@ -194,6 +194,11 @@ graph TD
   large_work_wayfinder --> agent_handoff
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
+  learning_assessment --> learning_assessment_spec
+  learning_assessment_spec --> learning_mission
+  learning_assessment_spec --> learning_state
+  learning_next_step --> learning_mission
+  learning_next_step --> learning_state
   mdcg_guidance_navigator --> regulated_product_context
   mdcg_guidance_navigator --> regulatory_evidence_traceability
   mdcg_guidance_navigator --> research_to_evidence_note
@@ -309,6 +314,12 @@ graph TD
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
+  teach --> learning_assessment
+  teach --> learning_assessment_spec
+  teach --> learning_mission
+  teach --> learning_next_step
+  teach --> learning_state
+  teach --> research_to_evidence_note
   technology_due_diligence --> technology_offer_assessment
   technology_offer_assessment --> research_to_evidence_note
   test_driven_vertical_slice --> disciplined_diagnosis
@@ -458,8 +469,8 @@ graph TD
 | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | inferred |
 | `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
-| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
@@ -535,6 +546,13 @@ graph TD
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
+| `learning-assessment-spec.json` | `learning-assessment-spec` | `learning-assessment`, `teach` | inferred |
+| `learning-assessment.json` | `learning-assessment` | `teach` | inferred |
+| `learning-mission.json` | `learning-mission`, `teach` | — | ambiguous |
+| `learning-next-step.json` | `learning-next-step`, `teach` | — | ambiguous |
+| `learning-practice-request.json` | `teach` | — | unconsumed |
+| `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
+| `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `management-review-actions.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
 | `management-review-brief.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |

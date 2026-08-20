@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-assessment-spec",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-20",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "derive evidence breadth from complexity and error risk",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: derive evidence breadth from complexity and error risk."
+    },
+    {
+      "behavior": "avoid arbitrary pseudo-precision",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: avoid arbitrary pseudo-precision."
+    },
+    {
+      "behavior": "distinguish insufficient evidence from failed evidence",
+      "passed": true,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly encode this behavior: distinguish insufficient evidence from failed evidence."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent an unsupported universal minimum item count",
+      "observed": false,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly prevent this behavior: invent an unsupported universal minimum item count."
+    },
+    {
+      "behavior": "equate missing observations with an incorrect answer",
+      "observed": false,
+      "evidence": "Learning Assessment Spec evidence and runtime-neutrality rules explicitly prevent this behavior: equate missing observations with an incorrect answer."
+    }
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Assessment"
+  short_description: "Bewertet beobachtete Lern-, ETF- oder Praxisevidenz gegen eine learning-assessment-spec und leitet daraus eine begrün..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-next-step",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A competency is retrieval-demonstrated but has no application evidence. Select the next pedagogical move.",
+      "requiredBehaviors": [
+        "choose representative application rather than more basic recall",
+        "state why the step matches the current competence level",
+        "define evidence needed and a stop condition",
+        "keep card-level scheduling with ETF"
+      ],
+      "forbiddenBehaviors": [
+        "calculate FSRS intervals",
+        "jump straight to formal qualification"
+      ],
+      "skillAnchors": [
+        "Anwendung vor Transfer",
+        "Teach/Next-Step definiert die **semantische Absicht**",
+        "Kein zweiter Scheduler"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The learner recalls facts well but repeatedly applies one concept incorrectly, and the authoritative evidence base is complete.",
+      "requiredBehaviors": [
+        "identify a likely misconception or application gap",
+        "choose a corrective or contrastive intervention before novel transfer",
+        "avoid unnecessary extra source research"
+      ],
+      "forbiddenBehaviors": [
+        "repeat easy recall indefinitely",
+        "choose a transfer task solely because recall is high"
+      ],
+      "skillAnchors": [
+        "gute Recall-Leistung, schwache Anwendung",
+        "stabile Fehlvorstellung",
+        "kontrastierendes Beispiel"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A proposed next step assigns a very difficult transfer exam even though prerequisite claims are unverified and the learner is only introduced to the core concept.",
+      "requiredBehaviors": [
+        "block the premature transfer exam",
+        "resolve the evidence gap or teach prerequisites first",
+        "choose an achievable intermediate step"
+      ],
+      "forbiddenBehaviors": [
+        "treat excessive difficulty as automatically desirable",
+        "build an exam on unverified domain claims"
+      ],
+      "skillAnchors": [
+        "Blockierende Wissenslücken zuerst prüfen",
+        "gerade schwer genug",
+        "erreichbaren Zwischenschritt"
+      ]
+    }
+  ]
+}
