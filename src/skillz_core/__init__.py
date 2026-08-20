@@ -25,6 +25,7 @@ from .graph import (
 )
 from .identity import catalog_hash, catalog_identity, freshness
 from .resolver import normalize_constraints, resolve, validate_known_constraints
+from .resources import DEFAULT_MAX_TEXT_BYTES, decoded_path, read_utf8_text, safe_relative_path
 from .status import (
     build_status_payload,
     installed_identity,
@@ -37,6 +38,7 @@ from .status import (
 from .validation import validate_catalog
 
 __all__ = [
+    "DEFAULT_MAX_TEXT_BYTES",
     "GRAPH_SCHEMA_VERSION",
     "SCHEMA_VERSION",
     "VALID_DIRECTIONS",
@@ -46,6 +48,7 @@ __all__ = [
     "catalog_hash",
     "catalog_identity",
     "consumer_info",
+    "decoded_path",
     "dependency_traversal",
     "freshness",
     "get_skill",
@@ -65,10 +68,12 @@ __all__ = [
     "query_portable",
     "query_requires",
     "query_skill_listing",
+    "read_utf8_text",
     "render_status_human",
     "repository_version",
     "resolve",
     "resolve_status",
+    "safe_relative_path",
     "skills_by_name",
     "validate_catalog",
     "validate_known_constraints",
