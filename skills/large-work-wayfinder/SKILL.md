@@ -17,7 +17,7 @@ outputs:
   - wayfinding-brief.md
   - investigation-backlog.json
   - dependency-graph.json
-lastEvaluated: 2026-08-01
+lastEvaluated: 2026-08-20
 ---
 
 # Large Work Wayfinder
