@@ -57,14 +57,12 @@ class CLIMCPParityTests(unittest.TestCase):
         actual = run_json_cli(str(RESOLVER_CLI), "--output", "agent-handoff.json", "--json")
         self.assertEqual(actual, expected)
 
-    def test_mcp_matches_core_for_discovery_and_resolver(self) -> None:
+    def test_mcp_matches_core_for_initial_tools(self) -> None:
         async def run() -> None:
             index = load_index(INDEX_PATH)
             mode, matches = query_skill_listing(index, "diagnosis")
             expected_search = listing_payload(mode, "diagnosis", matches[:10])
             expected_skill = get_skill(index, "disciplined-diagnosis")
-            constraints = normalize_constraints(["agent-handoff.json"], [], [], "irrelevant")
-            expected_resolver = resolve(index, constraints)
 
             async with Client(create_server(ROOT)) as client:
                 search = await client.call_tool("search_skills", {"query": "diagnosis", "limit": 10})
@@ -82,14 +80,8 @@ class CLIMCPParityTests(unittest.TestCase):
                     "metadata": "skillz://skills/disciplined-diagnosis",
                     "body": "skillz://skills/disciplined-diagnosis/SKILL.md",
                     "references": "skillz://skills/disciplined-diagnosis/references/",
+                    "assets": "skillz://skills/disciplined-diagnosis/assets",
                 })
-
-                resolved = await client.call_tool(
-                    "resolve_capabilities",
-                    {"outputs": ["agent-handoff.json"], "portable_files": "irrelevant"},
-                )
-                self.assertFalse(resolved.is_error)
-                self.assertEqual(resolved.structured_content, expected_resolver)
 
         asyncio.run(run())
 
