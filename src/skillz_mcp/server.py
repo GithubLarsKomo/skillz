@@ -4,6 +4,9 @@ from pathlib import Path
 from typing import Any
 
 from mcp.server import MCPServer
+from mcp.server.auth.provider import TokenVerifier
+from starlette.requests import Request
+from starlette.responses import JSONResponse
 
 from skillz_core import (
     catalog_identity,
@@ -25,6 +28,7 @@ from skillz_core import (
     validate_catalog as validate_catalog_core,
 )
 
+from .auth import AuthentikJWTTokenVerifier, RemoteAuthConfig
 from .observability import log_catalog_loaded, operational_logging
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
@@ -35,6 +39,8 @@ def create_server(
     *,
     runtime_commit: str | None = None,
     runtime_version: str | None = None,
+    auth_config: RemoteAuthConfig | None = None,
+    token_verifier: TokenVerifier | None = None,
 ) -> MCPServer:
     root = (repository_root or DEFAULT_ROOT).resolve()
     index_path = root / "docs" / "skill-capability-index.json"
@@ -54,9 +60,22 @@ def create_server(
         runtime_version=runtime_version,
     )
     resource_meta = {"catalogHash": identity["catalogHash"]}
-    server = MCPServer("skillz-mcp")
+
+    if token_verifier is not None and auth_config is None:
+        raise ValueError("token_verifier requires auth_config")
+    server_kwargs: dict[str, Any] = {}
+    if auth_config is not None:
+        server_kwargs["auth"] = auth_config.auth_settings()
+        server_kwargs["token_verifier"] = token_verifier or AuthentikJWTTokenVerifier(auth_config)
+
+    server = MCPServer("skillz-mcp", **server_kwargs)
     server.middleware.append(operational_logging)
     log_catalog_loaded(identity)
+
+    @server.custom_route("/healthz", methods=["GET"], include_in_schema=False)
+    async def healthz(_: Request) -> JSONResponse:
+        """Public liveness endpoint; intentionally exposes no catalog or auth data."""
+        return JSONResponse({"status": "ok"})
 
     def skill_metadata(name: str) -> dict[str, Any]:
         skill = dict(get_skill(index, name))
