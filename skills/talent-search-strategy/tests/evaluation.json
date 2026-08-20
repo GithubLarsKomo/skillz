@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "skill": "talent-search-strategy",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a search strategy for a mid-sized IVD leadership role requiring international commercialization, technical credibility and business responsibility.",
+      "requiredBehaviors": [
+        "create core, adjacent and wildcard talent pools",
+        "derive role families from required capabilities rather than exact title matching",
+        "document explicit search hypotheses with linked criteria",
+        "keep concrete candidate discovery separate from person evaluation"
+      ],
+      "forbiddenBehaviors": [
+        "rank candidates inside the search strategy",
+        "treat company prestige as evidence of role fit"
+      ],
+      "skillAnchors": [
+        "Core Target Companies",
+        "Adjacent Talent Pools",
+        "Search Hypothesis Model"
+      ]
+    },
+    {
+      "id": "edge-case-rare-combination",
+      "input": "The role requires deep scientific expertise plus full CEO P&L responsibility in a small internationally active diagnostics company, creating a very narrow search space.",
+      "requiredBehaviors": [
+        "surface the rarity as a search risk",
+        "open adjacent pools and alternative career patterns without silently weakening essential criteria",
+        "route structurally unrealistic constraints back to the role brief when necessary"
+      ],
+      "forbiddenBehaviors": [
+        "pretend the core pool is large enough without evidence",
+        "drop essential criteria without explicit role redefinition"
+      ],
+      "skillAnchors": [
+        "Zu enger Search Brief",
+        "Career Patterns",
+        "Search Learning Loop"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft strategy prioritizes people under 45, searches only exact CEO titles, and labels famous companies as top targets without evidence about their business model or relevant capability environment.",
+      "requiredBehaviors": [
+        "remove age-based targeting",
+        "broaden role families based on capabilities",
+        "require evidence or hypothesis status for target-company relevance",
+        "preserve professional relevance and source transparency"
+      ],
+      "forbiddenBehaviors": [
+        "use protected personal attributes as sourcing filters",
+        "retain title-only search logic"
+      ],
+      "skillAnchors": [
+        "Nicht nur exakte Zieljobtitel suchen",
+        "Fairness und Datenschutz",
+        "Quellenarme Unternehmensannahmen"
+      ]
+    }
+  ]
+}
