@@ -852,8 +852,7 @@
       "requires": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis",
-        "spec-to-vertical-issues"
+        "disciplined-diagnosis"
       ],
       "outputs": [
         "dependency-graph.json",
@@ -1383,7 +1382,7 @@
       "requires": [],
       "outputs": [
         "GRILL-REPORT.md",
-        "approved SPEC.md"
+        "requirements-handoff.json"
       ]
     },
     {
@@ -2292,10 +2291,6 @@
       "to": "disciplined-diagnosis"
     },
     {
-      "from": "large-work-wayfinder",
-      "to": "spec-to-vertical-issues"
-    },
-    {
       "from": "mdcg-guidance-navigator",
       "to": "regulated-product-context"
     },
@@ -2927,15 +2922,6 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
-    },
-    {
-      "output": "approved SPEC.md",
-      "producers": [
-        "round-based-requirements-grilling"
-      ],
-      "consumerSkills": [],
-      "ambiguous": false,
-      "consumptionStatus": "unconsumed"
     },
     {
       "output": "architecture-review.json",
@@ -3746,7 +3732,6 @@
         "spec-to-vertical-issues"
       ],
       "consumerSkills": [
-        "large-work-wayfinder",
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
@@ -6106,6 +6091,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "requirements-handoff.json",
+      "producers": [
+        "round-based-requirements-grilling"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "resolved-change-brief.md",
       "producers": [
         "merge-conflict-resolution"
@@ -6742,7 +6736,6 @@
         "spec-to-vertical-issues"
       ],
       "consumerSkills": [
-        "large-work-wayfinder",
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
@@ -6755,7 +6748,6 @@
         "spec-to-vertical-issues"
       ],
       "consumerSkills": [
-        "large-work-wayfinder",
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
@@ -6843,7 +6835,6 @@
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
-    "approved SPEC.md",
     "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -6971,6 +6962,7 @@
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
+    "requirements-handoff.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
     "service-complaint-handoff.json",
@@ -7001,7 +6993,6 @@
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
-    "approved SPEC.md",
     "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -7129,6 +7120,7 @@
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
+    "requirements-handoff.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
     "service-complaint-handoff.json",

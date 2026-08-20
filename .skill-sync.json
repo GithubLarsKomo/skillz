@@ -54,8 +54,8 @@
     },
     "conversation-to-spec": {
       "files": {
-        "SKILL.md": "067cb4e0793756104336c2327a96f084138dc11e2208591ffa99b68a22237fc7",
-        "agents/openai.yaml": "63c1297478f0c6f97952efa78d535b6192a354c149652891311a21f771c4beb0"
+        "SKILL.md": "42252f241b94d707b34675bca1147256f696a5be072990becca87f6b3c86617f",
+        "agents/openai.yaml": "6b39d1a47df6050566162437178f9ff3c204144d59cb7735520e725ab8c13de9"
       }
     },
     "daily-and-weekly-review": {
@@ -460,7 +460,7 @@
     },
     "large-work-wayfinder": {
       "files": {
-        "SKILL.md": "929546ffa6b6e110138b94fe0b44d82a65b137d6647da1a5792b8464ddf4e373",
+        "SKILL.md": "65125e208589285211701f66a79d221f43f4023b73126484953a0532b91d6b2c",
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
@@ -719,7 +719,7 @@
     },
     "round-based-requirements-grilling": {
       "files": {
-        "SKILL.md": "2189988f844eb53ef8a0dc003a7cff960d7009c58f304b855d0ada3327a881e7",
+        "SKILL.md": "68f454c3f6731b3e5c94257fa1a9fa822b1712cf78a50c9f39ff2d801a17a6f4",
         "agents/openai.yaml": "dd83c237fe3023e9d5acb23ab1f500b0b2fd2fa438c2011738dce1b5dff71b72"
       }
     },
@@ -731,7 +731,7 @@
     },
     "spec-to-vertical-issues": {
       "files": {
-        "SKILL.md": "c82d34566397e5c33965b792c82362f9ce6f99ecbf8514e5b3437a4801683b02",
+        "SKILL.md": "060342dbb4330806cecd1d2e57a660b242fbc7c2d34b09348699458ead929b2f",
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
       }
     },

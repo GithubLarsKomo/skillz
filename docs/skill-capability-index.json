@@ -482,7 +482,7 @@
     },
     {
       "name": "conversation-to-spec",
-      "description": "Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll.",
+      "description": "Verdichtet bestätigten Gesprächs-, Grilling-, Wayfinding- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus ausreichend geklärten Entscheidungen und technischer Evidenz eine normative SPEC.md und eine belastbare Übergabe an Engineering entstehen soll.",
       "invocation": {
         "userFacing": true,
         "category": "engineering"
@@ -3979,8 +3979,7 @@
       "requires": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis",
-        "spec-to-vertical-issues"
+        "disciplined-diagnosis"
       ],
       "dependents": [
         "decision-record",
@@ -6967,7 +6966,7 @@
     },
     {
       "name": "round-based-requirements-grilling",
-      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Bei Softwareprojekten ist KI-/ML-Readiness verpflichtender Bestandteil des Grillings.",
+      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.",
       "invocation": {
         "userFacing": false,
         "category": null
@@ -6976,7 +6975,7 @@
       "dependents": [],
       "outputs": [
         "GRILL-REPORT.md",
-        "approved SPEC.md"
+        "requirements-handoff.json"
       ],
       "outputContracts": [
         {
@@ -6988,7 +6987,7 @@
           "consumerSkills": []
         },
         {
-          "output": "approved SPEC.md",
+          "output": "requirements-handoff.json",
           "ambiguous": false,
           "producers": [
             "round-based-requirements-grilling"
@@ -7058,7 +7057,6 @@
         "conversation-to-spec"
       ],
       "dependents": [
-        "large-work-wayfinder",
         "test-driven-vertical-slice",
         "throwaway-prototype"
       ],
@@ -7075,7 +7073,6 @@
             "spec-to-vertical-issues"
           ],
           "consumerSkills": [
-            "large-work-wayfinder",
             "test-driven-vertical-slice",
             "throwaway-prototype"
           ]
@@ -7087,7 +7084,6 @@
             "spec-to-vertical-issues"
           ],
           "consumerSkills": [
-            "large-work-wayfinder",
             "test-driven-vertical-slice",
             "throwaway-prototype"
           ]
@@ -7099,7 +7095,6 @@
             "spec-to-vertical-issues"
           ],
           "consumerSkills": [
-            "large-work-wayfinder",
             "test-driven-vertical-slice",
             "throwaway-prototype"
           ]

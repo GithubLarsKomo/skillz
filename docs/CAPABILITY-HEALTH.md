@@ -33,7 +33,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
-- `approved SPEC.md` — producer: `round-based-requirements-grilling`
 - `audit-finding-response-map.json` — producer: `audit-inspection-finding-response`
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
@@ -161,6 +160,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
+- `requirements-handoff.json` — producer: `round-based-requirements-grilling`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`

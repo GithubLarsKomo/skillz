@@ -16,7 +16,7 @@ tags:
 
 # round-based-requirements-grilling
 
-Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Bei Softwareprojekten ist KI-/ML-Readiness verpflichtender Bestandteil des Grillings.
+Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -35,7 +35,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 ## Outputs
 
 - `GRILL-REPORT.md`
-- `approved SPEC.md`
+- `requirements-handoff.json`
 
 ## Output consumers
 
@@ -43,7 +43,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 
 - Terminal or currently unconsumed output.
 
-### `approved SPEC.md`
+### `requirements-handoff.json`
 
 - Terminal or currently unconsumed output.
 

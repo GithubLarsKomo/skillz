@@ -16,7 +16,7 @@ tags:
 
 # conversation-to-spec
 
-Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll.
+Verdichtet bestätigten Gesprächs-, Grilling-, Wayfinding- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus ausreichend geklärten Entscheidungen und technischer Evidenz eine normative SPEC.md und eine belastbare Übergabe an Engineering entstehen soll.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

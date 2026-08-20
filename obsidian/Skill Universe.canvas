@@ -2945,15 +2945,6 @@
       "label": "requires"
     },
     {
-      "id": "requires-40dd69253110",
-      "fromNode": "skill-large-work-wayfinder",
-      "fromSide": "left",
-      "toNode": "skill-spec-to-vertical-issues",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
       "id": "requires-e1c315a534cf",
       "fromNode": "skill-mdcg-guidance-navigator",
       "fromSide": "left",

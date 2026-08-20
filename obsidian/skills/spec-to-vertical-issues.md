@@ -30,7 +30,6 @@ Zerlegt eine freigegebene, konsistente Spezifikation in kleine, unabhängig abne
 
 ## Required by
 
-- [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
@@ -44,19 +43,16 @@ Zerlegt eine freigegebene, konsistente Spezifikation in kleine, unabhängig abne
 
 ### `dependency-order.json`
 
-- [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ### `vertical-issues.json`
 
-- [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ### `vertical-issues.md`
 
-- [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 

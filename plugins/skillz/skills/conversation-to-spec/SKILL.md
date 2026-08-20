@@ -1,20 +1,38 @@
 ---
 name: conversation-to-spec
-description: Verdichtet bestätigten Gesprächs-, Grilling- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus freigegebenen Festlegungen eine SPEC.md, ein technischer Umsetzungsrahmen oder eine belastbare Übergabe an Engineering entstehen soll.
+description: Verdichtet bestätigten Gesprächs-, Grilling-, Wayfinding- und Repository-Kontext zu einer umsetzbaren, prüfbaren Spezifikation, ohne bereits beantwortete Fragen erneut zu stellen. Verwenden, wenn aus ausreichend geklärten Entscheidungen und technischer Evidenz eine normative SPEC.md und eine belastbare Übergabe an Engineering entstehen soll.
 ---
 
 # Conversation to Spec
 
-Erzeuge aus bestätigtem Kontext eine vollständige Spezifikation. Dieser Skill führt kein neues Requirements-Interview durch, solange vorhandene Quellen die Entscheidung bereits tragen.
+Erzeuge aus bestätigtem Kontext eine vollständige normative Spezifikation. Dieser Skill führt kein neues Requirements-Interview und keine breite technische Exploration durch, solange vorhandene Quellen die Entscheidungen und technische Tragfähigkeit bereits tragen.
+
+## Routing und Abgrenzung
+
+`conversation-to-spec` besitzt innerhalb der Kette aus Grilling, Wayfinder und Issue-Zerlegung die Verantwortung für die **normative `SPEC.md`**. Seine Kernfrage lautet: **Was ist auf Basis der bestätigten Entscheidungen und belastbaren Evidenz verbindlich umzusetzen?**
+
+Eintritt ist zulässig, wenn fachliche Entscheidungen ausreichend geklärt und technische Grundlagen ausreichend verstanden sind, um Anforderungen, Invarianten, Schnittstellen, Risiken und Akzeptanzkriterien ohne Spekulation festzuschreiben.
+
+Bei Lücken gilt:
+
+- Fehlende fachliche Präferenz-, Scope- oder Produktentscheidung → an `round-based-requirements-grilling` routen.
+- Fehlende technische Evidenz, unbekannte Abhängigkeit, Migrations- oder Architekturtragfähigkeit → an `large-work-wayfinder` routen.
+- Reversible, risikoarme Detailwahl hinter stabiler Schnittstelle → als explizite Annahme dokumentieren und SPEC fortführen.
+- Eine freigegebene und konsistente SPEC → an `spec-to-vertical-issues` übergeben.
+
+Dieser Skill erzeugt **keinen ausführbaren Issue-Backlog**. Eine grobe Umsetzungsreihenfolge in der SPEC beschreibt nur Sequenzierungsprinzipien, Abhängigkeiten und Release-Gates; die konkrete Zerlegung in vertikale Issues gehört ausschließlich zu `spec-to-vertical-issues`.
+
+Wenn Wayfinder-Evidenz eine bereits normative Architektur-, Sicherheits-, Daten- oder Migrationsannahme verändert, muss `conversation-to-spec` die betroffene SPEC aktualisieren und die erneute Freigabe herstellen, bevor Issue-Zerlegung oder Implementierung fortgesetzt werden.
 
 ## Eingaben
 
 Nutze in dieser Reihenfolge:
 
-1. ausdrücklich bestätigte Nutzerentscheidungen und freigegebene Grilling-Reports,
-2. vorhandene `SPEC.md`, `README.md`, Architektur- und Agent-Dokumente,
-3. ADRs, Aufgabenlisten, Issues und bestehende Implementierung,
-4. begründete Annahmen nur für nicht entscheidungskritische Lücken.
+1. ausdrücklich bestätigte Nutzerentscheidungen, freigegebene Grilling-Reports und `requirements-handoff.json`,
+2. Wayfinder-Evidenz wie `wayfinding-brief.md`, `investigation-backlog.json` und `dependency-graph.json`,
+3. vorhandene `SPEC.md`, `README.md`, Architektur- und Agent-Dokumente,
+4. ADRs, Aufgabenlisten, Issues und bestehende Implementierung,
+5. begründete Annahmen nur für nicht entscheidungskritische Lücken.
 
 Kennzeichne Widersprüche und Unsicherheiten. Überschreibe keine bestätigte Festlegung durch eine spätere bloße Vermutung.
 
@@ -27,6 +45,7 @@ Kennzeichne Widersprüche und Unsicherheiten. Überschreibe keine bestätigte Fe
 - Erfinde keine APIs, Rollen, Datenfelder oder Betriebszusagen ohne fachliche Grundlage.
 - Halte das MVP ohne unvalidierte KI sicher nutzbar; dokumentiere KI-/ML-Vorbereitung separat.
 - Verweise auf ADR-pflichtige Entscheidungen, statt sie unbemerkt in der Spezifikation zu treffen.
+- Route echte fachliche Unsicherheit zu Grilling und echte technische Unsicherheit zu Wayfinder, statt beide innerhalb der SPEC zu kaschieren.
 
 ## Workflow
 
@@ -37,6 +56,7 @@ Erfasse je Quelle:
 - Status: bestätigt, bindend, informativ oder veraltet,
 - behandelte Themen,
 - relevante Entscheidungen,
+- technische Evidenz,
 - erkennbare Widersprüche,
 - offenen Geltungsbereich.
 
@@ -55,12 +75,13 @@ Konsolidiere jede Festlegung als:
 
 Bei Konflikten gilt nicht automatisch die jüngste Quelle. Bevorzuge ausdrücklich freigegebene, fachlich höherrangige oder durch Tests belegte Festlegungen.
 
-### 3. Lücken klassifizieren
+### 3. Lücken klassifizieren und routen
 
 Ordne fehlende Angaben ein:
 
-- **blockierend:** verhindert eine sichere oder eindeutige Umsetzung,
-- **ADR-pflichtig:** verändert Architektur oder Invarianten,
+- **fachlich blockierend:** benötigt Nutzer-/Stakeholderentscheidung → Grilling,
+- **technisch blockierend:** benötigt Untersuchung oder Evidenz → Wayfinder,
+- **ADR-pflichtig:** verändert Architektur oder Invarianten; bei fehlender Evidenz Wayfinder, bei fehlender Autorisierung Entscheidung blockieren,
 - **später entscheidbar:** kann mit einer stabilen Schnittstelle vertagt werden,
 - **sicher annehmbar:** besitzt eine risikoarme Standardannahme.
 
@@ -84,7 +105,7 @@ Eine Software-Spezifikation enthält mindestens:
 12. Migration, Deployment und Betrieb,
 13. Akzeptanzkriterien und Release-Gates,
 14. Risiken, Annahmen und offene Entscheidungen,
-15. Umsetzungsreihenfolge in vertikalen Schnitten.
+15. Sequenzierungsprinzipien und Abhängigkeiten für spätere vertikale Umsetzung.
 
 Nicht relevante Abschnitte werden kurz als nicht anwendbar begründet statt still ausgelassen.
 
@@ -102,42 +123,44 @@ Prüfe mindestens:
 - Offline-Verhalten gegen Idempotenz und Konfliktregeln,
 - Architektur gegen Repository-Invarianten,
 - Release-Gates gegen die beschriebenen Tests,
-- KI-Funktionen gegen Fallback, Ground Truth, Evaluation und Governance.
+- KI-Funktionen gegen Fallback, Ground Truth, Evaluation und Governance,
+- offene Punkte gegen das korrekte Routingziel.
 
 ### 7. Ausgabe und Übergabe
 
 Liefere:
 
-- die vollständige Spezifikation,
+- die vollständige `SPEC.md`,
 - ein kurzes Entscheidungsregister,
-- offene Blocker und ADR-Bedarf,
-- empfohlene nächste vertikale Schnitte,
-- einen Abschlussnachweis der Konsistenzprüfung.
+- einen Konsistenzbericht,
+- offene Blocker mit Routingziel,
+- Sequenzierungsprinzipien für die spätere vertikale Zerlegung.
 
-Speichere oder veröffentliche die Spezifikation nur im ausdrücklich bestimmten Produkt-Repository. Der Grilling- oder Skill-Katalog ist kein Ablageort für projektspezifische Spezifikationen.
+Nach ausdrücklicher Freigabe geht die SPEC an `spec-to-vertical-issues`. Speichere oder veröffentliche die Spezifikation nur im ausdrücklich bestimmten Produkt-Repository. Der Grilling- oder Skill-Katalog ist kein Ablageort für projektspezifische Spezifikationen.
 
 ## Qualitätsfälle
 
 ### Happy Path
 
-Mehrere freigegebene Grilling-Reports und Repository-Dokumente sind konsistent. Ergebnis ist eine vollständige Spezifikation ohne erneutes Interview.
+Mehrere freigegebene Grilling-Reports, Wayfinder-Evidenz und Repository-Dokumente sind konsistent. Ergebnis ist eine vollständige Spezifikation ohne erneutes Interview oder technische Re-Exploration.
 
 ### Grenzfall
 
-Eine Detailfrage ist offen, aber durch eine austauschbare Schnittstelle vertagbar. Die Spezifikation dokumentiert Annahme, Grenze und späteren Entscheidungspunkt.
+Eine Detailfrage ist offen, aber durch eine austauschbare Schnittstelle vertagbar. Die Spezifikation dokumentiert Annahme, Grenze und späteren Entscheidungspunkt, ohne unnötig zu Grilling oder Wayfinder zurückzuspringen.
 
 ### Fehlerfall
 
-Zwei bindende Quellen widersprechen sich bei einer Sicherheits-, Compliance- oder Architekturentscheidung. Stoppe die betroffene Festlegung, dokumentiere den Konflikt und liefere den übrigen konsistenten Teil weiter.
+Eine bindende fachliche Entscheidung fehlt oder technische Evidenz reicht für eine normative Aussage nicht aus. Stoppe nur die betroffene Festlegung, route sie zu Grilling beziehungsweise Wayfinder und liefere den übrigen konsistenten Teil weiter.
 
 ## Abschlusskriterien
 
 Der Skill ist abgeschlossen, wenn:
 
 - alle relevanten Quellen klassifiziert wurden,
-- bestätigte Entscheidungen rückverfolgbar enthalten sind,
+- bestätigte Entscheidungen und technische Evidenz rückverfolgbar enthalten sind,
 - keine bereits beantwortete Frage erneut gestellt wurde,
 - Anforderungen und Akzeptanzkriterien prüfbar sind,
 - Annahmen und offene Punkte sichtbar getrennt sind,
 - Architektur- und Sicherheitsinvarianten konsistent bleiben,
-- der nächste Umsetzungsschritt eindeutig ableitbar ist.
+- jeder Blocker das korrekte Routingziel besitzt,
+- die SPEC freigabefähig ist und nach Freigabe eindeutig an `spec-to-vertical-issues` übergeben werden kann.
