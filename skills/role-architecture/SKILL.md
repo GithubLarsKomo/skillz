@@ -4,12 +4,11 @@ description: Überführt bestätigte Rollenanforderungen in ein normatives Rolle
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
-requires:
-  - role-requirements-grilling
+requires: []
 outputs:
   - role-architecture.json
   - role-architecture.md
@@ -27,7 +26,9 @@ Die Role Architecture ist nicht die Stellenanzeige. Sie darf deshalb Anforderung
 
 ## Eintritt
 
-Erforderlich ist ein ausreichend geklärter `role-requirements-handoff.json` oder äquivalente bestätigte Evidenz. Blockierende Widersprüche zu Mandat, Scope oder Entscheidungsrechten verhindern die Freigabe der betroffenen Teile.
+Erforderlich ist entweder ein `role-requirements-handoff.json` oder äquivalente bestätigte Evidenz, die Zweck, Outcomes, Mandat, Scope, Capability-Anforderungen und offene Entscheidungen ausreichend trägt. `role-requirements-grilling` ist der bevorzugte Klärungspfad, aber keine technische Zwangsvoraussetzung.
+
+Blockierende Widersprüche zu Mandat, Scope oder Entscheidungsrechten verhindern `status=approved` der betroffenen Role Architecture. Fehlt eine echte Stakeholder-Entscheidung, zurück zu `role-requirements-grilling`; fehlende bloße Dokumentform ist dagegen kein Grund für künstliches Re-Grilling.
 
 ## Modell
 
@@ -47,6 +48,20 @@ Definiere mindestens:
 12. `nonGoals`: was ausdrücklich nicht zur Rolle gehört.
 13. `risksAndTensions`: strukturelle Zielkonflikte und Fehlbesetzungsrisiken.
 
+## Normativer Artefaktvertrag
+
+`role-architecture.json` enthält mindestens:
+
+- `roleArchitectureId`,
+- `version`,
+- `status: draft | review | approved | superseded`,
+- `sourceHandoffId` und `sourceHandoffVersion`, falls ein Requirements-Handoff verwendet wurde,
+- `purpose`, `outcomes`, `accountabilities`, `decisionRights`, `scope`, `interfaces`, `context`,
+- `capabilities`, `experienceEvidence`, `successMeasures`, `nonGoals`, `risksAndTensions`,
+- `approvedAt` und `approvalAuthority`, wenn `status=approved`.
+
+Nur `status=approved` ist eine normative Freigabe für `job-description-authoring` und `candidate-role-fit-assessment`.
+
 ## Capability-Logik
 
 Trenne strikt:
@@ -59,14 +74,23 @@ Ein früherer Titel, eine bestimmte Unternehmensgröße, Branche oder Ausbildung
 
 ## Role Scorecard
 
-`role-scorecard.json` enthält gewichtete, rollenbezogene Dimensionen. Jede Dimension braucht:
+`role-scorecard.json` gehört immer zu genau einer Role-Architecture-Version und enthält mindestens:
 
-- stabile ID,
-- Definition,
-- Gewicht,
-- beobachtbare Evidenz,
-- Mindestniveau, falls wirklich erforderlich,
-- `knockout: true` nur bei begründeter zwingender Voraussetzung.
+- `roleArchitectureId`,
+- `roleArchitectureVersion`,
+- `scoringModelVersion`,
+- `status: draft | approved | superseded`,
+- gewichtete, rollenbezogene Dimensionen mit stabiler ID, Definition, Gewicht, beobachtbarer Evidenz, Mindestniveau und optionalem Knockout,
+- Rationale für jedes `knockout: true`.
+
+Invarianten:
+
+- Summe der aktiven Gewichte = `1.0`.
+- Dimension-IDs sind eindeutig.
+- Jede Dimension verweist nachvollziehbar auf Capability, Outcome oder zwingende Rollenanforderung.
+- Knockouts benötigen eine begründete zwingende Voraussetzung.
+- Gewichte und Knockouts werden **vor Sichtung eines konkreten Kandidaten** freigegeben und dürfen nicht kandidatenbezogen nachjustiert werden.
+- `roleArchitectureId` und `roleArchitectureVersion` müssen zwischen Architektur und Scorecard exakt übereinstimmen.
 
 Gewichte und Knockouts dürfen keine sachfremden oder geschützten Merkmale kodieren.
 
@@ -77,8 +101,16 @@ Nach Freigabe kann dieselbe Role Architecture parallel an zwei Verbraucher gehen
 - `job-description-authoring` für interne/externe Kommunikationsfassungen,
 - `candidate-role-fit-assessment` für eine evidenzbasierte Kandidatenbewertung.
 
-Ändert sich später der Rollenauftrag, wird zuerst die Role Architecture versioniert; Job Description und Kandidatenbewertung werden danach gegen die neue Version aktualisiert.
+Eine `draft`- oder `review`-Architektur darf nicht als freigegebene normative Basis an diese Verbraucher übergeben werden.
+
+## Versionierung und Invalidierung
+
+Ändert sich der Rollenauftrag, die Capability-Logik, ein Knockout, ein Gewicht oder ein anderer normativer Bestandteil, entsteht eine neue Role-Architecture-/Scorecard-Version. Die vorherige Version wird `superseded`.
+
+Alle Job Descriptions, Search Briefs, öffentlichen Ausschreibungen und Candidate-Fit-Assessments, die auf einer superseded Version beruhen, gelten ab diesem Zeitpunkt als `stale`. Sie bleiben auditierbar, dürfen aber nicht als aktueller Rollen- oder Auswahlstand verwendet werden und müssen gegen die neue freigegebene Version neu erzeugt bzw. neu bewertet werden.
+
+Kandidatenevidenz darf niemals als Begründung dienen, die Role Architecture oder Scorecard so zu verändern, dass ein bestimmter Kandidat besser passt. Eine echte Rollenänderung braucht rollenbezogene Stakeholder-/Organisationsgründe unabhängig vom betrachteten Kandidaten.
 
 ## Abschluss
 
-Abgeschlossen ist die Role Architecture, wenn Auftrag, Outcome, Mandat, Scope, Capability-Modell und Scorecard konsistent, rückverfolgbar und als normative Basis für Kommunikation und Auswahl freigegeben sind.
+Abgeschlossen ist die Role Architecture, wenn Auftrag, Outcome, Mandat, Scope, Capability-Modell und Scorecard konsistent, versioniert, rückverfolgbar und als normative Basis für Kommunikation und Auswahl ausdrücklich freigegeben sind.
