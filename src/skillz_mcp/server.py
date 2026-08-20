@@ -36,6 +36,14 @@ def create_server(
     version_path = root / "VERSION"
     index = load_index(index_path)
     graph = load_graph(graph_path)
+    identity = catalog_identity(
+        index,
+        graph,
+        version_path=version_path,
+        runtime_commit=runtime_commit,
+        runtime_version=runtime_version,
+    )
+    resource_meta = {"catalogHash": identity["catalogHash"]}
     server = MCPServer("skillz-mcp")
 
     @server.tool()
@@ -114,17 +122,41 @@ def create_server(
     @server.tool()
     def catalog_status() -> dict[str, Any]:
         """Return deterministic identity and fail-closed freshness for the loaded catalog."""
-        return catalog_identity(
-            index,
-            graph,
-            version_path=version_path,
-            runtime_commit=runtime_commit,
-            runtime_version=runtime_version,
-        )
+        return identity
 
     @server.tool()
     def validate_catalog() -> dict[str, Any]:
         """Validate in-memory serving invariants without invoking repository scripts or shell commands."""
         return validate_catalog_core(index, graph)
+
+    @server.resource(
+        "skillz://index",
+        name="skillz_index",
+        description="Canonical generated Skillz capability index.",
+        mime_type="application/json",
+        meta=resource_meta,
+    )
+    def skillz_index() -> dict[str, Any]:
+        return index
+
+    @server.resource(
+        "skillz://graph",
+        name="skillz_graph",
+        description="Canonical generated Skillz dependency graph.",
+        mime_type="application/json",
+        meta=resource_meta,
+    )
+    def skillz_graph() -> dict[str, Any]:
+        return graph
+
+    @server.resource(
+        "skillz://status",
+        name="skillz_status",
+        description="Identity and fail-closed freshness status for the loaded Skillz catalog.",
+        mime_type="application/json",
+        meta=resource_meta,
+    )
+    def skillz_status() -> dict[str, Any]:
+        return identity
 
     return server
