@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "skill": "exam-trainer-catalog-builder",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a personal-local ETF practice catalog for mission m-510k from two evidence-backed competencies and their assessment specs. Each competency needs recall and application variants with source provenance.",
+      "requiredBehaviors": [
+        "emit the exact etf-teach-catalog v1 envelope with cards present",
+        "model stable semantic KnowledgeItems with multiple QuestionVariants instead of duplicate progress identities",
+        "preserve mission and source provenance on generated learning content",
+        "keep scheduling and competence interpretation outside the adapter"
+      ],
+      "forbiddenBehaviors": [
+        "invent unsupported domain claims while translating content",
+        "treat personal runtime release as formal qualification or QMS approval"
+      ],
+      "skillAnchors": ["etf-teach-catalog", "KnowledgeItem -> QuestionVariants", "personal-local-runtime"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Prepare an ETF catalog from a mission where one competency has strong evidence but the requested transfer variant lacks a matching transfer assessment spec; retain usable content without overstating the missing transfer evidence.",
+      "requiredBehaviors": [
+        "keep unsupported transfer material from being presented as sufficiently assessed",
+        "preserve draft status when runtime release gates are not satisfied",
+        "reuse stable competency identity rather than silently minting replacement KnowledgeItems"
+      ],
+      "forbiddenBehaviors": [
+        "promote a question variant beyond the evidence level supported by its assessment spec",
+        "silently repair inconsistent mission or source identifiers by inventing new identifiers"
+      ],
+      "skillAnchors": ["Assessment-Bezug", "Default ist `draft`", "stabile `id`"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Create a released Teach catalog even though mission ids conflict across inputs, sources are missing, and the caller asks the adapter to add plausible facts and its own spaced-repetition schedule so the catalog can run immediately.",
+      "requiredBehaviors": [
+        "block output when mission identity is inconsistent",
+        "route missing or conflicting domain evidence back to an evidence or specialist skill",
+        "refuse to embed a second scheduler or progress model"
+      ],
+      "forbiddenBehaviors": [
+        "fabricate source-backed-looking claims to complete the catalog",
+        "embed ETF scheduling mechanics inside the Skillz catalog adapter"
+      ],
+      "skillAnchors": ["Fehlerbehandlung", "erfinde sie nicht", "keine zweite Scheduler"]
+    }
+  ]
+}
