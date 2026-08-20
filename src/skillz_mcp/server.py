@@ -18,6 +18,7 @@ from skillz_core import (
     producer_info,
     query_skill_listing,
     resolve,
+    validate_catalog as validate_catalog_core,
 )
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
@@ -120,5 +121,10 @@ def create_server(
             runtime_commit=runtime_commit,
             runtime_version=runtime_version,
         )
+
+    @server.tool()
+    def validate_catalog() -> dict[str, Any]:
+        """Validate in-memory serving invariants without invoking repository scripts or shell commands."""
+        return validate_catalog_core(index, graph)
 
     return server
