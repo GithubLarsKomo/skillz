@@ -1,0 +1,5 @@
+interface:
+  display_name: "Talent Search Strategy"
+  short_description: "Entwickelt rollenbezogene Talent Pools, Target Companies, Rollenfamilien und prüfbare Suchhypothesen für Executive- und Expert-Search."
+policy:
+  allow_implicit_invocation: true
