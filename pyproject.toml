@@ -8,7 +8,9 @@ version = "0.1.0a1"
 description = "Read-only MCP discovery and capability interface for GithubLarsKomo/skillz"
 requires-python = ">=3.11"
 dependencies = [
+  "httpx>=0.28,<1",
   "mcp>=2,<3",
+  "PyJWT[crypto]>=2.10,<3",
 ]
 
 [project.scripts]
