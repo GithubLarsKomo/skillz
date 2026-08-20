@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "policyId": "grilling-wayfinder-spec-routing-v1",
+  "skills": {
+    "grilling": {
+      "skill": "round-based-requirements-grilling",
+      "owns": "domain-decision-uncertainty",
+      "question": "what-do-users-or-stakeholders-want-or-decide",
+      "produces": ["GRILL-REPORT.md", "requirements-handoff.json"],
+      "mustNotProduce": ["SPEC.md", "vertical-issues.json"]
+    },
+    "wayfinder": {
+      "skill": "large-work-wayfinder",
+      "owns": "technical-evidence-uncertainty",
+      "question": "what-must-be-understood-or-proven-before-safe-specification-or-implementation",
+      "produces": ["wayfinding-brief.md", "investigation-backlog.json", "dependency-graph.json"],
+      "mustNotProduce": ["SPEC.md", "vertical-issues.json"]
+    },
+    "spec": {
+      "skill": "conversation-to-spec",
+      "owns": "normative-specification",
+      "question": "what-is-bindingly-required-based-on-confirmed-decisions-and-evidence",
+      "produces": ["SPEC.md", "decision register", "consistency report"],
+      "mustNotProduce": ["vertical-issues.json"]
+    },
+    "issues": {
+      "skill": "spec-to-vertical-issues",
+      "owns": "vertical-implementation-slicing",
+      "question": "how-is-an-approved-spec-decomposed-into-independently-acceptable-vertical-slices",
+      "produces": ["vertical-issues.json", "vertical-issues.md", "dependency-order.json"],
+      "mustNotProduce": ["SPEC.md"]
+    }
+  },
+  "gates": {
+    "domainDecisionsResolved": "No blocking product, scope, role, process, or stakeholder decision remains unresolved.",
+    "technicalEvidenceSufficient": "No blocking technical, integration, migration, architecture, or repository-evidence gap remains unresolved.",
+    "specApproved": "The normative SPEC.md is explicitly approved and its consistency report has no blocking contradiction."
+  },
+  "routingRules": [
+    {
+      "id": "R1-domain-uncertainty",
+      "when": {"domainDecisionUncertainty": true},
+      "routeTo": "grilling"
+    },
+    {
+      "id": "R2-technical-uncertainty",
+      "when": {"technicalEvidenceUncertainty": true},
+      "routeTo": "wayfinder"
+    },
+    {
+      "id": "R3-ready-for-spec",
+      "when": {"domainDecisionsResolved": true, "technicalEvidenceSufficient": true},
+      "routeTo": "spec"
+    },
+    {
+      "id": "R4-approved-spec",
+      "when": {"specApproved": true},
+      "routeTo": "issues"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "T1-grilling-to-spec",
+      "from": "grilling",
+      "to": "spec",
+      "requires": ["domainDecisionsResolved", "technicalEvidenceSufficient"],
+      "handoff": ["GRILL-REPORT.md", "requirements-handoff.json"]
+    },
+    {
+      "id": "T2-grilling-to-wayfinder",
+      "from": "grilling",
+      "to": "wayfinder",
+      "requires": ["technicalEvidenceUncertainty"],
+      "handoff": ["open decision", "technical question", "known constraints"]
+    },
+    {
+      "id": "T3-wayfinder-pre-spec-to-spec",
+      "from": "wayfinder",
+      "to": "spec",
+      "mode": "pre-spec",
+      "requires": ["domainDecisionsResolved", "technicalEvidenceSufficient"],
+      "handoff": ["wayfinding-brief.md", "investigation-backlog.json", "dependency-graph.json"]
+    },
+    {
+      "id": "T4-wayfinder-to-grilling",
+      "from": "wayfinder",
+      "to": "grilling",
+      "requires": ["newDomainDecisionDiscovered"],
+      "handoff": ["decision question", "technical evidence", "affected scope"]
+    },
+    {
+      "id": "T5-spec-to-grilling",
+      "from": "spec",
+      "to": "grilling",
+      "requires": ["blockingDomainDecisionDiscovered"],
+      "handoff": ["affected requirement ids", "decision question", "current normative context"]
+    },
+    {
+      "id": "T6-spec-to-wayfinder",
+      "from": "spec",
+      "to": "wayfinder",
+      "requires": ["blockingTechnicalEvidenceGapDiscovered"],
+      "handoff": ["affected requirement ids", "technical question", "current repository/spec context"]
+    },
+    {
+      "id": "T7-spec-to-issues",
+      "from": "spec",
+      "to": "issues",
+      "requires": ["specApproved"],
+      "handoff": ["SPEC.md", "decision register", "consistency report"]
+    },
+    {
+      "id": "T8-issues-to-wayfinder",
+      "from": "issues",
+      "to": "wayfinder",
+      "mode": "post-spec",
+      "requires": ["sliceTechnicallyUnsafeToCut"],
+      "handoff": ["affected requirement ids", "candidate slice scope", "technical unknowns"]
+    },
+    {
+      "id": "T9-wayfinder-post-spec-to-issues",
+      "from": "wayfinder",
+      "to": "issues",
+      "mode": "post-spec",
+      "requires": ["sliceClarified", "normativeSpecUnchanged"],
+      "handoff": ["wayfinding-brief.md", "resolved technical constraints", "slice boundary evidence"]
+    },
+    {
+      "id": "T10-wayfinder-post-spec-to-spec",
+      "from": "wayfinder",
+      "to": "spec",
+      "mode": "post-spec",
+      "requires": ["normativeSpecAssumptionChanged"],
+      "handoff": ["wayfinding-brief.md", "changed assumption", "affected requirement ids"]
+    },
+    {
+      "id": "T11-issues-to-grilling",
+      "from": "issues",
+      "to": "grilling",
+      "requires": ["newDomainDecisionDiscovered"],
+      "handoff": ["affected requirement ids", "decision question", "current slice context"]
+    }
+  ],
+  "forbiddenTransitions": [
+    {"from": "grilling", "to": "issues", "reason": "An approved normative SPEC is mandatory between requirements clarification and issue slicing."},
+    {"from": "wayfinder", "to": "issues", "mode": "pre-spec", "reason": "Pre-Spec technical evidence must first be incorporated into and approved through the normative SPEC."},
+    {"from": "issues", "to": "implementation", "when": {"specApproved": false}, "reason": "Issue generation and implementation are forbidden without an approved normative SPEC."}
+  ],
+  "invariants": [
+    "grilling-owns-domain-decisions-only",
+    "wayfinder-owns-technical-evidence-only",
+    "conversation-to-spec-is-sole-normative-spec-owner",
+    "spec-to-vertical-issues-requires-approved-spec",
+    "no-direct-grilling-to-issues-transition",
+    "pre-spec-wayfinder-does-not-require-existing-spec-or-issues",
+    "post-spec-wayfinder-returns-to-issues-only-when-normative-spec-is-unchanged",
+    "normative-spec-change-always-returns-through-conversation-to-spec",
+    "domain-decision-discovery-always-routes-to-grilling",
+    "no-production-code-is-implemented-by-these-four-routing-skills"
+  ],
+  "scenarios": [
+    {
+      "id": "S1-pre-spec-technical",
+      "class": "pre-spec",
+      "start": "wayfinder",
+      "conditions": {"domainDecisionsResolved": true, "technicalEvidenceUncertainty": true},
+      "expectedPath": ["wayfinder", "spec", "issues"]
+    },
+    {
+      "id": "S2-pre-spec-domain-then-technical",
+      "class": "pre-spec",
+      "start": "grilling",
+      "conditions": {"domainDecisionUncertainty": true, "technicalEvidenceUncertainty": true},
+      "expectedPath": ["grilling", "wayfinder", "grilling", "spec", "issues"]
+    },
+    {
+      "id": "S3-post-spec-slice-only",
+      "class": "post-spec",
+      "start": "issues",
+      "conditions": {"specApproved": true, "sliceTechnicallyUnsafeToCut": true, "normativeSpecUnchanged": true},
+      "expectedPath": ["issues", "wayfinder", "issues"]
+    },
+    {
+      "id": "S4-post-spec-normative-change",
+      "class": "post-spec",
+      "start": "issues",
+      "conditions": {"specApproved": true, "sliceTechnicallyUnsafeToCut": true, "normativeSpecAssumptionChanged": true},
+      "expectedPath": ["issues", "wayfinder", "spec", "issues"]
+    },
+    {
+      "id": "S5-return-to-domain-decision",
+      "class": "return",
+      "start": "wayfinder",
+      "conditions": {"newDomainDecisionDiscovered": true},
+      "expectedPath": ["wayfinder", "grilling", "spec"]
+    },
+    {
+      "id": "S6-issue-slicing-discovers-domain-decision",
+      "class": "return",
+      "start": "issues",
+      "conditions": {"newDomainDecisionDiscovered": true},
+      "expectedPath": ["issues", "grilling", "spec", "issues"]
+    }
+  ]
+}
