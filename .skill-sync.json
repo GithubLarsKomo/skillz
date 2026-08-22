@@ -750,35 +750,10 @@
         "agents/openai.yaml": "eeec69b963850ad8fa311bae565099fa08b80056209c388113705cb4d9a26bc3"
       }
     },
-    "price-availability-snapshot": {
-      "files": {
-        "SKILL.md": "a42d65efaa5d533b9baeaf52cb86b6808111517aeba37e77e79bdc4dfa4b5294",
-        "agents/openai.yaml": "d0caaaaf7db090f9dda6f5f349d873e563322abcc1e2c8d3e8986387363372ec",
-        "references/price-normalization.md": "293e82dc600a3c8b96f7ba9175774b2ad1a572be4aa3670fed6b351572926b55",
-        "scripts/validate_price_snapshot.py": "c62c511534cc78791f3c562415841c06b1b3e19a83833b048e2f5f1b107c2c71"
-      }
-    },
     "process-validation-iq-oq-pq": {
       "files": {
         "SKILL.md": "b9334e05466fe6b78674d0cb4fbe8043dfb3480172f95682ee901dcfbfeb55b0",
         "agents/openai.yaml": "898c26afe55ea1e1f8bb6ba7d00a6615b177a804f7bfeaef41f0830baa29d298"
-      }
-    },
-    "product-comparison-ranking": {
-      "files": {
-        "SKILL.md": "6384a6490428d5bfbcda96e9fd80d5e4372de444de0de64527433a0bf3efe3df",
-        "agents/openai.yaml": "7caaaaf8ca3d9172750105cee64116efa11b7cae53d4ca1a5c7f3f6a38d743c6",
-        "references/scoring-model.md": "ac7b395a912f6f2b7ad9f323997109ff5f201bb342e910b69e12e01d77c252c8",
-        "scripts/rank_products.py": "8bbe90f346fbc0d842e49e79e74a7d714b6adc3ada3869e2cedd9f61eecd64aa",
-        "scripts/validate_requirements.py": "faf3d563c7621f02ae030469097d6ae7da8d537e9c7d26bac87ff810a03ee40a"
-      }
-    },
-    "product-evidence-research": {
-      "files": {
-        "SKILL.md": "476ba91544af16745824e9a56af2948df7574117b21aeaab4d7f66046c1b23b4",
-        "agents/openai.yaml": "b5415bda2457bc2218a0c2609beba91ad34c8fcd2ea55a54765fa260a8dd35b2",
-        "references/source-quality.md": "d9e321597046cd6665d5d93162159d70167e662c6f777c205d5b236e8838bf7a",
-        "scripts/normalize_product_identity.py": "e208718b16add05171569411531460c20f620aa66f19e07f6a052d25ab367f1e"
       }
     },
     "project-beta-readiness": {
@@ -791,13 +766,6 @@
       "files": {
         "SKILL.md": "38a072c11da82a64e20de34229f1a31b29252d7bd39c157403d8ab5e5fd16a11",
         "agents/openai.yaml": "c744dd4a46f7f5979bd0af2d7716655547c12ab529230ddc192d5f16dc67a5d1"
-      }
-    },
-    "purchase-decision-planner": {
-      "files": {
-        "SKILL.md": "25ce3b1e245beadb0461afe678aaef07cd5cc8b19e6d870b55247d3254a9b832",
-        "agents/openai.yaml": "6ef04ad068df1eecd153c601c043a32f94c326c3396ade020b17dab541943d78",
-        "references/routing-matrix.md": "21be475fa75272bf55c18abe4074278646022b5ba4f493fa28fc009eb7e75cb6"
       }
     },
     "qms-management-review-action-followup": {
@@ -898,16 +866,64 @@
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
       }
     },
+    "sport-athlete-management": {
+      "files": {
+        "SKILL.md": "92c9620d56768f837ecb7936dc87d066c3ebdf534b0df738a1bed20eda57acf0",
+        "agents/openai.yaml": "d3b904557a2f39b15deeb35a4fd9590dd68332f8caea162df1ae4a1c48552238"
+      }
+    },
+    "sport-athlete-profile": {
+      "files": {
+        "SKILL.md": "498add8f13578f62ae47a450ad1c44ca38eb5e4b74d7216f5cc9a34bde767c47",
+        "agents/openai.yaml": "11f172baf9300de7033da83adeec80b7de4f1ed55221ef093c9a95aa5bc098c7"
+      }
+    },
+    "sport-daily-athlete-monitoring": {
+      "files": {
+        "SKILL.md": "1090938d617b4df005d08db219a6c78bfd5d8d66f0194fbf3d5da455a7031ff9",
+        "agents/openai.yaml": "a0165b7492f4d67e3d87345f24b08fd62e3aa6022a356bde606a198656dd08ee"
+      }
+    },
     "sport-diagnostics-training-report-workflow": {
       "files": {
         "SKILL.md": "7d2a7bf80b3ee682c640b0ea1380f15fdb297e947cca2d91ce7054ee01b29d35",
         "agents/openai.yaml": "8c3ed9360ffe5e9bfc2946ae8a5cca42adaffbc47c0ae6a74ce2b07cfdcb80ed"
       }
     },
+    "sport-goal-performance-model": {
+      "files": {
+        "SKILL.md": "04c1aca64ad1b99812ed9ae1628c138983116bff503182d4d4b089a033da2af7",
+        "agents/openai.yaml": "77b206739fc39028c179573b4fb574753b5f4f53c7edb61e8151607384c54625"
+      }
+    },
+    "sport-mesocycle-planning": {
+      "files": {
+        "SKILL.md": "288e072e76204975de35d845a70af545cf95216247c127faa9cad3455efb435a",
+        "agents/openai.yaml": "77e230903214c59fb8f526ba0b33b15f15b02aac48eaf71240737a88aaf7d77b"
+      }
+    },
+    "sport-microcycle-planning": {
+      "files": {
+        "SKILL.md": "aa5a1307102ad4a807edb267aeeff8985a4b481b9bcb199f17aa517e6c252b7e",
+        "agents/openai.yaml": "ae9f2521935d2ff508520f6380934b6ac5ffb6c62e6997954110209b5538a28a"
+      }
+    },
     "sport-performance-diagnostics": {
       "files": {
         "SKILL.md": "0c5f545808d5b7e118c1355991b47879751a0c8f77588543cf6f4cb61ac1b303",
         "agents/openai.yaml": "525c800ceb6ebf516332f12a3a004ddb031f0796b7fe2c2de9558d1d4e334da7"
+      }
+    },
+    "sport-season-periodization": {
+      "files": {
+        "SKILL.md": "4e80ad3862d2a2c0c106a30224d43e7a7565a0e819fecf4b4b96bac93de193f9",
+        "agents/openai.yaml": "a53babe3381668c37d9aa73b2818cb7aa4a5fe31e5f6b63aa45f4dc793b9b6bb"
+      }
+    },
+    "sport-training-adaptation-engine": {
+      "files": {
+        "SKILL.md": "29dc8ed8ccbdfeec1894351effdf9e87013fde8514215b8285de22127e0bd963",
+        "agents/openai.yaml": "07f08bb354f31fabef3412dd73323a87004928cc41625f7d65603583475d9774"
       }
     },
     "sport-training-programming": {

@@ -1,5 +1,0 @@
-interface:
-  display_name: "Price Availability Snapshot"
-  short_description: "Erfasst SKU-genaue aktuelle Preise, Bezugsquellen und Verfügbarkeit für bekannte Produktkandidaten ohne Qualitätsrank..."
-policy:
-  allow_implicit_invocation: true

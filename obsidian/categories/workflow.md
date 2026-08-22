@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **18**
+Skills: **25**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
@@ -23,10 +23,17 @@ Skills: **18**
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
 - [[skills/precision-language-rewriter|precision-language-rewriter]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
-- [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
+- [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-athlete-profile|sport-athlete-profile]]
+- [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
 - [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- [[skills/sport-goal-performance-model|sport-goal-performance-model]]
+- [[skills/sport-mesocycle-planning|sport-mesocycle-planning]]
+- [[skills/sport-microcycle-planning|sport-microcycle-planning]]
+- [[skills/sport-season-periodization|sport-season-periodization]]
+- [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/technology-due-diligence|technology-due-diligence]]

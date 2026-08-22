@@ -1,0 +1,62 @@
+---
+type: skill
+generated: true
+name: "sport-daily-athlete-monitoring"
+category: "workflow"
+userFacing: true
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
+sourcePath: "skills/sport-daily-athlete-monitoring/SKILL.md"
+tags:
+  - skill
+  - skill-category/workflow
+---
+
+# sport-daily-athlete-monitoring
+
+Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit, Muskelkater, Stress, Motivation, Schmerz, Krankheitssymptomen und optionalen objektiven Metriken. Verwenden für tägliches longitudinales Monitoring; nicht als alleiniger Readiness-Score oder medizinische Diagnose.
+
+> Generated from canonical repository metadata. Do not edit this note manually.
+
+## Category
+
+[[categories/workflow|workflow]]
+
+## Requires
+
+- [[skills/sport-athlete-profile|sport-athlete-profile]]
+
+## Required by
+
+- [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
+
+## Outputs
+
+- `completed-session.json`
+- `daily-checkin.json`
+
+## Output consumers
+
+### `completed-session.json`
+
+- [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
+
+### `daily-checkin.json`
+
+- [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
+
+## Evaluation
+
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
+
+## Canonical source
+
+`skills/sport-daily-athlete-monitoring/SKILL.md`

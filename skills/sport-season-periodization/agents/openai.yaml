@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Season Periodization"
+  short_description: "Plant die Saison- und Makrostruktur aus priorisierten Wettkämpfen, Performance-Zielen, Trainingshistorie und verfügba..."
+policy:
+  allow_implicit_invocation: true

@@ -1,5 +1,0 @@
-interface:
-  display_name: "Product Comparison Ranking"
-  short_description: "Rankt belegte Produkte gegen bestätigte Must-haves und Gewichte und trennt Nutzwert, Evidenzabdeckung und Ranking-Con..."
-policy:
-  allow_implicit_invocation: true

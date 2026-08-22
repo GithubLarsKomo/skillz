@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Microcycle Planning"
+  short_description: "Verteilt die Ziele eines Mesozylus auf einen konkreten kurzen Trainingszyklus mit Schlüsselreizen, High/Low-Logik, Re..."
+policy:
+  allow_implicit_invocation: true

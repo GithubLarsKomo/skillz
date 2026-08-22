@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Mesocycle Planning"
+  short_description: "Übersetzt eine Saisonphase in einen 3–8-wöchigen Adaptationsblock mit Primärziel, Erhaltungsqualitäten, Laststrategie..."
+policy:
+  allow_implicit_invocation: true
