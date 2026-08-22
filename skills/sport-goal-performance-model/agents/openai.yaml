@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Goal Performance Model"
+  short_description: "Übersetzt ein sportliches Ziel in Outcome-, Performance- und Prozessziele sowie eine priorisierte KPI- und Limiter-St..."
+policy:
+  allow_implicit_invocation: true

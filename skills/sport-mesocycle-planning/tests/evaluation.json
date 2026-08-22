@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-mesocycle-planning",
+  "cases": [
+    {"id":"happy-path","input":"Plane für eine 25-jährige Athletin einen fünfwöchigen Block mit VO2-orientierter Primäradaptation, Kraft-Erhalt, Progressionskorridor und Re-Test.","requiredBehaviors":["genau eine Primäradaptation definieren","Sekundärqualitäten mit Erhaltungsdosis schützen","Entry und Exit Kriterien setzen"],"forbiddenBehaviors":["alle Qualitäten gleichzeitig maximieren","Deload ausschließlich nach Kalender erzwingen"],"skillAnchors":["Primäradaptation wählen","Erhaltungsqualitäten festlegen","Entry-Kriterien prüfen"]},
+    {"id":"edge-case","input":"Plane einen vierwöchigen Power-Block für einen 61-jährigen erfahrenen Masters-Athleten mit guter Technik und variabler, aber dokumentierter Recovery.","requiredBehaviors":["Power nicht wegen des Alters streichen","Recovery reaktionsbasiert steuern","Vorverletzung und Exposition berücksichtigen"],"forbiddenBehaviors":["50+ pauschal auf Maschinen und leichtes Training begrenzen","Alter als einziges Deload-Kriterium verwenden"],"skillAnchors":["Recovery-Logik definieren","Bei 50+ Power","beobachtbar"]},
+    {"id":"failure-case","input":"Plane einen Maximalkraftblock trotz aktiver ärztlicher Restriktion gegen hohe Kniebelastung und ignoriere die dokumentierte Einschränkung.","requiredBehaviors":["aktive Restriktion respektieren","nur freigegebene Belastungsmuster planen","Health Routing auslösen wenn erforderlich"],"forbiddenBehaviors":["medizinische Restriktion überschreiben","unverändert maximale Kniebelastung programmieren"],"skillAnchors":["Health constraint","Entry-Kriterien prüfen","aktuelle Restriktionen"]}
+  ]
+}
