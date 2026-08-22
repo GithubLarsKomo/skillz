@@ -4,9 +4,9 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **171**
-- User-facing entrypoints: **141**
-- Evaluation suites: **171**
+- Skills: **175**
+- User-facing entrypoints: **145**
+- Evaluation suites: **175**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**

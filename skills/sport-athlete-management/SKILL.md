@@ -1,10 +1,10 @@
 ---
 name: sport-athlete-management
-description: Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, spezialisierten Kraft-/Ausdauer-/Recovery-/Fueling-/Health-Modulen und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.
+description: Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, spezialisierten Kraft-/Ausdauer-/Recovery-/Fueling-/Health-, Psychologie- und Umweltmodulen und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -23,6 +23,10 @@ requires:
   - sport-return-after-illness
   - sport-testing-battery
   - sport-adaptation-analysis
+  - sport-performance-psychology
+  - sport-mental-health-routing
+  - sport-training-music
+  - sport-environment-travel
   - sport-training-adaptation-engine
 outputs:
   - athlete-management-state.json
@@ -43,20 +47,22 @@ Für reine Testauswertung weiterhin `sport-performance-diagnostics`; für einen 
 
 ## Voraussetzungen
 
-Mindestens Athletenidentität und Ziel müssen bekannt sein. Für laufende Steuerung werden die jeweils aktuellen Versionen von Profil, Performance-Modell, Saison/Meso/Mikro, Monitoring, relevanten P1-Spezialartefakten und Adaptationsentscheidungen referenziert.
+Mindestens Athletenidentität und Ziel müssen bekannt sein. Für laufende Steuerung werden die jeweils aktuellen Versionen von Profil, Performance-Modell, Saison/Meso/Mikro, Monitoring, relevanten P1-Spezialartefakten, optionalen P2-Kontextartefakten und Adaptationsentscheidungen referenziert.
 
 ## Ablauf
 
 1. **State laden.** Aktuelle IDs und Versionen der kanonischen Sport-Artefakte bestimmen.
 2. **Fehlende Ebene routen.** Profil → Zielmodell → Saison → Meso → Mikro nur dort erzeugen, wo Zustand fehlt oder abgelaufen ist.
-3. **Fachmodule selektiv routen.** Je nach Ziel und Sessiontyp `sport-strength-power-programming` und/oder `sport-endurance-programming` verwenden; Recovery/Fueling/Testplanung nur bei fachlichem Bedarf aktualisieren.
+3. **P1-Fachmodule selektiv routen.** Je nach Ziel und Sessiontyp `sport-strength-power-programming` und/oder `sport-endurance-programming` verwenden; Recovery/Fueling/Testplanung nur bei fachlichem Bedarf aktualisieren.
 4. **Health Routing priorisieren.** Dokumentierte Verletzung → `sport-injury-rehabilitation`; Rückkehr nach akuter Erkrankung → `sport-return-after-illness`. Diese Module erzeugen Kriterien und Grenzen, keine Diagnose oder medizinische Freigabe.
-5. **Heute bestimmen.** Geplante Session, jüngsten Morning Check und relevante aktuelle Recovery-/Health-Artefakte zusammenführen.
-6. **Training protokollieren.** Completed Session und sRPE über `sport-daily-athlete-monitoring` erfassen.
-7. **Trend analysieren.** Bei ausreichender longitudinaler Datenbasis `sport-adaptation-analysis` verwenden; Einzelmetriken nicht als Regler behandeln.
-8. **Adaptation ausführen.** `sport-training-adaptation-engine` nur bei relevantem Checkpoint oder Mismatch aufrufen. P1-Spezialisten liefern Evidenz und Optionen; die Engine besitzt die übergreifende Proceed/Modify/Recover/Review-Entscheidung.
-9. **Versioniert revidieren.** Betroffene Fach- und Mikro-/Meso-/Saisonobjekte über ihre Eigentümer-Skills neu erzeugen; alte Version behalten.
-10. **State fortschreiben.** Nächste Entscheidung, offene Unsicherheiten, Safety Flags und nächste Re-Evaluation zusammenfassen.
+5. **P2-Kontextmodule selektiv routen.** Performance-Psychologie nur bei konkreter Performance-Frage, Musik nur bei gewünschter Nutzung, Umwelt/Reise nur bei realer Exposition. P2-Artefakte informieren den Kontext, verändern aber keinen Trainingsplan direkt.
+6. **Mental-Health-Grenze prüfen.** Bei möglicher klinisch relevanter psychischer Belastung `sport-mental-health-routing` vor Performance-Psychologie verwenden. `urgent` verlässt normale Performance-Optimierung und priorisiert unmittelbares qualifiziertes Support-/Safety-Routing.
+7. **Heute bestimmen.** Geplante Session, jüngsten Morning Check und relevante aktuelle Recovery-/Health-/P2-Kontextartefakte zusammenführen.
+8. **Training protokollieren.** Completed Session und sRPE über `sport-daily-athlete-monitoring` erfassen.
+9. **Trend analysieren.** Bei ausreichender longitudinaler Datenbasis `sport-adaptation-analysis` verwenden; Einzelmetriken nicht als Regler behandeln.
+10. **Adaptation ausführen.** `sport-training-adaptation-engine` nur bei relevantem Checkpoint oder Mismatch aufrufen. P1-Spezialisten und P2-Kontextmodule liefern Evidenz, Grenzen und Optionen; die Engine besitzt die übergreifende Proceed/Modify/Recover/Review-Entscheidung.
+11. **Versioniert revidieren.** Betroffene Fach- und Mikro-/Meso-/Saisonobjekte über ihre Eigentümer-Skills neu erzeugen; alte Version behalten. P2-Artefakte dürfen keine direkte Planmutation enthalten.
+12. **State fortschreiben.** Nächste Entscheidung, offene Unsicherheiten, Safety Flags und nächste Re-Evaluation zusammenfassen.
 
 ## P1-Routingregeln
 
@@ -69,36 +75,48 @@ Mindestens Athletenidentität und Ziel müssen bekannt sein. Für laufende Steue
 - **Testing:** `sport-testing-battery` wählt minimale, entscheidungsrelevante Testbatterien nach Sport, Ziel und Saisonphase.
 - **Longitudinale Analyse:** `sport-adaptation-analysis` trennt beobachtete Signale, Unsicherheit und Missing-Data-Effekte; ACWR ist kein kausaler Verletzungsprädiktor.
 
+## P2-Routingregeln
+
+- **Performance-Psychologie:** `sport-performance-psychology` besitzt Performance-Frage, trainierbare psychologische Fertigkeiten, Praxisdosis, Cues, Transfer und Monitoring. Der Skill diagnostiziert oder therapiert keine psychische Erkrankung.
+- **Mental Health:** `sport-mental-health-routing` trennt Performance-Unterstützung von `monitor`, `professional_review` und `urgent`. Bei `urgent` darf Performance-Optimierung Safety-/Support-Routing nicht verzögern.
+- **Trainingsmusik:** `sport-training-music` besitzt Präferenzen, Ausschlüsse, Zweck, Timing und Auswahlregeln. BPM ist höchstens deskriptiver Kontext und kein Ersatz für Power, Herzfrequenz, Pace oder RPE.
+- **Umwelt/Reise:** `sport-environment-travel` trennt Hitze, Kälte, Höhe/Hypoxie, Travel Fatigue und Jetlag mechanistisch. Circadiane Planung, Akklimatisation und Umwelt-Safety werden nur bei tatsächlicher Exposition erzeugt.
+- **Keine direkte Planmutation:** Kein P2-Artefakt besitzt `revised_plan`, `plan_patch` oder eine autonome Trainingsänderung. Änderungen laufen weiterhin über die zentrale Adaptationsentscheidung und die Eigentümer des betroffenen Plans.
+
 ## Systemgrenzen
 
 Die WebApp und relationale Datenbank leben in einem separaten Produkt-Repository. `skillz` besitzt Fachlogik und JSON-Verträge, aber keine produktive Web-/DB-Implementierung. Die Produkt-App darf diese Verträge konsumieren und persistieren.
 
 ## Alters- und Geschlechtsregeln
 
-Alle nachgelagerten Entscheidungen verwenden Alter und Geschlecht als Kontextmodifier. Individuelle Trainingsreaktion bleibt primär; keine pauschale Masters-Abwertung und keine starre Zyklusperiodisierung. Optionale menstruelle/peri-/postmenopausale Kontexte werden symptom- und evidenzbasiert behandelt.
+Alle nachgelagerten Entscheidungen verwenden Alter und Geschlecht als Kontextmodifier. Individuelle Trainingsreaktion bleibt primär; keine pauschale Masters-Abwertung und keine starre Zyklusperiodisierung. Optionale menstruelle/peri-/postmenopausale Kontexte werden symptom- und evidenzbasiert behandelt. Psychologie, Musik und Umweltplanung verwenden keine demografischen Stereotype als automatische Controller.
 
 ## Prüfungen
 
 - Ist jede Ebene über IDs/Versionen statt impliziten Chat-Kontext verbunden?
 - Besitzt jede Fachentscheidung genau einen verantwortlichen Skill?
-- Informieren P1-Spezialisten die zentrale Adaptation, ohne deren Entscheidungslogik zu duplizieren?
+- Informieren P1-Spezialisten und P2-Kontextmodule die zentrale Adaptation, ohne deren Entscheidungslogik zu duplizieren?
+- Bleibt Mental-Health-Routing klar von Performance-Psychologie getrennt?
+- Kann `urgent` Performance-Optimierung explizit verlassen?
+- Bleiben BPM, Alter, Geschlecht, HRV oder Umweltkontext Kontext statt magische Einzelregler?
 - Sind Reports/UI nicht Source of Truth?
 - Bleiben Audit Trail und Vorversionen erhalten?
 - Können fehlende Daten ohne erfundene Werte weitergereicht werden?
-- Werden Health/Medical Red Flags vor Performance-Optimierung geroutet?
+- Werden Health/Medical/Mental-Health-Red-Flags vor Performance-Optimierung geroutet?
 
 ## Fehlerbehandlung
 
 - **Unvollständiger State:** nur fehlende Ebene erzeugen und Abhängigkeiten erhalten.
 - **Widersprüchliche Versionen:** keine stille Überschreibung; Konflikt als Reconciliation-Bedarf markieren.
-- **Safety Red Flag:** Performance-Orchestrierung unterbrechen und Health/Medical Routing priorisieren.
-- **P1-Artefakt fehlt:** nicht erfinden; Unsicherheit markieren und nur dann erzeugen, wenn die Entscheidung es benötigt.
+- **Safety Red Flag:** Performance-Orchestrierung unterbrechen und Health/Medical/Mental-Health-Routing priorisieren.
+- **P1-/P2-Artefakt fehlt:** nicht erfinden; Unsicherheit markieren und nur dann erzeugen, wenn die Entscheidung oder der reale Kontext es benötigt.
+- **Psychische Belastung unklar:** keine Diagnose; konservativ an `sport-mental-health-routing` geben.
 - **Produkt-App nicht verfügbar:** Fachartefakte bleiben als JSON unabhängig nutzbar.
 
 ## Übergabe
 
-P0-Vertragsdefinition bleibt `schemas/sport-athlete-management-v1.schema.json`. P1-Spezialartefakte verwenden `schemas/sport-athlete-management-p1-v1.schema.json`, sodass Produktintegrationen P1 bewusst und versioniert übernehmen können. Das separate WebApp-Repository konsumiert diese Verträge über versionierte API-/Persistenzmodelle; Report-Workflows können dieselben Artefakte lesen.
+P0-Vertragsdefinition bleibt `schemas/sport-athlete-management-v1.schema.json`. P1-Spezialartefakte verwenden `schemas/sport-athlete-management-p1-v1.schema.json`. P2-Kontextartefakte verwenden `schemas/sport-athlete-management-p2-v1.schema.json`. Dadurch können Produktintegrationen jede Ebene bewusst und versioniert übernehmen. Das separate WebApp-Repository konsumiert diese Verträge über versionierte API-/Persistenzmodelle; Report-Workflows können dieselben Artefakte lesen.
 
 ## Abschlusskriterien
 
-Der Orchestrator ist abgeschlossen, wenn der aktuelle Athlete-Management-State konsistent ist, die nächste Trainingsentscheidung eindeutig referenziert wird, erforderliche P1-Fachartefakte aktuell oder bewusst als fehlend markiert sind, nötige Revisionen versioniert sind und keine Fachlogik aus Spezialskills dupliziert wurde.
+Der Orchestrator ist abgeschlossen, wenn der aktuelle Athlete-Management-State konsistent ist, die nächste Trainingsentscheidung eindeutig referenziert wird, erforderliche P1- und P2-Artefakte aktuell oder bewusst als fehlend markiert sind, Safety-/Mental-Health-Routing Vorrang behält, nötige Revisionen versioniert sind und keine Fachlogik aus Spezialskills dupliziert wurde.

@@ -32,6 +32,7 @@ Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle
 ## Required by
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-environment-travel|sport-environment-travel]]
 
 ## Outputs
 
@@ -42,6 +43,7 @@ Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle
 ### `recovery-state.json`
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-environment-travel|sport-environment-travel]]
 
 ## Evaluation
 

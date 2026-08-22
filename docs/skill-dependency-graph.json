@@ -1819,17 +1819,21 @@
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
         "sport-endurance-programming",
+        "sport-environment-travel",
         "sport-goal-performance-model",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-mesocycle-planning",
         "sport-microcycle-planning",
         "sport-nutrition-fueling",
+        "sport-performance-psychology",
         "sport-recovery-sleep",
         "sport-return-after-illness",
         "sport-season-periodization",
         "sport-strength-power-programming",
         "sport-testing-battery",
-        "sport-training-adaptation-engine"
+        "sport-training-adaptation-engine",
+        "sport-training-music"
       ],
       "consumes": [],
       "outputs": [
@@ -1885,6 +1889,18 @@
       ]
     },
     {
+      "name": "sport-environment-travel",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-microcycle-planning",
+        "sport-recovery-sleep"
+      ],
+      "consumes": [],
+      "outputs": [
+        "environment-adjustment.json"
+      ]
+    },
+    {
       "name": "sport-goal-performance-model",
       "requires": [
         "sport-athlete-profile"
@@ -1903,6 +1919,17 @@
       "consumes": [],
       "outputs": [
         "rehab-progression.json"
+      ]
+    },
+    {
+      "name": "sport-mental-health-routing",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "consumes": [],
+      "outputs": [
+        "mental-health-routing.json"
       ]
     },
     {
@@ -1945,6 +1972,18 @@
       "consumes": [],
       "outputs": [
         "sport-diagnostics.json"
+      ]
+    },
+    {
+      "name": "sport-performance-psychology",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-microcycle-planning"
+      ],
+      "consumes": [],
+      "outputs": [
+        "performance-psychology-plan.json"
       ]
     },
     {
@@ -2014,6 +2053,17 @@
       "consumes": [],
       "outputs": [
         "training-adaptation-decision.json"
+      ]
+    },
+    {
+      "name": "sport-training-music",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-microcycle-planning"
+      ],
+      "consumes": [],
+      "outputs": [
+        "training-music-profile.json"
       ]
     },
     {
@@ -3499,11 +3549,19 @@
     },
     {
       "from": "sport-athlete-management",
+      "to": "sport-environment-travel"
+    },
+    {
+      "from": "sport-athlete-management",
       "to": "sport-goal-performance-model"
     },
     {
       "from": "sport-athlete-management",
       "to": "sport-injury-rehabilitation"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-mental-health-routing"
     },
     {
       "from": "sport-athlete-management",
@@ -3516,6 +3574,10 @@
     {
       "from": "sport-athlete-management",
       "to": "sport-nutrition-fueling"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-performance-psychology"
     },
     {
       "from": "sport-athlete-management",
@@ -3540,6 +3602,10 @@
     {
       "from": "sport-athlete-management",
       "to": "sport-training-adaptation-engine"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-training-music"
     },
     {
       "from": "sport-daily-athlete-monitoring",
@@ -3582,6 +3648,18 @@
       "to": "sport-performance-diagnostics"
     },
     {
+      "from": "sport-environment-travel",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-environment-travel",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-environment-travel",
+      "to": "sport-recovery-sleep"
+    },
+    {
       "from": "sport-goal-performance-model",
       "to": "sport-athlete-profile"
     },
@@ -3591,6 +3669,14 @@
     },
     {
       "from": "sport-injury-rehabilitation",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
+      "from": "sport-mental-health-routing",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-mental-health-routing",
       "to": "sport-daily-athlete-monitoring"
     },
     {
@@ -3615,6 +3701,18 @@
     },
     {
       "from": "sport-nutrition-fueling",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-performance-psychology",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-performance-psychology",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-performance-psychology",
       "to": "sport-microcycle-planning"
     },
     {
@@ -3675,6 +3773,14 @@
     },
     {
       "from": "sport-training-adaptation-engine",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-training-music",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-training-music",
       "to": "sport-microcycle-planning"
     },
     {
@@ -4001,14 +4107,18 @@
         "sport-athlete-management",
         "sport-daily-athlete-monitoring",
         "sport-endurance-programming",
+        "sport-environment-travel",
         "sport-goal-performance-model",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-nutrition-fueling",
+        "sport-performance-psychology",
         "sport-recovery-sleep",
         "sport-return-after-illness",
         "sport-strength-power-programming",
         "sport-testing-battery",
-        "sport-training-adaptation-engine"
+        "sport-training-adaptation-engine",
+        "sport-training-music"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4454,6 +4564,7 @@
         "sport-adaptation-analysis",
         "sport-athlete-management",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-nutrition-fueling",
         "sport-recovery-sleep",
         "sport-return-after-illness",
@@ -4729,6 +4840,7 @@
         "sport-adaptation-analysis",
         "sport-athlete-management",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-nutrition-fueling",
         "sport-recovery-sleep",
         "sport-return-after-illness",
@@ -5179,6 +5291,17 @@
         "architecture-deepening-review",
         "disciplined-diagnosis",
         "project-beta-readiness"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "environment-adjustment.json",
+      "producers": [
+        "sport-environment-travel"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6562,6 +6685,17 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "mental-health-routing.json",
+      "producers": [
+        "sport-mental-health-routing"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "mrb-disposition-decision.json",
       "producers": [
         "nonconformance-mrb-disposition"
@@ -6731,6 +6865,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "performance-psychology-plan.json",
+      "producers": [
+        "sport-performance-psychology"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "performance-study-gaps.json",
@@ -7352,7 +7497,8 @@
         "sport-recovery-sleep"
       ],
       "consumerSkills": [
-        "sport-athlete-management"
+        "sport-athlete-management",
+        "sport-environment-travel"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8170,9 +8316,12 @@
         "sport-adaptation-analysis",
         "sport-athlete-management",
         "sport-endurance-programming",
+        "sport-environment-travel",
         "sport-nutrition-fueling",
+        "sport-performance-psychology",
         "sport-strength-power-programming",
-        "sport-training-adaptation-engine"
+        "sport-training-adaptation-engine",
+        "sport-training-music"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8185,6 +8334,7 @@
       "consumerSkills": [
         "sport-athlete-management",
         "sport-endurance-programming",
+        "sport-performance-psychology",
         "sport-season-periodization",
         "sport-strength-power-programming",
         "sport-testing-battery"
@@ -8412,6 +8562,17 @@
       "output": "training-adaptation-decision.json",
       "producers": [
         "sport-training-adaptation-engine"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "training-music-profile.json",
+      "producers": [
+        "sport-training-music"
       ],
       "consumerSkills": [
         "sport-athlete-management"

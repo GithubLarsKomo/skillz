@@ -33,14 +33,18 @@ Erfasst und versioniert den trainingsrelevanten Athletenkontext als belastbaren 
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
 - [[skills/sport-endurance-programming|sport-endurance-programming]]
+- [[skills/sport-environment-travel|sport-environment-travel]]
 - [[skills/sport-goal-performance-model|sport-goal-performance-model]]
 - [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
+- [[skills/sport-mental-health-routing|sport-mental-health-routing]]
 - [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-performance-psychology|sport-performance-psychology]]
 - [[skills/sport-recovery-sleep|sport-recovery-sleep]]
 - [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
+- [[skills/sport-training-music|sport-training-music]]
 
 ## Outputs
 
@@ -53,14 +57,18 @@ Erfasst und versioniert den trainingsrelevanten Athletenkontext als belastbaren 
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
 - [[skills/sport-endurance-programming|sport-endurance-programming]]
+- [[skills/sport-environment-travel|sport-environment-travel]]
 - [[skills/sport-goal-performance-model|sport-goal-performance-model]]
 - [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
+- [[skills/sport-mental-health-routing|sport-mental-health-routing]]
 - [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-performance-psychology|sport-performance-psychology]]
 - [[skills/sport-recovery-sleep|sport-recovery-sleep]]
 - [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
+- [[skills/sport-training-music|sport-training-music]]
 
 ## Evaluation
 

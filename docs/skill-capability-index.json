@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 171,
-  "entrypointCount": 141,
+  "skillCount": 175,
+  "entrypointCount": 145,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 171,
+  "evaluationSuiteCount": 175,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -8389,7 +8389,7 @@
     },
     {
       "name": "sport-athlete-management",
-      "description": "Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, spezialisierten Kraft-/Ausdauer-/Recovery-/Fueling-/Health-Modulen und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.",
+      "description": "Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, spezialisierten Kraft-/Ausdauer-/Recovery-/Fueling-/Health-, Psychologie- und Umweltmodulen und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -8399,17 +8399,21 @@
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
         "sport-endurance-programming",
+        "sport-environment-travel",
         "sport-goal-performance-model",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-mesocycle-planning",
         "sport-microcycle-planning",
         "sport-nutrition-fueling",
+        "sport-performance-psychology",
         "sport-recovery-sleep",
         "sport-return-after-illness",
         "sport-season-periodization",
         "sport-strength-power-programming",
         "sport-testing-battery",
-        "sport-training-adaptation-engine"
+        "sport-training-adaptation-engine",
+        "sport-training-music"
       ],
       "dependents": [],
       "outputs": [
@@ -8465,14 +8469,18 @@
         "sport-athlete-management",
         "sport-daily-athlete-monitoring",
         "sport-endurance-programming",
+        "sport-environment-travel",
         "sport-goal-performance-model",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-nutrition-fueling",
+        "sport-performance-psychology",
         "sport-recovery-sleep",
         "sport-return-after-illness",
         "sport-strength-power-programming",
         "sport-testing-battery",
-        "sport-training-adaptation-engine"
+        "sport-training-adaptation-engine",
+        "sport-training-music"
       ],
       "outputs": [
         "athlete-profile.json"
@@ -8488,14 +8496,18 @@
             "sport-athlete-management",
             "sport-daily-athlete-monitoring",
             "sport-endurance-programming",
+            "sport-environment-travel",
             "sport-goal-performance-model",
             "sport-injury-rehabilitation",
+            "sport-mental-health-routing",
             "sport-nutrition-fueling",
+            "sport-performance-psychology",
             "sport-recovery-sleep",
             "sport-return-after-illness",
             "sport-strength-power-programming",
             "sport-testing-battery",
-            "sport-training-adaptation-engine"
+            "sport-training-adaptation-engine",
+            "sport-training-music"
           ]
         }
       ],
@@ -8523,6 +8535,7 @@
         "sport-adaptation-analysis",
         "sport-athlete-management",
         "sport-injury-rehabilitation",
+        "sport-mental-health-routing",
         "sport-nutrition-fueling",
         "sport-recovery-sleep",
         "sport-return-after-illness",
@@ -8543,6 +8556,7 @@
             "sport-adaptation-analysis",
             "sport-athlete-management",
             "sport-injury-rehabilitation",
+            "sport-mental-health-routing",
             "sport-nutrition-fueling",
             "sport-recovery-sleep",
             "sport-return-after-illness",
@@ -8559,6 +8573,7 @@
             "sport-adaptation-analysis",
             "sport-athlete-management",
             "sport-injury-rehabilitation",
+            "sport-mental-health-routing",
             "sport-nutrition-fueling",
             "sport-recovery-sleep",
             "sport-return-after-illness",
@@ -8656,6 +8671,46 @@
       }
     },
     {
+      "name": "sport-environment-travel",
+      "description": "Plant sportliche Anpassungen an Hitze, Kälte, Höhe/Hypoxie, Reisebelastung und Jetlag mit Kontext-, Akklimatisations-, Schlaf-/Circadian- und Safety-Regeln. Verwenden für Trainingslager, Wettkampfreisen oder extreme Umweltbedingungen; nicht als pauschale Lastsenkung oder medizinische Höhenfreigabe.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-microcycle-planning",
+        "sport-recovery-sleep"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "environment-adjustment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "environment-adjustment.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-environment-travel"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "sport-goal-performance-model",
       "description": "Übersetzt ein sportliches Ziel in Outcome-, Performance- und Prozessziele sowie eine priorisierte KPI- und Limiter-Struktur. Verwenden vor Saison- oder Blockplanung, wenn Zieltermin, Wettkampfpriorität und messbare Leistungsanforderungen geklärt werden müssen; nicht für die konkrete Wochenprogrammierung.",
       "invocation": {
@@ -8668,6 +8723,7 @@
       "dependents": [
         "sport-athlete-management",
         "sport-endurance-programming",
+        "sport-performance-psychology",
         "sport-season-periodization",
         "sport-strength-power-programming",
         "sport-testing-battery"
@@ -8685,6 +8741,7 @@
           "consumerSkills": [
             "sport-athlete-management",
             "sport-endurance-programming",
+            "sport-performance-psychology",
             "sport-season-periodization",
             "sport-strength-power-programming",
             "sport-testing-battery"
@@ -8724,6 +8781,45 @@
           "ambiguous": false,
           "producers": [
             "sport-injury-rehabilitation"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-mental-health-routing",
+      "description": "Trennt sportpsychologische Performance-Themen von möglichem Mental-Health-/Krisenbedarf und erzeugt ein konservatives Routing mit Dringlichkeit, Support-Optionen und Trainingsgrenzen. Verwenden bei psychischer Belastung oder Warnsignalen; nicht diagnostizieren, therapieren oder medizinisch freigeben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "mental-health-routing.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "mental-health-routing.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-mental-health-routing"
           ],
           "consumerSkills": [
             "sport-athlete-management"
@@ -8800,9 +8896,12 @@
         "sport-adaptation-analysis",
         "sport-athlete-management",
         "sport-endurance-programming",
+        "sport-environment-travel",
         "sport-nutrition-fueling",
+        "sport-performance-psychology",
         "sport-strength-power-programming",
-        "sport-training-adaptation-engine"
+        "sport-training-adaptation-engine",
+        "sport-training-music"
       ],
       "outputs": [
         "sport-microcycle.json"
@@ -8818,9 +8917,12 @@
             "sport-adaptation-analysis",
             "sport-athlete-management",
             "sport-endurance-programming",
+            "sport-environment-travel",
             "sport-nutrition-fueling",
+            "sport-performance-psychology",
             "sport-strength-power-programming",
-            "sport-training-adaptation-engine"
+            "sport-training-adaptation-engine",
+            "sport-training-music"
           ]
         }
       ],
@@ -8927,6 +9029,46 @@
       }
     },
     {
+      "name": "sport-performance-psychology",
+      "description": "Erstellt ein individualisiertes sportpsychologisches Performance-Training für Ziel-/Prozessfokus, Imagery, Self-Talk, Aufmerksamkeit, Aktivierungsregulation und Wettkampfroutinen. Verwenden für Leistungspsychologie; nicht für Diagnose, Psychotherapie oder Krisenbehandlung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-microcycle-planning"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "performance-psychology-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "performance-psychology-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-performance-psychology"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "sport-recovery-sleep",
       "description": "Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle Baseline und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise oder Wettkampfbelastung; keinen opaken Readiness-Score und keine HRV-Alleinsteuerung erzeugen.",
       "invocation": {
@@ -8938,7 +9080,8 @@
         "sport-daily-athlete-monitoring"
       ],
       "dependents": [
-        "sport-athlete-management"
+        "sport-athlete-management",
+        "sport-environment-travel"
       ],
       "outputs": [
         "recovery-state.json"
@@ -8951,7 +9094,8 @@
             "sport-recovery-sleep"
           ],
           "consumerSkills": [
-            "sport-athlete-management"
+            "sport-athlete-management",
+            "sport-environment-travel"
           ]
         }
       ],
@@ -9151,6 +9295,45 @@
           "ambiguous": false,
           "producers": [
             "sport-training-adaptation-engine"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-training-music",
+      "description": "Erstellt präferenzbasierte Musikprofile und Session-Empfehlungen für Aktivierung, Motivation, Affekt, Warm-up, Training und Recovery. Verwenden für Trainingsmusik nach Athletenpräferenzen; BPM und Genre nicht als starre Leistungs- oder Intensitätsformel behandeln.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-microcycle-planning"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "training-music-profile.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "training-music-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-training-music"
           ],
           "consumerSkills": [
             "sport-athlete-management"

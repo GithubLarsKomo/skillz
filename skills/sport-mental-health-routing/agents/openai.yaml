@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Mental Health Routing"
+  short_description: "Trennt sportpsychologische Performance-Themen von möglichem Mental-Health-/Krisenbedarf und erzeugt ein konservatives..."
+policy:
+  allow_implicit_invocation: true
