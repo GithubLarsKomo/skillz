@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n151 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n159 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1292,7 +1292,7 @@
       "x": 8540,
       "y": 0,
       "width": 1120,
-      "height": 940,
+      "height": 1360,
       "color": "2"
     },
     {
@@ -1422,11 +1422,83 @@
       "height": 110
     },
     {
+      "id": "skill-sport-athlete-management",
+      "type": "file",
+      "file": "skills/sport-athlete-management.md",
+      "x": 9240,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-athlete-profile",
+      "type": "file",
+      "file": "skills/sport-athlete-profile.md",
+      "x": 8580,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-daily-athlete-monitoring",
+      "type": "file",
+      "file": "skills/sport-daily-athlete-monitoring.md",
+      "x": 8910,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
       "x": 9240,
-      "y": 630,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-goal-performance-model",
+      "type": "file",
+      "file": "skills/sport-goal-performance-model.md",
+      "x": 8580,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-mesocycle-planning",
+      "type": "file",
+      "file": "skills/sport-mesocycle-planning.md",
+      "x": 8910,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-microcycle-planning",
+      "type": "file",
+      "file": "skills/sport-microcycle-planning.md",
+      "x": 9240,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-season-periodization",
+      "type": "file",
+      "file": "skills/sport-season-periodization.md",
+      "x": 8580,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-training-adaptation-engine",
+      "type": "file",
+      "file": "skills/sport-training-adaptation-engine.md",
+      "x": 8910,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1434,8 +1506,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 8580,
-      "y": 770,
+      "x": 9240,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1443,8 +1515,8 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 8910,
-      "y": 770,
+      "x": 8580,
+      "y": 1190,
       "width": 300,
       "height": 110
     }
@@ -4358,6 +4430,78 @@
       "label": "requires"
     },
     {
+      "id": "requires-190bbfae710d",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-416ad1b343db",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-652a1a8f1655",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-goal-performance-model",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f6cc720af481",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-mesocycle-planning",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-aa53168a2304",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0edd948a3911",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-season-periodization",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-34b8340a024f",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-training-adaptation-engine",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-aba0230fc3a9",
+      "fromNode": "skill-sport-daily-athlete-monitoring",
+      "fromSide": "left",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-f9f360d89e41",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
       "fromSide": "left",
@@ -4387,9 +4531,72 @@
     {
       "id": "requires-f8d7f10ec331",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-training-programming",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-04b80368b874",
+      "fromNode": "skill-sport-goal-performance-model",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bc3012bacae7",
+      "fromNode": "skill-sport-mesocycle-planning",
+      "fromSide": "left",
+      "toNode": "skill-sport-season-periodization",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2215266000e2",
+      "fromNode": "skill-sport-microcycle-planning",
+      "fromSide": "left",
+      "toNode": "skill-sport-mesocycle-planning",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-969dd884ed88",
+      "fromNode": "skill-sport-season-periodization",
+      "fromSide": "right",
+      "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-63d5f19b82b6",
+      "fromNode": "skill-sport-training-adaptation-engine",
+      "fromSide": "left",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-14f7be78ddaf",
+      "fromNode": "skill-sport-training-adaptation-engine",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6e06ed021efe",
+      "fromNode": "skill-sport-training-adaptation-engine",
+      "fromSide": "right",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },

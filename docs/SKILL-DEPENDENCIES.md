@@ -327,10 +327,25 @@ graph TD
   regulatory_evidence_traceability --> research_to_evidence_note
   role_requirements_grilling --> round_based_requirements_grilling
   spec_to_vertical_issues --> conversation_to_spec
+  sport_athlete_management --> sport_athlete_profile
+  sport_athlete_management --> sport_daily_athlete_monitoring
+  sport_athlete_management --> sport_goal_performance_model
+  sport_athlete_management --> sport_mesocycle_planning
+  sport_athlete_management --> sport_microcycle_planning
+  sport_athlete_management --> sport_season_periodization
+  sport_athlete_management --> sport_training_adaptation_engine
+  sport_daily_athlete_monitoring --> sport_athlete_profile
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_docx_report_renderer
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_pdf_report_renderer
   sport_diagnostics_training_report_workflow --> sport_performance_diagnostics
   sport_diagnostics_training_report_workflow --> sport_training_programming
+  sport_goal_performance_model --> sport_athlete_profile
+  sport_mesocycle_planning --> sport_season_periodization
+  sport_microcycle_planning --> sport_mesocycle_planning
+  sport_season_periodization --> sport_goal_performance_model
+  sport_training_adaptation_engine --> sport_athlete_profile
+  sport_training_adaptation_engine --> sport_daily_athlete_monitoring
+  sport_training_adaptation_engine --> sport_microcycle_planning
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -390,6 +405,8 @@ graph TD
 | `analytical-performance-report.md` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
+| `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
+| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-goal-performance-model`, `sport-training-adaptation-engine` | inferred |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `author-voice-profile.json` | `author-voice-profiler` | `precision-writing-revision` | inferred |
 | `author-voice-profile.md` | `author-voice-profiler` | `precision-writing-revision` | inferred |
@@ -431,6 +448,7 @@ graph TD
 | `complaint-regulatory-actions.json` | `fda-complaint-mdr-reportability` | `fda-corrections-removals`, `medical-device-complaint-regulatory-routing` | inferred |
 | `complaint-regulatory-handoff.json` | `medical-device-complaint-handling` | `medical-device-adverse-event-coding`, `medical-device-complaint-customer-followup`, `medical-device-complaint-regulatory-routing` | inferred |
 | `complaint-regulatory-routing.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
+| `completed-session.json` | `sport-daily-athlete-monitoring` | `sport-athlete-management`, `sport-training-adaptation-engine` | inferred |
 | `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
@@ -451,6 +469,7 @@ graph TD
 | `cybersecurity-evidence-map.json` | `medical-device-cybersecurity-lifecycle` | — | unconsumed |
 | `cybersecurity-lifecycle-assessment.json` | `medical-device-cybersecurity-lifecycle` | — | unconsumed |
 | `cybersecurity-postmarket-actions.json` | `medical-device-cybersecurity-lifecycle` | — | unconsumed |
+| `daily-checkin.json` | `sport-daily-athlete-monitoring` | `sport-athlete-management`, `sport-training-adaptation-engine` | inferred |
 | `de-novo-evidence-gaps.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
 | `de-novo-risk-control-rationale.md` | `fda-de-novo-special-controls` | — | unconsumed |
 | `de-novo-strategy.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
@@ -616,6 +635,7 @@ graph TD
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
+| `next-training-decision.json` | `sport-athlete-management` | — | unconsumed |
 | `nonconformance-assessment.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `obsidian-candidate.json` | `obsidian-adapter` | — | unconsumed |
 | `obsidian-map.canvas` | `obsidian-adapter` | — | unconsumed |
@@ -631,6 +651,7 @@ graph TD
 | `per-traceability.json` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-study-gaps.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
+| `plan-revision.json` | `sport-athlete-management` | — | unconsumed |
 | `pmpf-evaluation-report.md` | `ivdr-pmpf` | — | unconsumed |
 | `pmpf-plan.json` | `ivdr-pmpf` | — | unconsumed |
 | `pmpf-signals.json` | `ivdr-pmpf` | — | unconsumed |
@@ -720,7 +741,11 @@ graph TD
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
 | `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-diagnostics-training-report-workflow` | inferred |
+| `sport-mesocycle.json` | `sport-mesocycle-planning` | `sport-athlete-management`, `sport-microcycle-planning` | inferred |
+| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-athlete-management`, `sport-training-adaptation-engine` | inferred |
+| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-season-periodization` | inferred |
 | `sport-report-package` | `sport-diagnostics-training-report-workflow` | — | unconsumed |
+| `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning` | inferred |
 | `sport-training-plan.json` | `sport-training-programming` | `sport-diagnostics-training-report-workflow` | inferred |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
@@ -738,6 +763,7 @@ graph TD
 | `technology-offer-gap-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-question-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-question-set.md` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
+| `training-adaptation-decision.json` | `sport-training-adaptation-engine` | `sport-athlete-management` | inferred |
 | `trend-signal-set.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | unconsumed |
 | `updated skill repository` | `central-skill-repository-curation` | — | unconsumed |

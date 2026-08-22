@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Daily Athlete Monitoring"
+  short_description: "Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit,..."
+policy:
+  allow_implicit_invocation: true

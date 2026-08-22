@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 151,
-  "entrypointCount": 122,
+  "skillCount": 159,
+  "entrypointCount": 130,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 151,
+  "evaluationSuiteCount": 159,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -8139,6 +8139,158 @@
       }
     },
     {
+      "name": "sport-athlete-management",
+      "description": "Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, Session-Completion und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-season-periodization",
+        "sport-training-adaptation-engine"
+      ],
+      "dependents": [],
+      "outputs": [
+        "athlete-management-state.json",
+        "next-training-decision.json",
+        "plan-revision.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "athlete-management-state.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-athlete-management"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "next-training-decision.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-athlete-management"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "plan-revision.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-athlete-management"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-athlete-profile",
+      "description": "Erfasst und versioniert den trainingsrelevanten Athletenkontext als belastbaren Ausgangszustand für Planung, Monitoring und Adaptation. Verwenden bei Neuaufnahme, Profiländerungen oder wenn Alter, Trainingsalter, Sportart, Verfügbarkeit, Präferenzen oder dokumentierte Einschränkungen für spätere Sport-Skills strukturiert bereitgestellt werden müssen; nicht für medizinische Diagnosen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "sport-athlete-management",
+        "sport-daily-athlete-monitoring",
+        "sport-goal-performance-model",
+        "sport-training-adaptation-engine"
+      ],
+      "outputs": [
+        "athlete-profile.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "athlete-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-athlete-profile"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-daily-athlete-monitoring",
+            "sport-goal-performance-model",
+            "sport-training-adaptation-engine"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-daily-athlete-monitoring",
+      "description": "Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit, Muskelkater, Stress, Motivation, Schmerz, Krankheitssymptomen und optionalen objektiven Metriken. Verwenden für tägliches longitudinales Monitoring; nicht als alleiniger Readiness-Score oder medizinische Diagnose.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile"
+      ],
+      "dependents": [
+        "sport-athlete-management",
+        "sport-training-adaptation-engine"
+      ],
+      "outputs": [
+        "completed-session.json",
+        "daily-checkin.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "completed-session.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-daily-athlete-monitoring"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-training-adaptation-engine"
+          ]
+        },
+        {
+          "output": "daily-checkin.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-daily-athlete-monitoring"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-training-adaptation-engine"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "sport-diagnostics-training-report-workflow",
       "description": "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.",
       "invocation": {
@@ -8176,6 +8328,126 @@
       }
     },
     {
+      "name": "sport-goal-performance-model",
+      "description": "Übersetzt ein sportliches Ziel in Outcome-, Performance- und Prozessziele sowie eine priorisierte KPI- und Limiter-Struktur. Verwenden vor Saison- oder Blockplanung, wenn Zieltermin, Wettkampfpriorität und messbare Leistungsanforderungen geklärt werden müssen; nicht für die konkrete Wochenprogrammierung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile"
+      ],
+      "dependents": [
+        "sport-athlete-management",
+        "sport-season-periodization"
+      ],
+      "outputs": [
+        "sport-performance-model.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-performance-model.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-goal-performance-model"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-season-periodization"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-mesocycle-planning",
+      "description": "Übersetzt eine Saisonphase in einen 3–8-wöchigen Adaptationsblock mit Primärziel, Erhaltungsqualitäten, Laststrategie, Entry-/Exit-Kriterien und Re-Evaluation. Verwenden für Blockplanung zwischen Saisonarchitektur und konkreter Wochenplanung; nicht für die Detaildosierung einzelner Übungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-season-periodization"
+      ],
+      "dependents": [
+        "sport-athlete-management",
+        "sport-microcycle-planning"
+      ],
+      "outputs": [
+        "sport-mesocycle.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-mesocycle.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-mesocycle-planning"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-microcycle-planning"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-microcycle-planning",
+      "description": "Verteilt die Ziele eines Mesozylus auf einen konkreten kurzen Trainingszyklus mit Schlüsselreizen, High/Low-Logik, Recovery-Abständen und vollständigen Session-Prescriptions. Verwenden für Wochenplanung oder 5–10-Tage-Zyklen; nicht für Saisonstrategie oder medizinische Rehabilitation.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-mesocycle-planning"
+      ],
+      "dependents": [
+        "sport-athlete-management",
+        "sport-training-adaptation-engine"
+      ],
+      "outputs": [
+        "sport-microcycle.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-microcycle.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-microcycle-planning"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-training-adaptation-engine"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "sport-performance-diagnostics",
       "description": "Wertet sportwissenschaftliche Leistungsdiagnostik wie Laktat-Stufentests, Ergometerdaten, Herzfrequenz, RPE und Erholung strukturiert aus und erzeugt belastbare Arbeitsbereiche mit Unsicherheiten statt Scheingenauigkeit. Verwenden, wenn Testdaten interpretiert, Schwellenmodelle verglichen oder Trainingszonen aus Messreihen abgeleitet werden sollen; nicht für eigenständige medizinische Diagnosen.",
       "invocation": {
@@ -8198,6 +8470,86 @@
           ],
           "consumerSkills": [
             "sport-diagnostics-training-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-season-periodization",
+      "description": "Plant die Saison- und Makrostruktur aus priorisierten Wettkämpfen, Performance-Zielen, Trainingshistorie und verfügbarem Kalender. Verwenden für A/B/C-Wettkämpfe, Peak-Timing, Vorbereitungs-, Wettkampf-, Taper- und Übergangsphasen; nicht für konkrete Tages- oder Wochenbelastungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-goal-performance-model"
+      ],
+      "dependents": [
+        "sport-athlete-management",
+        "sport-mesocycle-planning"
+      ],
+      "outputs": [
+        "sport-season-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-season-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-season-periodization"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management",
+            "sport-mesocycle-planning"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-training-adaptation-engine",
+      "description": "Vergleicht geplante Belastung, tatsächlich absolvierte Einheit, subjektive und objektive Reaktion, Trends und Health Constraints und erzeugt eine erklärbare akute, taktische oder strategische Trainingsanpassung. Verwenden für Proceed/Modify/Recover/Review-Entscheidungen; nicht als autonomes medizinisches Clearance- oder Verletzungsvorhersagesystem.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring",
+        "sport-microcycle-planning"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "training-adaptation-decision.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "training-adaptation-decision.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-training-adaptation-engine"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
           ]
         }
       ],

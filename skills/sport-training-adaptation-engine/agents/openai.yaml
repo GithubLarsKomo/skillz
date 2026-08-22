@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Training Adaptation Engine"
+  short_description: "Vergleicht geplante Belastung, tatsächlich absolvierte Einheit, subjektive und objektive Reaktion, Trends und Health..."
+policy:
+  allow_implicit_invocation: true

@@ -1758,6 +1758,43 @@
       ]
     },
     {
+      "name": "sport-athlete-management",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-season-periodization",
+        "sport-training-adaptation-engine"
+      ],
+      "consumes": [],
+      "outputs": [
+        "athlete-management-state.json",
+        "next-training-decision.json",
+        "plan-revision.json"
+      ]
+    },
+    {
+      "name": "sport-athlete-profile",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "athlete-profile.json"
+      ]
+    },
+    {
+      "name": "sport-daily-athlete-monitoring",
+      "requires": [
+        "sport-athlete-profile"
+      ],
+      "consumes": [],
+      "outputs": [
+        "completed-session.json",
+        "daily-checkin.json"
+      ]
+    },
+    {
       "name": "sport-diagnostics-training-report-workflow",
       "requires": [
         "dr-komorowski-sport-docx-report-renderer",
@@ -1771,11 +1808,63 @@
       ]
     },
     {
+      "name": "sport-goal-performance-model",
+      "requires": [
+        "sport-athlete-profile"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-performance-model.json"
+      ]
+    },
+    {
+      "name": "sport-mesocycle-planning",
+      "requires": [
+        "sport-season-periodization"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-mesocycle.json"
+      ]
+    },
+    {
+      "name": "sport-microcycle-planning",
+      "requires": [
+        "sport-mesocycle-planning"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-microcycle.json"
+      ]
+    },
+    {
       "name": "sport-performance-diagnostics",
       "requires": [],
       "consumes": [],
       "outputs": [
         "sport-diagnostics.json"
+      ]
+    },
+    {
+      "name": "sport-season-periodization",
+      "requires": [
+        "sport-goal-performance-model"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-season-plan.json"
+      ]
+    },
+    {
+      "name": "sport-training-adaptation-engine",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring",
+        "sport-microcycle-planning"
+      ],
+      "consumes": [],
+      "outputs": [
+        "training-adaptation-decision.json"
       ]
     },
     {
@@ -3216,6 +3305,38 @@
       "to": "conversation-to-spec"
     },
     {
+      "from": "sport-athlete-management",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-mesocycle-planning"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-season-periodization"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-training-adaptation-engine"
+    },
+    {
+      "from": "sport-daily-athlete-monitoring",
+      "to": "sport-athlete-profile"
+    },
+    {
       "from": "sport-diagnostics-training-report-workflow",
       "to": "dr-komorowski-sport-docx-report-renderer"
     },
@@ -3230,6 +3351,34 @@
     {
       "from": "sport-diagnostics-training-report-workflow",
       "to": "sport-training-programming"
+    },
+    {
+      "from": "sport-goal-performance-model",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-mesocycle-planning",
+      "to": "sport-season-periodization"
+    },
+    {
+      "from": "sport-microcycle-planning",
+      "to": "sport-mesocycle-planning"
+    },
+    {
+      "from": "sport-season-periodization",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-training-adaptation-engine",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-training-adaptation-engine",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
+      "from": "sport-training-adaptation-engine",
+      "to": "sport-microcycle-planning"
     },
     {
       "from": "supplier-quality-medical-device",
@@ -3533,6 +3682,29 @@
         "domain-model-maintenance",
         "large-work-wayfinder",
         "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "athlete-management-state.json",
+      "producers": [
+        "sport-athlete-management"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "athlete-profile.json",
+      "producers": [
+        "sport-athlete-profile"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-daily-athlete-monitoring",
+        "sport-goal-performance-model",
+        "sport-training-adaptation-engine"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -3970,6 +4142,18 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "completed-session.json",
+      "producers": [
+        "sport-daily-athlete-monitoring"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-training-adaptation-engine"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "compliance-evidence-effectiveness.json",
       "producers": [
         "two-axis-compliance-review"
@@ -4226,6 +4410,18 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "daily-checkin.json",
+      "producers": [
+        "sport-daily-athlete-monitoring"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-training-adaptation-engine"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "de-novo-evidence-gaps.json",
@@ -6064,6 +6260,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "next-training-decision.json",
+      "producers": [
+        "sport-athlete-management"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "nonconformance-assessment.json",
       "producers": [
         "nonconformance-mrb-disposition"
@@ -6199,6 +6404,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "plan-revision.json",
+      "producers": [
+        "sport-athlete-management"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "pmpf-evaluation-report.md",
@@ -7445,6 +7659,42 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "sport-mesocycle.json",
+      "producers": [
+        "sport-mesocycle-planning"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-microcycle-planning"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sport-microcycle.json",
+      "producers": [
+        "sport-microcycle-planning"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-training-adaptation-engine"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sport-performance-model.json",
+      "producers": [
+        "sport-goal-performance-model"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-season-periodization"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "sport-report-package",
       "producers": [
         "sport-diagnostics-training-report-workflow"
@@ -7452,6 +7702,18 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "sport-season-plan.json",
+      "producers": [
+        "sport-season-periodization"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management",
+        "sport-mesocycle-planning"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "sport-training-plan.json",
@@ -7621,6 +7883,17 @@
       ],
       "consumerSkills": [
         "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "training-adaptation-decision.json",
+      "producers": [
+        "sport-training-adaptation-engine"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7845,6 +8118,7 @@
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
+    "athlete-management-state.json",
     "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -7944,6 +8218,7 @@
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
     "mrb-disposition-decision.json",
+    "next-training-decision.json",
     "nonconformance-assessment.json",
     "obsidian-candidate.json",
     "obsidian-map.canvas",
@@ -7958,6 +8233,7 @@
     "pccp-deviation-routing.json",
     "per-traceability.json",
     "performance-evaluation-report.md",
+    "plan-revision.json",
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
@@ -8014,6 +8290,7 @@
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
+    "athlete-management-state.json",
     "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -8113,6 +8390,7 @@
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
     "mrb-disposition-decision.json",
+    "next-training-decision.json",
     "nonconformance-assessment.json",
     "obsidian-candidate.json",
     "obsidian-map.canvas",
@@ -8127,6 +8405,7 @@
     "pccp-deviation-routing.json",
     "per-traceability.json",
     "performance-evaluation-report.md",
+    "plan-revision.json",
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",

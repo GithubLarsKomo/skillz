@@ -866,16 +866,64 @@
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
       }
     },
+    "sport-athlete-management": {
+      "files": {
+        "SKILL.md": "92c9620d56768f837ecb7936dc87d066c3ebdf534b0df738a1bed20eda57acf0",
+        "agents/openai.yaml": "d3b904557a2f39b15deeb35a4fd9590dd68332f8caea162df1ae4a1c48552238"
+      }
+    },
+    "sport-athlete-profile": {
+      "files": {
+        "SKILL.md": "498add8f13578f62ae47a450ad1c44ca38eb5e4b74d7216f5cc9a34bde767c47",
+        "agents/openai.yaml": "11f172baf9300de7033da83adeec80b7de4f1ed55221ef093c9a95aa5bc098c7"
+      }
+    },
+    "sport-daily-athlete-monitoring": {
+      "files": {
+        "SKILL.md": "1090938d617b4df005d08db219a6c78bfd5d8d66f0194fbf3d5da455a7031ff9",
+        "agents/openai.yaml": "a0165b7492f4d67e3d87345f24b08fd62e3aa6022a356bde606a198656dd08ee"
+      }
+    },
     "sport-diagnostics-training-report-workflow": {
       "files": {
         "SKILL.md": "7d2a7bf80b3ee682c640b0ea1380f15fdb297e947cca2d91ce7054ee01b29d35",
         "agents/openai.yaml": "8c3ed9360ffe5e9bfc2946ae8a5cca42adaffbc47c0ae6a74ce2b07cfdcb80ed"
       }
     },
+    "sport-goal-performance-model": {
+      "files": {
+        "SKILL.md": "04c1aca64ad1b99812ed9ae1628c138983116bff503182d4d4b089a033da2af7",
+        "agents/openai.yaml": "77b206739fc39028c179573b4fb574753b5f4f53c7edb61e8151607384c54625"
+      }
+    },
+    "sport-mesocycle-planning": {
+      "files": {
+        "SKILL.md": "288e072e76204975de35d845a70af545cf95216247c127faa9cad3455efb435a",
+        "agents/openai.yaml": "77e230903214c59fb8f526ba0b33b15f15b02aac48eaf71240737a88aaf7d77b"
+      }
+    },
+    "sport-microcycle-planning": {
+      "files": {
+        "SKILL.md": "aa5a1307102ad4a807edb267aeeff8985a4b481b9bcb199f17aa517e6c252b7e",
+        "agents/openai.yaml": "ae9f2521935d2ff508520f6380934b6ac5ffb6c62e6997954110209b5538a28a"
+      }
+    },
     "sport-performance-diagnostics": {
       "files": {
         "SKILL.md": "0c5f545808d5b7e118c1355991b47879751a0c8f77588543cf6f4cb61ac1b303",
         "agents/openai.yaml": "525c800ceb6ebf516332f12a3a004ddb031f0796b7fe2c2de9558d1d4e334da7"
+      }
+    },
+    "sport-season-periodization": {
+      "files": {
+        "SKILL.md": "4e80ad3862d2a2c0c106a30224d43e7a7565a0e819fecf4b4b96bac93de193f9",
+        "agents/openai.yaml": "a53babe3381668c37d9aa73b2818cb7aa4a5fe31e5f6b63aa45f4dc793b9b6bb"
+      }
+    },
+    "sport-training-adaptation-engine": {
+      "files": {
+        "SKILL.md": "29dc8ed8ccbdfeec1894351effdf9e87013fde8514215b8285de22127e0bd963",
+        "agents/openai.yaml": "07f08bb354f31fabef3412dd73323a87004928cc41625f7d65603583475d9774"
       }
     },
     "sport-training-programming": {

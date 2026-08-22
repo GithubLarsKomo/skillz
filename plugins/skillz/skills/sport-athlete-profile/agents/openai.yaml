@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Athlete Profile"
+  short_description: "Erfasst und versioniert den trainingsrelevanten Athletenkontext als belastbaren Ausgangszustand für Planung, Monitori..."
+policy:
+  allow_implicit_invocation: true

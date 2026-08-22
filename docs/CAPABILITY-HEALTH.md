@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **151**
-- User-facing entrypoints: **122**
-- Evaluation suites: **151**
+- Skills: **159**
+- User-facing entrypoints: **130**
+- Evaluation suites: **159**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **167**
+- Outputs without inferred hard-requires consumers: **170**
 
 ## Evaluation gaps
 
@@ -34,6 +34,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
+- `athlete-management-state.json` — producer: `sport-athlete-management`
 - `audit-finding-response-map.json` — producer: `audit-inspection-finding-response`
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
@@ -133,6 +134,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `memory-ledger.merged.json` — producer: `memory-sync-reconciliation`
 - `memory-reconciliation-plan.json` — producer: `memory-sync-reconciliation`
 - `mrb-disposition-decision.json` — producer: `nonconformance-mrb-disposition`
+- `next-training-decision.json` — producer: `sport-athlete-management`
 - `nonconformance-assessment.json` — producer: `nonconformance-mrb-disposition`
 - `obsidian-candidate.json` — producer: `obsidian-adapter`
 - `obsidian-map.canvas` — producer: `obsidian-adapter`
@@ -147,6 +149,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pccp-deviation-routing.json` — producer: `fda-pccp-change-control`
 - `per-traceability.json` — producer: `ivdr-performance-evaluation-report`
 - `performance-evaluation-report.md` — producer: `ivdr-performance-evaluation-report`
+- `plan-revision.json` — producer: `sport-athlete-management`
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`

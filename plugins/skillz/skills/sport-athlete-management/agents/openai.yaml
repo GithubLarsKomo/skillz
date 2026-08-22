@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Athlete Management"
+  short_description: "Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mi..."
+policy:
+  allow_implicit_invocation: true
