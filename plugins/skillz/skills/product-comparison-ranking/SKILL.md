@@ -65,22 +65,28 @@ Sortiere nach Entscheidungseignung und vermeide redundante Varianten ohne eigens
 
 ### 9. Sensitivity analysieren
 
-Wenn Kandidaten eng beieinander liegen, teste nachvollziehbare Gewichtungsänderungen. Berichte, wenn sich der Gewinner unter plausiblen Gewichten ändert. Behaupte keinen stabilen eindeutigen Sieger, wenn das Resultat sensitiv ist.
+Führe standardmäßig eine deterministische One-at-a-time-Gewichtssensitivität mit `sensitivityDelta = 0.05` aus: Erhöhe und reduziere jedes Kriterium einzeln um **5 Prozentpunkte** und renormalisiere alle übrigen Gewichte proportional auf Summe 1.0. Ein fachlich begründeter anderer Delta-Wert darf explizit konfiguriert werden.
+
+Prüfe für jedes Szenario getrennt, ob sich **Quality Winner** oder **Price/Performance Winner** ändern. Jede Winner-Reversal wird mit veränderten Gewichten ausgewiesen. Wenn mindestens ein getestetes plausibles Gewichtsszenario den Gewinner ändert, gilt der entsprechende Gewinner als instabil und `rankingConfidence` darf nicht `high` sein.
+
+Prüfe zusätzlich den Baseline-Abstand zwischen Platz 1 und 2. Standardmäßig gilt `nearTieThreshold = 1.0` Utility-Punkt auf der 0–100-Skala, getrennt für `qualityUtility` und `utilityScore`. Ein Abstand `<= nearTieThreshold` ist ein **Near Tie** und reduziert `rankingConfidence` auch dann, wenn die getesteten Gewichtungsänderungen den Sieger nicht umkehren. Damit darf ein numerischer Vorsprung ohne praktische Trennschärfe nicht als stabiler eindeutiger Sieger dargestellt werden.
+
+Der Sensitivity-Output enthält mindestens Methode, Delta, Near-Tie-Schwelle, Zahl der getesteten Szenarien, Baseline-Winner, Score-Abstände, Near-Tie-Flags, Stabilitätsflags und alle Winner-Reversals.
 
 ## Prüfungen
 
-Prüfe, dass Hard Gates vor Scores laufen; FAIL nie gewinnt; Conditional/Unknown nur caveated gewinnen kann; nur bestätigte Gewichte einfließen und 1.0 ergeben; fehlende Scores nicht imputiert werden; `utilityScore`, `qualityUtility`, `evidenceCoverage` und `rankingConfidence` getrennt bleiben; kein willkürlicher Confidence-Multiplikator verwendet wird; Bargain nicht bloß der billigste Kandidat ist; maximal zehn Kandidaten in der finalen Shortlist stehen; Winner-Collisions erlaubt sind und preisabhängige Gewinner bei fehlendem Preis unresolved bleiben.
+Prüfe, dass Hard Gates vor Scores laufen; FAIL nie gewinnt; Conditional/Unknown nur caveated gewinnen kann; nur bestätigte Gewichte einfließen und 1.0 ergeben; fehlende Scores nicht imputiert werden; `utilityScore`, `qualityUtility`, `evidenceCoverage` und `rankingConfidence` getrennt bleiben; kein willkürlicher Confidence-Multiplikator verwendet wird; Bargain nicht bloß der billigste Kandidat ist; maximal zehn Kandidaten in der finalen Shortlist stehen; Winner-Collisions erlaubt sind; preisabhängige Gewinner bei fehlendem Preis unresolved bleiben; Sensitivity die Gewichte nach jeder Änderung wieder auf 1.0 normalisiert; Winner-Reversals sichtbar sind; und Near Ties oder instabile Winner kein `rankingConfidence: high` erhalten.
 
 ## Fehlerbehandlung
 
-Fehlen bestätigte Gewichte, liefere eine qualitative Vergleichsmatrix statt erfundener Gesamtpunktzahl. Fehlen aktuelle Preise, kann Quality Winner ggf. bestimmt werden, während Price/Performance/Bargain unresolved bleiben. Wenn ein Missing Criterion das Ergebnis materiell verändern könnte, reduziere Ranking-Confidence und nenne die konkrete Evidenz, die die Entscheidung klären würde.
+Fehlen bestätigte Gewichte, liefere eine qualitative Vergleichsmatrix statt erfundener Gesamtpunktzahl. Fehlen aktuelle Preise, kann Quality Winner ggf. bestimmt werden, während Price/Performance/Bargain unresolved bleiben. Wenn ein Missing Criterion das Ergebnis materiell verändern könnte, reduziere Ranking-Confidence und nenne die konkrete Evidenz, die die Entscheidung klären würde. Ungültige `sensitivityDelta`- oder `nearTieThreshold`-Werte werden abgelehnt statt still korrigiert.
 
 ## Übergabe
 
-`product-ranking.json` enthält mindestens `schemaVersion`, `asOf`, `rankingConfidence`, `winners`, `rankedCandidates`, `excludedCandidates`, `sensitivity` und `limitations`. Jeder Ranked Candidate enthält `rank`, `candidateId`, `gate`, `utilityScore`, `qualityUtility`, `evidenceCoverage`, `labels`, `criterionScores`, Hauptstärke/-schwäche, `materialUnknowns` und `bestKnownOfferRef`.
+`product-ranking.json` enthält mindestens `schemaVersion`, `asOf`, `rankingConfidence`, `winners`, `rankedCandidates`, `excludedCandidates`, `sensitivity` und `limitations`. `sensitivity` enthält mindestens `method`, `delta`, `nearTieThreshold`, `scenarioCount`, `baseline`, `margins`, `nearTie`, `qualityWinnerStable`, `pricePerformanceWinnerStable` und `winnerChanges`. Jeder Ranked Candidate enthält `rank`, `candidateId`, `gate`, `utilityScore`, `qualityUtility`, `evidenceCoverage`, `labels`, `criterionScores`, Hauptstärke/-schwäche, `materialUnknowns` und `bestKnownOfferRef`.
 
 Nächster Normalpfad: `purchase-decision-planner`.
 
 ## Abschlusskriterien
 
-Der Skill ist abgeschlossen, wenn alle Kandidaten deterministisch durch Hard Gates gelaufen, Scores ausschließlich aus belegten Kriterien und bestätigten Gewichten berechnet, Evidence Confidence separat gehalten, Winner-Klassen reproduzierbar bestimmt, **Sensitivity** bei knappen Ergebnissen sichtbar und höchstens zehn finale Kandidaten übergeben sind.
+Der Skill ist abgeschlossen, wenn alle Kandidaten deterministisch durch Hard Gates gelaufen, Scores ausschließlich aus belegten Kriterien und bestätigten Gewichten berechnet, Evidence Confidence separat gehalten, Winner-Klassen reproduzierbar bestimmt, **Sensitivity** inklusive Near-Tie-Erkennung bei knappen Ergebnissen sichtbar und höchstens zehn finale Kandidaten übergeben sind.

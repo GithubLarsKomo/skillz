@@ -766,10 +766,10 @@
     },
     "product-comparison-ranking": {
       "files": {
-        "SKILL.md": "6384a6490428d5bfbcda96e9fd80d5e4372de444de0de64527433a0bf3efe3df",
+        "SKILL.md": "59f18436cff38f0a4fcb9f39d99f1b1a1b24e3c73c2414fe74225647065336f6",
         "agents/openai.yaml": "7caaaaf8ca3d9172750105cee64116efa11b7cae53d4ca1a5c7f3f6a38d743c6",
-        "references/scoring-model.md": "ac7b395a912f6f2b7ad9f323997109ff5f201bb342e910b69e12e01d77c252c8",
-        "scripts/rank_products.py": "8bbe90f346fbc0d842e49e79e74a7d714b6adc3ada3869e2cedd9f61eecd64aa",
+        "references/scoring-model.md": "d5ea0564e7127f8a90231db781e2cd18e5713d86db53b945aaebb0072d91c33c",
+        "scripts/rank_products.py": "682ad8b1f75ff890c71ea8f3666c26e3ce686da91f7d389cbd928417b6a389c5",
         "scripts/validate_requirements.py": "faf3d563c7621f02ae030469097d6ae7da8d537e9c7d26bac87ff810a03ee40a"
       }
     },
