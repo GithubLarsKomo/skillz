@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n171 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n175 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1347,7 +1347,7 @@
       "x": 9760,
       "y": 0,
       "width": 1120,
-      "height": 1640,
+      "height": 1780,
       "color": "3"
     },
     {
@@ -1531,11 +1531,20 @@
       "height": 110
     },
     {
+      "id": "skill-sport-environment-travel",
+      "type": "file",
+      "file": "skills/sport-environment-travel.md",
+      "x": 10460,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-sport-goal-performance-model",
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
-      "x": 10460,
-      "y": 910,
+      "x": 9800,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1543,7 +1552,16 @@
       "id": "skill-sport-injury-rehabilitation",
       "type": "file",
       "file": "skills/sport-injury-rehabilitation.md",
-      "x": 9800,
+      "x": 10130,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-mental-health-routing",
+      "type": "file",
+      "file": "skills/sport-mental-health-routing.md",
+      "x": 10460,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -1552,8 +1570,8 @@
       "id": "skill-sport-mesocycle-planning",
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
-      "x": 10130,
-      "y": 1050,
+      "x": 9800,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1561,8 +1579,8 @@
       "id": "skill-sport-microcycle-planning",
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
-      "x": 10460,
-      "y": 1050,
+      "x": 10130,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1570,8 +1588,17 @@
       "id": "skill-sport-nutrition-fueling",
       "type": "file",
       "file": "skills/sport-nutrition-fueling.md",
-      "x": 9800,
+      "x": 10460,
       "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-performance-psychology",
+      "type": "file",
+      "file": "skills/sport-performance-psychology.md",
+      "x": 9800,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1580,7 +1607,7 @@
       "type": "file",
       "file": "skills/sport-return-after-illness.md",
       "x": 10130,
-      "y": 1190,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1589,7 +1616,7 @@
       "type": "file",
       "file": "skills/sport-season-periodization.md",
       "x": 10460,
-      "y": 1190,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1598,7 +1625,7 @@
       "type": "file",
       "file": "skills/sport-strength-power-programming.md",
       "x": 9800,
-      "y": 1330,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1607,7 +1634,7 @@
       "type": "file",
       "file": "skills/sport-testing-battery.md",
       "x": 10130,
-      "y": 1330,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1616,7 +1643,16 @@
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
       "x": 10460,
-      "y": 1330,
+      "y": 1470,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-training-music",
+      "type": "file",
+      "file": "skills/sport-training-music.md",
+      "x": 9800,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1624,8 +1660,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 9800,
-      "y": 1470,
+      "x": 10130,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1633,8 +1669,8 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 10130,
-      "y": 1470,
+      "x": 10460,
+      "y": 1610,
       "width": 300,
       "height": 110
     }
@@ -4647,6 +4683,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-0eb793f844f7",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-environment-travel",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-652a1a8f1655",
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
@@ -4660,6 +4705,15 @@
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
       "toNode": "skill-sport-injury-rehabilitation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1e5b02d56b79",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-mental-health-routing",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4687,6 +4741,15 @@
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
       "toNode": "skill-sport-nutrition-fueling",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fc370f6f9da3",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-performance-psychology",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4741,6 +4804,15 @@
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
       "toNode": "skill-sport-training-adaptation-engine",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-562f8c58f49f",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-training-music",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4802,18 +4874,18 @@
     {
       "id": "requires-eb278bb96431",
       "fromNode": "skill-sport-endurance-programming",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-04e4d02b18ef",
       "fromNode": "skill-sport-endurance-programming",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-mesocycle-planning",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4836,11 +4908,38 @@
       "label": "requires"
     },
     {
-      "id": "requires-04b80368b874",
-      "fromNode": "skill-sport-goal-performance-model",
+      "id": "requires-8a7bd33668f0",
+      "fromNode": "skill-sport-environment-travel",
       "fromSide": "left",
       "toNode": "skill-sport-athlete-profile",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9c37383b62d9",
+      "fromNode": "skill-sport-environment-travel",
+      "fromSide": "left",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-91a2552309b0",
+      "fromNode": "skill-sport-environment-travel",
+      "fromSide": "left",
+      "toNode": "skill-sport-recovery-sleep",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-04b80368b874",
+      "fromNode": "skill-sport-goal-performance-model",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4856,6 +4955,24 @@
     {
       "id": "requires-b5e96afb58af",
       "fromNode": "skill-sport-injury-rehabilitation",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3dba2ae8679b",
+      "fromNode": "skill-sport-mental-health-routing",
+      "fromSide": "left",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-eb41c4ff476d",
+      "fromNode": "skill-sport-mental-health-routing",
       "fromSide": "right",
       "toNode": "skill-sport-daily-athlete-monitoring",
       "toSide": "left",
@@ -4883,9 +5000,9 @@
     {
       "id": "requires-7ec05c4514bd",
       "fromNode": "skill-sport-nutrition-fueling",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4901,15 +5018,42 @@
     {
       "id": "requires-72a43b0dee86",
       "fromNode": "skill-sport-nutrition-fueling",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-mesocycle-planning",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-ffeff02cd7fb",
       "fromNode": "skill-sport-nutrition-fueling",
+      "fromSide": "left",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ef93aa87ae73",
+      "fromNode": "skill-sport-performance-psychology",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c80d9a647b07",
+      "fromNode": "skill-sport-performance-psychology",
+      "fromSide": "right",
+      "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6e3233a8199b",
+      "fromNode": "skill-sport-performance-psychology",
       "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
       "toSide": "left",
@@ -4955,9 +5099,9 @@
     {
       "id": "requires-969dd884ed88",
       "fromNode": "skill-sport-season-periodization",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5009,9 +5153,9 @@
     {
       "id": "requires-a004e9a37036",
       "fromNode": "skill-sport-testing-battery",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5045,6 +5189,24 @@
     {
       "id": "requires-6e06ed021efe",
       "fromNode": "skill-sport-training-adaptation-engine",
+      "fromSide": "left",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-feb344033238",
+      "fromNode": "skill-sport-training-music",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8e86121d8d2a",
+      "fromNode": "skill-sport-training-music",
       "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
       "toSide": "left",

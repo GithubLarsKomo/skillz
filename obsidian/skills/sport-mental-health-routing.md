@@ -1,28 +1,28 @@
 ---
 type: skill
 generated: true
-name: "sport-recovery-sleep"
-category: "analysis"
+name: "sport-mental-health-routing"
+category: "workflow"
 userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
-sourcePath: "skills/sport-recovery-sleep/SKILL.md"
+sourcePath: "skills/sport-mental-health-routing/SKILL.md"
 tags:
   - skill
-  - skill-category/analysis
+  - skill-category/workflow
 ---
 
-# sport-recovery-sleep
+# sport-mental-health-routing
 
-Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle Baseline und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise oder Wettkampfbelastung; keinen opaken Readiness-Score und keine HRV-Alleinsteuerung erzeugen.
+Trennt sportpsychologische Performance-Themen von möglichem Mental-Health-/Krisenbedarf und erzeugt ein konservatives Routing mit Dringlichkeit, Support-Optionen und Trainingsgrenzen. Verwenden bei psychischer Belastung oder Warnsignalen; nicht diagnostizieren, therapieren oder medizinisch freigeben.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
 ## Category
 
-[[categories/analysis|analysis]]
+[[categories/workflow|workflow]]
 
 ## Requires
 
@@ -32,18 +32,16 @@ Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle
 ## Required by
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
-- [[skills/sport-environment-travel|sport-environment-travel]]
 
 ## Outputs
 
-- `recovery-state.json`
+- `mental-health-routing.json`
 
 ## Output consumers
 
-### `recovery-state.json`
+### `mental-health-routing.json`
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
-- [[skills/sport-environment-travel|sport-environment-travel]]
 
 ## Evaluation
 
@@ -54,4 +52,4 @@ Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle
 
 ## Canonical source
 
-`skills/sport-recovery-sleep/SKILL.md`
+`skills/sport-mental-health-routing/SKILL.md`

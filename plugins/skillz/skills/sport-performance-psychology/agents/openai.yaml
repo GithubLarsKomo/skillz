@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Performance Psychology"
+  short_description: "Erstellt ein individualisiertes sportpsychologisches Performance-Training für Ziel-/Prozessfokus, Imagery, Self-Talk,..."
+policy:
+  allow_implicit_invocation: true

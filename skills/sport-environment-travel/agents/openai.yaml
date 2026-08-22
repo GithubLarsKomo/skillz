@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Environment Travel"
+  short_description: "Plant sportliche Anpassungen an Hitze, Kälte, Höhe/Hypoxie, Reisebelastung und Jetlag mit Kontext-, Akklimatisations-..."
+policy:
+  allow_implicit_invocation: true

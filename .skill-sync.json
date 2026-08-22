@@ -906,7 +906,7 @@
     },
     "sport-athlete-management": {
       "files": {
-        "SKILL.md": "91ec0915db9f0c268fc01ee305ee7a434e8b46f288241c044f4810a73d71fbf1",
+        "SKILL.md": "37c1628eba8c68a6dc55898e4a73c13019fb3564b39f7b4f26ae8d65b3aee658",
         "agents/openai.yaml": "d3b904557a2f39b15deeb35a4fd9590dd68332f8caea162df1ae4a1c48552238"
       }
     },
@@ -934,6 +934,12 @@
         "agents/openai.yaml": "c300d697045d17d39f48f353743ae96d21bda7f5eace781b6c498cd2183ef39c"
       }
     },
+    "sport-environment-travel": {
+      "files": {
+        "SKILL.md": "f8bf94c6fc03abc7598850ef2c93fa8d107da54c4d5877fdd4a6c83a89d0f615",
+        "agents/openai.yaml": "de8ade5e0782c5ed76e98475f6cc5f0f49ab8ed98146f2cedd1a6e4dc5500b2a"
+      }
+    },
     "sport-goal-performance-model": {
       "files": {
         "SKILL.md": "04c1aca64ad1b99812ed9ae1628c138983116bff503182d4d4b089a033da2af7",
@@ -944,6 +950,12 @@
       "files": {
         "SKILL.md": "9686e7f1cc2b0cfdfbbae6f5cd3c5839ca23b8bc004ca1dac3ab2738300f11cb",
         "agents/openai.yaml": "9e9a437f2e5875d22d39803c3859085c7580daf6ee6bb267174b7abeddb7b663"
+      }
+    },
+    "sport-mental-health-routing": {
+      "files": {
+        "SKILL.md": "d5303f3740138036831547a5f5254058843ef73034dd3a0af48f4c61a2d72351",
+        "agents/openai.yaml": "963004c57e8aebbfabc88b7106f129d013b16cdee9fb495b84f64cd61a6ca35c"
       }
     },
     "sport-mesocycle-planning": {
@@ -968,6 +980,12 @@
       "files": {
         "SKILL.md": "0c5f545808d5b7e118c1355991b47879751a0c8f77588543cf6f4cb61ac1b303",
         "agents/openai.yaml": "525c800ceb6ebf516332f12a3a004ddb031f0796b7fe2c2de9558d1d4e334da7"
+      }
+    },
+    "sport-performance-psychology": {
+      "files": {
+        "SKILL.md": "c701db52a5e53df4dfb581e45e18bb7122bf325d2af34f8d74b675e5eeac7874",
+        "agents/openai.yaml": "fffac4b021c46b72a02f31d031900e5428b12bcd96af3136619f12be769a3300"
       }
     },
     "sport-recovery-sleep": {
@@ -1004,6 +1022,12 @@
       "files": {
         "SKILL.md": "29dc8ed8ccbdfeec1894351effdf9e87013fde8514215b8285de22127e0bd963",
         "agents/openai.yaml": "07f08bb354f31fabef3412dd73323a87004928cc41625f7d65603583475d9774"
+      }
+    },
+    "sport-training-music": {
+      "files": {
+        "SKILL.md": "a12ed9129449012bb27cca1bf32f44e0a7de0427966db7a85541572e1bb2f62d",
+        "agents/openai.yaml": "b445b58f8d8bd78559a09165bbaa44baf9baedc7fce8b62e007adb34e2b0945a"
       }
     },
     "sport-training-programming": {

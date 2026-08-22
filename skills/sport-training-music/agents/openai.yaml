@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Training Music"
+  short_description: "Erstellt präferenzbasierte Musikprofile und Session-Empfehlungen für Aktivierung, Motivation, Affekt, Warm-up, Traini..."
+policy:
+  allow_implicit_invocation: true

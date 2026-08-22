@@ -338,17 +338,21 @@ graph TD
   sport_athlete_management --> sport_athlete_profile
   sport_athlete_management --> sport_daily_athlete_monitoring
   sport_athlete_management --> sport_endurance_programming
+  sport_athlete_management --> sport_environment_travel
   sport_athlete_management --> sport_goal_performance_model
   sport_athlete_management --> sport_injury_rehabilitation
+  sport_athlete_management --> sport_mental_health_routing
   sport_athlete_management --> sport_mesocycle_planning
   sport_athlete_management --> sport_microcycle_planning
   sport_athlete_management --> sport_nutrition_fueling
+  sport_athlete_management --> sport_performance_psychology
   sport_athlete_management --> sport_recovery_sleep
   sport_athlete_management --> sport_return_after_illness
   sport_athlete_management --> sport_season_periodization
   sport_athlete_management --> sport_strength_power_programming
   sport_athlete_management --> sport_testing_battery
   sport_athlete_management --> sport_training_adaptation_engine
+  sport_athlete_management --> sport_training_music
   sport_daily_athlete_monitoring --> sport_athlete_profile
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_docx_report_renderer
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_pdf_report_renderer
@@ -359,15 +363,23 @@ graph TD
   sport_endurance_programming --> sport_mesocycle_planning
   sport_endurance_programming --> sport_microcycle_planning
   sport_endurance_programming --> sport_performance_diagnostics
+  sport_environment_travel --> sport_athlete_profile
+  sport_environment_travel --> sport_microcycle_planning
+  sport_environment_travel --> sport_recovery_sleep
   sport_goal_performance_model --> sport_athlete_profile
   sport_injury_rehabilitation --> sport_athlete_profile
   sport_injury_rehabilitation --> sport_daily_athlete_monitoring
+  sport_mental_health_routing --> sport_athlete_profile
+  sport_mental_health_routing --> sport_daily_athlete_monitoring
   sport_mesocycle_planning --> sport_season_periodization
   sport_microcycle_planning --> sport_mesocycle_planning
   sport_nutrition_fueling --> sport_athlete_profile
   sport_nutrition_fueling --> sport_daily_athlete_monitoring
   sport_nutrition_fueling --> sport_mesocycle_planning
   sport_nutrition_fueling --> sport_microcycle_planning
+  sport_performance_psychology --> sport_athlete_profile
+  sport_performance_psychology --> sport_goal_performance_model
+  sport_performance_psychology --> sport_microcycle_planning
   sport_recovery_sleep --> sport_athlete_profile
   sport_recovery_sleep --> sport_daily_athlete_monitoring
   sport_return_after_illness --> sport_athlete_profile
@@ -383,6 +395,8 @@ graph TD
   sport_training_adaptation_engine --> sport_athlete_profile
   sport_training_adaptation_engine --> sport_daily_athlete_monitoring
   sport_training_adaptation_engine --> sport_microcycle_planning
+  sport_training_music --> sport_athlete_profile
+  sport_training_music --> sport_microcycle_planning
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -443,7 +457,7 @@ graph TD
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
-| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-nutrition-fueling`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine` | inferred |
+| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `author-voice-profile.json` | `author-voice-profiler` | `precision-writing-revision` | inferred |
 | `author-voice-profile.md` | `author-voice-profiler` | `precision-writing-revision` | inferred |
@@ -485,7 +499,7 @@ graph TD
 | `complaint-regulatory-actions.json` | `fda-complaint-mdr-reportability` | `fda-corrections-removals`, `medical-device-complaint-regulatory-routing` | inferred |
 | `complaint-regulatory-handoff.json` | `medical-device-complaint-handling` | `medical-device-adverse-event-coding`, `medical-device-complaint-customer-followup`, `medical-device-complaint-regulatory-routing` | inferred |
 | `complaint-regulatory-routing.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
-| `completed-session.json` | `sport-daily-athlete-monitoring` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-injury-rehabilitation`, `sport-nutrition-fueling`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-training-adaptation-engine` | inferred |
+| `completed-session.json` | `sport-daily-athlete-monitoring` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-training-adaptation-engine` | inferred |
 | `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
@@ -506,7 +520,7 @@ graph TD
 | `cybersecurity-evidence-map.json` | `medical-device-cybersecurity-lifecycle` | — | unconsumed |
 | `cybersecurity-lifecycle-assessment.json` | `medical-device-cybersecurity-lifecycle` | — | unconsumed |
 | `cybersecurity-postmarket-actions.json` | `medical-device-cybersecurity-lifecycle` | — | unconsumed |
-| `daily-checkin.json` | `sport-daily-athlete-monitoring` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-injury-rehabilitation`, `sport-nutrition-fueling`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-training-adaptation-engine` | inferred |
+| `daily-checkin.json` | `sport-daily-athlete-monitoring` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-training-adaptation-engine` | inferred |
 | `de-novo-evidence-gaps.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
 | `de-novo-risk-control-rationale.md` | `fda-de-novo-special-controls` | — | unconsumed |
 | `de-novo-strategy.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
@@ -545,6 +559,7 @@ graph TD
 | `engineering-delivery-status.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
+| `environment-adjustment.json` | `sport-environment-travel` | `sport-athlete-management` | inferred |
 | `estar-content-map.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `etf-hosted-release-candidate.json` | `exam-trainer-catalog-builder` | `teach` | inferred |
 | `etf-teach-catalog.json` | `exam-trainer-catalog-builder` | `teach` | inferred |
@@ -671,6 +686,7 @@ graph TD
 | `memory-ledger.json` | `communication-memory-governance` | `frontend-design-director`, `memory-sync-reconciliation` | inferred |
 | `memory-ledger.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | unconsumed |
+| `mental-health-routing.json` | `sport-mental-health-routing` | `sport-athlete-management` | inferred |
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
@@ -689,6 +705,7 @@ graph TD
 | `pccp-deviation-routing.json` | `fda-pccp-change-control` | — | unconsumed |
 | `per-traceability.json` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
+| `performance-psychology-plan.json` | `sport-performance-psychology` | `sport-athlete-management` | inferred |
 | `performance-study-gaps.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `plan-revision.json` | `sport-athlete-management` | — | unconsumed |
 | `pmpf-evaluation-report.md` | `ivdr-pmpf` | — | unconsumed |
@@ -741,7 +758,7 @@ graph TD
 | `record-integrity-gaps.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
 | `record-retrieval-index.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
 | `recovered-system-model.json` | `opaque-system-analysis` | — | unconsumed |
-| `recovery-state.json` | `sport-recovery-sleep` | `sport-athlete-management` | inferred |
+| `recovery-state.json` | `sport-recovery-sleep` | `sport-athlete-management`, `sport-environment-travel` | inferred |
 | `regulated-product-context.json` | `regulated-product-context` | `clinical-evidence-update-impact`, `controlled-quality-documentation`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-complaint-mdr-reportability`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-ivd-clia-waiver`, `fda-medical-device-ivd-regulatory-specialist`, `fda-registration-listing-udi`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-economic-operator-postmarket-propagation`, `ivdr-inhouse-health-institution`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-complaint-regulatory-routing`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-communication`, `medical-device-isms-governance`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency`, `regulatory-evidence-traceability` | inferred |
 | `regulated-product-context.md` | `regulated-product-context` | `clinical-evidence-update-impact`, `controlled-quality-documentation`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `eudamed-udi-ivd`, `fda-510k-predicate-strategy`, `fda-complaint-mdr-reportability`, `fda-de-novo-strategy`, `fda-device-classification-product-code`, `fda-ivd-clia-waiver`, `fda-medical-device-ivd-regulatory-specialist`, `fda-registration-listing-udi`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-companion-diagnostic-consultation`, `ivdr-device-classification`, `ivdr-economic-operator-postmarket-propagation`, `ivdr-inhouse-health-institution`, `ivdr-pms-vigilance`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-complaint-regulatory-routing`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-communication`, `medical-device-isms-governance`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `medical-device-regulatory-strategy`, `medical-device-risk-management-iso14971`, `regulatory-change-impact-orchestrator`, `regulatory-claims-consistency`, `regulatory-evidence-traceability` | inferred |
 | `regulatory-awareness-timeline.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
@@ -795,8 +812,8 @@ graph TD
 | `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-adaptation-analysis`, `sport-diagnostics-training-report-workflow`, `sport-endurance-programming` | inferred |
 | `sport-fueling-plan.json` | `sport-nutrition-fueling` | `sport-athlete-management` | inferred |
 | `sport-mesocycle.json` | `sport-mesocycle-planning` | `sport-athlete-management`, `sport-endurance-programming`, `sport-microcycle-planning`, `sport-nutrition-fueling`, `sport-strength-power-programming` | inferred |
-| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-endurance-programming`, `sport-nutrition-fueling`, `sport-strength-power-programming`, `sport-training-adaptation-engine` | inferred |
-| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-endurance-programming`, `sport-season-periodization`, `sport-strength-power-programming`, `sport-testing-battery` | inferred |
+| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-endurance-programming`, `sport-environment-travel`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-strength-power-programming`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
+| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-endurance-programming`, `sport-performance-psychology`, `sport-season-periodization`, `sport-strength-power-programming`, `sport-testing-battery` | inferred |
 | `sport-report-package` | `sport-diagnostics-training-report-workflow` | — | unconsumed |
 | `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning`, `sport-testing-battery` | inferred |
 | `sport-testing-plan.json` | `sport-testing-battery` | `sport-athlete-management` | inferred |
@@ -819,6 +836,7 @@ graph TD
 | `technology-offer-question-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-question-set.md` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `training-adaptation-decision.json` | `sport-training-adaptation-engine` | `sport-athlete-management` | inferred |
+| `training-music-profile.json` | `sport-training-music` | `sport-athlete-management` | inferred |
 | `trend-signal-set.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | unconsumed |
 | `updated skill repository` | `central-skill-repository-curation` | — | unconsumed |
