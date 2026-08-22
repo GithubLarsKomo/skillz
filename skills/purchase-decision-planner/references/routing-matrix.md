@@ -13,4 +13,6 @@
 | Technische Unsicherheit blockiert | `large-work-wayfinder` |
 | Materiale akzeptierte Entscheidung archivieren | `decision-record` |
 
+Der deutsche Nutzername der Orchestrator-Capability ist **Investitionsplaner**.
+
 Finanzinstrumente sind kein Purchase-Decision-Planner-Scope.
