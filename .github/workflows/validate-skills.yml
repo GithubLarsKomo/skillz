@@ -114,6 +114,12 @@ jobs:
         run: python -m unittest tests.test_sport_p1_contracts
       - name: Test Sport Athlete Management P2 contracts
         run: python -m unittest tests.test_sport_p2_contracts
+      - name: Test Sport specialist runtime engine
+        run: python -m unittest tests.test_sport_specialist_runtime
+      - name: Test Sport specialist runtime HTTP server
+        run: python -m unittest tests.test_serve_sport_specialist_runtime
+      - name: Build Sport specialist runtime image
+        run: docker build -f deploy/sport-specialist-runtime/Dockerfile -t skillz-sport-specialist-runtime:ci .
       - name: Test regulated engineering contracts
         run: python -m unittest tests.test_regulated_engineering_contracts
       - name: Test regulated engineering end-to-end contracts
