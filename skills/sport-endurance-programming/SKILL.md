@@ -23,6 +23,14 @@ lastEvaluated: 2026-08-22
 
 Übersetze valide Diagnostik und Periodisierungsziele in ausführbare Ausdauerarbeit. Zonen sind Arbeitsbereiche mit Unsicherheit, keine biologischen Schalter.
 
+## Trigger
+
+Nutze diesen Skill, wenn ein Meso-/Mikrozyklus in konkrete Ausdauereinheiten mit sportartspezifischen Intensitäts- und Dosisvorgaben übersetzt werden soll.
+
+## Voraussetzungen
+
+Mindestens Ziel/Phase, aktuelle Ausdauerdiagnostik oder belastbare Leistungsreferenz, Trainingshistorie und relevante Health Constraints sollten vorliegen. Fehlende Schwellen- oder Leistungsdaten werden als Unsicherheit ausgewiesen, nicht erfunden.
+
 ## Ablauf
 
 1. **Referenzmodell wählen.** LT1/LT2, kritische Leistung/Tempo, sportartspezifische Tests und RPE gemeinsam einordnen; Quelle und Confidence der Schwellen erhalten.
@@ -36,7 +44,7 @@ lastEvaluated: 2026-08-22
 
 ## HRV und Readiness
 
-HRV/resting HR sind optionale Kontexteingaben. Ein einzelner HRV-Wert darf keine geplante harte Einheit automatisch hoch- oder herunterregeln. Wiederholte individuelle Abweichungen können zusammen mit subjektiver und leistungsbezogener Evidenz einen Checkpoint auslösen.
+HRV/resting HR sind optionale Kontexteingaben und **kein autonomer Regler**. Ein einzelner HRV-Wert darf keine geplante harte Einheit automatisch hoch- oder herunterregeln. Wiederholte individuelle Abweichungen können zusammen mit subjektiver und leistungsbezogener Evidenz einen Checkpoint auslösen.
 
 ## Alters-/Geschlechtsmodifier
 
@@ -45,6 +53,20 @@ HRV/resting HR sind optionale Kontexteingaben. Ein einzelner HRV-Wert darf keine
 ## Safety
 
 Akute Krankheit, Brustschmerz, Synkope, ungewöhnliche Belastungsdyspnoe oder dokumentierte medizinische Restriktionen werden nicht als Trainingsproblem wegprogrammiert.
+
+## Prüfungen
+
+- Sind Schwellen/Targets auf eine Quelle oder belastbare Leistungsreferenz zurückgeführt?
+- Sind externe Leistung und interne Reaktion getrennt?
+- Ist der Primärreiz eindeutig und die Dosis vollständig ausführbar?
+- Wird HRV nur im Kontext mehrerer Signale verwendet?
+- Sind Interferenz, Progression und Stop-Regeln sichtbar?
+
+## Fehlerbehandlung
+
+- **Diagnostik fehlt oder ist veraltet:** RPE-/Leistungsanker mit niedrigerer Confidence verwenden und Retest-Bedarf markieren.
+- **Widersprüchliche Zonenmodelle:** keine Scheingenauigkeit erzeugen; überlappende Bandbreiten und Unsicherheit dokumentieren.
+- **Red Flag:** normale Ausdauerprogression verlassen und Health/Medical Routing priorisieren.
 
 ## Übergabe
 
