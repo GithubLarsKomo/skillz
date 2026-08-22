@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **29**
+Skills: **30**
 
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
@@ -34,6 +34,7 @@ Skills: **29**
 - [[skills/obsidian-adapter|obsidian-adapter]]
 - [[skills/opaque-system-analysis|opaque-system-analysis]]
 - [[skills/openasr-offline-model-import|openasr-offline-model-import]]
+- [[skills/product-comparison-ranking|product-comparison-ranking]]
 - [[skills/regulated-product-context|regulated-product-context]]
 - [[skills/regulatory-evidence-traceability|regulatory-evidence-traceability]]
 - [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]

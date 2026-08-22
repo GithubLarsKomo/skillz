@@ -750,10 +750,35 @@
         "agents/openai.yaml": "eeec69b963850ad8fa311bae565099fa08b80056209c388113705cb4d9a26bc3"
       }
     },
+    "price-availability-snapshot": {
+      "files": {
+        "SKILL.md": "a42d65efaa5d533b9baeaf52cb86b6808111517aeba37e77e79bdc4dfa4b5294",
+        "agents/openai.yaml": "d0caaaaf7db090f9dda6f5f349d873e563322abcc1e2c8d3e8986387363372ec",
+        "references/price-normalization.md": "293e82dc600a3c8b96f7ba9175774b2ad1a572be4aa3670fed6b351572926b55",
+        "scripts/validate_price_snapshot.py": "c62c511534cc78791f3c562415841c06b1b3e19a83833b048e2f5f1b107c2c71"
+      }
+    },
     "process-validation-iq-oq-pq": {
       "files": {
         "SKILL.md": "b9334e05466fe6b78674d0cb4fbe8043dfb3480172f95682ee901dcfbfeb55b0",
         "agents/openai.yaml": "898c26afe55ea1e1f8bb6ba7d00a6615b177a804f7bfeaef41f0830baa29d298"
+      }
+    },
+    "product-comparison-ranking": {
+      "files": {
+        "SKILL.md": "6384a6490428d5bfbcda96e9fd80d5e4372de444de0de64527433a0bf3efe3df",
+        "agents/openai.yaml": "7caaaaf8ca3d9172750105cee64116efa11b7cae53d4ca1a5c7f3f6a38d743c6",
+        "references/scoring-model.md": "ac7b395a912f6f2b7ad9f323997109ff5f201bb342e910b69e12e01d77c252c8",
+        "scripts/rank_products.py": "8bbe90f346fbc0d842e49e79e74a7d714b6adc3ada3869e2cedd9f61eecd64aa",
+        "scripts/validate_requirements.py": "faf3d563c7621f02ae030469097d6ae7da8d537e9c7d26bac87ff810a03ee40a"
+      }
+    },
+    "product-evidence-research": {
+      "files": {
+        "SKILL.md": "476ba91544af16745824e9a56af2948df7574117b21aeaab4d7f66046c1b23b4",
+        "agents/openai.yaml": "b5415bda2457bc2218a0c2609beba91ad34c8fcd2ea55a54765fa260a8dd35b2",
+        "references/source-quality.md": "d9e321597046cd6665d5d93162159d70167e662c6f777c205d5b236e8838bf7a",
+        "scripts/normalize_product_identity.py": "e208718b16add05171569411531460c20f620aa66f19e07f6a052d25ab367f1e"
       }
     },
     "project-beta-readiness": {
@@ -766,6 +791,13 @@
       "files": {
         "SKILL.md": "38a072c11da82a64e20de34229f1a31b29252d7bd39c157403d8ab5e5fd16a11",
         "agents/openai.yaml": "c744dd4a46f7f5979bd0af2d7716655547c12ab529230ddc192d5f16dc67a5d1"
+      }
+    },
+    "purchase-decision-planner": {
+      "files": {
+        "SKILL.md": "25ce3b1e245beadb0461afe678aaef07cd5cc8b19e6d870b55247d3254a9b832",
+        "agents/openai.yaml": "6ef04ad068df1eecd153c601c043a32f94c326c3396ade020b17dab541943d78",
+        "references/routing-matrix.md": "21be475fa75272bf55c18abe4074278646022b5ba4f493fa28fc009eb7e75cb6"
       }
     },
     "qms-management-review-action-followup": {

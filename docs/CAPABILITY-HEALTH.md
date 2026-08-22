@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **159**
-- User-facing entrypoints: **130**
-- Evaluation suites: **159**
+- Skills: **163**
+- User-facing entrypoints: **133**
+- Evaluation suites: **163**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **170**
+- Outputs without inferred hard-requires consumers: **173**
 
 ## Evaluation gaps
 
@@ -161,6 +161,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
 - `progress summary` — producer: `synapse-orchestrator`
 - `public-job-posting.md` — producer: `job-description-authoring`
+- `purchase-plan.json` — producer: `purchase-decision-planner`
+- `purchase-plan.md` — producer: `purchase-decision-planner`
+- `purchase-shortlist.json` — producer: `purchase-decision-planner`
 - `qmsr-inspection-readiness.json` — producer: `fda-qmsr-inspection-readiness`
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`

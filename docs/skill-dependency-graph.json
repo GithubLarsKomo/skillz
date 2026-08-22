@@ -1534,6 +1534,15 @@
       ]
     },
     {
+      "name": "price-availability-snapshot",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "price-snapshot.json",
+        "price-snapshot.md"
+      ]
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "requires": [
         "design-control-traceability",
@@ -1545,6 +1554,26 @@
         "process-validation-assessment.json",
         "process-validation-protocol.md",
         "process-validation-strategy.json"
+      ]
+    },
+    {
+      "name": "product-comparison-ranking",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "product-ranking.json",
+        "product-ranking.md"
+      ]
+    },
+    {
+      "name": "product-evidence-research",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "product-evidence-set.json",
+        "product-evidence-set.md"
       ]
     },
     {
@@ -1567,6 +1596,20 @@
       "outputs": [
         "project-status.json",
         "project-status.md"
+      ]
+    },
+    {
+      "name": "purchase-decision-planner",
+      "requires": [
+        "price-availability-snapshot",
+        "product-comparison-ranking",
+        "product-evidence-research"
+      ],
+      "consumes": [],
+      "outputs": [
+        "purchase-plan.json",
+        "purchase-plan.md",
+        "purchase-shortlist.json"
       ]
     },
     {
@@ -3205,8 +3248,24 @@
       "to": "medical-device-risk-management-iso14971"
     },
     {
+      "from": "product-evidence-research",
+      "to": "research-to-evidence-note"
+    },
+    {
       "from": "project-beta-readiness",
       "to": "iterate-software-projects"
+    },
+    {
+      "from": "purchase-decision-planner",
+      "to": "price-availability-snapshot"
+    },
+    {
+      "from": "purchase-decision-planner",
+      "to": "product-comparison-ranking"
+    },
+    {
+      "from": "purchase-decision-planner",
+      "to": "product-evidence-research"
     },
     {
       "from": "qms-management-review-action-followup",
@@ -4973,6 +5032,7 @@
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
         "patent-landscape-analysis",
+        "product-evidence-research",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "teach",
@@ -5001,6 +5061,7 @@
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
         "patent-landscape-analysis",
+        "product-evidence-research",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "teach",
@@ -6525,6 +6586,28 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "price-snapshot.json",
+      "producers": [
+        "price-availability-snapshot"
+      ],
+      "consumerSkills": [
+        "purchase-decision-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "price-snapshot.md",
+      "producers": [
+        "price-availability-snapshot"
+      ],
+      "consumerSkills": [
+        "purchase-decision-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "privacy-assessment.json",
       "producers": [
         "medical-device-privacy-gdpr-bdsg"
@@ -6568,6 +6651,50 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "product-evidence-set.json",
+      "producers": [
+        "product-evidence-research"
+      ],
+      "consumerSkills": [
+        "purchase-decision-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "product-evidence-set.md",
+      "producers": [
+        "product-evidence-research"
+      ],
+      "consumerSkills": [
+        "purchase-decision-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "product-ranking.json",
+      "producers": [
+        "product-comparison-ranking"
+      ],
+      "consumerSkills": [
+        "purchase-decision-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "product-ranking.md",
+      "producers": [
+        "product-comparison-ranking"
+      ],
+      "consumerSkills": [
+        "purchase-decision-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "progress summary",
@@ -6665,6 +6792,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "purchase-plan.json",
+      "producers": [
+        "purchase-decision-planner"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "purchase-plan.md",
+      "producers": [
+        "purchase-decision-planner"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "purchase-shortlist.json",
+      "producers": [
+        "purchase-decision-planner"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "qms-audit-findings.json",
@@ -8245,6 +8399,9 @@
     "process-validation-strategy.json",
     "progress summary",
     "public-job-posting.md",
+    "purchase-plan.json",
+    "purchase-plan.md",
+    "purchase-shortlist.json",
     "qmsr-inspection-readiness.json",
     "qsub-briefing-package.md",
     "qsub-commitments.json",
@@ -8417,6 +8574,9 @@
     "process-validation-strategy.json",
     "progress summary",
     "public-job-posting.md",
+    "purchase-plan.json",
+    "purchase-plan.md",
+    "purchase-shortlist.json",
     "qmsr-inspection-readiness.json",
     "qsub-briefing-package.md",
     "qsub-commitments.json",
