@@ -1,0 +1,5 @@
+interface:
+  display_name: "Product Evidence Research"
+  short_description: "Recherchiert und normalisiert Produkte für bestätigte Kaufanforderungen und erzeugt ein quellenkritisches Evidence Se..."
+policy:
+  allow_implicit_invocation: true
