@@ -43,19 +43,20 @@ class ProductComparisonRankingTests(unittest.TestCase):
         self.assertFalse(any(result["sensitivity"]["nearTie"].values()))
         self.assertEqual(result["sensitivity"]["winnerChanges"], [])
 
-    def test_near_tie_reduces_confidence_without_forcing_winner_change(self):
+    def test_powermeter_like_quality_margin_is_not_high_confidence(self):
         result = module.rank({
             "criteria": CRITERIA,
             "candidates": [
-                candidate("a", {"quality": 90, "reliability": 90, "price": 90}),
-                candidate("b", {"quality": 89.5, "reliability": 89.5, "price": 89.5}),
+                candidate("garmin", {"quality": 95.37, "reliability": 95.37, "price": 85}),
+                candidate("favero", {"quality": 95.25, "reliability": 95.25, "price": 100}),
             ],
         })
-        self.assertEqual(result["winners"]["quality"], "a")
+        self.assertEqual(result["winners"]["quality"], "garmin")
+        self.assertEqual(result["winners"]["pricePerformance"], "favero")
         self.assertEqual(result["rankingConfidence"], "low")
+        self.assertAlmostEqual(result["sensitivity"]["margins"]["qualityUtility"], 0.12, places=6)
         self.assertTrue(result["sensitivity"]["nearTie"]["quality"])
-        self.assertTrue(result["sensitivity"]["nearTie"]["pricePerformance"])
-        self.assertEqual(result["sensitivity"]["winnerChanges"], [])
+        self.assertFalse(result["sensitivity"]["nearTie"]["pricePerformance"])
         self.assertIn("top candidates are within the configured near-tie threshold", result["limitations"])
 
     def test_plausible_weight_shift_exposes_winner_reversal(self):
