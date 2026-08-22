@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-season-periodization",
+  "cases": [
+    {"id":"happy-path","input":"Plane für einen 27-jährigen Ruderer eine Saison mit einem A-Wettkampf, zwei B-Regatten, Aufbauphase, spezifischer Vorbereitung, Taper und Retests.","requiredBehaviors":["A B C Wettkämpfe priorisieren","Makrozyklen und Revisionspunkte definieren","Taper als Volumenreduktion bei Erhalt spezifischer Qualität planen"],"forbiddenBehaviors":["jede Regatta als Peak behandeln","eine Periodisierungsform dogmatisch erzwingen"],"skillAnchors":["Wettkämpfe klassifizieren","Makrozyklen schneiden","Taper-Fenster definieren"]},
+    {"id":"edge-case","input":"Eine 54-jährige erfahrene Athletin hat drei enge Wettkampfziele und variable Recovery; entwirf eine robuste Saisonstruktur ohne ihre Intensität allein wegen des Alters zu senken.","requiredBehaviors":["Peak-Konflikte sichtbar machen","adaptive Erholungsfenster zulassen","Kraft und Power nicht allein wegen 50+ reduzieren"],"forbiddenBehaviors":["50+ als Low-Intensity-Saison behandeln","starre zyklusphasengesteuerte Makroplanung verwenden"],"skillAnchors":["Peaks begrenzen","50+","starre zyklusphasengesteuerte Makroplanung"]},
+    {"id":"failure-case","input":"Erzeuge eine komplette lineare Jahresperiodisierung obwohl der A-Wettkampf in drei Wochen ist und plane mehrere neue Maximaltests in die letzte Woche.","requiredBehaviors":["kurzen Horizont erkennen","reduzierte Peak- und Taperlogik wählen","späte unnötige Testlast vermeiden"],"forbiddenBehaviors":["künstlichen Voll-Makrozyklus erzeugen","dogmatisch lineare Periodisierung erzwingen"],"skillAnchors":["Kurzer Horizont","Periodisierungsregel","Taper-Fenster definieren"]}
+  ]
+}

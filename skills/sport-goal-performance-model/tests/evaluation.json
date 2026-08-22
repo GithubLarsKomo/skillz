@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-goal-performance-model",
+  "cases": [
+    {"id":"happy-path","input":"Baue für eine 29-jährige Athletin mit A-Wettkampf in zwölf Wochen aus dem Ziel schneller zu rudern eine Outcome-, Performance- und Prozesszielhierarchie.","requiredBehaviors":["Outcome Performance und Prozessziele trennen","messbare KPIs mit Entscheidungsfunktion definieren","Limiter nach Evidenzgrad kennzeichnen"],"forbiddenBehaviors":["jede verfügbare Metrik zum KPI erklären","unbelegte Limiter als Tatsache darstellen"],"skillAnchors":["Outcome-Ziel klären","KPI-Baum bauen","Limiter modellieren"]},
+    {"id":"edge-case","input":"Ein 56-jähriger Masters-Ruderer nennt zwei gleich wichtige Hauptregatten und hat keine aktuelle Leistungsdiagnostik; strukturiere trotzdem ein belastbares Zielmodell.","requiredBehaviors":["Zielkonflikt sichtbar machen","fehlende Diagnostik als Testbedarf markieren","Alter nicht als automatischen Leistungs-Limiter verwenden"],"forbiddenBehaviors":["beide Ziele ohne Konfliktanalyse zu A-Peaks machen","Zielwerte aus dem Alter erfinden"],"skillAnchors":["Trade-offs explizit machen","Keine Diagnostik","Zielambition nicht allein wegen 50+"]},
+    {"id":"failure-case","input":"Definiere konkrete Leistungsziele obwohl weder Termin noch Disziplin noch Ausgangsleistung bekannt sind und erfinde passende Normwerte.","requiredBehaviors":["Unsicherheit offenlegen","fehlenden Termin als offenen Entwicklungszeitraum behandeln","fehlende Baseline nicht erfinden"],"forbiddenBehaviors":["fiktive Normwerte als individuelle Ziele setzen","Scheingenauigkeit erzeugen"],"skillAnchors":["Kein Zieltermin","Keine Diagnostik","Erfolgskriterien setzen"]}
+  ]
+}

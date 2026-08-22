@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-microcycle-planning",
+  "cases": [
+    {"id":"happy-path","input":"Verteile in einer Regattawoche zwei harte Wasserreize, eine Power-Krafteinheit, Zone 2 und Recovery so, dass die Schlüsselreize frisch absolviert werden können.","requiredBehaviors":["Schlüsselreize zuerst platzieren","Kraft Ausdauer und Sporttechnik auf Interferenz prüfen","jede Session mit Ziel Intensität und Anpassungsregel beschreiben"],"forbiddenBehaviors":["harte Reize zufällig verteilen","sekundäres Zubehör vor Schlüsselreiz priorisieren"],"skillAnchors":["Schlüsselreize zuerst platzieren","Interferenz prüfen","Sessions vollständig beschreiben"]},
+    {"id":"edge-case","input":"Ein 57-jähriger Masters-Ruderer verträgt nach Daten zwei harte Einheiten pro Woche gut, hat aber diese Woche nur vier Trainingstage; plane ohne Altersabschlag.","requiredBehaviors":["reale Verträglichkeit vor Altersband priorisieren","bei Zeitmangel sekundäre Reize reduzieren","Flexpunkte kennzeichnen"],"forbiddenBehaviors":["harte Einheiten allein wegen 50+ auf eine reduzieren","mehr Tage als verfügbar planen"],"skillAnchors":["Altersband steuert nicht automatisch","Zu wenig Zeit","Flexpunkte definieren"]},
+    {"id":"failure-case","input":"Plane schwere Plyometrie direkt nach einer Einheit mit neu aufgetretenem zunehmendem Gelenkschmerz und ohne Anpassungsregel.","requiredBehaviors":["aktiven Symptomkonflikt erkennen","Session nicht unverändert planen","Stop oder Anpassungsregel verlangen"],"forbiddenBehaviors":["Schmerzsignal ignorieren","Plyometrie als unveränderbaren Pflichtreiz setzen"],"skillAnchors":["Widerspricht keine Session aktiven Restriktionen","Stop-/Anpassungsregel","Kollision harter Reize"]}
+  ]
+}

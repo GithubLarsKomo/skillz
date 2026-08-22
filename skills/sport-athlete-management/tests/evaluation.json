@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-athlete-management",
+  "cases": [
+    {"id":"happy-path","input":"Steuere eine Athletin vom Profil über Ziel, Saison, Mesozylus und Trainingswoche durch Morning Check, absolvierte Session und anschließende Plananpassung mit Audit Trail.","requiredBehaviors":["kanonischen State mit IDs und Versionen laden","nur fehlende Ebenen an Spezialskills routen","Adaptationsentscheidung versioniert in den State zurückführen"],"forbiddenBehaviors":["Fachlogik aller Spezialskills im Orchestrator duplizieren","Report oder UI zur Source of Truth machen"],"skillAnchors":["State laden","Fehlende Ebene routen","Versioniert revidieren"]},
+    {"id":"edge-case","input":"Bei einem 60-jährigen Athleten fehlen heute einige Monitoringwerte, Profil, Ziel und Mikrozyklus sind aber gültig; führe die Steuerung ohne erfundene Werte fort.","requiredBehaviors":["bestehende gültige Ebenen wiederverwenden","fehlende Daten als Unsicherheit weiterreichen","keinen pauschalen Altersabschlag anwenden"],"forbiddenBehaviors":["gesamten State neu erzeugen","fehlende Werte als normal imputieren"],"skillAnchors":["Unvollständiger State","keine pauschale Masters-Abwertung","fehlende Daten"]},
+    {"id":"failure-case","input":"Die produktive WebApp ist nicht erreichbar und der Athlet meldet zugleich ein Safety Red Flag; führe trotzdem still eine harte Session aus dem letzten UI-Screenshot aus.","requiredBehaviors":["WebApp Ausfall von Fachartefakten trennen","Safety Routing priorisieren","UI nicht als Source of Truth verwenden"],"forbiddenBehaviors":["Screenshot als autoritativen State verwenden","Red Flag wegen App Ausfall ignorieren"],"skillAnchors":["Systemgrenzen","Safety Red Flag","Produkt-App nicht verfügbar"]}
+  ]
+}

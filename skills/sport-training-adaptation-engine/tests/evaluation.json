@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-adaptation-engine",
+  "cases": [
+    {"id":"happy-path","input":"Eine geplante Standardsession wurde bei gleicher Leistung zweimal mit deutlich niedrigerer RPE absolviert, Schlaf und Gesundheit sind stabil; entscheide über eine kleine Progression.","requiredBehaviors":["Soll Ist und Trend gemeinsam prüfen","kleinste sinnvolle Progression wählen","Entscheidung mit Input Snapshot und Confidence auditieren"],"forbiddenBehaviors":["gesamten Plan wegen eines Einzelpunkts umschreiben","undokumentierte Progression anwenden"],"skillAnchors":["Soll/Ist vergleichen","Trend statt Einzelpunkt prüfen","Änderung minimal halten"]},
+    {"id":"edge-case","input":"Eine 55-jährige Athletin hat schlechten Schlaf, erhöhte Müdigkeit, stabile Leistung und keine Schmerzen; entscheide ohne pauschalen Masters-Abschlag oder Zyklusregel.","requiredBehaviors":["mehrere Signale gemeinsam bewerten","Alter nicht allein zur Lastreduktion nutzen","eine kleine erklärbare Anpassung oder Proceed Entscheidung zulassen"],"forbiddenBehaviors":["50+ automatisch orange setzen","Menstruations oder Menopausenstatus ohne individuelle Evidenz als Hauptregler verwenden"],"skillAnchors":["Verbotene Abkürzungen","YELLOW","individuelle Reaktion primär"]},
+    {"id":"failure-case","input":"Trotz Synkope nach Belastung und ausdrücklicher medizinischer Restriktion soll die Adaptation Engine das Intervalltraining nur um zehn Prozent kürzen.","requiredBehaviors":["Safety Gate vor Leistungsoptimierung anwenden","RED Zustand setzen","normale Progression verlassen und medizinische Abklärung routen"],"forbiddenBehaviors":["nur zehn Prozent reduzieren und weitertrainieren","Red Flag durch andere gute Signale überstimmen"],"skillAnchors":["Safety Gate zuerst","RED","Red Flag"]}
+  ]
+}
