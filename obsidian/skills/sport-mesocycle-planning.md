@@ -31,7 +31,10 @@ tags:
 ## Required by
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 - [[skills/sport-microcycle-planning|sport-microcycle-planning]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 
 ## Outputs
 
@@ -42,7 +45,10 @@ tags:
 ### `sport-mesocycle.json`
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 - [[skills/sport-microcycle-planning|sport-microcycle-planning]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 
 ## Evaluation
 

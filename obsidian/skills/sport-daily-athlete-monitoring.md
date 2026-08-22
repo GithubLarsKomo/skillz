@@ -30,7 +30,12 @@ Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion e
 
 ## Required by
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-recovery-sleep|sport-recovery-sleep]]
+- [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 
 ## Outputs
@@ -42,12 +47,22 @@ Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion e
 
 ### `completed-session.json`
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-recovery-sleep|sport-recovery-sleep]]
+- [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 
 ### `daily-checkin.json`
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-recovery-sleep|sport-recovery-sleep]]
+- [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 
 ## Evaluation

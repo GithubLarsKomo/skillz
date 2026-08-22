@@ -30,7 +30,9 @@ Wertet sportwissenschaftliche Leistungsdiagnostik wie Laktat-Stufentests, Ergome
 
 ## Required by
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 
 ## Outputs
 
@@ -40,7 +42,9 @@ Wertet sportwissenschaftliche Leistungsdiagnostik wie Laktat-Stufentests, Ergome
 
 ### `sport-diagnostics.json`
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 
 ## Evaluation
 

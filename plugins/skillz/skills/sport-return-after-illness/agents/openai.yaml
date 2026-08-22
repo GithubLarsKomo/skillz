@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Return After Illness"
+  short_description: "Steuert die graduelle Rückkehr ins Training nach akuter Erkrankung oder krankheitsbedingter Pause anhand aktueller Sy..."
+policy:
+  allow_implicit_invocation: true

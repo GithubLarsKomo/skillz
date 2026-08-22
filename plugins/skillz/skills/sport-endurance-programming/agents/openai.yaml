@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Endurance Programming"
+  short_description: "Erstellt sportartspezifische Ausdauerprescriptions aus Diagnostik, Ziel, Saisonphase und Mikrozyklus für niedrige Int..."
+policy:
+  allow_implicit_invocation: true

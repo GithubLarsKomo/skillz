@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Injury Rehabilitation"
+  short_description: "Übersetzt dokumentierte medizinische oder physiotherapeutische Einschränkungen in eine kriteriumsbasierte sportliche..."
+policy:
+  allow_implicit_invocation: true

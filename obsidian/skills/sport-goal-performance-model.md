@@ -31,7 +31,10 @@ tags:
 ## Required by
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 - [[skills/sport-season-periodization|sport-season-periodization]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
+- [[skills/sport-testing-battery|sport-testing-battery]]
 
 ## Outputs
 
@@ -42,7 +45,10 @@ tags:
 ### `sport-performance-model.json`
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 - [[skills/sport-season-periodization|sport-season-periodization]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
+- [[skills/sport-testing-battery|sport-testing-battery]]
 
 ## Evaluation
 

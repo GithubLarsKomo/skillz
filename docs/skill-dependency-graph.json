@@ -1801,14 +1801,34 @@
       ]
     },
     {
+      "name": "sport-adaptation-analysis",
+      "requires": [
+        "sport-daily-athlete-monitoring",
+        "sport-microcycle-planning",
+        "sport-performance-diagnostics"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-adaptation-analysis.json"
+      ]
+    },
+    {
       "name": "sport-athlete-management",
       "requires": [
+        "sport-adaptation-analysis",
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
+        "sport-endurance-programming",
         "sport-goal-performance-model",
+        "sport-injury-rehabilitation",
         "sport-mesocycle-planning",
         "sport-microcycle-planning",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
         "sport-season-periodization",
+        "sport-strength-power-programming",
+        "sport-testing-battery",
         "sport-training-adaptation-engine"
       ],
       "consumes": [],
@@ -1851,6 +1871,20 @@
       ]
     },
     {
+      "name": "sport-endurance-programming",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-performance-diagnostics"
+      ],
+      "consumes": [],
+      "outputs": [
+        "endurance-plan.json"
+      ]
+    },
+    {
       "name": "sport-goal-performance-model",
       "requires": [
         "sport-athlete-profile"
@@ -1858,6 +1892,17 @@
       "consumes": [],
       "outputs": [
         "sport-performance-model.json"
+      ]
+    },
+    {
+      "name": "sport-injury-rehabilitation",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "consumes": [],
+      "outputs": [
+        "rehab-progression.json"
       ]
     },
     {
@@ -1881,11 +1926,47 @@
       ]
     },
     {
+      "name": "sport-nutrition-fueling",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning"
+      ],
+      "consumes": [],
+      "outputs": [
+        "energy-availability-risk.json",
+        "sport-fueling-plan.json"
+      ]
+    },
+    {
       "name": "sport-performance-diagnostics",
       "requires": [],
       "consumes": [],
       "outputs": [
         "sport-diagnostics.json"
+      ]
+    },
+    {
+      "name": "sport-recovery-sleep",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "consumes": [],
+      "outputs": [
+        "recovery-state.json"
+      ]
+    },
+    {
+      "name": "sport-return-after-illness",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "consumes": [],
+      "outputs": [
+        "return-after-illness-plan.json"
       ]
     },
     {
@@ -1896,6 +1977,31 @@
       "consumes": [],
       "outputs": [
         "sport-season-plan.json"
+      ]
+    },
+    {
+      "name": "sport-strength-power-programming",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning"
+      ],
+      "consumes": [],
+      "outputs": [
+        "strength-power-plan.json"
+      ]
+    },
+    {
+      "name": "sport-testing-battery",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-season-periodization"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-testing-plan.json"
       ]
     },
     {
@@ -3364,6 +3470,22 @@
       "to": "conversation-to-spec"
     },
     {
+      "from": "sport-adaptation-analysis",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
+      "from": "sport-adaptation-analysis",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-adaptation-analysis",
+      "to": "sport-performance-diagnostics"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-adaptation-analysis"
+    },
+    {
       "from": "sport-athlete-management",
       "to": "sport-athlete-profile"
     },
@@ -3373,7 +3495,15 @@
     },
     {
       "from": "sport-athlete-management",
+      "to": "sport-endurance-programming"
+    },
+    {
+      "from": "sport-athlete-management",
       "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-injury-rehabilitation"
     },
     {
       "from": "sport-athlete-management",
@@ -3385,7 +3515,27 @@
     },
     {
       "from": "sport-athlete-management",
+      "to": "sport-nutrition-fueling"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-recovery-sleep"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-return-after-illness"
+    },
+    {
+      "from": "sport-athlete-management",
       "to": "sport-season-periodization"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-strength-power-programming"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "sport-testing-battery"
     },
     {
       "from": "sport-athlete-management",
@@ -3412,8 +3562,36 @@
       "to": "sport-training-programming"
     },
     {
+      "from": "sport-endurance-programming",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-endurance-programming",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-endurance-programming",
+      "to": "sport-mesocycle-planning"
+    },
+    {
+      "from": "sport-endurance-programming",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-endurance-programming",
+      "to": "sport-performance-diagnostics"
+    },
+    {
       "from": "sport-goal-performance-model",
       "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-injury-rehabilitation",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-injury-rehabilitation",
+      "to": "sport-daily-athlete-monitoring"
     },
     {
       "from": "sport-mesocycle-planning",
@@ -3424,8 +3602,68 @@
       "to": "sport-mesocycle-planning"
     },
     {
+      "from": "sport-nutrition-fueling",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-nutrition-fueling",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
+      "from": "sport-nutrition-fueling",
+      "to": "sport-mesocycle-planning"
+    },
+    {
+      "from": "sport-nutrition-fueling",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-recovery-sleep",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-recovery-sleep",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
+      "from": "sport-return-after-illness",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-return-after-illness",
+      "to": "sport-daily-athlete-monitoring"
+    },
+    {
       "from": "sport-season-periodization",
       "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-strength-power-programming",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-strength-power-programming",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-strength-power-programming",
+      "to": "sport-mesocycle-planning"
+    },
+    {
+      "from": "sport-strength-power-programming",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-testing-battery",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-testing-battery",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-testing-battery",
+      "to": "sport-season-periodization"
     },
     {
       "from": "sport-training-adaptation-engine",
@@ -3762,7 +4000,14 @@
       "consumerSkills": [
         "sport-athlete-management",
         "sport-daily-athlete-monitoring",
+        "sport-endurance-programming",
         "sport-goal-performance-model",
+        "sport-injury-rehabilitation",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
+        "sport-strength-power-programming",
+        "sport-testing-battery",
         "sport-training-adaptation-engine"
       ],
       "ambiguous": false,
@@ -4206,7 +4451,12 @@
         "sport-daily-athlete-monitoring"
       ],
       "consumerSkills": [
+        "sport-adaptation-analysis",
         "sport-athlete-management",
+        "sport-injury-rehabilitation",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
         "sport-training-adaptation-engine"
       ],
       "ambiguous": false,
@@ -4476,7 +4726,12 @@
         "sport-daily-athlete-monitoring"
       ],
       "consumerSkills": [
+        "sport-adaptation-analysis",
         "sport-athlete-management",
+        "sport-injury-rehabilitation",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
         "sport-training-adaptation-engine"
       ],
       "ambiguous": false,
@@ -4864,6 +5119,28 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "endurance-plan.json",
+      "producers": [
+        "sport-endurance-programming"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "energy-availability-risk.json",
+      "producers": [
+        "sport-nutrition-fueling"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "engineering-closure-gaps.json",
@@ -7070,6 +7347,17 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "recovery-state.json",
+      "producers": [
+        "sport-recovery-sleep"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "regulated-product-context.json",
       "producers": [
         "regulated-product-context"
@@ -7355,6 +7643,17 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "rehab-progression.json",
+      "producers": [
+        "sport-injury-rehabilitation"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "remaining-unknowns.json",
       "producers": [
         "opaque-system-analysis"
@@ -7408,6 +7707,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "return-after-illness-plan.json",
+      "producers": [
+        "sport-return-after-illness"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "review findings",
@@ -7802,12 +8112,36 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "sport-adaptation-analysis.json",
+      "producers": [
+        "sport-adaptation-analysis"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "sport-diagnostics.json",
       "producers": [
         "sport-performance-diagnostics"
       ],
       "consumerSkills": [
-        "sport-diagnostics-training-report-workflow"
+        "sport-adaptation-analysis",
+        "sport-diagnostics-training-report-workflow",
+        "sport-endurance-programming"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sport-fueling-plan.json",
+      "producers": [
+        "sport-nutrition-fueling"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7819,7 +8153,10 @@
       ],
       "consumerSkills": [
         "sport-athlete-management",
-        "sport-microcycle-planning"
+        "sport-endurance-programming",
+        "sport-microcycle-planning",
+        "sport-nutrition-fueling",
+        "sport-strength-power-programming"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7830,7 +8167,11 @@
         "sport-microcycle-planning"
       ],
       "consumerSkills": [
+        "sport-adaptation-analysis",
         "sport-athlete-management",
+        "sport-endurance-programming",
+        "sport-nutrition-fueling",
+        "sport-strength-power-programming",
         "sport-training-adaptation-engine"
       ],
       "ambiguous": false,
@@ -7843,7 +8184,10 @@
       ],
       "consumerSkills": [
         "sport-athlete-management",
-        "sport-season-periodization"
+        "sport-endurance-programming",
+        "sport-season-periodization",
+        "sport-strength-power-programming",
+        "sport-testing-battery"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7864,7 +8208,19 @@
       ],
       "consumerSkills": [
         "sport-athlete-management",
-        "sport-mesocycle-planning"
+        "sport-mesocycle-planning",
+        "sport-testing-battery"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sport-testing-plan.json",
+      "producers": [
+        "sport-testing-battery"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7897,6 +8253,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "strength-power-plan.json",
+      "producers": [
+        "sport-strength-power-programming"
+      ],
+      "consumerSkills": [
+        "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "submission-readiness.json",
