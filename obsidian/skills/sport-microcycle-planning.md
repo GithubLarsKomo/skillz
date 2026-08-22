@@ -30,7 +30,11 @@ Verteilt die Ziele eines Mesozylus auf einen konkreten kurzen Trainingszyklus mi
 
 ## Required by
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 
 ## Outputs
@@ -41,7 +45,11 @@ Verteilt die Ziele eines Mesozylus auf einen konkreten kurzen Trainingszyklus mi
 
 ### `sport-microcycle.json`
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 
 ## Evaluation

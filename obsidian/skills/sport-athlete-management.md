@@ -16,7 +16,7 @@ tags:
 
 # sport-athlete-management
 
-Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, Session-Completion und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.
+Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, spezialisierten Kraft-/Ausdauer-/Recovery-/Fueling-/Health-Modulen und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,12 +26,20 @@ Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und 
 
 ## Requires
 
+- [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-profile|sport-athlete-profile]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 - [[skills/sport-goal-performance-model|sport-goal-performance-model]]
+- [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
 - [[skills/sport-mesocycle-planning|sport-mesocycle-planning]]
 - [[skills/sport-microcycle-planning|sport-microcycle-planning]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-recovery-sleep|sport-recovery-sleep]]
+- [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-season-periodization|sport-season-periodization]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
+- [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 
 ## Required by

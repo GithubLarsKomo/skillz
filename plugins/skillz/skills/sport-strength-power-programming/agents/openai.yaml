@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Strength Power Programming"
+  short_description: "Spezialisiert Kraft- und Schnellkrafttraining für sportliche Leistung mit Hypertrophie, Maximalkraft, RFD, Ballistik,..."
+policy:
+  allow_implicit_invocation: true

@@ -3,16 +3,16 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n163 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n171 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
       "height": 160
     },
     {
-      "id": "category-communication-memory",
+      "id": "category-analysis",
       "type": "group",
-      "label": "communication-memory",
+      "label": "analysis",
       "x": 0,
       "y": 0,
       "width": 1120,
@@ -20,10 +20,38 @@
       "color": "1"
     },
     {
+      "id": "skill-sport-adaptation-analysis",
+      "type": "file",
+      "file": "skills/sport-adaptation-analysis.md",
+      "x": 40,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-recovery-sleep",
+      "type": "file",
+      "file": "skills/sport-recovery-sleep.md",
+      "x": 370,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-communication-memory",
+      "type": "group",
+      "label": "communication-memory",
+      "x": 1220,
+      "y": 0,
+      "width": 1120,
+      "height": 240,
+      "color": "2"
+    },
+    {
       "id": "skill-author-voice-profiler",
       "type": "file",
       "file": "skills/author-voice-profiler.md",
-      "x": 40,
+      "x": 1260,
       "y": 70,
       "width": 300,
       "height": 110
@@ -32,7 +60,7 @@
       "id": "skill-communication-memory-governance",
       "type": "file",
       "file": "skills/communication-memory-governance.md",
-      "x": 370,
+      "x": 1590,
       "y": 70,
       "width": 300,
       "height": 110
@@ -41,17 +69,17 @@
       "id": "category-engineering",
       "type": "group",
       "label": "engineering",
-      "x": 1220,
+      "x": 2440,
       "y": 0,
       "width": 1120,
       "height": 800,
-      "color": "2"
+      "color": "3"
     },
     {
       "id": "skill-agent-handoff",
       "type": "file",
       "file": "skills/agent-handoff.md",
-      "x": 1260,
+      "x": 2480,
       "y": 70,
       "width": 300,
       "height": 110
@@ -60,7 +88,7 @@
       "id": "skill-architecture-deepening-review",
       "type": "file",
       "file": "skills/architecture-deepening-review.md",
-      "x": 1590,
+      "x": 2810,
       "y": 70,
       "width": 300,
       "height": 110
@@ -69,7 +97,7 @@
       "id": "skill-conversation-to-spec",
       "type": "file",
       "file": "skills/conversation-to-spec.md",
-      "x": 1920,
+      "x": 3140,
       "y": 70,
       "width": 300,
       "height": 110
@@ -78,7 +106,7 @@
       "id": "skill-disciplined-diagnosis",
       "type": "file",
       "file": "skills/disciplined-diagnosis.md",
-      "x": 1260,
+      "x": 2480,
       "y": 210,
       "width": 300,
       "height": 110
@@ -87,7 +115,7 @@
       "id": "skill-engineering-delivery-followup",
       "type": "file",
       "file": "skills/engineering-delivery-followup.md",
-      "x": 1590,
+      "x": 2810,
       "y": 210,
       "width": 300,
       "height": 110
@@ -96,7 +124,7 @@
       "id": "skill-frontend-design-director",
       "type": "file",
       "file": "skills/frontend-design-director.md",
-      "x": 1920,
+      "x": 3140,
       "y": 210,
       "width": 300,
       "height": 110
@@ -105,7 +133,7 @@
       "id": "skill-implement-from-issue",
       "type": "file",
       "file": "skills/implement-from-issue.md",
-      "x": 1260,
+      "x": 2480,
       "y": 350,
       "width": 300,
       "height": 110
@@ -114,7 +142,7 @@
       "id": "skill-iterate-software-projects",
       "type": "file",
       "file": "skills/iterate-software-projects.md",
-      "x": 1590,
+      "x": 2810,
       "y": 350,
       "width": 300,
       "height": 110
@@ -123,7 +151,7 @@
       "id": "skill-large-work-wayfinder",
       "type": "file",
       "file": "skills/large-work-wayfinder.md",
-      "x": 1920,
+      "x": 3140,
       "y": 350,
       "width": 300,
       "height": 110
@@ -132,7 +160,7 @@
       "id": "skill-project-beta-readiness",
       "type": "file",
       "file": "skills/project-beta-readiness.md",
-      "x": 1260,
+      "x": 2480,
       "y": 490,
       "width": 300,
       "height": 110
@@ -141,7 +169,7 @@
       "id": "skill-spec-to-vertical-issues",
       "type": "file",
       "file": "skills/spec-to-vertical-issues.md",
-      "x": 1590,
+      "x": 2810,
       "y": 490,
       "width": 300,
       "height": 110
@@ -150,7 +178,7 @@
       "id": "skill-throwaway-prototype",
       "type": "file",
       "file": "skills/throwaway-prototype.md",
-      "x": 1920,
+      "x": 3140,
       "y": 490,
       "width": 300,
       "height": 110
@@ -159,7 +187,7 @@
       "id": "skill-two-axis-code-review",
       "type": "file",
       "file": "skills/two-axis-code-review.md",
-      "x": 1260,
+      "x": 2480,
       "y": 630,
       "width": 300,
       "height": 110
@@ -168,17 +196,17 @@
       "id": "category-internal",
       "type": "group",
       "label": "internal",
-      "x": 2440,
+      "x": 3660,
       "y": 0,
       "width": 1120,
       "height": 1500,
-      "color": "3"
+      "color": "4"
     },
     {
       "id": "skill-decision-record",
       "type": "file",
       "file": "skills/decision-record.md",
-      "x": 2480,
+      "x": 3700,
       "y": 70,
       "width": 300,
       "height": 110
@@ -187,7 +215,7 @@
       "id": "skill-deferred-external-action-verification",
       "type": "file",
       "file": "skills/deferred-external-action-verification.md",
-      "x": 2810,
+      "x": 4030,
       "y": 70,
       "width": 300,
       "height": 110
@@ -196,7 +224,7 @@
       "id": "skill-domain-model-maintenance",
       "type": "file",
       "file": "skills/domain-model-maintenance.md",
-      "x": 3140,
+      "x": 4360,
       "y": 70,
       "width": 300,
       "height": 110
@@ -205,7 +233,7 @@
       "id": "skill-evidence-based-causal-investigation",
       "type": "file",
       "file": "skills/evidence-based-causal-investigation.md",
-      "x": 2480,
+      "x": 3700,
       "y": 210,
       "width": 300,
       "height": 110
@@ -214,7 +242,7 @@
       "id": "skill-exam-trainer-catalog-builder",
       "type": "file",
       "file": "skills/exam-trainer-catalog-builder.md",
-      "x": 2810,
+      "x": 4030,
       "y": 210,
       "width": 300,
       "height": 110
@@ -223,7 +251,7 @@
       "id": "skill-exam-trainer-result-import",
       "type": "file",
       "file": "skills/exam-trainer-result-import.md",
-      "x": 3140,
+      "x": 4360,
       "y": 210,
       "width": 300,
       "height": 110
@@ -232,7 +260,7 @@
       "id": "skill-frontend-design-review",
       "type": "file",
       "file": "skills/frontend-design-review.md",
-      "x": 2480,
+      "x": 3700,
       "y": 350,
       "width": 300,
       "height": 110
@@ -241,7 +269,7 @@
       "id": "skill-frontend-design-shaping",
       "type": "file",
       "file": "skills/frontend-design-shaping.md",
-      "x": 2810,
+      "x": 4030,
       "y": 350,
       "width": 300,
       "height": 110
@@ -250,7 +278,7 @@
       "id": "skill-frontend-design-system-context",
       "type": "file",
       "file": "skills/frontend-design-system-context.md",
-      "x": 3140,
+      "x": 4360,
       "y": 350,
       "width": 300,
       "height": 110
@@ -259,7 +287,7 @@
       "id": "skill-frontend-product-context",
       "type": "file",
       "file": "skills/frontend-product-context.md",
-      "x": 2480,
+      "x": 3700,
       "y": 490,
       "width": 300,
       "height": 110
@@ -268,7 +296,7 @@
       "id": "skill-knowledge-map-generator",
       "type": "file",
       "file": "skills/knowledge-map-generator.md",
-      "x": 2810,
+      "x": 4030,
       "y": 490,
       "width": 300,
       "height": 110
@@ -277,7 +305,7 @@
       "id": "skill-knowledge-view",
       "type": "file",
       "file": "skills/knowledge-view.md",
-      "x": 3140,
+      "x": 4360,
       "y": 490,
       "width": 300,
       "height": 110
@@ -286,7 +314,7 @@
       "id": "skill-learning-assessment",
       "type": "file",
       "file": "skills/learning-assessment.md",
-      "x": 2480,
+      "x": 3700,
       "y": 630,
       "width": 300,
       "height": 110
@@ -295,7 +323,7 @@
       "id": "skill-learning-assessment-spec",
       "type": "file",
       "file": "skills/learning-assessment-spec.md",
-      "x": 2810,
+      "x": 4030,
       "y": 630,
       "width": 300,
       "height": 110
@@ -304,7 +332,7 @@
       "id": "skill-learning-mission",
       "type": "file",
       "file": "skills/learning-mission.md",
-      "x": 3140,
+      "x": 4360,
       "y": 630,
       "width": 300,
       "height": 110
@@ -313,7 +341,7 @@
       "id": "skill-learning-next-step",
       "type": "file",
       "file": "skills/learning-next-step.md",
-      "x": 2480,
+      "x": 3700,
       "y": 770,
       "width": 300,
       "height": 110
@@ -322,7 +350,7 @@
       "id": "skill-learning-state",
       "type": "file",
       "file": "skills/learning-state.md",
-      "x": 2810,
+      "x": 4030,
       "y": 770,
       "width": 300,
       "height": 110
@@ -331,7 +359,7 @@
       "id": "skill-memory-sync-reconciliation",
       "type": "file",
       "file": "skills/memory-sync-reconciliation.md",
-      "x": 3140,
+      "x": 4360,
       "y": 770,
       "width": 300,
       "height": 110
@@ -340,7 +368,7 @@
       "id": "skill-merge-conflict-resolution",
       "type": "file",
       "file": "skills/merge-conflict-resolution.md",
-      "x": 2480,
+      "x": 3700,
       "y": 910,
       "width": 300,
       "height": 110
@@ -349,7 +377,7 @@
       "id": "skill-obsidian-adapter",
       "type": "file",
       "file": "skills/obsidian-adapter.md",
-      "x": 2810,
+      "x": 4030,
       "y": 910,
       "width": 300,
       "height": 110
@@ -358,7 +386,7 @@
       "id": "skill-opaque-system-analysis",
       "type": "file",
       "file": "skills/opaque-system-analysis.md",
-      "x": 3140,
+      "x": 4360,
       "y": 910,
       "width": 300,
       "height": 110
@@ -367,7 +395,7 @@
       "id": "skill-openasr-offline-model-import",
       "type": "file",
       "file": "skills/openasr-offline-model-import.md",
-      "x": 2480,
+      "x": 3700,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -376,7 +404,7 @@
       "id": "skill-product-comparison-ranking",
       "type": "file",
       "file": "skills/product-comparison-ranking.md",
-      "x": 2810,
+      "x": 4030,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -385,7 +413,7 @@
       "id": "skill-regulated-product-context",
       "type": "file",
       "file": "skills/regulated-product-context.md",
-      "x": 3140,
+      "x": 4360,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -394,7 +422,7 @@
       "id": "skill-regulatory-evidence-traceability",
       "type": "file",
       "file": "skills/regulatory-evidence-traceability.md",
-      "x": 2480,
+      "x": 3700,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -403,7 +431,7 @@
       "id": "skill-round-based-requirements-grilling",
       "type": "file",
       "file": "skills/round-based-requirements-grilling.md",
-      "x": 2810,
+      "x": 4030,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -412,7 +440,7 @@
       "id": "skill-source-to-context",
       "type": "file",
       "file": "skills/source-to-context.md",
-      "x": 3140,
+      "x": 4360,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -421,7 +449,7 @@
       "id": "skill-synapse-orchestrator",
       "type": "file",
       "file": "skills/synapse-orchestrator.md",
-      "x": 2480,
+      "x": 3700,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -430,7 +458,7 @@
       "id": "skill-test-driven-vertical-slice",
       "type": "file",
       "file": "skills/test-driven-vertical-slice.md",
-      "x": 2810,
+      "x": 4030,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -439,7 +467,7 @@
       "id": "skill-two-axis-compliance-review",
       "type": "file",
       "file": "skills/two-axis-compliance-review.md",
-      "x": 3140,
+      "x": 4360,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -448,17 +476,17 @@
       "id": "category-productivity",
       "type": "group",
       "label": "productivity",
-      "x": 3660,
+      "x": 4880,
       "y": 0,
       "width": 1120,
       "height": 520,
-      "color": "4"
+      "color": "5"
     },
     {
       "id": "skill-daily-and-weekly-review",
       "type": "file",
       "file": "skills/daily-and-weekly-review.md",
-      "x": 3700,
+      "x": 4920,
       "y": 70,
       "width": 300,
       "height": 110
@@ -467,7 +495,7 @@
       "id": "skill-decision-and-follow-up-tracker",
       "type": "file",
       "file": "skills/decision-and-follow-up-tracker.md",
-      "x": 4030,
+      "x": 5250,
       "y": 70,
       "width": 300,
       "height": 110
@@ -476,7 +504,7 @@
       "id": "skill-external-stakeholder-questionnaire",
       "type": "file",
       "file": "skills/external-stakeholder-questionnaire.md",
-      "x": 4360,
+      "x": 5580,
       "y": 70,
       "width": 300,
       "height": 110
@@ -485,7 +513,7 @@
       "id": "skill-inbox-action-triage",
       "type": "file",
       "file": "skills/inbox-action-triage.md",
-      "x": 3700,
+      "x": 4920,
       "y": 210,
       "width": 300,
       "height": 110
@@ -494,7 +522,7 @@
       "id": "skill-meeting-preparation",
       "type": "file",
       "file": "skills/meeting-preparation.md",
-      "x": 4030,
+      "x": 5250,
       "y": 210,
       "width": 300,
       "height": 110
@@ -503,7 +531,7 @@
       "id": "skill-project-status-brief",
       "type": "file",
       "file": "skills/project-status-brief.md",
-      "x": 4360,
+      "x": 5580,
       "y": 210,
       "width": 300,
       "height": 110
@@ -512,7 +540,7 @@
       "id": "skill-teach",
       "type": "file",
       "file": "skills/teach.md",
-      "x": 3700,
+      "x": 4920,
       "y": 350,
       "width": 300,
       "height": 110
@@ -521,17 +549,17 @@
       "id": "category-regulated-engineering",
       "type": "group",
       "label": "regulated-engineering",
-      "x": 4880,
+      "x": 6100,
       "y": 0,
       "width": 1120,
       "height": 3600,
-      "color": "5"
+      "color": "6"
     },
     {
       "id": "skill-audit-inspection-finding-response",
       "type": "file",
       "file": "skills/audit-inspection-finding-response.md",
-      "x": 4920,
+      "x": 6140,
       "y": 70,
       "width": 300,
       "height": 110
@@ -540,7 +568,7 @@
       "id": "skill-clinical-evidence-update-impact",
       "type": "file",
       "file": "skills/clinical-evidence-update-impact.md",
-      "x": 5250,
+      "x": 6470,
       "y": 70,
       "width": 300,
       "height": 110
@@ -549,7 +577,7 @@
       "id": "skill-controlled-quality-documentation",
       "type": "file",
       "file": "skills/controlled-quality-documentation.md",
-      "x": 5580,
+      "x": 6800,
       "y": 70,
       "width": 300,
       "height": 110
@@ -558,7 +586,7 @@
       "id": "skill-design-change-regulatory-impact",
       "type": "file",
       "file": "skills/design-change-regulatory-impact.md",
-      "x": 4920,
+      "x": 6140,
       "y": 210,
       "width": 300,
       "height": 110
@@ -567,7 +595,7 @@
       "id": "skill-design-control-traceability",
       "type": "file",
       "file": "skills/design-control-traceability.md",
-      "x": 5250,
+      "x": 6470,
       "y": 210,
       "width": 300,
       "height": 110
@@ -576,7 +604,7 @@
       "id": "skill-eu-mdr-ivdr-regulatory-specialist",
       "type": "file",
       "file": "skills/eu-mdr-ivdr-regulatory-specialist.md",
-      "x": 5580,
+      "x": 6800,
       "y": 210,
       "width": 300,
       "height": 110
@@ -585,7 +613,7 @@
       "id": "skill-eudamed-udi-ivd",
       "type": "file",
       "file": "skills/eudamed-udi-ivd.md",
-      "x": 4920,
+      "x": 6140,
       "y": 350,
       "width": 300,
       "height": 110
@@ -594,7 +622,7 @@
       "id": "skill-fda-510k-predicate-strategy",
       "type": "file",
       "file": "skills/fda-510k-predicate-strategy.md",
-      "x": 5250,
+      "x": 6470,
       "y": 350,
       "width": 300,
       "height": 110
@@ -603,7 +631,7 @@
       "id": "skill-fda-510k-substantial-equivalence",
       "type": "file",
       "file": "skills/fda-510k-substantial-equivalence.md",
-      "x": 5580,
+      "x": 6800,
       "y": 350,
       "width": 300,
       "height": 110
@@ -612,7 +640,7 @@
       "id": "skill-fda-acceptance-readiness",
       "type": "file",
       "file": "skills/fda-acceptance-readiness.md",
-      "x": 4920,
+      "x": 6140,
       "y": 490,
       "width": 300,
       "height": 110
@@ -621,7 +649,7 @@
       "id": "skill-fda-additional-information-response",
       "type": "file",
       "file": "skills/fda-additional-information-response.md",
-      "x": 5250,
+      "x": 6470,
       "y": 490,
       "width": 300,
       "height": 110
@@ -630,7 +658,7 @@
       "id": "skill-fda-complaint-mdr-reportability",
       "type": "file",
       "file": "skills/fda-complaint-mdr-reportability.md",
-      "x": 5580,
+      "x": 6800,
       "y": 490,
       "width": 300,
       "height": 110
@@ -639,7 +667,7 @@
       "id": "skill-fda-corrections-removals",
       "type": "file",
       "file": "skills/fda-corrections-removals.md",
-      "x": 4920,
+      "x": 6140,
       "y": 630,
       "width": 300,
       "height": 110
@@ -648,7 +676,7 @@
       "id": "skill-fda-de-novo-special-controls",
       "type": "file",
       "file": "skills/fda-de-novo-special-controls.md",
-      "x": 5250,
+      "x": 6470,
       "y": 630,
       "width": 300,
       "height": 110
@@ -657,7 +685,7 @@
       "id": "skill-fda-de-novo-strategy",
       "type": "file",
       "file": "skills/fda-de-novo-strategy.md",
-      "x": 5580,
+      "x": 6800,
       "y": 630,
       "width": 300,
       "height": 110
@@ -666,7 +694,7 @@
       "id": "skill-fda-device-classification-product-code",
       "type": "file",
       "file": "skills/fda-device-classification-product-code.md",
-      "x": 4920,
+      "x": 6140,
       "y": 770,
       "width": 300,
       "height": 110
@@ -675,7 +703,7 @@
       "id": "skill-fda-dual-510k-clia-waiver",
       "type": "file",
       "file": "skills/fda-dual-510k-clia-waiver.md",
-      "x": 5250,
+      "x": 6470,
       "y": 770,
       "width": 300,
       "height": 110
@@ -684,7 +712,7 @@
       "id": "skill-fda-estar-submission-builder",
       "type": "file",
       "file": "skills/fda-estar-submission-builder.md",
-      "x": 5580,
+      "x": 6800,
       "y": 770,
       "width": 300,
       "height": 110
@@ -693,7 +721,7 @@
       "id": "skill-fda-ivd-clia-waiver",
       "type": "file",
       "file": "skills/fda-ivd-clia-waiver.md",
-      "x": 4920,
+      "x": 6140,
       "y": 910,
       "width": 300,
       "height": 110
@@ -702,7 +730,7 @@
       "id": "skill-fda-medical-device-ivd-regulatory-specialist",
       "type": "file",
       "file": "skills/fda-medical-device-ivd-regulatory-specialist.md",
-      "x": 5250,
+      "x": 6470,
       "y": 910,
       "width": 300,
       "height": 110
@@ -711,7 +739,7 @@
       "id": "skill-fda-pccp-change-control",
       "type": "file",
       "file": "skills/fda-pccp-change-control.md",
-      "x": 5580,
+      "x": 6800,
       "y": 910,
       "width": 300,
       "height": 110
@@ -720,7 +748,7 @@
       "id": "skill-fda-qmsr-inspection-readiness",
       "type": "file",
       "file": "skills/fda-qmsr-inspection-readiness.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -729,7 +757,7 @@
       "id": "skill-fda-qmsr-iso13485-gap",
       "type": "file",
       "file": "skills/fda-qmsr-iso13485-gap.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -738,7 +766,7 @@
       "id": "skill-fda-qsub-strategy",
       "type": "file",
       "file": "skills/fda-qsub-strategy.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -747,7 +775,7 @@
       "id": "skill-fda-recall-status-termination",
       "type": "file",
       "file": "skills/fda-recall-status-termination.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -756,7 +784,7 @@
       "id": "skill-fda-registration-listing-udi",
       "type": "file",
       "file": "skills/fda-registration-listing-udi.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -765,7 +793,7 @@
       "id": "skill-iec62304-software-lifecycle",
       "type": "file",
       "file": "skills/iec62304-software-lifecycle.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -774,7 +802,7 @@
       "id": "skill-iec62366-usability-engineering",
       "type": "file",
       "file": "skills/iec62366-usability-engineering.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -783,7 +811,7 @@
       "id": "skill-iso13485-qms-audit",
       "type": "file",
       "file": "skills/iso13485-qms-audit.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -792,7 +820,7 @@
       "id": "skill-iso27001-isms-audit",
       "type": "file",
       "file": "skills/iso27001-isms-audit.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -801,7 +829,7 @@
       "id": "skill-ivdr-analytical-performance",
       "type": "file",
       "file": "skills/ivdr-analytical-performance.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -810,7 +838,7 @@
       "id": "skill-ivdr-class-d-conformity",
       "type": "file",
       "file": "skills/ivdr-class-d-conformity.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -819,7 +847,7 @@
       "id": "skill-ivdr-clinical-performance-study",
       "type": "file",
       "file": "skills/ivdr-clinical-performance-study.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -828,7 +856,7 @@
       "id": "skill-ivdr-companion-diagnostic-consultation",
       "type": "file",
       "file": "skills/ivdr-companion-diagnostic-consultation.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -837,7 +865,7 @@
       "id": "skill-ivdr-device-classification",
       "type": "file",
       "file": "skills/ivdr-device-classification.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -846,7 +874,7 @@
       "id": "skill-ivdr-economic-operator-postmarket-propagation",
       "type": "file",
       "file": "skills/ivdr-economic-operator-postmarket-propagation.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -855,7 +883,7 @@
       "id": "skill-ivdr-field-safety-corrective-action",
       "type": "file",
       "file": "skills/ivdr-field-safety-corrective-action.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -864,7 +892,7 @@
       "id": "skill-ivdr-fsca-status-final-reporting",
       "type": "file",
       "file": "skills/ivdr-fsca-status-final-reporting.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -873,7 +901,7 @@
       "id": "skill-ivdr-inhouse-health-institution",
       "type": "file",
       "file": "skills/ivdr-inhouse-health-institution.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -882,7 +910,7 @@
       "id": "skill-ivdr-performance-evaluation",
       "type": "file",
       "file": "skills/ivdr-performance-evaluation.md",
-      "x": 4920,
+      "x": 6140,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -891,7 +919,7 @@
       "id": "skill-ivdr-performance-evaluation-report",
       "type": "file",
       "file": "skills/ivdr-performance-evaluation-report.md",
-      "x": 5250,
+      "x": 6470,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -900,7 +928,7 @@
       "id": "skill-ivdr-pmpf",
       "type": "file",
       "file": "skills/ivdr-pmpf.md",
-      "x": 5580,
+      "x": 6800,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -909,7 +937,7 @@
       "id": "skill-ivdr-pms-vigilance",
       "type": "file",
       "file": "skills/ivdr-pms-vigilance.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -918,7 +946,7 @@
       "id": "skill-ivdr-scientific-validity",
       "type": "file",
       "file": "skills/ivdr-scientific-validity.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -927,7 +955,7 @@
       "id": "skill-mdcg-guidance-navigator",
       "type": "file",
       "file": "skills/mdcg-guidance-navigator.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -936,7 +964,7 @@
       "id": "skill-mdsap-audit-readiness",
       "type": "file",
       "file": "skills/mdsap-audit-readiness.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -945,7 +973,7 @@
       "id": "skill-measurement-system-validation",
       "type": "file",
       "file": "skills/measurement-system-validation.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -954,7 +982,7 @@
       "id": "skill-medical-device-adverse-event-coding",
       "type": "file",
       "file": "skills/medical-device-adverse-event-coding.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -963,7 +991,7 @@
       "id": "skill-medical-device-capa",
       "type": "file",
       "file": "skills/medical-device-capa.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -972,7 +1000,7 @@
       "id": "skill-medical-device-complaint-customer-followup",
       "type": "file",
       "file": "skills/medical-device-complaint-customer-followup.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -981,7 +1009,7 @@
       "id": "skill-medical-device-complaint-handling",
       "type": "file",
       "file": "skills/medical-device-complaint-handling.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -990,7 +1018,7 @@
       "id": "skill-medical-device-complaint-regulatory-routing",
       "type": "file",
       "file": "skills/medical-device-complaint-regulatory-routing.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -999,7 +1027,7 @@
       "id": "skill-medical-device-customer-contact-intake",
       "type": "file",
       "file": "skills/medical-device-customer-contact-intake.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -1008,7 +1036,7 @@
       "id": "skill-medical-device-cybersecurity-lifecycle",
       "type": "file",
       "file": "skills/medical-device-cybersecurity-lifecycle.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -1017,7 +1045,7 @@
       "id": "skill-medical-device-field-action-communication",
       "type": "file",
       "file": "skills/medical-device-field-action-communication.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -1026,7 +1054,7 @@
       "id": "skill-medical-device-field-action-effectiveness",
       "type": "file",
       "file": "skills/medical-device-field-action-effectiveness.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -1035,7 +1063,7 @@
       "id": "skill-medical-device-field-action-physical-execution",
       "type": "file",
       "file": "skills/medical-device-field-action-physical-execution.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -1044,7 +1072,7 @@
       "id": "skill-medical-device-isms-governance",
       "type": "file",
       "file": "skills/medical-device-isms-governance.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -1053,7 +1081,7 @@
       "id": "skill-medical-device-labeling-ifu",
       "type": "file",
       "file": "skills/medical-device-labeling-ifu.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -1062,7 +1090,7 @@
       "id": "skill-medical-device-pms-system",
       "type": "file",
       "file": "skills/medical-device-pms-system.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -1071,7 +1099,7 @@
       "id": "skill-medical-device-privacy-gdpr-bdsg",
       "type": "file",
       "file": "skills/medical-device-privacy-gdpr-bdsg.md",
-      "x": 4920,
+      "x": 6140,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -1080,7 +1108,7 @@
       "id": "skill-medical-device-qms-iso13485",
       "type": "file",
       "file": "skills/medical-device-qms-iso13485.md",
-      "x": 5250,
+      "x": 6470,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -1089,7 +1117,7 @@
       "id": "skill-medical-device-regulatory-strategy",
       "type": "file",
       "file": "skills/medical-device-regulatory-strategy.md",
-      "x": 5580,
+      "x": 6800,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -1098,7 +1126,7 @@
       "id": "skill-medical-device-risk-management-iso14971",
       "type": "file",
       "file": "skills/medical-device-risk-management-iso14971.md",
-      "x": 4920,
+      "x": 6140,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -1107,7 +1135,7 @@
       "id": "skill-medical-device-service-report-quality-routing",
       "type": "file",
       "file": "skills/medical-device-service-report-quality-routing.md",
-      "x": 5250,
+      "x": 6470,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -1116,7 +1144,7 @@
       "id": "skill-nonconformance-mrb-disposition",
       "type": "file",
       "file": "skills/nonconformance-mrb-disposition.md",
-      "x": 5580,
+      "x": 6800,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -1125,7 +1153,7 @@
       "id": "skill-process-validation-iq-oq-pq",
       "type": "file",
       "file": "skills/process-validation-iq-oq-pq.md",
-      "x": 4920,
+      "x": 6140,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -1134,7 +1162,7 @@
       "id": "skill-qms-management-review-action-followup",
       "type": "file",
       "file": "skills/qms-management-review-action-followup.md",
-      "x": 5250,
+      "x": 6470,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -1143,7 +1171,7 @@
       "id": "skill-qms-management-review-governance",
       "type": "file",
       "file": "skills/qms-management-review-governance.md",
-      "x": 5580,
+      "x": 6800,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -1152,7 +1180,7 @@
       "id": "skill-quality-record-integrity",
       "type": "file",
       "file": "skills/quality-record-integrity.md",
-      "x": 4920,
+      "x": 6140,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -1161,7 +1189,7 @@
       "id": "skill-regulatory-change-impact-orchestrator",
       "type": "file",
       "file": "skills/regulatory-change-impact-orchestrator.md",
-      "x": 5250,
+      "x": 6470,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -1170,7 +1198,7 @@
       "id": "skill-regulatory-change-monitoring",
       "type": "file",
       "file": "skills/regulatory-change-monitoring.md",
-      "x": 5580,
+      "x": 6800,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -1179,7 +1207,7 @@
       "id": "skill-regulatory-claims-consistency",
       "type": "file",
       "file": "skills/regulatory-claims-consistency.md",
-      "x": 4920,
+      "x": 6140,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -1188,7 +1216,7 @@
       "id": "skill-supplier-quality-medical-device",
       "type": "file",
       "file": "skills/supplier-quality-medical-device.md",
-      "x": 5250,
+      "x": 6470,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -1197,17 +1225,17 @@
       "id": "category-research-knowledge",
       "type": "group",
       "label": "research-knowledge",
-      "x": 6100,
+      "x": 7320,
       "y": 0,
       "width": 1120,
       "height": 520,
-      "color": "6"
+      "color": "1"
     },
     {
       "id": "skill-freedom-to-operate-assessment",
       "type": "file",
       "file": "skills/freedom-to-operate-assessment.md",
-      "x": 6140,
+      "x": 7360,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1216,7 +1244,7 @@
       "id": "skill-patent-landscape-analysis",
       "type": "file",
       "file": "skills/patent-landscape-analysis.md",
-      "x": 6470,
+      "x": 7690,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1225,7 +1253,7 @@
       "id": "skill-price-availability-snapshot",
       "type": "file",
       "file": "skills/price-availability-snapshot.md",
-      "x": 6800,
+      "x": 8020,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1234,7 +1262,7 @@
       "id": "skill-product-evidence-research",
       "type": "file",
       "file": "skills/product-evidence-research.md",
-      "x": 6140,
+      "x": 7360,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1243,7 +1271,7 @@
       "id": "skill-research-to-evidence-note",
       "type": "file",
       "file": "skills/research-to-evidence-note.md",
-      "x": 6470,
+      "x": 7690,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1252,7 +1280,7 @@
       "id": "skill-sport-performance-diagnostics",
       "type": "file",
       "file": "skills/sport-performance-diagnostics.md",
-      "x": 6800,
+      "x": 8020,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1261,7 +1289,7 @@
       "id": "skill-structured-knowledge-artifact",
       "type": "file",
       "file": "skills/structured-knowledge-artifact.md",
-      "x": 6140,
+      "x": 7360,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1270,7 +1298,7 @@
       "id": "skill-technology-offer-assessment",
       "type": "file",
       "file": "skills/technology-offer-assessment.md",
-      "x": 6470,
+      "x": 7690,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1279,17 +1307,17 @@
       "id": "category-skill-system",
       "type": "group",
       "label": "skill-system",
-      "x": 7320,
+      "x": 8540,
       "y": 0,
       "width": 1120,
       "height": 240,
-      "color": "1"
+      "color": "2"
     },
     {
       "id": "skill-central-skill-repository-curation",
       "type": "file",
       "file": "skills/central-skill-repository-curation.md",
-      "x": 7360,
+      "x": 8580,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1298,7 +1326,7 @@
       "id": "skill-composable-skill-factory",
       "type": "file",
       "file": "skills/composable-skill-factory.md",
-      "x": 7690,
+      "x": 8910,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1307,7 +1335,7 @@
       "id": "skill-repository-skill-bootstrap",
       "type": "file",
       "file": "skills/repository-skill-bootstrap.md",
-      "x": 8020,
+      "x": 9240,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1316,17 +1344,17 @@
       "id": "category-workflow",
       "type": "group",
       "label": "workflow",
-      "x": 8540,
+      "x": 9760,
       "y": 0,
       "width": 1120,
-      "height": 1360,
-      "color": "2"
+      "height": 1640,
+      "color": "3"
     },
     {
       "id": "skill-candidate-role-fit-assessment",
       "type": "file",
       "file": "skills/candidate-role-fit-assessment.md",
-      "x": 8580,
+      "x": 9800,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1335,7 +1363,7 @@
       "id": "skill-dr-komorowski-sport-docx-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-docx-report-renderer.md",
-      "x": 8910,
+      "x": 10130,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1344,7 +1372,7 @@
       "id": "skill-dr-komorowski-sport-pdf-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-pdf-report-renderer.md",
-      "x": 9240,
+      "x": 10460,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1353,7 +1381,7 @@
       "id": "skill-dr-komorowski-sport-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-report-renderer.md",
-      "x": 8580,
+      "x": 9800,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1362,7 +1390,7 @@
       "id": "skill-euroimmun-docx-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-docx-report-renderer.md",
-      "x": 8910,
+      "x": 10130,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1371,7 +1399,7 @@
       "id": "skill-euroimmun-pdf-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-pdf-report-renderer.md",
-      "x": 9240,
+      "x": 10460,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1380,7 +1408,7 @@
       "id": "skill-human-procedure-wizard",
       "type": "file",
       "file": "skills/human-procedure-wizard.md",
-      "x": 8580,
+      "x": 9800,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1389,7 +1417,7 @@
       "id": "skill-job-description-authoring",
       "type": "file",
       "file": "skills/job-description-authoring.md",
-      "x": 8910,
+      "x": 10130,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1398,7 +1426,7 @@
       "id": "skill-llm-prose-pattern-audit",
       "type": "file",
       "file": "skills/llm-prose-pattern-audit.md",
-      "x": 9240,
+      "x": 10460,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1407,7 +1435,7 @@
       "id": "skill-precision-language-rewriter",
       "type": "file",
       "file": "skills/precision-language-rewriter.md",
-      "x": 8580,
+      "x": 9800,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1416,7 +1444,7 @@
       "id": "skill-precision-writing-revision",
       "type": "file",
       "file": "skills/precision-writing-revision.md",
-      "x": 8910,
+      "x": 10130,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1425,7 +1453,7 @@
       "id": "skill-purchase-decision-planner",
       "type": "file",
       "file": "skills/purchase-decision-planner.md",
-      "x": 9240,
+      "x": 10460,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1434,7 +1462,7 @@
       "id": "skill-rewrite-fidelity-verifier",
       "type": "file",
       "file": "skills/rewrite-fidelity-verifier.md",
-      "x": 8580,
+      "x": 9800,
       "y": 630,
       "width": 300,
       "height": 110
@@ -1443,7 +1471,7 @@
       "id": "skill-role-architecture",
       "type": "file",
       "file": "skills/role-architecture.md",
-      "x": 8910,
+      "x": 10130,
       "y": 630,
       "width": 300,
       "height": 110
@@ -1452,7 +1480,7 @@
       "id": "skill-role-requirements-grilling",
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
-      "x": 9240,
+      "x": 10460,
       "y": 630,
       "width": 300,
       "height": 110
@@ -1461,7 +1489,7 @@
       "id": "skill-sport-athlete-management",
       "type": "file",
       "file": "skills/sport-athlete-management.md",
-      "x": 8580,
+      "x": 9800,
       "y": 770,
       "width": 300,
       "height": 110
@@ -1470,7 +1498,7 @@
       "id": "skill-sport-athlete-profile",
       "type": "file",
       "file": "skills/sport-athlete-profile.md",
-      "x": 8910,
+      "x": 10130,
       "y": 770,
       "width": 300,
       "height": 110
@@ -1479,7 +1507,7 @@
       "id": "skill-sport-daily-athlete-monitoring",
       "type": "file",
       "file": "skills/sport-daily-athlete-monitoring.md",
-      "x": 9240,
+      "x": 10460,
       "y": 770,
       "width": 300,
       "height": 110
@@ -1488,7 +1516,16 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 8580,
+      "x": 9800,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-endurance-programming",
+      "type": "file",
+      "file": "skills/sport-endurance-programming.md",
+      "x": 10130,
       "y": 910,
       "width": 300,
       "height": 110
@@ -1497,8 +1534,17 @@
       "id": "skill-sport-goal-performance-model",
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
-      "x": 8910,
+      "x": 10460,
       "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-injury-rehabilitation",
+      "type": "file",
+      "file": "skills/sport-injury-rehabilitation.md",
+      "x": 9800,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1506,8 +1552,8 @@
       "id": "skill-sport-mesocycle-planning",
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
-      "x": 9240,
-      "y": 910,
+      "x": 10130,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1515,8 +1561,26 @@
       "id": "skill-sport-microcycle-planning",
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
-      "x": 8580,
+      "x": 10460,
       "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-nutrition-fueling",
+      "type": "file",
+      "file": "skills/sport-nutrition-fueling.md",
+      "x": 9800,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-return-after-illness",
+      "type": "file",
+      "file": "skills/sport-return-after-illness.md",
+      "x": 10130,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1524,8 +1588,26 @@
       "id": "skill-sport-season-periodization",
       "type": "file",
       "file": "skills/sport-season-periodization.md",
-      "x": 8910,
-      "y": 1050,
+      "x": 10460,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-strength-power-programming",
+      "type": "file",
+      "file": "skills/sport-strength-power-programming.md",
+      "x": 9800,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-sport-testing-battery",
+      "type": "file",
+      "file": "skills/sport-testing-battery.md",
+      "x": 10130,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1533,8 +1615,8 @@
       "id": "skill-sport-training-adaptation-engine",
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
-      "x": 9240,
-      "y": 1050,
+      "x": 10460,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1542,8 +1624,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 8580,
-      "y": 1190,
+      "x": 9800,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1551,8 +1633,8 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 8910,
-      "y": 1190,
+      "x": 10130,
+      "y": 1470,
       "width": 300,
       "height": 110
     }
@@ -4502,6 +4584,42 @@
       "label": "requires"
     },
     {
+      "id": "requires-71b81fde2a34",
+      "fromNode": "skill-sport-adaptation-analysis",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ee1433392d74",
+      "fromNode": "skill-sport-adaptation-analysis",
+      "fromSide": "right",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f97c1ea1f5ec",
+      "fromNode": "skill-sport-adaptation-analysis",
+      "fromSide": "right",
+      "toNode": "skill-sport-performance-diagnostics",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f2a224a1652f",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-adaptation-analysis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-190bbfae710d",
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
@@ -4520,10 +4638,28 @@
       "label": "requires"
     },
     {
+      "id": "requires-f1ff9cb33e48",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-endurance-programming",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-652a1a8f1655",
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
       "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2d72dca19485",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-injury-rehabilitation",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4547,10 +4683,55 @@
       "label": "requires"
     },
     {
+      "id": "requires-34eceee6e438",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-nutrition-fueling",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8cef42bd1aa2",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "left",
+      "toNode": "skill-sport-recovery-sleep",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e572ea5ff31d",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-return-after-illness",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-0edd948a3911",
       "fromNode": "skill-sport-athlete-management",
       "fromSide": "right",
       "toNode": "skill-sport-season-periodization",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-120f00fa8dde",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-strength-power-programming",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-af3cb00f26fc",
+      "fromNode": "skill-sport-athlete-management",
+      "fromSide": "right",
+      "toNode": "skill-sport-testing-battery",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4610,8 +4791,8 @@
       "label": "requires"
     },
     {
-      "id": "requires-04b80368b874",
-      "fromNode": "skill-sport-goal-performance-model",
+      "id": "requires-43b3586c995d",
+      "fromNode": "skill-sport-endurance-programming",
       "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
       "toSide": "left",
@@ -4619,19 +4800,154 @@
       "label": "requires"
     },
     {
+      "id": "requires-eb278bb96431",
+      "fromNode": "skill-sport-endurance-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-04e4d02b18ef",
+      "fromNode": "skill-sport-endurance-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-mesocycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b480aade5053",
+      "fromNode": "skill-sport-endurance-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-410c6a6c1b97",
+      "fromNode": "skill-sport-endurance-programming",
+      "fromSide": "left",
+      "toNode": "skill-sport-performance-diagnostics",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-04b80368b874",
+      "fromNode": "skill-sport-goal-performance-model",
+      "fromSide": "left",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-48961cacd46d",
+      "fromNode": "skill-sport-injury-rehabilitation",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b5e96afb58af",
+      "fromNode": "skill-sport-injury-rehabilitation",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-bc3012bacae7",
       "fromNode": "skill-sport-mesocycle-planning",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-2215266000e2",
       "fromNode": "skill-sport-microcycle-planning",
+      "fromSide": "left",
+      "toNode": "skill-sport-mesocycle-planning",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7ec05c4514bd",
+      "fromNode": "skill-sport-nutrition-fueling",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-222d545aea76",
+      "fromNode": "skill-sport-nutrition-fueling",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-72a43b0dee86",
+      "fromNode": "skill-sport-nutrition-fueling",
       "fromSide": "right",
       "toNode": "skill-sport-mesocycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ffeff02cd7fb",
+      "fromNode": "skill-sport-nutrition-fueling",
+      "fromSide": "right",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6b032563256f",
+      "fromNode": "skill-sport-recovery-sleep",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f5dcbcc1e8bd",
+      "fromNode": "skill-sport-recovery-sleep",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-87d4eb46f647",
+      "fromNode": "skill-sport-return-after-illness",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-50b5912cb8c6",
+      "fromNode": "skill-sport-return-after-illness",
+      "fromSide": "right",
+      "toNode": "skill-sport-daily-athlete-monitoring",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4641,6 +4957,69 @@
       "fromNode": "skill-sport-season-periodization",
       "fromSide": "right",
       "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-978b261c9bb5",
+      "fromNode": "skill-sport-strength-power-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7421ab2d9af5",
+      "fromNode": "skill-sport-strength-power-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-027b2816ba2f",
+      "fromNode": "skill-sport-strength-power-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-mesocycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-89ae96e65e13",
+      "fromNode": "skill-sport-strength-power-programming",
+      "fromSide": "right",
+      "toNode": "skill-sport-microcycle-planning",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bd315557d842",
+      "fromNode": "skill-sport-testing-battery",
+      "fromSide": "right",
+      "toNode": "skill-sport-athlete-profile",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a004e9a37036",
+      "fromNode": "skill-sport-testing-battery",
+      "fromSide": "right",
+      "toNode": "skill-sport-goal-performance-model",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f8a93a331ee0",
+      "fromNode": "skill-sport-testing-battery",
+      "fromSide": "right",
+      "toNode": "skill-sport-season-periodization",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -4666,9 +5045,9 @@
     {
       "id": "requires-6e06ed021efe",
       "fromNode": "skill-sport-training-adaptation-engine",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },

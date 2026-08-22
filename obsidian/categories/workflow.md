@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **26**
+Skills: **32**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
@@ -31,10 +31,16 @@ Skills: **26**
 - [[skills/sport-athlete-profile|sport-athlete-profile]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
 - [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- [[skills/sport-endurance-programming|sport-endurance-programming]]
 - [[skills/sport-goal-performance-model|sport-goal-performance-model]]
+- [[skills/sport-injury-rehabilitation|sport-injury-rehabilitation]]
 - [[skills/sport-mesocycle-planning|sport-mesocycle-planning]]
 - [[skills/sport-microcycle-planning|sport-microcycle-planning]]
+- [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
+- [[skills/sport-return-after-illness|sport-return-after-illness]]
 - [[skills/sport-season-periodization|sport-season-periodization]]
+- [[skills/sport-strength-power-programming|sport-strength-power-programming]]
+- [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/technology-due-diligence|technology-due-diligence]]

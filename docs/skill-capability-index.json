@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
-  "skillCount": 163,
-  "entrypointCount": 133,
+  "skillCount": 171,
+  "entrypointCount": 141,
   "entrypointCategories": [
+    "analysis",
     "communication-memory",
     "engineering",
     "productivity",
@@ -11,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 163,
+  "evaluationSuiteCount": 171,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -8347,19 +8348,67 @@
       }
     },
     {
+      "name": "sport-adaptation-analysis",
+      "description": "Analysiert longitudinale Trainings- und Leistungsdaten auf Adaptation, Plateau, Drift und übermäßige Ermüdung mit individueller Baseline und expliziter Unsicherheit. Verwenden für Block-/Trendanalysen; ACWR, HRV oder Korrelationen nicht als kausale Verletzungsvorhersage behandeln.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "sport-daily-athlete-monitoring",
+        "sport-microcycle-planning",
+        "sport-performance-diagnostics"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "sport-adaptation-analysis.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-adaptation-analysis.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-adaptation-analysis"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "sport-athlete-management",
-      "description": "Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, Session-Completion und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.",
+      "description": "Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und Zielmodell über Saison-, Meso- und Mikroplanung zu Daily Monitoring, spezialisierten Kraft-/Ausdauer-/Recovery-/Fueling-/Health-Modulen und auditierbarer Adaptation. Verwenden für longitudinale Trainingssteuerung über mehrere Ebenen; Fachlogik der Spezialskills nicht duplizieren.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
+        "sport-adaptation-analysis",
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
+        "sport-endurance-programming",
         "sport-goal-performance-model",
+        "sport-injury-rehabilitation",
         "sport-mesocycle-planning",
         "sport-microcycle-planning",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
         "sport-season-periodization",
+        "sport-strength-power-programming",
+        "sport-testing-battery",
         "sport-training-adaptation-engine"
       ],
       "dependents": [],
@@ -8415,7 +8464,14 @@
       "dependents": [
         "sport-athlete-management",
         "sport-daily-athlete-monitoring",
+        "sport-endurance-programming",
         "sport-goal-performance-model",
+        "sport-injury-rehabilitation",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
+        "sport-strength-power-programming",
+        "sport-testing-battery",
         "sport-training-adaptation-engine"
       ],
       "outputs": [
@@ -8431,7 +8487,14 @@
           "consumerSkills": [
             "sport-athlete-management",
             "sport-daily-athlete-monitoring",
+            "sport-endurance-programming",
             "sport-goal-performance-model",
+            "sport-injury-rehabilitation",
+            "sport-nutrition-fueling",
+            "sport-recovery-sleep",
+            "sport-return-after-illness",
+            "sport-strength-power-programming",
+            "sport-testing-battery",
             "sport-training-adaptation-engine"
           ]
         }
@@ -8457,7 +8520,12 @@
         "sport-athlete-profile"
       ],
       "dependents": [
+        "sport-adaptation-analysis",
         "sport-athlete-management",
+        "sport-injury-rehabilitation",
+        "sport-nutrition-fueling",
+        "sport-recovery-sleep",
+        "sport-return-after-illness",
         "sport-training-adaptation-engine"
       ],
       "outputs": [
@@ -8472,7 +8540,12 @@
             "sport-daily-athlete-monitoring"
           ],
           "consumerSkills": [
+            "sport-adaptation-analysis",
             "sport-athlete-management",
+            "sport-injury-rehabilitation",
+            "sport-nutrition-fueling",
+            "sport-recovery-sleep",
+            "sport-return-after-illness",
             "sport-training-adaptation-engine"
           ]
         },
@@ -8483,7 +8556,12 @@
             "sport-daily-athlete-monitoring"
           ],
           "consumerSkills": [
+            "sport-adaptation-analysis",
             "sport-athlete-management",
+            "sport-injury-rehabilitation",
+            "sport-nutrition-fueling",
+            "sport-recovery-sleep",
+            "sport-return-after-illness",
             "sport-training-adaptation-engine"
           ]
         }
@@ -8536,6 +8614,48 @@
       }
     },
     {
+      "name": "sport-endurance-programming",
+      "description": "Erstellt sportartspezifische Ausdauerprescriptions aus Diagnostik, Ziel, Saisonphase und Mikrozyklus für niedrige Intensität, Schwelle, VO2-orientierte Intervalle und anaerobe Reize. Verwenden für konkrete Pace-/Power-/HF-/RPE-Ziele; HRV oder starre Zonen nicht als alleinige Regler verwenden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-performance-diagnostics"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "endurance-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "endurance-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-endurance-programming"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "sport-goal-performance-model",
       "description": "Übersetzt ein sportliches Ziel in Outcome-, Performance- und Prozessziele sowie eine priorisierte KPI- und Limiter-Struktur. Verwenden vor Saison- oder Blockplanung, wenn Zieltermin, Wettkampfpriorität und messbare Leistungsanforderungen geklärt werden müssen; nicht für die konkrete Wochenprogrammierung.",
       "invocation": {
@@ -8547,7 +8667,10 @@
       ],
       "dependents": [
         "sport-athlete-management",
-        "sport-season-periodization"
+        "sport-endurance-programming",
+        "sport-season-periodization",
+        "sport-strength-power-programming",
+        "sport-testing-battery"
       ],
       "outputs": [
         "sport-performance-model.json"
@@ -8561,7 +8684,49 @@
           ],
           "consumerSkills": [
             "sport-athlete-management",
-            "sport-season-periodization"
+            "sport-endurance-programming",
+            "sport-season-periodization",
+            "sport-strength-power-programming",
+            "sport-testing-battery"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-injury-rehabilitation",
+      "description": "Übersetzt dokumentierte medizinische oder physiotherapeutische Einschränkungen in eine kriteriumsbasierte sportliche Rehabilitationsprogression von Belastungsverträglichkeit bis Return to Performance. Verwenden nach gesicherter Diagnose/Restriction; nicht für Diagnose oder eigenständige Return-to-Sport-Freigabe.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "rehab-progression.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "rehab-progression.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-injury-rehabilitation"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
           ]
         }
       ],
@@ -8587,7 +8752,10 @@
       ],
       "dependents": [
         "sport-athlete-management",
-        "sport-microcycle-planning"
+        "sport-endurance-programming",
+        "sport-microcycle-planning",
+        "sport-nutrition-fueling",
+        "sport-strength-power-programming"
       ],
       "outputs": [
         "sport-mesocycle.json"
@@ -8601,7 +8769,10 @@
           ],
           "consumerSkills": [
             "sport-athlete-management",
-            "sport-microcycle-planning"
+            "sport-endurance-programming",
+            "sport-microcycle-planning",
+            "sport-nutrition-fueling",
+            "sport-strength-power-programming"
           ]
         }
       ],
@@ -8626,7 +8797,11 @@
         "sport-mesocycle-planning"
       ],
       "dependents": [
+        "sport-adaptation-analysis",
         "sport-athlete-management",
+        "sport-endurance-programming",
+        "sport-nutrition-fueling",
+        "sport-strength-power-programming",
         "sport-training-adaptation-engine"
       ],
       "outputs": [
@@ -8640,8 +8815,64 @@
             "sport-microcycle-planning"
           ],
           "consumerSkills": [
+            "sport-adaptation-analysis",
             "sport-athlete-management",
+            "sport-endurance-programming",
+            "sport-nutrition-fueling",
+            "sport-strength-power-programming",
             "sport-training-adaptation-engine"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-nutrition-fueling",
+      "description": "Plant leistungsorientiertes Fueling, Proteinverteilung, Flüssigkeit und Wettkampfernährung und erkennt Hinweise auf niedrige Energieverfügbarkeit/RED-S. Verwenden für Trainings- und Wettkampfernährung; nicht als klinische Diätetik oder autonome Diagnose von RED-S.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "energy-availability-risk.json",
+        "sport-fueling-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "energy-availability-risk.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-nutrition-fueling"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        },
+        {
+          "output": "sport-fueling-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-nutrition-fueling"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
           ]
         }
       ],
@@ -8664,7 +8895,9 @@
       },
       "requires": [],
       "dependents": [
-        "sport-diagnostics-training-report-workflow"
+        "sport-adaptation-analysis",
+        "sport-diagnostics-training-report-workflow",
+        "sport-endurance-programming"
       ],
       "outputs": [
         "sport-diagnostics.json"
@@ -8677,7 +8910,87 @@
             "sport-performance-diagnostics"
           ],
           "consumerSkills": [
-            "sport-diagnostics-training-report-workflow"
+            "sport-adaptation-analysis",
+            "sport-diagnostics-training-report-workflow",
+            "sport-endurance-programming"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-recovery-sleep",
+      "description": "Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle Baseline und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise oder Wettkampfbelastung; keinen opaken Readiness-Score und keine HRV-Alleinsteuerung erzeugen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "recovery-state.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "recovery-state.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-recovery-sleep"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-return-after-illness",
+      "description": "Steuert die graduelle Rückkehr ins Training nach akuter Erkrankung oder krankheitsbedingter Pause anhand aktueller Symptome, Unterbrechungsdauer, Vorbelastung und Reaktion auf Wiedereinstieg. Verwenden nach Krankheit; kardiopulmonale/systemische Red Flags an medizinische Abklärung routen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-daily-athlete-monitoring"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "return-after-illness-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "return-after-illness-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-return-after-illness"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
           ]
         }
       ],
@@ -8703,7 +9016,8 @@
       ],
       "dependents": [
         "sport-athlete-management",
-        "sport-mesocycle-planning"
+        "sport-mesocycle-planning",
+        "sport-testing-battery"
       ],
       "outputs": [
         "sport-season-plan.json"
@@ -8717,7 +9031,89 @@
           ],
           "consumerSkills": [
             "sport-athlete-management",
-            "sport-mesocycle-planning"
+            "sport-mesocycle-planning",
+            "sport-testing-battery"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-strength-power-programming",
+      "description": "Spezialisiert Kraft- und Schnellkrafttraining für sportliche Leistung mit Hypertrophie, Maximalkraft, RFD, Ballistik, Gewichtheber-Derivaten, Plyometrie, Isometrie und Erhaltungsdosen. Verwenden für konkrete Kraft-/Power-Dosierung; Alter allein ist kein Grund, schwere oder explosive Reize zu entfernen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "strength-power-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "strength-power-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-strength-power-programming"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-testing-battery",
+      "description": "Wählt eine minimale, sport- und zielbezogene Leistungsdiagnostik-Batterie aus und legt Protokoll, Zeitpunkt, Wiederholbarkeit und Entscheidungsnutzen fest. Verwenden zur Testplanung über Saisonphasen; nicht für unnötige Maximaltests kurz vor Wettkämpfen oder medizinische Diagnostik.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-season-periodization"
+      ],
+      "dependents": [
+        "sport-athlete-management"
+      ],
+      "outputs": [
+        "sport-testing-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-testing-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-testing-battery"
+          ],
+          "consumerSkills": [
+            "sport-athlete-management"
           ]
         }
       ],

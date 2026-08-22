@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Testing Battery"
+  short_description: "Wählt eine minimale, sport- und zielbezogene Leistungsdiagnostik-Batterie aus und legt Protokoll, Zeitpunkt, Wiederho..."
+policy:
+  allow_implicit_invocation: true

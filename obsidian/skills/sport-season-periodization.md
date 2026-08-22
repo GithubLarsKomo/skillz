@@ -32,6 +32,7 @@ Plant die Saison- und Makrostruktur aus priorisierten Wettkämpfen, Performance-
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-mesocycle-planning|sport-mesocycle-planning]]
+- [[skills/sport-testing-battery|sport-testing-battery]]
 
 ## Outputs
 
@@ -43,6 +44,7 @@ Plant die Saison- und Makrostruktur aus priorisierten Wettkämpfen, Performance-
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-mesocycle-planning|sport-mesocycle-planning]]
+- [[skills/sport-testing-battery|sport-testing-battery]]
 
 ## Evaluation
 

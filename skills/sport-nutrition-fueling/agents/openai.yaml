@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Nutrition Fueling"
+  short_description: "Plant leistungsorientiertes Fueling, Proteinverteilung, Flüssigkeit und Wettkampfernährung und erkennt Hinweise auf n..."
+policy:
+  allow_implicit_invocation: true

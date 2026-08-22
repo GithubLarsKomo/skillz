@@ -898,9 +898,15 @@
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
       }
     },
+    "sport-adaptation-analysis": {
+      "files": {
+        "SKILL.md": "a6b38707f3cf7d2ca0081d70328bf389b620d8774c7da55828355b00d068cb27",
+        "agents/openai.yaml": "bcffd28663e77b31afb7a73aa171e6d524663305ef28b8b401a2f728e8541569"
+      }
+    },
     "sport-athlete-management": {
       "files": {
-        "SKILL.md": "92c9620d56768f837ecb7936dc87d066c3ebdf534b0df738a1bed20eda57acf0",
+        "SKILL.md": "91ec0915db9f0c268fc01ee305ee7a434e8b46f288241c044f4810a73d71fbf1",
         "agents/openai.yaml": "d3b904557a2f39b15deeb35a4fd9590dd68332f8caea162df1ae4a1c48552238"
       }
     },
@@ -922,10 +928,22 @@
         "agents/openai.yaml": "8c3ed9360ffe5e9bfc2946ae8a5cca42adaffbc47c0ae6a74ce2b07cfdcb80ed"
       }
     },
+    "sport-endurance-programming": {
+      "files": {
+        "SKILL.md": "38fa431f0d34b4f5eccef3e1c910d7219cf3655ed981a3b541424a7ca0fe0c58",
+        "agents/openai.yaml": "c300d697045d17d39f48f353743ae96d21bda7f5eace781b6c498cd2183ef39c"
+      }
+    },
     "sport-goal-performance-model": {
       "files": {
         "SKILL.md": "04c1aca64ad1b99812ed9ae1628c138983116bff503182d4d4b089a033da2af7",
         "agents/openai.yaml": "77b206739fc39028c179573b4fb574753b5f4f53c7edb61e8151607384c54625"
+      }
+    },
+    "sport-injury-rehabilitation": {
+      "files": {
+        "SKILL.md": "9686e7f1cc2b0cfdfbbae6f5cd3c5839ca23b8bc004ca1dac3ab2738300f11cb",
+        "agents/openai.yaml": "9e9a437f2e5875d22d39803c3859085c7580daf6ee6bb267174b7abeddb7b663"
       }
     },
     "sport-mesocycle-planning": {
@@ -940,16 +958,46 @@
         "agents/openai.yaml": "ae9f2521935d2ff508520f6380934b6ac5ffb6c62e6997954110209b5538a28a"
       }
     },
+    "sport-nutrition-fueling": {
+      "files": {
+        "SKILL.md": "7d765f0815f1b34729e23be042cfca15a1929a7e0dc11db2b896f4fd1b756a7c",
+        "agents/openai.yaml": "31ff0ec7a93dac510c756db11aecd1c5806f84e8d880373e5a95a2297ad61117"
+      }
+    },
     "sport-performance-diagnostics": {
       "files": {
         "SKILL.md": "0c5f545808d5b7e118c1355991b47879751a0c8f77588543cf6f4cb61ac1b303",
         "agents/openai.yaml": "525c800ceb6ebf516332f12a3a004ddb031f0796b7fe2c2de9558d1d4e334da7"
       }
     },
+    "sport-recovery-sleep": {
+      "files": {
+        "SKILL.md": "2907d5609877938899dce51c58a2660edf90d9615a5a8ddd295c2793c98b6c3a",
+        "agents/openai.yaml": "9358fd36645d50aacc4fe234960ff28471c2a111bef18da6c17fa27e2a90dffd"
+      }
+    },
+    "sport-return-after-illness": {
+      "files": {
+        "SKILL.md": "883763c9814652a010b41254b25a9067eced85d1fe5dd3389f83c758ad748f97",
+        "agents/openai.yaml": "1eb097441ddc533d78085fc57ecac7113cebc73fb5fcb3caa0e7a21333c30371"
+      }
+    },
     "sport-season-periodization": {
       "files": {
         "SKILL.md": "4e80ad3862d2a2c0c106a30224d43e7a7565a0e819fecf4b4b96bac93de193f9",
         "agents/openai.yaml": "a53babe3381668c37d9aa73b2818cb7aa4a5fe31e5f6b63aa45f4dc793b9b6bb"
+      }
+    },
+    "sport-strength-power-programming": {
+      "files": {
+        "SKILL.md": "ace9d9dac20f2aab0ade659b9ca3296e80db1088d849fd0e2936dedce15d9c16",
+        "agents/openai.yaml": "2dd1d2f22f8700a0d2c820a5841fcc0575de422ae9ad94d376f7c4cfff31dd16"
+      }
+    },
+    "sport-testing-battery": {
+      "files": {
+        "SKILL.md": "74f1d24f9ba76be66fb8ae51500e4ea079cacefe276532f0e61bfbc3830c5633",
+        "agents/openai.yaml": "1cdc9424236107c5579060359135dc833ae2bbae05c10ca8a9c000d8227ec5c0"
       }
     },
     "sport-training-adaptation-engine": {
