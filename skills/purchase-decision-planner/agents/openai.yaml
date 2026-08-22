@@ -1,0 +1,5 @@
+interface:
+  display_name: "Purchase Decision Planner"
+  short_description: "Orchestriert private und berufliche Kaufentscheidungen von Anforderungen über Evidenz und Preise bis zur nachvollzieh..."
+policy:
+  allow_implicit_invocation: true
