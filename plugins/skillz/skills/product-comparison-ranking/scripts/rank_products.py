@@ -24,6 +24,94 @@ def weighted(scores, criteria, include_price=True):
     quality_weight=sum(c["weight"] for c in criteria if c.get("kind") not in {"price","tco"})
     return None if quality_weight<=0 else total/quality_weight
 
+def _perturb_weights(criteria, target_id, shift):
+    target=next((c for c in criteria if c["id"]==target_id),None)
+    if target is None: raise KeyError(target_id)
+    old=float(target["weight"])
+    new=max(0.0,min(1.0,old+shift))
+    if math.isclose(new,old,abs_tol=1e-12): return None
+    others=1.0-old
+    if others <= 1e-12: return None
+    scale=(1.0-new)/others
+    adjusted=[]
+    for c in criteria:
+        item=dict(c)
+        item["weight"]=new if c["id"]==target_id else float(c["weight"])*scale
+        adjusted.append(item)
+    return adjusted
+
+def _quality_pool(candidates):
+    return [c for c in candidates if c["gate"]==PASS and c.get("evidenceCoverage") in {"high","medium"} and not c.get("materialReliabilityBlocker",False)]
+
+def _quality_winner(candidates, criteria):
+    scored=[]
+    for c in _quality_pool(candidates):
+        score=weighted(c.get("criterionScores",{}),criteria,False)
+        if score is not None: scored.append((score,c))
+    return max(scored,key=lambda x:x[0],default=(None,None))
+
+def _price_performance_winner(candidates, criteria):
+    scored=[]
+    for c in candidates:
+        if c["gate"]!=PASS: continue
+        score=weighted(c.get("criterionScores",{}),criteria,True)
+        if score is not None: scored.append((score,c))
+    return max(scored,key=lambda x:x[0],default=(None,None))
+
+def _margin(candidates, criteria, include_price):
+    pool=[c for c in candidates if c["gate"]==PASS] if include_price else _quality_pool(candidates)
+    scores=[]
+    for c in pool:
+        score=weighted(c.get("criterionScores",{}),criteria,include_price)
+        if score is not None: scores.append(score)
+    scores.sort(reverse=True)
+    return None if len(scores)<2 else scores[0]-scores[1]
+
+def sensitivity_analysis(candidates, criteria, delta=0.05, near_tie_threshold=1.0):
+    if not 0 < delta < 1: raise ValueError("sensitivityDelta must be in (0,1)")
+    if near_tie_threshold < 0: raise ValueError("nearTieThreshold must be >= 0")
+    _,q=_quality_winner(candidates,criteria)
+    _,pp=_price_performance_winner(candidates,criteria)
+    baseline_q=q.get("candidateId") if q else None
+    baseline_pp=pp.get("candidateId") if pp else None
+    changes=[]; scenario_count=0
+    for criterion in criteria:
+        for direction in (-1,1):
+            adjusted=_perturb_weights(criteria,criterion["id"],direction*delta)
+            if adjusted is None: continue
+            scenario_count+=1
+            _,sq=_quality_winner(candidates,adjusted)
+            _,spp=_price_performance_winner(candidates,adjusted)
+            qid=sq.get("candidateId") if sq else None
+            ppid=spp.get("candidateId") if spp else None
+            if qid != baseline_q or ppid != baseline_pp:
+                changes.append({
+                    "criterionId":criterion["id"],
+                    "direction":"decrease" if direction<0 else "increase",
+                    "qualityWinner":qid,
+                    "pricePerformanceWinner":ppid,
+                    "weights":{c["id"]:round(c["weight"],10) for c in adjusted},
+                })
+    quality_margin=_margin(candidates,criteria,False)
+    utility_margin=_margin(candidates,criteria,True)
+    quality_stable=all(change["qualityWinner"]==baseline_q for change in changes)
+    pp_stable=all(change["pricePerformanceWinner"]==baseline_pp for change in changes)
+    return {
+        "method":"one-at-a-time-weight-shift",
+        "delta":delta,
+        "nearTieThreshold":near_tie_threshold,
+        "scenarioCount":scenario_count,
+        "baseline":{"qualityWinner":baseline_q,"pricePerformanceWinner":baseline_pp},
+        "margins":{"qualityUtility":quality_margin,"utilityScore":utility_margin},
+        "nearTie":{
+            "quality":quality_margin is not None and quality_margin <= near_tie_threshold,
+            "pricePerformance":utility_margin is not None and utility_margin <= near_tie_threshold,
+        },
+        "qualityWinnerStable":quality_stable,
+        "pricePerformanceWinnerStable":pp_stable,
+        "winnerChanges":changes,
+    }
+
 def rank(data):
     criteria=data.get("criteria",[])
     if not criteria or any("weight" not in c for c in criteria): raise ValueError("complete confirmed criteria weights required")
@@ -48,7 +136,22 @@ def rank(data):
     candidates.sort(key=lambda c:(c["gate"]!=PASS, -(c["utilityScore"] if c["utilityScore"] is not None else -1)))
     shortlist=candidates[:10]
     missing_material=any(c["gate"] in {CONDITIONAL,UNKNOWN} or c.get("utilityScore") is None for c in shortlist)
-    return {"schemaVersion":1,"rankingConfidence":"low" if missing_material else "high","winners":{"quality":q.get("candidateId") if q else None,"pricePerformance":pp.get("candidateId") if pp else None,"bargain":bargain.get("candidateId") if bargain else None},"rankedCandidates":shortlist,"excludedCandidates":[c["candidateId"] for c in candidates if c["gate"]==FAIL],"limitations":[]}
+    sensitivity=sensitivity_analysis(candidates,criteria,float(data.get("sensitivityDelta",0.05)),float(data.get("nearTieThreshold",1.0)))
+    sensitivity_unstable=not sensitivity["qualityWinnerStable"] or not sensitivity["pricePerformanceWinnerStable"]
+    near_tie=any(sensitivity["nearTie"].values())
+    limitations=[]
+    if sensitivity_unstable: limitations.append("winner changes under plausible one-at-a-time weight shifts")
+    if near_tie: limitations.append("top candidates are within the configured near-tie threshold")
+    if missing_material: limitations.append("shortlist contains conditional/unknown gates or incomplete utility scores")
+    return {
+        "schemaVersion":1,
+        "rankingConfidence":"low" if missing_material or sensitivity_unstable or near_tie else "high",
+        "winners":{"quality":q.get("candidateId") if q else None,"pricePerformance":pp.get("candidateId") if pp else None,"bargain":bargain.get("candidateId") if bargain else None},
+        "rankedCandidates":shortlist,
+        "excludedCandidates":[c["candidateId"] for c in candidates if c["gate"]==FAIL],
+        "sensitivity":sensitivity,
+        "limitations":limitations,
+    }
 
 def main():
     p=argparse.ArgumentParser(description="Deterministically rank product candidates from structured JSON."); p.add_argument("input"); p.add_argument("-o","--output"); a=p.parse_args()
