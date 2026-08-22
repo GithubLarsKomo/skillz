@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **17**
+Skills: **18**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
@@ -23,6 +23,7 @@ Skills: **17**
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
 - [[skills/precision-language-rewriter|precision-language-rewriter]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
+- [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]

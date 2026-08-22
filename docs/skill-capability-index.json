@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 151,
-  "entrypointCount": 122,
+  "skillCount": 155,
+  "entrypointCount": 125,
   "entrypointCategories": [
     "communication-memory",
     "engineering",
@@ -11,7 +11,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 151,
+  "evaluationSuiteCount": 155,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -6800,6 +6800,55 @@
       }
     },
     {
+      "name": "price-availability-snapshot",
+      "description": "Erfasst SKU-genaue aktuelle Preise, Bezugsquellen und Verfügbarkeit für bekannte Produktkandidaten ohne Qualitätsranking.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [],
+      "dependents": [
+        "purchase-decision-planner"
+      ],
+      "outputs": [
+        "price-snapshot.json",
+        "price-snapshot.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "price-snapshot.json",
+          "ambiguous": false,
+          "producers": [
+            "price-availability-snapshot"
+          ],
+          "consumerSkills": [
+            "purchase-decision-planner"
+          ]
+        },
+        {
+          "output": "price-snapshot.md",
+          "ambiguous": false,
+          "producers": [
+            "price-availability-snapshot"
+          ],
+          "consumerSkills": [
+            "purchase-decision-planner"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/price-normalization.md",
+        "scripts/validate_price_snapshot.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "description": "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierten Kriterien, Revalidierung und Change-Traceability.",
       "invocation": {
@@ -6845,6 +6894,107 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "product-comparison-ranking",
+      "description": "Rankt belegte Produkte gegen bestätigte Must-haves und Gewichte und trennt Nutzwert, Evidenzabdeckung und Ranking-Confidence.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "purchase-decision-planner"
+      ],
+      "outputs": [
+        "product-ranking.json",
+        "product-ranking.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "product-ranking.json",
+          "ambiguous": false,
+          "producers": [
+            "product-comparison-ranking"
+          ],
+          "consumerSkills": [
+            "purchase-decision-planner"
+          ]
+        },
+        {
+          "output": "product-ranking.md",
+          "ambiguous": false,
+          "producers": [
+            "product-comparison-ranking"
+          ],
+          "consumerSkills": [
+            "purchase-decision-planner"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/scoring-model.md",
+        "scripts/rank_products.py",
+        "scripts/validate_requirements.py"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "product-evidence-research",
+      "description": "Recherchiert und normalisiert Produkte für bestätigte Kaufanforderungen und erzeugt ein quellenkritisches Evidence Set ohne Preisranking.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "purchase-decision-planner"
+      ],
+      "outputs": [
+        "product-evidence-set.json",
+        "product-evidence-set.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "product-evidence-set.json",
+          "ambiguous": false,
+          "producers": [
+            "product-evidence-research"
+          ],
+          "consumerSkills": [
+            "purchase-decision-planner"
+          ]
+        },
+        {
+          "output": "product-evidence-set.md",
+          "ambiguous": false,
+          "producers": [
+            "product-evidence-research"
+          ],
+          "consumerSkills": [
+            "purchase-decision-planner"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/source-quality.md",
+        "scripts/normalize_product_identity.py"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -6956,6 +7106,61 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "purchase-decision-planner",
+      "description": "Orchestriert private und berufliche Kaufentscheidungen von Anforderungen über Evidenz und Preise bis zur nachvollziehbaren Empfehlung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "price-availability-snapshot",
+        "product-comparison-ranking",
+        "product-evidence-research"
+      ],
+      "dependents": [],
+      "outputs": [
+        "purchase-plan.json",
+        "purchase-plan.md",
+        "purchase-shortlist.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "purchase-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "purchase-decision-planner"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "purchase-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "purchase-decision-planner"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "purchase-shortlist.json",
+          "ambiguous": false,
+          "producers": [
+            "purchase-decision-planner"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/routing-matrix.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -7749,6 +7954,7 @@
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
         "patent-landscape-analysis",
+        "product-evidence-research",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "teach",
@@ -7780,6 +7986,7 @@
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
             "patent-landscape-analysis",
+            "product-evidence-research",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
             "teach",
@@ -7807,6 +8014,7 @@
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
             "patent-landscape-analysis",
+            "product-evidence-research",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
             "teach",
