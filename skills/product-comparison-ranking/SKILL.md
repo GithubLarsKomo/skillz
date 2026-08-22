@@ -3,7 +3,6 @@ name: product-comparison-ranking
 description: Rankt belegte Produkte gegen bestätigte Must-haves und Gewichte und trennt Nutzwert, Evidenzabdeckung und Ranking-Confidence.
 userFacing: false
 implicitInvocation: true
-category: research-knowledge
 version: 0.1.0
 status: candidate
 owners:
