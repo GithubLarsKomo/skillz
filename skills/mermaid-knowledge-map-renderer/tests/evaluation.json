@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "mermaid-knowledge-map-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Render a small validated knowledge map with one goal, two ideas and typed edges as Mermaid.",
+      "requiredBehaviors": ["preserve node identity", "render edge types", "produce readable Mermaid syntax"],
+      "forbiddenBehaviors": ["invent layout edges", "drop semantic edge labels"],
+      "skillAnchors": ["Keine neue Edge nur für ein schöneres Layout"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Render a graph with 55 nodes, inferred relations and contradictions.",
+      "requiredBehaviors": ["retain the full graph", "offer or create a reduced view", "keep confidence and contradictions visible"],
+      "forbiddenBehaviors": ["replace the full graph with the reduced view"],
+      "skillAnchors": ["der Vollgraph bleibt erhalten", "contradicts, blocks und offene Fragen nicht ausblenden"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The input contains an edge whose target node does not exist.",
+      "requiredBehaviors": ["fail validation or clearly report the dangling reference"],
+      "forbiddenBehaviors": ["invent the missing node silently"],
+      "skillAnchors": ["Referenzielle Integrität des Eingabegraphen prüfen"]
+    }
+  ]
+}
