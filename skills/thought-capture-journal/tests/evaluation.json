@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "thought-capture-journal",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Import one Markdown QuickNote file with ISO-dated dictated entries.",
+      "requiredBehaviors": ["segment entries", "preserve raw text", "preserve explicit timestamps and stable IDs"],
+      "forbiddenBehaviors": ["invent graph relations", "rewrite ambiguous dictation creatively"],
+      "skillAnchors": ["Rohtext nie überschreiben", "Zeitstempel nie aus Dateireihenfolge erfinden"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Import a mixed journal with two dated entries and one undated paragraph.",
+      "requiredBehaviors": ["retain the undated entry", "mark timestamp status as missing or uncertain"],
+      "forbiddenBehaviors": ["fabricate a timestamp"],
+      "skillAnchors": ["Undatierte Einträge werden markiert, nicht erfunden"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A transcript contains an unclear proper noun and malformed date.",
+      "requiredBehaviors": ["preserve raw wording", "surface uncertainty"],
+      "forbiddenBehaviors": ["guess the proper noun", "normalize an invalid date as fact"],
+      "skillAnchors": ["Diktatfehler nicht kreativ umdeuten"]
+    }
+  ]
+}
