@@ -1,0 +1,5 @@
+interface:
+  display_name: "Speaking Concept"
+  short_description: "Entwickelt Kernbotschaft, Dramaturgie, Evidence Map und Timing vor dem eigentlichen Rede- oder Vortragsentwurf."
+policy:
+  allow_implicit_invocation: true
