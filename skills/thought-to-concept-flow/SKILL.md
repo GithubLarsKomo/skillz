@@ -4,7 +4,7 @@ description: Orchestriert die Klärung eines Ziels per Grilling, die fortlaufend
 userFacing: true
 implicitInvocation: false
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -56,21 +56,37 @@ Ergebnis ist ein bestätigter Zielrahmen aus `GRILL-REPORT.md`/`requirements-han
 
 Nutze `thought-capture-journal`.
 
-### Pragmaticher Android-Standard
+### iPhone / iOS: bevorzugter Standard
 
-Empfehle **Markor QuickNote** als Standard, sofern Android genutzt wird: eine einzelne frei wählbare Markdown-Datei, offline, Open Source, ohne proprietären Datenlock-in. Für jeden neuen Gedanken wird per Date/Time-Aktion ein Zeitstempel eingefügt; der Inhalt kann per Android-Tastatur diktiert werden.
+Empfehle auf dem iPhone **Apple Kurzbefehle + iOS-Diktat + eine einzelne Markdown-Datei**. Der Nutzer soll für einen neuen Gedanken nicht erst Obsidian oder eine Notiz-App strukturieren müssen, sondern einen Kurzbefehl wie **Gedanke festhalten** starten können.
 
-Empfohlene Datei: `thoughts.md` oder `QuickNote.md`.
+Empfohlener Ablauf des Kurzbefehls:
 
-Minimalroutine:
+1. Gedanken diktieren.
+2. `Aktuelles Datum` lesen.
+3. mit `Datum formatieren` auf `yyyy-MM-dd HH:mm` bringen.
+4. `\n## <Datum>\n<Gedanke>\n` erzeugen.
+5. an `Thought Journal.md` anhängen.
 
-1. QuickNote öffnen.
-2. Zeitstempel `yyyy-MM-dd HH:mm` einfügen.
+Bei Obsidian-Nutzung liegt die Datei bevorzugt direkt unter:
+
+`iCloud Drive/Obsidian/<Vault>/00 Inbox/Thought Journal.md`
+
+Damit ist die Erfassungsdatei bereits native Obsidian-Quelle und kann auf dem Desktop ohne Importkopie verarbeitet werden. Start des Kurzbefehls kann je nach Gerät über Siri, Home-Screen/Widget, Kontrollzentrum oder Aktionstaste erfolgen.
+
+### Android
+
+Empfehle **Markor QuickNote** als Standard: eine einzelne frei wählbare Markdown-Datei, offline, Open Source, ohne proprietären Datenlock-in. Für jeden neuen Gedanken wird per Date/Time-Aktion ein Zeitstempel eingefügt; der Inhalt kann per Android-Tastatur diktiert werden.
+
+### Gemeinsame Minimalroutine
+
+1. Capture-Aktion öffnen/starten.
+2. Zeitstempel `yyyy-MM-dd HH:mm` erzeugen.
 3. Gedanken diktieren oder tippen.
 4. Keine Tags/Ordner/Struktur erzwingen.
-5. Nächsten Gedanken später einfach anhängen.
+5. Nächsten Gedanken später einfach an dieselbe Datei anhängen.
 
-Wenn iOS oder eine andere Plattform genutzt wird, wähle eine kostenlose Lösung mit möglichst direktem Export in eine einzelne UTF-8-Text-/Markdown-Datei. Proprietäre Notizdatenbanken sind nur zweite Wahl.
+Die kanonische Capture-Datei heißt bevorzugt `Thought Journal.md`; `thoughts.md` oder `QuickNote.md` bleiben kompatibel.
 
 ## Phase 2 – Journal normalisieren
 
