@@ -4,7 +4,7 @@ description: Normalisiert fortlaufend aufgezeichnete, unstrukturierte Gedanken a
 userFacing: true
 implicitInvocation: true
 category: productivity
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -23,7 +23,41 @@ lastEvaluated: 2026-08-23
 
 ## Empfohlener Capture-Workflow
 
-Für Android ist **Markor QuickNote** der Standardvorschlag: QuickNote ist eine frei wählbare einzelne Markdown-Datei, Markor ist freie Open-Source-Software, arbeitet offline und bietet eine Date/Time-Aktion. Diktat erfolgt pragmatisch über die Spracheingabe der installierten Android-Tastatur, z. B. Gboard. Wenn Markor nicht verfügbar oder nicht gewünscht ist, ist jede App zulässig, die eine einzelne exportierbare UTF-8-Text-/Markdown-Datei ohne proprietären Lock-in erzeugt.
+### iPhone / iOS: Apple Kurzbefehle als Standard
+
+Für iPhone ist **Apple Kurzbefehle + iOS-Diktat + eine einzelne Markdown-Datei in iCloud Drive** der Standardvorschlag. Die Lösung benötigt keine zusätzliche kostenpflichtige App, kann per Siri, Home-Screen, Widget, Kontrollzentrum oder Aktionstaste gestartet werden und schreibt jeden gesprochenen Gedanken direkt mit Zeitstempel an dieselbe Datei an.
+
+Bevorzugtes Ziel, wenn Obsidian genutzt werden soll:
+
+`iCloud Drive/Obsidian/<Vault>/00 Inbox/Thought Journal.md`
+
+Alternativ kann die Datei außerhalb eines Vaults als normale `Thought Journal.md` oder `thoughts.md` in iCloud Drive liegen und später importiert werden.
+
+Empfohlener Kurzbefehl **Gedanke festhalten**:
+
+1. Aktion `Text diktieren` bzw. Spracheingabe für den neuen Gedanken verwenden.
+2. Spezialvariable `Aktuelles Datum` abrufen.
+3. Mit `Datum formatieren` das benutzerdefinierte Format `yyyy-MM-dd HH:mm` erzeugen.
+4. Einen Textblock bilden:
+
+```markdown
+
+## <formatiertes Datum>
+<diktierten Text>
+```
+
+5. Diesen Text mit einer Datei-Aktion an `Thought Journal.md` **anhängen**, nicht die Datei ersetzen.
+6. Optional eine kurze Bestätigung anzeigen; keine semantische Struktur, Tags oder Kategorien während des Diktats erzwingen.
+
+Wenn direkt in einen iCloud-Obsidian-Vault geschrieben wird, bleibt dieselbe Markdown-Datei ohne Konvertierung auf iPhone und Desktop verwendbar. Obsidian selbst kann zusätzlich als Editor oder Viewer dienen; für die schnelle Erfassung ist jedoch der Kurzbefehl der primäre Entry Point.
+
+### Android: Markor QuickNote
+
+Für Android ist **Markor QuickNote** der Standardvorschlag: QuickNote ist eine frei wählbare einzelne Markdown-Datei, Markor ist freie Open-Source-Software, arbeitet offline und bietet eine Date/Time-Aktion. Diktat erfolgt pragmatisch über die Spracheingabe der installierten Android-Tastatur, z. B. Gboard.
+
+### Plattformneutrale Fallback-Regel
+
+Wenn die Standardlösung nicht verfügbar oder nicht gewünscht ist, ist jede App zulässig, die eine einzelne exportierbare UTF-8-Text-/Markdown-Datei ohne proprietären Lock-in erzeugt. Proprietäre Notizdatenbanken, aus denen jeder Gedanke erst separat exportiert werden muss, sind zweite Wahl.
 
 Empfohlenes Minimalformat:
 
@@ -58,7 +92,7 @@ Akzeptiere auch Zeilenpräfixe wie `2026-08-23T22:17`, lokale Datumsformate oder
 ```json
 {
   "schemaVersion": 1,
-  "source": {"type": "single-file-journal", "path": "QuickNote.md"},
+  "source": {"type": "single-file-journal", "path": "Thought Journal.md"},
   "entries": [
     {
       "id": "thought-20260823-2217-001",
@@ -76,6 +110,7 @@ Akzeptiere auch Zeilenpräfixe wie `2026-08-23T22:17`, lokale Datumsformate oder
 ## Qualitätsregeln
 
 - Rohtext nie überschreiben.
+- Capture-Automationen müssen neue Einträge anhängen und dürfen bestehende Journal-Inhalte nicht ersetzen.
 - Zeitstempel nie aus Dateireihenfolge erfinden.
 - Diktatfehler nicht kreativ umdeuten.
 - Ein Gedanke darf mehrere Sätze enthalten; nicht mechanisch pro Satz splitten.
