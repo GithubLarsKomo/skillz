@@ -1,0 +1,5 @@
+interface:
+  display_name: "Speech Writer"
+  short_description: "Schreibt sprechbare deutsche oder englische Reden aus einem freigegebenen Speaking-Konzept."
+policy:
+  allow_implicit_invocation: true
