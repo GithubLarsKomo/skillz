@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 175,
-  "entrypointCount": 145,
+  "skillCount": 179,
+  "entrypointCount": 149,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 175,
+  "evaluationSuiteCount": 179,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -498,6 +498,237 @@
           "consumerSkills": [
             "central-skill-repository-curation"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "contract-drafting",
+      "description": "Erzeugt aus bestätigten Requirements und einem geprüften Legal Context einen privaten oder beruflichen Vertragsentwurf, wahlweise auf Basis einer hochgeladenen Vorlage, und dokumentiert Platzhalter, Abweichungen, Rechtsannahmen und offene Punkte. Verwenden für neue Vertragsentwürfe oder template-basiertes Drafting, nicht für die primäre Bewertung eines fremden Vertrags.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "contract-legal-context"
+      ],
+      "dependents": [
+        "contract-workflow"
+      ],
+      "outputs": [
+        "contract-draft.md",
+        "contract-drafting-report.json",
+        "contract-open-points.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "contract-draft.md",
+          "ambiguous": false,
+          "producers": [
+            "contract-drafting"
+          ],
+          "consumerSkills": [
+            "contract-workflow"
+          ]
+        },
+        {
+          "output": "contract-drafting-report.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-drafting"
+          ],
+          "consumerSkills": [
+            "contract-workflow"
+          ]
+        },
+        {
+          "output": "contract-open-points.md",
+          "ambiguous": false,
+          "producers": [
+            "contract-drafting"
+          ],
+          "consumerSkills": [
+            "contract-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "contract-legal-context",
+      "description": "Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbaren Rechtsordnungen, zwingenden Normen, Formanforderungen und Spezialrechts-Overlays und belegt materielle Rechtsaussagen mit aktuellen autoritativen Quellen. Verwenden vor Vertragsprüfung oder Vertragserzeugung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "contract-drafting",
+        "contract-review",
+        "contract-workflow"
+      ],
+      "outputs": [
+        "contract-legal-context.json",
+        "contract-legal-source-note.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "contract-legal-context.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-legal-context"
+          ],
+          "consumerSkills": [
+            "contract-drafting",
+            "contract-review",
+            "contract-workflow"
+          ]
+        },
+        {
+          "output": "contract-legal-source-note.md",
+          "ambiguous": false,
+          "producers": [
+            "contract-legal-context"
+          ],
+          "consumerSkills": [
+            "contract-drafting",
+            "contract-review",
+            "contract-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/german-contract-law-routing.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "contract-review",
+      "description": "Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen und AGB gegen bestätigte Requirements, Rechtsgrundlagen und wirtschaftlich-operative Risiken und erzeugt eine priorisierte Issue-Liste mit Verhandlungspositionen. Verwenden für Vertragsprüfung, Risikoanalyse und Redline-Vorbereitung, nicht für die initiale Vertragserzeugung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "contract-legal-context"
+      ],
+      "dependents": [
+        "contract-workflow"
+      ],
+      "outputs": [
+        "contract-issue-list.json",
+        "contract-review.json",
+        "contract-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "contract-issue-list.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-workflow"
+          ]
+        },
+        {
+          "output": "contract-review.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-workflow"
+          ]
+        },
+        {
+          "output": "contract-review.md",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "contract-workflow",
+      "description": "Orchestriert private und berufliche Vertragsarbeit von Requirements-Grilling und Rechtsgrundlagenprüfung über Dokumentbewertung oder Vertragserzeugung bis zu Verhandlung, Final-Check und anwaltlicher Eskalation. Verwenden, wenn ein Vertrag geprüft, erstellt, aus einer Vorlage erzeugt oder als Vertragsprozess strukturiert werden soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [],
+      "outputs": [
+        "contract-case.json",
+        "contract-handoff.json",
+        "contract-plan.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "contract-case.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "contract-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "contract-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "contract-workflow"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -7943,6 +8174,7 @@
       "requires": [],
       "dependents": [
         "clinical-evidence-update-impact",
+        "contract-legal-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -7975,6 +8207,7 @@
           ],
           "consumerSkills": [
             "clinical-evidence-update-impact",
+            "contract-legal-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -8003,6 +8236,7 @@
           ],
           "consumerSkills": [
             "clinical-evidence-update-impact",
+            "contract-legal-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -8195,6 +8429,7 @@
       },
       "requires": [],
       "dependents": [
+        "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
@@ -8212,6 +8447,7 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
+            "contract-workflow",
             "frontend-design-shaping",
             "frontend-design-system-context",
             "frontend-product-context",
@@ -8225,6 +8461,7 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
+            "contract-workflow",
             "frontend-design-shaping",
             "frontend-design-system-context",
             "frontend-product-context",

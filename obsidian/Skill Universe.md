@@ -9,7 +9,7 @@ tags:
 
 > Generated from `docs/skill-capability-index.json`, `docs/skill-dependency-graph.json` and executable E2E benchmark sequences. Do not edit generated files manually.
 
-- Skills: **175**
+- Skills: **179**
 - Categories: **9**
 - Workflow views: **13**
 - Repository evaluation passed: **True**
@@ -28,9 +28,9 @@ tags:
 - [[categories/internal|internal]] (30)
 - [[categories/productivity|productivity]] (7)
 - [[categories/regulated-engineering|regulated-engineering]] (74)
-- [[categories/research-knowledge|research-knowledge]] (8)
+- [[categories/research-knowledge|research-knowledge]] (9)
 - [[categories/skill-system|skill-system]] (3)
-- [[categories/workflow|workflow]] (36)
+- [[categories/workflow|workflow]] (39)
 
 ## Workflows
 

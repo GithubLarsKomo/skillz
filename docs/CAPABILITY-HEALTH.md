@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **175**
-- User-facing entrypoints: **145**
-- Evaluation suites: **175**
+- Skills: **179**
+- User-facing entrypoints: **149**
+- Evaluation suites: **179**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **173**
+- Outputs without inferred hard-requires consumers: **176**
 
 ## Evaluation gaps
 
@@ -59,6 +59,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
+- `contract-case.json` — producer: `contract-workflow`
+- `contract-handoff.json` — producer: `contract-workflow`
+- `contract-plan.md` — producer: `contract-workflow`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`

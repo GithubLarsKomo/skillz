@@ -108,6 +108,56 @@
       ]
     },
     {
+      "name": "contract-drafting",
+      "requires": [
+        "contract-legal-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "contract-draft.md",
+        "contract-drafting-report.json",
+        "contract-open-points.md"
+      ]
+    },
+    {
+      "name": "contract-legal-context",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "contract-legal-context.json",
+        "contract-legal-source-note.md"
+      ]
+    },
+    {
+      "name": "contract-review",
+      "requires": [
+        "contract-legal-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "contract-issue-list.json",
+        "contract-review.json",
+        "contract-review.md"
+      ]
+    },
+    {
+      "name": "contract-workflow",
+      "requires": [
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [],
+      "outputs": [
+        "contract-case.json",
+        "contract-handoff.json",
+        "contract-plan.md"
+      ]
+    },
+    {
       "name": "controlled-quality-documentation",
       "requires": [
         "regulated-product-context",
@@ -2256,6 +2306,34 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "contract-drafting",
+      "to": "contract-legal-context"
+    },
+    {
+      "from": "contract-legal-context",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "contract-review",
+      "to": "contract-legal-context"
+    },
+    {
+      "from": "contract-workflow",
+      "to": "contract-drafting"
+    },
+    {
+      "from": "contract-workflow",
+      "to": "contract-legal-context"
+    },
+    {
+      "from": "contract-workflow",
+      "to": "contract-review"
+    },
+    {
+      "from": "contract-workflow",
+      "to": "round-based-requirements-grilling"
+    },
+    {
       "from": "controlled-quality-documentation",
       "to": "regulated-product-context"
     },
@@ -3927,6 +4005,7 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
+        "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
@@ -4701,6 +4780,125 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "contract-case.json",
+      "producers": [
+        "contract-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "contract-draft.md",
+      "producers": [
+        "contract-drafting"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-drafting-report.json",
+      "producers": [
+        "contract-drafting"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-handoff.json",
+      "producers": [
+        "contract-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "contract-issue-list.json",
+      "producers": [
+        "contract-review"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-legal-context.json",
+      "producers": [
+        "contract-legal-context"
+      ],
+      "consumerSkills": [
+        "contract-drafting",
+        "contract-review",
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-legal-source-note.md",
+      "producers": [
+        "contract-legal-context"
+      ],
+      "consumerSkills": [
+        "contract-drafting",
+        "contract-review",
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-open-points.md",
+      "producers": [
+        "contract-drafting"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-plan.md",
+      "producers": [
+        "contract-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "contract-review.json",
+      "producers": [
+        "contract-review"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-review.md",
+      "producers": [
+        "contract-review"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "controlled-document-plan.md",
       "producers": [
         "controlled-quality-documentation"
@@ -5420,6 +5618,7 @@
       ],
       "consumerSkills": [
         "clinical-evidence-update-impact",
+        "contract-legal-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -5449,6 +5648,7 @@
       ],
       "consumerSkills": [
         "clinical-evidence-update-impact",
+        "contract-legal-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -7828,6 +8028,7 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
+        "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
@@ -8825,6 +9026,9 @@
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
+    "contract-case.json",
+    "contract-handoff.json",
+    "contract-plan.md",
     "cybersecurity-evidence-map.json",
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
@@ -9000,6 +9204,9 @@
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
+    "contract-case.json",
+    "contract-handoff.json",
+    "contract-plan.md",
     "cybersecurity-evidence-map.json",
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",

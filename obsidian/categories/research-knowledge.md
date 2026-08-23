@@ -10,8 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **8**
+Skills: **9**
 
+- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
 - [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/price-availability-snapshot|price-availability-snapshot]]

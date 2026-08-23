@@ -10,9 +10,12 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **36**
+Skills: **39**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
+- [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-review|contract-review]]
+- [[skills/contract-workflow|contract-workflow]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
 - [[skills/dr-komorowski-sport-pdf-report-renderer|dr-komorowski-sport-pdf-report-renderer]]
 - [[skills/dr-komorowski-sport-report-renderer|dr-komorowski-sport-report-renderer]]
