@@ -1,0 +1,5 @@
+interface:
+  display_name: "Thought Graph Extractor"
+  short_description: "Extrahiert aus unstrukturierten Gedanken einen nachvollziehbaren semantischen Graphen mit Provenance und Confidence."
+policy:
+  allow_implicit_invocation: true
