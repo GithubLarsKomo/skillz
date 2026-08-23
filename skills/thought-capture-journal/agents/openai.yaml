@@ -1,5 +1,5 @@
 interface:
   display_name: "Thought Capture Journal"
-  short_description: "Normalisiert datierte Smartphone- und Diktatnotizen aus einer einzelnen Datei für die weitere Graphanalyse."
+  short_description: "Normalisiert fortlaufend aufgezeichnete, unstrukturierte Gedanken aus einer einzelnen datierten Markdown- oder Textda..."
 policy:
   allow_implicit_invocation: true
