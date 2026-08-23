@@ -1,0 +1,5 @@
+interface:
+  display_name: "Thought Graph Extractor"
+  short_description: "Analysiert ein normalisiertes Thought Journal, extrahiert Themen, Aussagen, Ziele, Fragen, Widersprüche und belastbar..."
+policy:
+  allow_implicit_invocation: true

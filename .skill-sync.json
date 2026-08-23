@@ -733,6 +733,12 @@
         "agents/openai.yaml": "4e33f90720dcc3c29a67bea5a37964bae3a1ec239c7878882ea5405a249044b3"
       }
     },
+    "mermaid-knowledge-map-renderer": {
+      "files": {
+        "SKILL.md": "8a5f999d69013ad2e0169ca310b990510ccbc1a2e2b0b0cf170358a954c07e95",
+        "agents/openai.yaml": "8cef93796564d63329781f523c314ca5ebaa2e44106574a3049857624ab4ab3a"
+      }
+    },
     "nonconformance-mrb-disposition": {
       "files": {
         "SKILL.md": "fa349b08f0832b0c0233fed19ce489cd07a6bf3ebf612dde960e8c06595f2546",
@@ -1102,6 +1108,24 @@
       "files": {
         "SKILL.md": "fd3f3598d995f46fb2d5d6219b1851be05933a1b47983f66c89f089abe4a0685",
         "agents/openai.yaml": "e9ee826a7ef665a7636dc6676ad2722dfc1173e63384f5deae9129769b6d6080"
+      }
+    },
+    "thought-capture-journal": {
+      "files": {
+        "SKILL.md": "a62e428630f548fb242fcb0139de9f91e5ea2d87d1ea27438f40a0b97a652442",
+        "agents/openai.yaml": "c38ac53cc20c35a286f2433e58be37ff8acaff594fc19a45c4f5da3f08a7f8d6"
+      }
+    },
+    "thought-graph-extractor": {
+      "files": {
+        "SKILL.md": "d6e85e60c7332e56b01000797b845fdb4ac40d98514054711e5815712873558a",
+        "agents/openai.yaml": "a337ecbdffedb58f47716baed1f7ce750f39227fd244c986106bed270b5620cb"
+      }
+    },
+    "thought-to-concept-flow": {
+      "files": {
+        "SKILL.md": "0c5fa0d0d95a7e4962874e9e3eae4a6428c56bdc4b2594eb86cf639082415925",
+        "agents/openai.yaml": "2c3f1f5d76b63893b6b6cd0c905fe22293b43a97a40efcd9238c6a65b1e15fd2"
       }
     },
     "throwaway-prototype": {

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **7**
+Skills: **8**
 
 - [[skills/daily-and-weekly-review|daily-and-weekly-review]]
 - [[skills/decision-and-follow-up-tracker|decision-and-follow-up-tracker]]
@@ -19,3 +19,4 @@ Skills: **7**
 - [[skills/meeting-preparation|meeting-preparation]]
 - [[skills/project-status-brief|project-status-brief]]
 - [[skills/teach|teach]]
+- [[skills/thought-capture-journal|thought-capture-journal]]

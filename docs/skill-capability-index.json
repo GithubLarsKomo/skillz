@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 179,
-  "entrypointCount": 149,
+  "skillCount": 183,
+  "entrypointCount": 153,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 179,
+  "evaluationSuiteCount": 183,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -4641,7 +4641,9 @@
         "structured-knowledge-artifact"
       ],
       "dependents": [
-        "obsidian-adapter"
+        "mermaid-knowledge-map-renderer",
+        "obsidian-adapter",
+        "thought-to-concept-flow"
       ],
       "outputs": [
         "knowledge-map.json"
@@ -4654,7 +4656,9 @@
             "knowledge-map-generator"
           ],
           "consumerSkills": [
-            "obsidian-adapter"
+            "mermaid-knowledge-map-renderer",
+            "obsidian-adapter",
+            "thought-to-concept-flow"
           ]
         }
       ],
@@ -6679,6 +6683,49 @@
       }
     },
     {
+      "name": "mermaid-knowledge-map-renderer",
+      "description": "Rendert einen provider-neutralen Knowledge- oder Thought-Graphen deterministisch als Mermaid flowchart oder mindmap, ohne neue Semantik hinzuzufügen. Verwenden, wenn ein vorhandener knowledge-map.json oder thought-graph.json schnell als Markdown-einbettbares Mermaid-Diagramm visualisiert werden soll; für Obsidian Vault/Canvas-Projektionen stattdessen obsidian-adapter verwenden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "knowledge-map-generator"
+      ],
+      "dependents": [],
+      "outputs": [
+        "knowledge-map.md",
+        "knowledge-map.mmd"
+      ],
+      "outputContracts": [
+        {
+          "output": "knowledge-map.md",
+          "ambiguous": false,
+          "producers": [
+            "mermaid-knowledge-map-renderer"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "knowledge-map.mmd",
+          "ambiguous": false,
+          "producers": [
+            "mermaid-knowledge-map-renderer"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "nonconformance-mrb-disposition",
       "description": "Strukturiert Medical-Device-Nichtkonformitäten von Containment und Impact Assessment bis risikobasierter MRB-Disposition, Rework-Evidenz und CAPA-Routing.",
       "invocation": {
@@ -8433,7 +8480,8 @@
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
-        "role-requirements-grilling"
+        "role-requirements-grilling",
+        "thought-to-concept-flow"
       ],
       "outputs": [
         "GRILL-REPORT.md",
@@ -8451,7 +8499,8 @@
             "frontend-design-shaping",
             "frontend-design-system-context",
             "frontend-product-context",
-            "role-requirements-grilling"
+            "role-requirements-grilling",
+            "thought-to-concept-flow"
           ]
         },
         {
@@ -8465,7 +8514,8 @@
             "frontend-design-shaping",
             "frontend-design-system-context",
             "frontend-product-context",
-            "role-requirements-grilling"
+            "role-requirements-grilling",
+            "thought-to-concept-flow"
           ]
         }
       ],
@@ -9634,7 +9684,8 @@
       "dependents": [
         "knowledge-map-generator",
         "knowledge-view",
-        "obsidian-adapter"
+        "obsidian-adapter",
+        "thought-graph-extractor"
       ],
       "outputs": [
         "knowledge-artifact.json",
@@ -9650,7 +9701,8 @@
           "consumerSkills": [
             "knowledge-map-generator",
             "knowledge-view",
-            "obsidian-adapter"
+            "obsidian-adapter",
+            "thought-graph-extractor"
           ]
         },
         {
@@ -9662,7 +9714,8 @@
           "consumerSkills": [
             "knowledge-map-generator",
             "knowledge-view",
-            "obsidian-adapter"
+            "obsidian-adapter",
+            "thought-graph-extractor"
           ]
         }
       ],
@@ -10043,6 +10096,181 @@
             "implement-from-issue",
             "merge-conflict-resolution"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "thought-capture-journal",
+      "description": "Normalisiert fortlaufend aufgezeichnete, unstrukturierte Gedanken aus einer einzelnen datierten Markdown- oder Textdatei zu einem nachvollziehbaren Thought Journal. Verwenden, wenn Ideen per Smartphone, Diktat oder Quick-Note gesammelt und anschließend für Graphanalyse vorbereitet werden sollen; der Skill interpretiert noch keine Beziehungen zwischen Gedanken.",
+      "invocation": {
+        "userFacing": true,
+        "category": "productivity"
+      },
+      "requires": [],
+      "dependents": [
+        "thought-graph-extractor",
+        "thought-to-concept-flow"
+      ],
+      "outputs": [
+        "thought-journal.json",
+        "thought-journal.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "thought-journal.json",
+          "ambiguous": false,
+          "producers": [
+            "thought-capture-journal"
+          ],
+          "consumerSkills": [
+            "thought-graph-extractor",
+            "thought-to-concept-flow"
+          ]
+        },
+        {
+          "output": "thought-journal.md",
+          "ambiguous": false,
+          "producers": [
+            "thought-capture-journal"
+          ],
+          "consumerSkills": [
+            "thought-graph-extractor",
+            "thought-to-concept-flow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "thought-graph-extractor",
+      "description": "Analysiert ein normalisiertes Thought Journal, extrahiert Themen, Aussagen, Ziele, Fragen, Widersprüche und belastbar begründete Beziehungen und erzeugt daraus einen nachvollziehbaren semantischen Graphen mit Confidence und Provenance. Verwenden, wenn unstrukturierte Gedanken zu einem Obsidian-, Mermaid- oder Mindmap-fähigen Wissensgraphen verdichtet werden sollen; finale Zielkonzepte gehören nachgelagert in thought-to-concept-flow.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "structured-knowledge-artifact",
+        "thought-capture-journal"
+      ],
+      "dependents": [
+        "thought-to-concept-flow"
+      ],
+      "outputs": [
+        "structured thought artifacts",
+        "thought-graph-summary.md",
+        "thought-graph.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "structured thought artifacts",
+          "ambiguous": false,
+          "producers": [
+            "thought-graph-extractor"
+          ],
+          "consumerSkills": [
+            "thought-to-concept-flow"
+          ]
+        },
+        {
+          "output": "thought-graph-summary.md",
+          "ambiguous": false,
+          "producers": [
+            "thought-graph-extractor"
+          ],
+          "consumerSkills": [
+            "thought-to-concept-flow"
+          ]
+        },
+        {
+          "output": "thought-graph.json",
+          "ambiguous": false,
+          "producers": [
+            "thought-graph-extractor"
+          ],
+          "consumerSkills": [
+            "thought-to-concept-flow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "thought-to-concept-flow",
+      "description": "Orchestriert die Klärung eines Ziels per Grilling, die fortlaufende Sammlung unstrukturierter Gedanken, deren semantische Graphanalyse und die Ableitung eines strukturierten Zielkonzepts mit optionalem Obsidian- oder Mermaid-Export. Verwenden, wenn aus einer wachsenden Gedankensammlung ein belastbarer Plan, Vortrag, eine Rede, ein Projekt-, Strategie- oder sonstiges Umsetzungskonzept entstehen soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "knowledge-map-generator",
+        "round-based-requirements-grilling",
+        "thought-capture-journal",
+        "thought-graph-extractor"
+      ],
+      "dependents": [],
+      "outputs": [
+        "concept-handoff.json",
+        "concept.md",
+        "optional Mermaid map",
+        "optional Obsidian vault projection"
+      ],
+      "outputContracts": [
+        {
+          "output": "concept-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "thought-to-concept-flow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "concept.md",
+          "ambiguous": false,
+          "producers": [
+            "thought-to-concept-flow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "optional Mermaid map",
+          "ambiguous": false,
+          "producers": [
+            "thought-to-concept-flow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "optional Obsidian vault projection",
+          "ambiguous": false,
+          "producers": [
+            "thought-to-concept-flow"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [

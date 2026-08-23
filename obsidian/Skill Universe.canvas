@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n179 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n183 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -541,6 +541,15 @@
       "type": "file",
       "file": "skills/teach.md",
       "x": 4920,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-thought-capture-journal",
+      "type": "file",
+      "file": "skills/thought-capture-journal.md",
+      "x": 5250,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1228,7 +1237,7 @@
       "x": 7320,
       "y": 0,
       "width": 1120,
-      "height": 520,
+      "height": 660,
       "color": "1"
     },
     {
@@ -1250,11 +1259,20 @@
       "height": 110
     },
     {
+      "id": "skill-mermaid-knowledge-map-renderer",
+      "type": "file",
+      "file": "skills/mermaid-knowledge-map-renderer.md",
+      "x": 8020,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-patent-landscape-analysis",
       "type": "file",
       "file": "skills/patent-landscape-analysis.md",
-      "x": 8020,
-      "y": 70,
+      "x": 7360,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1262,7 +1280,7 @@
       "id": "skill-price-availability-snapshot",
       "type": "file",
       "file": "skills/price-availability-snapshot.md",
-      "x": 7360,
+      "x": 7690,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1271,7 +1289,7 @@
       "id": "skill-product-evidence-research",
       "type": "file",
       "file": "skills/product-evidence-research.md",
-      "x": 7690,
+      "x": 8020,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1280,8 +1298,8 @@
       "id": "skill-research-to-evidence-note",
       "type": "file",
       "file": "skills/research-to-evidence-note.md",
-      "x": 8020,
-      "y": 210,
+      "x": 7360,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1289,7 +1307,7 @@
       "id": "skill-sport-performance-diagnostics",
       "type": "file",
       "file": "skills/sport-performance-diagnostics.md",
-      "x": 7360,
+      "x": 7690,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1298,7 +1316,7 @@
       "id": "skill-structured-knowledge-artifact",
       "type": "file",
       "file": "skills/structured-knowledge-artifact.md",
-      "x": 7690,
+      "x": 8020,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1307,8 +1325,17 @@
       "id": "skill-technology-offer-assessment",
       "type": "file",
       "file": "skills/technology-offer-assessment.md",
-      "x": 8020,
-      "y": 350,
+      "x": 7360,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-thought-graph-extractor",
+      "type": "file",
+      "file": "skills/thought-graph-extractor.md",
+      "x": 7690,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1356,7 +1383,7 @@
       "x": 9760,
       "y": 0,
       "width": 1120,
-      "height": 1920,
+      "height": 2060,
       "color": "3"
     },
     {
@@ -1707,6 +1734,15 @@
       "file": "skills/technology-due-diligence.md",
       "x": 10460,
       "y": 1750,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-thought-to-concept-flow",
+      "type": "file",
+      "file": "skills/thought-to-concept-flow.md",
+      "x": 9800,
+      "y": 1890,
       "width": 300,
       "height": 110
     }
@@ -2786,9 +2822,9 @@
     {
       "id": "requires-d86c520480f8",
       "fromNode": "skill-freedom-to-operate-assessment",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-research-to-evidence-note",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4332,6 +4368,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-64ace4a816f0",
+      "fromNode": "skill-mermaid-knowledge-map-renderer",
+      "fromSide": "left",
+      "toNode": "skill-knowledge-map-generator",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-decd1190244b",
       "fromNode": "skill-nonconformance-mrb-disposition",
       "fromSide": "left",
@@ -4460,9 +4505,9 @@
     {
       "id": "requires-fcd770172ce8",
       "fromNode": "skill-product-evidence-research",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-research-to-evidence-note",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5443,6 +5488,60 @@
       "fromNode": "skill-test-driven-vertical-slice",
       "fromSide": "left",
       "toNode": "skill-spec-to-vertical-issues",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2b29a64cc2e1",
+      "fromNode": "skill-thought-graph-extractor",
+      "fromSide": "right",
+      "toNode": "skill-structured-knowledge-artifact",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bc67326bcdff",
+      "fromNode": "skill-thought-graph-extractor",
+      "fromSide": "left",
+      "toNode": "skill-thought-capture-journal",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-aecf829fc9bd",
+      "fromNode": "skill-thought-to-concept-flow",
+      "fromSide": "left",
+      "toNode": "skill-knowledge-map-generator",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1c5971baecad",
+      "fromNode": "skill-thought-to-concept-flow",
+      "fromSide": "left",
+      "toNode": "skill-round-based-requirements-grilling",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-735f6b1e9c0d",
+      "fromNode": "skill-thought-to-concept-flow",
+      "fromSide": "left",
+      "toNode": "skill-thought-capture-journal",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-94c198235d11",
+      "fromNode": "skill-thought-to-concept-flow",
+      "fromSide": "left",
+      "toNode": "skill-thought-graph-extractor",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"

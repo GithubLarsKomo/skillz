@@ -33,6 +33,7 @@ Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adr
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/thought-graph-extractor|thought-graph-extractor]]
 
 ## Outputs
 
@@ -46,12 +47,14 @@ Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adr
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/thought-graph-extractor|thought-graph-extractor]]
 
 ### `knowledge-artifact.md`
 
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/thought-graph-extractor|thought-graph-extractor]]
 
 ## Evaluation
 
