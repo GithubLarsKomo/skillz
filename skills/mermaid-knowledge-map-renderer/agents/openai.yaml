@@ -1,5 +1,5 @@
 interface:
   display_name: "Mermaid Knowledge Map Renderer"
-  short_description: "Rendert bestehende Knowledge- und Thought-Graphen als nachvollziehbare Mermaid-Flowcharts oder Mindmaps."
+  short_description: "Rendert einen provider-neutralen Knowledge- oder Thought-Graphen deterministisch als Mermaid flowchart oder mindmap,..."
 policy:
   allow_implicit_invocation: true
