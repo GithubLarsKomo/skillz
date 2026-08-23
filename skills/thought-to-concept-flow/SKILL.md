@@ -14,8 +14,6 @@ requires:
   - thought-graph-extractor
   - knowledge-map-generator
 outputs:
-  - thought-journal.json
-  - thought-graph.json
   - concept.md
   - concept-handoff.json
   - optional Obsidian vault projection
@@ -90,13 +88,13 @@ Die kanonische Capture-Datei heißt bevorzugt `Thought Journal.md`; `thoughts.md
 
 ## Phase 2 – Journal normalisieren
 
-Importiere die einzelne Datei mit `thought-capture-journal` zu `thought-journal.json`. Rohtext und Zeitbezug bleiben erhalten.
+Importiere die einzelne Datei mit `thought-capture-journal` zu `thought-journal.json`. Rohtext und Zeitbezug bleiben erhalten. `thought-journal.json` bleibt Output und Eigentum von `thought-capture-journal`; dieser Orchestrator reicht es nur weiter.
 
 Bei wiederholten Läufen nur neue/geänderte Einträge verarbeiten, sofern stabile IDs erhalten werden können. Historische Einträge nicht ohne Grund neu identifizieren.
 
 ## Phase 3 – Thought Graph erzeugen
 
-Nutze `thought-graph-extractor`.
+Nutze `thought-graph-extractor`. `thought-graph.json` bleibt Output und Eigentum dieses Fach-Skills; der Orchestrator konsumiert und reicht den Graphen weiter, erzeugt ihn aber nicht als konkurrierender Producer.
 
 Der Graph muss mindestens unterscheiden können:
 
