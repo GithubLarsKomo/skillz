@@ -1,0 +1,5 @@
+interface:
+  display_name: "Thought To Concept Flow"
+  short_description: "Führt von Grilling über mobile Gedankensammlung und Thought Graph zu einem strukturierten Zielkonzept."
+policy:
+  allow_implicit_invocation: false
