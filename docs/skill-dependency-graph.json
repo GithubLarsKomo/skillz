@@ -1501,6 +1501,17 @@
       ]
     },
     {
+      "name": "mermaid-knowledge-map-renderer",
+      "requires": [
+        "knowledge-map-generator"
+      ],
+      "consumes": [],
+      "outputs": [
+        "knowledge-map.md",
+        "knowledge-map.mmd"
+      ]
+    },
+    {
       "name": "nonconformance-mrb-disposition",
       "requires": [
         "medical-device-qms-iso13485",
@@ -2214,6 +2225,44 @@
         "verification-report.md",
         "vertical-slice-evidence.json",
         "vertical-slice-residual-risk-handoff.json"
+      ]
+    },
+    {
+      "name": "thought-capture-journal",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "thought-journal.json",
+        "thought-journal.md"
+      ]
+    },
+    {
+      "name": "thought-graph-extractor",
+      "requires": [
+        "structured-knowledge-artifact",
+        "thought-capture-journal"
+      ],
+      "consumes": [],
+      "outputs": [
+        "structured thought artifacts",
+        "thought-graph-summary.md",
+        "thought-graph.json"
+      ]
+    },
+    {
+      "name": "thought-to-concept-flow",
+      "requires": [
+        "knowledge-map-generator",
+        "round-based-requirements-grilling",
+        "thought-capture-journal",
+        "thought-graph-extractor"
+      ],
+      "consumes": [],
+      "outputs": [
+        "concept-handoff.json",
+        "concept.md",
+        "optional Mermaid map",
+        "optional Obsidian vault projection"
       ]
     },
     {
@@ -3426,6 +3475,10 @@
       "to": "two-axis-code-review"
     },
     {
+      "from": "mermaid-knowledge-map-renderer",
+      "to": "knowledge-map-generator"
+    },
+    {
       "from": "nonconformance-mrb-disposition",
       "to": "medical-device-qms-iso13485"
     },
@@ -3922,6 +3975,30 @@
       "to": "spec-to-vertical-issues"
     },
     {
+      "from": "thought-graph-extractor",
+      "to": "structured-knowledge-artifact"
+    },
+    {
+      "from": "thought-graph-extractor",
+      "to": "thought-capture-journal"
+    },
+    {
+      "from": "thought-to-concept-flow",
+      "to": "knowledge-map-generator"
+    },
+    {
+      "from": "thought-to-concept-flow",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "thought-to-concept-flow",
+      "to": "thought-capture-journal"
+    },
+    {
+      "from": "thought-to-concept-flow",
+      "to": "thought-graph-extractor"
+    },
+    {
       "from": "throwaway-prototype",
       "to": "agent-handoff"
     },
@@ -4009,7 +4086,8 @@
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
-        "role-requirements-grilling"
+        "role-requirements-grilling",
+        "thought-to-concept-flow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4726,6 +4804,24 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "concept-handoff.json",
+      "producers": [
+        "thought-to-concept-flow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "concept.md",
+      "producers": [
+        "thought-to-concept-flow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "conflict-residual-risk-handoff.json",
@@ -6506,7 +6602,8 @@
       "consumerSkills": [
         "knowledge-map-generator",
         "knowledge-view",
-        "obsidian-adapter"
+        "obsidian-adapter",
+        "thought-graph-extractor"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6519,7 +6616,8 @@
       "consumerSkills": [
         "knowledge-map-generator",
         "knowledge-view",
-        "obsidian-adapter"
+        "obsidian-adapter",
+        "thought-graph-extractor"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6530,10 +6628,30 @@
         "knowledge-map-generator"
       ],
       "consumerSkills": [
-        "obsidian-adapter"
+        "mermaid-knowledge-map-renderer",
+        "obsidian-adapter",
+        "thought-to-concept-flow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "knowledge-map.md",
+      "producers": [
+        "mermaid-knowledge-map-renderer"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "knowledge-map.mmd",
+      "producers": [
+        "mermaid-knowledge-map-renderer"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "knowledge-view.json",
@@ -6989,6 +7107,24 @@
       "output": "opaque-analysis-evidence.md",
       "producers": [
         "opaque-system-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "optional Mermaid map",
+      "producers": [
+        "thought-to-concept-flow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "optional Obsidian vault projection",
+      "producers": [
+        "thought-to-concept-flow"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -8032,7 +8168,8 @@
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
-        "role-requirements-grilling"
+        "role-requirements-grilling",
+        "thought-to-concept-flow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8617,6 +8754,17 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "structured thought artifacts",
+      "producers": [
+        "thought-graph-extractor"
+      ],
+      "consumerSkills": [
+        "thought-to-concept-flow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "submission-readiness.json",
       "producers": [
         "fda-estar-submission-builder"
@@ -8755,6 +8903,52 @@
       ],
       "consumerSkills": [
         "technology-due-diligence"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "thought-graph-summary.md",
+      "producers": [
+        "thought-graph-extractor"
+      ],
+      "consumerSkills": [
+        "thought-to-concept-flow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "thought-graph.json",
+      "producers": [
+        "thought-graph-extractor"
+      ],
+      "consumerSkills": [
+        "thought-to-concept-flow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "thought-journal.json",
+      "producers": [
+        "thought-capture-journal"
+      ],
+      "consumerSkills": [
+        "thought-graph-extractor",
+        "thought-to-concept-flow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "thought-journal.md",
+      "producers": [
+        "thought-capture-journal"
+      ],
+      "consumerSkills": [
+        "thought-graph-extractor",
+        "thought-to-concept-flow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9023,6 +9217,8 @@
     "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
     "complaint-regulatory-routing.json",
+    "concept-handoff.json",
+    "concept.md",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
@@ -9090,6 +9286,8 @@
     "ivdr-fsca-authority-followup.json",
     "ivdr-vigilance-final-report-package.json",
     "job-description.md",
+    "knowledge-map.md",
+    "knowledge-map.mmd",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
@@ -9111,6 +9309,8 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "optional Mermaid map",
+    "optional Obsidian vault projection",
     "patent-landscape.json",
     "patent-landscape.md",
     "patent-search-log.json",
@@ -9201,6 +9401,8 @@
     "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
     "complaint-regulatory-routing.json",
+    "concept-handoff.json",
+    "concept.md",
     "conflict-residual-risk-handoff.json",
     "conflict-resolution-evidence.json",
     "containment-actions.json",
@@ -9268,6 +9470,8 @@
     "ivdr-fsca-authority-followup.json",
     "ivdr-vigilance-final-report-package.json",
     "job-description.md",
+    "knowledge-map.md",
+    "knowledge-map.mmd",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "management-review-effectiveness-gaps.json",
@@ -9289,6 +9493,8 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "optional Mermaid map",
+    "optional Obsidian vault projection",
     "patent-landscape.json",
     "patent-landscape.md",
     "patent-search-log.json",

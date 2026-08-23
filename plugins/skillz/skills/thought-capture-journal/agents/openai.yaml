@@ -1,0 +1,5 @@
+interface:
+  display_name: "Thought Capture Journal"
+  short_description: "Normalisiert fortlaufend aufgezeichnete, unstrukturierte Gedanken aus einer einzelnen datierten Markdown- oder Textda..."
+policy:
+  allow_implicit_invocation: true

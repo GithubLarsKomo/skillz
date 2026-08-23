@@ -35,6 +35,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
+- [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ## Outputs
 
@@ -50,6 +51,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
+- [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ### `requirements-handoff.json`
 
@@ -58,6 +60,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
+- [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ## Evaluation
 

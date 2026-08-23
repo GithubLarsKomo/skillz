@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "thought-capture-journal",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Import one Markdown Thought Journal file whose entries were appended on iPhone by an Apple Shortcut using dictation and explicit yyyy-MM-dd HH:mm timestamps.",
+      "requiredBehaviors": [
+        "segment entries",
+        "preserve raw dictated text",
+        "preserve explicit timestamps and stable IDs",
+        "treat the single Markdown file as the canonical capture source independent of the capture frontend"
+      ],
+      "forbiddenBehaviors": [
+        "invent graph relations",
+        "rewrite ambiguous dictation creatively",
+        "require conversion from a proprietary notes database"
+      ],
+      "skillAnchors": [
+        "Apple Kurzbefehle + iOS-Diktat + eine einzelne Markdown-Datei",
+        "Rohtext nie überschreiben",
+        "Capture-Automationen müssen neue Einträge anhängen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Import a mixed journal with two dated entries and one undated paragraph, collected from both iPhone Shortcuts and Android QuickNote.",
+      "requiredBehaviors": [
+        "retain the undated entry",
+        "mark timestamp status as missing or uncertain",
+        "normalize both capture paths into the same journal contract"
+      ],
+      "forbiddenBehaviors": [
+        "fabricate a timestamp",
+        "treat platform choice as semantic metadata"
+      ],
+      "skillAnchors": [
+        "Undatierte Einträge werden markiert, nicht erfunden",
+        "Plattformneutrale Fallback-Regel"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A capture automation overwrote the existing journal instead of appending, and the surviving transcript contains an unclear proper noun and malformed date.",
+      "requiredBehaviors": [
+        "flag destructive capture behavior",
+        "preserve surviving raw wording",
+        "surface uncertainty"
+      ],
+      "forbiddenBehaviors": [
+        "accept overwrite as a valid capture configuration",
+        "guess the proper noun",
+        "normalize an invalid date as fact"
+      ],
+      "skillAnchors": [
+        "Capture-Automationen müssen neue Einträge anhängen und dürfen bestehende Journal-Inhalte nicht ersetzen",
+        "Diktatfehler nicht kreativ umdeuten"
+      ]
+    }
+  ]
+}

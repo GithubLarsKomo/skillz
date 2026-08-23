@@ -30,7 +30,9 @@ Projiziert vorhandene strukturierte Wissensartefakte und explizite Relationen in
 
 ## Required by
 
+- [[skills/mermaid-knowledge-map-renderer|mermaid-knowledge-map-renderer]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ## Outputs
 
@@ -40,7 +42,9 @@ Projiziert vorhandene strukturierte Wissensartefakte und explizite Relationen in
 
 ### `knowledge-map.json`
 
+- [[skills/mermaid-knowledge-map-renderer|mermaid-knowledge-map-renderer]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ## Evaluation
 

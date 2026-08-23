@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "thought-graph-extractor",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a graph from a dated journal containing a goal, two ideas, one supporting observation and one action.",
+      "requiredBehaviors": ["create typed nodes", "create source-backed relations", "add confidence and rationale to inferred edges"],
+      "forbiddenBehaviors": ["drop provenance", "turn thematic similarity into unsupported causality"],
+      "skillAnchors": ["Jede inferierte Edge besitzt Rationale und Confidence", "Widersprüche nicht glätten"]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two journal entries advocate mutually exclusive approaches and a third asks which is better.",
+      "requiredBehaviors": ["retain both approaches", "represent contradiction or unresolved choice", "preserve the open question"],
+      "forbiddenBehaviors": ["silently choose one approach"],
+      "skillAnchors": ["Gegenläufige Aussagen", "als unresolved markieren"]
+    },
+    {
+      "id": "failure-case",
+      "input": "A weak semantic similarity suggests that one idea causes another but no source supports causality.",
+      "requiredBehaviors": ["avoid a regular causal edge", "surface it only as a low-confidence candidate if useful"],
+      "forbiddenBehaviors": ["assert causes as fact"],
+      "skillAnchors": ["nicht als reguläre Edge übernehmen"]
+    }
+  ]
+}

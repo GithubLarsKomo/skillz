@@ -10,10 +10,11 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **9**
+Skills: **11**
 
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
+- [[skills/mermaid-knowledge-map-renderer|mermaid-knowledge-map-renderer]]
 - [[skills/patent-landscape-analysis|patent-landscape-analysis]]
 - [[skills/price-availability-snapshot|price-availability-snapshot]]
 - [[skills/product-evidence-research|product-evidence-research]]
@@ -21,3 +22,4 @@ Skills: **9**
 - [[skills/sport-performance-diagnostics|sport-performance-diagnostics]]
 - [[skills/structured-knowledge-artifact|structured-knowledge-artifact]]
 - [[skills/technology-offer-assessment|technology-offer-assessment]]
+- [[skills/thought-graph-extractor|thought-graph-extractor]]

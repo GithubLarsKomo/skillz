@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **179**
-- User-facing entrypoints: **149**
-- Evaluation suites: **179**
+- Skills: **183**
+- User-facing entrypoints: **153**
+- Evaluation suites: **183**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **176**
+- Outputs without inferred hard-requires consumers: **182**
 
 ## Evaluation gaps
 
@@ -56,6 +56,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `clinical-evidence-impact-map.json` — producer: `clinical-evidence-update-impact`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `complaint-regulatory-routing.json` — producer: `medical-device-complaint-regulatory-routing`
+- `concept-handoff.json` — producer: `thought-to-concept-flow`
+- `concept.md` — producer: `thought-to-concept-flow`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
 - `conflict-resolution-evidence.json` — producer: `merge-conflict-resolution`
 - `containment-actions.json` — producer: `nonconformance-mrb-disposition`
@@ -123,6 +125,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `ivdr-fsca-authority-followup.json` — producer: `ivdr-fsca-status-final-reporting`
 - `ivdr-vigilance-final-report-package.json` — producer: `ivdr-fsca-status-final-reporting`
 - `job-description.md` — producer: `job-description-authoring`
+- `knowledge-map.md` — producer: `mermaid-knowledge-map-renderer`
+- `knowledge-map.mmd` — producer: `mermaid-knowledge-map-renderer`
 - `learning-practice-request.json` — producer: `teach`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
@@ -144,6 +148,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `obsidian-note.md` — producer: `obsidian-adapter`
 - `obsidian-view.base` — producer: `obsidian-adapter`
 - `opaque-analysis-evidence.md` — producer: `opaque-system-analysis`
+- `optional Mermaid map` — producer: `thought-to-concept-flow`
+- `optional Obsidian vault projection` — producer: `thought-to-concept-flow`
 - `patent-landscape.json` — producer: `patent-landscape-analysis`
 - `patent-landscape.md` — producer: `patent-landscape-analysis`
 - `patent-search-log.json` — producer: `patent-landscape-analysis`

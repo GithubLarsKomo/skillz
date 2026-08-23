@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "skill": "thought-to-concept-flow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a concept for a 20-minute technical presentation from a clarified goal and several days of dictated notes.",
+      "requiredBehaviors": ["use Grilling goal context", "normalize the journal", "build a traceable thought graph", "derive a presentation-oriented concept", "offer Obsidian or Mermaid projection"],
+      "forbiddenBehaviors": ["treat every thought as equally important", "skip unresolved questions"],
+      "skillAnchors": ["zielorientierte Auswahl und Anordnung", "Offene Fragen und Widersprüche bleiben sichtbar"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The target artifact changes from project concept to speech after new thoughts are added.",
+      "requiredBehaviors": ["preserve the graph history", "update the concept projection", "route to the new downstream artifact skill if available"],
+      "forbiddenBehaviors": ["discard old source thoughts", "force the old artifact structure"],
+      "skillAnchors": ["Der Flow ist ausdrücklich zyklisch", "Wenn ein spezialisierter Skill für den Zielartefakttyp existiert"]
+    },
+    {
+      "id": "failure-case",
+      "input": "The user has supplied many thoughts but the intended outcome and audience are still unknown.",
+      "requiredBehaviors": ["route goal uncertainty to Grilling", "allow capture and graph work to continue provisionally", "mark the final concept as blocked or provisional"],
+      "forbiddenBehaviors": ["invent the intended outcome or audience"],
+      "skillAnchors": ["Zielstellung per Grilling", "Zielrahmen ist bestätigt oder klar als vorläufig markiert"]
+    }
+  ]
+}

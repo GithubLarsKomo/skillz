@@ -295,6 +295,7 @@ graph TD
   merge_conflict_resolution --> disciplined_diagnosis
   merge_conflict_resolution --> test_driven_vertical_slice
   merge_conflict_resolution --> two_axis_code_review
+  mermaid_knowledge_map_renderer --> knowledge_map_generator
   nonconformance_mrb_disposition --> medical_device_qms_iso13485
   nonconformance_mrb_disposition --> medical_device_risk_management_iso14971
   nonconformance_mrb_disposition --> two_axis_compliance_review
@@ -419,6 +420,12 @@ graph TD
   technology_offer_assessment --> research_to_evidence_note
   test_driven_vertical_slice --> disciplined_diagnosis
   test_driven_vertical_slice --> spec_to_vertical_issues
+  thought_graph_extractor --> structured_knowledge_artifact
+  thought_graph_extractor --> thought_capture_journal
+  thought_to_concept_flow --> knowledge_map_generator
+  thought_to_concept_flow --> round_based_requirements_grilling
+  thought_to_concept_flow --> thought_capture_journal
+  thought_to_concept_flow --> thought_graph_extractor
   throwaway_prototype --> agent_handoff
   throwaway_prototype --> disciplined_diagnosis
   throwaway_prototype --> large_work_wayfinder
@@ -449,7 +456,7 @@ graph TD
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling` | inferred |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `acceptance-gaps.json` | `fda-acceptance-readiness` | — | unconsumed |
@@ -510,6 +517,8 @@ graph TD
 | `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
+| `concept-handoff.json` | `thought-to-concept-flow` | — | unconsumed |
+| `concept.md` | `thought-to-concept-flow` | — | unconsumed |
 | `conflict-residual-risk-handoff.json` | `merge-conflict-resolution` | — | unconsumed |
 | `conflict-resolution-evidence.json` | `merge-conflict-resolution` | — | unconsumed |
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
@@ -669,9 +678,11 @@ graph TD
 | `ivdr-pms-assessment.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ivdr-vigilance-final-report-package.json` | `ivdr-fsca-status-final-reporting` | — | unconsumed |
 | `job-description.md` | `job-description-authoring` | — | unconsumed |
-| `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | inferred |
-| `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter` | inferred |
-| `knowledge-map.json` | `knowledge-map-generator` | `obsidian-adapter` | inferred |
+| `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter`, `thought-graph-extractor` | inferred |
+| `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter`, `thought-graph-extractor` | inferred |
+| `knowledge-map.json` | `knowledge-map-generator` | `mermaid-knowledge-map-renderer`, `obsidian-adapter`, `thought-to-concept-flow` | inferred |
+| `knowledge-map.md` | `mermaid-knowledge-map-renderer` | — | unconsumed |
+| `knowledge-map.mmd` | `mermaid-knowledge-map-renderer` | — | unconsumed |
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
@@ -715,6 +726,8 @@ graph TD
 | `obsidian-note.md` | `obsidian-adapter` | — | unconsumed |
 | `obsidian-view.base` | `obsidian-adapter` | — | unconsumed |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | unconsumed |
+| `optional Mermaid map` | `thought-to-concept-flow` | — | unconsumed |
+| `optional Obsidian vault projection` | `thought-to-concept-flow` | — | unconsumed |
 | `patent-landscape.json` | `patent-landscape-analysis` | — | unconsumed |
 | `patent-landscape.md` | `patent-landscape-analysis` | — | unconsumed |
 | `patent-search-log.json` | `patent-landscape-analysis` | — | unconsumed |
@@ -793,7 +806,7 @@ graph TD
 | `rehab-progression.json` | `sport-injury-rehabilitation` | `sport-athlete-management` | inferred |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
 | `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling` | inferred |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `return-after-illness-plan.json` | `sport-return-after-illness` | `sport-athlete-management` | inferred |
@@ -839,6 +852,7 @@ graph TD
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management` | inferred |
+| `structured thought artifacts` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
 | `submission-readiness.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
 | `substantial-equivalence-matrix.md` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
@@ -853,6 +867,10 @@ graph TD
 | `technology-offer-gap-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-question-set.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
 | `technology-offer-question-set.md` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
+| `thought-graph-summary.md` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
+| `thought-graph.json` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
+| `thought-journal.json` | `thought-capture-journal` | `thought-graph-extractor`, `thought-to-concept-flow` | inferred |
+| `thought-journal.md` | `thought-capture-journal` | `thought-graph-extractor`, `thought-to-concept-flow` | inferred |
 | `training-adaptation-decision.json` | `sport-training-adaptation-engine` | `sport-athlete-management` | inferred |
 | `training-music-profile.json` | `sport-training-music` | `sport-athlete-management` | inferred |
 | `trend-signal-set.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |

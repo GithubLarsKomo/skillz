@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **39**
+Skills: **40**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
@@ -51,3 +51,4 @@ Skills: **39**
 - [[skills/sport-training-music|sport-training-music]]
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/technology-due-diligence|technology-due-diligence]]
+- [[skills/thought-to-concept-flow|thought-to-concept-flow]]
