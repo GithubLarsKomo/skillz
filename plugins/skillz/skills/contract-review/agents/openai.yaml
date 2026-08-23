@@ -1,0 +1,5 @@
+interface:
+  display_name: "Contract Review"
+  short_description: "Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen..."
+policy:
+  allow_implicit_invocation: false

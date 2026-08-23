@@ -31,6 +31,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 ## Required by
 
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
+- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
 - [[skills/fda-510k-predicate-strategy|fda-510k-predicate-strategy]]
@@ -60,6 +61,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 ### `evidence-note.json`
 
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
+- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
 - [[skills/fda-510k-predicate-strategy|fda-510k-predicate-strategy]]
@@ -82,6 +84,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 ### `evidence-note.md`
 
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
+- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
 - [[skills/fda-510k-predicate-strategy|fda-510k-predicate-strategy]]

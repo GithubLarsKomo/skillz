@@ -58,6 +58,31 @@
         "agents/openai.yaml": "c8157fd12a5677db5ea2a443d6ddea6bf01439d158211634a3726ca5ec68893f"
       }
     },
+    "contract-drafting": {
+      "files": {
+        "SKILL.md": "ca891ddd6b3ce97ad20f7b8941ff48ebf25bbdfb61033622d3dcb05420ffeb66",
+        "agents/openai.yaml": "9280ab47cf7a8ad4477d71a62c51ea30d8dc766f055f8a4ba46ecc0107930535"
+      }
+    },
+    "contract-legal-context": {
+      "files": {
+        "SKILL.md": "6fc48795cbf7c162266445d5e43aa197d4a15df38654178d72ab13d82e408b4c",
+        "agents/openai.yaml": "ea6d345e11d645051d4fa9ae9ae0a0336ed378fff898cb5fe2b3e8b5e92ea1e7",
+        "references/german-contract-law-routing.md": "a9cc57da72f9ea562b2503600a8124d0833359a25a8123b2a2cfb88b955ef02e"
+      }
+    },
+    "contract-review": {
+      "files": {
+        "SKILL.md": "8007b38b3e05050c65c68a71e3b4c46ca91ca49e33ba292f79bb42b425e7a16f",
+        "agents/openai.yaml": "010f00af03a37a2f0e282a39abc16c81cde2f75baf98e7355d01ac1ff7d59403"
+      }
+    },
+    "contract-workflow": {
+      "files": {
+        "SKILL.md": "9dcf3a8df5853cc6e7a643a050a054f0d2cb76526145fafd54be6940779be169",
+        "agents/openai.yaml": "9553f5dbb97bee7f98d36c344a482ec57b42d4b88201e891204a66c712e55533"
+      }
+    },
     "controlled-quality-documentation": {
       "files": {
         "SKILL.md": "f74559f0e2fedba15a6c2e5d47e8554b9e024c4bdb6a5172c7a1acca66fd1c91",
