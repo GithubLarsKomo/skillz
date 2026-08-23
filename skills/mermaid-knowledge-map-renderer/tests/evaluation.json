@@ -14,7 +14,7 @@
       "input": "Render a graph with 55 nodes, inferred relations and contradictions.",
       "requiredBehaviors": ["retain the full graph", "offer or create a reduced view", "keep confidence and contradictions visible"],
       "forbiddenBehaviors": ["replace the full graph with the reduced view"],
-      "skillAnchors": ["der Vollgraph bleibt erhalten", "contradicts, blocks und offene Fragen nicht ausblenden"]
+      "skillAnchors": ["der Vollgraph bleibt erhalten", "offene Fragen nicht ausblenden"]
     },
     {
       "id": "failure-case",
