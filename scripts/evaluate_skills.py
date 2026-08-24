@@ -4,10 +4,12 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_CASES = ("happy-path", "edge-case", "failure-case")
+BASELINE_INIT_COMMAND = "python scripts/evaluate_skills.py --init-missing-baselines"
 LEGACY_RUBRIC = {
     "schemaVersion": 1,
     "dimensions": [
@@ -57,6 +59,83 @@ def validate_rubric(path: Path, data: dict) -> list[str]:
     if not isinstance(blocking, list) or any(item not in allowed for item in blocking):
         errors.append(f"{path.relative_to(ROOT)}: blockingCriteria contains unsupported values")
     return errors
+
+
+def build_draft_baseline(slug: str, case: dict) -> dict:
+    case_id = case["id"]
+    return {
+        "schemaVersion": 1,
+        "skill": slug,
+        "caseId": case_id,
+        "recordedAt": date.today().isoformat(),
+        "evaluator": "baseline-generator",
+        "requiredBehaviors": [
+            {
+                "behavior": behavior,
+                "passed": False,
+                "evidence": "TODO: verify this required behavior against the skill and record concrete evidence.",
+            }
+            for behavior in case["requiredBehaviors"]
+        ],
+        "forbiddenBehaviors": [
+            {
+                "behavior": behavior,
+                "observed": True,
+                "evidence": "TODO: verify this forbidden behavior is absent and record concrete evidence.",
+            }
+            for behavior in case["forbiddenBehaviors"]
+        ],
+        "overall": "draft",
+    }
+
+
+def init_missing_baselines(root: Path) -> tuple[list[Path], list[str]]:
+    global ROOT
+    ROOT = root
+    created: list[Path] = []
+    errors: list[str] = []
+    fixtures = sorted((root / "skills").glob("*/tests/evaluation.json"))
+    if not fixtures:
+        return created, ["no executable evaluation suites found"]
+
+    for fixture_file in fixtures:
+        try:
+            fixture = load_json(fixture_file)
+        except ValueError as exc:
+            errors.append(str(exc))
+            continue
+        slug = fixture_file.parents[1].name
+        cases = fixture.get("cases")
+        if not isinstance(cases, list):
+            errors.append(f"{fixture_file.relative_to(root)}: cases must be a list")
+            continue
+        results_dir = fixture_file.parent / "results"
+        results_dir.mkdir(parents=True, exist_ok=True)
+        for index, case in enumerate(cases):
+            if not isinstance(case, dict):
+                errors.append(f"{fixture_file.relative_to(root)}: cases[{index}] must be an object")
+                continue
+            case_id = case.get("id")
+            required = case.get("requiredBehaviors")
+            forbidden = case.get("forbiddenBehaviors")
+            if not isinstance(case_id, str) or not case_id:
+                errors.append(f"{fixture_file.relative_to(root)}: cases[{index}].id must be non-empty")
+                continue
+            if not isinstance(required, list) or not required or not all(isinstance(v, str) and v.strip() for v in required):
+                errors.append(f"{fixture_file.relative_to(root)}:{case_id}: requiredBehaviors must be a non-empty string list")
+                continue
+            if not isinstance(forbidden, list) or not forbidden or not all(isinstance(v, str) and v.strip() for v in forbidden):
+                errors.append(f"{fixture_file.relative_to(root)}:{case_id}: forbiddenBehaviors must be a non-empty string list")
+                continue
+            result_file = results_dir / f"{case_id}.json"
+            if result_file.exists():
+                continue
+            result_file.write_text(
+                json.dumps(build_draft_baseline(slug, case), ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            created.append(result_file)
+    return created, errors
 
 
 def evaluate_suite(fixture_file: Path) -> tuple[dict, list[str]]:
@@ -152,7 +231,11 @@ def evaluate_suite(fixture_file: Path) -> tuple[dict, list[str]]:
         if result.get("overall") != "pass":
             errors.append(f"{result_file.relative_to(ROOT)}: overall must be 'pass' for committed baselines")
     for case_id in sorted(set(case_map) - set(actual)):
-        errors.append(f"missing recorded result: {slug}/{case_id}")
+        expected_path = skill_dir / "tests" / "results" / f"{case_id}.json"
+        errors.append(
+            f"missing recorded result: {slug}/{case_id}; expected {expected_path.relative_to(ROOT)}; "
+            f"create a draft with: {BASELINE_INIT_COMMAND}"
+        )
 
     return {
         "skill": slug,
@@ -184,9 +267,37 @@ def run(root: Path) -> tuple[dict, list[str]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate and score all skill evaluation suites.")
     parser.add_argument("--json", action="store_true", help="Emit stable machine-readable JSON.")
+    parser.add_argument(
+        "--init-missing-baselines",
+        action="store_true",
+        help="Create safe draft result files for evaluation cases that do not yet have a recorded baseline.",
+    )
     parser.add_argument("--root", type=Path, default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args()
-    summary, errors = run(args.root.resolve())
+    root = args.root.resolve()
+
+    if args.init_missing_baselines:
+        created, init_errors = init_missing_baselines(root)
+        if args.json:
+            print(json.dumps({
+                "schemaVersion": 1,
+                "created": [str(path.relative_to(root)) for path in created],
+                "errors": init_errors,
+            }, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+        else:
+            for path in created:
+                print(f"CREATED {path.relative_to(root)}")
+            if created:
+                print("Draft baselines were created. Replace TODO evidence, verify each assessment, then set overall to 'pass'.")
+            else:
+                print("No missing evaluation baselines found.")
+            if init_errors:
+                print("Baseline initialization failed:", file=sys.stderr)
+                for error in init_errors:
+                    print(f"- {error}", file=sys.stderr)
+        return 1 if init_errors else 0
+
+    summary, errors = run(root)
     if args.json:
         print(json.dumps(summary, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
     else:
