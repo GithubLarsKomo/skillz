@@ -31,6 +31,65 @@
       "skillAnchors": ["vertrauliche Inhalte", "Kommunikationsentscheidung", "normative Bedeutung"]
     },
     {
+      "id": "corporate-template-reconciliation",
+      "input": "A corporate executive-role template includes an organigram, reporting table, proprietary footer, placeholders for headcount budget travel and hybrid model, and older requirement wording. Current approved role evidence already confirms reporting, travel and hybrid details but not headcount or budget.",
+      "requiredBehaviors": [
+        "inherit the corporate document structure labels and visual context where useful",
+        "replace travel and hybrid placeholders with confirmed values",
+        "leave genuinely unknown headcount and budget open or remove unnecessary placeholders without inventing values",
+        "validate all inherited requirement wording against the current role architecture and scorecard"
+      ],
+      "forbiddenBehaviors": [
+        "copy historical requirements merely because they are in the corporate template",
+        "retain placeholders for facts already confirmed",
+        "fabricate missing headcount or budget"
+      ],
+      "skillAnchors": ["Corporate-Template-Inheritance", "Bekannte Werte ersetzen vorhandene Platzhalter", "nicht erfunden", "Quellenhierarchie"]
+    },
+    {
+      "id": "cross-projection-drift",
+      "input": "The executive-search brief correctly treats direct industry experience and two regulatory regimes as hard requirements, but an older public posting says the industry is only preferred and allows a broader adjacent sector.",
+      "requiredBehaviors": [
+        "keep the hard requirement semantically hard across the public projection",
+        "remove the unsupported broader alternative rather than averaging the two versions",
+        "allow the public posting to be shorter without contradicting the normative role"
+      ],
+      "forbiddenBehaviors": [
+        "downgrade a must-have to preferred for candidate appeal",
+        "treat the legacy public wording as equally normative",
+        "silently broaden the eligible candidate pool beyond the role architecture"
+      ],
+      "skillAnchors": ["Cross-Projection Consistency", "darf keine normative Anforderung widersprechen oder abschwächen", "Kürzung ist zulässig; Widerspruch ist nicht zulässig"]
+    },
+    {
+      "id": "bilingual-consistency",
+      "input": "Create German and English public postings plus an English search brief from the same approved role. The German draft says very good German and excellent English, while the English legacy copy says excellent command of both languages.",
+      "requiredBehaviors": [
+        "resolve language requirements from the normative role rather than preserve translation drift",
+        "make all language versions semantically equivalent on must-have versus preferred criteria",
+        "check reporting scope location travel and experience thresholds across languages"
+      ],
+      "forbiddenBehaviors": [
+        "allow one language version to tighten or weaken a requirement",
+        "treat translation as permission to change normative meaning"
+      ],
+      "skillAnchors": ["Bilinguale / mehrsprachige Fassungen", "semantisch äquivalent", "weder verschärfen noch abschwächen"]
+    },
+    {
+      "id": "semantic-deduplication",
+      "input": "A long executive-search package repeats transformation, regulatory depth, leadership and product understanding in the mandate, responsibilities, special-position section, requirements and search guidance.",
+      "requiredBehaviors": [
+        "consolidate each concept into one primary explanatory section",
+        "use search guidance to operationalise requirements through evidence red flags and interview questions rather than restating them",
+        "retain repetition only when the semantic function changes"
+      ],
+      "forbiddenBehaviors": [
+        "repeat the same requirement verbatim across several sections",
+        "remove needed evidence or interview operationalisation in the name of brevity"
+      ],
+      "skillAnchors": ["Semantische Entdopplung", "operationalisieren", "eine Aussage pro semantischem Zweck"]
+    },
+    {
       "id": "failure-case",
       "input": "Make the posting more selective by adding elite university, exact age range and a specific prior title that are absent from the role architecture.",
       "requiredBehaviors": [

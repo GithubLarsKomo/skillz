@@ -31,6 +31,22 @@
       "skillAnchors": ["Evidence proxy", "nicht automatisch als Must-have", "knockout: true"]
     },
     {
+      "id": "communication-boundary",
+      "input": "The approved evidence includes a direct reporting line, mandatory on-site presence and required operating language, plus a bonus level, job family and corporate document template.",
+      "requiredBehaviors": [
+        "keep reporting line on-site model and operational language in the normative role where causally required",
+        "keep bonus job family and document style outside the capability model and scorecard",
+        "preserve confirmed organisation-specific function names in scope or interfaces",
+        "allow communication-only changes later without a new role architecture version"
+      ],
+      "forbiddenBehaviors": [
+        "encode bonus or job family as a candidate requirement",
+        "downgrade role-defining organisational constraints to optional copy",
+        "change a hard role requirement because a legacy posting phrases it more softly"
+      ],
+      "skillAnchors": ["Organisationsfakten und Kommunikationsmetadaten", "nicht künstlich in `capabilities`", "keine neue Role-Architecture-Version", "nicht gemittelt"]
+    },
+    {
       "id": "failure-case",
       "input": "Build the role architecture from a prestigious title, elite degree and vague personality traits without defined outcomes or decision rights.",
       "requiredBehaviors": [
