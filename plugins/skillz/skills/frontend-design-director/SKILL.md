@@ -24,7 +24,9 @@ Accessibility, technische Korrektheit und explizite Sicherheitsgrenzen dürfen d
 
 ### 1. Projektkontext zuerst
 
-Vor substanzieller Designarbeit prüfe Repository, README/Dokumentation, vorhandene Oberflächen, Komponenten, CSS/Tokens, Bilder, Logos und bestehende Designregeln. Fehlt ein bestätigtes `PRODUCT.md`, route zu `frontend-product-context`. Fehlt danach ein bestätigtes `DESIGN.md`, route zu `frontend-design-system-context`.
+Vor substanzieller Designarbeit prüfe Repository, README/Dokumentation, vorhandene Oberflächen, Komponenten, CSS/Tokens, Bilder, Logo, Favicon, bei Apps/PWAs vorhandene App-Icons, sichtbare Copy und bestehende Designregeln. Fehlt ein bestätigtes `PRODUCT.md`, route zu `frontend-product-context`. Fehlt danach ein bestätigtes `DESIGN.md`, route zu `frontend-design-system-context`.
+
+Ein vorhandenes `DESIGN.md` gilt nur dann als vollständig, wenn das dort definierte **Brand-and-Context/Acceptance Gate** erfüllt ist: projektspezifisches Logo, dazu passendes Favicon, bei Apps ein passendes App-Icon, projektgerechte Farbherleitung, kontexttreue Copy sowie ein Key Visual, das mindestens zwei der priorisierten 2–3 Projekteigenschaften grafisch transportiert. Fehlt ein anwendbarer Punkt, route vor Shaping/Polish zurück zu `frontend-design-system-context`.
 
 Repo-Evidenz darf Fragen vorbefüllen und Hypothesen begründen, ersetzt aber niemals das jeweils erforderliche Grilling.
 
@@ -45,11 +47,13 @@ Wiederholte oder ausdrücklich als dauerhaft bezeichnete Nutzerbewertungen dürf
 
 ## Harte Design-Qualitätsgrenzen
 
-AI-Slop-Antipatterns werden nicht als bequeme Defaults akzeptiert: generische identische Card-Grids, dekoratives Glassmorphism, Gradient-Text, austauschbare Stock-Illustrationen, Hero-plus-Metrics-plus-Cards als Reflex, dekorative Seitenstreifen und Modal-first ohne begründeten UX-Bedarf. Eine bestehende Oberfläche wird evolutionär verbessert statt ohne Auftrag neu erfunden.
+AI-Slop-Antipatterns werden nicht als bequeme Defaults akzeptiert: generische identische Card-Grids, dekoratives Glassmorphism, Gradient-Text, austauschbare Stock-Illustrationen, Hero-plus-Metrics-plus-Cards als Reflex, dekorative Seitenstreifen, generische SaaS-/AI-Copy und Modal-first ohne begründeten UX-Bedarf.
+
+Ebenso unzulässig sind isoliert erzeugte Branding-Assets ohne erkennbare Familienähnlichkeit, beliebige Template-Farben ohne Projektbegründung und Key Visuals, die den Projektcharakter nur dekorieren statt inhaltlich abzubilden. Eine bestehende Oberfläche wird evolutionär verbessert statt ohne Auftrag neu erfunden.
 
 ## Handoff
 
-Erzeuge bei Routing einen kompakten Stand mit Ziel, Register/Surface, Pfaden zu `PRODUCT.md` und `DESIGN.md`, geltenden Overrides, einschlägigen persönlichen Default-Hypothesen, offenen Entscheidungen und genau dem nächsten Skill.
+Erzeuge bei Routing einen kompakten Stand mit Ziel, Register/Surface, Pfaden zu `PRODUCT.md` und `DESIGN.md`, Status des Brand-and-Context-Gates, geltenden Overrides, einschlägigen persönlichen Default-Hypothesen, offenen Entscheidungen und genau dem nächsten Skill.
 
 ## Herkunft und Lizenz
 
@@ -57,4 +61,4 @@ Die Designmethodik ist in eigenen Formulierungen von Prinzipien aus `pbakaus/imp
 
 ## Abschluss
 
-Abgeschlossen ist der Director-Schritt, wenn **Autoritätshierarchie**, Projektkontext und Aufgabe eindeutig geroutet sind und genau ein nächster Fach-Skill oder Engineering-Handoff feststeht.
+Abgeschlossen ist der Director-Schritt, wenn **Autoritätshierarchie**, Projektkontext, Brand-and-Context-Gate und Aufgabe eindeutig geroutet sind und genau ein nächster Fach-Skill oder Engineering-Handoff feststeht.
