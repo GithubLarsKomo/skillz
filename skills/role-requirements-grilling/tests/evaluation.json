@@ -31,6 +31,22 @@
       "skillAnchors": ["offenen Entscheidungen", "Entscheidungsrechte", "blockierende Rollenentscheidungen"]
     },
     {
+      "id": "template-context",
+      "input": "A legacy corporate posting contains a reporting line, hybrid model, package, job family, organigram and several old candidate requirements. Capture what is useful before role architecture without treating the old posting as normative.",
+      "requiredBehaviors": [
+        "separate role-defining organisational facts from HR and communication metadata",
+        "treat historical candidate requirements as evidence requiring confirmation rather than inherited must-haves",
+        "preserve template language and structure only as downstream communication context",
+        "keep genuinely unknown headcount or budget values open rather than inventing them"
+      ],
+      "forbiddenBehaviors": [
+        "turn package bonus or corporate wording into candidate capabilities",
+        "reintroduce known facts as generic placeholders",
+        "copy old requirements directly into the approved handoff without validation"
+      ],
+      "skillAnchors": ["rollenbestimmenden Organisationsfakten", "Such-/Kommunikationsmetadaten", "historischem Template-Inhalt", "nicht erfunden"]
+    },
+    {
       "id": "failure-case",
       "input": "Create an ideal candidate wish list based on age, prestige, exact prior title and personality stereotypes, then turn it directly into an advert.",
       "requiredBehaviors": [
