@@ -85,6 +85,56 @@ class EvaluateSkillsTests(unittest.TestCase):
         _, errors = module.run(root)
         self.assertTrue(any("missing case classes" in error for error in errors))
 
+    def test_missing_result_error_points_to_generator(self):
+        tmp, root = self.make_repo()
+        self.addCleanup(tmp.cleanup)
+        missing = root / "skills" / "demo" / "tests" / "results" / "failure-case.json"
+        missing.unlink()
+        _, errors = module.run(root)
+        message = next(error for error in errors if "missing recorded result: demo/failure-case" in error)
+        self.assertIn("skills/demo/tests/results/failure-case.json", message)
+        self.assertIn(module.BASELINE_INIT_COMMAND, message)
+
+    def test_init_missing_baselines_creates_safe_draft(self):
+        tmp, root = self.make_repo()
+        self.addCleanup(tmp.cleanup)
+        results = root / "skills" / "demo" / "tests" / "results"
+        missing = results / "failure-case.json"
+        missing.unlink()
+        existing = results / "happy-path.json"
+        existing_before = existing.read_text(encoding="utf-8")
+
+        created, errors = module.init_missing_baselines(root)
+
+        self.assertFalse(errors)
+        self.assertEqual(created, [missing])
+        self.assertEqual(existing.read_text(encoding="utf-8"), existing_before)
+        draft = json.loads(missing.read_text(encoding="utf-8"))
+        self.assertEqual(draft["skill"], "demo")
+        self.assertEqual(draft["caseId"], "failure-case")
+        self.assertEqual(draft["evaluator"], "baseline-generator")
+        self.assertEqual(draft["overall"], "draft")
+        self.assertFalse(draft["requiredBehaviors"][0]["passed"])
+        self.assertTrue(draft["forbiddenBehaviors"][0]["observed"])
+        self.assertIn("TODO", draft["requiredBehaviors"][0]["evidence"])
+        self.assertIn("TODO", draft["forbiddenBehaviors"][0]["evidence"])
+
+        _, validation_errors = module.run(root)
+        self.assertFalse(any("missing recorded result: demo/failure-case" in error for error in validation_errors))
+        self.assertTrue(any("overall must be 'pass'" in error for error in validation_errors))
+
+    def test_init_missing_baselines_is_idempotent(self):
+        tmp, root = self.make_repo()
+        self.addCleanup(tmp.cleanup)
+        missing = root / "skills" / "demo" / "tests" / "results" / "edge-case.json"
+        missing.unlink()
+        first_created, first_errors = module.init_missing_baselines(root)
+        second_created, second_errors = module.init_missing_baselines(root)
+        self.assertFalse(first_errors)
+        self.assertFalse(second_errors)
+        self.assertEqual(first_created, [missing])
+        self.assertEqual(second_created, [])
+
     def test_output_order_is_deterministic(self):
         tmp, root = self.make_repo()
         self.addCleanup(tmp.cleanup)
