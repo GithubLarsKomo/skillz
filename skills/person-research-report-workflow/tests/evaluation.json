@@ -11,15 +11,17 @@
         "produce structured evidence artifacts and then a coherent profile report",
         "run precision-writing-revision with a fidelity lock before document generation",
         "generate requested DOCX and PDF from the same final fidelity-approved report",
-        "keep hobbies and sport separate from professional capability assessment"
+        "keep hobbies and sport separate from professional capability assessment",
+        "return a workflow manifest that references downstream artifacts without redeclaring their producer ownership"
       ],
       "forbiddenBehaviors": [
         "generate the final report from unverified snippets without an evidence dossier",
         "let stylistic revision strengthen or erase uncertainty",
         "generate divergent DOCX and PDF content",
-        "use hobbies or demographic information as suitability proxies"
+        "use hobbies or demographic information as suitability proxies",
+        "claim evidence report or document artifacts as duplicate workflow-owned outputs"
       ],
-      "skillAnchors": ["Phase 3 – Evidence Dossier", "Phase 7 – Sprachliche Verbesserung", "Phase 8 – DOCX- und PDF-Generierung", "Qualitätsgates"]
+      "skillAnchors": ["Phase 3 – Evidence Dossier", "Phase 7 – Sprachliche Verbesserung", "Phase 8 – DOCX- und PDF-Generierung", "Run-Manifest", "Qualitätsgates"]
     },
     {
       "id": "edge-case",
@@ -29,15 +31,17 @@
         "avoid calling a phase postdoctoral unless supported",
         "delay definitive publication or patent attribution until sufficiently disambiguated",
         "preserve all caveats during language revision",
-        "do not claim the PDF is final when visual QA cannot be performed"
+        "do not claim the PDF is final when visual QA cannot be performed",
+        "record missing optional artifacts accurately in the workflow manifest"
       ],
       "forbiddenBehaviors": [
         "smooth conflicting dates into one invented chronology",
         "convert employer marketing copy directly into verified scope",
         "silently drop uncertainty to improve prose",
-        "claim document QA passed when blocked"
+        "claim document QA passed when blocked",
+        "invent a PDF artifact in the manifest when it was not produced"
       ],
-      "skillAnchors": ["Scope und Identität", "Nur belegte institutionelle Rollen", "Fidelity Lock", "visuell geprüft"]
+      "skillAnchors": ["Scope und Identität", "Nur belegte institutionelle Rollen", "Fidelity Lock", "visuell geprüft", "Nicht erzeugte optionale Artefakte"]
     },
     {
       "id": "failure-case",
