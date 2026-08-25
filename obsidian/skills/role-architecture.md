@@ -4,7 +4,7 @@ generated: true
 name: "role-architecture"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 4
 recordedResultCount: 4
@@ -58,7 +58,7 @@ tags:
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `4`
 - Recorded results: `4`
 

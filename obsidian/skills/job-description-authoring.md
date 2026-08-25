@@ -4,7 +4,7 @@ generated: true
 name: "job-description-authoring"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 7
 recordedResultCount: 7
@@ -55,7 +55,7 @@ Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne St
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `7`
 - Recorded results: `7`
 
