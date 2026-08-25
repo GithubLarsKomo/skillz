@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Convert Adobe Swatch Exchange (ASE) or extracted ASE JSON into brand tokens.
 
-The tool preserves non-RGB source models instead of guessing color-managed
-CMYK/LAB -> sRGB conversions. RGB colors are exported for web tokens and
-checked against black/white foregrounds with WCAG contrast math.
+The tool intentionally preserves non-RGB source models instead of guessing color-managed
+CMYK/LAB -> sRGB conversions. RGB colors are exported losslessly enough for web tokens.
 """
 from __future__ import annotations
 
@@ -13,7 +12,7 @@ import re
 import struct
 import unicodedata
 from pathlib import Path
-from typing import Any, BinaryIO
+from typing import BinaryIO, Any
 
 
 class PaletteError(ValueError):
@@ -41,7 +40,8 @@ def _f32(stream: BinaryIO) -> float:
 
 def _ase_name(stream: BinaryIO) -> str:
     length = _u16(stream)
-    return _read_exact(stream, length * 2).decode("utf-16-be").rstrip("\x00")
+    raw = _read_exact(stream, length * 2)
+    return raw.decode("utf-16-be").rstrip("\x00")
 
 
 def _rgb_hex(values: list[float]) -> str:
@@ -67,7 +67,8 @@ def parse_ase(path: Path) -> dict[str, Any]:
         for _ in range(block_count):
             block_type = _u16(stream)
             block_length = _u32(stream)
-            block_end = stream.tell() + block_length
+            block_start = stream.tell()
+            block_end = block_start + block_length
 
             if block_type == 0xC001:
                 name = _ase_name(stream)
@@ -113,9 +114,10 @@ def parse_ase(path: Path) -> dict[str, Any]:
 
 
 def load_palette(path: Path) -> dict[str, Any]:
-    if path.suffix.lower() == ".ase":
+    suffix = path.suffix.lower()
+    if suffix == ".ase":
         return parse_ase(path)
-    if path.suffix.lower() == ".json":
+    if suffix == ".json":
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
@@ -128,8 +130,11 @@ def load_palette(path: Path) -> dict[str, Any]:
 
 def token_slug(name: str) -> str:
     base = re.sub(r"\s*\((?:RGB|CMYK|LAB|Gray)\)\s*$", "", name, flags=re.IGNORECASE)
-    ascii_text = unicodedata.normalize("NFKD", base).encode("ascii", "ignore").decode("ascii")
-    return re.sub(r"[^a-z0-9]+", "-", ascii_text.lower()).strip("-") or "unnamed"
+    ascii_text = (
+        unicodedata.normalize("NFKD", base).encode("ascii", "ignore").decode("ascii")
+    )
+    slug = re.sub(r"[^a-z0-9]+", "-", ascii_text.lower()).strip("-")
+    return slug or "unnamed"
 
 
 def _hex_rgb(value: str) -> tuple[int, int, int]:
@@ -190,7 +195,9 @@ def normalize_palette(data: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
             while candidate in used_tokens:
                 candidate_index += 1
                 candidate = f"{token}-{candidate_index}"
-            warnings.append(f"Duplicate token slug {token!r}; renamed {name!r} to {candidate!r}.")
+            warnings.append(
+                f"Duplicate token slug {token!r}; renamed {name!r} to {candidate!r}."
+            )
             token = candidate
         used_tokens.add(token)
 
@@ -202,6 +209,7 @@ def normalize_palette(data: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
             "values": raw.get("values"),
             "type": raw.get("type"),
         }
+
         if model == "RGB":
             hex_color = raw.get("hex")
             if not isinstance(hex_color, str):
@@ -218,24 +226,28 @@ def normalize_palette(data: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
                 f"{name}: {model or 'unknown'} source preserved without web HEX conversion; "
                 "use an ICC/color-managed conversion before creating sRGB tokens."
             )
+
         normalized_colors.append(item)
 
     if not normalized_colors:
         raise PaletteError("Palette contains no colors.")
 
-    return ({
-        "schema_version": 1,
-        "source": data.get("source"),
-        "ase_version": data.get("ase_version"),
-        "groups": data.get("groups") or [],
-        "policy": {
-            "corporate_tokens_immutable": True,
-            "semantic_tokens_project_specific": True,
-            "derived_ui_colors_require_traceability": True,
-            "non_rgb_requires_color_managed_conversion": True,
+    return (
+        {
+            "schema_version": 1,
+            "source": data.get("source"),
+            "ase_version": data.get("ase_version"),
+            "groups": data.get("groups") or [],
+            "policy": {
+                "corporate_tokens_immutable": True,
+                "semantic_tokens_project_specific": True,
+                "derived_ui_colors_require_traceability": True,
+                "non_rgb_requires_color_managed_conversion": True,
+            },
+            "colors": normalized_colors,
         },
-        "colors": normalized_colors,
-    }, warnings)
+        warnings,
+    )
 
 
 def render_brand_css(normalized: dict[str, Any]) -> str:
@@ -254,34 +266,42 @@ def render_brand_css(normalized: dict[str, Any]) -> str:
 
 
 def render_contrast_report(normalized: dict[str, Any], warnings: list[str]) -> dict[str, Any]:
-    colors = []
+    entries = []
     for color in normalized["colors"]:
         if "hex" in color:
-            colors.append({
-                "name": color["name"],
-                "token": color["token"],
-                "hex": color["hex"],
-                **color["accessibility"],
-            })
+            entries.append(
+                {
+                    "name": color["name"],
+                    "token": color["token"],
+                    "hex": color["hex"],
+                    **color["accessibility"],
+                }
+            )
     return {
         "schema_version": 1,
         "source": normalized.get("source"),
         "wcag_method": "WCAG 2 relative luminance and contrast ratio",
-        "colors": colors,
+        "colors": entries,
         "warnings": warnings,
     }
 
 
 def write_outputs(input_path: Path, output_dir: Path) -> tuple[Path, Path, Path]:
-    normalized, warnings = normalize_palette(load_palette(input_path))
+    data = load_palette(input_path)
+    normalized, warnings = normalize_palette(data)
     output_dir.mkdir(parents=True, exist_ok=True)
+
     palette_path = output_dir / "brand-palette.json"
     css_path = output_dir / "brand.css"
     contrast_path = output_dir / "brand-contrast-report.json"
-    palette_path.write_text(json.dumps(normalized, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    palette_path.write_text(
+        json.dumps(normalized, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     css_path.write_text(render_brand_css(normalized), encoding="utf-8")
     contrast_path.write_text(
-        json.dumps(render_contrast_report(normalized, warnings), indent=2, ensure_ascii=False) + "\n",
+        json.dumps(render_contrast_report(normalized, warnings), indent=2, ensure_ascii=False)
+        + "\n",
         encoding="utf-8",
     )
     return palette_path, css_path, contrast_path
@@ -293,7 +313,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("input", type=Path, help="Input .ase or extracted .json palette")
     parser.add_argument(
-        "--out-dir", type=Path, default=Path("design/tokens"),
+        "--out-dir",
+        type=Path,
+        default=Path("design/tokens"),
         help="Output directory (default: design/tokens)",
     )
     return parser
