@@ -1,0 +1,102 @@
+{
+  "schema": "skillz-brand-profile-v1",
+  "id": "sport-performance",
+  "version": "1.0.0",
+  "kind": "domain-default",
+  "priority": 50,
+  "source": {
+    "label": "Skillz Sport Performance visual system",
+    "format": "json",
+    "status": "canonical-default",
+    "provenance": "Designed as the default visual system for Sport skills/projects and aligned with the established Dr. Komorowski Sportdiagnose und Trainingszentrum report theme."
+  },
+  "matching": {
+    "skill_slug_prefixes": ["sport-", "dr-komorowski-sport-"],
+    "explicit_brand_aliases": ["Dr. Komorowski Sportdiagnose und Trainingszentrum", "Sport Performance"],
+    "context_terms": ["sport", "sportdiagnostik", "sportdiagnose", "athlete"]
+  },
+  "policy": {
+    "automatic_default": true,
+    "skip_color_palette_grilling": true,
+    "profile_tokens_canonical": true,
+    "derived_ui_colors_allowed": true,
+    "derived_colors_require_traceability": true,
+    "explicit_project_brand_override_allowed": true,
+    "conflict_requires_grilling": true,
+    "do_not_encode_meaning_by_color_alone": true
+  },
+  "palette": {
+    "navy": "#173652",
+    "dark": "#1C2B3A",
+    "body": "#24313E",
+    "teal": "#246F6C",
+    "teal_bright": "#2B8884",
+    "muted": "#6B7785",
+    "energy": "#B54708",
+    "success": "#2E7D32",
+    "warning": "#9A6500",
+    "critical": "#B42318",
+    "recovery": "#6D5BD0",
+    "border": "#D6E0E6",
+    "surface": "#EDF3F6",
+    "surface_subtle": "#F6F8F9",
+    "warning_surface": "#FFF4D6",
+    "white": "#FFFFFF"
+  },
+  "semantic_defaults": {
+    "primary": "navy",
+    "secondary": "teal",
+    "accent": "energy",
+    "success": "success",
+    "warning": "warning",
+    "danger": "critical",
+    "info": "teal",
+    "recovery": "recovery",
+    "text": "body",
+    "text_muted": "muted",
+    "background": "white",
+    "surface": "surface",
+    "border": "border"
+  },
+  "foreground_defaults": {
+    "navy": "#FFFFFF",
+    "dark": "#FFFFFF",
+    "body": "#FFFFFF",
+    "teal": "#FFFFFF",
+    "energy": "#FFFFFF",
+    "success": "#FFFFFF",
+    "warning": "#FFFFFF",
+    "critical": "#FFFFFF",
+    "recovery": "#FFFFFF",
+    "border": "#24313E",
+    "surface": "#24313E",
+    "surface_subtle": "#24313E",
+    "warning_surface": "#24313E",
+    "white": "#24313E"
+  },
+  "data_visualization": {
+    "series_order": ["navy", "teal_bright", "energy", "critical", "recovery", "success"],
+    "rules": [
+      "Use labels, markers, line styles or shapes in addition to color.",
+      "teal_bright is a chart/accent color and is not an approved normal-text filled background.",
+      "Reserve critical red for risk/injury/stop states; do not use it as decorative emphasis.",
+      "Use recovery violet for recovery/readiness or a clearly documented secondary analytic dimension."
+    ]
+  },
+  "compatibility": {
+    "dr_komorowski_report_theme": {
+      "navy": "#173652",
+      "dark": "#1C2B3A",
+      "body": "#24313E",
+      "teal_bright": "#2B8884",
+      "teal": "#246F6C",
+      "muted": "#6B7785",
+      "border": "#D6E0E6",
+      "surface": "#EDF3F6",
+      "surface_subtle": "#F6F8F9",
+      "warning_surface": "#FFF4D6",
+      "warning": "#9A6500",
+      "white": "#FFFFFF"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "skillz-brand-profile-v1",
+  "id": "euroimmun-corporate",
+  "version": "1.0.0",
+  "kind": "corporate",
+  "priority": 100,
+  "source": {
+    "label": "EI_color_palette_RGB.ase",
+    "format": "ase",
+    "ase_version": "1.0",
+    "status": "authoritative",
+    "provenance": "User-supplied EUROIMMUN corporate RGB palette, extracted without changing RGB source values."
+  },
+  "matching": {
+    "explicit_brand_aliases": ["EUROIMMUN", "EUROIMMUN AG"],
+    "context_terms": ["euroimmun"],
+    "excluded_ambiguous_free_text_aliases": ["EI"]
+  },
+  "policy": {
+    "automatic_default": true,
+    "skip_color_palette_grilling": true,
+    "corporate_tokens_immutable": true,
+    "derived_ui_colors_allowed": true,
+    "derived_colors_require_traceability": true,
+    "explicit_project_brand_override_allowed": true,
+    "conflict_requires_grilling": true,
+    "non_rgb_requires_color_managed_conversion": true
+  },
+  "palette": {
+    "black": "#000000",
+    "white": "#FFFFFF",
+    "forest": "#218529",
+    "clover": "#73C054",
+    "orchid": "#7F03B0",
+    "purple": "#B985D9",
+    "sea": "#148087",
+    "turquoise": "#3DD4CC",
+    "flame": "#C94D00",
+    "orange": "#FA7E33",
+    "fuchsia": "#9E306E",
+    "pink": "#FF8ECF",
+    "yellow": "#FFEB0F"
+  },
+  "semantic_defaults": {
+    "primary": "orchid",
+    "secondary": "sea",
+    "accent": "flame",
+    "success": "forest",
+    "warning": "yellow",
+    "danger": "fuchsia",
+    "info": "sea",
+    "highlight": "pink",
+    "background": "white",
+    "text": "black"
+  },
+  "foreground_defaults": {
+    "black": "#FFFFFF",
+    "white": "#000000",
+    "forest": "#FFFFFF",
+    "clover": "#000000",
+    "orchid": "#FFFFFF",
+    "purple": "#000000",
+    "sea": "#FFFFFF",
+    "turquoise": "#000000",
+    "flame": "#FFFFFF",
+    "orange": "#000000",
+    "fuchsia": "#FFFFFF",
+    "pink": "#000000",
+    "yellow": "#000000"
+  }
+}
