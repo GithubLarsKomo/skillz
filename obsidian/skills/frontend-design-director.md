@@ -6,8 +6,8 @@ category: "engineering"
 userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 3
+caseCount: 8
+recordedResultCount: 8
 sourcePath: "skills/frontend-design-director/SKILL.md"
 tags:
   - skill
@@ -55,8 +55,8 @@ Orchestriert Frontend-Designarbeit für Websites, Landingpages, Apps und Dashboa
 
 - Mode: `compatibility`
 - Passed: `True`
-- Cases: `3`
-- Recorded results: `3`
+- Cases: `8`
+- Recorded results: `8`
 
 ## Canonical source
 

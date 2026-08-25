@@ -4,10 +4,10 @@ generated: true
 name: "role-architecture"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 3
+caseCount: 4
+recordedResultCount: 4
 sourcePath: "skills/role-architecture/SKILL.md"
 tags:
   - skill
@@ -58,9 +58,9 @@ tags:
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `3`
-- Recorded results: `3`
+- Passed: `False`
+- Cases: `4`
+- Recorded results: `4`
 
 ## Canonical source
 

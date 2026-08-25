@@ -4,10 +4,10 @@ generated: true
 name: "job-description-authoring"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 3
+caseCount: 7
+recordedResultCount: 7
 sourcePath: "skills/job-description-authoring/SKILL.md"
 tags:
   - skill
@@ -16,7 +16,7 @@ tags:
 
 # job-description-authoring
 
-Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne Stellenbeschreibungen, Executive-Search-Briefs und öffentliche Ausschreibungen, ohne Mandat, Anforderungen oder Auswahlkriterien neu zu erfinden. Verwenden, wenn ein normatives Rollenmodell kommunikativ übersetzt werden soll.
+Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne Stellenbeschreibungen, Executive-Search-Briefs und öffentliche Ausschreibungen, übernimmt bei Bedarf bestätigte Corporate-Templates und Organisationsmetadaten und sichert semantische Konsistenz über alle Fassungen. Verwenden, wenn ein normatives Rollenmodell kommunikativ übersetzt werden soll.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -55,9 +55,9 @@ Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne St
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `3`
-- Recorded results: `3`
+- Passed: `False`
+- Cases: `7`
+- Recorded results: `7`
 
 ## Canonical source
 
