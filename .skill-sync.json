@@ -384,9 +384,12 @@
     },
     "frontend-design-system-context": {
       "files": {
-        "SKILL.md": "1da8f33234c9eb66a968e87d97fbd7bfd25da62029670567708591b123afd403",
+        "SKILL.md": "373205ac81991934b7b961b59a5e51b10d6e9b033af1d7f20d3964859be353b1",
         "agents/openai.yaml": "2b01df44f8aa421e62acbd37eed591ed69f83bab5a4adbe6701a3802369e1fe4",
-        "scripts/ase_to_tokens.py": "50adb5aa699ab59e00325b5ddcbb36395e1c5a9e40852cdebfaa73aaa0b0c0ef"
+        "references/brand-profiles/euroimmun.json": "4f4f225236a80575fa86a5db52e639cf7ffde14687cc737894edb64a924011ee",
+        "references/brand-profiles/sport-performance.json": "0cba05dbe32178881bc74a3f53864b82daccfbbd86cc025299b80c82426b82ac",
+        "scripts/ase_to_tokens.py": "50adb5aa699ab59e00325b5ddcbb36395e1c5a9e40852cdebfaa73aaa0b0c0ef",
+        "scripts/brand_profile_resolver.py": "468c3ab4558bfdf6e802c1d4e023692c8e8e605c5c2b04c4bbe80e5a0a6f12fd"
       }
     },
     "frontend-product-context": {

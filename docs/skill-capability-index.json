@@ -3241,7 +3241,10 @@
       ],
       "portableFiles": [
         "agents/openai.yaml",
-        "scripts/ase_to_tokens.py"
+        "references/brand-profiles/euroimmun.json",
+        "references/brand-profiles/sport-performance.json",
+        "scripts/ase_to_tokens.py",
+        "scripts/brand_profile_resolver.py"
       ],
       "evaluation": {
         "mode": "compatibility",
