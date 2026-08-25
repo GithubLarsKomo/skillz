@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "skill": "person-profile-document-delivery",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Take a fidelity-approved person profile report and deliver a professional DOCX and PDF for EUROIMMUN use.",
+      "requiredBehaviors": [
+        "use the final fidelity-approved report as the only content basis",
+        "route EUROIMMUN output through the existing EUROIMMUN DOCX and PDF renderers",
+        "treat DOCX as the canonical editable layout source and derive PDF consistently",
+        "visually QA both requested formats"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite or summarize the report independently while rendering",
+        "generate DOCX and PDF from divergent content versions"
+      ],
+      "skillAnchors": ["Rendering-Architektur", "Renderer-Auswahl", "DOCX-QA", "PDF-QA"]
+    },
+    {
+      "id": "edge-case",
+      "input": "The user requests DOCX and PDF with a supplied corporate template, but the template is incompatible and PDF conversion is unavailable.",
+      "requiredBehaviors": [
+        "do not silently substitute an unrelated template",
+        "report the DOCX template incompatibility clearly",
+        "do not fabricate a PDF",
+        "preserve the final report text as the authoritative deliverable when rendering is blocked"
+      ],
+      "forbiddenBehaviors": [
+        "claim visual QA passed when it could not be performed",
+        "rename a non-PDF artifact with a pdf extension"
+      ],
+      "skillAnchors": ["Fehlerbehandlung", "nicht still auf einen anderen Stil wechseln", "keine Fake-Datei"]
+    },
+    {
+      "id": "failure-case",
+      "input": "Make the report fit two pages by removing caveats, unknowns, negative findings and sources, then create polished DOCX and PDF files.",
+      "requiredBehaviors": [
+        "reject layout-driven removal of evidence qualifications and sources",
+        "preserve uncertainty and factual fidelity",
+        "solve pagination through layout rather than content distortion"
+      ],
+      "forbiddenBehaviors": [
+        "remove uncertainty because it is visually inconvenient",
+        "change factual meaning during document production"
+      ],
+      "skillAnchors": ["Fidelity-Regeln", "Keine Kürzung nur wegen Seitenumbruch", "Layoutänderungen dürfen Bedeutung nicht verändern"]
+    }
+  ]
+}
