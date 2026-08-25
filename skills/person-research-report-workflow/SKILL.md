@@ -4,7 +4,7 @@ description: Orchestriert eine vollständige evidenzbasierte Personenrecherche v
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.2.0
+version: 0.2.1
 status: candidate
 owners:
   - GithubLarsKomo
@@ -14,14 +14,7 @@ requires:
   - precision-writing-revision
   - person-profile-document-delivery
 outputs:
-  - person-research-evidence.json
-  - person-timeline.json
-  - person-publications.json
-  - person-ip-map.json
-  - person-research-dossier.md
-  - person-profile-report.md
-  - person-profile-report.docx
-  - person-profile-report.pdf
+  - person-research-workflow-result.json
 lastEvaluated: 2026-08-25
 ---
 
@@ -37,6 +30,8 @@ Der Workflow trennt vier Aufgaben:
 2. **Narrative, evidenztreue Reportgenerierung** mit `person-profile-report`.
 3. **Sprachliche Verbesserung mit Fidelity Lock** über `precision-writing-revision`.
 4. **Dokumentausgabe und visuelle QA** über `person-profile-document-delivery`.
+
+Der Workflow ist ein Orchestrator. Die Fach-Skills bleiben Eigentümer ihrer jeweiligen Artefakte; der Orchestrator deklariert diese Zwischen- und Endartefakte nicht erneut als eigene Outputs.
 
 Der Workflow ist für öffentliche und vom Nutzer bereitgestellte berufliche/wissenschaftliche Informationen gedacht. Er ist kein Werkzeug zur invasiven Privatprofilierung.
 
@@ -75,7 +70,7 @@ Primärquellen und Originaldokumente priorisieren. Quellenqualität und Aktualit
 
 ### Phase 3 – Evidence Dossier
 
-Rufe `person-research-dossier` auf. Erzeuge mindestens:
+Rufe `person-research-dossier` auf. Dieser Skill erzeugt und besitzt mindestens:
 
 - `person-research-evidence.json`,
 - `person-timeline.json`,
@@ -112,7 +107,7 @@ Rufe `person-profile-report` auf. Wähle passend zum Nutzerziel eine der Fassung
 - `executive`: Schwerpunkt Karriere, Arbeitgeber, Scope und Führung,
 - `deep-dive`: ausführliche Kombination aller belastbaren Bereiche.
 
-Die Fassung verändert nicht die Evidenzbasis.
+Die Fassung verändert nicht die Evidenzbasis. `person-profile-report` bleibt Eigentümer des Report-Artefakts.
 
 ### Phase 7 – Sprachliche Verbesserung
 
@@ -127,7 +122,7 @@ Vor dem Rewrite wird ein Fidelity Lock aus dem Evidence Dossier und dem Rohrepor
 - Evidenzklassen und Confidence,
 - Negationen, Einschränkungen und offene Fragen.
 
-Sprachliche Verbesserung darf Struktur, Klarheit, Präzision, Lesefluss und Wiederholungen optimieren, aber keine Unsicherheit entfernen, keine neue Eignungsaussage erzeugen und keine Quelle stärker darstellen als die Evidenz erlaubt. Nur eine Fassung mit bestandenem Fidelity-Check wird als `person-profile-report.md` finalisiert.
+Sprachliche Verbesserung darf Struktur, Klarheit, Präzision, Lesefluss und Wiederholungen optimieren, aber keine Unsicherheit entfernen, keine neue Eignungsaussage erzeugen und keine Quelle stärker darstellen als die Evidenz erlaubt. Nur eine Fassung mit bestandenem Fidelity-Check darf an die Dokumenterzeugung übergeben werden.
 
 ### Phase 8 – DOCX- und PDF-Generierung
 
@@ -140,15 +135,45 @@ Wenn DOCX und/oder PDF gewünscht sind, rufe `person-profile-document-delivery` 
 - Beide Formate müssen Quellen, Tabellen, Überschriftenhierarchie und Evidenzhinweise identisch transportieren.
 - DOCX und PDF vor Übergabe visuell auf Seitenumbrüche, Tabellen, Links, Glyphen, Header/Footer und Quellenblöcke prüfen.
 
-### Phase 9 – Übergabe
+`person-profile-document-delivery` bleibt Eigentümer der DOCX-/PDF-Artefakte.
 
-Falls der Nutzer eine konkrete Entscheidung treffen möchte, übergib den Report und die strukturierten Evidenzartefakte an den passenden Downstream-Skill, z. B.:
+### Phase 9 – Run-Manifest und Übergabe
+
+Erzeuge als einzigen eigenen Workflow-Output `person-research-workflow-result.json`. Dieses Manifest referenziert die von den Fach-Skills erzeugten Artefakte, ohne deren Producer-Ownership zu duplizieren.
+
+Beispiel:
+
+```json
+{
+  "schemaVersion": 1,
+  "person": "...",
+  "asOf": "YYYY-MM-DD",
+  "reportMode": "deep-dive",
+  "status": "complete",
+  "artifacts": {
+    "evidence": "person-research-evidence.json",
+    "timeline": "person-timeline.json",
+    "publications": "person-publications.json",
+    "ip": "person-ip-map.json",
+    "dossier": "person-research-dossier.md",
+    "report": "person-profile-report.md",
+    "revisionAudit": "precision-writing-report.json",
+    "docx": "person-profile.docx",
+    "pdf": "person-profile.pdf"
+  },
+  "warnings": []
+}
+```
+
+Nicht erzeugte optionale Artefakte werden im Manifest als `null` oder ausgelassen dokumentiert; keine Datei wird vorgetäuscht.
+
+Falls der Nutzer eine konkrete Entscheidung treffen möchte, übergib Report, Manifest und die strukturierten Evidenzartefakte an den passenden Downstream-Skill, z. B.:
 
 - `candidate-role-fit-assessment`,
 - `meeting-preparation`,
 - `research-to-evidence-note` für offene Spezialfragen.
 
-Für Downstream-Entscheidungen bleibt das Evidence Dossier normativ; die sprachlich verbesserte Fassung und DOCX/PDF sind Darstellungsartefakte und dürfen Evidenzklassen nicht verändern.
+Für Downstream-Entscheidungen bleibt das Evidence Dossier normativ; sprachlich verbesserte Fassungen und DOCX/PDF sind Darstellungsartefakte und dürfen Evidenzklassen nicht verändern.
 
 ## Evidenzregeln
 
@@ -191,6 +216,7 @@ Vor Abschluss müssen gelten:
 9. Sensible/private Profilierung ausgeschlossen.
 10. Optionaler Hobbies-/Sport-Block ist separat und evidenzgebunden.
 11. DOCX/PDF stammen aus der finalen geprüften Reportfassung und wurden visuell geprüft, sofern diese Formate angefordert wurden.
+12. Der Orchestrator besitzt ausschließlich `person-research-workflow-result.json`; Fachartefakte behalten einen eindeutigen Producer im Dependency-Graph.
 
 ## Fehlerbehandlung
 
@@ -198,4 +224,4 @@ Bei unzureichender Disambiguierung keine vollständige Publikations- oder IP-Lis
 
 ## Abschlusskriterien
 
-Abgeschlossen ist der Workflow, wenn die Recherche zu einer nachvollziehbaren Evidenzbasis normalisiert wurde, Biographie, wissenschaftliche Arbeiten, Veröffentlichungen, IP, Arbeitgeber und Karriere konsistent zusammengeführt sind, der Report sprachlich verbessert und fidelity-geprüft ist, optionale öffentliche Interessen sauber getrennt bleiben und die angeforderten DOCX/PDF-Ausgaben aus derselben finalen Inhaltsbasis erzeugt und visuell geprüft wurden.
+Abgeschlossen ist der Workflow, wenn die Recherche zu einer nachvollziehbaren Evidenzbasis normalisiert wurde, Biographie, wissenschaftliche Arbeiten, Veröffentlichungen, IP, Arbeitgeber und Karriere konsistent zusammengeführt sind, der Report sprachlich verbessert und fidelity-geprüft ist, optionale öffentliche Interessen sauber getrennt bleiben, die angeforderten DOCX/PDF-Ausgaben aus derselben finalen Inhaltsbasis erzeugt und visuell geprüft wurden und das eindeutige Run-Manifest alle erzeugten Fachartefakte referenziert.
