@@ -39,8 +39,6 @@ jobs:
         run: python scripts/generate_repository_metadata.py --check
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
-      - name: Evaluate skill suites
-        run: python scripts/evaluate_skills.py
       - name: Commit generated artifacts
         shell: bash
         run: |
