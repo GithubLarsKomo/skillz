@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 183,
-  "entrypointCount": 153,
+  "skillCount": 187,
+  "entrypointCount": 157,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 183,
+  "evaluationSuiteCount": 187,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -6990,6 +6990,228 @@
       }
     },
     {
+      "name": "person-profile-document-delivery",
+      "description": "Überführt einen fachlich und sprachlich finalisierten Personenreport in konsistente DOCX- und PDF-Ausgaben, wählt bei vorhandenem Corporate-Kontext passende Renderer oder Templates und erzwingt visuelle QA ohne inhaltliches Re-Authoring. Verwenden, wenn ein Personenprofil als professionelles editierbares DOCX und/oder finales PDF ausgeliefert werden soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "precision-writing-revision"
+      ],
+      "dependents": [
+        "person-research-report-workflow"
+      ],
+      "outputs": [
+        "person-profile-delivery.json",
+        "person-profile-report.docx",
+        "person-profile-report.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "person-profile-delivery.json",
+          "ambiguous": false,
+          "producers": [
+            "person-profile-document-delivery"
+          ],
+          "consumerSkills": [
+            "person-research-report-workflow"
+          ]
+        },
+        {
+          "output": "person-profile-report.docx",
+          "ambiguous": false,
+          "producers": [
+            "person-profile-document-delivery"
+          ],
+          "consumerSkills": [
+            "person-research-report-workflow"
+          ]
+        },
+        {
+          "output": "person-profile-report.pdf",
+          "ambiguous": false,
+          "producers": [
+            "person-profile-document-delivery"
+          ],
+          "consumerSkills": [
+            "person-research-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "person-profile-report",
+      "description": "Erzeugt aus einem strukturierten, quellengebundenen Person Research Dossier einen lesbaren Personenreport mit Biographie, Karriere, wissenschaftlichen Arbeiten, Publikationen, IP, Arbeitgebern und optional öffentlich gemachten Interessen. Verwenden, wenn aus belastbarer Personenrecherche eine kohärente, zitierfähige Gesamtbiographie oder Executive-/Scientific-Profile-Fassung entstehen soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "person-research-dossier"
+      ],
+      "dependents": [
+        "person-research-report-workflow"
+      ],
+      "outputs": [
+        "person-profile-report.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "person-profile-report.md",
+          "ambiguous": false,
+          "producers": [
+            "person-profile-report"
+          ],
+          "consumerSkills": [
+            "person-research-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "person-research-dossier",
+      "description": "Recherchiert eine konkrete Person aus belastbaren öffentlichen und bereitgestellten Quellen und strukturiert Biographie, Lebenslauf, Veröffentlichungen, IP, Arbeitgeber, Karriere sowie freiwillig öffentlich gemachte Hobbies und Sport in ein quellengebundenes Dossier. Verwenden, wenn eine Person systematisch verstanden werden soll, bevor ein Profilbericht, Meeting-Briefing oder rollenbezogenes Assessment entsteht.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "person-profile-report",
+        "person-research-report-workflow"
+      ],
+      "outputs": [
+        "person-ip-map.json",
+        "person-publications.json",
+        "person-research-dossier.md",
+        "person-research-evidence.json",
+        "person-timeline.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "person-ip-map.json",
+          "ambiguous": false,
+          "producers": [
+            "person-research-dossier"
+          ],
+          "consumerSkills": [
+            "person-profile-report",
+            "person-research-report-workflow"
+          ]
+        },
+        {
+          "output": "person-publications.json",
+          "ambiguous": false,
+          "producers": [
+            "person-research-dossier"
+          ],
+          "consumerSkills": [
+            "person-profile-report",
+            "person-research-report-workflow"
+          ]
+        },
+        {
+          "output": "person-research-dossier.md",
+          "ambiguous": false,
+          "producers": [
+            "person-research-dossier"
+          ],
+          "consumerSkills": [
+            "person-research-report-workflow"
+          ]
+        },
+        {
+          "output": "person-research-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "person-research-dossier"
+          ],
+          "consumerSkills": [
+            "person-profile-report",
+            "person-research-report-workflow"
+          ]
+        },
+        {
+          "output": "person-timeline.json",
+          "ambiguous": false,
+          "producers": [
+            "person-research-dossier"
+          ],
+          "consumerSkills": [
+            "person-profile-report",
+            "person-research-report-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "person-research-report-workflow",
+      "description": "Orchestriert eine vollständige evidenzbasierte Personenrecherche von Identitätsklärung über Biographie, Ausbildung, Veröffentlichungen, IP, Arbeitgeber und Karriere bis zum sprachlich optimierten, quellengebundenen Personenreport mit optionaler DOCX- und PDF-Ausgabe. Verwenden, wenn der Nutzer eine Person umfassend recherchiert und das Ergebnis als Biographie, Scientific Profile, Executive Profile oder Deep-Dive-Report erhalten möchte.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "person-profile-document-delivery",
+        "person-profile-report",
+        "person-research-dossier",
+        "precision-writing-revision"
+      ],
+      "dependents": [],
+      "outputs": [
+        "person-research-workflow-result.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "person-research-workflow-result.json",
+          "ambiguous": false,
+          "producers": [
+            "person-research-report-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "precision-language-rewriter",
       "description": "Überarbeitet deutsche und englische Reports, Memos und Sachtexte in den Modi light, author oder editorial auf Präzision, idiomatische Sprache, Genrepassung und optional bestätigte Author Voice, ohne neue Sachinformation zu erzeugen oder fachliche Terminologie zugunsten künstlicher Variation zu verwässern.",
       "invocation": {
@@ -7049,7 +7271,10 @@
         "precision-language-rewriter",
         "rewrite-fidelity-verifier"
       ],
-      "dependents": [],
+      "dependents": [
+        "person-profile-document-delivery",
+        "person-research-report-workflow"
+      ],
       "outputs": [
         "final-revised-text",
         "precision-writing-report.json"
@@ -7061,7 +7286,10 @@
           "producers": [
             "precision-writing-revision"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "person-profile-document-delivery",
+            "person-research-report-workflow"
+          ]
         },
         {
           "output": "precision-writing-report.json",
@@ -7069,7 +7297,10 @@
           "producers": [
             "precision-writing-revision"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "person-profile-document-delivery",
+            "person-research-report-workflow"
+          ]
         }
       ],
       "portableFiles": [
@@ -8238,6 +8469,7 @@
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
         "patent-landscape-analysis",
+        "person-research-dossier",
         "product-evidence-research",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
@@ -8271,6 +8503,7 @@
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
             "patent-landscape-analysis",
+            "person-research-dossier",
             "product-evidence-research",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
@@ -8300,6 +8533,7 @@
             "medical-device-risk-management-iso14971",
             "meeting-preparation",
             "patent-landscape-analysis",
+            "person-research-dossier",
             "product-evidence-research",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",

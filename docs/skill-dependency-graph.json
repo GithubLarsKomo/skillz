@@ -1572,6 +1572,60 @@
       ]
     },
     {
+      "name": "person-profile-document-delivery",
+      "requires": [
+        "precision-writing-revision"
+      ],
+      "consumes": [],
+      "outputs": [
+        "person-profile-delivery.json",
+        "person-profile-report.docx",
+        "person-profile-report.pdf"
+      ]
+    },
+    {
+      "name": "person-profile-report",
+      "requires": [
+        "person-research-dossier"
+      ],
+      "consumes": [
+        "person-ip-map.json",
+        "person-publications.json",
+        "person-research-evidence.json",
+        "person-timeline.json"
+      ],
+      "outputs": [
+        "person-profile-report.md"
+      ]
+    },
+    {
+      "name": "person-research-dossier",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "person-ip-map.json",
+        "person-publications.json",
+        "person-research-dossier.md",
+        "person-research-evidence.json",
+        "person-timeline.json"
+      ]
+    },
+    {
+      "name": "person-research-report-workflow",
+      "requires": [
+        "person-profile-document-delivery",
+        "person-profile-report",
+        "person-research-dossier",
+        "precision-writing-revision"
+      ],
+      "consumes": [],
+      "outputs": [
+        "person-research-workflow-result.json"
+      ]
+    },
+    {
       "name": "precision-language-rewriter",
       "requires": [],
       "consumes": [],
@@ -3507,6 +3561,34 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "person-profile-document-delivery",
+      "to": "precision-writing-revision"
+    },
+    {
+      "from": "person-profile-report",
+      "to": "person-research-dossier"
+    },
+    {
+      "from": "person-research-dossier",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "person-research-report-workflow",
+      "to": "person-profile-document-delivery"
+    },
+    {
+      "from": "person-research-report-workflow",
+      "to": "person-profile-report"
+    },
+    {
+      "from": "person-research-report-workflow",
+      "to": "person-research-dossier"
+    },
+    {
+      "from": "person-research-report-workflow",
+      "to": "precision-writing-revision"
+    },
+    {
       "from": "precision-writing-revision",
       "to": "author-voice-profiler"
     },
@@ -4055,6 +4137,26 @@
       "consumer": "job-description-authoring",
       "artifact": "role-scorecard.json",
       "producer": "role-architecture"
+    },
+    {
+      "consumer": "person-profile-report",
+      "artifact": "person-ip-map.json",
+      "producer": "person-research-dossier"
+    },
+    {
+      "consumer": "person-profile-report",
+      "artifact": "person-publications.json",
+      "producer": "person-research-dossier"
+    },
+    {
+      "consumer": "person-profile-report",
+      "artifact": "person-research-evidence.json",
+      "producer": "person-research-dossier"
+    },
+    {
+      "consumer": "person-profile-report",
+      "artifact": "person-timeline.json",
+      "producer": "person-research-dossier"
     },
     {
       "consumer": "role-architecture",
@@ -5727,6 +5829,7 @@
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
         "patent-landscape-analysis",
+        "person-research-dossier",
         "product-evidence-research",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
@@ -5757,6 +5860,7 @@
         "medical-device-risk-management-iso14971",
         "meeting-preparation",
         "patent-landscape-analysis",
+        "person-research-dossier",
         "product-evidence-research",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
@@ -6063,9 +6167,12 @@
       "producers": [
         "precision-writing-revision"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "person-profile-document-delivery",
+        "person-research-report-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "finding-action-plan.json",
@@ -7225,6 +7332,118 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "person-ip-map.json",
+      "producers": [
+        "person-research-dossier"
+      ],
+      "consumerSkills": [
+        "person-profile-report",
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "person-profile-delivery.json",
+      "producers": [
+        "person-profile-document-delivery"
+      ],
+      "consumerSkills": [
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "person-profile-report.docx",
+      "producers": [
+        "person-profile-document-delivery"
+      ],
+      "consumerSkills": [
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "person-profile-report.md",
+      "producers": [
+        "person-profile-report"
+      ],
+      "consumerSkills": [
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "person-profile-report.pdf",
+      "producers": [
+        "person-profile-document-delivery"
+      ],
+      "consumerSkills": [
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "person-publications.json",
+      "producers": [
+        "person-research-dossier"
+      ],
+      "consumerSkills": [
+        "person-profile-report",
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "person-research-dossier.md",
+      "producers": [
+        "person-research-dossier"
+      ],
+      "consumerSkills": [
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "person-research-evidence.json",
+      "producers": [
+        "person-research-dossier"
+      ],
+      "consumerSkills": [
+        "person-profile-report",
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "person-research-workflow-result.json",
+      "producers": [
+        "person-research-report-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "person-timeline.json",
+      "producers": [
+        "person-research-dossier"
+      ],
+      "consumerSkills": [
+        "person-profile-report",
+        "person-research-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
       "output": "plan-revision.json",
       "producers": [
         "sport-athlete-management"
@@ -7317,9 +7536,12 @@
       "producers": [
         "precision-writing-revision"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "person-profile-document-delivery",
+        "person-research-report-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "predicate-candidate-set.json",
@@ -9257,7 +9479,6 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
-    "final-revised-text",
     "finding-action-plan.json",
     "finding-closure-status.json",
     "frontend-design-handoff.md",
@@ -9319,11 +9540,11 @@
     "pccp-deviation-routing.json",
     "per-traceability.json",
     "performance-evaluation-report.md",
+    "person-research-workflow-result.json",
     "plan-revision.json",
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "precision-writing-report.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -9441,7 +9662,6 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
-    "final-revised-text",
     "finding-action-plan.json",
     "finding-closure-status.json",
     "frontend-design-handoff.md",
@@ -9503,11 +9723,11 @@
     "pccp-deviation-routing.json",
     "per-traceability.json",
     "performance-evaluation-report.md",
+    "person-research-workflow-result.json",
     "plan-revision.json",
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "precision-writing-report.json",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",

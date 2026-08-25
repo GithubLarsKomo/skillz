@@ -1,0 +1,5 @@
+interface:
+  display_name: "Person Profile Report"
+  short_description: "Erzeugt aus einem strukturierten, quellengebundenen Person Research Dossier einen lesbaren Personenreport mit Biograp..."
+policy:
+  allow_implicit_invocation: true

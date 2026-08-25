@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **183**
-- User-facing entrypoints: **153**
-- Evaluation suites: **183**
+- Skills: **187**
+- User-facing entrypoints: **157**
+- Evaluation suites: **187**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **182**
+- Outputs without inferred hard-requires consumers: **181**
 
 ## Evaluation gaps
 
@@ -96,7 +96,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
-- `final-revised-text` — producer: `precision-writing-revision`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `frontend-design-handoff.md` — producer: `frontend-design-director`
@@ -158,11 +157,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pccp-deviation-routing.json` — producer: `fda-pccp-change-control`
 - `per-traceability.json` — producer: `ivdr-performance-evaluation-report`
 - `performance-evaluation-report.md` — producer: `ivdr-performance-evaluation-report`
+- `person-research-workflow-result.json` — producer: `person-research-report-workflow`
 - `plan-revision.json` — producer: `sport-athlete-management`
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
-- `precision-writing-report.json` — producer: `precision-writing-revision`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Person Research Dossier"
+  short_description: "Recherchiert eine konkrete Person aus belastbaren öffentlichen und bereitgestellten Quellen und strukturiert Biograph..."
+policy:
+  allow_implicit_invocation: true

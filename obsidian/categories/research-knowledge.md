@@ -10,12 +10,13 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **11**
+Skills: **12**
 
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
 - [[skills/mermaid-knowledge-map-renderer|mermaid-knowledge-map-renderer]]
 - [[skills/patent-landscape-analysis|patent-landscape-analysis]]
+- [[skills/person-research-dossier|person-research-dossier]]
 - [[skills/price-availability-snapshot|price-availability-snapshot]]
 - [[skills/product-evidence-research|product-evidence-research]]
 - [[skills/research-to-evidence-note|research-to-evidence-note]]

@@ -773,6 +773,30 @@
         "agents/openai.yaml": "67acea37de785e88b6c7ba1a4a88750d4defae39d8ee37117d8456ebf980cf02"
       }
     },
+    "person-profile-document-delivery": {
+      "files": {
+        "SKILL.md": "5f82dd04c4134a3ad1fdf4e542fc830e5ea4f0479c9dad319f050558dac2e248",
+        "agents/openai.yaml": "51a670c96eb520c0342735df486c7b510a10fcffbc2a02f81c936bbdd9408172"
+      }
+    },
+    "person-profile-report": {
+      "files": {
+        "SKILL.md": "073de6f18259252affb5c4b6c10c90de53d3ecb87dbeb60f46ed9ccdfecf2588",
+        "agents/openai.yaml": "f0f926385e59b98df0b92c6caec19fe1593dc6e1d89f8118690ce060650c87a4"
+      }
+    },
+    "person-research-dossier": {
+      "files": {
+        "SKILL.md": "cd39a6041595e728e24abc4d6d91b0f5a428641ecdc58f0d53f2dee1db8339f7",
+        "agents/openai.yaml": "a493464f25bc9045a747b266d8479a5d02597b4dad1557217caf1462f9d7bc15"
+      }
+    },
+    "person-research-report-workflow": {
+      "files": {
+        "SKILL.md": "0cc3446730401dbf7f3d5e986bc17cb0ba7016733cb4b419254d642e8f72a214",
+        "agents/openai.yaml": "cdda8fa57fa357a091dc65cd5210c85b9e14c8c86c81dcc9d307b962aceb7b09"
+      }
+    },
     "precision-language-rewriter": {
       "files": {
         "SKILL.md": "650b51e8ad7fe0712f486c2571431286624e99599912648f4d791dfc5834160b",

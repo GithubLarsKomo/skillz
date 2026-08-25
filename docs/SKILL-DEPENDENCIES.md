@@ -303,6 +303,13 @@ graph TD
   obsidian_adapter --> knowledge_view
   obsidian_adapter --> structured_knowledge_artifact
   patent_landscape_analysis --> research_to_evidence_note
+  person_profile_document_delivery --> precision_writing_revision
+  person_profile_report --> person_research_dossier
+  person_research_dossier --> research_to_evidence_note
+  person_research_report_workflow --> person_profile_document_delivery
+  person_research_report_workflow --> person_profile_report
+  person_research_report_workflow --> person_research_dossier
+  person_research_report_workflow --> precision_writing_revision
   precision_writing_revision --> author_voice_profiler
   precision_writing_revision --> llm_prose_pattern_audit
   precision_writing_revision --> precision_language_rewriter
@@ -447,6 +454,10 @@ graph TD
 | `candidate-role-fit-assessment` | `role-scorecard.json` | `role-architecture` |
 | `job-description-authoring` | `role-architecture.json` | `role-architecture` |
 | `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
+| `person-profile-report` | `person-ip-map.json` | `person-research-dossier` |
+| `person-profile-report` | `person-publications.json` | `person-research-dossier` |
+| `person-profile-report` | `person-research-evidence.json` | `person-research-dossier` |
+| `person-profile-report` | `person-timeline.json` | `person-research-dossier` |
 | `role-architecture` | `role-requirements-handoff.json` | `role-requirements-grilling` |
 
 ## Output contracts
@@ -597,8 +608,8 @@ graph TD
 | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | inferred |
 | `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
-| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
@@ -626,7 +637,7 @@ graph TD
 | `field-action-recipient-scope.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-unit-custody-ledger.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
 | `field-safety-notice-content.json` | `ivdr-field-safety-corrective-action` | `ivdr-fsca-status-final-reporting` | inferred |
-| `final-revised-text` | `precision-writing-revision` | — | unconsumed |
+| `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `finding-closure-status.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `flex-study-needs.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
@@ -738,6 +749,16 @@ graph TD
 | `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-psychology-plan.json` | `sport-performance-psychology` | `sport-athlete-management` | inferred |
 | `performance-study-gaps.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
+| `person-ip-map.json` | `person-research-dossier` | `person-profile-report`, `person-research-report-workflow` | mixed |
+| `person-profile-delivery.json` | `person-profile-document-delivery` | `person-research-report-workflow` | inferred |
+| `person-profile-report.docx` | `person-profile-document-delivery` | `person-research-report-workflow` | inferred |
+| `person-profile-report.md` | `person-profile-report` | `person-research-report-workflow` | inferred |
+| `person-profile-report.pdf` | `person-profile-document-delivery` | `person-research-report-workflow` | inferred |
+| `person-publications.json` | `person-research-dossier` | `person-profile-report`, `person-research-report-workflow` | mixed |
+| `person-research-dossier.md` | `person-research-dossier` | `person-research-report-workflow` | inferred |
+| `person-research-evidence.json` | `person-research-dossier` | `person-profile-report`, `person-research-report-workflow` | mixed |
+| `person-research-workflow-result.json` | `person-research-report-workflow` | — | unconsumed |
+| `person-timeline.json` | `person-research-dossier` | `person-profile-report`, `person-research-report-workflow` | mixed |
 | `plan-revision.json` | `sport-athlete-management` | — | unconsumed |
 | `pmpf-evaluation-report.md` | `ivdr-pmpf` | — | unconsumed |
 | `pmpf-plan.json` | `ivdr-pmpf` | — | unconsumed |
@@ -746,7 +767,7 @@ graph TD
 | `pms-review-status.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-source-register.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-system-plan.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
-| `precision-writing-report.json` | `precision-writing-revision` | — | unconsumed |
+| `precision-writing-report.json` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
 | `predicate-candidate-set.json` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `predicate-strategy.md` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `price-snapshot.json` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |

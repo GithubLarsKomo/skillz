@@ -1,0 +1,5 @@
+interface:
+  display_name: "Person Profile Document Delivery"
+  short_description: "Überführt einen fachlich und sprachlich finalisierten Personenreport in konsistente DOCX- und PDF-Ausgaben, wählt bei..."
+policy:
+  allow_implicit_invocation: true

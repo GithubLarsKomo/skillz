@@ -1,0 +1,5 @@
+interface:
+  display_name: "Person Research Report Workflow"
+  short_description: "Orchestriert eine vollständige evidenzbasierte Personenrecherche von Identitätsklärung über Biographie, Ausbildung, V..."
+policy:
+  allow_implicit_invocation: true

@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n183 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n187 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1277,10 +1277,19 @@
       "height": 110
     },
     {
+      "id": "skill-person-research-dossier",
+      "type": "file",
+      "file": "skills/person-research-dossier.md",
+      "x": 7690,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-price-availability-snapshot",
       "type": "file",
       "file": "skills/price-availability-snapshot.md",
-      "x": 7690,
+      "x": 8020,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1289,8 +1298,8 @@
       "id": "skill-product-evidence-research",
       "type": "file",
       "file": "skills/product-evidence-research.md",
-      "x": 8020,
-      "y": 210,
+      "x": 7360,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1298,7 +1307,7 @@
       "id": "skill-research-to-evidence-note",
       "type": "file",
       "file": "skills/research-to-evidence-note.md",
-      "x": 7360,
+      "x": 7690,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1307,7 +1316,7 @@
       "id": "skill-sport-performance-diagnostics",
       "type": "file",
       "file": "skills/sport-performance-diagnostics.md",
-      "x": 7690,
+      "x": 8020,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1316,8 +1325,8 @@
       "id": "skill-structured-knowledge-artifact",
       "type": "file",
       "file": "skills/structured-knowledge-artifact.md",
-      "x": 8020,
-      "y": 350,
+      "x": 7360,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1325,7 +1334,7 @@
       "id": "skill-technology-offer-assessment",
       "type": "file",
       "file": "skills/technology-offer-assessment.md",
-      "x": 7360,
+      "x": 7690,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1334,7 +1343,7 @@
       "id": "skill-thought-graph-extractor",
       "type": "file",
       "file": "skills/thought-graph-extractor.md",
-      "x": 7690,
+      "x": 8020,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1383,7 +1392,7 @@
       "x": 9760,
       "y": 0,
       "width": 1120,
-      "height": 2060,
+      "height": 2200,
       "color": "3"
     },
     {
@@ -1495,11 +1504,38 @@
       "height": 110
     },
     {
+      "id": "skill-person-profile-document-delivery",
+      "type": "file",
+      "file": "skills/person-profile-document-delivery.md",
+      "x": 9800,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-person-profile-report",
+      "type": "file",
+      "file": "skills/person-profile-report.md",
+      "x": 10130,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-person-research-report-workflow",
+      "type": "file",
+      "file": "skills/person-research-report-workflow.md",
+      "x": 10460,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-precision-language-rewriter",
       "type": "file",
       "file": "skills/precision-language-rewriter.md",
       "x": 9800,
-      "y": 630,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -1508,7 +1544,7 @@
       "type": "file",
       "file": "skills/precision-writing-revision.md",
       "x": 10130,
-      "y": 630,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -1517,7 +1553,7 @@
       "type": "file",
       "file": "skills/purchase-decision-planner.md",
       "x": 10460,
-      "y": 630,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -1526,7 +1562,7 @@
       "type": "file",
       "file": "skills/rewrite-fidelity-verifier.md",
       "x": 9800,
-      "y": 770,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -1535,7 +1571,7 @@
       "type": "file",
       "file": "skills/role-architecture.md",
       "x": 10130,
-      "y": 770,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -1544,7 +1580,7 @@
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
       "x": 10460,
-      "y": 770,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -1553,7 +1589,7 @@
       "type": "file",
       "file": "skills/sport-athlete-management.md",
       "x": 9800,
-      "y": 910,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1562,7 +1598,7 @@
       "type": "file",
       "file": "skills/sport-athlete-profile.md",
       "x": 10130,
-      "y": 910,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1571,7 +1607,7 @@
       "type": "file",
       "file": "skills/sport-daily-athlete-monitoring.md",
       "x": 10460,
-      "y": 910,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1580,7 +1616,7 @@
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
       "x": 9800,
-      "y": 1050,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1589,7 +1625,7 @@
       "type": "file",
       "file": "skills/sport-endurance-programming.md",
       "x": 10130,
-      "y": 1050,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1598,7 +1634,7 @@
       "type": "file",
       "file": "skills/sport-environment-travel.md",
       "x": 10460,
-      "y": 1050,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -1607,7 +1643,7 @@
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
       "x": 9800,
-      "y": 1190,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1616,7 +1652,7 @@
       "type": "file",
       "file": "skills/sport-injury-rehabilitation.md",
       "x": 10130,
-      "y": 1190,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1625,7 +1661,7 @@
       "type": "file",
       "file": "skills/sport-mental-health-routing.md",
       "x": 10460,
-      "y": 1190,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -1634,7 +1670,7 @@
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
       "x": 9800,
-      "y": 1330,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1643,7 +1679,7 @@
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
       "x": 10130,
-      "y": 1330,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1652,7 +1688,7 @@
       "type": "file",
       "file": "skills/sport-nutrition-fueling.md",
       "x": 10460,
-      "y": 1330,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1661,7 +1697,7 @@
       "type": "file",
       "file": "skills/sport-performance-psychology.md",
       "x": 9800,
-      "y": 1470,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1670,7 +1706,7 @@
       "type": "file",
       "file": "skills/sport-return-after-illness.md",
       "x": 10130,
-      "y": 1470,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1679,7 +1715,7 @@
       "type": "file",
       "file": "skills/sport-season-periodization.md",
       "x": 10460,
-      "y": 1470,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1688,7 +1724,7 @@
       "type": "file",
       "file": "skills/sport-strength-power-programming.md",
       "x": 9800,
-      "y": 1610,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -1697,7 +1733,7 @@
       "type": "file",
       "file": "skills/sport-testing-battery.md",
       "x": 10130,
-      "y": 1610,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -1706,7 +1742,7 @@
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
       "x": 10460,
-      "y": 1610,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -1715,7 +1751,7 @@
       "type": "file",
       "file": "skills/sport-training-music.md",
       "x": 9800,
-      "y": 1750,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -1724,7 +1760,7 @@
       "type": "file",
       "file": "skills/sport-training-programming.md",
       "x": 10130,
-      "y": 1750,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -1733,7 +1769,7 @@
       "type": "file",
       "file": "skills/technology-due-diligence.md",
       "x": 10460,
-      "y": 1750,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -1742,7 +1778,7 @@
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
       "x": 9800,
-      "y": 1890,
+      "y": 2030,
       "width": 300,
       "height": 110
     }
@@ -2822,9 +2858,9 @@
     {
       "id": "requires-d86c520480f8",
       "fromNode": "skill-freedom-to-operate-assessment",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4440,6 +4476,69 @@
       "label": "requires"
     },
     {
+      "id": "requires-045146942713",
+      "fromNode": "skill-person-profile-document-delivery",
+      "fromSide": "right",
+      "toNode": "skill-precision-writing-revision",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-edb9b6425db7",
+      "fromNode": "skill-person-profile-report",
+      "fromSide": "left",
+      "toNode": "skill-person-research-dossier",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3ccdb93e5232",
+      "fromNode": "skill-person-research-dossier",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-02b1cdb69f2a",
+      "fromNode": "skill-person-research-report-workflow",
+      "fromSide": "left",
+      "toNode": "skill-person-profile-document-delivery",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-253a6a169ef9",
+      "fromNode": "skill-person-research-report-workflow",
+      "fromSide": "left",
+      "toNode": "skill-person-profile-report",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3d780ab3fbcc",
+      "fromNode": "skill-person-research-report-workflow",
+      "fromSide": "left",
+      "toNode": "skill-person-research-dossier",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1299a7c89ab0",
+      "fromNode": "skill-person-research-report-workflow",
+      "fromSide": "left",
+      "toNode": "skill-precision-writing-revision",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-d05ce925c71d",
       "fromNode": "skill-precision-writing-revision",
       "fromSide": "left",
@@ -4505,9 +4604,9 @@
     {
       "id": "requires-fcd770172ce8",
       "fromNode": "skill-product-evidence-research",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5495,9 +5594,9 @@
     {
       "id": "requires-2b29a64cc2e1",
       "fromNode": "skill-thought-graph-extractor",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-structured-knowledge-artifact",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
