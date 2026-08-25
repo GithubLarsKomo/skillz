@@ -364,7 +364,7 @@
     },
     "frontend-design-director": {
       "files": {
-        "SKILL.md": "6f29a5c20f1b4c7fe455cb588381a6a524e51216277492026869b8c0d1b061d0",
+        "SKILL.md": "d0b266ffbd4015d1f76cfcba820f6ae3ed03f83029498b6cb1cd99a39936ec97",
         "agents/openai.yaml": "b5e15b22ad69153b1407a1a0ea5de4040929377bae58da312067bcccfad6c038",
         "references/impeccable-provenance.md": "1b3c09abcc539b5e8d3d356351e40b75eaa1e175a8b3f36758f938ea7fc7dde8",
         "references/personal-design-defaults.md": "411fe810d55f07e438ec2ce7c0aff703f9a11d43f284f6381871db1ea0fec1d2"
@@ -372,7 +372,7 @@
     },
     "frontend-design-review": {
       "files": {
-        "SKILL.md": "cce11014d796d5f04c28640f9aa7bae7a6d64265c0e4ff54b7da07d45863afb9",
+        "SKILL.md": "50ee384fab8dcdfadf7cb7e22cb2175c30453e32b8b710d5d575ca9629eff822",
         "agents/openai.yaml": "def055f64ed61bcbab9cbe0f03156cb415e8d6e84ad6a10c68d776bec0b1808c"
       }
     },
@@ -384,8 +384,12 @@
     },
     "frontend-design-system-context": {
       "files": {
-        "SKILL.md": "4e649fe4f3e1b374d7d4eb658399bed29e0d6565e0ce0f257003685e1e52edfd",
-        "agents/openai.yaml": "2b01df44f8aa421e62acbd37eed591ed69f83bab5a4adbe6701a3802369e1fe4"
+        "SKILL.md": "373205ac81991934b7b961b59a5e51b10d6e9b033af1d7f20d3964859be353b1",
+        "agents/openai.yaml": "2b01df44f8aa421e62acbd37eed591ed69f83bab5a4adbe6701a3802369e1fe4",
+        "references/brand-profiles/euroimmun.json": "4f4f225236a80575fa86a5db52e639cf7ffde14687cc737894edb64a924011ee",
+        "references/brand-profiles/sport-performance.json": "0cba05dbe32178881bc74a3f53864b82daccfbbd86cc025299b80c82426b82ac",
+        "scripts/ase_to_tokens.py": "50adb5aa699ab59e00325b5ddcbb36395e1c5a9e40852cdebfaa73aaa0b0c0ef",
+        "scripts/brand_profile_resolver.py": "468c3ab4558bfdf6e802c1d4e023692c8e8e605c5c2b04c4bbe80e5a0a6f12fd"
       }
     },
     "frontend-product-context": {
@@ -529,7 +533,7 @@
     },
     "job-description-authoring": {
       "files": {
-        "SKILL.md": "e28970aab139dc1d9db4333cb0d28a35c65cf41fbb0a4be48f2e80dcf92d031a",
+        "SKILL.md": "b7715a4050f4ce2e907194d7f6cdb0df093563c4a46aeb1784e42ef6b384eb65",
         "agents/openai.yaml": "f99c6dd925b2823c03793968d5d7ee9edfd633172ba866b1ecb4e0532ba6c75d"
       }
     },
@@ -901,13 +905,13 @@
     },
     "role-architecture": {
       "files": {
-        "SKILL.md": "79647ece72e575eedfd467fa61123fdfa3e898664ad3f80dae849c505efd995e",
+        "SKILL.md": "caa70c15506377a3babd134fb7ce11b683ab459a931bfa85ef948e6f1127221c",
         "agents/openai.yaml": "9329003798128fcdeefd51fea0fac5a045bb4dd1cef85c7fcada305706051cc4"
       }
     },
     "role-requirements-grilling": {
       "files": {
-        "SKILL.md": "7925d7291867653ee4d6393048d161662da34aefa7b90034e7bf9d82b6158253",
+        "SKILL.md": "575c9ebddbf8d02b78a49c3121578f88af2f68fcc7ceb89f54ebf6c7c04f0f44",
         "agents/openai.yaml": "b69d1dc4d4e97ac20b61b5a0e5b9f45a1ae4e42982db521f49a8405a8ea42e35"
       }
     },

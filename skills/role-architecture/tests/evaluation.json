@@ -14,7 +14,7 @@
         "turn the architecture directly into marketing copy",
         "derive requirements from the job title alone"
       ],
-      "skillAnchors": ["normative Modell der Stelle", "Capability-Logik", "Role Scorecard"]
+      "skillAnchors": ["Normativer Artefaktvertrag", "Capability-Logik", "Role Scorecard"]
     },
     {
       "id": "edge-case",

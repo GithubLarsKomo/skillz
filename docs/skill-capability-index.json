@@ -3086,14 +3086,14 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 8,
+        "recordedResultCount": 8,
         "passed": true
       }
     },
     {
       "name": "frontend-design-review",
-      "description": "Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.",
+      "description": "Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.",
       "invocation": {
         "userFacing": false,
         "category": null
@@ -3136,8 +3136,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 9,
+        "recordedResultCount": 9,
         "passed": true
       }
     },
@@ -3240,12 +3240,16 @@
         }
       ],
       "portableFiles": [
-        "agents/openai.yaml"
+        "agents/openai.yaml",
+        "references/brand-profiles/euroimmun.json",
+        "references/brand-profiles/sport-performance.json",
+        "scripts/ase_to_tokens.py",
+        "scripts/brand_profile_resolver.py"
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 8,
+        "recordedResultCount": 8,
         "passed": true
       }
     },
@@ -4580,7 +4584,7 @@
     },
     {
       "name": "job-description-authoring",
-      "description": "Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne Stellenbeschreibungen, Executive-Search-Briefs und öffentliche Ausschreibungen, ohne Mandat, Anforderungen oder Auswahlkriterien neu zu erfinden. Verwenden, wenn ein normatives Rollenmodell kommunikativ übersetzt werden soll.",
+      "description": "Erzeugt aus einer freigegebenen Role Architecture zielgruppengerechte interne Stellenbeschreibungen, Executive-Search-Briefs und öffentliche Ausschreibungen, übernimmt bei Bedarf bestätigte Corporate-Templates und Organisationsmetadaten und sichert semantische Konsistenz über alle Fassungen. Verwenden, wenn ein normatives Rollenmodell kommunikativ übersetzt werden soll.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -4625,8 +4629,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 7,
+        "recordedResultCount": 7,
         "passed": true
       }
     },
@@ -8417,8 +8421,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },
@@ -8462,8 +8466,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
-        "recordedResultCount": 3,
+        "caseCount": 4,
+        "recordedResultCount": 4,
         "passed": true
       }
     },

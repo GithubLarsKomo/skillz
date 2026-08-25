@@ -6,8 +6,8 @@ category: "workflow"
 userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 3
+caseCount: 4
+recordedResultCount: 4
 sourcePath: "skills/role-requirements-grilling/SKILL.md"
 tags:
   - skill
@@ -51,8 +51,8 @@ Klärt den tatsächlichen Bedarf an einer Führungs-, Experten- oder Schlüsselr
 
 - Mode: `compatibility`
 - Passed: `True`
-- Cases: `3`
-- Recorded results: `3`
+- Cases: `4`
+- Recorded results: `4`
 
 ## Canonical source
 

@@ -60,12 +60,16 @@ def sha256_normalized(path: Path) -> str:
     return hashlib.sha256(normalize_bytes(path)).hexdigest()
 
 
+def is_portable_source_file(path: Path) -> bool:
+    return path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
+
+
 def skill_files(skill_dir: Path) -> list[Path]:
     files = [skill_dir / "SKILL.md"]
     for dirname in sorted(PORTABLE_DIRS):
         base = skill_dir / dirname
         if base.exists():
-            files.extend(sorted(path for path in base.rglob("*") if path.is_file()))
+            files.extend(sorted(path for path in base.rglob("*") if is_portable_source_file(path)))
     return files
 
 

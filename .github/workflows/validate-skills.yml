@@ -32,6 +32,10 @@ jobs:
         run: python scripts/generate_repository_metadata.py --check
       - name: Test metadata generator
         run: python -m unittest tests.test_generate_repository_metadata
+      - name: Test corporate palette converter
+        run: python -m unittest tests.test_ase_to_tokens
+      - name: Test built-in brand profile resolver
+        run: python -m unittest tests.test_brand_profile_resolver
       - name: Test dependency graph generator
         run: python -m unittest tests.test_generate_dependency_graph
       - name: Test capability index generator

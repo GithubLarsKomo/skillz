@@ -6,8 +6,8 @@ category: "internal"
 userFacing: false
 evaluationPassed: true
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 3
+caseCount: 8
+recordedResultCount: 8
 sourcePath: "skills/frontend-design-system-context/SKILL.md"
 tags:
   - skill
@@ -58,8 +58,8 @@ Erzeugt oder aktualisiert den autoritativen visuellen und interaktiven Projektko
 
 - Mode: `compatibility`
 - Passed: `True`
-- Cases: `3`
-- Recorded results: `3`
+- Cases: `8`
+- Recorded results: `8`
 
 ## Canonical source
 

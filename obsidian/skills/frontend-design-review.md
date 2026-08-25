@@ -6,8 +6,8 @@ category: "internal"
 userFacing: false
 evaluationPassed: true
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 3
+caseCount: 9
+recordedResultCount: 9
 sourcePath: "skills/frontend-design-review/SKILL.md"
 tags:
   - skill
@@ -16,7 +16,7 @@ tags:
 
 # frontend-design-review
 
-Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.
+Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -52,8 +52,8 @@ Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRO
 
 - Mode: `compatibility`
 - Passed: `True`
-- Cases: `3`
-- Recorded results: `3`
+- Cases: `9`
+- Recorded results: `9`
 
 ## Canonical source
 

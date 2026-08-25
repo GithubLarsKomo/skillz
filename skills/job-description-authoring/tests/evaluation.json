@@ -59,7 +59,7 @@
         "treat the legacy public wording as equally normative",
         "silently broaden the eligible candidate pool beyond the role architecture"
       ],
-      "skillAnchors": ["Cross-Projection Consistency", "darf keine normative Anforderung widersprechen oder abschwächen", "Kürzung ist zulässig; Widerspruch ist nicht zulässig"]
+      "skillAnchors": ["Cross-Projection Consistency", "bewusst abschwächen", "Öffentliche Kürzung ist zulässig"]
     },
     {
       "id": "bilingual-consistency",
@@ -73,7 +73,7 @@
         "allow one language version to tighten or weaken a requirement",
         "treat translation as permission to change normative meaning"
       ],
-      "skillAnchors": ["Bilinguale / mehrsprachige Fassungen", "semantisch äquivalent", "weder verschärfen noch abschwächen"]
+      "skillAnchors": ["Bilinguale / mehrsprachige Fassungen", "semantisch äquivalent", "Auswahlkriterien verschärfen noch abschwächen"]
     },
     {
       "id": "semantic-deduplication",

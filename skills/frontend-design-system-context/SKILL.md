@@ -3,7 +3,7 @@ name: frontend-design-system-context
 description: Erzeugt oder aktualisiert den autoritativen visuellen und interaktiven Projektkontext in DESIGN.md. Nutzt ein bestätigtes PRODUCT.md und analysiert vorhandene Tokens, Komponenten, Screens und Assets als Evidenz; alle offenen visuellen Systementscheidungen werden in einem eigenen fokussierten Grilling bestätigt.
 userFacing: false
 implicitInvocation: true
-version: 0.2.0
+version: 0.4.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -13,7 +13,7 @@ requires:
 outputs:
   - DESIGN.md
   - frontend-design-system-context-handoff.json
-lastEvaluated: 2026-08-24
+lastEvaluated: 2026-08-25
 ---
 
 # Frontend Design System Context
@@ -30,9 +30,60 @@ Ein bestätigtes `PRODUCT.md` muss vorliegen. Unbestätigte persönliche Default
 
 ### 1. Visuellen Ist-Zustand analysieren
 
-Prüfe CSS-Variablen/Tokens, Tailwind- oder Theme-Konfiguration, Typografie, Komponenten, Layouts, Screens, Icons, Fotos/Illustrationen, Logo, Favicon, bei Apps vorhandene App-Icons, Responsive-Regeln, Fokus-/Fehler-/Loading-Zustände, sichtbare Copy und vorhandene Motion. Trenne konsistente Regeln von Zufällen und Legacy-Abweichungen. **Bestehende Tokens und Assets sind Evidenz, nicht automatisch Entscheidung.**
+Prüfe CSS-Variablen/Tokens, Tailwind- oder Theme-Konfiguration, Typografie, Komponenten, Layouts, Screens, Icons, Fotos/Illustrationen, Logo, Favicon, bei Apps vorhandene App-Icons, **Corporate-Color-Dateien (`.ase`) oder daraus extrahierte Palette-JSONs**, Responsive-Regeln, Fokus-/Fehler-/Loading-Zustände, sichtbare Copy und vorhandene Motion. Trenne konsistente Regeln von Zufällen und Legacy-Abweichungen. **Bestehende Tokens und Assets sind Evidenz, nicht automatisch Entscheidung.**
 
 Ermittle aus `PRODUCT.md` und Repo-Evidenz außerdem die **2–3 wichtigsten Projekteigenschaften bzw. Value-Propositionen**, die das visuelle System wiedererkennbar transportieren soll. Diese Eigenschaften sind die semantische Grundlage für Branding, Key Visual und Bildsprache.
+
+### 1a. Corporate Palette als autoritative Farbquelle behandeln
+
+Ist eine freigegebene Corporate-Palette vorhanden, ist sie die **Source of Truth für Brandfarben**. `.ase` und ein daraus extrahiertes JSON werden nicht als lose Inspiration behandelt. Erfinde keine alternative Brandfarbe, nur weil ein Framework oder Template eine andere Default-Farbe anbietet.
+
+Für RGB-Paletten kann die maschinenlesbare Ebene mit dem mitgelieferten Tool erzeugt werden:
+
+```bash
+python skills/frontend-design-system-context/scripts/ase_to_tokens.py path/to/palette.ase --out-dir design/tokens
+# alternativ: bereits extrahiertes ASE-JSON als Input
+```
+
+Das Tool erzeugt:
+
+- `brand-palette.json`: normalisierte Source-Werte, Gruppen, Token-Namen und Policy,
+- `brand.css`: ausschließlich unveränderte Corporate-RGB-Tokens `--brand-*`,
+- `brand-contrast-report.json`: Kontrast gegen Schwarz/Weiß, empfohlener Foreground und WCAG-Auswertung.
+
+CMYK-, LAB- oder Spot-Werte werden **nicht naiv in sRGB umgerechnet**. Originalwerte und Modell bleiben erhalten; ein Web-HEX-Wert darf erst nach einer ICC-/farbmanagementfähigen Konvertierung als Corporate Token normiert werden.
+
+Die Token-Architektur hat drei strikt getrennte Ebenen:
+
+1. **Corporate / immutable:** exakte freigegebene Markenwerte aus der autoritativen Quelle, z. B. `--brand-forest`.
+2. **Semantic / project-specific:** bestätigte Rollen wie `--color-primary`, `--color-accent`, `--color-success`; sie referenzieren Corporate Tokens oder ausdrücklich dokumentierte abgeleitete UI-Farben.
+3. **Component:** konkrete Rollen wie `--button-primary-bg`, `--nav-active` oder `--input-focus`; sie referenzieren primär semantische Tokens.
+
+Abgeleitete Hover-, Surface-, Border-, Disabled- oder State-Farben sind erlaubt, wenn das UI sie braucht. Sie sind **keine neuen Corporate Colors** und müssen mit `derived-from`/Formel bzw. nachvollziehbarer Provenance auf einen Corporate- oder semantischen Basistoken zurückgeführt werden.
+
+### 1b. Eingebaute Brand-Profile automatisch auflösen
+
+Vor einem Farb-Grilling muss geprüft werden, ob der Projektkontext bereits einem kanonischen Brand-Profil entspricht. Die maschinenlesbaren Profile liegen unter `references/brand-profiles/`; die Auflösung kann reproduzierbar geprüft werden mit:
+
+```bash
+python skills/frontend-design-system-context/scripts/brand_profile_resolver.py \
+  --context "<project/product context>" \
+  --skill-slug "<active skill slug>" \
+  --explicit-brand "<optional explicit brand>"
+```
+
+Es gilt folgende Priorität:
+
+1. **Explizit bestätigte abweichende Projektmarke/Palette** hat Vorrang. Ein anderer expliziter Brand-Name unterdrückt eingebaute Defaults; vorhandene freigegebene Brand-Evidenz wird dann normal analysiert.
+2. **EUROIMMUN-Kontext** (`EUROIMMUN`/`EUROIMMUN AG` oder eindeutiger `euroimmun`-Projektkontext) lädt automatisch `brand-profiles/euroimmun.json`. Die 13 RGB-Werte sind autoritativ und unveränderlich. `EI` allein ist absichtlich kein Free-Text-Trigger, weil die Abkürzung mehrdeutig ist.
+3. **Sport-Kontext** (insbesondere `sport-*`, `dr-komorowski-sport-*`, Sportdiagnostik/Sportdiagnose/Athlete-Kontext) lädt automatisch `brand-profiles/sport-performance.json`.
+4. Nur wenn kein eingebautes Profil und keine freigegebene Projektpalette greift, wird die Farbquelle im DESIGN-Grilling geklärt.
+
+Bei Überschneidung **EUROIMMUN + Sport** gewinnt das EUROIMMUN-Corporate-Profil, solange keine ausdrücklich bestätigte andere Projektmarke vorliegt.
+
+Ist ein Profil automatisch aufgelöst, werden Palette und dort definierte semantische Defaults **nicht erneut als offene Farbentscheidung gegrillt**. Das Grilling wird nur wieder geöffnet, wenn eine widersprüchliche autoritative Quelle vorliegt, ein expliziter Brand-Override gewünscht ist, ein konkreter Nutzungskontext die Default-Semantik unbrauchbar macht oder Accessibility-/Ausgabemedium-Anforderungen eine dokumentierte Ausnahme verlangen. Die verwendete Profil-ID und Version werden in `DESIGN.md` unter Provenance dokumentiert.
+
+Das Sport-Profil ist der Default für Sport-Apps, Dashboards und neue Sport-Reports. Es übernimmt die etablierten Dr.-Komorowski-Reportfarben als kompatiblen Kern (Navy/Teal/Neutrals/Warning) und ergänzt kontrollierte Energy-, Success-, Critical- und Recovery-Farben. Der historische Legacy-PDF-Renderer bleibt für Reproduktionen unverändert; neue visuelle Arbeit verwendet das kanonische Sport-Profil.
 
 ### 2. DESIGN-Grilling eröffnen oder fortsetzen
 
@@ -41,7 +92,11 @@ Route offene Designsystem-Entscheidungen an `round-based-requirements-grilling`.
 - Theme und Umgebungs-/Nutzungsszene,
 - die 2–3 wichtigsten Projekteigenschaften/Value-Propositionen, die visuell erkennbar werden sollen,
 - Branding-System mit Logo, dazu passend abgeleitetem Favicon und bei Apps einem dazu passenden App-Icon,
-- Farbstrategie, Rollen, Kontrast und Brand-Farbanteil **abgeleitet aus Projektkontext, Markencharakter und gewünschter Wirkung**,
+- **Farbquelle/Brand-Profil:** automatisch aufgelöstes Built-in-Profil dokumentieren; nur bei fehlendem Profil Quelle, Dateipfad/Format, Freigabestatus und führende Palette bei Konflikten grillen,
+- **Corporate-Farbfamilien und semantische Rollen:** Built-in-Defaults übernehmen; nur echte projektspezifische Abweichungen bestätigen,
+- **Ableitungsregeln:** welche zusätzlichen UI-Töne nötig sind, wie sie aus Basistokens abgeleitet und gekennzeichnet werden,
+- **Kontrast/Accessibility:** zulässige Foreground-Paare und Zielniveau; WCAG-Auswertung als Evidenz verwenden, nicht visuell raten,
+- Farbstrategie und Brand-Farbanteil **abgeleitet aus Projektkontext, Markencharakter und gewünschter Wirkung**,
 - Typografie, Hierarchie und Textbreiten,
 - Informationsdichte, Abstände, Raster und Layout-Rhythmus,
 - Komponentencharakter und Interaktionsmuster,
@@ -52,23 +107,25 @@ Route offene Designsystem-Entscheidungen an `round-based-requirements-grilling`.
 - relevante Design-Tokens und Designsystem-Grenzen,
 - visuelle Accessibility-Regeln zusätzlich zu `PRODUCT.md`.
 
-Repo-Befunde und persönliche Defaults werden als begründete Defaults vorgeschlagen, aber erst durch bestätigte Antworten normativ.
+Repo-Befunde und persönliche Defaults werden als begründete Defaults vorgeschlagen, aber erst durch bestätigte Antworten normativ. **Die Werte einer ausdrücklich freigegebenen Corporate-Palette oder eines automatisch aufgelösten kanonischen Brand-Profils werden nicht neu gegrillt.**
 
 ### 3. DESIGN.md schreiben
 
 Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine bestehende autoritative Fassung bleibt bis dahin gültig.
 
-`DESIGN.md` darf nicht als vollständig gelten, solange Branding, Farbherleitung, kontextgebundene Copy-Regeln oder die 2–3 bildlich zu transportierenden Projekteigenschaften fehlen.
+`DESIGN.md` darf nicht als vollständig gelten, solange Branding, Farbherleitung, Corporate-Palette-/Brand-Profil-Provenance soweit anwendbar, kontextgebundene Copy-Regeln oder die 2–3 bildlich zu transportierenden Projekteigenschaften fehlen.
 
 ## Harte Branding- und Kontextregeln
 
 1. **Logo ist Pflicht.** Jedes Projekt erhält ein zum Zweck, Namen, Publikum und Charakter passendes Logo bzw. eine dokumentierte bestehende Wort-/Bildmarke. Ein generischer Template-Marker genügt nicht.
 2. **Favicon muss zur Marke gehören.** Es wird aus demselben visuellen System wie das Logo abgeleitet und verwendet dasselbe prägnante Motiv, dieselbe Geometrie bzw. dieselbe erkennbare Markenlogik. Kein unabhängiges Standard-Favicon.
 3. **App-Icon ist bei Apps Pflicht.** Für installierbare Apps/PWAs/mobile oder Desktop-Apps wird ein App-Icon definiert, das Logo und Favicon eindeutig derselben Markenfamilie zuordnet. Es muss auch in kleiner Darstellung funktionieren.
-4. **Farbe folgt dem Projekt.** Palette und Akzentfarben werden aus Projektkontext, Markencharakter, Nutzungsszene und gewünschter Wirkung begründet. Beliebige Template-Farben oder ästhetisch isolierte Lieblingsfarben sind kein ausreichender Grund. Kontrast und semantische Rollen bleiben verpflichtend.
-5. **Text folgt dem Projektkontext.** Hero-Texte, Überschriften, Labels, CTAs, Beispiele, Empty-/Error-States und sonstige sichtbare Microcopy müssen die tatsächliche Domäne, Zielgruppe und Terminologie des Projekts widerspiegeln. Generische SaaS-/AI-Platzhalter, Lorem ipsum oder austauschbare Claims sind unzulässig, außer sie wurden ausdrücklich als temporäre Entwicklungsmarker angefordert.
-6. **Key Visual transportiert Bedeutung.** Das zentrale Bild, Hero-Motiv oder die leitende Illustration muss mindestens **2 der 2–3 priorisierten Projekteigenschaften** grafisch erkennbar transportieren. Reine Dekoration oder beliebige Stock-Ästhetik genügt nicht. `DESIGN.md` benennt explizit, welche Eigenschaften durch welche visuellen Elemente dargestellt werden.
-7. **Asset-Familie statt Einzeldateien.** Logo, Favicon, App-Icon, Farbwelt, Key Visual und unterstützende Bildsprache müssen als zusammenhängendes System funktionieren, nicht als unabhängig erzeugte Assets.
+4. **Corporate-Farben sind unveränderlich.** Liegt eine freigegebene Corporate-Palette vor, werden deren Werte exakt bewahrt. Framework-/Template-Farben dürfen keine Brandfarben ersetzen. Semantische und Component Tokens werden getrennt aufgebaut; abgeleitete UI-Farben werden als Ableitungen gekennzeichnet und bleiben rückverfolgbar.
+5. **Built-in-Profile sind Defaults, keine Zufallsinspiration.** EUROIMMUN-Projekte verwenden automatisch das EUROIMMUN-Corporate-Profil; Sport-Projekte verwenden automatisch das Sport-Performance-Profil, sofern keine explizite andere Marke bestätigt wurde. Bei EUROIMMUN+Sport gilt EUROIMMUN. Abweichungen müssen begründet und dokumentiert sein.
+6. **Farbe folgt dem Projekt.** Welche Corporate-Farben welche Rollen übernehmen und wie stark sie eingesetzt werden, folgt Projektkontext, Markencharakter, Nutzungsszene und gewünschter Wirkung. Kontrast und semantische Rollen bleiben verpflichtend.
+7. **Text folgt dem Projektkontext.** Hero-Texte, Überschriften, Labels, CTAs, Beispiele, Empty-/Error-States und sonstige sichtbare Microcopy müssen die tatsächliche Domäne, Zielgruppe und Terminologie des Projekts widerspiegeln. Generische SaaS-/AI-Platzhalter, Lorem ipsum oder austauschbare Claims sind unzulässig, außer sie wurden ausdrücklich als temporäre Entwicklungsmarker angefordert.
+8. **Key Visual transportiert Bedeutung.** Das zentrale Bild, Hero-Motiv oder die leitende Illustration muss mindestens **2 der 2–3 priorisierten Projekteigenschaften** grafisch erkennbar transportieren. Reine Dekoration oder beliebige Stock-Ästhetik genügt nicht. `DESIGN.md` benennt explizit, welche Eigenschaften durch welche visuellen Elemente dargestellt werden.
+9. **Asset-Familie statt Einzeldateien.** Logo, Favicon, App-Icon, Corporate-/UI-Farbwelt, Key Visual und unterstützende Bildsprache müssen als zusammenhängendes System funktionieren, nicht als unabhängig erzeugte Assets.
 
 ## DESIGN.md-Vertrag
 
@@ -99,8 +156,26 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 - Small-size/platform behavior: ...
 
 ## Color System
-- Project/brand rationale: ...
-- Roles, tokens and contrast: ...
+### Brand profile / Corporate source
+- Built-in profile ID/version: ... or not applicable
+- Authoritative palette: path/format or not applicable
+- Approval/provenance: ...
+- Immutable/canonical brand tokens: `--brand-*`
+- Non-RGB conversion status where applicable: ...
+
+### Semantic layer
+- Primary / secondary / accent / status role mapping: ...
+- Allowed corporate combinations: ...
+
+### Derived UI layer
+- Derived token: ...
+- derived-from: ...
+- derivation/formula/rationale: ...
+
+### Contrast
+- WCAG target: ...
+- Approved foreground/background pairs: ...
+- Evidence/report: `design/tokens/brand-contrast-report.json` or equivalent
 
 ## Typography
 ...
@@ -130,12 +205,16 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 ...
 
 ## Tokens and System Boundaries
-...
+- Corporate/canonical tokens are immutable: yes
+- Semantic token location: ...
+- Component token location: ...
+- Derived-color traceability rule: ...
 
 ## Accessibility
 ...
 
 ## Provenance
+- Brand profile resolver result: ...
 ...
 ```
 
@@ -147,7 +226,12 @@ Ein `DESIGN.md` ist nur akzeptabel, wenn alle folgenden Prüfungen bestanden sin
 - `brand-favicon`: Favicon vorhanden/definiert und visuell eindeutig vom Logo-System abgeleitet.
 - `brand-app-icon`: bei Apps/PWAs/mobile/desktop ein konsistentes App-Icon vorhanden/definiert; bei reinen Websites explizit `not applicable`.
 - `brand-asset-coherence`: Logo, Favicon und App-Icon bilden dieselbe erkennbare Markenfamilie.
-- `color-context-fit`: Farbpalette ist fachlich/markenbezogen begründet, semantisch konsistent und ausreichend kontrastreich.
+- `brand-profile-resolution`: Built-in-Profil wurde vor Farb-Grilling geprüft; EUROIMMUN- und Sport-Defaults wurden nach Prioritätsregel angewendet oder eine Abweichung ist explizit begründet.
+- `corporate-palette-source`: vorhandene freigegebene Palette ist mit Quelle/Format/Provenance dokumentiert; fehlt sie, ist `not applicable` begründet.
+- `corporate-token-integrity`: Corporate-/kanonische Werte sind exakt und von Semantic-/Component-Tokens getrennt; keine erfundenen Ersatz-Brandfarben.
+- `derived-color-traceability`: jeder nicht-corporate UI-Farbwert mit Markenfunktion ist als Ableitung oder explizite semantische Ausnahme nachvollziehbar.
+- `color-accessibility`: Foreground/Background-Paare sind mit Kontrast-Evidenz geprüft; erforderliches WCAG-Ziel wird eingehalten.
+- `color-context-fit`: Rollen und Einsatz der Farbpalette sind fachlich/markenbezogen begründet und semantisch konsistent.
 - `copy-context-fit`: sichtbare Texte und UX-Microcopy verwenden Projektterminologie und passen zu Zielgruppe und Nutzungsszene; keine generische Template-Copy.
 - `visual-semantic-fit`: 2–3 priorisierte Projekteigenschaften sind dokumentiert und das Key Visual bildet mindestens zwei davon nachvollziehbar ab.
 - `system-coherence`: Branding, Farben, Typografie, Bildsprache und UI wirken als ein zusammenhängendes Designsystem.
@@ -156,13 +240,15 @@ Fehlt einer der anwendbaren Punkte, ist der Kontext-Schritt **nicht abgeschlosse
 
 ## Änderungskontrolle
 
-Ein Feature-Brief kann einen expliziten lokalen Surface-Override enthalten. Wird daraus eine dauerhafte Systemregel, **neues fokussiertes DESIGN-Grilling** durchführen und erst danach `DESIGN.md` ändern. Feature-Arbeit darf das Dokument nicht stillschweigend mutieren.
+Ein Feature-Brief kann einen expliziten lokalen Surface-Override enthalten. Wird daraus eine dauerhafte Systemregel, **neues fokussiertes DESIGN-Grilling** durchführen und erst danach `DESIGN.md` ändern. Feature-Arbeit darf das Dokument nicht stillschweigend mutieren. Eine Änderung eines Corporate-Tokens benötigt eine neue oder aktualisierte autoritative Markenquelle; sie darf nicht als UI-Polish eingeführt werden. Eine Änderung des Sport-Standardprofils benötigt eine explizite Profilversionsänderung und Regressionstests gegen bestehende Sport-Report-Anker.
 
 ## Fehlerbehandlung
 
 Stoppe vor dem Schreiben bei unbestätigten materiellen Konflikten zwischen `PRODUCT.md`, vorhandener Brand-Evidenz und gewünschter visueller Richtung. Technische Tragfähigkeitsfragen werden nicht gestalterisch wegentschieden.
 
 Existieren bereits Logo/Favicon/App-Icon, die nicht zusammenpassen, dokumentiere den Konflikt ausdrücklich und kläre, welches Asset die führende Markenquelle ist. Erzeuge nicht stillschweigend eine dritte visuelle Richtung.
+
+Existieren mehrere widersprüchliche Corporate-Paletten, kläre die führende Quelle im Grilling. Bei CMYK/LAB/Spot ohne freigegebene sRGB-Repräsentation darf keine approximierte HEX-Farbe als Corporate-Webwert ausgegeben werden.
 
 ## Abschluss
 
