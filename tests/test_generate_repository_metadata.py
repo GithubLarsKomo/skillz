@@ -69,6 +69,22 @@ class MetadataGenerationTests(unittest.TestCase):
         expected = hashlib.sha256(b"one\ntwo\n").hexdigest()
         self.assertEqual(manifest["skills"]["alpha"]["files"]["references/guide.md"], expected)
 
+    def test_python_bytecode_is_not_treated_as_portable_source(self) -> None:
+        root = self.make_root()
+        self.write_skill(root)
+        script = root / "skills" / "alpha" / "scripts" / "tool.py"
+        script.parent.mkdir(parents=True)
+        script.write_text("print('ok')\n", encoding="utf-8")
+        pycache = script.parent / "__pycache__" / "tool.cpython-312.pyc"
+        pycache.parent.mkdir()
+        pycache.write_bytes(b"\xcb\x00\x00\x00binary-bytecode")
+
+        self.assertEqual(gen.run(root, check=False), 0)
+        manifest = json.loads((root / ".skill-sync.json").read_text(encoding="utf-8"))
+        files = manifest["skills"]["alpha"]["files"]
+        self.assertIn("scripts/tool.py", files)
+        self.assertNotIn("scripts/__pycache__/tool.cpython-312.pyc", files)
+
     def test_frontmatter_indented_lists_are_preserved(self) -> None:
         root = self.make_root()
         path = root / "skills" / "alpha" / "SKILL.md"
