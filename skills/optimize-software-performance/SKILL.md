@@ -18,9 +18,6 @@ requires:
   - two-axis-code-review
   - performance-regression-verification
 outputs:
-  - PERFORMANCE_PLAN.md
-  - TASK.md
-  - performance-result.json
   - optimization-closure.md
 lastEvaluated: 2026-08-26
 ---
