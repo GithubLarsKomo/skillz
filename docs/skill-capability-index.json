@@ -3308,6 +3308,7 @@
         "agents/openai.yaml",
         "references/brand-profiles/euroimmun.json",
         "references/brand-profiles/sport-performance.json",
+        "references/design-templates/sport-performance-apps.md",
         "scripts/ase_to_tokens.py",
         "scripts/brand_profile_resolver.py"
       ],

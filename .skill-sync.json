@@ -391,10 +391,11 @@
     },
     "frontend-design-system-context": {
       "files": {
-        "SKILL.md": "b03033a03688a64d1a1ebb5f8002fe805820a8f925bcdb81c47dc781537de368",
+        "SKILL.md": "b761860e3d6351d24b94c15cf83cac91f24ec6b7793eb0d1734d29360ca3381e",
         "agents/openai.yaml": "2b01df44f8aa421e62acbd37eed591ed69f83bab5a4adbe6701a3802369e1fe4",
         "references/brand-profiles/euroimmun.json": "4f4f225236a80575fa86a5db52e639cf7ffde14687cc737894edb64a924011ee",
-        "references/brand-profiles/sport-performance.json": "0f35a9ed977ffd8eab11ba51794c8762d5a9ed9559d5d05a295b6004e7f12c55",
+        "references/brand-profiles/sport-performance.json": "c9ef3aefebf4c79f622605131ced73a4b57b89c038bb30bbbe7a7581a7ba4028",
+        "references/design-templates/sport-performance-apps.md": "e6cb2c473ce98925d7343bd51105228266c0092c1041a378f8ea1dc4400f4a77",
         "scripts/ase_to_tokens.py": "50adb5aa699ab59e00325b5ddcbb36395e1c5a9e40852cdebfaa73aaa0b0c0ef",
         "scripts/brand_profile_resolver.py": "ea578302a9ffde0248db40863815d5ddf07445195ad1ded76a3b89fa2da7d824"
       }
