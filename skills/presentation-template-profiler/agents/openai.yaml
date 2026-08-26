@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Template Profiler"
+  short_description: "Analysiert PowerPoint-Templates und extrahiert wiederverwendbare Design- und Layoutregeln."
+policy:
+  allow_implicit_invocation: true
