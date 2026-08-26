@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-hotspot-analysis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Profiling shows 62% of runtime in repeated database lookups, 18% in JSON serialization, and 5% in a visible loop. Prioritize optimizations.",
+      "requiredBehaviors": [
+        "identify repeated database access as the dominant hotspot",
+        "distinguish root cause from visible symptom",
+        "rank candidates by impact confidence effort and risk"
+      ],
+      "forbiddenBehaviors": [
+        "optimize the visible loop first because it is easy to edit",
+        "recommend infrastructure replacement without evidence"
+      ],
+      "skillAnchors": [
+        "Ursache von Symptom trennen",
+        "Arbeit vermeiden",
+        "Mikrooptimierung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "No single hotspot exceeds 12% and profiling evidence is noisy.",
+      "requiredBehaviors": [
+        "state limited confidence",
+        "avoid manufacturing a dominant root cause",
+        "recommend better measurement where needed"
+      ],
+      "forbiddenBehaviors": [
+        "present a speculative hotspot as proven",
+        "rank candidates without exposing uncertainty"
+      ],
+      "skillAnchors": [
+        "Hypothese kennzeichnen",
+        "confidence",
+        "Evidenz"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The code has nested loops, so replace the framework and parallelize everything without profiling.",
+      "requiredBehaviors": [
+        "reject style-based performance conclusions",
+        "require baseline and profiling evidence",
+        "prefer simpler work elimination before parallelism"
+      ],
+      "forbiddenBehaviors": [
+        "infer runtime dominance from syntax alone",
+        "default to parallelization"
+      ],
+      "skillAnchors": [
+        "Der Skill verändert keinen Produktivcode",
+        "Parallelisierung",
+        "einfachere Arbeitseinsparung"
+      ]
+    }
+  ]
+}
