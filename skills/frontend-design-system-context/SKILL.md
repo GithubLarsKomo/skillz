@@ -3,7 +3,7 @@ name: frontend-design-system-context
 description: Erzeugt oder aktualisiert den autoritativen visuellen und interaktiven Projektkontext in DESIGN.md. Nutzt ein bestätigtes PRODUCT.md und analysiert vorhandene Tokens, Komponenten, Screens und Assets als Evidenz; alle offenen visuellen Systementscheidungen werden in einem eigenen fokussierten Grilling bestätigt.
 userFacing: false
 implicitInvocation: true
-version: 0.4.0
+version: 0.5.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -13,7 +13,7 @@ requires:
 outputs:
   - DESIGN.md
   - frontend-design-system-context-handoff.json
-lastEvaluated: 2026-08-25
+lastEvaluated: 2026-08-26
 ---
 
 # Frontend Design System Context
@@ -74,16 +74,29 @@ python skills/frontend-design-system-context/scripts/brand_profile_resolver.py \
 
 Es gilt folgende Priorität:
 
-1. **Explizit bestätigte abweichende Projektmarke/Palette** hat Vorrang. Ein anderer expliziter Brand-Name unterdrückt eingebaute Defaults; vorhandene freigegebene Brand-Evidenz wird dann normal analysiert.
+1. **Explizite Alias-Auflösung auf ein eingebautes Profil** wird respektiert.
 2. **EUROIMMUN-Kontext** (`EUROIMMUN`/`EUROIMMUN AG` oder eindeutiger `euroimmun`-Projektkontext) lädt automatisch `brand-profiles/euroimmun.json`. Die 13 RGB-Werte sind autoritativ und unveränderlich. `EI` allein ist absichtlich kein Free-Text-Trigger, weil die Abkürzung mehrdeutig ist.
-3. **Sport-Kontext** (insbesondere `sport-*`, `dr-komorowski-sport-*`, Sportdiagnostik/Sportdiagnose/Athlete-Kontext) lädt automatisch `brand-profiles/sport-performance.json`.
-4. Nur wenn kein eingebautes Profil und keine freigegebene Projektpalette greift, wird die Farbquelle im DESIGN-Grilling geklärt.
+3. **Sport-Kontext** (insbesondere `sport-*`, `dr-komorowski-sport-*`, Sportdiagnostik/Sportdiagnose/Athlete-Kontext) lädt automatisch `brand-profiles/sport-performance.json`. Für Sportanwendungen ist dieses Profil **verbindlicher Farbstandard**, nicht nur Vorschlag oder Inspiration.
+4. Ein beliebiger expliziter lokaler Brand-Name darf die verbindliche Sport-Palette nicht unterdrücken. Nur ein höher priorisiertes autoritatives Corporate-Profil darf die Sport-Palette ersetzen.
+5. Nur wenn kein eingebautes Profil und keine freigegebene Projektpalette greift, wird die Farbquelle im DESIGN-Grilling geklärt.
 
-Bei Überschneidung **EUROIMMUN + Sport** gewinnt das EUROIMMUN-Corporate-Profil, solange keine ausdrücklich bestätigte andere Projektmarke vorliegt.
+Bei Überschneidung **EUROIMMUN + Sport** gewinnt das EUROIMMUN-Corporate-Profil.
 
-Ist ein Profil automatisch aufgelöst, werden Palette und dort definierte semantische Defaults **nicht erneut als offene Farbentscheidung gegrillt**. Das Grilling wird nur wieder geöffnet, wenn eine widersprüchliche autoritative Quelle vorliegt, ein expliziter Brand-Override gewünscht ist, ein konkreter Nutzungskontext die Default-Semantik unbrauchbar macht oder Accessibility-/Ausgabemedium-Anforderungen eine dokumentierte Ausnahme verlangen. Die verwendete Profil-ID und Version werden in `DESIGN.md` unter Provenance dokumentiert.
+Ist ein Profil automatisch aufgelöst, werden Palette und dort definierte semantische Defaults **nicht erneut als offene Farbentscheidung gegrillt**. Das Grilling wird nur wieder geöffnet, wenn eine widersprüchliche autoritative Quelle vorliegt, ein konkreter Nutzungskontext die Default-Semantik unbrauchbar macht oder Accessibility-/Ausgabemedium-Anforderungen eine dokumentierte Ausnahme verlangen. Für Sportanwendungen darf daraus **keine lokale Ersatzpalette** entstehen; eine Änderung des Farbspektrums erfordert eine explizite Versionsänderung des kanonischen `sport-performance`-Profils. Die verwendete Profil-ID und Version werden in `DESIGN.md` unter Provenance dokumentiert.
 
-Das Sport-Profil ist der Default für Sport-Apps, Dashboards und neue Sport-Reports. Es übernimmt die etablierten Dr.-Komorowski-Reportfarben als kompatiblen Kern (Navy/Teal/Neutrals/Warning) und ergänzt kontrollierte Energy-, Success-, Critical- und Recovery-Farben. Der historische Legacy-PDF-Renderer bleibt für Reproduktionen unverändert; neue visuelle Arbeit verwendet das kanonische Sport-Profil.
+Das Sport-Profil ist der verbindliche Standard für Sport-Apps, Sport-Dashboards und neue Sport-Reports. Es übernimmt die etablierten Dr.-Komorowski-Reportfarben als kompatiblen Kern (Navy/Teal/Neutrals/Warning) und ergänzt kontrollierte Energy-, Success-, Critical- und Recovery-Farben. Der historische Legacy-PDF-Renderer bleibt für Reproduktionen unverändert; neue visuelle Arbeit verwendet das kanonische Sport-Profil.
+
+### 1c. Sport-Produktfamilie als gemeinsame Markenlogik behandeln
+
+Sportanwendungen teilen Palette, geometrische Disziplin, Strich-/Liniencharakter, Typografie und Icon-Konstruktionslogik. Sie dürfen jedoch **nicht dasselbe Produktzeichen** verwenden.
+
+Für verwandte Sportprodukte gilt:
+
+- gemeinsame Sport-Performance-Farbwelt und visuelle Grammatik;
+- je Produkt ein eigenständiges Markenzeichen, das mindestens zwei der 2–3 priorisierten Projekteigenschaften grafisch widerspiegelt;
+- Logo, Favicon und App-Icon werden aus demselben Produktzeichen abgeleitet;
+- Produktzeichen bleiben auch bei 32 px unterscheidbar;
+- Differenzierung erfolgt durch Motiv, Geometrie und Hierarchie, nicht durch neue Farbsysteme.
 
 ### 2. DESIGN-Grilling eröffnen oder fortsetzen
 
@@ -92,8 +105,9 @@ Route offene Designsystem-Entscheidungen an `round-based-requirements-grilling`.
 - Theme und Umgebungs-/Nutzungsszene,
 - die 2–3 wichtigsten Projekteigenschaften/Value-Propositionen, die visuell erkennbar werden sollen,
 - Branding-System mit Logo, dazu passend abgeleitetem Favicon und bei Apps einem dazu passenden App-Icon,
+- bei Sportanwendungen: produktspezifisches Zeichen innerhalb der gemeinsamen Sport-Performance-Familie,
 - **Farbquelle/Brand-Profil:** automatisch aufgelöstes Built-in-Profil dokumentieren; nur bei fehlendem Profil Quelle, Dateipfad/Format, Freigabestatus und führende Palette bei Konflikten grillen,
-- **Corporate-Farbfamilien und semantische Rollen:** Built-in-Defaults übernehmen; nur echte projektspezifische Abweichungen bestätigen,
+- **Corporate-Farbfamilien und semantische Rollen:** Built-in-Defaults übernehmen; nur echte projektspezifische Semantikabweichungen bestätigen, keine neue Sport-Ersatzpalette,
 - **Ableitungsregeln:** welche zusätzlichen UI-Töne nötig sind, wie sie aus Basistokens abgeleitet und gekennzeichnet werden,
 - **Kontrast/Accessibility:** zulässige Foreground-Paare und Zielniveau; WCAG-Auswertung als Evidenz verwenden, nicht visuell raten,
 - Farbstrategie und Brand-Farbanteil **abgeleitet aus Projektkontext, Markencharakter und gewünschter Wirkung**,
@@ -107,7 +121,7 @@ Route offene Designsystem-Entscheidungen an `round-based-requirements-grilling`.
 - relevante Design-Tokens und Designsystem-Grenzen,
 - visuelle Accessibility-Regeln zusätzlich zu `PRODUCT.md`.
 
-Repo-Befunde und persönliche Defaults werden als begründete Defaults vorgeschlagen, aber erst durch bestätigte Antworten normativ. **Die Werte einer ausdrücklich freigegebenen Corporate-Palette oder eines automatisch aufgelösten kanonischen Brand-Profils werden nicht neu gegrillt.**
+Repo-Befunde und persönliche Defaults werden als begründete Defaults vorgeschlagen, aber erst durch bestätigte Antworten normativ. **Die Werte einer ausdrücklich freigegebenen Corporate-Palette oder eines automatisch aufgelösten kanonischen Brand-Profils werden nicht neu gegrillt. Für Sportanwendungen ist das `sport-performance`-Farbspektrum verbindlich.**
 
 ### 3. DESIGN.md schreiben
 
@@ -121,11 +135,13 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 2. **Favicon muss zur Marke gehören.** Es wird aus demselben visuellen System wie das Logo abgeleitet und verwendet dasselbe prägnante Motiv, dieselbe Geometrie bzw. dieselbe erkennbare Markenlogik. Kein unabhängiges Standard-Favicon.
 3. **App-Icon ist bei Apps Pflicht.** Für installierbare Apps/PWAs/mobile oder Desktop-Apps wird ein App-Icon definiert, das Logo und Favicon eindeutig derselben Markenfamilie zuordnet. Es muss auch in kleiner Darstellung funktionieren.
 4. **Corporate-Farben sind unveränderlich.** Liegt eine freigegebene Corporate-Palette vor, werden deren Werte exakt bewahrt. Framework-/Template-Farben dürfen keine Brandfarben ersetzen. Semantische und Component Tokens werden getrennt aufgebaut; abgeleitete UI-Farben werden als Ableitungen gekennzeichnet und bleiben rückverfolgbar.
-5. **Built-in-Profile sind Defaults, keine Zufallsinspiration.** EUROIMMUN-Projekte verwenden automatisch das EUROIMMUN-Corporate-Profil; Sport-Projekte verwenden automatisch das Sport-Performance-Profil, sofern keine explizite andere Marke bestätigt wurde. Bei EUROIMMUN+Sport gilt EUROIMMUN. Abweichungen müssen begründet und dokumentiert sein.
-6. **Farbe folgt dem Projekt.** Welche Corporate-Farben welche Rollen übernehmen und wie stark sie eingesetzt werden, folgt Projektkontext, Markencharakter, Nutzungsszene und gewünschter Wirkung. Kontrast und semantische Rollen bleiben verpflichtend.
-7. **Text folgt dem Projektkontext.** Hero-Texte, Überschriften, Labels, CTAs, Beispiele, Empty-/Error-States und sonstige sichtbare Microcopy müssen die tatsächliche Domäne, Zielgruppe und Terminologie des Projekts widerspiegeln. Generische SaaS-/AI-Platzhalter, Lorem ipsum oder austauschbare Claims sind unzulässig, außer sie wurden ausdrücklich als temporäre Entwicklungsmarker angefordert.
-8. **Key Visual transportiert Bedeutung.** Das zentrale Bild, Hero-Motiv oder die leitende Illustration muss mindestens **2 der 2–3 priorisierten Projekteigenschaften** grafisch erkennbar transportieren. Reine Dekoration oder beliebige Stock-Ästhetik genügt nicht. `DESIGN.md` benennt explizit, welche Eigenschaften durch welche visuellen Elemente dargestellt werden.
-9. **Asset-Familie statt Einzeldateien.** Logo, Favicon, App-Icon, Corporate-/UI-Farbwelt, Key Visual und unterstützende Bildsprache müssen als zusammenhängendes System funktionieren, nicht als unabhängig erzeugte Assets.
+5. **Built-in-Profile sind normative Standards.** EUROIMMUN-Projekte verwenden automatisch das EUROIMMUN-Corporate-Profil; Sport-Projekte verwenden automatisch das Sport-Performance-Profil. Bei EUROIMMUN+Sport gilt EUROIMMUN. Ein beliebiger lokaler Brand-Name darf den verbindlichen Sport-Farbstandard nicht ersetzen. Änderungen am Sport-Farbspektrum erfolgen ausschließlich über eine versionierte Änderung des kanonischen Profils.
+6. **Sport-Farbspektrum ist verbindlich.** Für Sportanwendungen gelten mindestens Navy `#173652`, Dark `#1C2B3A`, Body `#24313E`, Teal `#246F6C`, Bright Teal `#2B8884`, Muted `#6B7785`, Energy `#B54708`, Success `#2E7D32`, Warning `#9A6500`, Critical `#B42318`, Recovery `#6D5BD0`, Border `#D6E0E6`, Surface `#EDF3F6`, Surface Subtle `#F6F8F9`, Warning Surface `#FFF4D6` und White `#FFFFFF` als kanonische Tokenwerte. Framework-, Template- oder projektspezifische Ersatzfarben sind für Markenrollen unzulässig.
+7. **Farbe folgt dem Projekt innerhalb des verbindlichen Systems.** Welche kanonischen Farben welche Rollen übernehmen und wie stark sie eingesetzt werden, folgt Projektkontext, Markencharakter, Nutzungsszene und gewünschter Wirkung. Kontrast und semantische Rollen bleiben verpflichtend.
+8. **Sport-Produkte sind verwandt, aber individuell.** Verwandte Sportanwendungen teilen Palette, Geometrie, Strichcharakter, Typografie und Asset-Konstruktionslogik, erhalten aber eigenständige Produktzeichen. Produktdifferenzierung erfolgt über Motiv und Hierarchie, nicht über inkompatible Farben.
+9. **Text folgt dem Projektkontext.** Hero-Texte, Überschriften, Labels, CTAs, Beispiele, Empty-/Error-States und sonstige sichtbare Microcopy müssen die tatsächliche Domäne, Zielgruppe und Terminologie des Projekts widerspiegeln. Generische SaaS-/AI-Platzhalter, Lorem ipsum oder austauschbare Claims sind unzulässig, außer sie wurden ausdrücklich als temporäre Entwicklungsmarker angefordert.
+10. **Key Visual transportiert Bedeutung.** Das zentrale Bild, Hero-Motiv oder die leitende Illustration muss mindestens **2 der 2–3 priorisierten Projekteigenschaften** grafisch erkennbar transportieren. Reine Dekoration oder beliebige Stock-Ästhetik genügt nicht. `DESIGN.md` benennt explizit, welche Eigenschaften durch welche visuellen Elemente dargestellt werden.
+11. **Asset-Familie statt Einzeldateien.** Logo, Favicon, App-Icon, Corporate-/UI-Farbwelt, Key Visual und unterstützende Bildsprache müssen als zusammenhängendes System funktionieren, nicht als unabhängig erzeugte Assets.
 
 ## DESIGN.md-Vertrag
 
@@ -144,6 +160,8 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 ## Brand Identity and Assets
 ### Logo
 - Concept and project-context rationale: ...
+- Shared family rules where applicable: ...
+- Product-specific mark and differentiation: ...
 - Primary mark / wordmark usage: ...
 
 ### Favicon
@@ -161,6 +179,7 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 - Authoritative palette: path/format or not applicable
 - Approval/provenance: ...
 - Immutable/canonical brand tokens: `--brand-*`
+- Binding Sport standard if applicable: yes|no
 - Non-RGB conversion status where applicable: ...
 
 ### Semantic layer
@@ -226,7 +245,9 @@ Ein `DESIGN.md` ist nur akzeptabel, wenn alle folgenden Prüfungen bestanden sin
 - `brand-favicon`: Favicon vorhanden/definiert und visuell eindeutig vom Logo-System abgeleitet.
 - `brand-app-icon`: bei Apps/PWAs/mobile/desktop ein konsistentes App-Icon vorhanden/definiert; bei reinen Websites explizit `not applicable`.
 - `brand-asset-coherence`: Logo, Favicon und App-Icon bilden dieselbe erkennbare Markenfamilie.
-- `brand-profile-resolution`: Built-in-Profil wurde vor Farb-Grilling geprüft; EUROIMMUN- und Sport-Defaults wurden nach Prioritätsregel angewendet oder eine Abweichung ist explizit begründet.
+- `brand-product-distinction`: verwandte Sportprodukte verwenden gemeinsame Familienregeln, aber eigenständige, auch klein unterscheidbare Produktzeichen.
+- `brand-profile-resolution`: Built-in-Profil wurde vor Farb-Grilling geprüft; EUROIMMUN- und Sport-Standards wurden nach Prioritätsregel angewendet.
+- `sport-palette-binding`: bei Sportanwendungen entsprechen kanonische Marken-/Semantiktokens dem `sport-performance`-Profil; keine lokale Ersatzpalette.
 - `corporate-palette-source`: vorhandene freigegebene Palette ist mit Quelle/Format/Provenance dokumentiert; fehlt sie, ist `not applicable` begründet.
 - `corporate-token-integrity`: Corporate-/kanonische Werte sind exakt und von Semantic-/Component-Tokens getrennt; keine erfundenen Ersatz-Brandfarben.
 - `derived-color-traceability`: jeder nicht-corporate UI-Farbwert mit Markenfunktion ist als Ableitung oder explizite semantische Ausnahme nachvollziehbar.
@@ -240,7 +261,7 @@ Fehlt einer der anwendbaren Punkte, ist der Kontext-Schritt **nicht abgeschlosse
 
 ## Änderungskontrolle
 
-Ein Feature-Brief kann einen expliziten lokalen Surface-Override enthalten. Wird daraus eine dauerhafte Systemregel, **neues fokussiertes DESIGN-Grilling** durchführen und erst danach `DESIGN.md` ändern. Feature-Arbeit darf das Dokument nicht stillschweigend mutieren. Eine Änderung eines Corporate-Tokens benötigt eine neue oder aktualisierte autoritative Markenquelle; sie darf nicht als UI-Polish eingeführt werden. Eine Änderung des Sport-Standardprofils benötigt eine explizite Profilversionsänderung und Regressionstests gegen bestehende Sport-Report-Anker.
+Ein Feature-Brief kann einen expliziten lokalen Surface-Override enthalten. Wird daraus eine dauerhafte Systemregel, **neues fokussiertes DESIGN-Grilling** durchführen und erst danach `DESIGN.md` ändern. Feature-Arbeit darf das Dokument nicht stillschweigend mutieren. Eine Änderung eines Corporate-Tokens benötigt eine neue oder aktualisierte autoritative Markenquelle; sie darf nicht als UI-Polish eingeführt werden. Eine Änderung des Sport-Standardprofils benötigt eine explizite Profilversionsänderung und Regressionstests gegen bestehende Sport-Report-Anker. Ein lokaler Sport-Feature-Override darf keine neue Markenpalette einführen.
 
 ## Fehlerbehandlung
 

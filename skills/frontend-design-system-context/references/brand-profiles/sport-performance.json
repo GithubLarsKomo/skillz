@@ -1,14 +1,14 @@
 {
   "schema": "skillz-brand-profile-v1",
   "id": "sport-performance",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "kind": "domain-default",
   "priority": 50,
   "source": {
     "label": "Skillz Sport Performance visual system",
     "format": "json",
-    "status": "canonical-default",
-    "provenance": "Designed as the default visual system for Sport skills/projects and aligned with the established Dr. Komorowski Sportdiagnose und Trainingszentrum report theme."
+    "status": "canonical-binding-standard",
+    "provenance": "Binding visual color standard for Sport applications. Designed from the shared Sport Performance family and aligned with the established Dr. Komorowski Sportdiagnose und Trainingszentrum report theme."
   },
   "matching": {
     "skill_slug_prefixes": ["sport-", "dr-komorowski-sport-"],
@@ -17,13 +17,16 @@
   },
   "policy": {
     "automatic_default": true,
+    "binding_for_sport_applications": true,
     "skip_color_palette_grilling": true,
     "profile_tokens_canonical": true,
     "derived_ui_colors_allowed": true,
     "derived_colors_require_traceability": true,
-    "explicit_project_brand_override_allowed": true,
+    "explicit_project_brand_override_allowed": false,
+    "higher_priority_corporate_profile_allowed": true,
     "conflict_requires_grilling": true,
-    "do_not_encode_meaning_by_color_alone": true
+    "do_not_encode_meaning_by_color_alone": true,
+    "brand_family_requires_product_specific_marks": true
   },
   "palette": {
     "navy": "#173652",
@@ -73,6 +76,15 @@
     "surface_subtle": "#24313E",
     "warning_surface": "#24313E",
     "white": "#24313E"
+  },
+  "brand_family": {
+    "shared_rules": [
+      "Use the same canonical Sport Performance palette, geometric discipline, stroke language and typographic family across Sport products.",
+      "Logo, favicon and app icon must derive from one product-specific mark.",
+      "Related Sport products share family resemblance but must remain distinguishable at favicon size.",
+      "Product differentiation comes from the central symbol and hierarchy, not from unrelated color systems."
+    ],
+    "product_mark_rule": "The mark must graphically reflect at least two of the project's two to three most important properties or value propositions."
   },
   "data_visualization": {
     "series_order": ["navy", "teal_bright", "energy", "critical", "recovery", "success"],

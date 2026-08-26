@@ -36,32 +36,45 @@ def _explicit_builtin_brand(explicit_brand: str) -> str | None:
     return None
 
 
-def resolve_profile_id(*, context: str = "", skill_slug: str = "", explicit_brand: str | None = None) -> str | None:
-    """Resolve a built-in profile without overriding an explicit different brand.
-
-    Precedence:
-    1. Explicit brand: matching built-in profile, otherwise no built-in default.
-    2. EUROIMMUN context.
-    3. Sport skill/domain context.
-    4. No built-in profile.
-    """
-    if _norm(explicit_brand):
-        return _explicit_builtin_brand(explicit_brand)
-
+def _is_sport_context(*, context: str, skill_slug: str) -> bool:
     normalized_context = _norm(context)
     normalized_slug = _norm(skill_slug)
+    sport = _load("sport-performance")
+    if any(normalized_slug.startswith(_norm(prefix)) for prefix in sport["matching"]["skill_slug_prefixes"]):
+        return True
+    return any(
+        re.search(rf"(?<!\w){re.escape(_norm(term))}(?!\w)", normalized_context)
+        for term in sport["matching"]["context_terms"]
+    )
 
+
+def resolve_profile_id(*, context: str = "", skill_slug: str = "", explicit_brand: str | None = None) -> str | None:
+    """Resolve a built-in profile using binding domain standards.
+
+    Precedence:
+    1. Explicit built-in brand alias.
+    2. EUROIMMUN corporate context.
+    3. Sport skill/domain context -> binding sport-performance profile.
+    4. Explicit unrelated brand outside built-in domains -> no built-in profile.
+    5. No built-in profile.
+
+    An unrelated explicit brand name must not suppress the binding Sport Performance
+    palette for a Sport application. A higher-priority corporate profile such as
+    EUROIMMUN still wins when its context is present.
+    """
+    explicit_builtin = _explicit_builtin_brand(explicit_brand or "")
+    if explicit_builtin:
+        return explicit_builtin
+
+    normalized_context = _norm(context)
     if "euroimmun" in normalized_context:
         return "euroimmun-corporate"
 
-    sport = _load("sport-performance")
-    if any(normalized_slug.startswith(_norm(prefix)) for prefix in sport["matching"]["skill_slug_prefixes"]):
+    if _is_sport_context(context=context, skill_slug=skill_slug):
         return "sport-performance"
 
-    for term in sport["matching"]["context_terms"]:
-        normalized_term = _norm(term)
-        if re.search(rf"(?<!\w){re.escape(normalized_term)}(?!\w)", normalized_context):
-            return "sport-performance"
+    if _norm(explicit_brand):
+        return None
 
     return None
 

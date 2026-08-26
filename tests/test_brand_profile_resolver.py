@@ -49,10 +49,18 @@ class BrandProfileResolverTests(unittest.TestCase):
             "euroimmun-corporate",
         )
 
-    def test_explicit_different_brand_suppresses_built_in_defaults(self):
-        self.assertIsNone(
-            resolve_profile_id(context="EUROIMMUN sport dashboard", skill_slug="sport-performance-diagnostics", explicit_brand="Partner Brand")
+    def test_unrelated_explicit_brand_does_not_suppress_binding_domain_profiles(self):
+        self.assertEqual(
+            resolve_profile_id(context="sport dashboard", skill_slug="sport-performance-diagnostics", explicit_brand="Partner Brand"),
+            "sport-performance",
         )
+        self.assertEqual(
+            resolve_profile_id(context="EUROIMMUN sport dashboard", skill_slug="sport-performance-diagnostics", explicit_brand="Partner Brand"),
+            "euroimmun-corporate",
+        )
+
+    def test_unrelated_explicit_brand_outside_builtin_domains_still_suppresses_defaults(self):
+        self.assertIsNone(resolve_profile_id(context="generic dashboard", explicit_brand="Partner Brand"))
 
     def test_ambiguous_ei_text_does_not_trigger_euroimmun(self):
         self.assertIsNone(resolve_profile_id(context="EI dashboard"))
@@ -61,7 +69,9 @@ class BrandProfileResolverTests(unittest.TestCase):
         self.assertEqual(resolve_profile_id(skill_slug="sport-performance-diagnostics"), "sport-performance")
         self.assertEqual(resolve_profile_id(skill_slug="dr-komorowski-sport-docx-report-renderer"), "sport-performance")
 
-    def test_sport_profile_keeps_existing_report_theme_anchors(self):
+    def test_sport_profile_is_binding_and_keeps_existing_report_theme_anchors(self):
+        self.assertTrue(self.sport["policy"]["binding_for_sport_applications"])
+        self.assertFalse(self.sport["policy"]["explicit_project_brand_override_allowed"])
         theme_path = ROOT / "skills" / "dr-komorowski-sport-docx-report-renderer" / "assets" / "report-theme.json"
         theme = json.loads(theme_path.read_text(encoding="utf-8"))["colors"]
         mapping = {
