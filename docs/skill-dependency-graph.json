@@ -370,6 +370,17 @@
       ]
     },
     {
+      "name": "euroimmun-presentation-workflow",
+      "requires": [
+        "precision-writing-revision"
+      ],
+      "consumes": [],
+      "outputs": [
+        "euroimmun-presentation.pptx",
+        "presentation-qa.md"
+      ]
+    },
+    {
       "name": "evidence-based-causal-investigation",
       "requires": [
         "research-to-evidence-note"
@@ -2571,6 +2582,10 @@
     {
       "from": "euroimmun-pdf-report-renderer",
       "to": "euroimmun-docx-report-renderer"
+    },
+    {
+      "from": "euroimmun-presentation-workflow",
+      "to": "precision-writing-revision"
     },
     {
       "from": "evidence-based-causal-investigation",
@@ -5779,6 +5794,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "euroimmun-presentation.pptx",
+      "producers": [
+        "euroimmun-presentation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "euroimmun-report.docx",
       "producers": [
         "euroimmun-docx-report-renderer"
@@ -6168,6 +6192,7 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
+        "euroimmun-presentation-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -7537,6 +7562,7 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
+        "euroimmun-presentation-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -7564,6 +7590,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-qa.md",
+      "producers": [
+        "euroimmun-presentation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "price-snapshot.json",
@@ -9467,6 +9502,7 @@
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
+    "euroimmun-presentation.pptx",
     "euroimmun-report.pdf",
     "execution plan",
     "executive-search-brief.md",
@@ -9545,6 +9581,7 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "presentation-qa.md",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -9650,6 +9687,7 @@
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
+    "euroimmun-presentation.pptx",
     "euroimmun-report.pdf",
     "execution plan",
     "executive-search-brief.md",
@@ -9728,6 +9766,7 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "presentation-qa.md",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",

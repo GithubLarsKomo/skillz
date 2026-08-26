@@ -4,21 +4,21 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **187**
-- User-facing entrypoints: **157**
+- Skills: **188**
+- User-facing entrypoints: **158**
 - Evaluation suites: **187**
-- Skills without evaluation suite: **0**
-- User-facing entrypoints without evaluation suite: **0**
+- Skills without evaluation suite: **1**
+- User-facing entrypoints without evaluation suite: **1**
 - Ambiguous outputs (multiple producers): **3**
-- Outputs without inferred hard-requires consumers: **181**
+- Outputs without inferred hard-requires consumers: **183**
 
 ## Evaluation gaps
 
-None.
+- `euroimmun-presentation-workflow`
 
 ### User-facing evaluation gaps
 
-None.
+- `euroimmun-presentation-workflow`
 
 ## Ambiguous outputs
 
@@ -84,6 +84,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
+- `euroimmun-presentation.pptx` — producer: `euroimmun-presentation-workflow`
 - `euroimmun-report.pdf` — producer: `euroimmun-pdf-report-renderer`
 - `execution plan` — producer: `synapse-orchestrator`
 - `executive-search-brief.md` — producer: `job-description-authoring`
@@ -162,6 +163,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
+- `presentation-qa.md` — producer: `euroimmun-presentation-workflow`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`

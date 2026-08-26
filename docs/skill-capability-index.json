@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 187,
-  "entrypointCount": 157,
+  "skillCount": 188,
+  "entrypointCount": 158,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -1763,6 +1763,50 @@
         "caseCount": 4,
         "recordedResultCount": 4,
         "passed": true
+      }
+    },
+    {
+      "name": "euroimmun-presentation-workflow",
+      "description": "Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und einer managementtauglichen Storyline. Verwenden, wenn der Nutzer eine EUROIMMUN-Präsentation, Board-/Management-Deck, R&D-/Innovation-Deck oder eine bestehende Präsentation im EUROIMMUN-Stil verlangt. Nicht für allgemeine Revvity- oder fremde Corporate-Decks verwenden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "precision-writing-revision"
+      ],
+      "dependents": [],
+      "outputs": [
+        "euroimmun-presentation.pptx",
+        "presentation-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "euroimmun-presentation.pptx",
+          "ambiguous": false,
+          "producers": [
+            "euroimmun-presentation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "presentation-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "euroimmun-presentation-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/euroimmun-template-spec.md"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -7272,6 +7316,7 @@
         "rewrite-fidelity-verifier"
       ],
       "dependents": [
+        "euroimmun-presentation-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -7287,6 +7332,7 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
+            "euroimmun-presentation-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]
@@ -7298,6 +7344,7 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
+            "euroimmun-presentation-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]

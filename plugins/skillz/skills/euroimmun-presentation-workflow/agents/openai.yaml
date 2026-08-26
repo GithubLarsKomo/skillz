@@ -1,0 +1,5 @@
+interface:
+  display_name: "Euroimmun Presentation Workflow"
+  short_description: "Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint..."
+policy:
+  allow_implicit_invocation: false

@@ -218,6 +218,13 @@
         "scripts/render_pdf.py": "6d22759bccc6042af64239cfb48d6a21737866dafa3a7ad2c9891ae830a10999"
       }
     },
+    "euroimmun-presentation-workflow": {
+      "files": {
+        "SKILL.md": "04e9abd95e7341a04a1f53f41a62c18e79fb716c2edc93f5619ca8205d66f83f",
+        "agents/openai.yaml": "b6330e6d885fd4ee53efd7575434d32dd6547a5429fbd1b4c441696604b6ef22",
+        "references/euroimmun-template-spec.md": "4654c0662cfb67687c311c7e7b84a9b7284fbf3e27d1f879e74be50b2e4e58ba"
+      }
+    },
     "evidence-based-causal-investigation": {
       "files": {
         "SKILL.md": "62bfca7b569694b234b1692fdaffb4e4f8c44d7fca9d767d0865666b484cf1d2",
