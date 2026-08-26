@@ -69,19 +69,36 @@ class BrandProfileResolverTests(unittest.TestCase):
         self.assertEqual(resolve_profile_id(skill_slug="sport-performance-diagnostics"), "sport-performance")
         self.assertEqual(resolve_profile_id(skill_slug="dr-komorowski-sport-docx-report-renderer"), "sport-performance")
 
-    def test_sport_profile_is_binding_and_keeps_existing_report_theme_anchors(self):
+    def test_sport_profile_uses_confirmed_app_template_spectrum(self):
         self.assertTrue(self.sport["policy"]["binding_for_sport_applications"])
         self.assertFalse(self.sport["policy"]["explicit_project_brand_override_allowed"])
-        theme_path = ROOT / "skills" / "dr-komorowski-sport-docx-report-renderer" / "assets" / "report-theme.json"
-        theme = json.loads(theme_path.read_text(encoding="utf-8"))["colors"]
-        mapping = {
-            "navy": "navy", "dark": "dark", "body": "body", "teal": "teal_bright",
-            "teal_text": "teal", "muted": "muted", "border": "border", "table_fill": "surface",
-            "callout_fill": "surface_subtle", "warning_fill": "warning_surface", "warning_border": "warning",
-            "white": "white",
+        self.assertTrue(self.sport["policy"]["branding_preserves_accepted_impeccable_layout"])
+        self.assertEqual(self.sport["version"], "1.3.0")
+
+        expected = {
+            "navy": "#173652",
+            "dark": "#0F172A",
+            "body": "#0F172A",
+            "teal_bright": "#2B8884",
+            "teal": "#246F6C",
+            "muted": "#475569",
+            "border": "#E2E8F0",
+            "surface": "#EEF2F7",
+            "surface_subtle": "#F5F7FA",
+            "warning_surface": "#F5F7FA",
+            "warning": "#B54708",
+            "white": "#FFFFFF",
         }
-        for theme_token, profile_token in mapping.items():
-            self.assertEqual(theme[theme_token], self.sport["palette"][profile_token])
+        for token, value in expected.items():
+            self.assertEqual(self.sport["palette"][token], value)
+
+        spectrum = self.sport["confirmed_template_spectrum"]
+        self.assertEqual(spectrum["text_primary"], "#0F172A")
+        self.assertEqual(spectrum["text_secondary"], "#475569")
+        self.assertEqual(spectrum["surface_0"], "#FFFFFF")
+        self.assertEqual(spectrum["surface_1"], "#F5F7FA")
+        self.assertEqual(spectrum["surface_2"], "#EEF2F7")
+        self.assertEqual(spectrum["border"], "#E2E8F0")
 
     def test_approved_sport_foreground_pairs_meet_wcag_aa_normal_text(self):
         for token, foreground in self.sport["foreground_defaults"].items():
