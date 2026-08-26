@@ -33,6 +33,8 @@ Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrend
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-baseline|performance-baseline]]
 - [[skills/project-beta-readiness|project-beta-readiness]]
 
 ## Outputs
@@ -49,6 +51,8 @@ Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrend
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-baseline|performance-baseline]]
 - [[skills/project-beta-readiness|project-beta-readiness]]
 
 ### `next increment`
@@ -56,6 +60,8 @@ Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrend
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-baseline|performance-baseline]]
 - [[skills/project-beta-readiness|project-beta-readiness]]
 
 ### `review findings`
@@ -63,6 +69,8 @@ Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrend
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-baseline|performance-baseline]]
 - [[skills/project-beta-readiness|project-beta-readiness]]
 
 ### `verification evidence`
@@ -70,6 +78,8 @@ Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrend
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-baseline|performance-baseline]]
 - [[skills/project-beta-readiness|project-beta-readiness]]
 
 ## Evaluation

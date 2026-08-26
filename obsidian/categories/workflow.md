@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **49**
+Skills: **50**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
@@ -25,6 +25,7 @@ Skills: **49**
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/job-description-authoring|job-description-authoring]]
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-profile-report|person-profile-report]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]

@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **193**
-- User-facing entrypoints: **163**
-- Evaluation suites: **187**
+- Skills: **198**
+- User-facing entrypoints: **168**
+- Evaluation suites: **192**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
-- Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **183**
+- Ambiguous outputs (multiple producers): **8**
+- Outputs without inferred hard-requires consumers: **184**
 
 ## Evaluation gaps
 
@@ -32,9 +32,12 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Ambiguous outputs
 
+- `PERFORMANCE_PLAN.md` — producers: `optimize-software-performance`, `performance-optimization-plan`
+- `TASK.md` — producers: `optimize-software-performance`, `performance-optimization-plan`
 - `learning-mission.json` — producers: `learning-mission`, `teach`
 - `learning-next-step.json` — producers: `learning-next-step`, `teach`
 - `learning-state.json` — producers: `learning-state`, `teach`
+- `performance-result.json` — producers: `optimize-software-performance`, `performance-regression-verification`
 - `presentation-qa.md` — producers: `euroimmun-presentation-workflow`, `template-presentation-workflow`
 - `presentation-template-profile.json` — producers: `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow`
 
@@ -161,6 +164,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `obsidian-note.md` — producer: `obsidian-adapter`
 - `obsidian-view.base` — producer: `obsidian-adapter`
 - `opaque-analysis-evidence.md` — producer: `opaque-system-analysis`
+- `optimization-closure.md` — producer: `optimize-software-performance`
 - `optional Mermaid map` — producer: `thought-to-concept-flow`
 - `optional Obsidian vault projection` — producer: `thought-to-concept-flow`
 - `patent-landscape.json` — producer: `patent-landscape-analysis`

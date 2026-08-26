@@ -33,6 +33,7 @@ Prüft bestehende Softwarearchitekturen evidenzbasiert auf flache Modulgrenzen, 
 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/performance-optimization-plan|performance-optimization-plan]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ## Outputs
@@ -47,18 +48,21 @@ Prüft bestehende Softwarearchitekturen evidenzbasiert auf flache Modulgrenzen, 
 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/performance-optimization-plan|performance-optimization-plan]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ### `architecture-review.md`
 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/performance-optimization-plan|performance-optimization-plan]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ### `next-step-handoff.json`
 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/performance-optimization-plan|performance-optimization-plan]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ## Evaluation

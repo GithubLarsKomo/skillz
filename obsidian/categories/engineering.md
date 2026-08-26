@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **13**
+Skills: **17**
 
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
@@ -21,6 +21,10 @@ Skills: **13**
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/performance-baseline|performance-baseline]]
+- [[skills/performance-hotspot-analysis|performance-hotspot-analysis]]
+- [[skills/performance-optimization-plan|performance-optimization-plan]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 - [[skills/project-beta-readiness|project-beta-readiness]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
