@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/generic-template-presentation-workflow]
+    branches: [main]
     paths:
       - "skills/**"
       - "scripts/materialize_openai_agent_metadata.py"
@@ -65,7 +65,7 @@ jobs:
             exit 0
           fi
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "418982e+github-actions[bot]@users.noreply.github.com"
           git add \
             README.md \
             .skill-sync.json \
