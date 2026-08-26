@@ -1,0 +1,5 @@
+interface:
+  display_name: "Template Presentation Workflow"
+  short_description: "Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf Basis eines vorhandenen PowerPoint-Tem..."
+policy:
+  allow_implicit_invocation: true
