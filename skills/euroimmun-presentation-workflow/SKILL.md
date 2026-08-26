@@ -1,90 +1,69 @@
 ---
 name: euroimmun-presentation-workflow
-description: Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und einer managementtauglichen Storyline. Verwenden, wenn der Nutzer eine EUROIMMUN-Präsentation, Board-/Management-Deck, R&D-/Innovation-Deck oder eine bestehende Präsentation im EUROIMMUN-Stil verlangt. Nicht für allgemeine Revvity- oder fremde Corporate-Decks verwenden.
+description: Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.
 userFacing: true
 implicitInvocation: false
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
-  - precision-writing-revision
+  - template-presentation-workflow
 outputs:
   - euroimmun-presentation.pptx
+  - euroimmun-presentation.pdf
   - presentation-qa.md
+  - presentation-template-profile.json
 lastEvaluated: 2026-08-26
 ---
 
 # EUROIMMUN Presentation Workflow
 
-Dieser Skill verwandelt freigegebenen fachlichen Inhalt in eine editierbare EUROIMMUN-Präsentation, die das bestätigte EUROIMMUN-PowerPoint-Template nutzt und nach visueller QA abgeschlossen wird.
+Dieser Skill ist ein dünner Corporate Wrapper um `template-presentation-workflow`. Er enthält ausschließlich EUROIMMUN-/Revvity-spezifische Design-, Governance- und Template-Regeln und dupliziert keine generische Storyline-, Sprach- oder QA-Logik.
 
 ## Verbindliche Designquelle
 
-Die Referenz ist die vom Nutzer bestätigte Datei `260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`.
+Die bestätigte Referenz ist `260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`.
 
-Die Originaldatei wird **nicht** im Skill-Repository gespeichert, weil sie proprietäre/vertrauliche Inhalte enthält. Stattdessen hält `references/euroimmun-template-spec.md` ausschließlich die daraus abgeleiteten Design- und Layoutregeln fest. Ist die bestätigte Referenzdatei im Arbeitskontext verfügbar, hat sie Vorrang vor der textuellen Spezifikation.
+Die Originaldatei wird nicht im Skill-Repository gespeichert. `references/euroimmun-template-spec.md` enthält ausschließlich abgeleitete Design- und Layoutregeln. Ist die bestätigte Referenzdatei im Arbeitskontext verfügbar, hat sie Vorrang vor der textuellen Spezifikation.
 
-## Workflow
+## Corporate Context für den generischen Workflow
 
-1. **Source of truth bestimmen**
-   - Liegt die bestätigte EUROIMMUN-Template-Datei vor, verwende sie direkt als PowerPoint-Basis und erhalte Master, Layouts, Theme, Logos, Footer und Seitenformat.
-   - Liegt sie nicht vor, rekonstruiere ausschließlich aus `references/euroimmun-template-spec.md` und kennzeichne das Ergebnis als template-compatible, nicht template-derived.
+An `template-presentation-workflow` übergeben:
 
-2. **Inhalt verdichten**
-   - Trenne Fakten, Interpretation, Annahmen und Entscheidungen.
-   - Formuliere Slides als Management-Storyline: `why now -> evidence -> strategic choice -> economics -> risks -> decision`.
-   - Eine Slide hat eine Hauptbotschaft. Titel sollen die Aussage transportieren, nicht nur das Thema nennen.
+- bevorzugte Source of Truth: bestätigte EUROIMMUN-PPTX,
+- Fallback: `references/euroimmun-template-spec.md`, dann als `template-compatible`, nicht `template-derived`, kennzeichnen,
+- Seitenformat: 16:9 widescreen gemäß Template,
+- Primärschrift: Hanken Grotesk; SemiBold für starke Hierarchie, Fallback nur wenn technisch nötig,
+- EUROIMMUN-Grün für Tabellenheader und ausgewählte Akzente,
+- Revvity-Farbflächen für Section Header nur entsprechend dem bestätigten Corporate Template,
+- EUROIMMUN-Logo, Revvity-Branding, Footer, Confidentiality und Seitennummern gemäß Master beibehalten,
+- Corporate Layouts und Platzhalter bevorzugt wiederverwenden,
+- keine frei erfundene EUROIMMUN-Branding-Variante, wenn das echte Template verfügbar ist.
 
-3. **Slide-Typ wählen**
-   - Cover: Corporate title layout.
-   - Kapiteltrenner: farbiger Section Header.
-   - Standardanalyse: weißer Content-Slide mit Titel, Logo/Footer und 1-2 visuellen Informationsblöcken.
-   - Tabellen nur für echte Vergleiche; Tabelleninhalt auf entscheidungsrelevante Zeilen beschränken.
-   - Timeline, Portfolio und Financials bevorzugt als Diagramm/Visual statt Fließtext.
+## EUROIMMUN-spezifische Slide-Präferenzen
 
-4. **Corporate Design anwenden**
-   - 16:9 widescreen.
-   - Primäre Schrift: Hanken Grotesk; SemiBold für starke Hierarchie. Fallback nur wenn technisch nötig.
-   - EUROIMMUN-Grün für Tabellenheader und ausgewählte Akzente; Revvity-Farbflächen für Abschnittstrenner nur passend zum Themenkontext.
-   - EUROIMMUN-Logo links oben bzw. gemäß Master; Revvity-Branding/Footer gemäß Template.
-   - Footer-/Confidentiality-Logik des Templates beibehalten.
-   - Keine frei erfundene 'EUROIMMUN Branding'-Variante verwenden, wenn das echte Template verfügbar ist.
+- Cover: Corporate Title Layout.
+- Kapiteltrenner: bestätigter Section Header.
+- Standardanalyse: weißer Content-Slide mit Corporate Header/Footer und wenigen klaren Informationsblöcken.
+- Tabellen nur für echte Vergleiche und auf entscheidungsrelevante Zeilen begrenzen.
+- Timeline, Portfolio, Financials und Stage Gates bevorzugt visualisieren.
+- Quellen klein, aber lesbar und klar von proprietären internen Informationen unterscheiden.
 
-5. **Visualisierung**
-   - Zahlen als Charts, Waterfalls, Portfolio-Matrizen, Roadmaps oder Stage-Gate-Diagramme visualisieren.
-   - Maximal etwa 6 Kernaussagen pro Slide.
-   - Diagramme und Tabellen bevorzugt auf weißen Flächen; starke Vollflächen für Section Header und wenige Key Messages reservieren.
-   - Quellen klein, aber lesbar am unteren Rand; proprietäre Information nicht mit öffentlichen Quellen vermischen.
+## Sprach- und QA-Regel
 
-6. **Narrative QA**
-   Prüfe vor Export:
-   - Ist die zentrale Entscheidung nach 3-4 Slides verständlich?
-   - Sind Fakten und Modellannahmen erkennbar getrennt?
-   - Sind alle Zahlen über Slides hinweg konsistent?
-   - Werden Investment, Timing, Risiken und Decision Gates explizit?
-   - Kann die Präsentation ohne Begleitreport verstanden werden?
+Präsentationstexte werden nicht mehr über `precision-writing-revision` wie Reports behandelt. Die Sprachoptimierung erfolgt durch `presentation-language-rewriter` innerhalb des generischen Workflows, separat für Deutsch und Englisch und abhängig von Elementtyp und Zielgruppe.
 
-7. **Visual QA**
-   - Gesamtes Deck rendern und Montage prüfen.
-   - Keine überlappenden Objekte, abgeschnittene Texte, uneinheitliche Titelpositionen oder abweichende Footer.
-   - Tabellen und Diagramme in normaler Präsentationsansicht lesbar.
-   - Corporate Master/Layout möglichst wiederverwenden statt manuell nachzubauen.
+Layout- und Box-Overflow-Prüfung erfolgt über `presentation-layout-qa`. Das finale visuelle Gate erfolgt über `presentation-render-verifier` einschließlich PDF-/Druckrender und erneutem Render nach Korrekturen.
 
 ## Nicht-Ziele
 
 - Keine fachliche Regulatory-, Clinical-, IP- oder Finanzanalyse erfinden; dafür vorgelagerte Fach-Skills nutzen.
-- Keine vertraulichen Inhalte aus der Referenzpräsentation in neue Decks übernehmen, sofern sie nicht Teil der aktuellen Aufgabenbasis sind.
-- Keine proprietäre Referenz-PPTX ins öffentliche/zentral synchronisierte Skill-Repository einchecken.
+- Keine vertraulichen Inhalte der Referenzpräsentation in neue Decks übernehmen, sofern sie nicht Teil der aktuellen Aufgabenbasis sind.
+- Keine proprietäre Referenz-PPTX in das öffentliche/zentral synchronisierte Skill-Repository einchecken.
+- Keine generische Presentation-Logik hier duplizieren.
 
-## Abschlusskriterien
+## Abschluss
 
-Die Aufgabe ist abgeschlossen, wenn:
-
-- das Deck auf dem bestätigten Template oder der dokumentierten Fallback-Spezifikation basiert,
-- die Management-Storyline schlüssig ist,
-- Corporate Master/Footer/Branding konsistent sind,
-- Fakten und Annahmen getrennt sind,
-- das PPTX editierbar ist,
-- ein visueller Render-QA ohne kritische Layoutfehler durchgeführt wurde.
+Abgeschlossen, wenn der generische Template-Presentation-Workflow erfolgreich durchlaufen wurde, EUROIMMUN Corporate Master/Branding konsistent erhalten sind, die finale PPTX editierbar ist, eine geprüfte PDF vorliegt und der QA-Bericht keine ungeklärten kritischen Layout- oder Renderfehler enthält.

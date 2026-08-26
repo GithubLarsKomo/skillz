@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Render Verifier"
+  short_description: "Rendert ein Präsentationsdeck in visuell prüfbare Folienbilder und eine Druck-/PDF-Version und bewertet das Ergebnis..."
+policy:
+  allow_implicit_invocation: true

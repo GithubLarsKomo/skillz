@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Language Rewriter"
+  short_description: "Überarbeitet deutsche und englische Präsentationstexte elementbezogen für Slide-Titel, Key Messages, Bullets, Chart-L..."
+policy:
+  allow_implicit_invocation: true
