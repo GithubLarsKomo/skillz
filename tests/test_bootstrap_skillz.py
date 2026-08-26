@@ -20,17 +20,6 @@ class BootstrapSkillzTests(unittest.TestCase):
         cls.manifest = bootstrap.load_manifest()
 
     def test_source_manifest_verifies(self):
-        # Keep diagnostics actionable when a portable design-system source changes.
-        for rel in (
-            "SKILL.md",
-            "references/brand-profiles/sport-performance.json",
-            "scripts/brand_profile_resolver.py",
-        ):
-            path = ROOT / "skills" / "frontend-design-system-context" / rel
-            expected = self.manifest["skills"]["frontend-design-system-context"]["files"][rel]
-            actual = bootstrap.sha256(path)
-            if actual != expected:
-                print(f"portable-hash frontend-design-system-context/{rel}: {actual}")
         bootstrap.verify_source(self.manifest)
 
     def test_selected_skill_installs_only_manifest_files(self):
