@@ -78,10 +78,12 @@ Sportanwendungen teilen Palette, geometrische Disziplin, Strich-/Liniencharakter
 Für verwandte Sportprodukte gilt:
 
 - gemeinsame Sport-Performance-Farbwelt und visuelle Grammatik;
-- je Produkt ein eigenständiges Markenzeichen, das mindestens zwei der 2–3 priorisierten Projekteigenschaften grafisch widerspiegelt;
+- je Produkt ein eigenständiges Markenzeichen, das mindestens **2 der 2–3 priorisierten Projekteigenschaften** grafisch widerspiegelt;
 - Logo, Favicon und App-Icon werden aus demselben Produktzeichen abgeleitet;
 - Produktzeichen bleiben auch bei 32 px unterscheidbar;
 - Differenzierung erfolgt durch Motiv, Geometrie und Hierarchie, nicht durch neue Farbsysteme.
+
+Reine Dekoration oder beliebige Stock-Ästhetik genügt nicht. Die visuelle Zuordnung der priorisierten Eigenschaften muss im Designkontext nachvollziehbar dokumentiert werden.
 
 ### 1d. Sport-Design-Templates und Branding-Layer strikt trennen
 
@@ -112,7 +114,7 @@ Repo-Befunde und persönliche Defaults werden als begründete Defaults vorgeschl
 
 ### 3. DESIGN.md schreiben
 
-Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine bestehende autoritative Fassung bleibt bis dahin gültig.
+Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine bestehende autoritative Fassung bleibt bis dahin gültig. Feature-Arbeit darf das Dokument nicht stillschweigend mutieren.
 
 `DESIGN.md` darf nicht als vollständig gelten, solange Branding, Farbherleitung, Brand-Profil-Provenance, kontextgebundene Copy-Regeln oder die 2–3 bildlich zu transportierenden Projekteigenschaften fehlen. Bei Sportanwendungen dokumentiert `DESIGN.md` zusätzlich den verwendeten Sport-Template-Typ und die Layer-Grenze zwischen Impeccable UI und Sport Performance Branding.
 
@@ -120,7 +122,7 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 
 1. **Logo ist Pflicht.** Jedes Projekt erhält ein kontextpassendes Logo bzw. eine dokumentierte bestehende Wort-/Bildmarke.
 2. **Favicon muss zur Marke gehören.** Kein unabhängiges Standard-Favicon.
-3. **App-Icon ist bei Apps Pflicht.** Es wird aus derselben Markenfamilie abgeleitet.
+3. **App-Icon ist bei Apps Pflicht.** Es wird aus derselben Markenfamilie abgeleitet; bei Apps/PWAs/mobile/desktop ein konsistentes App-Icon ist verpflichtend.
 4. **Corporate-Farben sind unveränderlich.** Framework-/Template-Farben dürfen keine Brandfarben ersetzen.
 5. **Built-in-Profile sind normative Standards.** EUROIMMUN-Projekte verwenden EUROIMMUN; Sport-Projekte Sport Performance; bei EUROIMMUN+Sport gilt EUROIMMUN.
 6. **Sport-Farbspektrum ist verbindlich.** Navy `#173652`, Dark `#1C2B3A`, Body `#24313E`, Teal `#246F6C`, Bright Teal `#2B8884`, Muted `#6B7785`, Energy `#B54708`, Success `#2E7D32`, Warning `#9A6500`, Critical `#B42318`, Recovery `#6D5BD0`, Border `#D6E0E6`, Surface `#EDF3F6`, Surface Subtle `#F6F8F9`, Warning Surface `#FFF4D6` und White `#FFFFFF` sind kanonisch.
@@ -129,7 +131,7 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 9. **Sport-Branding überschreibt kein Impeccable-Layout.** Branding-only-Arbeit darf nur Farb-Tokens/semantische Farbrollen und Markenassets verändern. Änderungen an Layout, Spacing, Typografie, Komponentengeometrie, Navigation, Breakpoints oder Informationshierarchie benötigen einen expliziten Redesign-Scope.
 10. **Sport-Templates sind verbindlich.** Bestehende akzeptierte Sport Athlete Management- und Masters Diagnostics-Oberflächen sind Referenzzustände. Neue Sportapps starten von der nächstliegenden Designgrammatik aus `references/design-templates/sport-performance-apps.md`.
 11. **Text folgt dem Projektkontext.** Keine generische Template-Copy.
-12. **Key Visual transportiert Bedeutung.** Mindestens zwei priorisierte Projekteigenschaften müssen visuell erkennbar sein.
+12. **Key Visual transportiert Bedeutung.** Mindestens **2 der 2–3 priorisierten Projekteigenschaften** müssen visuell erkennbar sein. Reine Dekoration oder beliebige Stock-Ästhetik genügt nicht.
 13. **Asset-Familie statt Einzeldateien.** Logo, Favicon, App-Icon, Farbwelt und Bildsprache funktionieren als System.
 
 ## DESIGN.md-Vertrag
@@ -170,7 +172,9 @@ Schreibe oder ersetze `DESIGN.md` nur nach bestätigtem Grilling-Handoff. Eine b
 ...
 
 ## Imagery and Key Visual
-...
+- Priority properties: ...
+- Graphic mapping of each property: ...
+- Asset/source provenance: ...
 
 ## Content and UX Writing
 ...
@@ -196,6 +200,7 @@ Ein `DESIGN.md` ist nur akzeptabel, wenn alle anwendbaren Prüfungen bestanden s
 - `brand-product-distinction` für verwandte Sportprodukte;
 - `brand-profile-resolution` und `sport-palette-binding`;
 - `corporate-token-integrity`, `derived-color-traceability`, `color-accessibility`;
+- `color-context-fit`: semantische Farbrollen sind für den Projektkontext begründet und zugänglich;
 - `copy-context-fit`, `visual-semantic-fit`, `system-coherence`;
 - **`sport-template-selection`:** Sportprojekt ist einem Referenztemplate oder einer dokumentierten Ableitung zugeordnet;
 - **`sport-template-layer-separation`:** Impeccable UI-Layer und Sport-Branding-Layer sind explizit getrennt;
@@ -206,13 +211,15 @@ Fehlt einer der anwendbaren Punkte, ist der Kontext-Schritt **nicht abgeschlosse
 
 ## Änderungskontrolle
 
-Ein Feature-Brief kann einen expliziten lokalen Surface-Override enthalten. Wird daraus eine dauerhafte Systemregel, neues fokussiertes DESIGN-Grilling durchführen und erst danach `DESIGN.md` ändern.
+Ein Feature-Brief kann einen expliziten lokalen Surface-Override enthalten. Wird daraus eine dauerhafte Systemregel, neues fokussiertes DESIGN-Grilling durchführen und erst danach `DESIGN.md` ändern. Feature-Arbeit darf das Dokument nicht stillschweigend mutieren.
 
 Eine Änderung des Sport-Standardprofils benötigt eine explizite Profilversionsänderung und Regressionstests. **Eine Branding-/Logo-/Palette-Änderung darf den akzeptierten Impeccable UI-Layer nicht mitändern.** Ein Layout-Redesign ist ein eigener Scope und muss ausdrücklich beauftragt oder bestätigt werden.
 
 ## Fehlerbehandlung
 
-Stoppe bei unbestätigten materiellen Konflikten zwischen `PRODUCT.md`, Brand-Evidenz, Template-Vertrag und gewünschter visueller Richtung. Existieren mehrere widersprüchliche Corporate-Paletten, kläre die führende Quelle. Existieren Logo/Favicon/App-Icon mit widersprüchlicher Markenlogik, kläre die führende Markenquelle statt eine dritte Richtung zu erzeugen.
+Stoppe vor dem Schreiben bei unbestätigten materiellen Konflikten zwischen `PRODUCT.md`, Brand-Evidenz, Template-Vertrag und gewünschter visueller Richtung. Existieren mehrere widersprüchliche Corporate-Paletten, kläre die führende Quelle.
+
+Existieren bereits Logo/Favicon/App-Icon, die nicht zusammenpassen, kläre die führende Markenquelle. Erzeuge nicht stillschweigend eine dritte visuelle Richtung.
 
 ## Abschluss
 
