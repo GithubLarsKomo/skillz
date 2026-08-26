@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/software-performance-optimization-flow]
+    branches: [main]
     paths:
       - "skills/**"
       - "scripts/materialize_openai_agent_metadata.py"
@@ -26,7 +26,6 @@ concurrency:
 
 jobs:
   sync:
-    # Temporary branch enablement for PR #246 metadata generation.
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
