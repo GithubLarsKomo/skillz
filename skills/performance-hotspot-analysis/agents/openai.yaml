@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Hotspot Analysis"
+  short_description: "Lokalisiert messbare Software-Hotspots und priorisiert Optimierungskandidaten."
+policy:
+  allow_implicit_invocation: true
