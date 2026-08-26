@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 193,
-  "entrypointCount": 163,
+  "skillCount": 198,
+  "entrypointCount": 168,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 187,
+  "evaluationSuiteCount": 192,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -97,6 +97,7 @@
       "dependents": [
         "domain-model-maintenance",
         "large-work-wayfinder",
+        "performance-optimization-plan",
         "two-axis-code-review"
       ],
       "outputs": [
@@ -114,6 +115,7 @@
           "consumerSkills": [
             "domain-model-maintenance",
             "large-work-wayfinder",
+            "performance-optimization-plan",
             "two-axis-code-review"
           ]
         },
@@ -126,6 +128,7 @@
           "consumerSkills": [
             "domain-model-maintenance",
             "large-work-wayfinder",
+            "performance-optimization-plan",
             "two-axis-code-review"
           ]
         },
@@ -138,6 +141,7 @@
           "consumerSkills": [
             "domain-model-maintenance",
             "large-work-wayfinder",
+            "performance-optimization-plan",
             "two-axis-code-review"
           ]
         }
@@ -3550,6 +3554,7 @@
         "test-driven-vertical-slice"
       ],
       "dependents": [
+        "optimize-software-performance",
         "two-axis-code-review"
       ],
       "outputs": [
@@ -3565,6 +3570,7 @@
             "implement-from-issue"
           ],
           "consumerSkills": [
+            "optimize-software-performance",
             "two-axis-code-review"
           ]
         },
@@ -3575,6 +3581,7 @@
             "implement-from-issue"
           ],
           "consumerSkills": [
+            "optimize-software-performance",
             "two-axis-code-review"
           ]
         },
@@ -3585,6 +3592,7 @@
             "implement-from-issue"
           ],
           "consumerSkills": [
+            "optimize-software-performance",
             "two-axis-code-review"
           ]
         }
@@ -3780,6 +3788,8 @@
         "agent-handoff",
         "architecture-deepening-review",
         "disciplined-diagnosis",
+        "optimize-software-performance",
+        "performance-baseline",
         "project-beta-readiness"
       ],
       "outputs": [
@@ -3799,6 +3809,8 @@
             "agent-handoff",
             "architecture-deepening-review",
             "disciplined-diagnosis",
+            "optimize-software-performance",
+            "performance-baseline",
             "project-beta-readiness"
           ]
         },
@@ -3812,6 +3824,8 @@
             "agent-handoff",
             "architecture-deepening-review",
             "disciplined-diagnosis",
+            "optimize-software-performance",
+            "performance-baseline",
             "project-beta-readiness"
           ]
         },
@@ -3825,6 +3839,8 @@
             "agent-handoff",
             "architecture-deepening-review",
             "disciplined-diagnosis",
+            "optimize-software-performance",
+            "performance-baseline",
             "project-beta-readiness"
           ]
         },
@@ -3838,6 +3854,8 @@
             "agent-handoff",
             "architecture-deepening-review",
             "disciplined-diagnosis",
+            "optimize-software-performance",
+            "performance-baseline",
             "project-beta-readiness"
           ]
         }
@@ -7004,6 +7022,47 @@
       }
     },
     {
+      "name": "optimize-software-performance",
+      "description": "Orchestriert die messbare Optimierung und Beschleunigung bestehenden oder iterativ erzeugten Codes von Ziel/Guardrails über Baseline, Profiling, Hotspot- und Architekturprüfung, PERFORMANCE_PLAN.md und TASK.md bis zu kleinen Implementierungsslices, funktionalen Tests, Performance-Verifikation, Simplification Pass und Regression Guard. Verwenden, wenn funktionierender Code am Ende eines Entwicklungszyklus unnötig langsam, ressourcenintensiv oder strukturell aufgebläht ist oder gezielt auf Performance optimiert werden soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "implement-from-issue",
+        "iterate-software-projects",
+        "performance-baseline",
+        "performance-hotspot-analysis",
+        "performance-optimization-plan",
+        "performance-regression-verification",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "optimization-closure.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "optimization-closure.md",
+          "ambiguous": false,
+          "producers": [
+            "optimize-software-performance"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "patent-landscape-analysis",
       "description": "Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Patentfamilien deduplizierte Schutzrechtslandschaft mit reproduzierbarer Suchlogik, Search-Saturation, Claim-Scope-Branches, Jurisdiktionen, Legal-Status-Freshness und sauber getrennten Applicant-/Assignee-/Ownership-Daten; keine Patentability- oder FTO-Opinion.",
       "invocation": {
@@ -7052,6 +7111,261 @@
         "mode": "compatibility",
         "caseCount": 6,
         "recordedResultCount": 6,
+        "passed": true
+      }
+    },
+    {
+      "name": "performance-baseline",
+      "description": "Erzeugt vor Software-Optimierungen eine reproduzierbare Performance-Baseline mit repräsentativem Workload, relevanten Laufzeit-, Ressourcen-, Datenbank-, I/O- und Netzwerkmetriken sowie Messunsicherheit. Verwenden, wenn Code oder ein System beschleunigt, skaliert oder ressourceneffizienter gemacht werden soll; nicht als Ersatz für funktionale Fehlerdiagnose.",
+      "invocation": {
+        "userFacing": true,
+        "category": "engineering"
+      },
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "dependents": [
+        "optimize-software-performance",
+        "performance-hotspot-analysis",
+        "performance-regression-verification"
+      ],
+      "outputs": [
+        "benchmark-reproduction.md",
+        "performance-baseline.json",
+        "performance-baseline.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "benchmark-reproduction.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-baseline"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance",
+            "performance-hotspot-analysis",
+            "performance-regression-verification"
+          ]
+        },
+        {
+          "output": "performance-baseline.json",
+          "ambiguous": false,
+          "producers": [
+            "performance-baseline"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance",
+            "performance-hotspot-analysis",
+            "performance-regression-verification"
+          ]
+        },
+        {
+          "output": "performance-baseline.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-baseline"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance",
+            "performance-hotspot-analysis",
+            "performance-regression-verification"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "performance-hotspot-analysis",
+      "description": "Analysiert eine belastbare Performance-Baseline zusammen mit Profiling-, Query-, Trace- oder Laufzeitevidenz, lokalisiert dominierende Hotspots und klassifiziert Root Causes nach Algorithmus, unnötiger Arbeit, Datenbank, I/O, Netzwerk, Serialisierung, Cache, Parallelisierung, Runtime, Speicher, Architektur oder Build-Tooling. Verwenden vor einer Performance-Optimierung, um Mikrooptimierung nach Bauchgefühl zu vermeiden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "engineering"
+      },
+      "requires": [
+        "performance-baseline"
+      ],
+      "dependents": [
+        "optimize-software-performance",
+        "performance-optimization-plan"
+      ],
+      "outputs": [
+        "hotspot-analysis.md",
+        "hotspot-map.json",
+        "optimization-candidates.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "hotspot-analysis.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-hotspot-analysis"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance",
+            "performance-optimization-plan"
+          ]
+        },
+        {
+          "output": "hotspot-map.json",
+          "ambiguous": false,
+          "producers": [
+            "performance-hotspot-analysis"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance",
+            "performance-optimization-plan"
+          ]
+        },
+        {
+          "output": "optimization-candidates.json",
+          "ambiguous": false,
+          "producers": [
+            "performance-hotspot-analysis"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance",
+            "performance-optimization-plan"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "performance-optimization-plan",
+      "description": "Überführt gemessene Hotspots und priorisierte Optimierungskandidaten in ein belastbares Performance-Konzept und eine agententaugliche TASK.md mit Performance-Budget, funktionalen Invarianten, kleinen Umsetzungsslices, Messplan, Rollback und ausdrücklich verworfenen Alternativen. Verwenden nach Profiling/Hotspot-Analyse und vor Codeänderungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "engineering"
+      },
+      "requires": [
+        "architecture-deepening-review",
+        "performance-hotspot-analysis"
+      ],
+      "dependents": [
+        "optimize-software-performance"
+      ],
+      "outputs": [
+        "PERFORMANCE_PLAN.md",
+        "TASK.md",
+        "optimization-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "PERFORMANCE_PLAN.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-optimization-plan"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
+        },
+        {
+          "output": "TASK.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-optimization-plan"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
+        },
+        {
+          "output": "optimization-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "performance-optimization-plan"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "performance-regression-verification",
+      "description": "Verifiziert nach einer Software-Optimierung funktionale Gleichwertigkeit und messbare Performance-Verbesserung gegen eine unveränderte Baseline, bewertet Rauschen und Trade-offs und erzeugt dauerhafte Performance-Gates oder Regression-Guards, wenn sie stabil genug sind. Verwenden nach Implementierung eines Performance-TASK.md; nicht für reine Code-Ästhetik oder ungemessene Optimierungsbehauptungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "engineering"
+      },
+      "requires": [
+        "performance-baseline",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "dependents": [
+        "optimize-software-performance"
+      ],
+      "outputs": [
+        "performance-regression-guard.md",
+        "performance-result.json",
+        "performance-result.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "performance-regression-guard.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-regression-verification"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
+        },
+        {
+          "output": "performance-result.json",
+          "ambiguous": false,
+          "producers": [
+            "performance-regression-verification"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
+        },
+        {
+          "output": "performance-result.md",
+          "ambiguous": false,
+          "producers": [
+            "performance-regression-verification"
+          ],
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
         "passed": true
       }
     },
@@ -10643,7 +10957,9 @@
       "dependents": [
         "domain-model-maintenance",
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "outputs": [
         "verification-report.md",
@@ -10660,7 +10976,9 @@
           "consumerSkills": [
             "domain-model-maintenance",
             "implement-from-issue",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         },
         {
@@ -10672,7 +10990,9 @@
           "consumerSkills": [
             "domain-model-maintenance",
             "implement-from-issue",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         },
         {
@@ -10684,7 +11004,9 @@
           "consumerSkills": [
             "domain-model-maintenance",
             "implement-from-issue",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         }
       ],
@@ -10953,7 +11275,9 @@
         "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "outputs": [
         "delivery-review-handoff.json",
@@ -10972,7 +11296,9 @@
             "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         },
         {
@@ -10985,7 +11311,9 @@
             "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         },
         {
@@ -10998,7 +11326,9 @@
             "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         },
         {
@@ -11011,7 +11341,9 @@
             "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
-            "merge-conflict-resolution"
+            "merge-conflict-resolution",
+            "optimize-software-performance",
+            "performance-regression-verification"
           ]
         }
       ],

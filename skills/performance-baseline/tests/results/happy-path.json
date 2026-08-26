@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-baseline",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "define a representative workload and environment", "passed": true, "evidence": "SKILL.md explicitly requires a reproducible representative workload and environment."},
+    {"behavior": "capture wall time plus relevant database and memory metrics", "passed": true, "evidence": "SKILL.md requires wall time and relevant bottleneck metrics including database and peak memory."},
+    {"behavior": "document reproduction steps and functional invariants", "passed": true, "evidence": "SKILL.md requires benchmark-reproduction.md plus functional invariants."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "change production code before measuring", "observed": false, "evidence": "The skill explicitly establishes the baseline before optimization begins."},
+    {"behavior": "claim improvement from a single unqualified timing", "observed": false, "evidence": "The skill requires multiple runs when noise matters and qualifies single measurements."}
+  ],
+  "overall": "pass"
+}

@@ -34,6 +34,8 @@ Implementiert ein kleines, unabhängig beobachtbares End-to-End-Verhalten durch 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ## Outputs
 
@@ -48,18 +50,24 @@ Implementiert ein kleines, unabhängig beobachtbares End-to-End-Verhalten durch 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ### `vertical-slice-evidence.json`
 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ### `vertical-slice-residual-risk-handoff.json`
 
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ## Evaluation
 

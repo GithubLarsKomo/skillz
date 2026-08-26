@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "skill": "optimize-software-performance",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "establish a baseline before code changes", "passed": true, "evidence": "Phase 1 requires performance-baseline and gates further optimization on reproducibility."},
+    {"behavior": "route through hotspot analysis and an implementation-ready performance plan", "passed": true, "evidence": "Phases 2 through 4 route through hotspot analysis, architecture checking, PERFORMANCE_PLAN.md and TASK.md."},
+    {"behavior": "verify correctness and efficiency after small slices", "passed": true, "evidence": "Phase 5 runs functional tests and targeted benchmarks after material slices, followed by two-axis review."},
+    {"behavior": "perform a simplification pass and final benchmark before closure", "passed": true, "evidence": "Phase 7 explicitly requires simplification, then repeat tests and benchmark before closure."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "jump directly from code reading to refactoring", "observed": false, "evidence": "The orchestrator requires a reproducible baseline and measured hotspots before code changes."},
+    {"behavior": "declare success with only functional tests or only a speed claim", "observed": false, "evidence": "Closure requires both functional proof and achieved performance gate or accepted trade-off."}
+  ],
+  "overall": "pass"
+}

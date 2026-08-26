@@ -303,7 +303,22 @@ graph TD
   obsidian_adapter --> knowledge_map_generator
   obsidian_adapter --> knowledge_view
   obsidian_adapter --> structured_knowledge_artifact
+  optimize_software_performance --> implement_from_issue
+  optimize_software_performance --> iterate_software_projects
+  optimize_software_performance --> performance_baseline
+  optimize_software_performance --> performance_hotspot_analysis
+  optimize_software_performance --> performance_optimization_plan
+  optimize_software_performance --> performance_regression_verification
+  optimize_software_performance --> test_driven_vertical_slice
+  optimize_software_performance --> two_axis_code_review
   patent_landscape_analysis --> research_to_evidence_note
+  performance_baseline --> iterate_software_projects
+  performance_hotspot_analysis --> performance_baseline
+  performance_optimization_plan --> architecture_deepening_review
+  performance_optimization_plan --> performance_hotspot_analysis
+  performance_regression_verification --> performance_baseline
+  performance_regression_verification --> test_driven_vertical_slice
+  performance_regression_verification --> two_axis_code_review
   person_profile_document_delivery --> precision_writing_revision
   person_profile_report --> person_research_dossier
   person_research_dossier --> research_to_evidence_note
@@ -476,8 +491,10 @@ graph TD
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
 | `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
+| `PERFORMANCE_PLAN.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
+| `TASK.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `acceptance-gaps.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `adverse-event-code-set.json` | `medical-device-adverse-event-coding` | — | unconsumed |
 | `adverse-event-coding-delta.json` | `medical-device-adverse-event-coding` | — | unconsumed |
@@ -487,13 +504,14 @@ graph TD
 | `analytical-performance-assessment.json` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `analytical-performance-plan.json` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `analytical-performance-report.md` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
-| `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
-| `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
+| `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
+| `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
 | `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `author-voice-profile.json` | `author-voice-profiler` | `precision-writing-revision` | inferred |
 | `author-voice-profile.md` | `author-voice-profiler` | `precision-writing-revision` | inferred |
+| `benchmark-reproduction.md` | `performance-baseline` | `optimize-software-performance`, `performance-hotspot-analysis`, `performance-regression-verification` | inferred |
 | `beta-readiness.json` | `project-beta-readiness` | — | unconsumed |
 | `beta-readiness.md` | `project-beta-readiness` | — | unconsumed |
 | `beta-runbook.md` | `project-beta-readiness` | — | unconsumed |
@@ -575,7 +593,7 @@ graph TD
 | `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
-| `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
+| `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
@@ -604,7 +622,7 @@ graph TD
 | `engineering-closure-gaps.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-delivery-status.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
-| `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
+| `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
 | `environment-adjustment.json` | `sport-environment-travel` | `sport-athlete-management` | inferred |
 | `estar-content-map.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `etf-hosted-release-candidate.json` | `exam-trainer-catalog-builder` | `teach` | inferred |
@@ -664,11 +682,13 @@ graph TD
 | `fto-risk-heatmap.md` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-scope.json` | `freedom-to-operate-assessment` | — | unconsumed |
 | `gudid-udi-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
+| `hotspot-analysis.md` | `performance-hotspot-analysis` | `optimize-software-performance`, `performance-optimization-plan` | inferred |
+| `hotspot-map.json` | `performance-hotspot-analysis` | `optimize-software-performance`, `performance-optimization-plan` | inferred |
 | `human-procedure-plan.md` | `human-procedure-wizard` | — | unconsumed |
 | `human-procedure-result.json` | `human-procedure-wizard` | — | unconsumed |
 | `ifu-content-structure.md` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
-| `implementation-evidence.json` | `implement-from-issue` | `two-axis-code-review` | inferred |
-| `implementation-residual-risk-handoff.json` | `implement-from-issue` | `two-axis-code-review` | inferred |
+| `implementation-evidence.json` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |
+| `implementation-residual-risk-handoff.json` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |
 | `import verification` | `openasr-offline-model-import` | — | unconsumed |
 | `inbox-triage.json` | `inbox-action-triage` | `daily-and-weekly-review` | inferred |
 | `inbox-triage.md` | `inbox-action-triage` | `daily-and-weekly-review` | inferred |
@@ -738,8 +758,8 @@ graph TD
 | `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `mental-health-routing.json` | `sport-mental-health-routing` | `sport-athlete-management` | inferred |
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
-| `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
-| `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `two-axis-code-review` | inferred |
+| `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
+| `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
 | `next-training-decision.json` | `sport-athlete-management` | — | unconsumed |
 | `nonconformance-assessment.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `obsidian-candidate.json` | `obsidian-adapter` | — | unconsumed |
@@ -747,6 +767,9 @@ graph TD
 | `obsidian-note.md` | `obsidian-adapter` | — | unconsumed |
 | `obsidian-view.base` | `obsidian-adapter` | — | unconsumed |
 | `opaque-analysis-evidence.md` | `opaque-system-analysis` | — | unconsumed |
+| `optimization-candidates.json` | `performance-hotspot-analysis` | `optimize-software-performance`, `performance-optimization-plan` | inferred |
+| `optimization-closure.md` | `optimize-software-performance` | — | unconsumed |
+| `optimization-plan.json` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `optional Mermaid map` | `thought-to-concept-flow` | — | unconsumed |
 | `optional Obsidian vault projection` | `thought-to-concept-flow` | — | unconsumed |
 | `patent-landscape.json` | `patent-landscape-analysis` | — | unconsumed |
@@ -756,8 +779,13 @@ graph TD
 | `pccp-change-evidence.json` | `fda-pccp-change-control` | — | unconsumed |
 | `pccp-deviation-routing.json` | `fda-pccp-change-control` | — | unconsumed |
 | `per-traceability.json` | `ivdr-performance-evaluation-report` | — | unconsumed |
+| `performance-baseline.json` | `performance-baseline` | `optimize-software-performance`, `performance-hotspot-analysis`, `performance-regression-verification` | inferred |
+| `performance-baseline.md` | `performance-baseline` | `optimize-software-performance`, `performance-hotspot-analysis`, `performance-regression-verification` | inferred |
 | `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-psychology-plan.json` | `sport-performance-psychology` | `sport-athlete-management` | inferred |
+| `performance-regression-guard.md` | `performance-regression-verification` | `optimize-software-performance` | inferred |
+| `performance-result.json` | `performance-regression-verification` | `optimize-software-performance` | inferred |
+| `performance-result.md` | `performance-regression-verification` | `optimize-software-performance` | inferred |
 | `performance-study-gaps.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `person-ip-map.json` | `person-research-dossier` | `person-profile-report`, `person-research-report-workflow` | mixed |
 | `person-profile-delivery.json` | `person-profile-document-delivery` | `person-research-report-workflow` | inferred |
@@ -828,7 +856,7 @@ graph TD
 | `qsub-commitments.json` | `fda-qsub-strategy` | — | unconsumed |
 | `qsub-question-set.json` | `fda-qsub-strategy` | — | unconsumed |
 | `quality-record-integrity-assessment.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
-| `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
+| `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `record-integrity-gaps.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
 | `record-retrieval-index.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
 | `recovered-system-model.json` | `opaque-system-analysis` | — | unconsumed |
@@ -848,16 +876,16 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `rehab-progression.json` | `sport-injury-rehabilitation` | `sport-athlete-management` | inferred |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
-| `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
+| `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `return-after-illness-plan.json` | `sport-return-after-illness` | `sport-athlete-management` | inferred |
-| `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
+| `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
 | `review-brief.json` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
 | `review-brief.md` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
-| `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution` | inferred |
-| `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | inferred |
+| `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
+| `reviewable-change-brief.md` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |
 | `revised-text` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
 | `rewrite-change-map.json` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
 | `rewrite-fidelity.json` | `rewrite-fidelity-verifier` | `precision-writing-revision`, `presentation-language-rewriter` | inferred |
@@ -922,14 +950,14 @@ graph TD
 | `usability-engineering-assessment.json` | `iec62366-usability-engineering` | — | unconsumed |
 | `usability-evidence-gaps.json` | `iec62366-usability-engineering` | — | unconsumed |
 | `use-related-risk-evidence.json` | `iec62366-usability-engineering` | — | unconsumed |
-| `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `project-beta-readiness` | inferred |
-| `verification-report.md` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `verification evidence` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
+| `verification-report.md` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `verified terminal status` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `verified-fix-evidence.md` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `vertical-issues.json` | `spec-to-vertical-issues` | `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `vertical-issues.md` | `spec-to-vertical-issues` | `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
-| `vertical-slice-evidence.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
-| `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution` | inferred |
+| `vertical-slice-evidence.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
+| `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |

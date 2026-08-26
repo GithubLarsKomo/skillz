@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Optimization Plan"
+  short_description: "Überführt gemessene Hotspots und priorisierte Optimierungskandidaten in ein belastbares Performance-Konzept und eine..."
+policy:
+  allow_implicit_invocation: true

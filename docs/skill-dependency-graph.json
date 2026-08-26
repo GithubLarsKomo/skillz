@@ -1573,6 +1573,23 @@
       ]
     },
     {
+      "name": "optimize-software-performance",
+      "requires": [
+        "implement-from-issue",
+        "iterate-software-projects",
+        "performance-baseline",
+        "performance-hotspot-analysis",
+        "performance-optimization-plan",
+        "performance-regression-verification",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "consumes": [],
+      "outputs": [
+        "optimization-closure.md"
+      ]
+    },
+    {
       "name": "patent-landscape-analysis",
       "requires": [
         "research-to-evidence-note"
@@ -1582,6 +1599,57 @@
         "patent-landscape.json",
         "patent-landscape.md",
         "patent-search-log.json"
+      ]
+    },
+    {
+      "name": "performance-baseline",
+      "requires": [
+        "iterate-software-projects"
+      ],
+      "consumes": [],
+      "outputs": [
+        "benchmark-reproduction.md",
+        "performance-baseline.json",
+        "performance-baseline.md"
+      ]
+    },
+    {
+      "name": "performance-hotspot-analysis",
+      "requires": [
+        "performance-baseline"
+      ],
+      "consumes": [],
+      "outputs": [
+        "hotspot-analysis.md",
+        "hotspot-map.json",
+        "optimization-candidates.json"
+      ]
+    },
+    {
+      "name": "performance-optimization-plan",
+      "requires": [
+        "architecture-deepening-review",
+        "performance-hotspot-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "PERFORMANCE_PLAN.md",
+        "TASK.md",
+        "optimization-plan.json"
+      ]
+    },
+    {
+      "name": "performance-regression-verification",
+      "requires": [
+        "performance-baseline",
+        "test-driven-vertical-slice",
+        "two-axis-code-review"
+      ],
+      "consumes": [],
+      "outputs": [
+        "performance-regression-guard.md",
+        "performance-result.json",
+        "performance-result.md"
       ]
     },
     {
@@ -3633,8 +3701,68 @@
       "to": "structured-knowledge-artifact"
     },
     {
+      "from": "optimize-software-performance",
+      "to": "implement-from-issue"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "iterate-software-projects"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "performance-baseline"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "performance-hotspot-analysis"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "performance-optimization-plan"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "performance-regression-verification"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "optimize-software-performance",
+      "to": "two-axis-code-review"
+    },
+    {
       "from": "patent-landscape-analysis",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "performance-baseline",
+      "to": "iterate-software-projects"
+    },
+    {
+      "from": "performance-hotspot-analysis",
+      "to": "performance-baseline"
+    },
+    {
+      "from": "performance-optimization-plan",
+      "to": "architecture-deepening-review"
+    },
+    {
+      "from": "performance-optimization-plan",
+      "to": "performance-hotspot-analysis"
+    },
+    {
+      "from": "performance-regression-verification",
+      "to": "performance-baseline"
+    },
+    {
+      "from": "performance-regression-verification",
+      "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "performance-regression-verification",
+      "to": "two-axis-code-review"
     },
     {
       "from": "person-profile-document-delivery",
@@ -4299,6 +4427,17 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "PERFORMANCE_PLAN.md",
+      "producers": [
+        "performance-optimization-plan"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "PRODUCT.md",
       "producers": [
         "frontend-product-context"
@@ -4319,6 +4458,17 @@
       ],
       "consumerSkills": [
         "spec-to-vertical-issues"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "TASK.md",
+      "producers": [
+        "performance-optimization-plan"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -4434,6 +4584,7 @@
       "consumerSkills": [
         "domain-model-maintenance",
         "large-work-wayfinder",
+        "performance-optimization-plan",
         "two-axis-code-review"
       ],
       "ambiguous": false,
@@ -4447,6 +4598,7 @@
       "consumerSkills": [
         "domain-model-maintenance",
         "large-work-wayfinder",
+        "performance-optimization-plan",
         "two-axis-code-review"
       ],
       "ambiguous": false,
@@ -4513,6 +4665,19 @@
       ],
       "consumerSkills": [
         "precision-writing-revision"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "benchmark-reproduction.md",
+      "producers": [
+        "performance-baseline"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance",
+        "performance-hotspot-analysis",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5468,7 +5633,9 @@
         "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5790,6 +5957,8 @@
         "agent-handoff",
         "architecture-deepening-review",
         "disciplined-diagnosis",
+        "optimize-software-performance",
+        "performance-baseline",
         "project-beta-readiness"
       ],
       "ambiguous": false,
@@ -6461,6 +6630,30 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "hotspot-analysis.md",
+      "producers": [
+        "performance-hotspot-analysis"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance",
+        "performance-optimization-plan"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "hotspot-map.json",
+      "producers": [
+        "performance-hotspot-analysis"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance",
+        "performance-optimization-plan"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "human-procedure-plan.md",
       "producers": [
         "human-procedure-wizard"
@@ -6498,6 +6691,7 @@
         "implement-from-issue"
       ],
       "consumerSkills": [
+        "optimize-software-performance",
         "two-axis-code-review"
       ],
       "ambiguous": false,
@@ -6509,6 +6703,7 @@
         "implement-from-issue"
       ],
       "consumerSkills": [
+        "optimize-software-performance",
         "two-axis-code-review"
       ],
       "ambiguous": false,
@@ -7261,6 +7456,8 @@
         "agent-handoff",
         "architecture-deepening-review",
         "disciplined-diagnosis",
+        "optimize-software-performance",
+        "performance-baseline",
         "project-beta-readiness"
       ],
       "ambiguous": false,
@@ -7274,6 +7471,7 @@
       "consumerSkills": [
         "domain-model-maintenance",
         "large-work-wayfinder",
+        "performance-optimization-plan",
         "two-axis-code-review"
       ],
       "ambiguous": false,
@@ -7341,6 +7539,38 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "optimization-candidates.json",
+      "producers": [
+        "performance-hotspot-analysis"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance",
+        "performance-optimization-plan"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "optimization-closure.md",
+      "producers": [
+        "optimize-software-performance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "optimization-plan.json",
+      "producers": [
+        "performance-optimization-plan"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "optional Mermaid map",
@@ -7424,6 +7654,32 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "performance-baseline.json",
+      "producers": [
+        "performance-baseline"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance",
+        "performance-hotspot-analysis",
+        "performance-regression-verification"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "performance-baseline.md",
+      "producers": [
+        "performance-baseline"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance",
+        "performance-hotspot-analysis",
+        "performance-regression-verification"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "performance-evaluation-report.md",
       "producers": [
         "ivdr-performance-evaluation-report"
@@ -7439,6 +7695,39 @@
       ],
       "consumerSkills": [
         "sport-athlete-management"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "performance-regression-guard.md",
+      "producers": [
+        "performance-regression-verification"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "performance-result.json",
+      "producers": [
+        "performance-regression-verification"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "performance-result.md",
+      "producers": [
+        "performance-regression-verification"
+      ],
+      "consumerSkills": [
+        "optimize-software-performance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8252,7 +8541,9 @@
         "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8632,7 +8923,9 @@
         "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8691,6 +8984,8 @@
         "agent-handoff",
         "architecture-deepening-review",
         "disciplined-diagnosis",
+        "optimize-software-performance",
+        "performance-baseline",
         "project-beta-readiness"
       ],
       "ambiguous": false,
@@ -8727,7 +9022,9 @@
         "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8738,6 +9035,7 @@
         "implement-from-issue"
       ],
       "consumerSkills": [
+        "optimize-software-performance",
         "two-axis-code-review"
       ],
       "ambiguous": false,
@@ -9521,6 +9819,8 @@
         "agent-handoff",
         "architecture-deepening-review",
         "disciplined-diagnosis",
+        "optimize-software-performance",
+        "performance-baseline",
         "project-beta-readiness"
       ],
       "ambiguous": false,
@@ -9534,7 +9834,9 @@
       "consumerSkills": [
         "domain-model-maintenance",
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9602,7 +9904,9 @@
       "consumerSkills": [
         "domain-model-maintenance",
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9615,7 +9919,9 @@
       "consumerSkills": [
         "domain-model-maintenance",
         "implement-from-issue",
-        "merge-conflict-resolution"
+        "merge-conflict-resolution",
+        "optimize-software-performance",
+        "performance-regression-verification"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9790,6 +10096,7 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "optimization-closure.md",
     "optional Mermaid map",
     "optional Obsidian vault projection",
     "patent-landscape.json",
@@ -9975,6 +10282,7 @@
     "obsidian-note.md",
     "obsidian-view.base",
     "opaque-analysis-evidence.md",
+    "optimization-closure.md",
     "optional Mermaid map",
     "optional Obsidian vault projection",
     "patent-landscape.json",

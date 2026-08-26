@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-baseline",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A 50k-row import is slow. Establish a reproducible baseline before optimizing it.",
+      "requiredBehaviors": [
+        "define a representative workload and environment",
+        "capture wall time plus relevant database and memory metrics",
+        "document reproduction steps and functional invariants"
+      ],
+      "forbiddenBehaviors": [
+        "change production code before measuring",
+        "claim improvement from a single unqualified timing"
+      ],
+      "skillAnchors": [
+        "Keine Geschwindigkeits- oder Effizienzbehauptung ohne Messbasis",
+        "Warm- und Cold-Cache nicht vermischen",
+        "benchmark-reproduction.md"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The workload depends on a flaky external API whose latency varies widely.",
+      "requiredBehaviors": [
+        "separate external latency from owned-code measurements",
+        "record variance and limitations",
+        "avoid treating unknown values as zero or passed"
+      ],
+      "forbiddenBehaviors": [
+        "attribute all latency to local code",
+        "hide measurement noise"
+      ],
+      "skillAnchors": [
+        "Externe Latenz getrennt",
+        "noiseOrVariance",
+        "unknown"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Optimize the loop immediately because it looks inefficient; no representative benchmark exists.",
+      "requiredBehaviors": [
+        "reject unmeasured optimization as verified work",
+        "establish a baseline first",
+        "mark any hypothesis-only analysis as unverified"
+      ],
+      "forbiddenBehaviors": [
+        "present visual code inspection as a performance benchmark",
+        "invent baseline values"
+      ],
+      "skillAnchors": [
+        "vor jeder Optimierung",
+        "reproduzierbaren Ausgangszustand",
+        "Keine Geschwindigkeits"
+      ]
+    }
+  ]
+}

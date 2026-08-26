@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-regression-verification",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "classify the result as inconclusive", "passed": true, "evidence": "SKILL.md defines INCONCLUSIVE for non-comparable or insufficient measurement evidence."},
+    {"behavior": "require comparable workload and measurement method", "passed": true, "evidence": "The verification gate explicitly checks workload, environment, cache state and measurement-method comparability."},
+    {"behavior": "improve the measurement design before closure", "passed": true, "evidence": "INCONCLUSIVE routes back to measurement design rather than allowing closure."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "claim a verified speedup", "observed": false, "evidence": "A changed workload and single timing cannot satisfy the verification contract."},
+    {"behavior": "create a hard CI threshold from unstable evidence", "observed": false, "evidence": "The skill explicitly avoids flaky wall-clock gates and requires stable reproducible metrics."}
+  ],
+  "overall": "pass"
+}

@@ -37,6 +37,8 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ## Outputs
 
@@ -53,6 +55,8 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ### `quality-review.json`
 
@@ -60,6 +64,8 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ### `requirement-coverage.json`
 
@@ -67,6 +73,8 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ### `review-decision.md`
 
@@ -74,6 +82,8 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-regression-verification|performance-regression-verification]]
 
 ## Evaluation
 

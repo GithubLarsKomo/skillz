@@ -33,6 +33,7 @@ Implementiert ein klar abgegrenztes Repository-Issue vom verifizierten Ausgangsz
 
 ## Required by
 
+- [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ## Outputs
@@ -45,14 +46,17 @@ Implementiert ein klar abgegrenztes Repository-Issue vom verifizierten Ausgangsz
 
 ### `implementation-evidence.json`
 
+- [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ### `implementation-residual-risk-handoff.json`
 
+- [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ### `reviewable-change-brief.md`
 
+- [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/two-axis-code-review|two-axis-code-review]]
 
 ## Evaluation

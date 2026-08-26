@@ -775,10 +775,40 @@
         "agents/openai.yaml": "9895354261df1c6d40697d0836be07e86c3cd3a67177789cdea4cd410d8d004c"
       }
     },
+    "optimize-software-performance": {
+      "files": {
+        "SKILL.md": "2dfed3af8a6a1555660b63c0ae979e491b8dbc3964ab8ca50cb177c15e305b45",
+        "agents/openai.yaml": "4f87e79aff758bead0a9adc2c5d644226fe454e13365a67e9ced9bfe79604077"
+      }
+    },
     "patent-landscape-analysis": {
       "files": {
         "SKILL.md": "c756e5f16ec1232b3dcbbf95b10327e9ca57fd6178e7b86d05dfda1845361a73",
         "agents/openai.yaml": "67acea37de785e88b6c7ba1a4a88750d4defae39d8ee37117d8456ebf980cf02"
+      }
+    },
+    "performance-baseline": {
+      "files": {
+        "SKILL.md": "11e9cb447946d16140d01972117b3bafba647211733e213ce40b79d985c0f684",
+        "agents/openai.yaml": "63353f3b9599de4bb11322653f9778638bd5105c270b7ad1488a44bbea822120"
+      }
+    },
+    "performance-hotspot-analysis": {
+      "files": {
+        "SKILL.md": "8cb44a0b5b9ecba8eddb7764d551d02fbb71a623231cc3787a4080c88ee3a4e6",
+        "agents/openai.yaml": "2bcbf75cc2ef6240386e6ec1f2fae096fe40182200495aa22998eae1e1fe2119"
+      }
+    },
+    "performance-optimization-plan": {
+      "files": {
+        "SKILL.md": "72ef4fb165ed8cf06437265d9aab7493abdc800358b3233d7563fe6eba930f73",
+        "agents/openai.yaml": "506b46ccf2bf9a9ff90f13dfa8f7aac83b54bf3af25f6abcd47f00ac1a5eb4b2"
+      }
+    },
+    "performance-regression-verification": {
+      "files": {
+        "SKILL.md": "dccaea21b44385d5d54b884e8d0dbc6a0d3b19ddaa1b03dcd498473b939a3d7e",
+        "agents/openai.yaml": "8866bc337f6a485235c5103eb9e69251b519b5755f720474b67033d5fcd6f461"
       }
     },
     "person-profile-document-delivery": {

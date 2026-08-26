@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-optimization-plan",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A measured N+1 query dominates a 50k-row import. Produce a concept and TASK.md that a coding agent can execute.",
+      "requiredBehaviors": [
+        "define a measurable performance gate and functional gate",
+        "select the smallest high-impact change",
+        "split implementation into verifiable slices and document rejected alternatives"
+      ],
+      "forbiddenBehaviors": [
+        "write a vague optimize-application task",
+        "hide irreversible design decisions as assumptions"
+      ],
+      "skillAnchors": [
+        "PERFORMANCE_PLAN.md",
+        "TASK.md",
+        "verworfene Alternativen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two candidates offer similar benefit: a local batching change and a new distributed cache with higher operational risk.",
+      "requiredBehaviors": [
+        "prefer the smaller lower-risk candidate when it plausibly meets the budget",
+        "document the cache alternative and rejection reason",
+        "capture rollback and measurement strategy"
+      ],
+      "forbiddenBehaviors": [
+        "introduce new infrastructure solely because it may be faster",
+        "omit operational trade-offs"
+      ],
+      "skillAnchors": [
+        "kleinste Kombination",
+        "Rollback",
+        "Alternativen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Create TASK.md from code style observations only; no baseline, hotspot map, or target exists.",
+      "requiredBehaviors": [
+        "refuse to present an evidence-free performance plan as implementation-ready",
+        "route back to measurement and hotspot analysis",
+        "keep speculative ideas clearly unverified"
+      ],
+      "forbiddenBehaviors": [
+        "invent performance targets",
+        "authorize a broad rewrite"
+      ],
+      "skillAnchors": [
+        "gemessene Hotspots",
+        "überprüfbare Erfolgsbedingung",
+        "keine spekulativen Rewrites"
+      ]
+    }
+  ]
+}

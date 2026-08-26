@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Regression Verification"
+  short_description: "Verifiziert nach einer Software-Optimierung funktionale Gleichwertigkeit und messbare Performance-Verbesserung gegen..."
+policy:
+  allow_implicit_invocation: true

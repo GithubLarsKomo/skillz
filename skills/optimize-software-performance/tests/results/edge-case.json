@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "optimize-software-performance",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "stop adding optimizations once the agreed target and gates are met", "passed": true, "evidence": "The loop explicitly closes when the target and gates are satisfied and forbids optimization for completeness."},
+    {"behavior": "retain unimplemented candidates as documented alternatives rather than mandatory work", "passed": true, "evidence": "The closure records consciously unimplemented candidates and the plan records rejected alternatives."},
+    {"behavior": "run simplification and final verification", "passed": true, "evidence": "Phase 7 requires a simplification pass followed by repeated tests and benchmark."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "implement every candidate for completeness", "observed": false, "evidence": "The skill explicitly stops further optimization once the agreed target and gates are met."},
+    {"behavior": "add cache or parallelism after the target is already satisfied", "observed": false, "evidence": "Cache and parallelism are later-stage levers and are not pursued after closure conditions are met."}
+  ],
+  "overall": "pass"
+}
