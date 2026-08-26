@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Optimization Plan"
+  short_description: "Überführt Hotspots in PERFORMANCE_PLAN.md und eine ausführbare TASK.md."
+policy:
+  allow_implicit_invocation: true
