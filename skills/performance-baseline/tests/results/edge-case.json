@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-baseline",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "separate external latency from owned-code measurements", "passed": true, "evidence": "SKILL.md explicitly requires external latency to be separated when it dominates."},
+    {"behavior": "record variance and limitations", "passed": true, "evidence": "The baseline contract includes noiseOrVariance and knownLimitations."},
+    {"behavior": "avoid treating unknown values as zero or passed", "passed": true, "evidence": "SKILL.md requires unmeasured values to be recorded as unknown."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "attribute all latency to local code", "observed": false, "evidence": "The skill explicitly separates external dependency latency."},
+    {"behavior": "hide measurement noise", "observed": false, "evidence": "Measurement noise and variance are required outputs."}
+  ],
+  "overall": "pass"
+}

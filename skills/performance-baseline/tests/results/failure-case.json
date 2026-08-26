@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-baseline",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject unmeasured optimization as verified work", "passed": true, "evidence": "SKILL.md states that speed or efficiency claims require a measurement baseline."},
+    {"behavior": "establish a baseline first", "passed": true, "evidence": "The workflow starts by establishing a reproducible baseline before optimization."},
+    {"behavior": "mark any hypothesis-only analysis as unverified", "passed": true, "evidence": "The skill separates measured baseline evidence from assumptions and unknowns."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "present visual code inspection as a performance benchmark", "observed": false, "evidence": "The skill requires measured workload evidence rather than code appearance."},
+    {"behavior": "invent baseline values", "observed": false, "evidence": "Unmeasured values must remain unknown and limitations are explicit."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-optimization-plan",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "refuse to present an evidence-free performance plan as implementation-ready", "passed": true, "evidence": "SKILL.md requires measured hotspots and an observable success condition before implementation planning."},
+    {"behavior": "route back to measurement and hotspot analysis", "passed": true, "evidence": "The declared inputs require performance-baseline, hotspot-map and optimization-candidates before planning."},
+    {"behavior": "keep speculative ideas clearly unverified", "passed": true, "evidence": "Speculative rewrites are rejected and unsupported changes cannot be promoted to implementation-ready work."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "invent performance targets", "observed": false, "evidence": "Targets must be observed budgets grounded in the optimization context rather than fabricated values."},
+    {"behavior": "authorize a broad rewrite", "observed": false, "evidence": "The skill explicitly forbids speculative rewrites and seeks the smallest effective change."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-hotspot-analysis",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "state limited confidence", "passed": true, "evidence": "SKILL.md requires confidence to be reported and weak evidence to remain a hypothesis."},
+    {"behavior": "avoid manufacturing a dominant root cause", "passed": true, "evidence": "The skill requires measured decomposition and explicitly labels unsupported candidates as hypotheses."},
+    {"behavior": "recommend better measurement where needed", "passed": true, "evidence": "An unusable or weak baseline is routed back to performance-baseline for improved measurement."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "present a speculative hotspot as proven", "observed": false, "evidence": "Unsupported candidates are explicitly marked as hypotheses."},
+    {"behavior": "rank candidates without exposing uncertainty", "observed": false, "evidence": "Confidence and evidence are mandatory ranking fields."}
+  ],
+  "overall": "pass"
+}

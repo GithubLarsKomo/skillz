@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "optimize-software-performance",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject performance closure because the benchmark is not comparable", "passed": true, "evidence": "The orchestrator routes non-comparable final evidence to INCONCLUSIVE rather than closure."},
+    {"behavior": "route to improved measurement", "passed": true, "evidence": "The loop explicitly sends INCONCLUSIVE results back to measurement design."},
+    {"behavior": "identify temporary helper complexity for the later simplification pass", "passed": true, "evidence": "The simplification phase explicitly searches for obsolete workarounds, duplicate helpers and temporary instrumentation."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat unit tests as proof of performance", "observed": false, "evidence": "The orchestrator separates functional evidence from targeted and final performance benchmarks."},
+    {"behavior": "skip cleanup of known temporary optimization artifacts", "observed": false, "evidence": "Cleanup of unnecessary optimization artifacts is an explicit closure requirement."}
+  ],
+  "overall": "pass"
+}

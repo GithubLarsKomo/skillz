@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-regression-verification",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "surface the memory regression as a trade-off", "passed": true, "evidence": "SKILL.md requires secondary regressions such as RAM to be checked and reported as trade-offs."},
+    {"behavior": "avoid unconditional PASS when acceptance is unresolved", "passed": true, "evidence": "The result model includes PASS_WITH_TRADEOFF and requires explicit acceptance for trade-offs."},
+    {"behavior": "preserve the measured evidence", "passed": true, "evidence": "Before/after metrics and residual uncertainties are mandatory outputs."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "hide memory cost because latency improved", "observed": false, "evidence": "Secondary metric regressions must be surfaced even when the target metric improves."},
+    {"behavior": "invent user acceptance", "observed": false, "evidence": "Unresolved trade-offs cannot be silently accepted by the verifier."}
+  ],
+  "overall": "pass"
+}

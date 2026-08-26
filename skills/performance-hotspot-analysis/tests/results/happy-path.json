@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-hotspot-analysis",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "identify repeated database access as the dominant hotspot", "passed": true, "evidence": "SKILL.md requires dominant time/resource shares to be identified and tied to concrete evidence."},
+    {"behavior": "distinguish root cause from visible symptom", "passed": true, "evidence": "The skill explicitly separates root cause from symptom and gives N+1 access as the example."},
+    {"behavior": "rank candidates by impact confidence effort and risk", "passed": true, "evidence": "Candidate ranking includes expectedImpact, confidence, implementationEffort, correctnessRisk and operationalRisk."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "optimize the visible loop first because it is easy to edit", "observed": false, "evidence": "The skill prioritizes dominant system hotspots over easy local edits."},
+    {"behavior": "recommend infrastructure replacement without evidence", "observed": false, "evidence": "Infrastructure changes are deferred behind simpler evidence-backed levers."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-hotspot-analysis",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "reject style-based performance conclusions", "passed": true, "evidence": "SKILL.md prohibits performance prioritization from stylistic code appearance alone."},
+    {"behavior": "require baseline and profiling evidence", "passed": true, "evidence": "The skill requires performance-baseline plus profiling, tracing, query-plan, log or equivalent evidence."},
+    {"behavior": "prefer simpler work elimination before parallelism", "passed": true, "evidence": "The prescribed optimization order places work elimination before cache and parallelism."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "infer runtime dominance from syntax alone", "observed": false, "evidence": "Runtime dominance must be evidenced by measured hotspot data."},
+    {"behavior": "default to parallelization", "observed": false, "evidence": "Parallelization is explicitly later in the optimization order and requires justification."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-regression-verification",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "verify workload comparability before accepting the delta", "passed": true, "evidence": "SKILL.md requires matching workload, data volume, cache state, environment and relevant concurrency before comparison."},
+    {"behavior": "report functional and performance evidence separately", "passed": true, "evidence": "Functional regression tests are evaluated first and performance metrics are reported independently afterward."},
+    {"behavior": "classify success and propose a stable regression guard", "passed": true, "evidence": "The skill defines explicit outcome states and requires stable metrics before creating a regression guard."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "accept performance improvement when functional tests fail", "observed": false, "evidence": "Functional failure forces FAIL_FUNCTIONAL regardless of speedup."},
+    {"behavior": "ignore secondary regressions", "observed": false, "evidence": "CPU, RAM, query, I/O, network, locking, error-rate and cost regressions are checked where relevant."}
+  ],
+  "overall": "pass"
+}

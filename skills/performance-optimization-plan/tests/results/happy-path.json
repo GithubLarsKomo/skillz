@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-optimization-plan",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "define a measurable performance gate and functional gate", "passed": true, "evidence": "SKILL.md requires both Performance Gate and Functional Gate in TASK.md."},
+    {"behavior": "select the smallest high-impact change", "passed": true, "evidence": "The planning workflow selects the smallest combination of candidates that plausibly meets the budget."},
+    {"behavior": "split implementation into verifiable slices and document rejected alternatives", "passed": true, "evidence": "The skill requires small independently verifiable slices and rejected alternatives with reasons."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "write a vague optimize-application task", "observed": false, "evidence": "SKILL.md explicitly rejects vague optimize-application tasks and provides a measurable example."},
+    {"behavior": "hide irreversible design decisions as assumptions", "observed": false, "evidence": "Open irreversible decisions remain blockers and may not be hidden as assumptions."}
+  ],
+  "overall": "pass"
+}

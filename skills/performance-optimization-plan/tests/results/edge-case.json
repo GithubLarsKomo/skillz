@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-optimization-plan",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-26",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {"behavior": "prefer the smaller lower-risk candidate when it plausibly meets the budget", "passed": true, "evidence": "The skill prioritizes the smallest combination of candidates and lower-risk high-information changes first."},
+    {"behavior": "document the cache alternative and rejection reason", "passed": true, "evidence": "Rejected alternatives and their expected effect, risk and rejection reason are mandatory."},
+    {"behavior": "capture rollback and measurement strategy", "passed": true, "evidence": "Rollback and measurement strategy are explicit planning outputs."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "introduce new infrastructure solely because it may be faster", "observed": false, "evidence": "The plan requires evidence and favors simpler changes before infrastructure additions."},
+    {"behavior": "omit operational trade-offs", "observed": false, "evidence": "Operational risks and trade-offs are explicitly captured for cache, concurrency and architecture changes."}
+  ],
+  "overall": "pass"
+}
