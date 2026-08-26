@@ -1,4 +1,5 @@
 import json
+import unittest
 from pathlib import Path
 
 
@@ -30,56 +31,57 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_sport_profile_binds_branding_to_existing_impeccable_layout():
-    profile = load(PROFILE)
-    policy = profile["policy"]
+class SportDesignTemplateContractTests(unittest.TestCase):
+    def test_sport_profile_binds_branding_to_existing_impeccable_layout(self):
+        profile = load(PROFILE)
+        policy = profile["policy"]
 
-    assert profile["id"] == "sport-performance"
-    assert profile["version"] == "1.3.0"
-    assert policy["binding_app_templates"] is True
-    assert policy["branding_preserves_accepted_impeccable_layout"] is True
-    assert policy["layout_redesign_requires_explicit_scope"] is True
-    assert set(policy["branding_only_scope"]) == {
-        "color-tokens",
-        "semantic-color-roles",
-        "logo",
-        "wordmark",
-        "favicon",
-        "app-icon",
-        "pwa-theme-metadata",
-    }
+        self.assertEqual(profile["id"], "sport-performance")
+        self.assertEqual(profile["version"], "1.3.0")
+        self.assertTrue(policy["binding_app_templates"])
+        self.assertTrue(policy["branding_preserves_accepted_impeccable_layout"])
+        self.assertTrue(policy["layout_redesign_requires_explicit_scope"])
+        self.assertEqual(set(policy["branding_only_scope"]), {
+            "color-tokens",
+            "semantic-color-roles",
+            "logo",
+            "wordmark",
+            "favicon",
+            "app-icon",
+            "pwa-theme-metadata",
+        })
+
+    def test_confirmed_template_spectrum_is_exact(self):
+        profile = load(PROFILE)
+        self.assertEqual(profile["confirmed_template_spectrum"], CONFIRMED_SPECTRUM)
+        self.assertEqual(profile["palette"]["body"], CONFIRMED_SPECTRUM["text_primary"])
+        self.assertEqual(profile["palette"]["muted"], CONFIRMED_SPECTRUM["text_secondary"])
+        self.assertEqual(profile["palette"]["surface_subtle"], CONFIRMED_SPECTRUM["surface_1"])
+        self.assertEqual(profile["palette"]["surface"], CONFIRMED_SPECTRUM["surface_2"])
+        self.assertEqual(profile["palette"]["border"], CONFIRMED_SPECTRUM["border"])
+
+    def test_sport_profile_exposes_both_reference_products(self):
+        profile = load(PROFILE)
+        products = profile["design_templates"]["products"]
+
+        self.assertIn("sport-athlete-management", products)
+        self.assertIn("masters-diagnostics", products)
+        self.assertTrue(profile["design_templates"]["reference"].endswith("sport-performance-apps.md"))
+
+    def test_template_contract_contains_literal_logo_and_color_guardrail(self):
+        text = TEMPLATE.read_text(encoding="utf-8")
+
+        self.assertIn("only logos and colors", text)
+        self.assertIn("MUST NOT alter", text)
+        self.assertIn("Impeccable UI template", text)
+        self.assertIn("Sport Performance branding overlay", text)
+
+    def test_plugin_distribution_contains_same_binding_profile_and_template(self):
+        self.assertEqual(load(PLUGIN_PROFILE), load(PROFILE))
+        plugin_text = PLUGIN_TEMPLATE.read_text(encoding="utf-8")
+        self.assertIn("frozen by default", plugin_text)
+        self.assertIn("only logos and colors", plugin_text)
 
 
-def test_confirmed_template_spectrum_is_exact():
-    profile = load(PROFILE)
-    assert profile["confirmed_template_spectrum"] == CONFIRMED_SPECTRUM
-    assert profile["palette"]["body"] == CONFIRMED_SPECTRUM["text_primary"]
-    assert profile["palette"]["muted"] == CONFIRMED_SPECTRUM["text_secondary"]
-    assert profile["palette"]["surface_subtle"] == CONFIRMED_SPECTRUM["surface_1"]
-    assert profile["palette"]["surface"] == CONFIRMED_SPECTRUM["surface_2"]
-    assert profile["palette"]["border"] == CONFIRMED_SPECTRUM["border"]
-
-
-def test_sport_profile_exposes_both_reference_products():
-    profile = load(PROFILE)
-    products = profile["design_templates"]["products"]
-
-    assert "sport-athlete-management" in products
-    assert "masters-diagnostics" in products
-    assert profile["design_templates"]["reference"].endswith("sport-performance-apps.md")
-
-
-def test_template_contract_contains_literal_logo_and_color_guardrail():
-    text = TEMPLATE.read_text(encoding="utf-8")
-
-    assert "only logos and colors" in text
-    assert "MUST NOT alter" in text
-    assert "Impeccable UI template" in text
-    assert "Sport Performance branding overlay" in text
-
-
-def test_plugin_distribution_contains_same_binding_profile_and_template():
-    assert load(PLUGIN_PROFILE) == load(PROFILE)
-    plugin_text = PLUGIN_TEMPLATE.read_text(encoding="utf-8")
-    assert "frozen by default" in plugin_text
-    assert "only logos and colors" in plugin_text
+if __name__ == "__main__":
+    unittest.main()
