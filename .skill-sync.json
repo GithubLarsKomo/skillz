@@ -777,7 +777,7 @@
     },
     "optimize-software-performance": {
       "files": {
-        "SKILL.md": "d20155f3092c2344ffca499be624c0f2080ac30c9ebd3c380347a042671b71c7",
+        "SKILL.md": "2dfed3af8a6a1555660b63c0ae979e491b8dbc3964ab8ca50cb177c15e305b45",
         "agents/openai.yaml": "4f87e79aff758bead0a9adc2c5d644226fe454e13365a67e9ced9bfe79604077"
       }
     },

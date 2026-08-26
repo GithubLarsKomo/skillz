@@ -7040,44 +7040,14 @@
       ],
       "dependents": [],
       "outputs": [
-        "PERFORMANCE_PLAN.md",
-        "TASK.md",
-        "optimization-closure.md",
-        "performance-result.json"
+        "optimization-closure.md"
       ],
       "outputContracts": [
-        {
-          "output": "PERFORMANCE_PLAN.md",
-          "ambiguous": true,
-          "producers": [
-            "optimize-software-performance",
-            "performance-optimization-plan"
-          ],
-          "consumerSkills": []
-        },
-        {
-          "output": "TASK.md",
-          "ambiguous": true,
-          "producers": [
-            "optimize-software-performance",
-            "performance-optimization-plan"
-          ],
-          "consumerSkills": []
-        },
         {
           "output": "optimization-closure.md",
           "ambiguous": false,
           "producers": [
             "optimize-software-performance"
-          ],
-          "consumerSkills": []
-        },
-        {
-          "output": "performance-result.json",
-          "ambiguous": true,
-          "producers": [
-            "optimize-software-performance",
-            "performance-regression-verification"
           ],
           "consumerSkills": []
         }
@@ -7298,21 +7268,23 @@
       "outputContracts": [
         {
           "output": "PERFORMANCE_PLAN.md",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "optimize-software-performance",
             "performance-optimization-plan"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
         },
         {
           "output": "TASK.md",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "optimize-software-performance",
             "performance-optimization-plan"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
         },
         {
           "output": "optimization-plan.json",
@@ -7368,12 +7340,13 @@
         },
         {
           "output": "performance-result.json",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "optimize-software-performance",
             "performance-regression-verification"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "optimize-software-performance"
+          ]
         },
         {
           "output": "performance-result.md",

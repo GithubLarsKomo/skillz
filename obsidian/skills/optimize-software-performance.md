@@ -41,28 +41,13 @@ Orchestriert die messbare Optimierung und Beschleunigung bestehenden oder iterat
 
 ## Outputs
 
-- `PERFORMANCE_PLAN.md`
-- `TASK.md`
 - `optimization-closure.md`
-- `performance-result.json`
 
 ## Output consumers
-
-### `PERFORMANCE_PLAN.md`
-
-- Ambiguous producer contract; no inferred consumer edge.
-
-### `TASK.md`
-
-- Ambiguous producer contract; no inferred consumer edge.
 
 ### `optimization-closure.md`
 
 - Terminal or currently unconsumed output.
-
-### `performance-result.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
 
 ## Evaluation
 

@@ -43,11 +43,11 @@ tags:
 
 ### `PERFORMANCE_PLAN.md`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/optimize-software-performance|optimize-software-performance]]
 
 ### `TASK.md`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/optimize-software-performance|optimize-software-performance]]
 
 ### `optimization-plan.json`
 

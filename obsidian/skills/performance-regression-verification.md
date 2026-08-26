@@ -48,7 +48,7 @@ Verifiziert nach einer Software-Optimierung funktionale Gleichwertigkeit und mes
 
 ### `performance-result.json`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/optimize-software-performance|optimize-software-performance]]
 
 ### `performance-result.md`
 

@@ -491,10 +491,10 @@ graph TD
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
 | `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
-| `PERFORMANCE_PLAN.md` | `optimize-software-performance`, `performance-optimization-plan` | — | ambiguous |
+| `PERFORMANCE_PLAN.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
-| `TASK.md` | `optimize-software-performance`, `performance-optimization-plan` | — | ambiguous |
+| `TASK.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `acceptance-gaps.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `adverse-event-code-set.json` | `medical-device-adverse-event-coding` | — | unconsumed |
 | `adverse-event-coding-delta.json` | `medical-device-adverse-event-coding` | — | unconsumed |
@@ -784,7 +784,7 @@ graph TD
 | `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
 | `performance-psychology-plan.json` | `sport-performance-psychology` | `sport-athlete-management` | inferred |
 | `performance-regression-guard.md` | `performance-regression-verification` | `optimize-software-performance` | inferred |
-| `performance-result.json` | `optimize-software-performance`, `performance-regression-verification` | — | ambiguous |
+| `performance-result.json` | `performance-regression-verification` | `optimize-software-performance` | inferred |
 | `performance-result.md` | `performance-regression-verification` | `optimize-software-performance` | inferred |
 | `performance-study-gaps.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `person-ip-map.json` | `person-research-dossier` | `person-profile-report`, `person-research-report-workflow` | mixed |

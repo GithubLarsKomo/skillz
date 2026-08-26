@@ -1586,10 +1586,7 @@
       ],
       "consumes": [],
       "outputs": [
-        "PERFORMANCE_PLAN.md",
-        "TASK.md",
-        "optimization-closure.md",
-        "performance-result.json"
+        "optimization-closure.md"
       ]
     },
     {
@@ -4432,12 +4429,13 @@
     {
       "output": "PERFORMANCE_PLAN.md",
       "producers": [
-        "optimize-software-performance",
         "performance-optimization-plan"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "PRODUCT.md",
@@ -4467,12 +4465,13 @@
     {
       "output": "TASK.md",
       "producers": [
-        "optimize-software-performance",
         "performance-optimization-plan"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "acceptance-gaps.json",
@@ -7714,12 +7713,13 @@
     {
       "output": "performance-result.json",
       "producers": [
-        "optimize-software-performance",
         "performance-regression-verification"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "consumerSkills": [
+        "optimize-software-performance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "performance-result.md",

@@ -9,7 +9,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Evaluation suites: **192**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
-- Ambiguous outputs (multiple producers): **8**
+- Ambiguous outputs (multiple producers): **5**
 - Outputs without inferred hard-requires consumers: **184**
 
 ## Evaluation gaps
@@ -32,12 +32,9 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Ambiguous outputs
 
-- `PERFORMANCE_PLAN.md` — producers: `optimize-software-performance`, `performance-optimization-plan`
-- `TASK.md` — producers: `optimize-software-performance`, `performance-optimization-plan`
 - `learning-mission.json` — producers: `learning-mission`, `teach`
 - `learning-next-step.json` — producers: `learning-next-step`, `teach`
 - `learning-state.json` — producers: `learning-state`, `teach`
-- `performance-result.json` — producers: `optimize-software-performance`, `performance-regression-verification`
 - `presentation-qa.md` — producers: `euroimmun-presentation-workflow`, `template-presentation-workflow`
 - `presentation-template-profile.json` — producers: `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow`
 
