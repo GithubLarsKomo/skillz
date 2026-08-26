@@ -391,7 +391,7 @@
     },
     "frontend-design-system-context": {
       "files": {
-        "SKILL.md": "129abde0dfb5778acb007cf6316fecb531fbfe6cc8de9eed01d3e9620c279654",
+        "SKILL.md": "b761860e3d6351d24b94c15cf83cac91f24ec6b7793eb0d1734d29360ca3381e",
         "agents/openai.yaml": "2b01df44f8aa421e62acbd37eed591ed69f83bab5a4adbe6701a3802369e1fe4",
         "references/brand-profiles/euroimmun.json": "4f4f225236a80575fa86a5db52e639cf7ffde14687cc737894edb64a924011ee",
         "references/brand-profiles/sport-performance.json": "c9ef3aefebf4c79f622605131ced73a4b57b89c038bb30bbbe7a7581a7ba4028",
