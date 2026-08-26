@@ -220,7 +220,7 @@
     },
     "euroimmun-presentation-workflow": {
       "files": {
-        "SKILL.md": "04e9abd95e7341a04a1f53f41a62c18e79fb716c2edc93f5619ca8205d66f83f",
+        "SKILL.md": "d24a6cc386e7aea2495788344e24bcd364e8f79cfd5a0e63718f5f1bac86225b",
         "agents/openai.yaml": "b6330e6d885fd4ee53efd7575434d32dd6547a5429fbd1b4c441696604b6ef22",
         "references/euroimmun-template-spec.md": "4654c0662cfb67687c311c7e7b84a9b7284fbf3e27d1f879e74be50b2e4e58ba"
       }
@@ -816,6 +816,30 @@
         "agents/openai.yaml": "eeec69b963850ad8fa311bae565099fa08b80056209c388113705cb4d9a26bc3"
       }
     },
+    "presentation-language-rewriter": {
+      "files": {
+        "SKILL.md": "8152152aeb768a1c223a32262cf0a1e0e899bbe4229eb70d3887753f298f8bd0",
+        "agents/openai.yaml": "1edbd5c53efb02f6ea462ac871e3d460ce956a1343e2a49dc4c21642332af2c8"
+      }
+    },
+    "presentation-layout-qa": {
+      "files": {
+        "SKILL.md": "af3cd1bc4800cbaef35b24ab90640d1b8ef45c6ea4af28b6bae1dd72c9a787aa",
+        "agents/openai.yaml": "92937f525a8c49a0b8a7f4203955f8c5b514f53f82a660b1e5ec7cc3e353c1f2"
+      }
+    },
+    "presentation-render-verifier": {
+      "files": {
+        "SKILL.md": "735b8a16bc804e7a204305563de4c94efb2221e2fffbec719c87375edb40892d",
+        "agents/openai.yaml": "2705e24f08f68e05a7b5695001578bf7d4cc4f0906d57c862c842574ec0b74e0"
+      }
+    },
+    "presentation-template-profiler": {
+      "files": {
+        "SKILL.md": "1b0ffdbad9becf2b4230a72b18e140d349707de3fcd22f261a8dd83c8b4536c2",
+        "agents/openai.yaml": "f813e2a88d2ab8226fea221cc8f0bcccb1b7df250e1abccd8809642cc7043d04"
+      }
+    },
     "price-availability-snapshot": {
       "files": {
         "SKILL.md": "a42d65efaa5d533b9baeaf52cb86b6808111517aeba37e77e79bdc4dfa4b5294",
@@ -1137,6 +1161,12 @@
       "files": {
         "SKILL.md": "df9e98913c4a0916aa217d7b50b0102a047eefccc91d791ed11705bdfb32ae1b",
         "agents/openai.yaml": "e8506c6a872c2fe6162bf8b9d56b9cd60e07a3f2d2146c205628dabdbc6baa8c"
+      }
+    },
+    "template-presentation-workflow": {
+      "files": {
+        "SKILL.md": "6f5aaddcf1a5cef9f81954033f938cf2f58d3d668a3b06e2bdfeeff3f9a5f065",
+        "agents/openai.yaml": "30549acd003dc375b08e0d05498eeeeb2f265fd056fae5682675cfe111230711"
       }
     },
     "test-driven-vertical-slice": {

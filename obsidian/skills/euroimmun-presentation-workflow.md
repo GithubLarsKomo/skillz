@@ -16,7 +16,7 @@ tags:
 
 # euroimmun-presentation-workflow
 
-Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und einer managementtauglichen Storyline. Verwenden, wenn der Nutzer eine EUROIMMUN-Präsentation, Board-/Management-Deck, R&D-/Innovation-Deck oder eine bestehende Präsentation im EUROIMMUN-Stil verlangt. Nicht für allgemeine Revvity- oder fremde Corporate-Decks verwenden.
+Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,7 +26,7 @@ Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bes
 
 ## Requires
 
-- [[skills/precision-writing-revision|precision-writing-revision]]
+- [[skills/template-presentation-workflow|template-presentation-workflow]]
 
 ## Required by
 
@@ -34,10 +34,16 @@ Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bes
 
 ## Outputs
 
+- `euroimmun-presentation.pdf`
 - `euroimmun-presentation.pptx`
 - `presentation-qa.md`
+- `presentation-template-profile.json`
 
 ## Output consumers
+
+### `euroimmun-presentation.pdf`
+
+- Terminal or currently unconsumed output.
 
 ### `euroimmun-presentation.pptx`
 
@@ -45,7 +51,11 @@ Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bes
 
 ### `presentation-qa.md`
 
-- Terminal or currently unconsumed output.
+- Ambiguous producer contract; no inferred consumer edge.
+
+### `presentation-template-profile.json`
+
+- Ambiguous producer contract; no inferred consumer edge.
 
 ## Evaluation
 

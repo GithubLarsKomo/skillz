@@ -56,7 +56,7 @@ graph TD
   eudamed_udi_ivd --> regulated_product_context
   eudamed_udi_ivd --> regulatory_evidence_traceability
   euroimmun_pdf_report_renderer --> euroimmun_docx_report_renderer
-  euroimmun_presentation_workflow --> precision_writing_revision
+  euroimmun_presentation_workflow --> template_presentation_workflow
   evidence_based_causal_investigation --> research_to_evidence_note
   exam_trainer_catalog_builder --> learning_assessment_spec
   exam_trainer_catalog_builder --> learning_mission
@@ -315,6 +315,9 @@ graph TD
   precision_writing_revision --> llm_prose_pattern_audit
   precision_writing_revision --> precision_language_rewriter
   precision_writing_revision --> rewrite_fidelity_verifier
+  presentation_language_rewriter --> rewrite_fidelity_verifier
+  presentation_layout_qa --> presentation_template_profiler
+  presentation_render_verifier --> presentation_layout_qa
   process_validation_iq_oq_pq --> design_control_traceability
   process_validation_iq_oq_pq --> medical_device_qms_iso13485
   process_validation_iq_oq_pq --> medical_device_risk_management_iso14971
@@ -426,6 +429,10 @@ graph TD
   teach --> research_to_evidence_note
   technology_due_diligence --> technology_offer_assessment
   technology_offer_assessment --> research_to_evidence_note
+  template_presentation_workflow --> presentation_language_rewriter
+  template_presentation_workflow --> presentation_layout_qa
+  template_presentation_workflow --> presentation_render_verifier
+  template_presentation_workflow --> presentation_template_profiler
   test_driven_vertical_slice --> disciplined_diagnosis
   test_driven_vertical_slice --> spec_to_vertical_issues
   thought_graph_extractor --> structured_knowledge_artifact
@@ -606,6 +613,7 @@ graph TD
 | `eu-regulatory-assessment.md` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eu-regulatory-investigations.json` | `eu-mdr-ivdr-regulatory-specialist` | `medical-device-regulatory-strategy` | inferred |
 | `eudamed-readiness.json` | `eudamed-udi-ivd` | — | unconsumed |
+| `euroimmun-presentation.pdf` | `euroimmun-presentation-workflow` | — | unconsumed |
 | `euroimmun-presentation.pptx` | `euroimmun-presentation-workflow` | — | unconsumed |
 | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | inferred |
 | `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
@@ -628,7 +636,7 @@ graph TD
 | `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `fda-estar-submission-builder`, `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
 | `fda-request-issue-map.json` | `fda-additional-information-response` | — | unconsumed |
 | `fda-response-package.md` | `fda-additional-information-response` | — | unconsumed |
-| `fidelity-review.md` | `rewrite-fidelity-verifier` | `precision-writing-revision` | inferred |
+| `fidelity-review.md` | `rewrite-fidelity-verifier` | `precision-writing-revision`, `presentation-language-rewriter` | inferred |
 | `field-action-closure-readiness.json` | `medical-device-field-action-effectiveness` | `fda-recall-status-termination`, `ivdr-fsca-status-final-reporting` | inferred |
 | `field-action-communication-state.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-disposition-evidence.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
@@ -639,7 +647,7 @@ graph TD
 | `field-action-recipient-scope.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-unit-custody-ledger.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
 | `field-safety-notice-content.json` | `ivdr-field-safety-corrective-action` | `ivdr-fsca-status-final-reporting` | inferred |
-| `final-revised-text` | `precision-writing-revision` | `euroimmun-presentation-workflow`, `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
+| `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `finding-closure-status.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `flex-study-needs.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
@@ -769,10 +777,21 @@ graph TD
 | `pms-review-status.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-source-register.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-system-plan.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
-| `precision-writing-report.json` | `precision-writing-revision` | `euroimmun-presentation-workflow`, `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
+| `precision-writing-report.json` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
 | `predicate-candidate-set.json` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `predicate-strategy.md` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
-| `presentation-qa.md` | `euroimmun-presentation-workflow` | — | unconsumed |
+| `presentation-language-report.json` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
+| `presentation-layout-qa.json` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | inferred |
+| `presentation-layout-qa.md` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | inferred |
+| `presentation-preview.pdf` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
+| `presentation-qa.md` | `euroimmun-presentation-workflow`, `template-presentation-workflow` | — | ambiguous |
+| `presentation-render-qa.json` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
+| `presentation-render-qa.md` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
+| `presentation-revised-text` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
+| `presentation-template-profile.json` | `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow` | — | ambiguous |
+| `presentation-template-profile.md` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
+| `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow` | inferred |
+| `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow` | inferred |
 | `price-snapshot.json` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `price-snapshot.md` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
@@ -841,7 +860,7 @@ graph TD
 | `reviewable-change-brief.md` | `implement-from-issue` | `two-axis-code-review` | inferred |
 | `revised-text` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
 | `rewrite-change-map.json` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
-| `rewrite-fidelity.json` | `rewrite-fidelity-verifier` | `precision-writing-revision` | inferred |
+| `rewrite-fidelity.json` | `rewrite-fidelity-verifier` | `precision-writing-revision`, `presentation-language-rewriter` | inferred |
 | `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |

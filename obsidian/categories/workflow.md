@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **44**
+Skills: **49**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
@@ -30,6 +30,10 @@ Skills: **44**
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
 - [[skills/precision-language-rewriter|precision-language-rewriter]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
+- [[skills/presentation-language-rewriter|presentation-language-rewriter]]
+- [[skills/presentation-layout-qa|presentation-layout-qa]]
+- [[skills/presentation-render-verifier|presentation-render-verifier]]
+- [[skills/presentation-template-profiler|presentation-template-profiler]]
 - [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
@@ -55,4 +59,5 @@ Skills: **44**
 - [[skills/sport-training-music|sport-training-music]]
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/technology-due-diligence|technology-due-diligence]]
+- [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]

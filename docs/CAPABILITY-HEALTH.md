@@ -4,27 +4,39 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **188**
-- User-facing entrypoints: **158**
+- Skills: **193**
+- User-facing entrypoints: **163**
 - Evaluation suites: **187**
-- Skills without evaluation suite: **1**
-- User-facing entrypoints without evaluation suite: **1**
-- Ambiguous outputs (multiple producers): **3**
+- Skills without evaluation suite: **6**
+- User-facing entrypoints without evaluation suite: **6**
+- Ambiguous outputs (multiple producers): **5**
 - Outputs without inferred hard-requires consumers: **183**
 
 ## Evaluation gaps
 
 - `euroimmun-presentation-workflow`
+- `presentation-language-rewriter`
+- `presentation-layout-qa`
+- `presentation-render-verifier`
+- `presentation-template-profiler`
+- `template-presentation-workflow`
 
 ### User-facing evaluation gaps
 
 - `euroimmun-presentation-workflow`
+- `presentation-language-rewriter`
+- `presentation-layout-qa`
+- `presentation-render-verifier`
+- `presentation-template-profiler`
+- `template-presentation-workflow`
 
 ## Ambiguous outputs
 
 - `learning-mission.json` — producers: `learning-mission`, `teach`
 - `learning-next-step.json` — producers: `learning-next-step`, `teach`
 - `learning-state.json` — producers: `learning-state`, `teach`
+- `presentation-qa.md` — producers: `euroimmun-presentation-workflow`, `template-presentation-workflow`
+- `presentation-template-profile.json` — producers: `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow`
 
 ## Outputs without inferred consumers
 
@@ -84,6 +96,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
+- `euroimmun-presentation.pdf` — producer: `euroimmun-presentation-workflow`
 - `euroimmun-presentation.pptx` — producer: `euroimmun-presentation-workflow`
 - `euroimmun-report.pdf` — producer: `euroimmun-pdf-report-renderer`
 - `execution plan` — producer: `synapse-orchestrator`
@@ -163,7 +176,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
-- `presentation-qa.md` — producer: `euroimmun-presentation-workflow`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`

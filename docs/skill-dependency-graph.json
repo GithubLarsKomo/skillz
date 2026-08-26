@@ -372,12 +372,14 @@
     {
       "name": "euroimmun-presentation-workflow",
       "requires": [
-        "precision-writing-revision"
+        "template-presentation-workflow"
       ],
       "consumes": [],
       "outputs": [
+        "euroimmun-presentation.pdf",
         "euroimmun-presentation.pptx",
-        "presentation-qa.md"
+        "presentation-qa.md",
+        "presentation-template-profile.json"
       ]
     },
     {
@@ -1660,6 +1662,49 @@
       ]
     },
     {
+      "name": "presentation-language-rewriter",
+      "requires": [
+        "rewrite-fidelity-verifier"
+      ],
+      "consumes": [],
+      "outputs": [
+        "presentation-language-report.json",
+        "presentation-revised-text"
+      ]
+    },
+    {
+      "name": "presentation-layout-qa",
+      "requires": [
+        "presentation-template-profiler"
+      ],
+      "consumes": [],
+      "outputs": [
+        "presentation-layout-qa.json",
+        "presentation-layout-qa.md"
+      ]
+    },
+    {
+      "name": "presentation-render-verifier",
+      "requires": [
+        "presentation-layout-qa"
+      ],
+      "consumes": [],
+      "outputs": [
+        "presentation-preview.pdf",
+        "presentation-render-qa.json",
+        "presentation-render-qa.md"
+      ]
+    },
+    {
+      "name": "presentation-template-profiler",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "presentation-template-profile.json",
+        "presentation-template-profile.md"
+      ]
+    },
+    {
       "name": "price-availability-snapshot",
       "requires": [],
       "consumes": [],
@@ -2280,6 +2325,22 @@
       ]
     },
     {
+      "name": "template-presentation-workflow",
+      "requires": [
+        "presentation-language-rewriter",
+        "presentation-layout-qa",
+        "presentation-render-verifier",
+        "presentation-template-profiler"
+      ],
+      "consumes": [],
+      "outputs": [
+        "presentation-qa.md",
+        "presentation-template-profile.json",
+        "presentation.pdf",
+        "presentation.pptx"
+      ]
+    },
+    {
       "name": "test-driven-vertical-slice",
       "requires": [
         "disciplined-diagnosis",
@@ -2585,7 +2646,7 @@
     },
     {
       "from": "euroimmun-presentation-workflow",
-      "to": "precision-writing-revision"
+      "to": "template-presentation-workflow"
     },
     {
       "from": "evidence-based-causal-investigation",
@@ -3620,6 +3681,18 @@
       "to": "rewrite-fidelity-verifier"
     },
     {
+      "from": "presentation-language-rewriter",
+      "to": "rewrite-fidelity-verifier"
+    },
+    {
+      "from": "presentation-layout-qa",
+      "to": "presentation-template-profiler"
+    },
+    {
+      "from": "presentation-render-verifier",
+      "to": "presentation-layout-qa"
+    },
+    {
       "from": "process-validation-iq-oq-pq",
       "to": "design-control-traceability"
     },
@@ -4062,6 +4135,22 @@
     {
       "from": "technology-offer-assessment",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "template-presentation-workflow",
+      "to": "presentation-language-rewriter"
+    },
+    {
+      "from": "template-presentation-workflow",
+      "to": "presentation-layout-qa"
+    },
+    {
+      "from": "template-presentation-workflow",
+      "to": "presentation-render-verifier"
+    },
+    {
+      "from": "template-presentation-workflow",
+      "to": "presentation-template-profiler"
     },
     {
       "from": "test-driven-vertical-slice",
@@ -5794,6 +5883,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "euroimmun-presentation.pdf",
+      "producers": [
+        "euroimmun-presentation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "euroimmun-presentation.pptx",
       "producers": [
         "euroimmun-presentation-workflow"
@@ -6065,7 +6163,8 @@
         "rewrite-fidelity-verifier"
       ],
       "consumerSkills": [
-        "precision-writing-revision"
+        "precision-writing-revision",
+        "presentation-language-rewriter"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6192,7 +6291,6 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
-        "euroimmun-presentation-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -7562,7 +7660,6 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
-        "euroimmun-presentation-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -7592,13 +7689,138 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "presentation-language-report.json",
+      "producers": [
+        "presentation-language-rewriter"
+      ],
+      "consumerSkills": [
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-layout-qa.json",
+      "producers": [
+        "presentation-layout-qa"
+      ],
+      "consumerSkills": [
+        "presentation-render-verifier",
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-layout-qa.md",
+      "producers": [
+        "presentation-layout-qa"
+      ],
+      "consumerSkills": [
+        "presentation-render-verifier",
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-preview.pdf",
+      "producers": [
+        "presentation-render-verifier"
+      ],
+      "consumerSkills": [
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "presentation-qa.md",
       "producers": [
-        "euroimmun-presentation-workflow"
+        "euroimmun-presentation-workflow",
+        "template-presentation-workflow"
       ],
       "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "presentation-render-qa.json",
+      "producers": [
+        "presentation-render-verifier"
+      ],
+      "consumerSkills": [
+        "template-presentation-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-render-qa.md",
+      "producers": [
+        "presentation-render-verifier"
+      ],
+      "consumerSkills": [
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-revised-text",
+      "producers": [
+        "presentation-language-rewriter"
+      ],
+      "consumerSkills": [
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation-template-profile.json",
+      "producers": [
+        "euroimmun-presentation-workflow",
+        "presentation-template-profiler",
+        "template-presentation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "presentation-template-profile.md",
+      "producers": [
+        "presentation-template-profiler"
+      ],
+      "consumerSkills": [
+        "presentation-layout-qa",
+        "template-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation.pdf",
+      "producers": [
+        "template-presentation-workflow"
+      ],
+      "consumerSkills": [
+        "euroimmun-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "presentation.pptx",
+      "producers": [
+        "template-presentation-workflow"
+      ],
+      "consumerSkills": [
+        "euroimmun-presentation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "price-snapshot.json",
@@ -8549,7 +8771,8 @@
         "rewrite-fidelity-verifier"
       ],
       "consumerSkills": [
-        "precision-writing-revision"
+        "precision-writing-revision",
+        "presentation-language-rewriter"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9502,6 +9725,7 @@
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
+    "euroimmun-presentation.pdf",
     "euroimmun-presentation.pptx",
     "euroimmun-report.pdf",
     "execution plan",
@@ -9581,7 +9805,6 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "presentation-qa.md",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",
@@ -9687,6 +9910,7 @@
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
     "eudamed-readiness.json",
+    "euroimmun-presentation.pdf",
     "euroimmun-presentation.pptx",
     "euroimmun-report.pdf",
     "execution plan",
@@ -9766,7 +9990,6 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "presentation-qa.md",
     "privacy-assessment.json",
     "privacy-governance.md",
     "process-validation-assessment.json",

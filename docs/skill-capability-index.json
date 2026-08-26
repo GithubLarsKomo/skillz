@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 188,
-  "entrypointCount": 158,
+  "skillCount": 193,
+  "entrypointCount": 163,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -1767,20 +1767,30 @@
     },
     {
       "name": "euroimmun-presentation-workflow",
-      "description": "Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und einer managementtauglichen Storyline. Verwenden, wenn der Nutzer eine EUROIMMUN-Präsentation, Board-/Management-Deck, R&D-/Innovation-Deck oder eine bestehende Präsentation im EUROIMMUN-Stil verlangt. Nicht für allgemeine Revvity- oder fremde Corporate-Decks verwenden.",
+      "description": "Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
-        "precision-writing-revision"
+        "template-presentation-workflow"
       ],
       "dependents": [],
       "outputs": [
+        "euroimmun-presentation.pdf",
         "euroimmun-presentation.pptx",
-        "presentation-qa.md"
+        "presentation-qa.md",
+        "presentation-template-profile.json"
       ],
       "outputContracts": [
+        {
+          "output": "euroimmun-presentation.pdf",
+          "ambiguous": false,
+          "producers": [
+            "euroimmun-presentation-workflow"
+          ],
+          "consumerSkills": []
+        },
         {
           "output": "euroimmun-presentation.pptx",
           "ambiguous": false,
@@ -1791,9 +1801,20 @@
         },
         {
           "output": "presentation-qa.md",
-          "ambiguous": false,
+          "ambiguous": true,
           "producers": [
-            "euroimmun-presentation-workflow"
+            "euroimmun-presentation-workflow",
+            "template-presentation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "presentation-template-profile.json",
+          "ambiguous": true,
+          "producers": [
+            "euroimmun-presentation-workflow",
+            "presentation-template-profiler",
+            "template-presentation-workflow"
           ],
           "consumerSkills": []
         }
@@ -7316,7 +7337,6 @@
         "rewrite-fidelity-verifier"
       ],
       "dependents": [
-        "euroimmun-presentation-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -7332,7 +7352,6 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
-            "euroimmun-presentation-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]
@@ -7344,7 +7363,6 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
-            "euroimmun-presentation-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]
@@ -7358,6 +7376,216 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "presentation-language-rewriter",
+      "description": "Überarbeitet deutsche und englische Präsentationstexte elementbezogen für Slide-Titel, Key Messages, Bullets, Chart-Labels, Tabellen, Annotationen und Speaker Notes. Verwenden, wenn Präsentationssprache prägnant, idiomatisch, management-, wissenschafts- oder fachgerecht verbessert werden soll; nicht als Ersatz für Report- oder Memo-Redaktion.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "rewrite-fidelity-verifier"
+      ],
+      "dependents": [
+        "template-presentation-workflow"
+      ],
+      "outputs": [
+        "presentation-language-report.json",
+        "presentation-revised-text"
+      ],
+      "outputContracts": [
+        {
+          "output": "presentation-language-report.json",
+          "ambiguous": false,
+          "producers": [
+            "presentation-language-rewriter"
+          ],
+          "consumerSkills": [
+            "template-presentation-workflow"
+          ]
+        },
+        {
+          "output": "presentation-revised-text",
+          "ambiguous": false,
+          "producers": [
+            "presentation-language-rewriter"
+          ],
+          "consumerSkills": [
+            "template-presentation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "presentation-layout-qa",
+      "description": "Prüft PowerPoint-Folien strukturell auf Text- und Box-Overflow, Objektüberlagerungen, Slide-Grenzen, Font-Ausreißer, inkonsistente Ausrichtung, Platzhaltermissbrauch, Bildverzerrung, Chart-/Tabellen-Clipping und Footer-Kollisionen. Verwenden als technische QA vor finalem Rendering; nicht als visuelle Geschmacksprüfung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "presentation-template-profiler"
+      ],
+      "dependents": [
+        "presentation-render-verifier",
+        "template-presentation-workflow"
+      ],
+      "outputs": [
+        "presentation-layout-qa.json",
+        "presentation-layout-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "presentation-layout-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "presentation-layout-qa"
+          ],
+          "consumerSkills": [
+            "presentation-render-verifier",
+            "template-presentation-workflow"
+          ]
+        },
+        {
+          "output": "presentation-layout-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "presentation-layout-qa"
+          ],
+          "consumerSkills": [
+            "presentation-render-verifier",
+            "template-presentation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "presentation-render-verifier",
+      "description": "Rendert ein Präsentationsdeck in visuell prüfbare Folienbilder und eine Druck-/PDF-Version und bewertet das Ergebnis auf Clipping, Font-Substitution, unerwartete Umbrüche, Kontrast, visuelle Hierarchie, Dichte und Deck-Konsistenz. Verwenden als finales visuelles QA-Gate nach struktureller Layoutprüfung; nicht als Ersatz für objektbasierte PPTX-Prüfung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "presentation-layout-qa"
+      ],
+      "dependents": [
+        "template-presentation-workflow"
+      ],
+      "outputs": [
+        "presentation-preview.pdf",
+        "presentation-render-qa.json",
+        "presentation-render-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "presentation-preview.pdf",
+          "ambiguous": false,
+          "producers": [
+            "presentation-render-verifier"
+          ],
+          "consumerSkills": [
+            "template-presentation-workflow"
+          ]
+        },
+        {
+          "output": "presentation-render-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "presentation-render-verifier"
+          ],
+          "consumerSkills": [
+            "template-presentation-workflow"
+          ]
+        },
+        {
+          "output": "presentation-render-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "presentation-render-verifier"
+          ],
+          "consumerSkills": [
+            "template-presentation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "presentation-template-profiler",
+      "description": "Analysiert eine vorhandene PowerPoint-Referenz oder ein Corporate-Template und erzeugt ein wiederverwendbares Präsentationsprofil für Master, Layouts, Theme, Typografie, Farben, Platzhalter, Footer, Abstände und wiederkehrende visuelle Regeln. Verwenden, wenn Look & Feel eines bestehenden Templates übernommen werden soll; nicht zum Erfinden eines neuen Brand Designs.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "presentation-layout-qa",
+        "template-presentation-workflow"
+      ],
+      "outputs": [
+        "presentation-template-profile.json",
+        "presentation-template-profile.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "presentation-template-profile.json",
+          "ambiguous": true,
+          "producers": [
+            "euroimmun-presentation-workflow",
+            "presentation-template-profiler",
+            "template-presentation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "presentation-template-profile.md",
+          "ambiguous": false,
+          "producers": [
+            "presentation-template-profiler"
+          ],
+          "consumerSkills": [
+            "presentation-layout-qa",
+            "template-presentation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -8609,7 +8837,8 @@
       },
       "requires": [],
       "dependents": [
-        "precision-writing-revision"
+        "precision-writing-revision",
+        "presentation-language-rewriter"
       ],
       "outputs": [
         "fidelity-review.md",
@@ -8623,7 +8852,8 @@
             "rewrite-fidelity-verifier"
           ],
           "consumerSkills": [
-            "precision-writing-revision"
+            "precision-writing-revision",
+            "presentation-language-rewriter"
           ]
         },
         {
@@ -8633,7 +8863,8 @@
             "rewrite-fidelity-verifier"
           ],
           "consumerSkills": [
-            "precision-writing-revision"
+            "precision-writing-revision",
+            "presentation-language-rewriter"
           ]
         }
       ],
@@ -10322,6 +10553,79 @@
         "caseCount": 7,
         "recordedResultCount": 7,
         "passed": true
+      }
+    },
+    {
+      "name": "template-presentation-workflow",
+      "description": "Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf Basis eines vorhandenen PowerPoint-Templates oder einer Referenzpräsentation. Übernimmt Look & Feel, kuratiert Storyline und Slide-Architektur, optimiert Deutsch/Englisch präsentationsspezifisch und erzwingt strukturelle sowie Render-/PDF-QA. Verwenden für template-basierte Management-, wissenschaftliche, technische, Sales- oder Educational-Decks; Corporate-Spezialregeln bleiben in dünnen Wrapper-Skills.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "presentation-language-rewriter",
+        "presentation-layout-qa",
+        "presentation-render-verifier",
+        "presentation-template-profiler"
+      ],
+      "dependents": [
+        "euroimmun-presentation-workflow"
+      ],
+      "outputs": [
+        "presentation-qa.md",
+        "presentation-template-profile.json",
+        "presentation.pdf",
+        "presentation.pptx"
+      ],
+      "outputContracts": [
+        {
+          "output": "presentation-qa.md",
+          "ambiguous": true,
+          "producers": [
+            "euroimmun-presentation-workflow",
+            "template-presentation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "presentation-template-profile.json",
+          "ambiguous": true,
+          "producers": [
+            "euroimmun-presentation-workflow",
+            "presentation-template-profiler",
+            "template-presentation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "presentation.pdf",
+          "ambiguous": false,
+          "producers": [
+            "template-presentation-workflow"
+          ],
+          "consumerSkills": [
+            "euroimmun-presentation-workflow"
+          ]
+        },
+        {
+          "output": "presentation.pptx",
+          "ambiguous": false,
+          "producers": [
+            "template-presentation-workflow"
+          ],
+          "consumerSkills": [
+            "euroimmun-presentation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {

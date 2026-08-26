@@ -31,6 +31,7 @@ Vergleicht Ausgangs- und überarbeiteten Sachtext auf fachliche und epistemische
 ## Required by
 
 - [[skills/precision-writing-revision|precision-writing-revision]]
+- [[skills/presentation-language-rewriter|presentation-language-rewriter]]
 
 ## Outputs
 
@@ -42,10 +43,12 @@ Vergleicht Ausgangs- und überarbeiteten Sachtext auf fachliche und epistemische
 ### `fidelity-review.md`
 
 - [[skills/precision-writing-revision|precision-writing-revision]]
+- [[skills/presentation-language-rewriter|presentation-language-rewriter]]
 
 ### `rewrite-fidelity.json`
 
 - [[skills/precision-writing-revision|precision-writing-revision]]
+- [[skills/presentation-language-rewriter|presentation-language-rewriter]]
 
 ## Evaluation
 

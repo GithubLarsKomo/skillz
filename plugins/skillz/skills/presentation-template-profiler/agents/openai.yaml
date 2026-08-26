@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Template Profiler"
+  short_description: "Analysiert eine vorhandene PowerPoint-Referenz oder ein Corporate-Template und erzeugt ein wiederverwendbares Präsent..."
+policy:
+  allow_implicit_invocation: true
