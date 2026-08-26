@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Baseline"
+  short_description: "Erzeugt reproduzierbare Performance-Baselines vor Software-Optimierungen."
+policy:
+  allow_implicit_invocation: true
