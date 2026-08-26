@@ -1,0 +1,32 @@
+name: Rebuild Skillz Plugin
+
+on:
+  push:
+    branches:
+      - feat/sport-performance-binding
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/sport-performance-binding
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild committed plugin
+        run: |
+          python scripts/build_openai_plugin.py --output plugins/skillz
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add plugins/skillz
+          if git diff --cached --quiet; then
+            echo 'Plugin already current.'
+          else
+            git commit -m 'chore: rebuild skillz plugin for sport design standard'
+            git push origin HEAD:feat/sport-performance-binding
+          fi
