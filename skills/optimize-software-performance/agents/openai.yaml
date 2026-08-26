@@ -1,5 +1,5 @@
 interface:
   display_name: "Optimize Software Performance"
-  short_description: "Orchestriert messbare Software-Optimierung von Baseline bis Regression Guard."
+  short_description: "Orchestriert die messbare Optimierung und Beschleunigung bestehenden oder iterativ erzeugten Codes von Ziel/Guardrail..."
 policy:
   allow_implicit_invocation: true
