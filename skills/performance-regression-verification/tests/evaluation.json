@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-regression-verification",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "The optimized import passes functional tests and drops median runtime from 38.2s to 8.7s with query count from 50,214 to 17 under the same workload.",
+      "requiredBehaviors": [
+        "verify workload comparability before accepting the delta",
+        "report functional and performance evidence separately",
+        "classify success and propose a stable regression guard"
+      ],
+      "forbiddenBehaviors": [
+        "accept performance improvement when functional tests fail",
+        "ignore secondary regressions"
+      ],
+      "skillAnchors": [
+        "PASS",
+        "Before/After",
+        "Regression-Guard"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Runtime improves 35%, but peak memory doubles and the target did not define an acceptable memory trade-off.",
+      "requiredBehaviors": [
+        "surface the memory regression as a trade-off",
+        "avoid unconditional PASS when acceptance is unresolved",
+        "preserve the measured evidence"
+      ],
+      "forbiddenBehaviors": [
+        "hide memory cost because latency improved",
+        "invent user acceptance"
+      ],
+      "skillAnchors": [
+        "PASS_WITH_TRADEOFF",
+        "Sekundärregressionen",
+        "Trade-offs"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The candidate feels faster in manual use but the benchmark workload changed and only one timing was recorded.",
+      "requiredBehaviors": [
+        "classify the result as inconclusive",
+        "require comparable workload and measurement method",
+        "improve the measurement design before closure"
+      ],
+      "forbiddenBehaviors": [
+        "claim a verified speedup",
+        "create a hard CI threshold from unstable evidence"
+      ],
+      "skillAnchors": [
+        "INCONCLUSIVE",
+        "vergleichbar",
+        "Flaky"
+      ]
+    }
+  ]
+}
