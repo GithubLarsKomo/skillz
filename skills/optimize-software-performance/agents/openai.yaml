@@ -1,0 +1,5 @@
+interface:
+  display_name: "Optimize Software Performance"
+  short_description: "Orchestriert messbare Software-Optimierung von Baseline bis Regression Guard."
+policy:
+  allow_implicit_invocation: true
