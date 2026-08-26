@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "skill": "optimize-software-performance",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Iteratively generated code works but is slow. Optimize it end-to-end from measurement through TASK.md, implementation, tests, simplification, and final benchmark.",
+      "requiredBehaviors": [
+        "establish a baseline before code changes",
+        "route through hotspot analysis and an implementation-ready performance plan",
+        "verify correctness and efficiency after small slices",
+        "perform a simplification pass and final benchmark before closure"
+      ],
+      "forbiddenBehaviors": [
+        "jump directly from code reading to refactoring",
+        "declare success with only functional tests or only a speed claim"
+      ],
+      "skillAnchors": [
+        "Phase 1: Baseline",
+        "TASK.md",
+        "Simplification Pass",
+        "Regression Guard"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The target is reached after the first low-risk batching slice while several speculative optimizations remain in the candidate list.",
+      "requiredBehaviors": [
+        "stop adding optimizations once the agreed target and gates are met",
+        "retain unimplemented candidates as documented alternatives rather than mandatory work",
+        "run simplification and final verification"
+      ],
+      "forbiddenBehaviors": [
+        "implement every candidate for completeness",
+        "add cache or parallelism after the target is already satisfied"
+      ],
+      "skillAnchors": [
+        "keine weiteren Optimierungen nur der Vollständigkeit halber",
+        "kleinste belegte Änderungssatz",
+        "bewusst nicht umgesetzte Kandidaten"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A refactor passes unit tests but the final benchmark uses different data and the code now includes several temporary compatibility helpers.",
+      "requiredBehaviors": [
+        "reject performance closure because the benchmark is not comparable",
+        "route to improved measurement",
+        "identify temporary helper complexity for the later simplification pass"
+      ],
+      "forbiddenBehaviors": [
+        "treat unit tests as proof of performance",
+        "skip cleanup of known temporary optimization artifacts"
+      ],
+      "skillAnchors": [
+        "INCONCLUSIVE",
+        "Messdesign verbessern",
+        "unnötige Optimierungsartefakte bereinigt"
+      ]
+    }
+  ]
+}
