@@ -1,7 +1,7 @@
 {
   "schema": "skillz-brand-profile-v1",
   "id": "sport-performance",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "kind": "domain-default",
   "priority": 50,
   "source": {
@@ -26,7 +26,30 @@
     "higher_priority_corporate_profile_allowed": true,
     "conflict_requires_grilling": true,
     "do_not_encode_meaning_by_color_alone": true,
-    "brand_family_requires_product_specific_marks": true
+    "brand_family_requires_product_specific_marks": true,
+    "binding_app_templates": true,
+    "branding_preserves_accepted_impeccable_layout": true,
+    "branding_only_scope": ["color-tokens", "semantic-color-roles", "logo", "wordmark", "favicon", "app-icon", "pwa-theme-metadata"],
+    "layout_redesign_requires_explicit_scope": true
+  },
+  "design_templates": {
+    "reference": "../design-templates/sport-performance-apps.md",
+    "layer_model": {
+      "impeccable_ui_template": "Owns layout, typography, spacing, component geometry, navigation, responsive behavior and information hierarchy. Existing accepted implementations are frozen by default during branding work.",
+      "sport_performance_branding": "Owns canonical colors and product-specific logo/favicon/app-icon assets. It must not replace accepted Impeccable CSS/layout."
+    },
+    "products": {
+      "sport-athlete-management": {
+        "use_for": ["athlete management", "training planning", "adaptation", "readiness", "coaching"],
+        "reference_product": "Sport Athlete Management",
+        "mark_concept": "athlete-development-adaptation"
+      },
+      "masters-diagnostics": {
+        "use_for": ["performance diagnostics", "test review", "measurement interpretation", "longitudinal analysis"],
+        "reference_product": "Masters Diagnostics",
+        "mark_concept": "diagnostics-data-performance-curve"
+      }
+    }
   },
   "palette": {
     "navy": "#173652",
@@ -82,7 +105,8 @@
       "Use the same canonical Sport Performance palette, geometric discipline, stroke language and typographic family across Sport products.",
       "Logo, favicon and app icon must derive from one product-specific mark.",
       "Related Sport products share family resemblance but must remain distinguishable at favicon size.",
-      "Product differentiation comes from the central symbol and hierarchy, not from unrelated color systems."
+      "Product differentiation comes from the central symbol and hierarchy, not from unrelated color systems.",
+      "Applying Sport Performance branding to an existing accepted Sport application must preserve its Impeccable layout and component grammar."
     ],
     "product_mark_rule": "The mark must graphically reflect at least two of the project's two to three most important properties or value propositions."
   },
