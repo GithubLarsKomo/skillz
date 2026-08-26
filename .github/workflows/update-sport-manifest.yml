@@ -1,0 +1,49 @@
+name: Update Sport Design Manifest
+
+on:
+  push:
+    branches:
+      - feat/sport-performance-binding
+
+permissions:
+  contents: write
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/sport-performance-binding
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Update portable hashes
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root = Path('.')
+          manifest_path = root / '.skill-sync.json'
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          files = manifest['skills']['frontend-design-system-context']['files']
+          for rel in (
+              'SKILL.md',
+              'references/brand-profiles/sport-performance.json',
+              'scripts/brand_profile_resolver.py',
+          ):
+              path = root / 'skills' / 'frontend-design-system-context' / rel
+              text = path.read_text(encoding='utf-8').replace('\r\n', '\n').replace('\r', '\n').rstrip('\n') + '\n'
+              files[rel] = hashlib.sha256(text.encode('utf-8')).hexdigest()
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .skill-sync.json
+          if git diff --cached --quiet; then
+            echo 'Manifest already current.'
+          else
+            git commit -m 'chore: refresh sport design skill manifest hashes'
+            git push origin HEAD:feat/sport-performance-binding
+          fi
