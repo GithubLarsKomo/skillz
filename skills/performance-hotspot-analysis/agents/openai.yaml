@@ -1,5 +1,5 @@
 interface:
   display_name: "Performance Hotspot Analysis"
-  short_description: "Lokalisiert messbare Software-Hotspots und priorisiert Optimierungskandidaten."
+  short_description: "Analysiert eine belastbare Performance-Baseline zusammen mit Profiling-, Query-, Trace- oder Laufzeitevidenz, lokalis..."
 policy:
   allow_implicit_invocation: true
