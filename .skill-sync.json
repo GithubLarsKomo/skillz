@@ -137,6 +137,13 @@
         "agents/openai.yaml": "f419aee4c4793c6472bc35119d3e0a22c855336f712df05172ca29f39d84cbdc"
       }
     },
+    "document-generation-forensics": {
+      "files": {
+        "SKILL.md": "7d9edba01c03b4a03ae30a6361d6107ad8ef93e78bb949a8ceb73daeab601425",
+        "agents/openai.yaml": "4e849f400e2db20e327bc6e1b32ccd87020329407d609e7108c5172975353ac7",
+        "scripts/inspect_document_artifact.py": "93aaf18c07f38231a1fade2da7dc335827710c28a69a42012f9e91b7461827a5"
+      }
+    },
     "domain-model-maintenance": {
       "files": {
         "SKILL.md": "45f13c2094d037648a1c23965acf9af2f49be5f7f19e0ca1d9054594b849d6b4",
@@ -591,6 +598,20 @@
       "files": {
         "SKILL.md": "b24f41523abb1fd2fa232e0a46f82adbf76e66a96af22959dd10a203c5784728",
         "agents/openai.yaml": "90eb9ba04930faf757713ee0146e056254551bb5a2bbc643564056fbfbf8e230"
+      }
+    },
+    "llm-generation-evidence-assessment": {
+      "files": {
+        "SKILL.md": "1c6be3df84a9b54acf68cc7abdbb8481bfc476ea4256c2d2894e58fd76abe823",
+        "agents/openai.yaml": "5fbe7f98edd81ac4371b019dcfc58f942c28662cc907352e6f803d335c791dbb",
+        "references/evidence-model.md": "97445c687cb8582b6346ef7a6fc606672543a7c7683d373d45715520e46024cf"
+      }
+    },
+    "llm-generation-review-workflow": {
+      "files": {
+        "SKILL.md": "3424c9c107782834eb3bce3e8d51a78bd05922daa4c0b2b58a51a3ac0e26d279",
+        "agents/openai.yaml": "c930dc6e8472f5c359fe282c52cb978a3c2fe4612a1cf764bbfb5e352c8e33a3",
+        "references/format-checks.md": "36f80aee89e167999cc528bf92abad49d291d400e9988c712c6db025a8ff779f"
       }
     },
     "llm-prose-pattern-audit": {

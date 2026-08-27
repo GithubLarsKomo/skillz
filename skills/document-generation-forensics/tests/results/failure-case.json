@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "skill": "document-generation-forensics",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "reject formula regularity as standalone LLM evidence", "passed": true, "evidence": "The XLSX path states that repeated formulas and clean table structure are not LLM indicators."},
+    {"behavior": "separate spreadsheet structure from later language or provenance assessment", "passed": true, "evidence": "The skill inventories workbook structure and hands language/provenance interpretation to downstream assessment."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "classify clean or repeated formulas as proof of LLM generation", "observed": false, "evidence": "The quality gate separates programmatic generation from LLM generation and forbids authorship inference from artifact properties alone."}
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-review-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "analyze XLSX narrative text separately from formulas and workbook structure", "passed": true, "evidence": "Step 3 explicitly separates narrative cells/comments from formulas, data and structure; format-checks.md defines the same layered model."},
+    {"behavior": "treat formula and layout regularity as non-probative without corroboration", "passed": true, "evidence": "The XLSX format reference states formula uniformity is not an LLM indicator and separates structure from provenance evidence."},
+    {"behavior": "analyze the editable XLSX as the primary structure source and the PDF as additional rendering evidence", "passed": true, "evidence": "Step 2 prioritizes editable Office source files for revision/structure evidence and retains PDF as additional render/producer evidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "run prose heuristics over formulas or short spreadsheet labels as if they were report prose", "observed": false, "evidence": "Step 4 explicitly excludes short titles, table headers, formulas and isolated labels from forced prose analysis."}
+  ],
+  "overall": "pass"
+}

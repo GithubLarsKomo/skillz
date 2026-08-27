@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-evidence-assessment",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "avoid double-counting correlated prose and formatting patterns", "passed": true, "evidence": "The skill explicitly requires correlated indicators such as rule-of-three and repeated three-bullet templates not to be counted as independent evidence."},
+    {"behavior": "downgrade an uncalibrated external detector result", "passed": true, "evidence": "External detector rules require version, language, domain and calibration context and downgrade unknown false-positive behavior."},
+    {"behavior": "prefer limited or insufficient evidence when independent support is missing", "passed": true, "evidence": "The limited and insufficient levels are defined for isolated or weak signals without independent corroboration."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "interpret the 82 percent detector score as an 82 percent probability of LLM authorship", "observed": false, "evidence": "The detector rules explicitly forbid interpreting a detector score directly as P(LLM)."}
+  ],
+  "overall": "pass"
+}

@@ -1,28 +1,28 @@
 ---
 type: skill
 generated: true
-name: "llm-prose-pattern-audit"
-category: "workflow"
-userFacing: true
+name: "document-generation-forensics"
+category: "internal"
+userFacing: false
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
-sourcePath: "skills/llm-prose-pattern-audit/SKILL.md"
+sourcePath: "skills/document-generation-forensics/SKILL.md"
 tags:
   - skill
-  - skill-category/workflow
+  - skill-category/internal
 ---
 
-# llm-prose-pattern-audit
+# document-generation-forensics
 
-Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generischer LLM-Prosa wie Signifikanzinflation, Pseudoanalyse, rhetorische Templates, Synonymvariation, Hedging, Nominalstil und syntaktische Gleichförmigkeit, ohne daraus KI-Autorschaft zu behaupten. Verwenden vor sprachgenauer Überarbeitung oder zur Stil-Diagnose.
+Extrahiert reproduzierbare Provenienz-, Metadaten- und Strukturhinweise aus Text-, DOCX-, PDF-, XLSX- und PPTX-Artefakten, ohne aus Dateieigenschaften allein LLM-Autorschaft abzuleiten. Als Fach-Skill für LLM-Generierungsprüfungen verwenden, wenn Dateiherkunft, Generator-Tooling, Revisionen oder formatbezogene Spuren getrennt von Sprachmustern erhoben werden müssen.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
 ## Category
 
-[[categories/workflow|workflow]]
+[[categories/internal|internal]]
 
 ## Requires
 
@@ -32,26 +32,23 @@ Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generi
 
 - [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
-- [[skills/precision-writing-revision|precision-writing-revision]]
 
 ## Outputs
 
-- `prose-audit.json`
-- `prose-audit.md`
+- `document-forensics.json`
+- `document-forensics.md`
 
 ## Output consumers
 
-### `prose-audit.json`
+### `document-forensics.json`
 
 - [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
-- [[skills/precision-writing-revision|precision-writing-revision]]
 
-### `prose-audit.md`
+### `document-forensics.md`
 
 - [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
-- [[skills/precision-writing-revision|precision-writing-revision]]
 
 ## Evaluation
 
@@ -62,4 +59,4 @@ Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generi
 
 ## Canonical source
 
-`skills/llm-prose-pattern-audit/SKILL.md`
+`skills/document-generation-forensics/SKILL.md`

@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **198**
-- User-facing entrypoints: **168**
-- Evaluation suites: **192**
+- Skills: **201**
+- User-facing entrypoints: **169**
+- Evaluation suites: **195**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **184**
+- Outputs without inferred hard-requires consumers: **186**
 
 ## Evaluation gaps
 
@@ -142,6 +142,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `knowledge-map.mmd` — producer: `mermaid-knowledge-map-renderer`
 - `learning-practice-request.json` — producer: `teach`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
+- `llm-generation-review.json` — producer: `llm-generation-review-workflow`
+- `llm-generation-review.md` — producer: `llm-generation-review-workflow`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
 - `management-review-return-input.json` — producer: `qms-management-review-action-followup`

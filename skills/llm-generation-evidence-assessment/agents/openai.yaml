@@ -1,0 +1,5 @@
+interface:
+  display_name: "Llm Generation Evidence Assessment"
+  short_description: "Bewertet voneinander getrennte Sprach-, Provenienz-, Autorenprofil-, Struktur- und Inhaltsindikatoren darauf, wie sta..."
+policy:
+  allow_implicit_invocation: false

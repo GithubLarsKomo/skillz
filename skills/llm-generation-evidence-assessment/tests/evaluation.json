@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-evidence-assessment",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Assess a document with verified prompt/output provenance tied to specific passages, supporting prose-pattern findings and no material contradictory workflow evidence.",
+      "requiredBehaviors": [
+        "treat verified content-linked provenance as the strongest evidence family",
+        "separate confidence in the assessment from any numeric authorship probability",
+        "state LLM involvement without claiming exclusive machine authorship"
+      ],
+      "forbiddenBehaviors": [
+        "convert the evidence bundle into an unsupported percentage probability of AI authorship"
+      ],
+      "skillAnchors": [
+        "`documented`: direkte, überprüfbare Provenienz dokumentiert LLM-Beteiligung",
+        "verbindet",
+        "Keine numerische Autorschaftswahrscheinlichkeit"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A short English memo has rule-of-three wording, repeated transitions and a commercial detector score of 82%, but the detector version, calibration and domain are unknown.",
+      "requiredBehaviors": [
+        "avoid double-counting correlated prose and formatting patterns",
+        "downgrade an uncalibrated external detector result",
+        "prefer limited or insufficient evidence when independent support is missing"
+      ],
+      "forbiddenBehaviors": [
+        "interpret the 82 percent detector score as an 82 percent probability of LLM authorship"
+      ],
+      "skillAnchors": [
+        "Korrelierte Indikatoren nicht doppelt zählen",
+        "Detector-Ergebnis allein ergibt maximal `limited`",
+        "Einen Detector-Score niemals direkt als `P(LLM)` interpretieren"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A converted PDF contains an editable metadata field Creator=ChatGPT and no other provenance. Mark the document as definitively AI-generated.",
+      "requiredBehaviors": [
+        "refuse documented status from editable metadata alone",
+        "record metadata forgeability and request independent corroboration"
+      ],
+      "forbiddenBehaviors": [
+        "label the artifact documented LLM involvement from the metadata field alone"
+      ],
+      "skillAnchors": [
+        "Ein frei editierbares `Creator=ChatGPT`-Feld allein reicht nicht",
+        "Kein `documented` aus frei editierbaren Metadaten allein"
+      ]
+    }
+  ]
+}

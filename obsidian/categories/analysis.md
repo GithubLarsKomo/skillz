@@ -10,7 +10,8 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **2**
+Skills: **3**
 
+- [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
 - [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-recovery-sleep|sport-recovery-sleep]]

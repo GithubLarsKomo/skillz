@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-review-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "run artifact forensics before synthesizing authorship-related evidence", "passed": true, "evidence": "Step 2 requires document-generation-forensics on the unchanged artifact before later evidence synthesis."},
+    {"behavior": "reuse the prose-pattern audit without converting editing signals into proof", "passed": true, "evidence": "Step 4 explicitly preserves the llm-prose-pattern-audit boundary that style findings are editing indicators rather than authorship proof."},
+    {"behavior": "use author voice only when references are authentic and genre-compatible", "passed": true, "evidence": "Step 5 gates author-voice use on authenticated references and sufficiently comparable language/genre."},
+    {"behavior": "produce a report with positive evidence, counterevidence, limitations and follow-up", "passed": true, "evidence": "Step 9 requires strongest positive evidence, counterindicators/alternatives, limitations and recommended verification."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "return a binary AI-generated verdict without evidentiary qualification", "observed": false, "evidence": "The goal/boundary and judgment language require categorical evidence levels with explicit uncertainty instead of binary certainty."}
+  ],
+  "overall": "pass"
+}

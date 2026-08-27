@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-evidence-assessment",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "treat verified content-linked provenance as the strongest evidence family", "passed": true, "evidence": "The documented rule reserves the top level for direct, verifiable provenance linked to the examined content."},
+    {"behavior": "separate confidence in the assessment from any numeric authorship probability", "passed": true, "evidence": "The output contract uses confidenceInAssessment and categorical evidence levels rather than authorship percentages."},
+    {"behavior": "state LLM involvement without claiming exclusive machine authorship", "passed": true, "evidence": "The purpose explicitly evaluates evidence for LLM involvement and rejects unsupported exclusive authorship claims."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "convert the evidence bundle into an unsupported percentage probability of AI authorship", "observed": false, "evidence": "The quality gate forbids numeric authorship probabilities from heuristic evidence."}
+  ],
+  "overall": "pass"
+}

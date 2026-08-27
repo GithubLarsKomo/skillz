@@ -30,6 +30,8 @@ Extrahiert aus authentischen deutschen oder englischen Referenztexten ein beobac
 
 ## Required by
 
+- [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
+- [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
 
 ## Outputs
@@ -41,10 +43,14 @@ Extrahiert aus authentischen deutschen oder englischen Referenztexten ein beobac
 
 ### `author-voice-profile.json`
 
+- [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
+- [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
 
 ### `author-voice-profile.md`
 
+- [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
+- [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
 
 ## Evaluation
