@@ -1,0 +1,5 @@
+interface:
+  display_name: "Biopatent Deep Analysis"
+  short_description: "Analysiert Biopatente technisch-forensisch bis auf Claims, Sequenzen, Bindung, Assayarchitektur und Rekonstruktion."
+policy:
+  allow_implicit_invocation: true
