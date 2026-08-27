@@ -4,10 +4,10 @@ generated: true
 name: "biopatent-deep-analysis"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
-caseCount: 7
-recordedResultCount: 0
+caseCount: 10
+recordedResultCount: 10
 sourcePath: "skills/biopatent-deep-analysis/SKILL.md"
 tags:
   - skill
@@ -71,9 +71,9 @@ Analysiert ausgewählte Biotech-/IVD-Patentfamilien technisch-forensisch bis auf
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
-- Cases: `7`
-- Recorded results: `0`
+- Passed: `True`
+- Cases: `10`
+- Recorded results: `10`
 
 ## Canonical source
 

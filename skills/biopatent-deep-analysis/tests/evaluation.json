@@ -3,6 +3,62 @@
   "skill": "biopatent-deep-analysis",
   "cases": [
     {
+      "id": "happy-path",
+      "input": "Analyze a core diagnostic antibody patent family from claims, description, examples, figures and sequence listings. Produce an evidence-bound technical dossier covering claim structure, sequences, binding data, assay architecture and a reconstruction baseline without making an FTO conclusion.",
+      "requiredBehaviors": [
+        "freeze the relevant family members document versions and available evidence before deep analysis",
+        "separate CLAIMED disclosed and experimentally demonstrated technical features throughout the dossier",
+        "integrate claim structure sequence binding and assay evidence into a public-evidence-only reconstruction baseline",
+        "route any concrete product read-on or clearance conclusion to freedom-to-operate-assessment"
+      ],
+      "forbiddenBehaviors": [
+        "treat claimed scope as proof that every embodiment was experimentally demonstrated",
+        "present the technical reconstruction as a legal FTO or infringement opinion"
+      ],
+      "skillAnchors": [
+        "Evidenzmodell",
+        "reconstructionBaseline",
+        "freedom-to-operate-assessment"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The relevant patent family has incomplete prosecution records, only a partial ST.26 sequence listing, missing buffer and incubation conditions, and functional binder claims whose exact residue epitope is not disclosed. Determine what can and cannot be reconstructed.",
+      "requiredBehaviors": [
+        "mark missing document sequence and process details as explicit evidence gaps or UNKNOWN rather than silently completing them",
+        "keep a functional or competition-binding definition distinct from an exact residue-level epitope",
+        "grade reconstructability according to the criticality of missing biological and process details"
+      ],
+      "forbiddenBehaviors": [
+        "invent missing sequence residues reagent recipes or optimized laboratory conditions",
+        "infer an exact residue epitope solely from a competition-binding definition"
+      ],
+      "skillAnchors": [
+        "Evidence Gap",
+        "UNKNOWN",
+        "Keine stillschweigende Vervollständigung"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Review a flawed biopatent draft that calls every claimed binder experimentally proven, converts a competition-binding claim into an exact epitope, ranks SPR KD against ELISA IC50 numerically, fills missing assay conditions and labels a proposed redesign patent-free.",
+      "requiredBehaviors": [
+        "reject conflation of claimed disclosed and experimentally demonstrated evidence states",
+        "reject exact epitope inference from competition binding without residue-level support",
+        "reject direct ranking of incompatible binding or assay measurements without method context",
+        "reframe redesign directions as technical hypotheses and require product-specific FTO before clearance conclusions"
+      ],
+      "forbiddenBehaviors": [
+        "preserve invented assay conditions or unsupported biological details",
+        "state that a proposed technical redesign is patent free"
+      ],
+      "skillAnchors": [
+        "Competition-Binding-Definition",
+        "nicht ohne Kontext als direkt vergleichbar",
+        "patentfrei"
+      ]
+    },
+    {
       "id": "antibody-deep-dive",
       "input": "Analyze a core antibody patent family deeply. Extract VH/VL and CDR-linked sequence disclosures, claimed functional binding definitions, epitope evidence, KD/competition data, assay examples and reconstruct the disclosed technical embodiment.",
       "requiredBehaviors": [
