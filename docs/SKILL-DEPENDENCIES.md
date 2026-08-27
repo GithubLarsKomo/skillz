@@ -692,6 +692,7 @@ graph TD
 | `frontend-design-review.md` | `frontend-design-review` | `frontend-design-director` | inferred |
 | `frontend-design-routing.json` | `frontend-design-director` | — | unconsumed |
 | `frontend-design-system-context-handoff.json` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
+| `frontend-design-visual-evidence.md` | `frontend-design-review` | `frontend-design-director` | inferred |
 | `frontend-product-context-handoff.json` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `frontend-shaping-handoff.json` | `frontend-design-shaping` | `frontend-design-director` | inferred |
 | `fto-claim-map.json` | `freedom-to-operate-assessment` | — | unconsumed |

@@ -384,7 +384,7 @@
     },
     "frontend-design-director": {
       "files": {
-        "SKILL.md": "d0b266ffbd4015d1f76cfcba820f6ae3ed03f83029498b6cb1cd99a39936ec97",
+        "SKILL.md": "4c1095ed9773c65e1cb61d28dcee05b298d331b7960825660739b5a93413e262",
         "agents/openai.yaml": "b5e15b22ad69153b1407a1a0ea5de4040929377bae58da312067bcccfad6c038",
         "references/impeccable-provenance.md": "1b3c09abcc539b5e8d3d356351e40b75eaa1e175a8b3f36758f938ea7fc7dde8",
         "references/personal-design-defaults.md": "411fe810d55f07e438ec2ce7c0aff703f9a11d43f284f6381871db1ea0fec1d2"
@@ -392,7 +392,7 @@
     },
     "frontend-design-review": {
       "files": {
-        "SKILL.md": "50ee384fab8dcdfadf7cb7e22cb2175c30453e32b8b710d5d575ca9629eff822",
+        "SKILL.md": "1be1e09e736eaf213a17eafde6d9ab36a83f2694dae20cf9427fc8b3b161fb8e",
         "agents/openai.yaml": "def055f64ed61bcbab9cbe0f03156cb415e8d6e84ad6a10c68d776bec0b1808c"
       }
     },

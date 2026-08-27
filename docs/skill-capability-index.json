@@ -3299,7 +3299,7 @@
     },
     {
       "name": "frontend-design-review",
-      "description": "Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.",
+      "description": "Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance-, Anti-Slop- und Visual-Completion-Findings mit konkreten Empfehlungen, ohne Designsystemregeln still zu verändern.",
       "invocation": {
         "userFacing": false,
         "category": null
@@ -3313,7 +3313,8 @@
       ],
       "outputs": [
         "frontend-design-findings.json",
-        "frontend-design-review.md"
+        "frontend-design-review.md",
+        "frontend-design-visual-evidence.md"
       ],
       "outputContracts": [
         {
@@ -3328,6 +3329,16 @@
         },
         {
           "output": "frontend-design-review.md",
+          "ambiguous": false,
+          "producers": [
+            "frontend-design-review"
+          ],
+          "consumerSkills": [
+            "frontend-design-director"
+          ]
+        },
+        {
+          "output": "frontend-design-visual-evidence.md",
           "ambiguous": false,
           "producers": [
             "frontend-design-review"
