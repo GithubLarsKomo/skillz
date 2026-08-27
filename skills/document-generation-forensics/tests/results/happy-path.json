@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "document-generation-forensics",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "hash and inspect the original artifact without modifying it", "passed": true, "evidence": "SKILL.md requires preserving the original and recording SHA-256 before analysis."},
+    {"behavior": "inventory revision and document-structure facts reproducibly", "passed": true, "evidence": "The deterministic first pass and DOCX path explicitly inventory revisions, comments, tables and package facts."},
+    {"behavior": "treat ordinary Office tooling and revision traces as context rather than LLM proof", "passed": true, "evidence": "The skill states that Office/programmatic tooling and Track Changes do not establish LLM use."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "produce an LLM probability or authorship verdict from DOCX metadata", "observed": false, "evidence": "The quality gate explicitly forbids an LLM probability and authorship inference from metadata alone."}
+  ],
+  "overall": "pass"
+}
