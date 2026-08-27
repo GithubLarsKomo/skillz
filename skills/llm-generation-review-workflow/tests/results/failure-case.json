@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-review-workflow",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "reject a high-stakes conclusion based on one detector and slide-template patterns", "passed": true, "evidence": "Step 1 and the quality gate state that high-stakes decisions cannot rest on a single detector or style/template feature."},
+    {"behavior": "require corroborating evidence and human review", "passed": true, "evidence": "The workflow requires conservative synthesis and explicitly flags high-stakes contexts for corroboration rather than detector-only action."},
+    {"behavior": "state that repeated presentation templates are weak evidence at most", "passed": true, "evidence": "format-checks.md treats repeated three-bullet and generic slide structures as weak template indicators and normal master/layout reuse as non-evidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "recommend disciplinary action from the detector score or slide regularity alone", "observed": false, "evidence": "The quality gate explicitly prohibits sanctions or high-risk decisions from a single detector or style feature."}
+  ],
+  "overall": "pass"
+}
