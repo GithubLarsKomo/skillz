@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-evidence-assessment",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "refuse documented status from editable metadata alone", "passed": true, "evidence": "The documented rule states that Creator=ChatGPT alone is insufficient and the quality gate forbids documented status from editable metadata alone."},
+    {"behavior": "record metadata forgeability and request independent corroboration", "passed": true, "evidence": "The assessment requires source-linked evidence, alternative explanations and recommended follow-up; the documented rule explicitly requires additional verification or independent workflow evidence."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "label the artifact documented LLM involvement from the metadata field alone", "observed": false, "evidence": "The quality gate explicitly prohibits this behavior."}
+  ],
+  "overall": "pass"
+}
