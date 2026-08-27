@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "skill": "biopatent-deep-analysis",
+  "cases": [
+    {
+      "id": "antibody-deep-dive",
+      "input": "Analyze a core antibody patent family deeply. Extract VH/VL and CDR-linked sequence disclosures, claimed functional binding definitions, epitope evidence, KD/competition data, assay examples and reconstruct the disclosed technical embodiment.",
+      "requiredBehaviors": [
+        "separate claimed features from disclosed embodiments and experimentally demonstrated data",
+        "map sequence IDs to antibody domains and claim or example references",
+        "retain assay method and measurement context for binding data",
+        "produce a reconstruction baseline using only publicly supported details"
+      ],
+      "forbiddenBehaviors": [
+        "treat a competition-binding claim as proof of an exact residue epitope",
+        "invent missing CDRs sequences affinities or assay conditions"
+      ],
+      "skillAnchors": [
+        "EXPERIMENTALLY_DEMONSTRATED",
+        "Competition-Binding-Definition",
+        "reconstructionBaseline"
+      ]
+    },
+    {
+      "id": "sequence-listing",
+      "input": "A biotechnology patent contains an ST.26 XML sequence listing with many SEQ IDs plus several sequences repeated under different identifiers across continuation members.",
+      "requiredBehaviors": [
+        "prefer the machine-readable sequence listing over manual extraction from narrative PDF text",
+        "normalize type length sequence provenance and patent-internal identifiers",
+        "use a stable sequence checksum to identify identical sequences across IDs or members",
+        "preserve sequence-to-claim and sequence-to-example relationships"
+      ],
+      "forbiddenBehaviors": [
+        "collapse sequence identifiers without retaining provenance",
+        "assume every sequence in the listing is claim-limiting"
+      ],
+      "skillAnchors": [
+        "ST.26",
+        "Checksumme",
+        "referenzierte Claims/Examples/Figures"
+      ]
+    },
+    {
+      "id": "binding-context",
+      "input": "The patent reports KD values measured by SPR, IC50 values from a competition assay and endpoint signal ratios from ELISA for several binders. Conditions are only partly reported.",
+      "requiredBehaviors": [
+        "store each result with parameter unit method molecule identity and source",
+        "record missing temperature buffer immobilization or sample context where applicable",
+        "warn that results from different assay methods are not automatically directly comparable"
+      ],
+      "forbiddenBehaviors": [
+        "rank binders solely by numeric magnitude across incompatible assay methods",
+        "silently fill missing measurement conditions"
+      ],
+      "skillAnchors": [
+        "measurementContextCompleteness",
+        "nicht ohne Kontext als direkt vergleichbar"
+      ]
+    },
+    {
+      "id": "claim-versus-example",
+      "input": "An independent claim broadly defines a binder by target and functional activity, while the examples only demonstrate two concrete antibodies with specific sequences.",
+      "requiredBehaviors": [
+        "represent the broad functional claim separately from the two demonstrated species",
+        "identify genus-versus-species and functional-versus-structural scope drivers",
+        "avoid treating experimental support for two species as proof that all claimed functional variants were demonstrated"
+      ],
+      "forbiddenBehaviors": [
+        "equate claimed genus with experimentally tested embodiments",
+        "describe every functionally claimed binder as a disclosed concrete sequence"
+      ],
+      "skillAnchors": [
+        "genus vs species",
+        "funktionale vs strukturelle Definition",
+        "CLAIMED"
+      ]
+    },
+    {
+      "id": "reconstruction-gap",
+      "input": "A diagnostic patent discloses the capture and detection antibody sequences and the detection chemistry, but not reagent concentrations, incubation times or several calibration details.",
+      "requiredBehaviors": [
+        "reconstruct the supported architecture and known reagent identities",
+        "classify missing process parameters as explicit evidence gaps",
+        "grade reconstructability as medium or low depending on criticality of missing parameters"
+      ],
+      "forbiddenBehaviors": [
+        "invent a complete operating protocol",
+        "claim that the assay has been fully reproduced from the patent"
+      ],
+      "skillAnchors": [
+        "Keine stillschweigende Vervollständigung",
+        "Rekonstruierbarkeit"
+      ]
+    },
+    {
+      "id": "family-drift",
+      "input": "A PCT application contains broad sequence-identity claims, a later US continuation narrows to a competition-binding antibody class, and an EP divisional grants with a specific CDR combination.",
+      "requiredBehaviors": [
+        "preserve the common family context while analyzing materially distinct claim-scope branches",
+        "compare jurisdiction- and member-specific claim limitations and prosecution changes",
+        "route any concrete product read-on assessment to freedom-to-operate-assessment"
+      ],
+      "forbiddenBehaviors": [
+        "present the family as having one uniform protection scope",
+        "make a final infringement or FTO conclusion"
+      ],
+      "skillAnchors": [
+        "Prosecution und Family Drift",
+        "freedom-to-operate-assessment"
+      ]
+    },
+    {
+      "id": "design-space-boundary",
+      "input": "After analyzing the claims and embodiments, propose technical directions for avoiding claim-critical features while preserving the diagnostic function.",
+      "requiredBehaviors": [
+        "distinguish claim-critical performance-critical example-specific interchangeable and unknown features",
+        "present alternative technical directions as hypotheses rather than patent-clearance conclusions",
+        "require a new product-specific FTO screen before relying on a changed configuration"
+      ],
+      "forbiddenBehaviors": [
+        "state that a proposed change is patent free",
+        "generate unsupported new biological sequences as though they came from the patent"
+      ],
+      "skillAnchors": [
+        "claim-critical",
+        "Design-space-Hypothesen",
+        "patentfrei"
+      ]
+    }
+  ]
+}
