@@ -10,8 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **12**
+Skills: **13**
 
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
 - [[skills/mermaid-knowledge-map-renderer|mermaid-knowledge-map-renderer]]

@@ -48,6 +48,22 @@
       ]
     },
     {
+      "name": "biopatent-deep-analysis",
+      "requires": [
+        "patent-landscape-analysis",
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "biopatent-binding-evidence.json",
+        "biopatent-claim-structure-map.json",
+        "biopatent-dossier.json",
+        "biopatent-dossier.md",
+        "biopatent-reconstruction.md",
+        "biopatent-sequence-map.json"
+      ]
+    },
+    {
       "name": "candidate-role-fit-assessment",
       "requires": [
         "role-architecture"
@@ -2561,6 +2577,14 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "biopatent-deep-analysis",
+      "to": "patent-landscape-analysis"
+    },
+    {
+      "from": "biopatent-deep-analysis",
+      "to": "research-to-evidence-note"
+    },
+    {
       "from": "candidate-role-fit-assessment",
       "to": "role-architecture"
     },
@@ -4778,6 +4802,60 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "biopatent-binding-evidence.json",
+      "producers": [
+        "biopatent-deep-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "biopatent-claim-structure-map.json",
+      "producers": [
+        "biopatent-deep-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "biopatent-dossier.json",
+      "producers": [
+        "biopatent-deep-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "biopatent-dossier.md",
+      "producers": [
+        "biopatent-deep-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "biopatent-reconstruction.md",
+      "producers": [
+        "biopatent-deep-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "biopatent-sequence-map.json",
+      "producers": [
+        "biopatent-deep-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "candidate-interview-question-set.md",
       "producers": [
         "candidate-role-fit-assessment"
@@ -6198,6 +6276,7 @@
         "research-to-evidence-note"
       ],
       "consumerSkills": [
+        "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "contract-legal-context",
         "eu-mdr-ivdr-regulatory-specialist",
@@ -6229,6 +6308,7 @@
         "research-to-evidence-note"
       ],
       "consumerSkills": [
+        "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "contract-legal-context",
         "eu-mdr-ivdr-regulatory-specialist",
@@ -7727,27 +7807,33 @@
       "producers": [
         "patent-landscape-analysis"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "biopatent-deep-analysis"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "patent-landscape.md",
       "producers": [
         "patent-landscape-analysis"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "biopatent-deep-analysis"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "patent-search-log.json",
       "producers": [
         "patent-landscape-analysis"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "biopatent-deep-analysis"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "pccp-applicability.json",
@@ -10122,6 +10208,12 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "biopatent-binding-evidence.json",
+    "biopatent-claim-structure-map.json",
+    "biopatent-dossier.json",
+    "biopatent-dossier.md",
+    "biopatent-reconstruction.md",
+    "biopatent-sequence-map.json",
     "candidate-interview-question-set.md",
     "candidate-role-fit.json",
     "candidate-role-fit.md",
@@ -10237,9 +10329,6 @@
     "optimization-closure.md",
     "optional Mermaid map",
     "optional Obsidian vault projection",
-    "patent-landscape.json",
-    "patent-landscape.md",
-    "patent-search-log.json",
     "pccp-applicability.json",
     "pccp-change-evidence.json",
     "pccp-deviation-routing.json",
@@ -10310,6 +10399,12 @@
     "beta-readiness.json",
     "beta-readiness.md",
     "beta-runbook.md",
+    "biopatent-binding-evidence.json",
+    "biopatent-claim-structure-map.json",
+    "biopatent-dossier.json",
+    "biopatent-dossier.md",
+    "biopatent-reconstruction.md",
+    "biopatent-sequence-map.json",
     "candidate-interview-question-set.md",
     "candidate-role-fit.json",
     "candidate-role-fit.md",
@@ -10425,9 +10520,6 @@
     "optimization-closure.md",
     "optional Mermaid map",
     "optional Obsidian vault projection",
-    "patent-landscape.json",
-    "patent-landscape.md",
-    "patent-search-log.json",
     "pccp-applicability.json",
     "pccp-change-evidence.json",
     "pccp-deviation-routing.json",

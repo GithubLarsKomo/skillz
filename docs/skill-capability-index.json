@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 201,
-  "entrypointCount": 169,
+  "skillCount": 202,
+  "entrypointCount": 170,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,9 +12,9 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 195,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationSuiteCount": 196,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 8,
   "skills": [
     {
       "name": "agent-handoff",
@@ -260,6 +260,86 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "biopatent-deep-analysis",
+      "description": "Analysiert ausgewählte Biotech-/IVD-Patentfamilien technisch-forensisch bis auf Claim-Element-, Sequenz-, Konstrukt-, Epitop-/Bindungs-, Assay- und Re-Engineering-Ebene, trennt beanspruchten Schutzbereich, konkrete Offenbarung und experimentelle Evidenz und erzeugt eine nachvollziehbare technische Rekonstruktion; keine anwaltliche Claim Construction, FTO Opinion oder ungekennzeichnete Erfindung neuer biologischer Sequenzen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "patent-landscape-analysis",
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "biopatent-binding-evidence.json",
+        "biopatent-claim-structure-map.json",
+        "biopatent-dossier.json",
+        "biopatent-dossier.md",
+        "biopatent-reconstruction.md",
+        "biopatent-sequence-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "biopatent-binding-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "biopatent-deep-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "biopatent-claim-structure-map.json",
+          "ambiguous": false,
+          "producers": [
+            "biopatent-deep-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "biopatent-dossier.json",
+          "ambiguous": false,
+          "producers": [
+            "biopatent-deep-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "biopatent-dossier.md",
+          "ambiguous": false,
+          "producers": [
+            "biopatent-deep-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "biopatent-reconstruction.md",
+          "ambiguous": false,
+          "producers": [
+            "biopatent-deep-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "biopatent-sequence-map.json",
+          "ambiguous": false,
+          "producers": [
+            "biopatent-deep-analysis"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 7,
+        "recordedResultCount": 0,
+        "passed": false
       }
     },
     {
@@ -7234,7 +7314,9 @@
       "requires": [
         "research-to-evidence-note"
       ],
-      "dependents": [],
+      "dependents": [
+        "biopatent-deep-analysis"
+      ],
       "outputs": [
         "patent-landscape.json",
         "patent-landscape.md",
@@ -7247,7 +7329,9 @@
           "producers": [
             "patent-landscape-analysis"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "biopatent-deep-analysis"
+          ]
         },
         {
           "output": "patent-landscape.md",
@@ -7255,7 +7339,9 @@
           "producers": [
             "patent-landscape-analysis"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "biopatent-deep-analysis"
+          ]
         },
         {
           "output": "patent-search-log.json",
@@ -7263,7 +7349,9 @@
           "producers": [
             "patent-landscape-analysis"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "biopatent-deep-analysis"
+          ]
         }
       ],
       "portableFiles": [
@@ -9207,6 +9295,7 @@
       },
       "requires": [],
       "dependents": [
+        "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "contract-legal-context",
         "eu-mdr-ivdr-regulatory-specialist",
@@ -9241,6 +9330,7 @@
             "research-to-evidence-note"
           ],
           "consumerSkills": [
+            "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
             "contract-legal-context",
             "eu-mdr-ivdr-regulatory-specialist",
@@ -9271,6 +9361,7 @@
             "research-to-evidence-note"
           ],
           "consumerSkills": [
+            "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
             "contract-legal-context",
             "eu-mdr-ivdr-regulatory-specialist",

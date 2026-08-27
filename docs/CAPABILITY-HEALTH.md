@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **201**
-- User-facing entrypoints: **169**
-- Evaluation suites: **195**
+- Skills: **202**
+- User-facing entrypoints: **170**
+- Evaluation suites: **196**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **186**
+- Outputs without inferred hard-requires consumers: **189**
 
 ## Evaluation gaps
 
@@ -51,6 +51,12 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
 - `beta-runbook.md` — producer: `project-beta-readiness`
+- `biopatent-binding-evidence.json` — producer: `biopatent-deep-analysis`
+- `biopatent-claim-structure-map.json` — producer: `biopatent-deep-analysis`
+- `biopatent-dossier.json` — producer: `biopatent-deep-analysis`
+- `biopatent-dossier.md` — producer: `biopatent-deep-analysis`
+- `biopatent-reconstruction.md` — producer: `biopatent-deep-analysis`
+- `biopatent-sequence-map.json` — producer: `biopatent-deep-analysis`
 - `candidate-interview-question-set.md` — producer: `candidate-role-fit-assessment`
 - `candidate-role-fit.json` — producer: `candidate-role-fit-assessment`
 - `candidate-role-fit.md` — producer: `candidate-role-fit-assessment`
@@ -166,9 +172,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `optimization-closure.md` — producer: `optimize-software-performance`
 - `optional Mermaid map` — producer: `thought-to-concept-flow`
 - `optional Obsidian vault projection` — producer: `thought-to-concept-flow`
-- `patent-landscape.json` — producer: `patent-landscape-analysis`
-- `patent-landscape.md` — producer: `patent-landscape-analysis`
-- `patent-search-log.json` — producer: `patent-landscape-analysis`
 - `pccp-applicability.json` — producer: `fda-pccp-change-control`
 - `pccp-change-evidence.json` — producer: `fda-pccp-change-control`
 - `pccp-deviation-routing.json` — producer: `fda-pccp-change-control`

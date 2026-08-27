@@ -9,6 +9,8 @@ graph TD
   architecture_deepening_review --> iterate_software_projects
   audit_inspection_finding_response --> decision_record
   audit_inspection_finding_response --> regulatory_evidence_traceability
+  biopatent_deep_analysis --> patent_landscape_analysis
+  biopatent_deep_analysis --> research_to_evidence_note
   candidate_role_fit_assessment --> role_architecture
   central_skill_repository_curation --> composable_skill_factory
   clinical_evidence_update_impact --> decision_record
@@ -522,6 +524,12 @@ graph TD
 | `beta-readiness.json` | `project-beta-readiness` | — | unconsumed |
 | `beta-readiness.md` | `project-beta-readiness` | — | unconsumed |
 | `beta-runbook.md` | `project-beta-readiness` | — | unconsumed |
+| `biopatent-binding-evidence.json` | `biopatent-deep-analysis` | — | unconsumed |
+| `biopatent-claim-structure-map.json` | `biopatent-deep-analysis` | — | unconsumed |
+| `biopatent-dossier.json` | `biopatent-deep-analysis` | — | unconsumed |
+| `biopatent-dossier.md` | `biopatent-deep-analysis` | — | unconsumed |
+| `biopatent-reconstruction.md` | `biopatent-deep-analysis` | — | unconsumed |
+| `biopatent-sequence-map.json` | `biopatent-deep-analysis` | — | unconsumed |
 | `candidate-interview-question-set.md` | `candidate-role-fit-assessment` | — | unconsumed |
 | `candidate-role-fit.json` | `candidate-role-fit-assessment` | — | unconsumed |
 | `candidate-role-fit.md` | `candidate-role-fit-assessment` | — | unconsumed |
@@ -645,8 +653,8 @@ graph TD
 | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | inferred |
 | `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `evidence-note.json` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
-| `evidence-note.md` | `research-to-evidence-note` | `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.json` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.md` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
@@ -785,9 +793,9 @@ graph TD
 | `optimization-plan.json` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `optional Mermaid map` | `thought-to-concept-flow` | — | unconsumed |
 | `optional Obsidian vault projection` | `thought-to-concept-flow` | — | unconsumed |
-| `patent-landscape.json` | `patent-landscape-analysis` | — | unconsumed |
-| `patent-landscape.md` | `patent-landscape-analysis` | — | unconsumed |
-| `patent-search-log.json` | `patent-landscape-analysis` | — | unconsumed |
+| `patent-landscape.json` | `patent-landscape-analysis` | `biopatent-deep-analysis` | inferred |
+| `patent-landscape.md` | `patent-landscape-analysis` | `biopatent-deep-analysis` | inferred |
+| `patent-search-log.json` | `patent-landscape-analysis` | `biopatent-deep-analysis` | inferred |
 | `pccp-applicability.json` | `fda-pccp-change-control` | — | unconsumed |
 | `pccp-change-evidence.json` | `fda-pccp-change-control` | — | unconsumed |
 | `pccp-deviation-routing.json` | `fda-pccp-change-control` | — | unconsumed |

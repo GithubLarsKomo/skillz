@@ -30,7 +30,7 @@ Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Paten
 
 ## Required by
 
-- —
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 
 ## Outputs
 
@@ -42,15 +42,15 @@ Erstellt für eine abgegrenzte Technologiefrage eine evidenzbasierte, nach Paten
 
 ### `patent-landscape.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 
 ### `patent-landscape.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 
 ### `patent-search-log.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 
 ## Evaluation
 

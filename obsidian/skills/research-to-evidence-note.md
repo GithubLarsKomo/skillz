@@ -30,6 +30,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 
 ## Required by
 
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
@@ -61,6 +62,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 
 ### `evidence-note.json`
 
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
@@ -85,6 +87,7 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 
 ### `evidence-note.md`
 
+- [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]

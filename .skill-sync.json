@@ -28,6 +28,12 @@
         "agents/openai.yaml": "a3fdeef069401fb781689caf6796a113cd73db13ab8321a8ffdab3cd94e2452e"
       }
     },
+    "biopatent-deep-analysis": {
+      "files": {
+        "SKILL.md": "7cbbf4c1589d1a6e4c4feecb1666aa8fc3940a7d57c08e5c5c5f53a7be412fc0",
+        "agents/openai.yaml": "78f689125802d372b5478cb254253e3b1fa617858be16fa8ec1b670474ce5c2c"
+      }
+    },
     "candidate-role-fit-assessment": {
       "files": {
         "SKILL.md": "6f1830956bdd0708f0853ea7fb2a15c59f0b2ee80b4262e54def332b6095ac44",

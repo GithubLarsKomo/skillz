@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n201 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n202 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1300,14 +1300,23 @@
       "x": 7320,
       "y": 0,
       "width": 1120,
-      "height": 660,
+      "height": 800,
       "color": "1"
+    },
+    {
+      "id": "skill-biopatent-deep-analysis",
+      "type": "file",
+      "file": "skills/biopatent-deep-analysis.md",
+      "x": 7360,
+      "y": 70,
+      "width": 300,
+      "height": 110
     },
     {
       "id": "skill-contract-legal-context",
       "type": "file",
       "file": "skills/contract-legal-context.md",
-      "x": 7360,
+      "x": 7690,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1316,7 +1325,7 @@
       "id": "skill-freedom-to-operate-assessment",
       "type": "file",
       "file": "skills/freedom-to-operate-assessment.md",
-      "x": 7690,
+      "x": 8020,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1325,8 +1334,8 @@
       "id": "skill-mermaid-knowledge-map-renderer",
       "type": "file",
       "file": "skills/mermaid-knowledge-map-renderer.md",
-      "x": 8020,
-      "y": 70,
+      "x": 7360,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1334,7 +1343,7 @@
       "id": "skill-patent-landscape-analysis",
       "type": "file",
       "file": "skills/patent-landscape-analysis.md",
-      "x": 7360,
+      "x": 7690,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1343,7 +1352,7 @@
       "id": "skill-person-research-dossier",
       "type": "file",
       "file": "skills/person-research-dossier.md",
-      "x": 7690,
+      "x": 8020,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1352,8 +1361,8 @@
       "id": "skill-price-availability-snapshot",
       "type": "file",
       "file": "skills/price-availability-snapshot.md",
-      "x": 8020,
-      "y": 210,
+      "x": 7360,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1361,7 +1370,7 @@
       "id": "skill-product-evidence-research",
       "type": "file",
       "file": "skills/product-evidence-research.md",
-      "x": 7360,
+      "x": 7690,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1370,7 +1379,7 @@
       "id": "skill-research-to-evidence-note",
       "type": "file",
       "file": "skills/research-to-evidence-note.md",
-      "x": 7690,
+      "x": 8020,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1379,8 +1388,8 @@
       "id": "skill-sport-performance-diagnostics",
       "type": "file",
       "file": "skills/sport-performance-diagnostics.md",
-      "x": 8020,
-      "y": 350,
+      "x": 7360,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1388,7 +1397,7 @@
       "id": "skill-structured-knowledge-artifact",
       "type": "file",
       "file": "skills/structured-knowledge-artifact.md",
-      "x": 7360,
+      "x": 7690,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1397,7 +1406,7 @@
       "id": "skill-technology-offer-assessment",
       "type": "file",
       "file": "skills/technology-offer-assessment.md",
-      "x": 7690,
+      "x": 8020,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1406,8 +1415,8 @@
       "id": "skill-thought-graph-extractor",
       "type": "file",
       "file": "skills/thought-graph-extractor.md",
-      "x": 8020,
-      "y": 490,
+      "x": 7360,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1952,6 +1961,24 @@
       "fromSide": "left",
       "toNode": "skill-regulatory-evidence-traceability",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-600a4d2688c7",
+      "fromNode": "skill-biopatent-deep-analysis",
+      "fromSide": "right",
+      "toNode": "skill-patent-landscape-analysis",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-066b08c0c233",
+      "fromNode": "skill-biopatent-deep-analysis",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5990,9 +6017,9 @@
     {
       "id": "requires-2b29a64cc2e1",
       "fromNode": "skill-thought-graph-extractor",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-structured-knowledge-artifact",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
