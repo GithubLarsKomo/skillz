@@ -748,7 +748,8 @@
       "consumes": [],
       "outputs": [
         "frontend-design-findings.json",
-        "frontend-design-review.md"
+        "frontend-design-review.md",
+        "frontend-design-visual-evidence.md"
       ]
     },
     {
@@ -6727,6 +6728,17 @@
         "frontend-design-director",
         "frontend-design-review",
         "frontend-design-shaping"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "frontend-design-visual-evidence.md",
+      "producers": [
+        "frontend-design-review"
+      ],
+      "consumerSkills": [
+        "frontend-design-director"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"

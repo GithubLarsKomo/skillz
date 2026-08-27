@@ -4,7 +4,7 @@ description: Orchestriert Frontend-Designarbeit für Websites, Landingpages, App
 userFacing: true
 implicitInvocation: true
 category: engineering
-version: 0.3.0
+version: 0.4.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -17,7 +17,7 @@ requires:
 outputs:
   - frontend-design-routing.json
   - frontend-design-handoff.md
-lastEvaluated: 2026-08-25
+lastEvaluated: 2026-08-27
 ---
 
 # Frontend Design Director
@@ -65,15 +65,48 @@ Lade `references/personal-design-defaults.md`. Reiche nur die zur Aufgabe passen
 
 Wiederholte oder ausdrücklich als dauerhaft bezeichnete Nutzerbewertungen dürfen als Kandidaten an `communication-memory-governance` übergeben werden. Eine einzelne Auswahl wie „Variante 2“ bleibt projektbezogen, solange keine langlebige Präferenz bestätigt ist.
 
+## Verbindlicher Impeccable-Ausführungszyklus
+
+Bei Redesign, UI-Polish, App-Modernisierung oder wesentlicher visueller Änderung ist ein einzelner Implementierungsschritt **nicht** ausreichend. Der Director orchestriert mindestens:
+
+`authority check -> shaping -> implementation -> render -> frontend-design-review -> fixes -> re-render -> final review -> CI/release gate`
+
+Dabei gilt:
+
+- Desktop-/Wide und Mobile-/Narrow-Render sind Pflicht, wenn die Surface responsive ist.
+- Bei Apps muss zusätzlich mindestens eine komplexe Power-/Detail-Surface geprüft werden, z. B. Editor, Tabelle, Session, Detailansicht oder Dialog.
+- CI grün beendet den Designzyklus nicht, solange der gerenderte Zustand noch `blocking`/`high` Visual-Completion-Findings zeigt.
+- Ein vorhandenes Logo/Favicon/App-Icon erfüllt das Branding-Gate nur, wenn die Marke in der realen Zieloberfläche auch sichtbar und angemessen präsent ist.
+- Wiederholte Informationen, doppelte Previews und parallele Legacy-/Neusysteme werden als Implementierungsbefund behandelt, nicht als bloße Geschmacksfrage.
+- Zusätzliche CSS-Override-Layer sind als Übergang zulässig, aber der Final Review muss prüfen, ob sie widersprüchliche Layoutsysteme, tote Reservierungsflächen oder doppelte Komponenten hinterlassen.
+
+Der Director darf eine Redesign-/Polish-Aufgabe erst als `ready-for-review` oder `ready-for-merge` kennzeichnen, wenn der `frontend-design-review` das Visual-Completion-Gate auf dem **nach den Fixes neu gerenderten Stand** bestanden hat.
+
 ## Harte Design-Qualitätsgrenzen
 
 AI-Slop-Antipatterns werden nicht als bequeme Defaults akzeptiert: generische identische Card-Grids, dekoratives Glassmorphism, Gradient-Text, austauschbare Stock-Illustrationen, Hero-plus-Metrics-plus-Cards als Reflex, dekorative Seitenstreifen, generische SaaS-/AI-Copy und Modal-first ohne begründeten UX-Bedarf.
 
 Ebenso unzulässig sind isoliert erzeugte Branding-Assets ohne erkennbare Familienähnlichkeit, beliebige Template-Farben ohne Projektbegründung, **veränderte oder erfundene Corporate-Brandfarben trotz vorhandener autoritativer Palette**, nicht rückverfolgbare Derived Colors und Key Visuals, die den Projektcharakter nur dekorieren statt inhaltlich abzubilden. Eine bestehende Oberfläche wird evolutionär verbessert statt ohne Auftrag neu erfunden.
 
+Zusätzlich gelten als harte Qualitätswarnungen:
+
+- freigegebene Markenassets, die im realen Chrome unsichtbar oder optisch marginal bleiben,
+- große tote Flächen trotz informationsreicher App-Surface,
+- konkurrierende Max-Widths/Raster zwischen Header, Navigation und Hauptinhalt,
+- dieselbe Vorschau/Information mehrfach auf derselben Surface,
+- Legacy-Struktur plus neue Designschicht ohne abschließende Konsolidierung,
+- technisch valide, aber sichtbar unkuratierte Power-Surfaces.
+
 ## Handoff
 
-Erzeuge bei Routing einen kompakten Stand mit Ziel, Register/Surface, Pfaden zu `PRODUCT.md` und `DESIGN.md`, Status des Brand-and-Context-Gates, Status einer vorhandenen Corporate-Palette (`source|not-applicable|conflict`), geltenden Overrides, einschlägigen persönlichen Default-Hypothesen, offenen Entscheidungen und genau dem nächsten Skill.
+Erzeuge bei Routing einen kompakten Stand mit Ziel, Register/Surface, Pfaden zu `PRODUCT.md` und `DESIGN.md`, Status des Brand-and-Context-Gates, **Status des Visual-Completion-Gates**, Status einer vorhandenen Corporate-Palette (`source|not-applicable|conflict`), geltenden Overrides, einschlägigen persönlichen Default-Hypothesen, offenen Entscheidungen und genau dem nächsten Skill.
+
+Bei laufender Implementierung enthält der Handoff zusätzlich:
+
+- welche Desktop-/Mobile-/Power-Surface-Render geprüft wurden,
+- offene `blocking|high` Visual-Findings,
+- ob ein Re-Render nach Fixes erfolgt ist,
+- ob CI und Visual Review beide grün sind.
 
 ## Herkunft und Lizenz
 
@@ -81,4 +114,4 @@ Die Designmethodik ist in eigenen Formulierungen von Prinzipien aus `pbakaus/imp
 
 ## Abschluss
 
-Abgeschlossen ist der Director-Schritt, wenn **Autoritätshierarchie**, Projektkontext, Brand-and-Context-Gate einschließlich Corporate-Palette-Gate soweit anwendbar und Aufgabe eindeutig geroutet sind und genau ein nächster Fach-Skill oder Engineering-Handoff feststeht.
+Abgeschlossen ist der Director-Schritt, wenn **Autoritätshierarchie**, Projektkontext, Brand-and-Context-Gate einschließlich Corporate-Palette-Gate soweit anwendbar, Aufgabe und nächster Fach-Skill eindeutig feststehen. Für implementierte Redesign-/Polish-Aufgaben ist zusätzlich ein bestandener finaler Render-Review gemäß Visual-Completion-Gate erforderlich; CI allein genügt nicht.

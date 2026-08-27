@@ -16,7 +16,7 @@ tags:
 
 # frontend-design-review
 
-Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.
+Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance-, Anti-Slop- und Visual-Completion-Findings mit konkreten Empfehlungen, ohne Designsystemregeln still zu verändern.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -37,6 +37,7 @@ Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRO
 
 - `frontend-design-findings.json`
 - `frontend-design-review.md`
+- `frontend-design-visual-evidence.md`
 
 ## Output consumers
 
@@ -45,6 +46,10 @@ Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRO
 - [[skills/frontend-design-director|frontend-design-director]]
 
 ### `frontend-design-review.md`
+
+- [[skills/frontend-design-director|frontend-design-director]]
+
+### `frontend-design-visual-evidence.md`
 
 - [[skills/frontend-design-director|frontend-design-director]]
 

@@ -1,9 +1,9 @@
 ---
 name: frontend-design-review
-description: Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance- und Anti-Slop-Findings mit konkreten Empfehlungen, ohne Designsystemregeln oder Produktionscode still zu verändern.
+description: Prüft eine konkrete Frontend-Oberfläche evidenzbasiert gegen autoritatives PRODUCT.md, DESIGN.md und bestätigte Feature-Briefs. Liefert priorisierte UX/UI-, Accessibility-, Responsive-, Branding-, Copy-, Performance-, Anti-Slop- und Visual-Completion-Findings mit konkreten Empfehlungen, ohne Designsystemregeln still zu verändern.
 userFacing: false
 implicitInvocation: true
-version: 0.3.0
+version: 0.4.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -13,7 +13,8 @@ requires:
 outputs:
   - frontend-design-review.md
   - frontend-design-findings.json
-lastEvaluated: 2026-08-25
+  - frontend-design-visual-evidence.md
+lastEvaluated: 2026-08-27
 ---
 
 # Frontend Design Review
@@ -22,33 +23,47 @@ lastEvaluated: 2026-08-25
 
 Review bewertet bestehende oder implementierte Frontend-Arbeit. Es trennt normative Verstöße, nachweisbare UX-/Technikprobleme und reine Präferenzverbesserungen. Es ändert weder Code noch `PRODUCT.md`/`DESIGN.md` automatisch.
 
+Ein technisch grüner Build ist **kein** Design-Pass. Ein Review darf erst als abgeschlossen gelten, wenn der tatsächlich gerenderte Zielzustand gegen die autoritativen Regeln geprüft wurde.
+
 ## Voraussetzungen
 
-Lies `PRODUCT.md`, `DESIGN.md`, vorhandenen bestätigten Feature-Brief und den konkreten Zielzustand: Code, Screenshots oder laufende Oberfläche soweit verfügbar. Prüfe außerdem vorhandene Corporate-Brand-Quellen (`.ase`, bestätigte Palette-JSONs, Brand-Guides) sowie generierte `brand.css`-/Kontrast-Artefakte, soweit vorhanden. Fehlt autoritativer Projektkontext, route zuerst zu den Kontext-Skills.
+Lies `PRODUCT.md`, `DESIGN.md`, vorhandenen bestätigten Feature-Brief und den konkreten Zielzustand: Code **und** gerenderte Oberfläche soweit praktisch verfügbar. Prüfe außerdem vorhandene Corporate-Brand-Quellen (`.ase`, bestätigte Palette-JSONs, Brand-Guides) sowie generierte `brand.css`-/Kontrast-Artefakte, soweit vorhanden. Fehlt autoritativer Projektkontext, route zuerst zu den Kontext-Skills.
+
+Für Apps, PWAs, Dashboards und responsive Websites gilt zusätzlich:
+
+- mindestens ein repräsentativer Desktop-/Wide-Screenshot,
+- mindestens ein repräsentativer Mobile-/Narrow-Screenshot,
+- bei Power-Surfaces mindestens ein Screenshot eines komplexen Zustands wie Editor, Tabelle, Dialog, Session oder Detailansicht,
+- bei Branding-Änderungen ein sichtbarer Nachweis im realen App-Chrome sowie in Kleinformat/Favicon/App-Icon.
+
+Wenn keine laufende Oberfläche erreichbar ist, nutze vorhandene Browser-/Playwright-Artefakte oder einen reproduzierbaren lokalen Render. Reine Code-Inspektion darf Visual Completion nicht ersetzen.
 
 ## Review-Achsen
 
 Prüfe zielbezogen:
 
 1. Produktzweck, Nutzeraufgabe und Informationshierarchie.
-2. **Branding-Kohärenz:** Logo ist projektspezifisch; Favicon ist sichtbar aus demselben Markensystem abgeleitet; bei Apps/PWAs/mobile/desktop ist ein übereinstimmendes App-Icon vorhanden. Prüfe Motiv, Formensprache, Farbwelt und Erkennbarkeit in kleinen Größen.
+2. **Branding-Kohärenz und -Prominenz:** Logo ist projektspezifisch; Favicon ist sichtbar aus demselben Markensystem abgeleitet; bei Apps/PWAs/mobile/desktop ist ein übereinstimmendes App-Icon vorhanden. Prüfe nicht nur Asset-Existenz, sondern ob die Marke im realen Chrome sichtbar, lesbar, proportional und gegenüber Titel/Navigationsstruktur angemessen präsent ist.
 3. Navigation, Interaktion, Feedback, Fokus und Fehler-/Empty-/Loading-Zustände.
 4. Typografie, Lesbarkeit, Textbreite und Hierarchiekontrast.
 5. **Corporate-Farbintegrität:** Liegt eine freigegebene Corporate-Palette vor, stimmen die Corporate Tokens exakt mit der autoritativen Quelle überein. Template-/Framework-Farben dürfen keine Brandwerte ersetzt haben. Corporate-, Semantic- und Component-Layer sind getrennt.
 6. **Farbkontext und Traceability:** Semantische Rollen passen zu Projektkontext, Marke, Nutzungsszene und gewünschter Wirkung. Abgeleitete Hover-/Surface-/State-Farben sind als Ableitungen dokumentiert und auf Corporate- oder semantische Basistokens rückverfolgbar.
 7. **Farb-Accessibility:** Prüfe tatsächlich verwendete Foreground/Background-Paare gegen dokumentierte Kontrast-Evidenz. Ein vorhandener `brand-contrast-report.json` ist Evidenz für Black/White-Paare, ersetzt aber nicht die Prüfung zusätzlicher Kombinationen in der realen UI.
-8. Informationsdichte, Spacing, Raster, Rhythmus und Responsive-Verhalten.
+8. **Geometrie und Rhythmus:** Informationsdichte, Spacing, Raster, Alignment, Contentbreite, tote Flächen, optische Achsen und Responsive-Verhalten. Große ungenutzte Flächen oder künstlich zentrierte schmale Arbeitsbereiche sind ein Finding, wenn sie Fokus, Dichte oder App-Charakter widersprechen.
 9. **Semantische Bildwirkung:** Bilder/Illustrationen erfüllen echte Inhaltsrollen. Das Key Visual muss mindestens zwei der in `DESIGN.md` priorisierten 2–3 Projekteigenschaften/Value-Propositionen grafisch nachvollziehbar transportieren; rein dekorative oder austauschbare Motive werden beanstandet.
 10. Motion auf funktionalen Nutzen, Reduced Motion und unnötige Ablenkung.
 11. **Kontexttreue Copy:** UX Writing, Claims, Überschriften, Labels, CTAs, Beispiele sowie Empty-/Error-States verwenden Domäne, Zielgruppe und Terminologie des konkreten Projekts. Generische SaaS-/AI-Texte, Lorem ipsum und austauschbare Platzhalter gelten ohne ausdrückliche Freigabe als Finding.
 12. Accessibility und offensichtliche technische/Performance-Auswirkungen.
 13. Einhaltung von `PRODUCT.md`, `DESIGN.md` und bestätigten Surface-Overrides.
+14. **Content- und Komponenten-Deduplizierung:** Prüfe, ob dieselbe Information, Preview, Frage, Antwort, Statusgruppe oder CTA ohne klaren Zweck doppelt erscheint. Zwei parallele Darstellungen derselben Sache sind mindestens `medium`, bei konkurrierender Hierarchie `high`.
+15. **Implementation Coherence:** Prüfe, ob die Zieloberfläche als konsistentes System umgesetzt ist oder nur durch zusätzliche CSS-/DOM-Layer über eine widersprechende Legacy-Struktur gelegt wurde. Symptome sind widersprüchliche Max-Widths, doppelte Komponenten, unerklärte Override-Kaskaden, unsichtbare/reservierte Brand-Flächen oder dieselbe Funktion in Legacy- und neuer Variante gleichzeitig.
 
 ## Verbindliches Brand-and-Context-Gate
 
 Der Review darf nicht mit `pass` enden, wenn einer der anwendbaren Punkte verletzt ist:
 
 - `brand-logo`: kein projektspezifisches oder dokumentiertes bestehendes Logo/Markensystem,
+- `brand-visible`: das freigegebene Logo/Markenzeichen existiert als Asset, ist aber im vorgesehenen App-/Site-Chrome nicht sichtbar, nicht lesbar oder optisch bedeutungslos,
 - `brand-favicon`: Favicon fehlt oder wirkt unabhängig vom Logo,
 - `brand-app-icon`: bei einer App/PWA/mobile/desktop fehlt ein konsistentes App-Icon,
 - `brand-asset-coherence`: Logo, Favicon und App-Icon wirken nicht wie dieselbe Marke,
@@ -62,6 +77,29 @@ Der Review darf nicht mit `pass` enden, wenn einer der anwendbaren Punkte verlet
 - `system-coherence`: Branding, Farbe, Typografie, Bildsprache und Oberfläche ergeben kein kohärentes Gesamtsystem.
 
 Fehlt die dafür notwendige normative Festlegung in `DESIGN.md`, markiere das Finding als `requires-design-regrilling` statt die Lücke mit einer eigenen Designentscheidung zu füllen. **Corporate-Quellwerte werden im Review nie „optimiert“; eine gewünschte Änderung benötigt eine aktualisierte autoritative Markenquelle.**
+
+## Visual-Completion-Gate
+
+Dieses Gate ist für implementierte Frontends verbindlich. `pass` ist nur zulässig, wenn alle anwendbaren Punkte mit Render-Evidenz geprüft wurden:
+
+- `visual-desktop`: repräsentative Desktop-/Wide-Surface ohne offensichtliche Hierarchie-, Alignment-, Leerraum- oder Branding-Defekte,
+- `visual-mobile`: repräsentative Mobile-/Narrow-Surface ohne abgeschnittene, überlaufende oder sekundär unbrauchbare Elemente,
+- `visual-complex-surface`: mindestens eine komplexe Power-/Detail-Surface ist kuratiert und nicht nur funktional,
+- `visual-brand-presence`: Logo/Marke ist in der realen Zieloberfläche sichtbar und proportional schlüssig,
+- `visual-content-dedup`: keine ungewollt doppelte Preview/Antwort/Status-/CTA-Darstellung,
+- `visual-layout-coherence`: Contentbreiten, Rails, Header, Panels und Arbeitsflächen folgen einem erkennbaren Raster statt unabhängigen Legacy-Max-Widths,
+- `visual-layering-debt`: keine sichtbaren Reste paralleler Alt-/Neusysteme, die den freigegebenen Zielzustand schwächen,
+- `visual-state-coverage`: mindestens Normalzustand plus ein relevanter alternativer Zustand (z. B. Editor, Session, Empty, Error, Detail) wurde geprüft.
+
+Automatisierte Layout-, Accessibility- und Browser-Tests sind notwendige Evidenz, aber ersetzen die visuelle Prüfung nicht. Umgekehrt darf ein ästhetisch überzeugender Screenshot technische Gates nicht überstimmen.
+
+## Iterativer Abschluss
+
+Nach Umsetzung von `blocking`- und `high`-Findings muss ein **zweiter Review auf dem neuen Render** erfolgen. Der ursprüngliche Review darf nicht einfach durch „CI grün“ geschlossen werden. Wenn der zweite Pass neue sichtbare Folgeprobleme zeigt, werden diese priorisiert und erneut abgearbeitet, bis kein `blocking`/`high` Visual-Completion-Finding mehr offen ist.
+
+Für größere Redesigns ist mindestens diese Sequenz verbindlich:
+
+`authority check -> shaping -> implementation -> render desktop/mobile -> review -> fixes -> re-render -> final review -> CI/release gate`
 
 ## Farb-Evidenz
 
@@ -92,7 +130,7 @@ Jedes Finding enthält:
 - Verifikationskriterium,
 - Kennzeichen `requires-product-regrilling`, `requires-design-regrilling` oder `surface-only`.
 
-Verstöße gegen das verbindliche Brand-and-Context-Gate sind mindestens `high`; fehlende Pflicht-Assets, manipulierte Corporate-Quellwerte oder eine offensichtlich fremde/generische Markenidentität dürfen `blocking` sein, wenn sie den freigegebenen Zielzustand verhindern.
+Verstöße gegen das verbindliche Brand-and-Context-Gate sind mindestens `high`; Verstöße gegen das Visual-Completion-Gate sind ebenfalls mindestens `high`, wenn sie den freigegebenen Zielzustand sichtbar unterlaufen. Fehlende Pflicht-Assets, manipulierte Corporate-Quellwerte oder eine offensichtlich fremde/generische Markenidentität dürfen `blocking` sein.
 
 Ein Stylingwunsch ohne belegbare Autorität oder Nutzerwirkung wird als Präferenz gekennzeichnet und nicht wie ein Fehler behandelt.
 
@@ -102,4 +140,4 @@ Würde eine Empfehlung eine dauerhafte Regel in `PRODUCT.md` oder `DESIGN.md` ve
 
 ## Abschluss
 
-Abgeschlossen ist der Review, wenn die Findings priorisiert, evidenzbasiert, gegen die Autoritätsquellen rückverfolgbar und mit verifizierbaren Änderungskriterien versehen sind, das Brand-and-Context-Gate einschließlich Corporate-Palette-Integrität soweit anwendbar explizit bewertet wurde und Empfehlungen mit globaler Wirkung korrekt zum Re-Grilling geroutet sind.
+Abgeschlossen ist der Review, wenn die Findings priorisiert, evidenzbasiert, gegen die Autoritätsquellen rückverfolgbar und mit verifizierbaren Änderungskriterien versehen sind, Brand-and-Context-Gate und Visual-Completion-Gate explizit bewertet wurden, Desktop/Mobile sowie eine komplexe Surface mit Render-Evidenz geprüft wurden und nach Umsetzung wesentlicher Findings ein finaler Re-Review keinen offenen `blocking`/`high` Befund mehr enthält.
