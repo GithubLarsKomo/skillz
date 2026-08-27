@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skill": "document-generation-forensics",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-27",
+  "evaluator": "skill-author",
+  "requiredBehaviors": [
+    {"behavior": "record the GenAI name as LLM-specific provenance evidence", "passed": true, "evidence": "The signal model permits llmSpecific=true only when a provenance source actually names an LLM/GenAI tool."},
+    {"behavior": "state that metadata may be rewritten or forged", "passed": true, "evidence": "The Grundregeln explicitly state that metadata can be overwritten or manipulated."},
+    {"behavior": "avoid turning the provenance hint into a final authorship conclusion", "passed": true, "evidence": "The skill scope is artifact evidence only and hands assessment to llm-generation-evidence-assessment."}
+  ],
+  "forbiddenBehaviors": [
+    {"behavior": "treat a ChatGPT metadata string as infallible proof of who authored all content", "observed": false, "evidence": "PDF Creator/Producer are explicitly described as creation-path hints, not author or LLM proof."}
+  ],
+  "overall": "pass"
+}
