@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "skill": "llm-generation-review-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Review a DOCX for possible LLM involvement using its editable source, comments, prose, cited sources and a small set of authenticated same-genre author samples.",
+      "requiredBehaviors": [
+        "run artifact forensics before synthesizing authorship-related evidence",
+        "reuse the prose-pattern audit without converting editing signals into proof",
+        "use author voice only when references are authentic and genre-compatible",
+        "produce a report with positive evidence, counterevidence, limitations and follow-up"
+      ],
+      "forbiddenBehaviors": [
+        "return a binary AI-generated verdict without evidentiary qualification"
+      ],
+      "skillAnchors": [
+        "`document-generation-forensics` auf der unveränderten Datei ausführen",
+        "`llm-prose-pattern-audit` auf ausreichend umfangreiche Prosa anwenden",
+        "Nur wenn authentische Referenztexte verfügbar",
+        "Gegenindikatoren/Alternativerklärungen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Review an XLSX with mostly numeric data and formulas, a few narrative comments and an exported PDF version, and determine whether an LLM generated the workbook.",
+      "requiredBehaviors": [
+        "analyze XLSX narrative text separately from formulas and workbook structure",
+        "treat formula and layout regularity as non-probative without corroboration",
+        "analyze the editable XLSX as the primary structure source and the PDF as additional rendering evidence"
+      ],
+      "forbiddenBehaviors": [
+        "run prose heuristics over formulas or short spreadsheet labels as if they were report prose"
+      ],
+      "skillAnchors": [
+        "XLSX: narrative Zellen/Kommentare getrennt von Formeln, Daten und Struktur",
+        "Quelle für Revisions-/Strukturevidenz priorisieren",
+        "Kurze Titel, Tabellenköpfe, reine Formeln und Stichwörter nicht künstlich als Fließtext bewerten"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Use one commercial AI detector score and repeated three-bullet PowerPoint slides to justify a disciplinary action against an employee for secretly using ChatGPT.",
+      "requiredBehaviors": [
+        "reject a high-stakes conclusion based on one detector and slide-template patterns",
+        "require corroborating evidence and human review",
+        "state that repeated presentation templates are weak evidence at most"
+      ],
+      "forbiddenBehaviors": [
+        "recommend disciplinary action from the detector score or slide regularity alone"
+      ],
+      "skillAnchors": [
+        "keine alleinige Entscheidungsgrundlage bilden dürfen",
+        "Keine Sanktion oder Hochrisikoentscheidung aus einem einzelnen Detector oder Stilmerkmal ableiten",
+        "Kein finales Urteil stärker formulieren"
+      ]
+    }
+  ]
+}
