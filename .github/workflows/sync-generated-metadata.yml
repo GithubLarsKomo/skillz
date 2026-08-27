@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/impeccable-visual-completion-gate]
+    branches: [main]
     paths:
       - "skills/**"
       - "benchmarks/**"
