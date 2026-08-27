@@ -1,0 +1,5 @@
+interface:
+  display_name: "Llm Generation Review Workflow"
+  short_description: "Orchestriert eine evidenzbasierte Prüfung von Text, DOCX, PDF, XLSX und PPTX auf Hinweise einer LLM-/GenAI-Beteiligun..."
+policy:
+  allow_implicit_invocation: true
