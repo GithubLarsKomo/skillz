@@ -10,10 +10,11 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **30**
+Skills: **32**
 
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
+- [[skills/document-generation-forensics|document-generation-forensics]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
 - [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
@@ -29,6 +30,7 @@ Skills: **30**
 - [[skills/learning-mission|learning-mission]]
 - [[skills/learning-next-step|learning-next-step]]
 - [[skills/learning-state|learning-state]]
+- [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
 - [[skills/obsidian-adapter|obsidian-adapter]]

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Document Generation Forensics"
+  short_description: "Extrahiert reproduzierbare Provenienz-, Metadaten- und Strukturhinweise aus Text-, DOCX-, PDF-, XLSX- und PPTX-Artefa..."
+policy:
+  allow_implicit_invocation: false

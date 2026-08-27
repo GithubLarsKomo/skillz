@@ -223,6 +223,13 @@ graph TD
   learning_assessment_spec --> learning_state
   learning_next_step --> learning_mission
   learning_next_step --> learning_state
+  llm_generation_evidence_assessment --> author_voice_profiler
+  llm_generation_evidence_assessment --> document_generation_forensics
+  llm_generation_evidence_assessment --> llm_prose_pattern_audit
+  llm_generation_review_workflow --> author_voice_profiler
+  llm_generation_review_workflow --> document_generation_forensics
+  llm_generation_review_workflow --> llm_generation_evidence_assessment
+  llm_generation_review_workflow --> llm_prose_pattern_audit
   mdcg_guidance_navigator --> regulated_product_context
   mdcg_guidance_navigator --> regulatory_evidence_traceability
   mdcg_guidance_navigator --> research_to_evidence_note
@@ -509,8 +516,8 @@ graph TD
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
 | `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
-| `author-voice-profile.json` | `author-voice-profiler` | `precision-writing-revision` | inferred |
-| `author-voice-profile.md` | `author-voice-profiler` | `precision-writing-revision` | inferred |
+| `author-voice-profile.json` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
+| `author-voice-profile.md` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
 | `benchmark-reproduction.md` | `performance-baseline` | `optimize-software-performance`, `performance-hotspot-analysis`, `performance-regression-verification` | inferred |
 | `beta-readiness.json` | `project-beta-readiness` | — | unconsumed |
 | `beta-readiness.md` | `project-beta-readiness` | — | unconsumed |
@@ -606,6 +613,8 @@ graph TD
 | `docs/agents/CONTEXT.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/DECISIONS.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `document-control-assessment.json` | `controlled-quality-documentation` | `ivdr-field-safety-corrective-action`, `medical-device-field-action-communication`, `medical-device-field-action-physical-execution`, `quality-record-integrity` | inferred |
+| `document-forensics.json` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
+| `document-forensics.md` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
 | `domain-change-plan.md` | `domain-model-maintenance` | — | unconsumed |
 | `domain-model-map.json` | `domain-model-maintenance` | — | unconsumed |
 | `domain-validation.json` | `domain-model-maintenance` | — | unconsumed |
@@ -736,6 +745,10 @@ graph TD
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
+| `llm-generation-assessment.json` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
+| `llm-generation-assessment.md` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
+| `llm-generation-review.json` | `llm-generation-review-workflow` | — | unconsumed |
+| `llm-generation-review.md` | `llm-generation-review-workflow` | — | unconsumed |
 | `management-review-actions.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
 | `management-review-brief.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
 | `management-review-brief.md` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
@@ -834,8 +847,8 @@ graph TD
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
-| `prose-audit.json` | `llm-prose-pattern-audit` | `precision-writing-revision` | inferred |
-| `prose-audit.md` | `llm-prose-pattern-audit` | `precision-writing-revision` | inferred |
+| `prose-audit.json` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
+| `prose-audit.md` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
 | `prototype-brief.md` | `throwaway-prototype` | `decision-record` | inferred |
 | `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | inferred |
 | `public-job-posting.md` | `job-description-authoring` | — | unconsumed |

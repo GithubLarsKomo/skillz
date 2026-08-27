@@ -269,6 +269,15 @@
       ]
     },
     {
+      "name": "document-generation-forensics",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "document-forensics.json",
+        "document-forensics.md"
+      ]
+    },
+    {
       "name": "domain-model-maintenance",
       "requires": [
         "agent-handoff",
@@ -1165,6 +1174,33 @@
       "outputs": [
         "learning-record.md",
         "learning-state.json"
+      ]
+    },
+    {
+      "name": "llm-generation-evidence-assessment",
+      "requires": [
+        "author-voice-profiler",
+        "document-generation-forensics",
+        "llm-prose-pattern-audit"
+      ],
+      "consumes": [],
+      "outputs": [
+        "llm-generation-assessment.json",
+        "llm-generation-assessment.md"
+      ]
+    },
+    {
+      "name": "llm-generation-review-workflow",
+      "requires": [
+        "author-voice-profiler",
+        "document-generation-forensics",
+        "llm-generation-evidence-assessment",
+        "llm-prose-pattern-audit"
+      ],
+      "consumes": [],
+      "outputs": [
+        "llm-generation-review.json",
+        "llm-generation-review.md"
       ]
     },
     {
@@ -3381,6 +3417,34 @@
       "to": "learning-state"
     },
     {
+      "from": "llm-generation-evidence-assessment",
+      "to": "author-voice-profiler"
+    },
+    {
+      "from": "llm-generation-evidence-assessment",
+      "to": "document-generation-forensics"
+    },
+    {
+      "from": "llm-generation-evidence-assessment",
+      "to": "llm-prose-pattern-audit"
+    },
+    {
+      "from": "llm-generation-review-workflow",
+      "to": "author-voice-profiler"
+    },
+    {
+      "from": "llm-generation-review-workflow",
+      "to": "document-generation-forensics"
+    },
+    {
+      "from": "llm-generation-review-workflow",
+      "to": "llm-generation-evidence-assessment"
+    },
+    {
+      "from": "llm-generation-review-workflow",
+      "to": "llm-prose-pattern-audit"
+    },
+    {
       "from": "mdcg-guidance-navigator",
       "to": "regulated-product-context"
     },
@@ -4653,6 +4717,8 @@
         "author-voice-profiler"
       ],
       "consumerSkills": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow",
         "precision-writing-revision"
       ],
       "ambiguous": false,
@@ -4664,6 +4730,8 @@
         "author-voice-profiler"
       ],
       "consumerSkills": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow",
         "precision-writing-revision"
       ],
       "ambiguous": false,
@@ -5791,6 +5859,30 @@
         "medical-device-field-action-communication",
         "medical-device-field-action-physical-execution",
         "quality-record-integrity"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "document-forensics.json",
+      "producers": [
+        "document-generation-forensics"
+      ],
+      "consumerSkills": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "document-forensics.md",
+      "producers": [
+        "document-generation-forensics"
+      ],
+      "consumerSkills": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7214,6 +7306,46 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "llm-generation-assessment.json",
+      "producers": [
+        "llm-generation-evidence-assessment"
+      ],
+      "consumerSkills": [
+        "llm-generation-review-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "llm-generation-assessment.md",
+      "producers": [
+        "llm-generation-evidence-assessment"
+      ],
+      "consumerSkills": [
+        "llm-generation-review-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "llm-generation-review.json",
+      "producers": [
+        "llm-generation-review-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "llm-generation-review.md",
+      "producers": [
+        "llm-generation-review-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "management-review-actions.json",
       "producers": [
         "qms-management-review-governance"
@@ -8261,6 +8393,8 @@
         "llm-prose-pattern-audit"
       ],
       "consumerSkills": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow",
         "precision-writing-revision"
       ],
       "ambiguous": false,
@@ -8272,6 +8406,8 @@
         "llm-prose-pattern-audit"
       ],
       "consumerSkills": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow",
         "precision-writing-revision"
       ],
       "ambiguous": false,
@@ -10077,6 +10213,8 @@
     "knowledge-map.mmd",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
+    "llm-generation-review.json",
+    "llm-generation-review.md",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
     "management-review-return-input.json",
@@ -10263,6 +10401,8 @@
     "knowledge-map.mmd",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
+    "llm-generation-review.json",
+    "llm-generation-review.md",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
     "management-review-return-input.json",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 198,
-  "entrypointCount": 168,
+  "skillCount": 201,
+  "entrypointCount": 169,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -12,7 +12,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 192,
+  "evaluationSuiteCount": 195,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -218,6 +218,8 @@
       },
       "requires": [],
       "dependents": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow",
         "precision-writing-revision"
       ],
       "outputs": [
@@ -232,6 +234,8 @@
             "author-voice-profiler"
           ],
           "consumerSkills": [
+            "llm-generation-evidence-assessment",
+            "llm-generation-review-workflow",
             "precision-writing-revision"
           ]
         },
@@ -242,6 +246,8 @@
             "author-voice-profiler"
           ],
           "consumerSkills": [
+            "llm-generation-evidence-assessment",
+            "llm-generation-review-workflow",
             "precision-writing-revision"
           ]
         }
@@ -1339,6 +1345,57 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "document-generation-forensics",
+      "description": "Extrahiert reproduzierbare Provenienz-, Metadaten- und Strukturhinweise aus Text-, DOCX-, PDF-, XLSX- und PPTX-Artefakten, ohne aus Dateieigenschaften allein LLM-Autorschaft abzuleiten. Als Fach-Skill für LLM-Generierungsprüfungen verwenden, wenn Dateiherkunft, Generator-Tooling, Revisionen oder formatbezogene Spuren getrennt von Sprachmustern erhoben werden müssen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow"
+      ],
+      "outputs": [
+        "document-forensics.json",
+        "document-forensics.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-forensics.json",
+          "ambiguous": false,
+          "producers": [
+            "document-generation-forensics"
+          ],
+          "consumerSkills": [
+            "llm-generation-evidence-assessment",
+            "llm-generation-review-workflow"
+          ]
+        },
+        {
+          "output": "document-forensics.md",
+          "ambiguous": false,
+          "producers": [
+            "document-generation-forensics"
+          ],
+          "consumerSkills": [
+            "llm-generation-evidence-assessment",
+            "llm-generation-review-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "scripts/inspect_document_artifact.py"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -5080,6 +5137,105 @@
       }
     },
     {
+      "name": "llm-generation-evidence-assessment",
+      "description": "Bewertet voneinander getrennte Sprach-, Provenienz-, Autorenprofil-, Struktur- und Inhaltsindikatoren darauf, wie stark sie eine LLM-Unterstützung eines Dokuments stützen oder relativieren, ohne unkalibrierte Detector-Scores in Autorschaftswahrscheinlichkeiten umzudeuten. Als Fach-Skill nach Artefaktforensik und Textmuster-Audit verwenden.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "author-voice-profiler",
+        "document-generation-forensics",
+        "llm-prose-pattern-audit"
+      ],
+      "dependents": [
+        "llm-generation-review-workflow"
+      ],
+      "outputs": [
+        "llm-generation-assessment.json",
+        "llm-generation-assessment.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "llm-generation-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "llm-generation-evidence-assessment"
+          ],
+          "consumerSkills": [
+            "llm-generation-review-workflow"
+          ]
+        },
+        {
+          "output": "llm-generation-assessment.md",
+          "ambiguous": false,
+          "producers": [
+            "llm-generation-evidence-assessment"
+          ],
+          "consumerSkills": [
+            "llm-generation-review-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/evidence-model.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "llm-generation-review-workflow",
+      "description": "Orchestriert eine evidenzbasierte Prüfung von Text, DOCX, PDF, XLSX und PPTX auf Hinweise einer LLM-/GenAI-Beteiligung durch Dateiforensik, LLM-Prosa-Musteranalyse, optionalen Author-Voice-Vergleich, formatbezogene Inhaltsprüfung und konservative Evidenzsynthese. Verwenden bei Fragen wie „Ist das KI-generiert?“, „Prüfe dieses Dokument auf ChatGPT/LLM“ oder bei dokumentierter Herkunftsprüfung; keine binäre Detector-Gewissheit behaupten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "author-voice-profiler",
+        "document-generation-forensics",
+        "llm-generation-evidence-assessment",
+        "llm-prose-pattern-audit"
+      ],
+      "dependents": [],
+      "outputs": [
+        "llm-generation-review.json",
+        "llm-generation-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "llm-generation-review.json",
+          "ambiguous": false,
+          "producers": [
+            "llm-generation-review-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "llm-generation-review.md",
+          "ambiguous": false,
+          "producers": [
+            "llm-generation-review-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/format-checks.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "llm-prose-pattern-audit",
       "description": "Prüft deutsche und englische Sachtexte auf redaktionell relevante Muster generischer LLM-Prosa wie Signifikanzinflation, Pseudoanalyse, rhetorische Templates, Synonymvariation, Hedging, Nominalstil und syntaktische Gleichförmigkeit, ohne daraus KI-Autorschaft zu behaupten. Verwenden vor sprachgenauer Überarbeitung oder zur Stil-Diagnose.",
       "invocation": {
@@ -5088,6 +5244,8 @@
       },
       "requires": [],
       "dependents": [
+        "llm-generation-evidence-assessment",
+        "llm-generation-review-workflow",
         "precision-writing-revision"
       ],
       "outputs": [
@@ -5102,6 +5260,8 @@
             "llm-prose-pattern-audit"
           ],
           "consumerSkills": [
+            "llm-generation-evidence-assessment",
+            "llm-generation-review-workflow",
             "precision-writing-revision"
           ]
         },
@@ -5112,6 +5272,8 @@
             "llm-prose-pattern-audit"
           ],
           "consumerSkills": [
+            "llm-generation-evidence-assessment",
+            "llm-generation-review-workflow",
             "precision-writing-revision"
           ]
         }
