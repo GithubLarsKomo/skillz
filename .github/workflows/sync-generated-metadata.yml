@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, fix/biopatent-evaluation-baselines]
     paths:
       - "skills/**"
       - "benchmarks/**"
