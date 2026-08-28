@@ -1,5 +1,5 @@
 interface:
   display_name: "Sport Recovery Sleep"
-  short_description: "Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle Baseline und leitet konkrete Recovery..."
+  short_description: "Interpretiert Schlaf, Ermüdung, passive physiologische Signale und Erholung longitudinal gegen individuelle Baselines..."
 policy:
   allow_implicit_invocation: true

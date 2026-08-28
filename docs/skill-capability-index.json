@@ -13623,7 +13623,7 @@
     },
     {
       "name": "sport-adaptation-analysis",
-      "description": "Analysiert longitudinale Trainings- und Leistungsdaten auf Adaptation, Plateau, Drift und übermäßige Ermüdung mit individueller Baseline und expliziter Unsicherheit. Verwenden für Block-/Trendanalysen; ACWR, HRV oder Korrelationen nicht als kausale Verletzungsvorhersage behandeln.",
+      "description": "Analysiert longitudinale Trainings-, Leistungs-, Recovery-, passive Biometrie- und Body/Energy-Daten auf Adaptation, Plateau, Drift und übermäßige Ermüdung mit individueller Baseline und expliziter Unsicherheit. Verwenden für Block-/Trendanalysen; ACWR, HRV, Vendor-Scores oder Korrelationen nicht als kausale Verletzungs- oder Readiness-Regler behandeln.",
       "invocation": {
         "userFacing": true,
         "category": "analysis"
@@ -13797,7 +13797,7 @@
     },
     {
       "name": "sport-daily-athlete-monitoring",
-      "description": "Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit, Muskelkater, Stress, Motivation, Schmerz, Krankheitssymptomen und optionalen objektiven Metriken. Verwenden für tägliches longitudinales Monitoring; nicht als alleiniger Readiness-Score oder medizinische Diagnose.",
+      "description": "Erfasst einen kurzen Morning-Check, passive Wearable-/Biometrie-Kontexte und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit, Muskelkater, Stress, Motivation, Schmerz und Krankheitssymptomen. Verwenden für tägliches longitudinales Monitoring; Wearable- oder Vendor-Scores nie als alleinigen Readiness-Regler oder medizinische Diagnose verwenden.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -14212,7 +14212,7 @@
     },
     {
       "name": "sport-nutrition-fueling",
-      "description": "Plant leistungsorientiertes Fueling, Proteinverteilung, Flüssigkeit und Wettkampfernährung und erkennt Hinweise auf niedrige Energieverfügbarkeit/RED-S. Verwenden für Trainings- und Wettkampfernährung; nicht als klinische Diätetik oder autonome Diagnose von RED-S.",
+      "description": "Plant leistungsorientiertes Fueling, Proteinverteilung, Flüssigkeit und Wettkampfernährung und erkennt Hinweise auf niedrige Energieverfügbarkeit/RED-S unter Einbezug methodenbewusster Body-/Gewichtstrends. Verwenden für Trainings- und Wettkampfernährung; nicht als klinische Diätetik, autonome RED-S-Diagnose oder Interpretation proprietärer Metabolic-/Longevity-Scores.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -14344,7 +14344,7 @@
     },
     {
       "name": "sport-recovery-sleep",
-      "description": "Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle Baseline und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise oder Wettkampfbelastung; keinen opaken Readiness-Score und keine HRV-Alleinsteuerung erzeugen.",
+      "description": "Interpretiert Schlaf, Ermüdung, passive physiologische Signale und Erholung longitudinal gegen individuelle Baselines und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise, Wettkampfbelastung oder Health Drift; keinen opaken Readiness-Score und keine HRV-/Vendor-Score-Alleinsteuerung erzeugen.",
       "invocation": {
         "userFacing": true,
         "category": "analysis"
@@ -14547,7 +14547,7 @@
     },
     {
       "name": "sport-training-adaptation-engine",
-      "description": "Vergleicht geplante Belastung, tatsächlich absolvierte Einheit, subjektive und objektive Reaktion, Trends und Health Constraints und erzeugt eine erklärbare akute, taktische oder strategische Trainingsanpassung. Verwenden für Proceed/Modify/Recover/Review-Entscheidungen; nicht als autonomes medizinisches Clearance- oder Verletzungsvorhersagesystem.",
+      "description": "Vergleicht geplante Belastung, tatsächlich absolvierte Einheit, subjektive und objektive Reaktion, passive Biomarker, Trends und Health Constraints und erzeugt eine erklärbare akute, taktische oder strategische Trainingsanpassung. Verwenden für Proceed/Modify/Recover/Review-Entscheidungen; Vendor-Readiness-Scores nicht als autonome Regler und den Skill nicht als medizinisches Clearance- oder Verletzungsvorhersagesystem verwenden.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
