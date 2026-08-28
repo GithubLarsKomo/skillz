@@ -668,10 +668,12 @@ graph TD
 | `candidate-role-fit-assessment` | `role-scorecard.json` | `role-architecture` |
 | `job-description-authoring` | `role-architecture.json` | `role-architecture` |
 | `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
+| `multimodal-learning-analysis` | `source-context.json` | `source-to-context` |
 | `person-profile-report` | `person-ip-map.json` | `person-research-dossier` |
 | `person-profile-report` | `person-publications.json` | `person-research-dossier` |
 | `person-profile-report` | `person-research-evidence.json` | `person-research-dossier` |
 | `person-profile-report` | `person-timeline.json` | `person-research-dossier` |
+| `research-to-evidence-note` | `source-context.json` | `source-to-context` |
 | `role-architecture` | `role-requirements-handoff.json` | `role-requirements-grilling` |
 
 ## Output contracts
@@ -1271,7 +1273,7 @@ graph TD
 | `software-evidence-gaps.json` | `iec62304-software-lifecycle` | `medical-device-cybersecurity-lifecycle` | inferred |
 | `software-lifecycle-assessment.json` | `iec62304-software-lifecycle` | `medical-device-cybersecurity-lifecycle` | inferred |
 | `software-safety-classification.json` | `iec62304-software-lifecycle` | `medical-device-cybersecurity-lifecycle` | inferred |
-| `source-context.json` | `source-to-context` | — | unconsumed |
+| `source-context.json` | `source-to-context` | `multimodal-learning-analysis`, `research-to-evidence-note` | explicit |
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
 | `sport-adaptation-analysis.json` | `sport-adaptation-analysis` | `sport-athlete-management` | inferred |

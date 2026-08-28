@@ -14,7 +14,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Skills without evaluation suite: **25**
 - User-facing entrypoints without evaluation suite: **15**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **261**
+- Outputs without inferred hard-requires consumers: **260**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -306,7 +306,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`
-- `source-context.json` — producer: `source-to-context`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
 - `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`

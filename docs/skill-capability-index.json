@@ -13529,7 +13529,10 @@
           "producers": [
             "source-to-context"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "multimodal-learning-analysis",
+            "research-to-evidence-note"
+          ]
         },
         {
           "output": "source-context.md",

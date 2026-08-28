@@ -2263,7 +2263,9 @@
     {
       "name": "multimodal-learning-analysis",
       "requires": [],
-      "consumes": [],
+      "consumes": [
+        "source-context.json"
+      ],
       "outputs": [
         "learning-concept-map.json",
         "learning-evidence.json"
@@ -2809,7 +2811,9 @@
     {
       "name": "research-to-evidence-note",
       "requires": [],
-      "consumes": [],
+      "consumes": [
+        "source-context.json"
+      ],
       "outputs": [
         "evidence-note.json",
         "evidence-note.md"
@@ -6084,6 +6088,11 @@
       "producer": "role-architecture"
     },
     {
+      "consumer": "multimodal-learning-analysis",
+      "artifact": "source-context.json",
+      "producer": "source-to-context"
+    },
+    {
       "consumer": "person-profile-report",
       "artifact": "person-ip-map.json",
       "producer": "person-research-dossier"
@@ -6102,6 +6111,11 @@
       "consumer": "person-profile-report",
       "artifact": "person-timeline.json",
       "producer": "person-research-dossier"
+    },
+    {
+      "consumer": "research-to-evidence-note",
+      "artifact": "source-context.json",
+      "producer": "source-to-context"
     },
     {
       "consumer": "role-architecture",
@@ -13237,9 +13251,12 @@
       "producers": [
         "source-to-context"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "multimodal-learning-analysis",
+        "research-to-evidence-note"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "source-context.md",
@@ -14309,7 +14326,6 @@
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
-    "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
     "sport-report-package",
@@ -14572,7 +14588,6 @@
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
-    "source-context.json",
     "source-context.md",
     "special-controls-matrix.json",
     "sport-report-package",

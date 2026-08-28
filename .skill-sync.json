@@ -1117,7 +1117,7 @@
     },
     "multimodal-learning-analysis": {
       "files": {
-        "SKILL.md": "3585968de3174d9120d7b3e15af6d7db5b568a67dca83c0685bed4c2585600f8",
+        "SKILL.md": "6d5423c915ac08ccebfdf43b0277f0a9c23a0d35fa2fabfe7349ef1fd7e93c2c",
         "agents/openai.yaml": "f0dca57312feeacb18c7afe353911af390bac5cd97fb28f7fee345b3f66a7c42"
       }
     },
@@ -1395,7 +1395,7 @@
     },
     "research-to-evidence-note": {
       "files": {
-        "SKILL.md": "a89aeb93b0028bf26ee3f12f949c6f710ab35e25a1f81a1e1cabcff6c45e8e1e",
+        "SKILL.md": "8ce7f747cd0b4d9ea1d6d5ba8e989a610076c1e97b18fed879fdfbdabbd205e0",
         "agents/openai.yaml": "ef3d890b2870ab7c1feb4d86d15da1ef94eb8ab53aea400538a4ace3a444330a"
       }
     },
