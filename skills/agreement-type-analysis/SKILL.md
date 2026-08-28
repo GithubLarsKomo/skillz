@@ -3,6 +3,7 @@ name: agreement-type-analysis
 description: Zerlegt einen Vertragsfall nach seiner tatsächlichen Deal-Funktion in Vertragstypen, Leistungs-/Rechteflüsse, erforderliche Klauselmodule und Legal-Specialist-Routen, statt sich auf die Dokumentüberschrift zu verlassen. Verwenden vor Contract Review oder Drafting, besonders bei hybriden NDA-, MTA-, DTA/DUA-, Lizenz-, R&D-, Studien-, Supply-, Quality-, Distribution-, SaaS-, Employment- oder M&A-Verträgen.
 userFacing: true
 implicitInvocation: false
+discoverability: advanced
 category: analysis
 version: 0.1.0
 status: candidate

@@ -3,6 +3,7 @@ name: legal-negotiation-strategy
 description: Übersetzt Mandantenstrategie, Legal-/Commercial-Risiken und Vertrags-Findings in priorisierte Verhandlungspositionen mit Opening, Target, Fallback, Red Line, Concession Value, Gegenparteiinteresse und Freigabegrenzen. Verwenden vor oder während wesentlichen Vertrags- und Legal-Verhandlungen.
 userFacing: true
 implicitInvocation: false
+discoverability: advanced
 category: analysis
 version: 0.1.0
 status: candidate

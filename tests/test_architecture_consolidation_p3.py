@@ -18,10 +18,11 @@ class ArchitectureConsolidationP3Test(unittest.TestCase):
         self.assertGreaterEqual(self.index["skillCount"], 281)
         self.assertGreaterEqual(self.index["entrypointCount"], 231)
         counts = self.index["discoverabilityCounts"]
-        self.assertGreaterEqual(counts["public"], 229)
         self.assertGreaterEqual(counts["advanced"], 2)
         self.assertGreaterEqual(counts["internal"], 48)
         self.assertGreaterEqual(counts["compatibility"], 2)
+        self.assertEqual(counts["public"] + counts["advanced"], self.index["entrypointCount"])
+        self.assertEqual(counts["internal"] + counts["compatibility"], self.index["skillCount"] - self.index["entrypointCount"])
         self.assertEqual(sum(counts.values()), self.index["skillCount"])
         self.assertEqual(self.index["evaluationSuiteCount"], self.index["skillCount"])
         self.assertEqual(self.index["evaluatedSkillCount"], self.index["skillCount"])

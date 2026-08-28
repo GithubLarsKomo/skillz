@@ -3,6 +3,7 @@ name: legal-redline-review-loop
 description: Vergleicht neue Vertrags- oder Legal-Redline-Versionen mit dem letzten bewerteten Stand, hält Issue-Lineage und Verhandlungszustand stabil und klassifiziert Änderungen als improved, accepted, neutral, deteriorated, new-risk, resolved oder regression. Verwenden in iterativen Vertragsverhandlungen nach initialem Review und Negotiation Strategy.
 userFacing: true
 implicitInvocation: false
+discoverability: advanced
 category: workflow
 version: 0.1.0
 status: candidate

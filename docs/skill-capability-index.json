@@ -14,8 +14,8 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 229,
-    "advanced": 2,
+    "public": 222,
+    "advanced": 9,
     "internal": 48,
     "compatibility": 2
   },
@@ -105,7 +105,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },
@@ -1148,7 +1148,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },
@@ -1215,7 +1215,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },
@@ -1271,7 +1271,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },
@@ -1342,7 +1342,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },
@@ -9447,7 +9447,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },
@@ -9503,7 +9503,7 @@
       },
       "governance": {
         "status": "candidate",
-        "discoverability": "public",
+        "discoverability": "advanced",
         "replacedBy": null,
         "deprecatedSince": null
       },

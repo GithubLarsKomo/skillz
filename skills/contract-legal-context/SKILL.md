@@ -3,6 +3,7 @@ name: contract-legal-context
 description: Projiziert den allgemeinen aktuellen Rechtskontext auf einen privaten oder beruflichen Vertragsfall und bestimmt Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbare Rechtsordnungen, zwingende Normen, Formanforderungen und Spezialrechts-Overlays. Verwenden als kompatiblen Contract-Handoff vor Vertragsprüfung oder Vertragserzeugung.
 userFacing: true
 implicitInvocation: false
+discoverability: advanced
 category: research-knowledge
 version: 0.2.0
 status: candidate
