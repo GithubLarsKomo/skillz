@@ -26,6 +26,7 @@ graph TD
   contract_workflow --> round_based_requirements_grilling
   controlled_quality_documentation --> regulated_product_context
   controlled_quality_documentation --> two_axis_compliance_review
+  course_concept_graph --> multi_source_learning_synthesis
   daily_and_weekly_review --> inbox_action_triage
   decision_and_follow_up_tracker --> daily_and_weekly_review
   decision_and_follow_up_tracker --> meeting_preparation
@@ -220,6 +221,7 @@ graph TD
   large_work_wayfinder --> agent_handoff
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
+  learning_activity_generator --> learning_path_planner
   learning_artifact_qa --> learning_content_design_system
   learning_assessment --> learning_assessment_spec
   learning_assessment_spec --> learning_mission
@@ -230,6 +232,7 @@ graph TD
   learning_landingpage_renderer --> learning_content_design_system
   learning_next_step --> learning_mission
   learning_next_step --> learning_state
+  learning_path_planner --> course_concept_graph
   learning_source_arbitration --> multimodal_learning_analysis
   learning_summary_synthesis --> multimodal_learning_analysis
   learning_svg_generator --> learning_content_design_system
@@ -486,6 +489,18 @@ graph TD
   two_axis_code_review --> disciplined_diagnosis
   two_axis_code_review --> implement_from_issue
   two_axis_compliance_review --> research_to_evidence_note
+  youtube_course_builder_workflow --> course_concept_graph
+  youtube_course_builder_workflow --> learning_activity_generator
+  youtube_course_builder_workflow --> learning_artifact_qa
+  youtube_course_builder_workflow --> learning_content_design_system
+  youtube_course_builder_workflow --> learning_document_delivery
+  youtube_course_builder_workflow --> learning_image_generator
+  youtube_course_builder_workflow --> learning_landingpage_renderer
+  youtube_course_builder_workflow --> learning_path_planner
+  youtube_course_builder_workflow --> learning_svg_generator
+  youtube_course_builder_workflow --> learning_visual_planner
+  youtube_course_builder_workflow --> template_presentation_workflow
+  youtube_course_builder_workflow --> youtube_playlist_learning_workflow
   youtube_learning_workflow --> learning_artifact_qa
   youtube_learning_workflow --> learning_content_design_system
   youtube_learning_workflow --> learning_document_delivery
@@ -626,6 +641,10 @@ graph TD
 | `correction-removal-action-plan.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-assessment.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-reporting-state.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
+| `course-activities.json` | `learning-activity-generator` | `youtube-course-builder-workflow` | inferred |
+| `course-concept-graph.json` | `course-concept-graph` | `learning-path-planner`, `youtube-course-builder-workflow` | inferred |
+| `course-knowledge-checks.json` | `learning-activity-generator` | `youtube-course-builder-workflow` | inferred |
+| `course-learning-model.json` | `youtube-course-builder-workflow` | — | unconsumed |
 | `customer-communication-record.json` | `medical-device-complaint-customer-followup` | `medical-device-complaint-regulatory-routing` | inferred |
 | `customer-contact-record.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
 | `customer-contact-triage.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
@@ -782,23 +801,24 @@ graph TD
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
-| `learning-artifact-qa.json` | `learning-artifact-qa` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-artifact-qa.md` | `learning-artifact-qa` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-artifact-qa.json` | `learning-artifact-qa` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-artifact-qa.md` | `learning-artifact-qa` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `learning-assessment-spec.json` | `learning-assessment-spec` | `exam-trainer-catalog-builder`, `learning-assessment`, `teach` | inferred |
 | `learning-assessment.json` | `learning-assessment` | `teach` | inferred |
 | `learning-concept-map.json` | `multimodal-learning-analysis` | `learning-source-arbitration`, `learning-summary-synthesis`, `learning-visual-planner`, `procedure-sop-extractor`, `youtube-learning-workflow` | inferred |
 | `learning-content-model.json` | `youtube-learning-workflow` | `youtube-playlist-learning-workflow` | inferred |
-| `learning-design-context.json` | `learning-content-design-system` | `learning-artifact-qa`, `learning-document-delivery`, `learning-image-generator`, `learning-landingpage-renderer`, `learning-svg-generator`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-document-qa.json` | `learning-document-delivery` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-design-context.json` | `learning-content-design-system` | `learning-artifact-qa`, `learning-document-delivery`, `learning-image-generator`, `learning-landingpage-renderer`, `learning-svg-generator`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-document-qa.json` | `learning-document-delivery` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `learning-evidence.json` | `multimodal-learning-analysis` | `learning-source-arbitration`, `learning-summary-synthesis`, `learning-visual-planner`, `procedure-sop-extractor`, `youtube-learning-workflow` | inferred |
-| `learning-handout.docx` | `learning-document-delivery` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-handout.pdf` | `learning-document-delivery` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-image-assets` | `learning-image-generator` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-image-manifest.json` | `learning-image-generator` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-landingpage` | `learning-landingpage-renderer` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-landingpage-qa.json` | `learning-landingpage-renderer` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-handout.docx` | `learning-document-delivery` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-handout.pdf` | `learning-document-delivery` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-image-assets` | `learning-image-generator` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-image-manifest.json` | `learning-image-generator` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-landingpage` | `learning-landingpage-renderer` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-landingpage-qa.json` | `learning-landingpage-renderer` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `learning-mission.json` | `learning-mission`, `teach` | — | ambiguous |
 | `learning-next-step.json` | `learning-next-step`, `teach` | — | ambiguous |
+| `learning-path.json` | `learning-path-planner` | `learning-activity-generator`, `youtube-course-builder-workflow` | inferred |
 | `learning-practice-request.json` | `teach` | — | unconsumed |
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
@@ -806,9 +826,9 @@ graph TD
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
 | `learning-summary.json` | `learning-summary-synthesis` | `youtube-learning-workflow` | inferred |
 | `learning-summary.md` | `learning-summary-synthesis` | `youtube-learning-workflow` | inferred |
-| `learning-svg-assets` | `learning-svg-generator` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-svg-manifest.json` | `learning-svg-generator` | `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-visual-plan.json` | `learning-visual-planner` | `learning-image-generator`, `learning-svg-generator`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-svg-assets` | `learning-svg-generator` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-svg-manifest.json` | `learning-svg-generator` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `learning-visual-plan.json` | `learning-visual-planner` | `learning-image-generator`, `learning-svg-generator`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `llm-generation-assessment.json` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
 | `llm-generation-assessment.md` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
@@ -836,7 +856,7 @@ graph TD
 | `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `mental-health-routing.json` | `sport-mental-health-routing` | `sport-athlete-management` | inferred |
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
-| `multi-source-conflict-map.json` | `multi-source-learning-synthesis` | `youtube-playlist-learning-workflow` | inferred |
+| `multi-source-conflict-map.json` | `multi-source-learning-synthesis` | `course-concept-graph`, `youtube-playlist-learning-workflow` | inferred |
 | `multi-source-learning-model.json` | `multi-source-learning-synthesis`, `youtube-playlist-learning-workflow` | — | ambiguous |
 | `next increment` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
 | `next-step-handoff.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
@@ -898,8 +918,8 @@ graph TD
 | `presentation-revised-text` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
 | `presentation-template-profile.json` | `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow` | — | ambiguous |
 | `presentation-template-profile.md` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
-| `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
+| `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `price-snapshot.json` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `price-snapshot.md` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
@@ -1042,8 +1062,9 @@ graph TD
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `youtube-course-builder-run.json` | `youtube-course-builder-workflow` | — | unconsumed |
 | `youtube-frame-index.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |
 | `youtube-learning-run.json` | `youtube-learning-workflow` | `youtube-playlist-learning-workflow` | inferred |
-| `youtube-playlist-learning-run.json` | `youtube-playlist-learning-workflow` | — | unconsumed |
+| `youtube-playlist-learning-run.json` | `youtube-playlist-learning-workflow` | `youtube-course-builder-workflow` | inferred |
 | `youtube-transcript-index.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |
 | `youtube-video-source.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |

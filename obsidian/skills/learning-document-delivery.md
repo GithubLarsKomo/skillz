@@ -30,6 +30,7 @@ tags:
 
 ## Required by
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
@@ -43,16 +44,19 @@ tags:
 
 ### `learning-document-qa.json`
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `learning-handout.docx`
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `learning-handout.pdf`
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 

@@ -30,6 +30,7 @@ Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten g
 
 ## Required by
 
+- [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
@@ -41,6 +42,7 @@ Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten g
 
 ### `multi-source-conflict-map.json`
 
+- [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `multi-source-learning-model.json`

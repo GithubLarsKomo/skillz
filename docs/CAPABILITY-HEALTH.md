@@ -4,22 +4,25 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **217**
-- User-facing entrypoints: **178**
+- Skills: **221**
+- User-facing entrypoints: **179**
 - Evaluation suites: **196**
-- Skills without evaluation suite: **21**
-- User-facing entrypoints without evaluation suite: **14**
+- Skills without evaluation suite: **25**
+- User-facing entrypoints without evaluation suite: **15**
 - Ambiguous outputs (multiple producers): **6**
-- Outputs without inferred hard-requires consumers: **190**
+- Outputs without inferred hard-requires consumers: **191**
 
 ## Evaluation gaps
 
+- `course-concept-graph`
 - `euroimmun-presentation-workflow`
+- `learning-activity-generator`
 - `learning-artifact-qa`
 - `learning-content-design-system`
 - `learning-document-delivery`
 - `learning-image-generator`
 - `learning-landingpage-renderer`
+- `learning-path-planner`
 - `learning-source-arbitration`
 - `learning-summary-synthesis`
 - `learning-svg-generator`
@@ -32,6 +35,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - `presentation-template-profiler`
 - `procedure-sop-extractor`
 - `template-presentation-workflow`
+- `youtube-course-builder-workflow`
 - `youtube-learning-workflow`
 - `youtube-playlist-learning-workflow`
 - `youtube-video-ingestion`
@@ -50,6 +54,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - `presentation-template-profiler`
 - `procedure-sop-extractor`
 - `template-presentation-workflow`
+- `youtube-course-builder-workflow`
 - `youtube-learning-workflow`
 - `youtube-playlist-learning-workflow`
 
@@ -106,6 +111,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `contract-case.json` — producer: `contract-workflow`
 - `contract-handoff.json` — producer: `contract-workflow`
 - `contract-plan.md` — producer: `contract-workflow`
+- `course-learning-model.json` — producer: `youtube-course-builder-workflow`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
@@ -255,7 +261,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `usability-evidence-gaps.json` — producer: `iec62366-usability-engineering`
 - `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
 - `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
-- `youtube-playlist-learning-run.json` — producer: `youtube-playlist-learning-workflow`
+- `youtube-course-builder-run.json` — producer: `youtube-course-builder-workflow`
 
 ## Interpretation
 

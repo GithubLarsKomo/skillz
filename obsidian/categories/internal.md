@@ -10,8 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **39**
+Skills: **42**
 
+- [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/document-generation-forensics|document-generation-forensics]]
@@ -25,12 +26,14 @@ Skills: **39**
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
+- [[skills/learning-activity-generator|learning-activity-generator]]
 - [[skills/learning-artifact-qa|learning-artifact-qa]]
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/learning-assessment-spec|learning-assessment-spec]]
 - [[skills/learning-content-design-system|learning-content-design-system]]
 - [[skills/learning-mission|learning-mission]]
 - [[skills/learning-next-step|learning-next-step]]
+- [[skills/learning-path-planner|learning-path-planner]]
 - [[skills/learning-source-arbitration|learning-source-arbitration]]
 - [[skills/learning-state|learning-state]]
 - [[skills/learning-visual-planner|learning-visual-planner]]

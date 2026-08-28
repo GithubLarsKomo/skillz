@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 217,
-  "entrypointCount": 178,
+  "skillCount": 221,
+  "entrypointCount": 179,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -960,6 +960,46 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "course-concept-graph",
+      "description": "Baut aus einem evidenzgebundenen Multi-Source-Learning-Modell einen gerichteten Begriffs- und Voraussetzungsgrafen für Kursaufbau, Modulgrenzen und Lernreihenfolge. Verwenden vor automatischer Learning-Path-Planung; nicht zur inhaltlichen Erfindung fehlender Voraussetzungen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "multi-source-learning-synthesis"
+      ],
+      "dependents": [
+        "learning-path-planner",
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "course-concept-graph.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "course-concept-graph.json",
+          "ambiguous": false,
+          "producers": [
+            "course-concept-graph"
+          ],
+          "consumerSkills": [
+            "learning-path-planner",
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -5021,6 +5061,55 @@
       }
     },
     {
+      "name": "learning-activity-generator",
+      "description": "Erzeugt evidenzgebundene Lernaktivitäten, Übungen und Wissenchecks aus Lernzielen und Course-Concept-Graph, mit Antwortbegründung, Distraktorlogik und klarer Trennung zwischen Recall, Verständnis und Anwendung. Verwenden innerhalb des Course Builders; nicht zur psychometrischen Kalibrierung oder Zertifizierungsprüfung.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-path-planner"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "course-activities.json",
+        "course-knowledge-checks.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "course-activities.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-activity-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow"
+          ]
+        },
+        {
+          "output": "course-knowledge-checks.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-activity-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "learning-artifact-qa",
       "description": "Prüft HTML-, PPTX-, DOCX- und PDF-Lernartefakte sowie ihre SVG-/Bildassets gemeinsam gegen das kanonische Learning-Modell, Timestamp-/Claim-Traceability, SOP-Evidenzklassen, DESIGN.md und vollständige Render-Evidenz. Verwenden als finales Cross-Format-Gate; nicht als Ersatz für fachliche Quellanalyse.",
       "invocation": {
@@ -5031,6 +5120,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5046,6 +5136,7 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5057,6 +5148,7 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5167,6 +5259,7 @@
         "learning-image-generator",
         "learning-landingpage-renderer",
         "learning-svg-generator",
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5186,6 +5279,7 @@
             "learning-image-generator",
             "learning-landingpage-renderer",
             "learning-svg-generator",
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5212,6 +5306,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5228,6 +5323,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5239,6 +5335,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5250,6 +5347,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5277,6 +5375,7 @@
         "learning-visual-planner"
       ],
       "dependents": [
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5292,6 +5391,7 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5303,6 +5403,7 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5329,6 +5430,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5344,6 +5446,7 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5355,6 +5458,7 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5444,6 +5548,46 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "learning-path-planner",
+      "description": "Plant aus einem Course-Concept-Graph eine didaktisch begründete Modul- und Lektionenreihenfolge mit Voraussetzungen, Einstiegspunkten, optionalen Abkürzungen und Abschlusskompetenzen. Verwenden für Course Builder und Learning Paths nach Multi-Source-Synthese.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "course-concept-graph"
+      ],
+      "dependents": [
+        "learning-activity-generator",
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "learning-path.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-path.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-path-planner"
+          ],
+          "consumerSkills": [
+            "learning-activity-generator",
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -5597,6 +5741,7 @@
         "learning-visual-planner"
       ],
       "dependents": [
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5612,6 +5757,7 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5623,6 +5769,7 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -5651,6 +5798,7 @@
       "dependents": [
         "learning-image-generator",
         "learning-svg-generator",
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -5667,6 +5815,7 @@
           "consumerSkills": [
             "learning-image-generator",
             "learning-svg-generator",
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -7532,6 +7681,7 @@
         "learning-source-arbitration"
       ],
       "dependents": [
+        "course-concept-graph",
         "youtube-playlist-learning-workflow"
       ],
       "outputs": [
@@ -7546,6 +7696,7 @@
             "multi-source-learning-synthesis"
           ],
           "consumerSkills": [
+            "course-concept-graph",
             "youtube-playlist-learning-workflow"
           ]
         },
@@ -11760,6 +11911,7 @@
       ],
       "dependents": [
         "euroimmun-presentation-workflow",
+        "youtube-course-builder-workflow",
         "youtube-learning-workflow",
         "youtube-playlist-learning-workflow"
       ],
@@ -11797,6 +11949,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -11809,6 +11962,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
+            "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
           ]
@@ -12355,6 +12509,60 @@
       }
     },
     {
+      "name": "youtube-course-builder-workflow",
+      "description": "Baut aus mehreren YouTube-Videos oder einem Multi-Source-Learning-Modell einen modularen Learning Path mit Voraussetzungen, Lernzielen, Übungen, Wissenchecks und konsistenten Kursartefakten in HTML/PPTX/DOCX/PDF. Verwenden für Course Builder, Curriculum aus Videoquellen oder strukturierte Learning Paths; nicht als psychometrisch validierte Prüfung oder automatische Zertifizierung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "course-concept-graph",
+        "learning-activity-generator",
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-path-planner",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "template-presentation-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "dependents": [],
+      "outputs": [
+        "course-learning-model.json",
+        "youtube-course-builder-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "course-learning-model.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-course-builder-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "youtube-course-builder-run.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-course-builder-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "youtube-learning-workflow",
       "description": "Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen Key Take-Home Messages und optionalen derived SOPs, plant passende Diagramme/SVGs/Bilder, bindet alles an DESIGN.md und erzeugt wahlweise Landingpage-HTML, Präsentation und DOCX/PDF mit Cross-Format-QA. Verwenden für YouTube-Learner, Video-to-SOP, Video-to-Study-Guide oder Video-to-Presentation; nicht zum Umgehen von YouTube-Zugriffsschutz oder zur ungeprüften Freigabe regulierter SOPs.",
       "invocation": {
@@ -12434,7 +12642,9 @@
         "template-presentation-workflow",
         "youtube-learning-workflow"
       ],
-      "dependents": [],
+      "dependents": [
+        "youtube-course-builder-workflow"
+      ],
       "outputs": [
         "multi-source-learning-model.json",
         "youtube-playlist-learning-run.json"
@@ -12455,7 +12665,9 @@
           "producers": [
             "youtube-playlist-learning-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "youtube-course-builder-workflow"
+          ]
         }
       ],
       "portableFiles": [

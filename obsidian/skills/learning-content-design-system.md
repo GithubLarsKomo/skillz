@@ -35,6 +35,7 @@ Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertra
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
@@ -51,6 +52,7 @@ Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertra
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 

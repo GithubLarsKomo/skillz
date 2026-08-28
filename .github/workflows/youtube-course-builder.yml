@@ -1,0 +1,40 @@
+name: YouTube course builder contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/course-concept-graph/**"
+      - "skills/learning-path-planner/**"
+      - "skills/learning-activity-generator/**"
+      - "skills/youtube-course-builder-workflow/**"
+      - "docs/learning-content/course/**"
+      - "docs/specs/youtube-learner/COURSE_BUILDER.md"
+      - "tests/fixtures/youtube-learning/pcr-course-builder-golden.json"
+      - "tests/test_youtube_course_builder_contract.py"
+      - ".github/workflows/youtube-course-builder.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/course-concept-graph/**"
+      - "skills/learning-path-planner/**"
+      - "skills/learning-activity-generator/**"
+      - "skills/youtube-course-builder-workflow/**"
+      - "docs/learning-content/course/**"
+      - "docs/specs/youtube-learner/COURSE_BUILDER.md"
+      - "tests/fixtures/youtube-learning/pcr-course-builder-golden.json"
+      - "tests/test_youtube_course_builder_contract.py"
+      - ".github/workflows/youtube-course-builder.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test YouTube course builder contract
+        run: python -m unittest tests.test_youtube_course_builder_contract

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Youtube Course Builder Workflow"
+  short_description: "Baut aus mehreren YouTube-Videos oder einem Multi-Source-Learning-Modell einen modularen Learning Path mit Voraussetz..."
+policy:
+  allow_implicit_invocation: true
