@@ -18,6 +18,7 @@ on:
       - "scripts/apply_architecture_consolidation_p1_learning_delivery.py"
       - "scripts/apply_architecture_consolidation_p1_presentation_evaluations.py"
       - "scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py"
+      - "scripts/apply_architecture_consolidation_p1_internal_learning_evaluations.py"
       - "scripts/fix_architecture_consolidation_p1_evaluation_anchors.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
@@ -64,6 +65,9 @@ jobs:
       - name: Backfill P1 user-facing learning evaluations
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py
+      - name: Backfill P1 internal learning evaluations
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/apply_architecture_consolidation_p1_internal_learning_evaluations.py
       - name: Correct P1 evaluation anchors
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/fix_architecture_consolidation_p1_evaluation_anchors.py
@@ -90,6 +94,9 @@ jobs:
       - name: Verify user-facing evaluation coverage
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python -m unittest tests.test_architecture_consolidation_p1_user_evaluation_coverage
+      - name: Verify complete evaluation coverage
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python -m unittest tests.test_architecture_consolidation_p1_evaluation_coverage_complete
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
