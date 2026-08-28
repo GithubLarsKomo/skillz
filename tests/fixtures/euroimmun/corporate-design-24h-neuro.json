@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "euroimmun-corporate-24h-neuro-2026-08-28",
+  "purpose": "Golden-reference fixture for the mandatory EUROIMMUN Corporate Design Gate",
+  "designContract": "docs/corporate/euroimmun/DESIGN.md",
+  "brandProfile": {
+    "id": "euroimmun-corporate",
+    "version": "1.0.0"
+  },
+  "contentWindow": {
+    "start": "2026-08-27",
+    "end": "2026-08-28"
+  },
+  "contentThemes": [
+    "Fujirebio pTau217 / beta-Amyloid 1-42 FDA clearance",
+    "Fujirebio NfL and pTau217 IVDR CE milestones",
+    "FDA Class II recall robustness/specificity signal",
+    "pTau217 epitope working model P216-pT217-P218-P219-T220-R221",
+    "EUROIMMUN pTau217/GFAP/NfL/Amyloid portfolio strategy"
+  ],
+  "presentation": {
+    "templateStatus": "confirmed-reference",
+    "derivation": "template-compatible",
+    "slides": 7,
+    "renderCoverage": "7/7",
+    "pdfParity": "PASS",
+    "fontFallback": "Lato"
+  },
+  "report": {
+    "templateStatus": "public-reference-fallback",
+    "pages": 3,
+    "renderCoverage": "3/3",
+    "pdfParity": "PASS",
+    "fontFallback": "Liberation Sans"
+  },
+  "expectedGate": {
+    "status": "PASS",
+    "critical": 0,
+    "major": 0,
+    "warningIds": [
+      "PPT-FONT-001",
+      "PPT-TEMPLATE-001",
+      "DOCX-TEMPLATE-001",
+      "SCOPE-001"
+    ]
+  },
+  "externalEvidence": [
+    {
+      "source": "FDA",
+      "id": "K242706",
+      "date": "2025-05-16"
+    },
+    {
+      "source": "Fujirebio",
+      "event": "Lumipulse G NfL Blood IVDR CE",
+      "date": "2026-03-17"
+    },
+    {
+      "source": "Fujirebio",
+      "event": "Lumipulse G pTau217 Plasma IVDR CE",
+      "date": "2026-05-11"
+    },
+    {
+      "source": "FDA",
+      "event": "Class II recall/product correction",
+      "scope": "affected Lumipulse pTau217/beta-Amyloid 1-42 Plasma Ratio lots"
+    }
+  ]
+}
