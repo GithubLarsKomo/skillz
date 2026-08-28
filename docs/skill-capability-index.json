@@ -13,8 +13,8 @@
     "workflow"
   ],
   "evaluationSuiteCount": 196,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 1,
   "skills": [
     {
       "name": "agent-handoff",
@@ -1870,7 +1870,7 @@
     },
     {
       "name": "euroimmun-docx-report-renderer",
-      "description": "Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im aktuellen EUROIMMUN-From-Revvity-Erscheinungsbild. Nutzt ein im Skill hinterlegtes Public-Reference-DOCX-Template mit aktuellem 2025+-Kopf und unterstützt ein kontrolliertes internes Corporate-Template als Override, ohne fachliche Inhalte zu erfinden oder zu verändern.",
+      "description": "Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im EUROIMMUN-/Revvity-Erscheinungsbild. Bevorzugt eine verifizierte interne Corporate-DOCX-Binärvorlage mit Level-2-Template-Parität und nutzt die Public-Reference-Vorlage ausschließlich als transparenten Level-1-Fallback.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -1913,7 +1913,7 @@
     },
     {
       "name": "euroimmun-pdf-report-renderer",
-      "description": "Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit identischem Styling und aktuellem EUROIMMUN-From-Revvity-Kopf. Verwendet den DOCX-Renderer als einzige Layoutquelle, konvertiert ohne inhaltliches Re-Authoring und erzwingt eine visuelle PDF-Endkontrolle.",
+      "description": "Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit identischem Styling. Erbt den DOCX-Level-1/Level-2-Template-Status, konvertiert ohne Re-Authoring und erzwingt vollständige Render- und Source-Paritätsprüfung.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -1943,7 +1943,7 @@
         "mode": "compatibility",
         "caseCount": 4,
         "recordedResultCount": 4,
-        "passed": true
+        "passed": false
       }
     },
     {
