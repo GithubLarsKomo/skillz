@@ -16,6 +16,7 @@ on:
       - "scripts/finalize_architecture_consolidation_p0.py"
       - "scripts/apply_architecture_consolidation_p1_source_spine.py"
       - "scripts/apply_architecture_consolidation_p1_learning_delivery.py"
+      - "scripts/apply_architecture_consolidation_p1_presentation_evaluations.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -55,6 +56,9 @@ jobs:
       - name: Apply P1 shared learning delivery
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/apply_architecture_consolidation_p1_learning_delivery.py
+      - name: Backfill P1 presentation evaluations
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/apply_architecture_consolidation_p1_presentation_evaluations.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
       - name: Finalize architecture consolidation P0
@@ -69,6 +73,9 @@ jobs:
       - name: Verify P1 generic document core
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python -m unittest tests.test_architecture_consolidation_p1_document_core
+      - name: Verify P1 presentation evaluation coverage
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python -m unittest tests.test_architecture_consolidation_p1_presentation_evaluations
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
@@ -97,6 +104,7 @@ jobs:
             obsidian \
             plugins/skillz \
             skills/*/SKILL.md \
+            skills/*/tests \
             skills/*/agents/openai.yaml
           git commit -m "Regenerate skill repository artifacts"
           git push origin HEAD:"$GITHUB_REF_NAME"
