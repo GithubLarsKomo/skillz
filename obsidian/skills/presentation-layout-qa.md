@@ -47,7 +47,6 @@ Prüft PowerPoint-Folien strukturell und kompositorisch auf Text-/Box-Overflow, 
 
 ### `presentation-layout-qa.md`
 
-- [[skills/presentation-render-verifier|presentation-render-verifier]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 
 ## Evaluation

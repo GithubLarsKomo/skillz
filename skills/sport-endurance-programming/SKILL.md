@@ -14,6 +14,12 @@ requires:
   - sport-goal-performance-model
   - sport-mesocycle-planning
   - sport-microcycle-planning
+consumes:
+  - athlete-profile.json
+  - sport-diagnostics.json
+  - sport-performance-model.json
+  - sport-mesocycle.json
+  - sport-microcycle.json
 outputs:
   - endurance-plan.json
 lastEvaluated: 2026-08-22

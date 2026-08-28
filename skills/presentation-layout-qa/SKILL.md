@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - presentation-template-profiler
+consumes:
+  - presentation-template-profile.json
 outputs:
   - presentation-layout-qa.json
   - presentation-layout-qa.md

@@ -557,7 +557,9 @@
       "requires": [
         "dr-komorowski-sport-docx-report-renderer"
       ],
-      "consumes": [],
+      "consumes": [
+        "dr-komorowski-sport-report.docx"
+      ],
       "outputs": [
         "dr-komorowski-sport-report.pdf"
       ]
@@ -2488,7 +2490,10 @@
       "requires": [
         "precision-writing-revision"
       ],
-      "consumes": [],
+      "consumes": [
+        "final-revised-text",
+        "precision-writing-report.json"
+      ],
       "outputs": [
         "person-profile-delivery.json",
         "person-profile-report.docx",
@@ -2576,7 +2581,9 @@
       "requires": [
         "presentation-template-profiler"
       ],
-      "consumes": [],
+      "consumes": [
+        "presentation-template-profile.json"
+      ],
       "outputs": [
         "presentation-layout-qa.json",
         "presentation-layout-qa.md"
@@ -2587,7 +2594,9 @@
       "requires": [
         "presentation-layout-qa"
       ],
-      "consumes": [],
+      "consumes": [
+        "presentation-layout-qa.json"
+      ],
       "outputs": [
         "presentation-preview.pdf",
         "presentation-render-qa.json",
@@ -3062,7 +3071,12 @@
         "sport-performance-diagnostics",
         "sport-training-plan-workflow"
       ],
-      "consumes": [],
+      "consumes": [
+        "dr-komorowski-sport-report.docx",
+        "dr-komorowski-sport-report.pdf",
+        "sport-diagnostics.json",
+        "sport-training-plan.json"
+      ],
       "outputs": [
         "sport-report-package"
       ]
@@ -3076,7 +3090,13 @@
         "sport-microcycle-planning",
         "sport-performance-diagnostics"
       ],
-      "consumes": [],
+      "consumes": [
+        "athlete-profile.json",
+        "sport-diagnostics.json",
+        "sport-mesocycle.json",
+        "sport-microcycle.json",
+        "sport-performance-model.json"
+      ],
       "outputs": [
         "endurance-plan.json"
       ]
@@ -3098,7 +3118,9 @@
       "requires": [
         "sport-athlete-profile"
       ],
-      "consumes": [],
+      "consumes": [
+        "athlete-profile.json"
+      ],
       "outputs": [
         "sport-performance-model.json"
       ]
@@ -3130,7 +3152,9 @@
       "requires": [
         "sport-season-periodization"
       ],
-      "consumes": [],
+      "consumes": [
+        "sport-season-plan.json"
+      ],
       "outputs": [
         "sport-mesocycle.json"
       ]
@@ -3140,7 +3164,9 @@
       "requires": [
         "sport-mesocycle-planning"
       ],
-      "consumes": [],
+      "consumes": [
+        "sport-mesocycle.json"
+      ],
       "outputs": [
         "sport-microcycle.json"
       ]
@@ -3206,7 +3232,9 @@
       "requires": [
         "sport-goal-performance-model"
       ],
-      "consumes": [],
+      "consumes": [
+        "sport-performance-model.json"
+      ],
       "outputs": [
         "sport-season-plan.json"
       ]
@@ -3219,7 +3247,12 @@
         "sport-mesocycle-planning",
         "sport-microcycle-planning"
       ],
-      "consumes": [],
+      "consumes": [
+        "athlete-profile.json",
+        "sport-mesocycle.json",
+        "sport-microcycle.json",
+        "sport-performance-model.json"
+      ],
       "outputs": [
         "strength-power-plan.json"
       ]
@@ -3271,7 +3304,16 @@
         "sport-season-periodization",
         "sport-strength-power-programming"
       ],
-      "consumes": [],
+      "consumes": [
+        "athlete-profile.json",
+        "endurance-plan.json",
+        "sport-diagnostics.json",
+        "sport-mesocycle.json",
+        "sport-microcycle.json",
+        "sport-performance-model.json",
+        "sport-season-plan.json",
+        "strength-power-plan.json"
+      ],
       "outputs": [
         "sport-training-plan.json"
       ]
@@ -3406,7 +3448,16 @@
         "presentation-render-verifier",
         "presentation-template-profiler"
       ],
-      "consumes": [],
+      "consumes": [
+        "presentation-language-report.json",
+        "presentation-layout-qa.json",
+        "presentation-layout-qa.md",
+        "presentation-preview.pdf",
+        "presentation-render-qa.json",
+        "presentation-render-qa.md",
+        "presentation-revised-text",
+        "presentation-template-profile.json"
+      ],
       "outputs": [
         "presentation-qa.md",
         "presentation.pdf",
@@ -6253,6 +6304,11 @@
       "producer": "document-layout-qa"
     },
     {
+      "consumer": "dr-komorowski-sport-pdf-report-renderer",
+      "artifact": "dr-komorowski-sport-report.docx",
+      "producer": "dr-komorowski-sport-docx-report-renderer"
+    },
+    {
       "consumer": "job-description-authoring",
       "artifact": "role-architecture.json",
       "producer": "role-architecture"
@@ -6363,6 +6419,16 @@
       "producer": "source-to-context"
     },
     {
+      "consumer": "person-profile-document-delivery",
+      "artifact": "final-revised-text",
+      "producer": "precision-writing-revision"
+    },
+    {
+      "consumer": "person-profile-document-delivery",
+      "artifact": "precision-writing-report.json",
+      "producer": "precision-writing-revision"
+    },
+    {
       "consumer": "person-profile-report",
       "artifact": "person-ip-map.json",
       "producer": "person-research-dossier"
@@ -6383,6 +6449,16 @@
       "producer": "person-research-dossier"
     },
     {
+      "consumer": "presentation-layout-qa",
+      "artifact": "presentation-template-profile.json",
+      "producer": "presentation-template-profiler"
+    },
+    {
+      "consumer": "presentation-render-verifier",
+      "artifact": "presentation-layout-qa.json",
+      "producer": "presentation-layout-qa"
+    },
+    {
       "consumer": "research-to-evidence-note",
       "artifact": "source-context.json",
       "producer": "source-to-context"
@@ -6391,6 +6467,131 @@
       "consumer": "role-architecture",
       "artifact": "role-requirements-handoff.json",
       "producer": "role-requirements-grilling"
+    },
+    {
+      "consumer": "sport-diagnostics-training-report-workflow",
+      "artifact": "dr-komorowski-sport-report.docx",
+      "producer": "dr-komorowski-sport-docx-report-renderer"
+    },
+    {
+      "consumer": "sport-diagnostics-training-report-workflow",
+      "artifact": "dr-komorowski-sport-report.pdf",
+      "producer": "dr-komorowski-sport-pdf-report-renderer"
+    },
+    {
+      "consumer": "sport-diagnostics-training-report-workflow",
+      "artifact": "sport-diagnostics.json",
+      "producer": "sport-performance-diagnostics"
+    },
+    {
+      "consumer": "sport-diagnostics-training-report-workflow",
+      "artifact": "sport-training-plan.json",
+      "producer": "sport-training-plan-workflow"
+    },
+    {
+      "consumer": "sport-endurance-programming",
+      "artifact": "athlete-profile.json",
+      "producer": "sport-athlete-profile"
+    },
+    {
+      "consumer": "sport-endurance-programming",
+      "artifact": "sport-diagnostics.json",
+      "producer": "sport-performance-diagnostics"
+    },
+    {
+      "consumer": "sport-endurance-programming",
+      "artifact": "sport-mesocycle.json",
+      "producer": "sport-mesocycle-planning"
+    },
+    {
+      "consumer": "sport-endurance-programming",
+      "artifact": "sport-microcycle.json",
+      "producer": "sport-microcycle-planning"
+    },
+    {
+      "consumer": "sport-endurance-programming",
+      "artifact": "sport-performance-model.json",
+      "producer": "sport-goal-performance-model"
+    },
+    {
+      "consumer": "sport-goal-performance-model",
+      "artifact": "athlete-profile.json",
+      "producer": "sport-athlete-profile"
+    },
+    {
+      "consumer": "sport-mesocycle-planning",
+      "artifact": "sport-season-plan.json",
+      "producer": "sport-season-periodization"
+    },
+    {
+      "consumer": "sport-microcycle-planning",
+      "artifact": "sport-mesocycle.json",
+      "producer": "sport-mesocycle-planning"
+    },
+    {
+      "consumer": "sport-season-periodization",
+      "artifact": "sport-performance-model.json",
+      "producer": "sport-goal-performance-model"
+    },
+    {
+      "consumer": "sport-strength-power-programming",
+      "artifact": "athlete-profile.json",
+      "producer": "sport-athlete-profile"
+    },
+    {
+      "consumer": "sport-strength-power-programming",
+      "artifact": "sport-mesocycle.json",
+      "producer": "sport-mesocycle-planning"
+    },
+    {
+      "consumer": "sport-strength-power-programming",
+      "artifact": "sport-microcycle.json",
+      "producer": "sport-microcycle-planning"
+    },
+    {
+      "consumer": "sport-strength-power-programming",
+      "artifact": "sport-performance-model.json",
+      "producer": "sport-goal-performance-model"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "athlete-profile.json",
+      "producer": "sport-athlete-profile"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "endurance-plan.json",
+      "producer": "sport-endurance-programming"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "sport-diagnostics.json",
+      "producer": "sport-performance-diagnostics"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "sport-mesocycle.json",
+      "producer": "sport-mesocycle-planning"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "sport-microcycle.json",
+      "producer": "sport-microcycle-planning"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "sport-performance-model.json",
+      "producer": "sport-goal-performance-model"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "sport-season-plan.json",
+      "producer": "sport-season-periodization"
+    },
+    {
+      "consumer": "sport-training-plan-workflow",
+      "artifact": "strength-power-plan.json",
+      "producer": "sport-strength-power-programming"
     },
     {
       "consumer": "template-document-workflow",
@@ -6421,6 +6622,46 @@
       "consumer": "template-document-workflow",
       "artifact": "document-template-profile.json",
       "producer": "document-template-profiler"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-language-report.json",
+      "producer": "presentation-language-rewriter"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-layout-qa.json",
+      "producer": "presentation-layout-qa"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-layout-qa.md",
+      "producer": "presentation-layout-qa"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-preview.pdf",
+      "producer": "presentation-render-verifier"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-render-qa.json",
+      "producer": "presentation-render-verifier"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-render-qa.md",
+      "producer": "presentation-render-verifier"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-revised-text",
+      "producer": "presentation-language-rewriter"
+    },
+    {
+      "consumer": "template-presentation-workflow",
+      "artifact": "presentation-template-profile.json",
+      "producer": "presentation-template-profiler"
     }
   ],
   "outputContracts": [
@@ -6748,7 +6989,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "audit-finding-response-map.json",
@@ -8663,7 +8904,7 @@
         "sport-diagnostics-training-report-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "dr-komorowski-sport-report.pdf",
@@ -8674,7 +8915,7 @@
         "sport-diagnostics-training-report-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "drv-rule-applicability-map.json",
@@ -8740,7 +8981,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "energy-availability-risk.json",
@@ -9435,7 +9676,7 @@
         "person-research-report-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "finance-counsel-work-orders.json",
@@ -12042,7 +12283,7 @@
         "person-research-report-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "predicate-candidate-set.json",
@@ -12075,7 +12316,7 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-layout-qa.json",
@@ -12087,7 +12328,7 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-layout-qa.md",
@@ -12095,11 +12336,10 @@
         "presentation-layout-qa"
       ],
       "consumerSkills": [
-        "presentation-render-verifier",
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-preview.pdf",
@@ -12110,7 +12350,7 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-qa.md",
@@ -12133,7 +12373,7 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-render-qa.md",
@@ -12144,7 +12384,7 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-revised-text",
@@ -12155,7 +12395,7 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-template-profile.json",
@@ -12167,19 +12407,16 @@
         "template-presentation-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "presentation-template-profile.md",
       "producers": [
         "presentation-template-profiler"
       ],
-      "consumerSkills": [
-        "presentation-layout-qa",
-        "template-presentation-workflow"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "presentation.pdf",
@@ -13776,7 +14013,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "sport-fueling-plan.json",
@@ -13803,7 +14040,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "sport-microcycle.json",
@@ -13823,7 +14060,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "sport-performance-model.json",
@@ -13840,7 +14077,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "sport-report-package",
@@ -13863,7 +14100,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "sport-testing-plan.json",
@@ -13886,7 +14123,7 @@
         "sport-training-programming"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "sport-training-programming-compatibility-run.json",
@@ -13947,7 +14184,7 @@
         "sport-training-plan-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "structured thought artifacts",
@@ -14801,6 +15038,7 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "presentation-template-profile.md",
     "privacy-assessment.json",
     "privacy-governance.md",
     "private-authority-escalation.json",
@@ -15073,6 +15311,7 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
+    "presentation-template-profile.md",
     "privacy-assessment.json",
     "privacy-governance.md",
     "private-authority-escalation.json",

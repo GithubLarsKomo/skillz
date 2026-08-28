@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - sport-mesocycle-planning
+consumes:
+  - sport-mesocycle.json
 outputs:
   - sport-microcycle.json
 lastEvaluated: 2026-08-22

@@ -13,6 +13,11 @@ requires:
   - sport-training-plan-workflow
   - dr-komorowski-sport-docx-report-renderer
   - dr-komorowski-sport-pdf-report-renderer
+consumes:
+  - sport-diagnostics.json
+  - sport-training-plan.json
+  - dr-komorowski-sport-report.docx
+  - dr-komorowski-sport-report.pdf
 outputs:
   - sport-report-package
 lastEvaluated: 2026-08-28

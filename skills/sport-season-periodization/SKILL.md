@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - sport-goal-performance-model
+consumes:
+  - sport-performance-model.json
 outputs:
   - sport-season-plan.json
 lastEvaluated: 2026-08-22

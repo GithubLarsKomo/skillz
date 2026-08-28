@@ -12853,7 +12853,6 @@
             "presentation-layout-qa"
           ],
           "consumerSkills": [
-            "presentation-render-verifier",
             "template-presentation-workflow"
           ]
         }
@@ -12974,10 +12973,7 @@
           "producers": [
             "presentation-template-profiler"
           ],
-          "consumerSkills": [
-            "presentation-layout-qa",
-            "template-presentation-workflow"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [

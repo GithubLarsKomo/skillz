@@ -15,7 +15,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **270**
+- Outputs without inferred hard-requires consumers: **271**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -226,6 +226,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
+- `presentation-template-profile.md` — producer: `presentation-template-profiler`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `private-authority-escalation.json` — producer: `private-legal-matter-router`

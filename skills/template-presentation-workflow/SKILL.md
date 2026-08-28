@@ -13,6 +13,15 @@ requires:
   - presentation-language-rewriter
   - presentation-layout-qa
   - presentation-render-verifier
+consumes:
+  - presentation-template-profile.json
+  - presentation-revised-text
+  - presentation-language-report.json
+  - presentation-layout-qa.json
+  - presentation-layout-qa.md
+  - presentation-render-qa.json
+  - presentation-render-qa.md
+  - presentation-preview.pdf
 outputs:
   - presentation.pptx
   - presentation.pdf

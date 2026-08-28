@@ -18,6 +18,15 @@ requires:
   - sport-microcycle-planning
   - sport-strength-power-programming
   - sport-endurance-programming
+consumes:
+  - athlete-profile.json
+  - sport-diagnostics.json
+  - sport-performance-model.json
+  - sport-season-plan.json
+  - sport-mesocycle.json
+  - sport-microcycle.json
+  - strength-power-plan.json
+  - endurance-plan.json
 outputs:
   - sport-training-plan.json
 lastEvaluated: 2026-08-28
