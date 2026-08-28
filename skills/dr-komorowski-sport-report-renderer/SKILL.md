@@ -1,11 +1,10 @@
 ---
 name: dr-komorowski-sport-report-renderer
 description: Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und Trainingsreports auf ReportLab-Basis. Bleibt zur reproduzierbaren Ausgabe älterer Report-Specs mit Vektorlogo und Vektor-Charts erhalten; neue Reports sollen über den kanonischen DOCX- und den daraus abgeleiteten PDF-Renderer laufen.
-userFacing: true
 implicitInvocation: false
-category: workflow
 version: 0.3.0
-status: candidate
+status: deprecated
+replacedBy: dr-komorowski-sport-pdf-report-renderer
 owners:
   - GithubLarsKomo
 requires: []
