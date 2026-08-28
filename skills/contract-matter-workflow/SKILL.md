@@ -1,7 +1,7 @@
 ---
 name: contract-matter-workflow
-description: Führt den kanonischen Vertrags-Matter-State von Deal-Type-Analyse über Review oder Drafting, Risiko, Negotiation und iterative Redlines bis zum Legal Final Gate. Verwenden als interne Vertrags-State-Machine hinter dem kompatiblen user-facing contract-workflow.
-userFacing: false
+description: Führt den kanonischen Vertrags-Matter-State von Deal-Type-Analyse über Review oder Drafting, Risiko, Negotiation und iterative Redlines bis zum Legal Final Gate. Verwenden bei expliziter Contract-Matter-Steuerung; für normale Vertragsanfragen bleibt contract-workflow der bevorzugte user-facing Einstieg.
+userFacing: true
 implicitInvocation: false
 category: workflow
 version: 0.1.0
@@ -26,7 +26,7 @@ lastEvaluated: 2026-08-28
 
 ## Zweck
 
-Halte einen Vertragsfall als versionierten Matter State zusammen. `contract-workflow` bleibt aus Kompatibilitätsgründen der user-facing Einstieg und projiziert diesen State auf die bisherigen Legacy-Outputs.
+Halte einen Vertragsfall als versionierten Matter State zusammen. `contract-workflow` bleibt aus Kompatibilitätsgründen der bevorzugte user-facing Einstieg und projiziert diesen State auf die bisherigen Legacy-Outputs. Dieser kanonische Workflow ist discoverable, wird aber wegen `implicitInvocation: false` nicht automatisch anstelle von `contract-workflow` geroutet.
 
 ## Modes
 
