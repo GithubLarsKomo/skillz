@@ -1,0 +1,5 @@
+interface:
+  display_name: "Corporate Compliance Law Specialist"
+  short_description: "Analysiert Anti-Korruption, Integrity, Third-Party- und Organisationspflichten im Unternehmenskontext."
+policy:
+  allow_implicit_invocation: true
