@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Change Impact Orchestrator"
+  short_description: "Routet Rechtsänderungen in Applicability-, Umsetzungs- und Decision-Work-Orders."
+policy:
+  allow_implicit_invocation: true
