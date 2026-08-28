@@ -4,7 +4,7 @@ description: Routet private deutsche/europäische Rechtsangelegenheiten getrennt
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -34,21 +34,27 @@ Die RDG-Ausnahme für Rechtsangelegenheiten innerhalb verbundener Unternehmen da
 
 Route insbesondere:
 
-- private Verträge / Kauf / Dienstleistung / Verbraucher,
+- private Verträge / Kauf / Dienstleistung / Verbraucher / Versicherung → `german-consumer-insurance-private-contract-law-specialist`,
 - Wohnraummiete und private Immobilien → `real-estate-law-specialist`,
 - eigenes Arbeitsverhältnis → `german-employment-labor-law-specialist`,
-- Familie/Scheidung/Unterhalt/Sorge/Partnerschaft,
-- Erbe/Testament/Pflichtteil/Schenkung/Nachfolge,
+- Familie/Scheidung/Unterhalt/Sorge/Partnerschaft → `german-family-law-specialist`,
+- Erbe/Testament/Pflichtteil/Schenkung/Nachfolge → `german-inheritance-succession-law-specialist`,
 - private Tax Matters → `tax-legal-interface-specialist`,
-- Versicherung/Schaden/Haftung,
-- Verkehr/Bußgeld/Fahrerlaubnis,
+- Verkehrsstraf-/OWi-Verfahren → `german-criminal-administrative-offence-procedure-specialist`,
+- Fahrerlaubnis/Verkehrsverwaltung/sonstiges Verwaltungs-/Sozialrecht → `german-administrative-social-traffic-law-specialist`,
 - Datenschutz/Persönlichkeitsrecht → `privacy-data-law-specialist`,
 - Zivilstreit → `dispute-litigation-strategy-specialist`,
-- Straf-/Ermittlungsverfahren,
-- Verwaltungs-/Sozialrecht,
-- sonstige Spezialgebiete.
+- Straf-/Ermittlungsverfahren → `german-criminal-administrative-offence-procedure-specialist`,
+- sonstige Spezialgebiete → `capability-gap` plus präzise Professional/Counsel Work Order.
 
-Fehlt ein belastbarer Specialist, `capability-gap` plus präzise Counsel/Professional Work Order statt improvisierter Tiefe.
+## Cross-Domain Routing
+
+Ein privates Matter kann mehrere Specialists parallel benötigen. Beispiele:
+
+- Scheidung + Immobilie + Steuer → Family + Real Estate + Tax Interface.
+- Nachfolge + GmbH-Anteil + Immobilie + Steuer → Inheritance + Corporate Governance/Transactions + Real Estate + Tax Interface.
+- Verkehrsunfall + Personenschaden + Versicherung + Bußgeld → Consumer/Insurance + Product/General Liability falls einschlägig + Criminal/OWi + ggf. Public-Law/Driving-Licence.
+- Private Cyber-/Datenschutzverletzung → Privacy/Data + Digital/AI/Cyber + Dispute/Criminal je Sachlage.
 
 ## Urgency Gate
 
