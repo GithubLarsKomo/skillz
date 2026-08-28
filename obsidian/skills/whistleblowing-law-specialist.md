@@ -4,7 +4,7 @@ generated: true
 name: "whistleblowing-law-specialist"
 category: "legal-specialist"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -56,7 +56,7 @@ Analysiert Hinweisgeber- und Meldestellenrecht mit Schwerpunkt Deutschland/EU, i
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 

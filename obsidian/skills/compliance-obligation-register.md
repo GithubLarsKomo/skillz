@@ -4,7 +4,7 @@ generated: true
 name: "compliance-obligation-register"
 category: "legal-specialist"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -59,7 +59,7 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 
