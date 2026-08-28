@@ -23,6 +23,10 @@ ADVANCED_CONTRACT_SKILLS = {
 }
 
 
+def as_bool(value: object) -> bool:
+    return str(value).strip().lower() == "true"
+
+
 class ArchitectureConsolidationP3DiscoverabilityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -36,7 +40,7 @@ class ArchitectureConsolidationP3DiscoverabilityTests(unittest.TestCase):
         default = self.skills["contract-workflow"]
         default_fm = self.frontmatter("contract-workflow")
         self.assertTrue(default["invocation"]["userFacing"])
-        self.assertTrue(default_fm.get("implicitInvocation"))
+        self.assertTrue(as_bool(default_fm.get("implicitInvocation")))
         self.assertEqual(default["governance"]["discoverability"], "public")
 
     def test_explicit_contract_specialist_surfaces_are_advanced(self) -> None:
@@ -45,7 +49,7 @@ class ArchitectureConsolidationP3DiscoverabilityTests(unittest.TestCase):
                 skill = self.skills[slug]
                 fm = self.frontmatter(slug)
                 self.assertTrue(skill["invocation"]["userFacing"])
-                self.assertFalse(fm.get("implicitInvocation"))
+                self.assertFalse(as_bool(fm.get("implicitInvocation")))
                 self.assertEqual(skill["governance"]["discoverability"], "advanced")
                 self.assertNotEqual(skill["governance"]["status"], "deprecated")
                 self.assertTrue(skill["evaluation"]["passed"])
@@ -68,7 +72,7 @@ class ArchitectureConsolidationP3DiscoverabilityTests(unittest.TestCase):
         }
         self.assertTrue(ADVANCED_CONTRACT_SKILLS.issubset(advanced_names))
         self.assertEqual(self.skills["thought-to-concept-flow"]["governance"]["discoverability"], "public")
-        self.assertFalse(self.frontmatter("thought-to-concept-flow").get("implicitInvocation"))
+        self.assertFalse(as_bool(self.frontmatter("thought-to-concept-flow").get("implicitInvocation")))
 
 
 if __name__ == "__main__":
