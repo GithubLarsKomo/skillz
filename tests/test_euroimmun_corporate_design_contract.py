@@ -64,7 +64,7 @@ class TestEuroimmunCorporateDesignContract(unittest.TestCase):
         )
         self.assertIn("DOCX mit `Corporate Design Gate: PASS`", text)
         self.assertIn("PDF vollständig rendern", text)
-        self.assertIn("jede Seite", text)
+        self.assertIn("jede seite", text.lower())
 
 
 if __name__ == "__main__":

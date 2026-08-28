@@ -16,7 +16,7 @@ tags:
 
 # euroimmun-pdf-report-renderer
 
-Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit identischem Styling und aktuellem EUROIMMUN-From-Revvity-Kopf. Verwendet den DOCX-Renderer als einzige Layoutquelle, konvertiert ohne inhaltliches Re-Authoring und erzwingt eine visuelle PDF-Endkontrolle.
+Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit identischem Styling. Erbt den DOCX-Level-1/Level-2-Template-Status, konvertiert ohne Re-Authoring und erzwingt vollständige Render- und Source-Paritätsprüfung.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

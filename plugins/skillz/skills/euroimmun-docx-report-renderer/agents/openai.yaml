@@ -1,5 +1,5 @@
 interface:
   display_name: "Euroimmun Docx Report Renderer"
-  short_description: "Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im aktuellen EUROIMMUN-From-Re..."
+  short_description: "Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im EUROIMMUN-/Revvity-Erschein..."
 policy:
   allow_implicit_invocation: true

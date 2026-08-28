@@ -16,7 +16,7 @@ tags:
 
 # euroimmun-docx-report-renderer
 
-Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im aktuellen EUROIMMUN-From-Revvity-Erscheinungsbild. Nutzt ein im Skill hinterlegtes Public-Reference-DOCX-Template mit aktuellem 2025+-Kopf und unterstützt ein kontrolliertes internes Corporate-Template als Override, ohne fachliche Inhalte zu erfinden oder zu verändern.
+Rendert fachlich finalisierte strukturierte Report-Inhalte als professionelles A4-DOCX im EUROIMMUN-/Revvity-Erscheinungsbild. Bevorzugt eine verifizierte interne Corporate-DOCX-Binärvorlage mit Level-2-Template-Parität und nutzt die Public-Reference-Vorlage ausschließlich als transparenten Level-1-Fallback.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

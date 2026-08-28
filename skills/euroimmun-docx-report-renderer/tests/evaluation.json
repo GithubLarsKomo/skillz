@@ -18,17 +18,17 @@
     },
     {
       "id": "failure-case",
-      "input": "Das bereitgestellte Corporate-Template enthält keinen {{REPORT_BODY}}-Platzhalter.",
-      "requiredBehaviors": ["mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "das bereitgestellte Template unverändert lassen"],
-      "forbiddenBehaviors": ["still auf das gebündelte Template zurückfallen", "an beliebiger Position in das Template schreiben"],
-      "skillAnchors": ["Template-Vertrag", "Pflichtplatzhalter fehlen"]
+      "input": "Ein reales kontrolliertes EUROIMMUN-DOCX wurde bereitgestellt, aber es gibt weder einen sicheren Content-Control-, Bookmark- oder Anchor-Einfügepunkt noch einen validierten Template-Adapter.",
+      "requiredBehaviors": ["Level 2 NOT_RUN oder FAIL setzen und den fehlenden sicheren Adapter konkret melden", "das bereitgestellte kontrollierte Template unverändert lassen"],
+      "forbiddenBehaviors": ["still auf das Public-Reference-Template zurückfallen", "an beliebiger Position in das kontrollierte Template schreiben"],
+      "skillAnchors": ["Template-Profil/Adapter", "Template-Adapter fehlt/unsicher"]
     },
     {
       "id": "template-override",
-      "input": "Ein intern freigegebenes aktuelles EUROIMMUN-DOCX-Template mit allen Pflichtplatzhaltern wurde bereitgestellt.",
-      "requiredBehaviors": ["das bereitgestellte Template statt des gebündelten Public-Reference-Templates verwenden", "Header Footer Logo und Corporate Styles des Overrides beibehalten", "nur vereinbarte Platzhalter und Report-Body befüllen"],
-      "forbiddenBehaviors": ["Public-Reference-Header über das kontrollierte Template legen", "Corporate Styles eigenmächtig durch Working-Theme-Werte ersetzen"],
-      "skillAnchors": ["Template-Vertrag", "Template-Modell"]
+      "input": "Ein intern freigegebenes aktuelles EUROIMMUN-DOCX-Template mit validiertem Template-Profil und sicherem Content-Anchor wurde bereitgestellt.",
+      "requiredBehaviors": ["das bereitgestellte Template statt des gebündelten Public-Reference-Templates verwenden", "Header Footer Logo Fields und Corporate Styles des Overrides beibehalten", "Report-Body ausschließlich über den validierten Adapter und sicheren Content-Anchor einfügen"],
+      "forbiddenBehaviors": ["Public-Reference-Header über das kontrollierte Template legen", "das kontrollierte Template nur für Skillz-Platzhalter destruktiv verändern"],
+      "skillAnchors": ["Referenz-Priorität", "Template-Modell", "nicht verpflichtend"]
     }
   ]
 }
