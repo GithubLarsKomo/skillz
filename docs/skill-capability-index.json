@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 250,
-  "entrypointCount": 219,
+  "skillCount": 251,
+  "entrypointCount": 220,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 244,
+  "evaluationSuiteCount": 245,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1497,7 +1497,8 @@
         "privilege-and-counsel-routing"
       ],
       "dependents": [
-        "corporate-transactions-ma-specialist"
+        "corporate-transactions-ma-specialist",
+        "finance-insolvency-restructuring-law-specialist"
       ],
       "outputs": [
         "board-decision-gates.json",
@@ -1512,7 +1513,8 @@
             "corporate-governance-law-specialist"
           ],
           "consumerSkills": [
-            "corporate-transactions-ma-specialist"
+            "corporate-transactions-ma-specialist",
+            "finance-insolvency-restructuring-law-specialist"
           ]
         },
         {
@@ -1522,7 +1524,8 @@
             "corporate-governance-law-specialist"
           ],
           "consumerSkills": [
-            "corporate-transactions-ma-specialist"
+            "corporate-transactions-ma-specialist",
+            "finance-insolvency-restructuring-law-specialist"
           ]
         },
         {
@@ -1532,7 +1535,8 @@
             "corporate-governance-law-specialist"
           ],
           "consumerSkills": [
-            "corporate-transactions-ma-specialist"
+            "corporate-transactions-ma-specialist",
+            "finance-insolvency-restructuring-law-specialist"
           ]
         }
       ],
@@ -1626,6 +1630,7 @@
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -1676,6 +1681,7 @@
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -1720,6 +1726,7 @@
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -1764,6 +1771,7 @@
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -1808,6 +1816,7 @@
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -4303,6 +4312,62 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "finance-insolvency-restructuring-law-specialist",
+      "description": "Analysiert unternehmerische Finanzierungs-, Sicherheiten-, Covenant-, Distress-, Restrukturierungs- und Insolvenzrechtsmatters für Deutschland einschließlich Darlehen, Garantien/Bürgschaften, Intercompany Finance, StaRUG/InsO-Trigger und Organ-/Creditor-Schnittstellen, ohne Steuer-, Accounting- oder formelle Insolvenzberatung zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "corporate-governance-law-specialist",
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "distress-trigger-map.json",
+        "finance-counsel-work-orders.json",
+        "finance-restructuring-law-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "distress-trigger-map.json",
+          "ambiguous": false,
+          "producers": [
+            "finance-insolvency-restructuring-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "finance-counsel-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "finance-insolvency-restructuring-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "finance-restructuring-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "finance-insolvency-restructuring-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -7404,6 +7469,7 @@
         "digital-ai-cyber-law-specialist",
         "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
+        "finance-insolvency-restructuring-law-specialist",
         "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
@@ -7430,6 +7496,7 @@
             "digital-ai-cyber-law-specialist",
             "esg-supply-chain-environmental-law-specialist",
             "executive-legal-compliance-governance",
+            "finance-insolvency-restructuring-law-specialist",
             "german-family-law-specialist",
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
@@ -7451,6 +7518,7 @@
             "digital-ai-cyber-law-specialist",
             "esg-supply-chain-environmental-law-specialist",
             "executive-legal-compliance-governance",
+            "finance-insolvency-restructuring-law-specialist",
             "german-family-law-specialist",
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
@@ -7472,6 +7540,7 @@
             "digital-ai-cyber-law-specialist",
             "esg-supply-chain-environmental-law-specialist",
             "executive-legal-compliance-governance",
+            "finance-insolvency-restructuring-law-specialist",
             "german-family-law-specialist",
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
@@ -10968,6 +11037,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
         "german-criminal-administrative-offence-procedure-specialist",
@@ -11005,6 +11075,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
             "german-criminal-administrative-offence-procedure-specialist",
@@ -11037,6 +11108,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
             "german-criminal-administrative-offence-procedure-specialist",
@@ -11069,6 +11141,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "finance-insolvency-restructuring-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
             "german-criminal-administrative-offence-procedure-specialist",

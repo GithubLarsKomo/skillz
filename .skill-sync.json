@@ -474,6 +474,13 @@
         "agents/openai.yaml": "dd9beb6ddda6a7128aa7851eb59822d8e45e9ca809397e1b2fe12d4fde4f722c"
       }
     },
+    "finance-insolvency-restructuring-law-specialist": {
+      "files": {
+        "SKILL.md": "ebfff069c4cc337ccd5b29f8ebc0ef85dc78c322b9a9d0f269141f388588d2e4",
+        "agents/openai.yaml": "575c2d82ac5c924fe91898c6dd2f09d75aa8943fcde8e8372162188e4feeec39",
+        "references/authoritative-sources.md": "096c977f514b86bdd2a8a1dc418eace611c27d80530448df1bd8ab99ba6fa4dc"
+      }
+    },
     "freedom-to-operate-assessment": {
       "files": {
         "SKILL.md": "7c4688afc0ed7f1b2e09f9487224bbfd804d1e64018c020a7fe9b8e13580311a",

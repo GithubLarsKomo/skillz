@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **250**
-- User-facing entrypoints: **219**
-- Evaluation suites: **244**
+- Skills: **251**
+- User-facing entrypoints: **220**
+- Evaluation suites: **245**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **256**
+- Outputs without inferred hard-requires consumers: **259**
 
 ## Evaluation gaps
 
@@ -100,6 +100,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `digital-legal-work-orders.json` — producer: `digital-ai-cyber-law-specialist`
 - `digital-regime-applicability-map.json` — producer: `digital-ai-cyber-law-specialist`
 - `disposal-record.json` — producer: `throwaway-prototype`
+- `distress-trigger-map.json` — producer: `finance-insolvency-restructuring-law-specialist`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -143,6 +144,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
+- `finance-counsel-work-orders.json` — producer: `finance-insolvency-restructuring-law-specialist`
+- `finance-restructuring-law-assessment.json` — producer: `finance-insolvency-restructuring-law-specialist`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
 - `finding-closure-status.json` — producer: `audit-inspection-finding-response`
 - `frontend-design-handoff.md` — producer: `frontend-design-director`

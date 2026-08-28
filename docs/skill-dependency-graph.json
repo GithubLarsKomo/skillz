@@ -922,6 +922,21 @@
       ]
     },
     {
+      "name": "finance-insolvency-restructuring-law-specialist",
+      "requires": [
+        "corporate-governance-law-specialist",
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "distress-trigger-map.json",
+        "finance-counsel-work-orders.json",
+        "finance-restructuring-law-assessment.json"
+      ]
+    },
+    {
       "name": "freedom-to-operate-assessment",
       "requires": [
         "research-to-evidence-note"
@@ -3872,6 +3887,22 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "finance-insolvency-restructuring-law-specialist",
+      "to": "corporate-governance-law-specialist"
+    },
+    {
+      "from": "finance-insolvency-restructuring-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "finance-insolvency-restructuring-law-specialist",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "finance-insolvency-restructuring-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
       "from": "freedom-to-operate-assessment",
       "to": "research-to-evidence-note"
     },
@@ -6101,7 +6132,8 @@
         "corporate-governance-law-specialist"
       ],
       "consumerSkills": [
-        "corporate-transactions-ma-specialist"
+        "corporate-transactions-ma-specialist",
+        "finance-insolvency-restructuring-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6426,6 +6458,7 @@
         "digital-ai-cyber-law-specialist",
         "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
+        "finance-insolvency-restructuring-law-specialist",
         "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
@@ -7057,7 +7090,8 @@
         "corporate-governance-law-specialist"
       ],
       "consumerSkills": [
-        "corporate-transactions-ma-specialist"
+        "corporate-transactions-ma-specialist",
+        "finance-insolvency-restructuring-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7077,7 +7111,8 @@
         "corporate-governance-law-specialist"
       ],
       "consumerSkills": [
-        "corporate-transactions-ma-specialist"
+        "corporate-transactions-ma-specialist",
+        "finance-insolvency-restructuring-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7127,6 +7162,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
         "german-criminal-administrative-offence-procedure-specialist",
@@ -7564,6 +7600,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "distress-trigger-map.json",
+      "producers": [
+        "finance-insolvency-restructuring-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "docs/agents/CONFIG.md",
@@ -8132,6 +8177,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
         "german-criminal-administrative-offence-procedure-specialist",
@@ -8456,6 +8502,24 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "finance-counsel-work-orders.json",
+      "producers": [
+        "finance-insolvency-restructuring-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "finance-restructuring-law-assessment.json",
+      "producers": [
+        "finance-insolvency-restructuring-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "finding-action-plan.json",
@@ -9428,6 +9492,7 @@
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9528,6 +9593,7 @@
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9652,6 +9718,7 @@
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9752,6 +9819,7 @@
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9790,6 +9858,7 @@
         "digital-ai-cyber-law-specialist",
         "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
+        "finance-insolvency-restructuring-law-specialist",
         "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
@@ -9812,6 +9881,7 @@
         "digital-ai-cyber-law-specialist",
         "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
+        "finance-insolvency-restructuring-law-specialist",
         "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
@@ -11018,6 +11088,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "finance-insolvency-restructuring-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
         "german-criminal-administrative-offence-procedure-specialist",
@@ -13200,6 +13271,7 @@
     "digital-legal-work-orders.json",
     "digital-regime-applicability-map.json",
     "disposal-record.json",
+    "distress-trigger-map.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -13243,6 +13315,8 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "finance-counsel-work-orders.json",
+    "finance-restructuring-law-assessment.json",
     "finding-action-plan.json",
     "finding-closure-status.json",
     "frontend-design-handoff.md",
@@ -13458,6 +13532,7 @@
     "digital-legal-work-orders.json",
     "digital-regime-applicability-map.json",
     "disposal-record.json",
+    "distress-trigger-map.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -13501,6 +13576,8 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "finance-counsel-work-orders.json",
+    "finance-restructuring-law-assessment.json",
     "finding-action-plan.json",
     "finding-closure-status.json",
     "frontend-design-handoff.md",

@@ -33,6 +33,7 @@ Analysiert deutsches Gesellschafts- und Organrecht für AG/GmbH mit Zuständigke
 ## Required by
 
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/finance-insolvency-restructuring-law-specialist|finance-insolvency-restructuring-law-specialist]]
 
 ## Outputs
 
@@ -45,14 +46,17 @@ Analysiert deutsches Gesellschafts- und Organrecht für AG/GmbH mit Zuständigke
 ### `board-decision-gates.json`
 
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/finance-insolvency-restructuring-law-specialist|finance-insolvency-restructuring-law-specialist]]
 
 ### `corporate-authority-map.json`
 
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/finance-insolvency-restructuring-law-specialist|finance-insolvency-restructuring-law-specialist]]
 
 ### `corporate-governance-assessment.json`
 
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/finance-insolvency-restructuring-law-specialist|finance-insolvency-restructuring-law-specialist]]
 
 ## Evaluation
 
