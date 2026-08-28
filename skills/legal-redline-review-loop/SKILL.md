@@ -11,6 +11,10 @@ owners:
 requires:
   - contract-review
   - legal-negotiation-strategy
+consumes:
+  - contract-review.json
+  - contract-issue-list.json
+  - negotiation-positions.json
 outputs:
   - redline-delta.json
   - negotiation-state.json

@@ -15,7 +15,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **271**
+- Outputs without inferred hard-requires consumers: **274**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -83,6 +83,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `contract-case.json` — producer: `contract-workflow`
 - `contract-handoff.json` — producer: `contract-workflow`
 - `contract-plan.md` — producer: `contract-workflow`
+- `contract-review.md` — producer: `contract-review`
 - `corporate-compliance-law-assessment.json` — producer: `corporate-compliance-law-specialist`
 - `criminal-counsel-brief.md` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `criminal-procedure-assessment.json` — producer: `german-criminal-administrative-offence-procedure-specialist`
@@ -206,6 +207,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `memory-reconciliation-plan.json` — producer: `memory-sync-reconciliation`
 - `merger-control-route-map.json` — producer: `competition-antitrust-law-specialist`
 - `mrb-disposition-decision.json` — producer: `nonconformance-mrb-disposition`
+- `negotiation-playbook.md` — producer: `legal-negotiation-strategy`
 - `next-training-decision.json` — producer: `sport-athlete-management`
 - `nonconformance-assessment.json` — producer: `nonconformance-mrb-disposition`
 - `obsidian-candidate.json` — producer: `obsidian-adapter`
@@ -258,6 +260,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `real-estate-legal-assessment.json` — producer: `real-estate-law-specialist`
 - `real-estate-transaction-gates.json` — producer: `real-estate-law-specialist`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
+- `redline-review.md` — producer: `legal-redline-review-loop`
 - `regulatory-awareness-timeline.json` — producer: `medical-device-complaint-regulatory-routing`
 - `regulatory-change-events.json` — producer: `regulatory-change-monitoring`
 - `regulatory-change-route-map.json` — producer: `regulatory-change-impact-orchestrator`

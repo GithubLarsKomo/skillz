@@ -246,7 +246,22 @@
         "legal-negotiation-strategy",
         "legal-redline-review-loop"
       ],
-      "consumes": [],
+      "consumes": [
+        "agreement-clause-coverage.json",
+        "agreement-deal-model.json",
+        "agreement-specialist-routes.json",
+        "contract-draft.md",
+        "contract-drafting-report.json",
+        "contract-issue-list.json",
+        "contract-open-points.md",
+        "contract-review.json",
+        "contract-risk-input.json",
+        "legal-final-gate.json",
+        "legal-open-points.md",
+        "negotiation-positions.json",
+        "negotiation-state.json",
+        "redline-delta.json"
+      ],
       "outputs": [
         "contract-matter-handoff.json",
         "contract-matter-plan.md",
@@ -640,7 +655,9 @@
       "requires": [
         "euroimmun-docx-report-renderer"
       ],
-      "consumes": [],
+      "consumes": [
+        "euroimmun-report.docx"
+      ],
       "outputs": [
         "euroimmun-report.pdf"
       ]
@@ -1885,7 +1902,12 @@
         "legal-compliance-risk-assessment",
         "privilege-and-counsel-routing"
       ],
-      "consumes": [],
+      "consumes": [
+        "counsel-scope.json",
+        "legal-risk-decision-handoff.json",
+        "legal-risk-register.json",
+        "privilege-routing.json"
+      ],
       "outputs": [
         "legal-final-gate.json",
         "legal-open-points.md"
@@ -1919,7 +1941,13 @@
         "legal-client-strategy",
         "legal-compliance-risk-assessment"
       ],
-      "consumes": [],
+      "consumes": [
+        "client-strategy.json",
+        "commercial-exposure-analysis.json",
+        "legal-decision-boundaries.json",
+        "legal-risk-decision-handoff.json",
+        "legal-risk-register.json"
+      ],
       "outputs": [
         "negotiation-playbook.md",
         "negotiation-positions.json"
@@ -1931,7 +1959,11 @@
         "contract-review",
         "legal-negotiation-strategy"
       ],
-      "consumes": [],
+      "consumes": [
+        "contract-issue-list.json",
+        "contract-review.json",
+        "negotiation-positions.json"
+      ],
       "outputs": [
         "negotiation-state.json",
         "redline-delta.json",
@@ -6294,6 +6326,76 @@
       "producer": "role-architecture"
     },
     {
+      "consumer": "contract-matter-workflow",
+      "artifact": "agreement-clause-coverage.json",
+      "producer": "agreement-type-analysis"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "agreement-deal-model.json",
+      "producer": "agreement-type-analysis"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "agreement-specialist-routes.json",
+      "producer": "agreement-type-analysis"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "contract-draft.md",
+      "producer": "contract-drafting"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "contract-drafting-report.json",
+      "producer": "contract-drafting"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "contract-issue-list.json",
+      "producer": "contract-review"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "contract-open-points.md",
+      "producer": "contract-drafting"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "contract-review.json",
+      "producer": "contract-review"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "contract-risk-input.json",
+      "producer": "contract-review"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "legal-final-gate.json",
+      "producer": "legal-matter-final-gate"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "legal-open-points.md",
+      "producer": "legal-matter-final-gate"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "negotiation-positions.json",
+      "producer": "legal-negotiation-strategy"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "negotiation-state.json",
+      "producer": "legal-redline-review-loop"
+    },
+    {
+      "consumer": "contract-matter-workflow",
+      "artifact": "redline-delta.json",
+      "producer": "legal-redline-review-loop"
+    },
+    {
       "consumer": "document-layout-qa",
       "artifact": "document-template-profile.json",
       "producer": "document-template-profiler"
@@ -6307,6 +6409,11 @@
       "consumer": "dr-komorowski-sport-pdf-report-renderer",
       "artifact": "dr-komorowski-sport-report.docx",
       "producer": "dr-komorowski-sport-docx-report-renderer"
+    },
+    {
+      "consumer": "euroimmun-pdf-report-renderer",
+      "artifact": "euroimmun-report.docx",
+      "producer": "euroimmun-docx-report-renderer"
     },
     {
       "consumer": "job-description-authoring",
@@ -6412,6 +6519,66 @@
       "consumer": "learning-delivery-workflow",
       "artifact": "presentation.pptx",
       "producer": "template-presentation-workflow"
+    },
+    {
+      "consumer": "legal-matter-final-gate",
+      "artifact": "counsel-scope.json",
+      "producer": "privilege-and-counsel-routing"
+    },
+    {
+      "consumer": "legal-matter-final-gate",
+      "artifact": "legal-risk-decision-handoff.json",
+      "producer": "legal-compliance-risk-assessment"
+    },
+    {
+      "consumer": "legal-matter-final-gate",
+      "artifact": "legal-risk-register.json",
+      "producer": "legal-compliance-risk-assessment"
+    },
+    {
+      "consumer": "legal-matter-final-gate",
+      "artifact": "privilege-routing.json",
+      "producer": "privilege-and-counsel-routing"
+    },
+    {
+      "consumer": "legal-negotiation-strategy",
+      "artifact": "client-strategy.json",
+      "producer": "legal-client-strategy"
+    },
+    {
+      "consumer": "legal-negotiation-strategy",
+      "artifact": "commercial-exposure-analysis.json",
+      "producer": "legal-compliance-risk-assessment"
+    },
+    {
+      "consumer": "legal-negotiation-strategy",
+      "artifact": "legal-decision-boundaries.json",
+      "producer": "legal-client-strategy"
+    },
+    {
+      "consumer": "legal-negotiation-strategy",
+      "artifact": "legal-risk-decision-handoff.json",
+      "producer": "legal-compliance-risk-assessment"
+    },
+    {
+      "consumer": "legal-negotiation-strategy",
+      "artifact": "legal-risk-register.json",
+      "producer": "legal-compliance-risk-assessment"
+    },
+    {
+      "consumer": "legal-redline-review-loop",
+      "artifact": "contract-issue-list.json",
+      "producer": "contract-review"
+    },
+    {
+      "consumer": "legal-redline-review-loop",
+      "artifact": "contract-review.json",
+      "producer": "contract-review"
+    },
+    {
+      "consumer": "legal-redline-review-loop",
+      "artifact": "negotiation-positions.json",
+      "producer": "legal-negotiation-strategy"
     },
     {
       "consumer": "multimodal-learning-analysis",
@@ -6829,7 +6996,7 @@
         "contract-review"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "agreement-deal-model.json",
@@ -6842,7 +7009,7 @@
         "contract-review"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "agreement-specialist-routes.json",
@@ -6855,7 +7022,7 @@
         "contract-review"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "analytical-performance-assessment.json",
@@ -7390,7 +7557,7 @@
         "trade-sanctions-export-control-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "clinical-evidence-actions.json",
@@ -7457,12 +7624,11 @@
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
-        "legal-matter-final-gate",
         "legal-negotiation-strategy",
         "public-procurement-healthcare-law-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "communication-profile.json",
@@ -7919,7 +8085,7 @@
         "contract-matter-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "contract-drafting-report.json",
@@ -7930,7 +8096,7 @@
         "contract-matter-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "contract-handoff.json",
@@ -7951,7 +8117,7 @@
         "legal-redline-review-loop"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "contract-legal-context.json",
@@ -8017,7 +8183,7 @@
         "contract-matter-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "contract-plan.md",
@@ -8038,19 +8204,16 @@
         "legal-redline-review-loop"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "contract-review.md",
       "producers": [
         "contract-review"
       ],
-      "consumerSkills": [
-        "contract-matter-workflow",
-        "legal-redline-review-loop"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "contract-risk-input.json",
@@ -8058,11 +8221,10 @@
         "contract-review"
       ],
       "consumerSkills": [
-        "contract-matter-workflow",
-        "legal-redline-review-loop"
+        "contract-matter-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "controlled-document-plan.md",
@@ -8176,7 +8338,7 @@
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "course-activities.json",
@@ -9178,7 +9340,7 @@
         "euroimmun-pdf-report-renderer"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "euroimmun-report.pdf",
@@ -9362,7 +9524,6 @@
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
-        "legal-matter-final-gate",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
         "public-procurement-healthcare-law-specialist",
@@ -11095,7 +11256,7 @@
         "trade-sanctions-export-control-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "legal-dependency-graph.json",
@@ -11120,7 +11281,7 @@
         "legal-compliance-office"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "legal-intake-open-points.json",
@@ -11246,7 +11407,7 @@
         "legal-compliance-office"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "legal-research-open-questions.json",
@@ -11315,7 +11476,7 @@
         "public-procurement-healthcare-law-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "legal-risk-register.json",
@@ -11338,7 +11499,7 @@
         "public-procurement-healthcare-law-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "legal-source-watch-register.json",
@@ -11741,12 +11902,9 @@
       "producers": [
         "legal-negotiation-strategy"
       ],
-      "consumerSkills": [
-        "contract-matter-workflow",
-        "legal-redline-review-loop"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "negotiation-positions.json",
@@ -11758,7 +11916,7 @@
         "legal-redline-review-loop"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "negotiation-state.json",
@@ -11769,7 +11927,7 @@
         "contract-matter-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "next increment",
@@ -12581,7 +12739,7 @@
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "process-validation-assessment.json",
@@ -13130,18 +13288,16 @@
         "contract-matter-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "redline-review.md",
       "producers": [
         "legal-redline-review-loop"
       ],
-      "consumerSkills": [
-        "contract-matter-workflow"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "regulated-product-context.json",
@@ -14895,6 +15051,7 @@
     "contract-case.json",
     "contract-handoff.json",
     "contract-plan.md",
+    "contract-review.md",
     "corporate-compliance-law-assessment.json",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
@@ -15018,6 +15175,7 @@
     "memory-reconciliation-plan.json",
     "merger-control-route-map.json",
     "mrb-disposition-decision.json",
+    "negotiation-playbook.md",
     "next-training-decision.json",
     "nonconformance-assessment.json",
     "obsidian-candidate.json",
@@ -15070,6 +15228,7 @@
     "real-estate-legal-assessment.json",
     "real-estate-transaction-gates.json",
     "recovered-system-model.json",
+    "redline-review.md",
     "regulatory-awareness-timeline.json",
     "regulatory-change-events.json",
     "regulatory-change-route-map.json",
@@ -15168,6 +15327,7 @@
     "contract-case.json",
     "contract-handoff.json",
     "contract-plan.md",
+    "contract-review.md",
     "corporate-compliance-law-assessment.json",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
@@ -15291,6 +15451,7 @@
     "memory-reconciliation-plan.json",
     "merger-control-route-map.json",
     "mrb-disposition-decision.json",
+    "negotiation-playbook.md",
     "next-training-decision.json",
     "nonconformance-assessment.json",
     "obsidian-candidate.json",
@@ -15343,6 +15504,7 @@
     "real-estate-legal-assessment.json",
     "real-estate-transaction-gates.json",
     "recovered-system-model.json",
+    "redline-review.md",
     "regulatory-awareness-timeline.json",
     "regulatory-change-events.json",
     "regulatory-change-route-map.json",

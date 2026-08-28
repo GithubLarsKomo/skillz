@@ -55,13 +55,11 @@ Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder berufl
 
 ### `contract-review.md`
 
-- [[skills/contract-matter-workflow|contract-matter-workflow]]
-- [[skills/legal-redline-review-loop|legal-redline-review-loop]]
+- Terminal or currently unconsumed output.
 
 ### `contract-risk-input.json`
 
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
-- [[skills/legal-redline-review-loop|legal-redline-review-loop]]
 
 ## Evaluation
 

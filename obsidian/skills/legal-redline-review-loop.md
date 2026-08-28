@@ -51,7 +51,7 @@ Vergleicht neue Vertrags- oder Legal-Redline-Versionen mit dem letzten bewertete
 
 ### `redline-review.md`
 
-- [[skills/contract-matter-workflow|contract-matter-workflow]]
+- Terminal or currently unconsumed output.
 
 ## Evaluation
 

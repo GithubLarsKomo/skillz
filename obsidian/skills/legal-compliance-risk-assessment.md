@@ -65,7 +65,6 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
-- [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/public-procurement-healthcare-law-specialist|public-procurement-healthcare-law-specialist]]
 
