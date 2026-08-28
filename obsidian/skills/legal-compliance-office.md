@@ -16,7 +16,7 @@ tags:
 
 # legal-compliance-office
 
-Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake und Mandantenstrategie über aktuelle Rechtsgrundlage, Wayfinding, Specialist Routing und Risiko bis zum Final Gate, ohne Fachlogik der Specialists zu duplizieren. Verwenden als zentralen General-Counsel-/Compliance-Einstieg für komplexe oder mehrdomänige Sachverhalte.
+Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake und Mandantenstrategie über aktuelle Rechtsgrundlage, Wayfinding, Specialist Routing und Risiko bis zum Final Gate und verbindet Einzelmatters mit Legal Change Monitoring, Compliance Management und Executive Governance, ohne Fachlogik der Specialists zu duplizieren.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

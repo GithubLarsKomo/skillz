@@ -32,6 +32,7 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ## Outputs
 
@@ -45,16 +46,19 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ### `compliance-obligation-register.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ### `compliance-obligation-source-note.md`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ## Evaluation
 

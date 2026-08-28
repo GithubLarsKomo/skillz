@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **235**
-- User-facing entrypoints: **204**
-- Evaluation suites: **229**
+- Skills: **238**
+- User-facing entrypoints: **207**
+- Evaluation suites: **232**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **232**
+- Outputs without inferred hard-requires consumers: **229**
 
 ## Evaluation gaps
 
@@ -79,9 +79,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `competition-law-assessment.json` — producer: `competition-antitrust-law-specialist`
 - `complaint-regulatory-routing.json` — producer: `medical-device-complaint-regulatory-routing`
-- `compliance-gap-remediation-plan.json` — producer: `compliance-management-workflow`
-- `compliance-management-handoff.json` — producer: `compliance-management-workflow`
-- `compliance-management-status.json` — producer: `compliance-management-workflow`
 - `concept-handoff.json` — producer: `thought-to-concept-flow`
 - `concept.md` — producer: `thought-to-concept-flow`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
@@ -119,6 +116,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `euroimmun-presentation.pptx` — producer: `euroimmun-presentation-workflow`
 - `euroimmun-report.pdf` — producer: `euroimmun-pdf-report-renderer`
 - `execution plan` — producer: `synapse-orchestrator`
+- `executive-legal-compliance-cockpit.json` — producer: `executive-legal-compliance-governance`
+- `executive-legal-decision-queue.json` — producer: `executive-legal-compliance-governance`
+- `executive-legal-escalation-map.json` — producer: `executive-legal-compliance-governance`
+- `executive-legal-review.md` — producer: `executive-legal-compliance-governance`
 - `executive-search-brief.md` — producer: `job-description-authoring`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `export-license-gates.json` — producer: `trade-sanctions-export-control-specialist`
@@ -150,10 +151,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `inhouse-ivd-transition-readiness.json` — producer: `ivdr-inhouse-health-institution`
 - `inspection-evidence-index.json` — producer: `fda-qmsr-inspection-readiness`
 - `installed OpenASR model` — producer: `openasr-offline-model-import`
-- `investigation-charter.json` — producer: `internal-investigation-workflow`
-- `investigation-handoff.json` — producer: `internal-investigation-workflow`
-- `investigation-status.json` — producer: `internal-investigation-workflow`
-- `investigation-workplan.json` — producer: `internal-investigation-workflow`
 - `ip-legal-assessment.json` — producer: `ip-licensing-law-specialist`
 - `ip-license-deal-model.json` — producer: `ip-licensing-law-specialist`
 - `ip-rights-chain-map.json` — producer: `ip-licensing-law-specialist`

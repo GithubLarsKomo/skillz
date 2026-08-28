@@ -31,6 +31,7 @@ Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compliance-, Regul
 
 ## Required by
 
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ## Outputs
@@ -43,14 +44,17 @@ Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compliance-, Regul
 
 ### `legal-specialist-integration-status.json`
 
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ### `legal-specialist-route-map.json`
 
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ### `legal-specialist-work-orders.json`
 
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ## Evaluation

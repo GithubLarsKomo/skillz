@@ -588,6 +588,23 @@
       ]
     },
     {
+      "name": "executive-legal-compliance-governance",
+      "requires": [
+        "compliance-management-workflow",
+        "decision-record",
+        "internal-investigation-workflow",
+        "legal-change-impact-orchestrator",
+        "legal-compliance-risk-assessment"
+      ],
+      "consumes": [],
+      "outputs": [
+        "executive-legal-compliance-cockpit.json",
+        "executive-legal-decision-queue.json",
+        "executive-legal-escalation-map.json",
+        "executive-legal-review.md"
+      ]
+    },
+    {
       "name": "external-stakeholder-questionnaire",
       "requires": [],
       "consumes": [],
@@ -1448,6 +1465,34 @@
       "outputs": [
         "learning-record.md",
         "learning-state.json"
+      ]
+    },
+    {
+      "name": "legal-change-impact-orchestrator",
+      "requires": [
+        "compliance-obligation-register",
+        "legal-change-monitoring",
+        "legal-compliance-risk-assessment",
+        "legal-specialist-router"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-change-decision-queue.json",
+        "legal-change-impact-map.json",
+        "legal-change-work-orders.json"
+      ]
+    },
+    {
+      "name": "legal-change-monitoring",
+      "requires": [
+        "current-law-context",
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-change-events.json",
+        "legal-change-watch-status.json",
+        "legal-source-watch-register.json"
       ]
     },
     {
@@ -3336,6 +3381,26 @@
       "to": "learning-mission"
     },
     {
+      "from": "executive-legal-compliance-governance",
+      "to": "compliance-management-workflow"
+    },
+    {
+      "from": "executive-legal-compliance-governance",
+      "to": "decision-record"
+    },
+    {
+      "from": "executive-legal-compliance-governance",
+      "to": "internal-investigation-workflow"
+    },
+    {
+      "from": "executive-legal-compliance-governance",
+      "to": "legal-change-impact-orchestrator"
+    },
+    {
+      "from": "executive-legal-compliance-governance",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
       "from": "fda-510k-predicate-strategy",
       "to": "fda-device-classification-product-code"
     },
@@ -4062,6 +4127,30 @@
     {
       "from": "learning-next-step",
       "to": "learning-state"
+    },
+    {
+      "from": "legal-change-impact-orchestrator",
+      "to": "compliance-obligation-register"
+    },
+    {
+      "from": "legal-change-impact-orchestrator",
+      "to": "legal-change-monitoring"
+    },
+    {
+      "from": "legal-change-impact-orchestrator",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "legal-change-impact-orchestrator",
+      "to": "legal-specialist-router"
+    },
+    {
+      "from": "legal-change-monitoring",
+      "to": "current-law-context"
+    },
+    {
+      "from": "legal-change-monitoring",
+      "to": "research-to-evidence-note"
     },
     {
       "from": "legal-client-strategy",
@@ -5991,7 +6080,9 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
+        "executive-legal-compliance-governance",
         "investigation-findings-remediation",
+        "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -6234,27 +6325,33 @@
       "producers": [
         "compliance-management-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "compliance-management-handoff.json",
       "producers": [
         "compliance-management-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "compliance-management-status.json",
       "producers": [
         "compliance-management-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "compliance-obligation-gaps.json",
@@ -6263,7 +6360,8 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
-        "compliance-management-workflow"
+        "compliance-management-workflow",
+        "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6275,7 +6373,8 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
-        "compliance-management-workflow"
+        "compliance-management-workflow",
+        "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6287,7 +6386,8 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
-        "compliance-management-workflow"
+        "compliance-management-workflow",
+        "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6851,6 +6951,7 @@
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
+        "executive-legal-compliance-governance",
         "fda-additional-information-response",
         "fda-corrections-removals",
         "fda-pccp-change-control",
@@ -6874,6 +6975,7 @@
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
+        "executive-legal-compliance-governance",
         "fda-additional-information-response",
         "fda-corrections-removals",
         "fda-pccp-change-control",
@@ -7426,6 +7528,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
+        "legal-change-monitoring",
         "legal-matter-wayfinder",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
@@ -7459,6 +7562,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
+        "legal-change-monitoring",
         "legal-matter-wayfinder",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
@@ -7480,6 +7584,42 @@
       "output": "execution plan",
       "producers": [
         "synapse-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "executive-legal-compliance-cockpit.json",
+      "producers": [
+        "executive-legal-compliance-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "executive-legal-decision-queue.json",
+      "producers": [
+        "executive-legal-compliance-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "executive-legal-escalation-map.json",
+      "producers": [
+        "executive-legal-compliance-governance"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "executive-legal-review.md",
+      "producers": [
+        "executive-legal-compliance-governance"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -8197,9 +8337,11 @@
       "producers": [
         "internal-investigation-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "investigation-evidence-preservation-plan.json",
@@ -8239,9 +8381,11 @@
       "producers": [
         "internal-investigation-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "investigation-legal-hold-plan.md",
@@ -8281,18 +8425,22 @@
       "producers": [
         "internal-investigation-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "investigation-workplan.json",
       "producers": [
         "internal-investigation-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "ip-legal-assessment.json",
@@ -8746,6 +8894,7 @@
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
+        "legal-change-monitoring",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
@@ -8754,6 +8903,61 @@
         "product-liability-safety-law-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-change-decision-queue.json",
+      "producers": [
+        "legal-change-impact-orchestrator"
+      ],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-change-events.json",
+      "producers": [
+        "legal-change-monitoring"
+      ],
+      "consumerSkills": [
+        "legal-change-impact-orchestrator"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-change-impact-map.json",
+      "producers": [
+        "legal-change-impact-orchestrator"
+      ],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-change-watch-status.json",
+      "producers": [
+        "legal-change-monitoring"
+      ],
+      "consumerSkills": [
+        "legal-change-impact-orchestrator"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-change-work-orders.json",
+      "producers": [
+        "legal-change-impact-orchestrator"
+      ],
+      "consumerSkills": [
+        "executive-legal-compliance-governance"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8778,6 +8982,7 @@
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
+        "legal-change-monitoring",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
@@ -8885,6 +9090,7 @@
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
+        "legal-change-monitoring",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
@@ -8971,6 +9177,7 @@
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
+        "legal-change-monitoring",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
@@ -8990,7 +9197,9 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
+        "executive-legal-compliance-governance",
         "investigation-findings-remediation",
+        "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -9005,10 +9214,23 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
+        "executive-legal-compliance-governance",
         "investigation-findings-remediation",
+        "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-source-watch-register.json",
+      "producers": [
+        "legal-change-monitoring"
+      ],
+      "consumerSkills": [
+        "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9019,6 +9241,7 @@
         "legal-specialist-router"
       ],
       "consumerSkills": [
+        "legal-change-impact-orchestrator",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -9030,6 +9253,7 @@
         "legal-specialist-router"
       ],
       "consumerSkills": [
+        "legal-change-impact-orchestrator",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -9041,6 +9265,7 @@
         "legal-specialist-router"
       ],
       "consumerSkills": [
+        "legal-change-impact-orchestrator",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -12169,9 +12394,6 @@
     "communication-profile.merged.json",
     "competition-law-assessment.json",
     "complaint-regulatory-routing.json",
-    "compliance-gap-remediation-plan.json",
-    "compliance-management-handoff.json",
-    "compliance-management-status.json",
     "concept-handoff.json",
     "concept.md",
     "conflict-residual-risk-handoff.json",
@@ -12209,6 +12431,10 @@
     "euroimmun-presentation.pptx",
     "euroimmun-report.pdf",
     "execution plan",
+    "executive-legal-compliance-cockpit.json",
+    "executive-legal-decision-queue.json",
+    "executive-legal-escalation-map.json",
+    "executive-legal-review.md",
     "executive-search-brief.md",
     "expert handoff",
     "export-license-gates.json",
@@ -12240,10 +12466,6 @@
     "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
-    "investigation-charter.json",
-    "investigation-handoff.json",
-    "investigation-status.json",
-    "investigation-workplan.json",
     "ip-legal-assessment.json",
     "ip-license-deal-model.json",
     "ip-rights-chain-map.json",
@@ -12403,9 +12625,6 @@
     "communication-profile.merged.json",
     "competition-law-assessment.json",
     "complaint-regulatory-routing.json",
-    "compliance-gap-remediation-plan.json",
-    "compliance-management-handoff.json",
-    "compliance-management-status.json",
     "concept-handoff.json",
     "concept.md",
     "conflict-residual-risk-handoff.json",
@@ -12443,6 +12662,10 @@
     "euroimmun-presentation.pptx",
     "euroimmun-report.pdf",
     "execution plan",
+    "executive-legal-compliance-cockpit.json",
+    "executive-legal-decision-queue.json",
+    "executive-legal-escalation-map.json",
+    "executive-legal-review.md",
     "executive-search-brief.md",
     "expert handoff",
     "export-license-gates.json",
@@ -12474,10 +12697,6 @@
     "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
-    "investigation-charter.json",
-    "investigation-handoff.json",
-    "investigation-status.json",
-    "investigation-workplan.json",
     "ip-legal-assessment.json",
     "ip-license-deal-model.json",
     "ip-rights-chain-map.json",

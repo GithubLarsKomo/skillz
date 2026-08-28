@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 235,
-  "entrypointCount": 204,
+  "skillCount": 238,
+  "entrypointCount": 207,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 229,
+  "evaluationSuiteCount": 232,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -806,7 +806,9 @@
         "compliance-obligation-register",
         "legal-matter-final-gate"
       ],
-      "dependents": [],
+      "dependents": [
+        "executive-legal-compliance-governance"
+      ],
       "outputs": [
         "compliance-gap-remediation-plan.json",
         "compliance-management-handoff.json",
@@ -819,7 +821,9 @@
           "producers": [
             "compliance-management-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         },
         {
           "output": "compliance-management-handoff.json",
@@ -827,7 +831,9 @@
           "producers": [
             "compliance-management-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         },
         {
           "output": "compliance-management-status.json",
@@ -835,7 +841,9 @@
           "producers": [
             "compliance-management-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         }
       ],
       "portableFiles": [
@@ -860,7 +868,8 @@
       ],
       "dependents": [
         "compliance-control-mapping",
-        "compliance-management-workflow"
+        "compliance-management-workflow",
+        "legal-change-impact-orchestrator"
       ],
       "outputs": [
         "compliance-obligation-gaps.json",
@@ -876,7 +885,8 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
-            "compliance-management-workflow"
+            "compliance-management-workflow",
+            "legal-change-impact-orchestrator"
           ]
         },
         {
@@ -887,7 +897,8 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
-            "compliance-management-workflow"
+            "compliance-management-workflow",
+            "legal-change-impact-orchestrator"
           ]
         },
         {
@@ -898,7 +909,8 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
-            "compliance-management-workflow"
+            "compliance-management-workflow",
+            "legal-change-impact-orchestrator"
           ]
         }
       ],
@@ -1552,6 +1564,7 @@
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
+        "legal-change-monitoring",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
@@ -1589,6 +1602,7 @@
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
+            "legal-change-monitoring",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
@@ -1620,6 +1634,7 @@
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
+            "legal-change-monitoring",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
@@ -1651,6 +1666,7 @@
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
+            "legal-change-monitoring",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
@@ -1682,6 +1698,7 @@
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
+            "legal-change-monitoring",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
@@ -1816,6 +1833,7 @@
         "clinical-evidence-update-impact",
         "design-change-regulatory-impact",
         "domain-model-maintenance",
+        "executive-legal-compliance-governance",
         "fda-additional-information-response",
         "fda-corrections-removals",
         "fda-pccp-change-control",
@@ -1842,6 +1860,7 @@
             "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "domain-model-maintenance",
+            "executive-legal-compliance-governance",
             "fda-additional-information-response",
             "fda-corrections-removals",
             "fda-pccp-change-control",
@@ -1864,6 +1883,7 @@
             "clinical-evidence-update-impact",
             "design-change-regulatory-impact",
             "domain-model-maintenance",
+            "executive-legal-compliance-governance",
             "fda-additional-information-response",
             "fda-corrections-removals",
             "fda-pccp-change-control",
@@ -2889,6 +2909,72 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "executive-legal-compliance-governance",
+      "description": "Konsolidiert Legal-/Compliance-Matters, Rechtsänderungen, Control Gaps, Investigations, Verträge, Litigation, Specialist Escalations und Residual Risks in einen entscheidungsorientierten Vorstand-/Executive-Cockpit-Workflow mit Authority, Informationsbasis, Deadlines und Follow-up, ohne Fachentscheidungen neu zu treffen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "compliance-management-workflow",
+        "decision-record",
+        "internal-investigation-workflow",
+        "legal-change-impact-orchestrator",
+        "legal-compliance-risk-assessment"
+      ],
+      "dependents": [],
+      "outputs": [
+        "executive-legal-compliance-cockpit.json",
+        "executive-legal-decision-queue.json",
+        "executive-legal-escalation-map.json",
+        "executive-legal-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "executive-legal-compliance-cockpit.json",
+          "ambiguous": false,
+          "producers": [
+            "executive-legal-compliance-governance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "executive-legal-decision-queue.json",
+          "ambiguous": false,
+          "producers": [
+            "executive-legal-compliance-governance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "executive-legal-escalation-map.json",
+          "ambiguous": false,
+          "producers": [
+            "executive-legal-compliance-governance"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "executive-legal-review.md",
+          "ambiguous": false,
+          "producers": [
+            "executive-legal-compliance-governance"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -4830,7 +4916,9 @@
         "legal-matter-final-gate",
         "whistleblowing-law-specialist"
       ],
-      "dependents": [],
+      "dependents": [
+        "executive-legal-compliance-governance"
+      ],
       "outputs": [
         "investigation-charter.json",
         "investigation-handoff.json",
@@ -4844,7 +4932,9 @@
           "producers": [
             "internal-investigation-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         },
         {
           "output": "investigation-handoff.json",
@@ -4852,7 +4942,9 @@
           "producers": [
             "internal-investigation-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         },
         {
           "output": "investigation-status.json",
@@ -4860,7 +4952,9 @@
           "producers": [
             "internal-investigation-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         },
         {
           "output": "investigation-workplan.json",
@@ -4868,7 +4962,9 @@
           "producers": [
             "internal-investigation-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
         }
       ],
       "portableFiles": [
@@ -6480,6 +6576,130 @@
       }
     },
     {
+      "name": "legal-change-impact-orchestrator",
+      "description": "Übersetzt verifizierte Legal-Change-Events in strukturierte Impact-Work-Orders für betroffene Rechtsträger, Prozesse, Verträge, Policies, Controls und Specialist Domains, ohne die fachliche Rechtsbewertung selbst zu übernehmen. Verbindet Legal Change Monitoring mit Obligation Register, Specialist Router und Executive Governance.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "compliance-obligation-register",
+        "legal-change-monitoring",
+        "legal-compliance-risk-assessment",
+        "legal-specialist-router"
+      ],
+      "dependents": [
+        "executive-legal-compliance-governance"
+      ],
+      "outputs": [
+        "legal-change-decision-queue.json",
+        "legal-change-impact-map.json",
+        "legal-change-work-orders.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-change-decision-queue.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-change-impact-orchestrator"
+          ],
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
+        },
+        {
+          "output": "legal-change-impact-map.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-change-impact-orchestrator"
+          ],
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
+        },
+        {
+          "output": "legal-change-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-change-impact-orchestrator"
+          ],
+          "consumerSkills": [
+            "executive-legal-compliance-governance"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "legal-change-monitoring",
+      "description": "Überwacht Rechtsänderungen außerhalb des spezialisierten Medical-Device-Regulatory-Monitorings über versionierte Primärquellen-Snapshots, trennt echte normative Änderungen von Metadaten-/Guidance-Änderungen und erzeugt belastbare Legal-Change-Events mit asOf, Effective Date und betroffenen Rechtsgebieten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "current-law-context",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "legal-change-impact-orchestrator"
+      ],
+      "outputs": [
+        "legal-change-events.json",
+        "legal-change-watch-status.json",
+        "legal-source-watch-register.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-change-events.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-change-monitoring"
+          ],
+          "consumerSkills": [
+            "legal-change-impact-orchestrator"
+          ]
+        },
+        {
+          "output": "legal-change-watch-status.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-change-monitoring"
+          ],
+          "consumerSkills": [
+            "legal-change-impact-orchestrator"
+          ]
+        },
+        {
+          "output": "legal-source-watch-register.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-change-monitoring"
+          ],
+          "consumerSkills": [
+            "legal-change-impact-orchestrator"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "legal-client-strategy",
       "description": "Übersetzt einen bestätigten Legal-Matter-Kontext in eine explizite Mandantenstrategie mit Zielbild, Must-haves, Red Lines, Risikotoleranz, Verhandlungsspielraum, Fallbacks und Entscheidungsautorität. Verwenden, bevor Specialists, Vertragsreview oder Verhandlungen Empfehlungen priorisieren.",
       "invocation": {
@@ -6575,7 +6795,7 @@
     },
     {
       "name": "legal-compliance-office",
-      "description": "Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake und Mandantenstrategie über aktuelle Rechtsgrundlage, Wayfinding, Specialist Routing und Risiko bis zum Final Gate, ohne Fachlogik der Specialists zu duplizieren. Verwenden als zentralen General-Counsel-/Compliance-Einstieg für komplexe oder mehrdomänige Sachverhalte.",
+      "description": "Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake und Mandantenstrategie über aktuelle Rechtsgrundlage, Wayfinding, Specialist Routing und Risiko bis zum Final Gate und verbindet Einzelmatters mit Legal Change Monitoring, Compliance Management und Executive Governance, ohne Fachlogik der Specialists zu duplizieren.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -6645,7 +6865,9 @@
       ],
       "dependents": [
         "compliance-control-mapping",
+        "executive-legal-compliance-governance",
         "investigation-findings-remediation",
+        "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -6664,7 +6886,9 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
+            "executive-legal-compliance-governance",
             "investigation-findings-remediation",
+            "legal-change-impact-orchestrator",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "legal-negotiation-strategy"
@@ -6678,7 +6902,9 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
+            "executive-legal-compliance-governance",
             "investigation-findings-remediation",
+            "legal-change-impact-orchestrator",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "legal-negotiation-strategy"
@@ -6692,7 +6918,9 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
+            "executive-legal-compliance-governance",
             "investigation-findings-remediation",
+            "legal-change-impact-orchestrator",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "legal-negotiation-strategy"
@@ -7008,6 +7236,7 @@
         "legal-client-strategy"
       ],
       "dependents": [
+        "legal-change-impact-orchestrator",
         "legal-compliance-office"
       ],
       "outputs": [
@@ -7023,6 +7252,7 @@
             "legal-specialist-router"
           ],
           "consumerSkills": [
+            "legal-change-impact-orchestrator",
             "legal-compliance-office"
           ]
         },
@@ -7033,6 +7263,7 @@
             "legal-specialist-router"
           ],
           "consumerSkills": [
+            "legal-change-impact-orchestrator",
             "legal-compliance-office"
           ]
         },
@@ -7043,6 +7274,7 @@
             "legal-specialist-router"
           ],
           "consumerSkills": [
+            "legal-change-impact-orchestrator",
             "legal-compliance-office"
           ]
         }
@@ -11359,6 +11591,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
+        "legal-change-monitoring",
         "legal-matter-wayfinder",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
@@ -11395,6 +11628,7 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "freedom-to-operate-assessment",
             "ivdr-scientific-validity",
+            "legal-change-monitoring",
             "legal-matter-wayfinder",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
@@ -11427,6 +11661,7 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "freedom-to-operate-assessment",
             "ivdr-scientific-validity",
+            "legal-change-monitoring",
             "legal-matter-wayfinder",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",

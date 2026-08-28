@@ -32,7 +32,9 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ## Required by
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
@@ -48,7 +50,9 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ### `commercial-exposure-analysis.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
@@ -56,7 +60,9 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ### `legal-risk-decision-handoff.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
@@ -64,7 +70,9 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ### `legal-risk-register.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]

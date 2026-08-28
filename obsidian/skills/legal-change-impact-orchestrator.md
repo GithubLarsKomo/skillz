@@ -1,22 +1,22 @@
 ---
 type: skill
 generated: true
-name: "compliance-management-workflow"
+name: "legal-change-impact-orchestrator"
 category: "workflow"
 userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
-sourcePath: "skills/compliance-management-workflow/SKILL.md"
+sourcePath: "skills/legal-change-impact-orchestrator/SKILL.md"
 tags:
   - skill
   - skill-category/workflow
 ---
 
-# compliance-management-workflow
+# legal-change-impact-orchestrator
 
-Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Register über Risk-based Control Mapping und Assurance bis zu Gaps, Remediation, Change Monitoring und Final Gate. Verwenden für Compliance-Frameworks und Management-Reviews jenseits einzelner Rechtsfragen.
+Übersetzt verifizierte Legal-Change-Events in strukturierte Impact-Work-Orders für betroffene Rechtsträger, Prozesse, Verträge, Policies, Controls und Specialist Domains, ohne die fachliche Rechtsbewertung selbst zu übernehmen. Verbindet Legal Change Monitoring mit Obligation Register, Specialist Router und Executive Governance.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,10 +26,10 @@ Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Reg
 
 ## Requires
 
-- [[skills/compliance-control-assurance|compliance-control-assurance]]
-- [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-obligation-register|compliance-obligation-register]]
-- [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/legal-change-monitoring|legal-change-monitoring]]
+- [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
+- [[skills/legal-specialist-router|legal-specialist-router]]
 
 ## Required by
 
@@ -37,21 +37,21 @@ Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Reg
 
 ## Outputs
 
-- `compliance-gap-remediation-plan.json`
-- `compliance-management-handoff.json`
-- `compliance-management-status.json`
+- `legal-change-decision-queue.json`
+- `legal-change-impact-map.json`
+- `legal-change-work-orders.json`
 
 ## Output consumers
 
-### `compliance-gap-remediation-plan.json`
+### `legal-change-decision-queue.json`
 
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
-### `compliance-management-handoff.json`
+### `legal-change-impact-map.json`
 
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
-### `compliance-management-status.json`
+### `legal-change-work-orders.json`
 
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
@@ -64,4 +64,4 @@ Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Reg
 
 ## Canonical source
 
-`skills/compliance-management-workflow/SKILL.md`
+`skills/legal-change-impact-orchestrator/SKILL.md`

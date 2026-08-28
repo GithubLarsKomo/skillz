@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **64**
+Skills: **67**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -27,11 +27,14 @@ Skills: **64**
 - [[skills/euroimmun-docx-report-renderer|euroimmun-docx-report-renderer]]
 - [[skills/euroimmun-pdf-report-renderer|euroimmun-pdf-report-renderer]]
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
+- [[skills/legal-change-monitoring|legal-change-monitoring]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-matter-intake|legal-matter-intake]]

@@ -326,6 +326,13 @@
         "agents/openai.yaml": "3fc1eea03631b8bce57f1ad6a32c2c1739a49b35fe4a480d5fa80caa792e5209"
       }
     },
+    "executive-legal-compliance-governance": {
+      "files": {
+        "SKILL.md": "ef03db9430633ff3c86e59b73101e4e2740b69cad6fde31909896d01e8299ce7",
+        "agents/openai.yaml": "b02b8e15b648a6b4270b96d6c1bad87668523e80211509b94e14343a32fbd4be",
+        "references/authoritative-sources.md": "8bb66788d1a1a669ad6f1f67308f8439b8764dd379c380b3aa925a47cd08c25b"
+      }
+    },
     "external-stakeholder-questionnaire": {
       "files": {
         "SKILL.md": "0bd78fe449d0573aab2fcfb1fa7c5745cccaaa271292d0d4c32f74386c8706cd",
@@ -729,6 +736,18 @@
         "agents/openai.yaml": "90eb9ba04930faf757713ee0146e056254551bb5a2bbc643564056fbfbf8e230"
       }
     },
+    "legal-change-impact-orchestrator": {
+      "files": {
+        "SKILL.md": "eb6bb3a7194a555ba2dcbcace0813103757f465e228b806523cf49f9ea130a67",
+        "agents/openai.yaml": "4c82087e80c7ac43a7522d91fb918261db0d1f0a26dab777addcd4e9963c0809"
+      }
+    },
+    "legal-change-monitoring": {
+      "files": {
+        "SKILL.md": "a15ae2093244aebe25f7e66f8ff2ab1e70251dbd03f6709abfcfb47efa1b2eb6",
+        "agents/openai.yaml": "df326d62022ded3bdd61037c6ec17d3a7c1ca8bcc1f83bc82ee76fc7d0fecd0d"
+      }
+    },
     "legal-client-strategy": {
       "files": {
         "SKILL.md": "170e7dab37168fcc7d41a29d39513295d26a1ed599834e7825307bc1eda90ce6",
@@ -737,7 +756,7 @@
     },
     "legal-compliance-office": {
       "files": {
-        "SKILL.md": "f15bf1632556f8a14cccbb86c8928061369010703469dd591f3cc88b92cf03d3",
+        "SKILL.md": "b99dd90c1ffa444e21244dc7bf067546cb454828ffb872801a1e864f03ba7120",
         "agents/openai.yaml": "d368ad736ce363bf01a02dbcb4eb4847bd9cf2d3c64ff3b4ba30ed45101601ef"
       }
     },

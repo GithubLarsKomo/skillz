@@ -33,7 +33,7 @@ Orchestriert interne Untersuchungen von Allegation-Triage, Independence/Privileg
 
 ## Required by
 
-- —
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
 ## Outputs
 
@@ -46,19 +46,19 @@ Orchestriert interne Untersuchungen von Allegation-Triage, Independence/Privileg
 
 ### `investigation-charter.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
 ### `investigation-handoff.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
 ### `investigation-status.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
 ### `investigation-workplan.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 
 ## Evaluation
 
