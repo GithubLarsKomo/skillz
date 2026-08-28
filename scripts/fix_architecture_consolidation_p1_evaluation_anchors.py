@@ -17,7 +17,7 @@ REPLACEMENTS = {
     ),
     "skills/youtube-playlist-learning-workflow/tests/evaluation.json": (
         "Single-Source-Aussagen nicht als Konsens",
-        "Single-Source-Aussagen nicht als Konsens dargestellt",
+        "Single-Source-Aussagen werden nicht als Konsens dargestellt",
     ),
 }
 
