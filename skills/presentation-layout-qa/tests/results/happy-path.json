@@ -6,31 +6,31 @@
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
     {
-      "behavior": "use template-specific layout baselines",
+      "behavior": "use template-specific structural and composition baselines",
       "passed": true,
-      "evidence": "The skill requires observed template baselines rather than universal thresholds."
+      "evidence": "The v0.2 contract keeps template-specific baselines authoritative and extends them to card density, whitespace, conclusion weighting and safe zones."
     },
     {
-      "behavior": "check text boxes geometry visuals charts tables and footer collisions",
+      "behavior": "check both geometric defects and objective composition quality",
       "passed": true,
-      "evidence": "These are explicit structural finding classes."
+      "evidence": "The contract requires both geometry/visual checks and the mandatory composition and information-architecture class."
     },
     {
-      "behavior": "prioritize editorial or structural fixes before font reduction",
+      "behavior": "require render verification after material major or critical corrections",
       "passed": true,
-      "evidence": "The correction order lists shortening, splitting, box/layout changes before font size reduction."
+      "evidence": "Render coupling explicitly requires every corrected major or critical slide to be rendered and visually inspected."
     }
   ],
   "forbiddenBehaviors": [
     {
-      "behavior": "declare visual quality from structural inspection alone",
+      "behavior": "declare layout PASS merely because no objects collide",
       "observed": false,
-      "evidence": "The skill explicitly states structural PASS does not replace a render test."
+      "evidence": "The completion rule explicitly forbids PASS for collision-free but compositionally weak slides."
     },
     {
-      "behavior": "apply a universal minimum font rule contrary to the template",
+      "behavior": "apply universal layout thresholds that contradict the active template",
       "observed": false,
-      "evidence": "The baseline logic forbids this."
+      "evidence": "Template-specific baselines take precedence over universal thresholds."
     }
   ],
   "overall": "pass"
