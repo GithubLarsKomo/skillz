@@ -4,7 +4,7 @@ generated: true
 name: "sport-adaptation-analysis"
 category: "analysis"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -47,7 +47,7 @@ Analysiert longitudinale Trainings-, Leistungs-, Recovery-, passive Biometrie- u
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 

@@ -4,7 +4,7 @@ generated: true
 name: "sport-daily-athlete-monitoring"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -71,7 +71,7 @@ Erfasst einen kurzen Morning-Check, passive Wearable-/Biometrie-Kontexte und die
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 
