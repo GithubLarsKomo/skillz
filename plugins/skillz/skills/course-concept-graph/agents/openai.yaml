@@ -1,0 +1,5 @@
+interface:
+  display_name: "Course Concept Graph"
+  short_description: "Baut aus einem evidenzgebundenen Multi-Source-Learning-Modell einen gerichteten Begriffs- und Voraussetzungsgrafen fü..."
+policy:
+  allow_implicit_invocation: true

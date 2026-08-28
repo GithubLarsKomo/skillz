@@ -1,0 +1,5 @@
+interface:
+  display_name: "Multimodal Learning Analysis"
+  short_description: "Analysiert ein zeitcodiertes Videoquellenpaket gemeinsam aus Sprache, visuellen Beobachtungen und Metadaten und erzeu..."
+policy:
+  allow_implicit_invocation: true

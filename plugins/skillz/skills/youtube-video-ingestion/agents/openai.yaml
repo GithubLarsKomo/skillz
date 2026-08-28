@@ -1,0 +1,5 @@
+interface:
+  display_name: "Youtube Video Ingestion"
+  short_description: "Normalisiert ein zugängliches YouTube-Video zu einem nachvollziehbaren Quellenpaket aus Metadaten, zeitcodiertem Tran..."
+policy:
+  allow_implicit_invocation: true

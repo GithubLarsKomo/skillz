@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **68**
+Skills: **76**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -33,6 +33,10 @@ Skills: **68**
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/learning-document-delivery|learning-document-delivery]]
+- [[skills/learning-image-generator|learning-image-generator]]
+- [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
+- [[skills/learning-svg-generator|learning-svg-generator]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-change-monitoring|legal-change-monitoring]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -53,6 +57,7 @@ Skills: **68**
 - [[skills/presentation-template-profiler|presentation-template-profiler]]
 - [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
+- [[skills/procedure-sop-extractor|procedure-sop-extractor]]
 - [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
@@ -80,3 +85,6 @@ Skills: **68**
 - [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
+- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]

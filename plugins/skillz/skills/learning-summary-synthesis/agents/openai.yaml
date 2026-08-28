@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Summary Synthesis"
+  short_description: "Verdichtet eine evidenzgebundene Videoanalyse zu lernorientierten Key Take-Home Messages, Mental Model, Kernaussagen,..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Svg Generator"
+  short_description: "Erzeugt aus einem evidenzgebundenen Visual-Plan und dem aktiven DESIGN.md skalierbare Diagramme, Prozessgrafiken, Tim..."
+policy:
+  allow_implicit_invocation: true

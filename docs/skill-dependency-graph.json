@@ -339,6 +339,16 @@
       ]
     },
     {
+      "name": "course-concept-graph",
+      "requires": [
+        "multi-source-learning-synthesis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "course-concept-graph.json"
+      ]
+    },
+    {
       "name": "current-law-context",
       "requires": [
         "research-to-evidence-note"
@@ -1548,6 +1558,28 @@
       ]
     },
     {
+      "name": "learning-activity-generator",
+      "requires": [
+        "learning-path-planner"
+      ],
+      "consumes": [],
+      "outputs": [
+        "course-activities.json",
+        "course-knowledge-checks.json"
+      ]
+    },
+    {
+      "name": "learning-artifact-qa",
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-artifact-qa.json",
+        "learning-artifact-qa.md"
+      ]
+    },
+    {
       "name": "learning-assessment",
       "requires": [
         "learning-assessment-spec"
@@ -1566,6 +1598,49 @@
       "consumes": [],
       "outputs": [
         "learning-assessment-spec.json"
+      ]
+    },
+    {
+      "name": "learning-content-design-system",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-design-context.json"
+      ]
+    },
+    {
+      "name": "learning-document-delivery",
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-document-qa.json",
+        "learning-handout.docx",
+        "learning-handout.pdf"
+      ]
+    },
+    {
+      "name": "learning-image-generator",
+      "requires": [
+        "learning-content-design-system",
+        "learning-visual-planner"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-image-assets",
+        "learning-image-manifest.json"
+      ]
+    },
+    {
+      "name": "learning-landingpage-renderer",
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-landingpage",
+        "learning-landingpage-qa.json"
       ]
     },
     {
@@ -1588,12 +1663,65 @@
       ]
     },
     {
+      "name": "learning-path-planner",
+      "requires": [
+        "course-concept-graph"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-path.json"
+      ]
+    },
+    {
+      "name": "learning-source-arbitration",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-source-arbitration.json"
+      ]
+    },
+    {
       "name": "learning-state",
       "requires": [],
       "consumes": [],
       "outputs": [
         "learning-record.md",
         "learning-state.json"
+      ]
+    },
+    {
+      "name": "learning-summary-synthesis",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-summary.json",
+        "learning-summary.md"
+      ]
+    },
+    {
+      "name": "learning-svg-generator",
+      "requires": [
+        "learning-content-design-system",
+        "learning-visual-planner"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-svg-assets",
+        "learning-svg-manifest.json"
+      ]
+    },
+    {
+      "name": "learning-visual-planner",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-visual-plan.json"
       ]
     },
     {
@@ -2124,6 +2252,26 @@
       ]
     },
     {
+      "name": "multi-source-learning-synthesis",
+      "requires": [
+        "learning-source-arbitration"
+      ],
+      "consumes": [],
+      "outputs": [
+        "multi-source-conflict-map.json",
+        "multi-source-learning-model.json"
+      ]
+    },
+    {
+      "name": "multimodal-learning-analysis",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-concept-map.json",
+        "learning-evidence.json"
+      ]
+    },
+    {
       "name": "nonconformance-mrb-disposition",
       "requires": [
         "medical-device-qms-iso13485",
@@ -2418,6 +2566,17 @@
         "counsel-scope.json",
         "external-counsel-brief.md",
         "privilege-routing.json"
+      ]
+    },
+    {
+      "name": "procedure-sop-extractor",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "derived-procedure.json",
+        "derived-sop.md"
       ]
     },
     {
@@ -3223,6 +3382,81 @@
         "whistleblowing-law-assessment.json",
         "whistleblowing-source-note.md"
       ]
+    },
+    {
+      "name": "youtube-course-builder-workflow",
+      "requires": [
+        "course-concept-graph",
+        "learning-activity-generator",
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-path-planner",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "template-presentation-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "consumes": [],
+      "outputs": [
+        "course-learning-model.json",
+        "youtube-course-builder-run.json"
+      ]
+    },
+    {
+      "name": "youtube-learning-workflow",
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-summary-synthesis",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multimodal-learning-analysis",
+        "procedure-sop-extractor",
+        "template-presentation-workflow",
+        "youtube-video-ingestion"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-content-model.json",
+        "youtube-learning-run.json"
+      ]
+    },
+    {
+      "name": "youtube-playlist-learning-workflow",
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-source-arbitration",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multi-source-learning-synthesis",
+        "template-presentation-workflow",
+        "youtube-learning-workflow"
+      ],
+      "consumes": [],
+      "outputs": [
+        "multi-source-learning-model.json",
+        "youtube-playlist-learning-run.json"
+      ]
+    },
+    {
+      "name": "youtube-video-ingestion",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "youtube-frame-index.json",
+        "youtube-transcript-index.json",
+        "youtube-video-source.json"
+      ]
     }
   ],
   "requirementEdges": [
@@ -3437,6 +3671,10 @@
     {
       "from": "corporate-transactions-ma-specialist",
       "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "course-concept-graph",
+      "to": "multi-source-learning-synthesis"
     },
     {
       "from": "current-law-context",
@@ -4415,6 +4653,14 @@
       "to": "disciplined-diagnosis"
     },
     {
+      "from": "learning-activity-generator",
+      "to": "learning-path-planner"
+    },
+    {
+      "from": "learning-artifact-qa",
+      "to": "learning-content-design-system"
+    },
+    {
       "from": "learning-assessment",
       "to": "learning-assessment-spec"
     },
@@ -4427,12 +4673,52 @@
       "to": "learning-state"
     },
     {
+      "from": "learning-document-delivery",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "learning-image-generator",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "learning-image-generator",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "learning-landingpage-renderer",
+      "to": "learning-content-design-system"
+    },
+    {
       "from": "learning-next-step",
       "to": "learning-mission"
     },
     {
       "from": "learning-next-step",
       "to": "learning-state"
+    },
+    {
+      "from": "learning-path-planner",
+      "to": "course-concept-graph"
+    },
+    {
+      "from": "learning-source-arbitration",
+      "to": "multimodal-learning-analysis"
+    },
+    {
+      "from": "learning-summary-synthesis",
+      "to": "multimodal-learning-analysis"
+    },
+    {
+      "from": "learning-svg-generator",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "learning-svg-generator",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "learning-visual-planner",
+      "to": "multimodal-learning-analysis"
     },
     {
       "from": "legal-change-impact-orchestrator",
@@ -4867,6 +5153,10 @@
       "to": "knowledge-map-generator"
     },
     {
+      "from": "multi-source-learning-synthesis",
+      "to": "learning-source-arbitration"
+    },
+    {
       "from": "nonconformance-mrb-disposition",
       "to": "medical-device-qms-iso13485"
     },
@@ -5037,6 +5327,10 @@
     {
       "from": "privilege-and-counsel-routing",
       "to": "legal-matter-intake"
+    },
+    {
+      "from": "procedure-sop-extractor",
+      "to": "multimodal-learning-analysis"
     },
     {
       "from": "process-validation-iq-oq-pq",
@@ -5633,6 +5927,146 @@
     {
       "from": "whistleblowing-law-specialist",
       "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "course-concept-graph"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-activity-generator"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-artifact-qa"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-document-delivery"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-image-generator"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-landingpage-renderer"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-path-planner"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-svg-generator"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "template-presentation-workflow"
+    },
+    {
+      "from": "youtube-course-builder-workflow",
+      "to": "youtube-playlist-learning-workflow"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-artifact-qa"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-document-delivery"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-image-generator"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-landingpage-renderer"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-summary-synthesis"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-svg-generator"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "multimodal-learning-analysis"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "procedure-sop-extractor"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "template-presentation-workflow"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "youtube-video-ingestion"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-artifact-qa"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-document-delivery"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-image-generator"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-landingpage-renderer"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-source-arbitration"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-svg-generator"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "multi-source-learning-synthesis"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "template-presentation-workflow"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "youtube-learning-workflow"
     }
   ],
   "consumptionEdges": [
@@ -7185,6 +7619,49 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "course-activities.json",
+      "producers": [
+        "learning-activity-generator"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "course-concept-graph.json",
+      "producers": [
+        "course-concept-graph"
+      ],
+      "consumerSkills": [
+        "learning-path-planner",
+        "youtube-course-builder-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "course-knowledge-checks.json",
+      "producers": [
+        "learning-activity-generator"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "course-learning-model.json",
+      "producers": [
+        "youtube-course-builder-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "criminal-counsel-brief.md",
       "producers": [
         "german-criminal-administrative-offence-procedure-specialist"
@@ -7472,6 +7949,28 @@
       "consumerSkills": [
         "test-driven-vertical-slice",
         "throwaway-prototype"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "derived-procedure.json",
+      "producers": [
+        "procedure-sop-extractor"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "derived-sop.md",
+      "producers": [
+        "procedure-sop-extractor"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9388,6 +9887,32 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "learning-artifact-qa.json",
+      "producers": [
+        "learning-artifact-qa"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-artifact-qa.md",
+      "producers": [
+        "learning-artifact-qa"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "learning-assessment-spec.json",
       "producers": [
         "learning-assessment-spec"
@@ -9412,6 +9937,156 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "learning-concept-map.json",
+      "producers": [
+        "multimodal-learning-analysis"
+      ],
+      "consumerSkills": [
+        "learning-source-arbitration",
+        "learning-summary-synthesis",
+        "learning-visual-planner",
+        "procedure-sop-extractor",
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-content-model.json",
+      "producers": [
+        "youtube-learning-workflow"
+      ],
+      "consumerSkills": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-design-context.json",
+      "producers": [
+        "learning-content-design-system"
+      ],
+      "consumerSkills": [
+        "learning-artifact-qa",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-svg-generator",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-document-qa.json",
+      "producers": [
+        "learning-document-delivery"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-evidence.json",
+      "producers": [
+        "multimodal-learning-analysis"
+      ],
+      "consumerSkills": [
+        "learning-source-arbitration",
+        "learning-summary-synthesis",
+        "learning-visual-planner",
+        "procedure-sop-extractor",
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-handout.docx",
+      "producers": [
+        "learning-document-delivery"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-handout.pdf",
+      "producers": [
+        "learning-document-delivery"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-image-assets",
+      "producers": [
+        "learning-image-generator"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-image-manifest.json",
+      "producers": [
+        "learning-image-generator"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-landingpage",
+      "producers": [
+        "learning-landingpage-renderer"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-landingpage-qa.json",
+      "producers": [
+        "learning-landingpage-renderer"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "learning-mission.json",
       "producers": [
         "learning-mission",
@@ -9430,6 +10105,18 @@
       "consumerSkills": [],
       "ambiguous": true,
       "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "learning-path.json",
+      "producers": [
+        "learning-path-planner"
+      ],
+      "consumerSkills": [
+        "learning-activity-generator",
+        "youtube-course-builder-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "learning-practice-request.json",
@@ -9465,6 +10152,18 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "learning-source-arbitration.json",
+      "producers": [
+        "learning-source-arbitration"
+      ],
+      "consumerSkills": [
+        "multi-source-learning-synthesis",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "learning-state.json",
       "producers": [
         "learning-state",
@@ -9473,6 +10172,69 @@
       "consumerSkills": [],
       "ambiguous": true,
       "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "learning-summary.json",
+      "producers": [
+        "learning-summary-synthesis"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-summary.md",
+      "producers": [
+        "learning-summary-synthesis"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-svg-assets",
+      "producers": [
+        "learning-svg-generator"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-svg-manifest.json",
+      "producers": [
+        "learning-svg-generator"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-visual-plan.json",
+      "producers": [
+        "learning-visual-planner"
+      ],
+      "consumerSkills": [
+        "learning-image-generator",
+        "learning-svg-generator",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "legal-authority-evidence.json",
@@ -10265,6 +11027,28 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "multi-source-conflict-map.json",
+      "producers": [
+        "multi-source-learning-synthesis"
+      ],
+      "consumerSkills": [
+        "course-concept-graph",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "multi-source-learning-model.json",
+      "producers": [
+        "multi-source-learning-synthesis",
+        "youtube-playlist-learning-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
+    },
+    {
       "output": "negotiation-playbook.md",
       "producers": [
         "legal-negotiation-strategy"
@@ -10953,7 +11737,10 @@
         "template-presentation-workflow"
       ],
       "consumerSkills": [
-        "euroimmun-presentation-workflow"
+        "euroimmun-presentation-workflow",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -10964,7 +11751,10 @@
         "template-presentation-workflow"
       ],
       "consumerSkills": [
-        "euroimmun-presentation-workflow"
+        "euroimmun-presentation-workflow",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13210,6 +14000,70 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "youtube-course-builder-run.json",
+      "producers": [
+        "youtube-course-builder-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "youtube-frame-index.json",
+      "producers": [
+        "youtube-video-ingestion"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-learning-run.json",
+      "producers": [
+        "youtube-learning-workflow"
+      ],
+      "consumerSkills": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-playlist-learning-run.json",
+      "producers": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "consumerSkills": [
+        "youtube-course-builder-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-transcript-index.json",
+      "producers": [
+        "youtube-video-ingestion"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-video-source.json",
+      "producers": [
+        "youtube-video-ingestion"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     }
   ],
   "unconsumedOutputs": [
@@ -13260,6 +14114,7 @@
     "contract-handoff.json",
     "contract-plan.md",
     "corporate-compliance-law-assessment.json",
+    "course-learning-model.json",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
@@ -13471,7 +14326,8 @@
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
     "vigilance-entry-handoff.json",
-    "works-council-route-map.json"
+    "works-council-route-map.json",
+    "youtube-course-builder-run.json"
   ],
   "orphanOutputs": [
     "acceptance-gaps.json",
@@ -13521,6 +14377,7 @@
     "contract-handoff.json",
     "contract-plan.md",
     "corporate-compliance-law-assessment.json",
+    "course-learning-model.json",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
@@ -13732,6 +14589,7 @@
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
     "vigilance-entry-handoff.json",
-    "works-council-route-map.json"
+    "works-council-route-map.json",
+    "youtube-course-builder-run.json"
   ]
 }

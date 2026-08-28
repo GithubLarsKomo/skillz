@@ -4,37 +4,66 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **251**
-- User-facing entrypoints: **220**
+- Skills: **270**
+- User-facing entrypoints: **229**
 - Evaluation suites: **245**
-- Skills without evaluation suite: **6**
-- User-facing entrypoints without evaluation suite: **6**
-- Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **259**
+- Skills without evaluation suite: **25**
+- User-facing entrypoints without evaluation suite: **15**
+- Ambiguous outputs (multiple producers): **6**
+- Outputs without inferred hard-requires consumers: **261**
 
 ## Evaluation gaps
 
+- `course-concept-graph`
 - `euroimmun-presentation-workflow`
+- `learning-activity-generator`
+- `learning-artifact-qa`
+- `learning-content-design-system`
+- `learning-document-delivery`
+- `learning-image-generator`
+- `learning-landingpage-renderer`
+- `learning-path-planner`
+- `learning-source-arbitration`
+- `learning-summary-synthesis`
+- `learning-svg-generator`
+- `learning-visual-planner`
+- `multi-source-learning-synthesis`
+- `multimodal-learning-analysis`
 - `presentation-language-rewriter`
 - `presentation-layout-qa`
 - `presentation-render-verifier`
 - `presentation-template-profiler`
+- `procedure-sop-extractor`
 - `template-presentation-workflow`
+- `youtube-course-builder-workflow`
+- `youtube-learning-workflow`
+- `youtube-playlist-learning-workflow`
+- `youtube-video-ingestion`
 
 ### User-facing evaluation gaps
 
 - `euroimmun-presentation-workflow`
+- `learning-document-delivery`
+- `learning-image-generator`
+- `learning-landingpage-renderer`
+- `learning-summary-synthesis`
+- `learning-svg-generator`
 - `presentation-language-rewriter`
 - `presentation-layout-qa`
 - `presentation-render-verifier`
 - `presentation-template-profiler`
+- `procedure-sop-extractor`
 - `template-presentation-workflow`
+- `youtube-course-builder-workflow`
+- `youtube-learning-workflow`
+- `youtube-playlist-learning-workflow`
 
 ## Ambiguous outputs
 
 - `learning-mission.json` — producers: `learning-mission`, `teach`
 - `learning-next-step.json` — producers: `learning-next-step`, `teach`
 - `learning-state.json` — producers: `learning-state`, `teach`
+- `multi-source-learning-model.json` — producers: `multi-source-learning-synthesis`, `youtube-playlist-learning-workflow`
 - `presentation-qa.md` — producers: `euroimmun-presentation-workflow`, `template-presentation-workflow`
 - `presentation-template-profile.json` — producers: `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow`
 
@@ -89,6 +118,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `contract-handoff.json` — producer: `contract-workflow`
 - `contract-plan.md` — producer: `contract-workflow`
 - `corporate-compliance-law-assessment.json` — producer: `corporate-compliance-law-specialist`
+- `course-learning-model.json` — producer: `youtube-course-builder-workflow`
 - `criminal-counsel-brief.md` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `criminal-procedure-assessment.json` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
@@ -301,6 +331,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
 - `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
 - `works-council-route-map.json` — producer: `german-employment-labor-law-specialist`
+- `youtube-course-builder-run.json` — producer: `youtube-course-builder-workflow`
 
 ## Interpretation
 

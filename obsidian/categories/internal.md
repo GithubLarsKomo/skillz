@@ -10,8 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **31**
+Skills: **41**
 
+- [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/document-generation-forensics|document-generation-forensics]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
@@ -24,14 +25,22 @@ Skills: **31**
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
+- [[skills/learning-activity-generator|learning-activity-generator]]
+- [[skills/learning-artifact-qa|learning-artifact-qa]]
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/learning-assessment-spec|learning-assessment-spec]]
+- [[skills/learning-content-design-system|learning-content-design-system]]
 - [[skills/learning-mission|learning-mission]]
 - [[skills/learning-next-step|learning-next-step]]
+- [[skills/learning-path-planner|learning-path-planner]]
+- [[skills/learning-source-arbitration|learning-source-arbitration]]
 - [[skills/learning-state|learning-state]]
+- [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/multi-source-learning-synthesis|multi-source-learning-synthesis]]
+- [[skills/multimodal-learning-analysis|multimodal-learning-analysis]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
 - [[skills/opaque-system-analysis|opaque-system-analysis]]
 - [[skills/openasr-offline-model-import|openasr-offline-model-import]]
@@ -43,3 +52,4 @@ Skills: **31**
 - [[skills/synapse-orchestrator|synapse-orchestrator]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
+- [[skills/youtube-video-ingestion|youtube-video-ingestion]]

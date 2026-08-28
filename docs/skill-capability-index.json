@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 251,
-  "entrypointCount": 220,
+  "skillCount": 270,
+  "entrypointCount": 229,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -1608,6 +1608,46 @@
       }
     },
     {
+      "name": "course-concept-graph",
+      "description": "Baut aus einem evidenzgebundenen Multi-Source-Learning-Modell einen gerichteten Begriffs- und Voraussetzungsgrafen für Kursaufbau, Modulgrenzen und Lernreihenfolge. Verwenden vor automatischer Learning-Path-Planung; nicht zur inhaltlichen Erfindung fehlender Voraussetzungen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "multi-source-learning-synthesis"
+      ],
+      "dependents": [
+        "learning-path-planner",
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "course-concept-graph.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "course-concept-graph.json",
+          "ambiguous": false,
+          "producers": [
+            "course-concept-graph"
+          ],
+          "consumerSkills": [
+            "learning-path-planner",
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "current-law-context",
       "description": "Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogenen Rechts- und Regelwerkskontext aus autoritativen Quellen und trennt Gesetz, Rechtsprechung, Behördenmaterial, Verbands-/Satzungsrecht, Vertragsregeln und Interpretation. Verwenden vor materiellen Rechtsaussagen oder Specialist Assessments.",
       "invocation": {
@@ -2975,7 +3015,7 @@
     },
     {
       "name": "euroimmun-presentation-workflow",
-      "description": "Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.",
+      "description": "Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis der bevorzugten aktuellen bestätigten EUROIMMUN-Corporate-PowerPoint-Referenz und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -6960,6 +7000,110 @@
       }
     },
     {
+      "name": "learning-activity-generator",
+      "description": "Erzeugt evidenzgebundene Lernaktivitäten, Übungen und Wissenchecks aus Lernzielen und Course-Concept-Graph, mit Antwortbegründung, Distraktorlogik und klarer Trennung zwischen Recall, Verständnis und Anwendung. Verwenden innerhalb des Course Builders; nicht zur psychometrischen Kalibrierung oder Zertifizierungsprüfung.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-path-planner"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "course-activities.json",
+        "course-knowledge-checks.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "course-activities.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-activity-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow"
+          ]
+        },
+        {
+          "output": "course-knowledge-checks.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-activity-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-artifact-qa",
+      "description": "Prüft HTML-, PPTX-, DOCX- und PDF-Lernartefakte sowie ihre SVG-/Bildassets gemeinsam gegen das kanonische Learning-Modell, Timestamp-/Claim-Traceability, SOP-Evidenzklassen, DESIGN.md und vollständige Render-Evidenz. Verwenden als finales Cross-Format-Gate; nicht als Ersatz für fachliche Quellanalyse.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-artifact-qa.json",
+        "learning-artifact-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-artifact-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-artifact-qa"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-artifact-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "learning-artifact-qa"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "learning-assessment",
       "description": "Bewertet beobachtete Lern-, ETF- oder Praxisevidenz gegen eine learning-assessment-spec und leitet daraus eine begründete Kompetenzempfehlung ab. Verwenden nach Retrieval, Anwendung, Transfer, ETF-ReviewEvents, Prüfung oder realer Aufgabe; aktualisiert den dauerhaften learning-state nicht selbst und behandelt Prozentwerte nicht automatisch als Kompetenz.",
       "invocation": {
@@ -7041,6 +7185,235 @@
       }
     },
     {
+      "name": "learning-content-design-system",
+      "description": "Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertrag für HTML, Präsentation, DOCX/PDF, Diagramme, SVGs und generierte Bilder und löst Corporate-/Template-Autorität vor generischen Learning-Defaults auf. Verwenden vor Visual- oder Renderarbeit; nicht zum stillen Erfinden einer Unternehmensmarke.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "learning-artifact-qa",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-svg-generator",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-design-context.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-design-context.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-content-design-system"
+          ],
+          "consumerSkills": [
+            "learning-artifact-qa",
+            "learning-document-delivery",
+            "learning-image-generator",
+            "learning-landingpage-renderer",
+            "learning-svg-generator",
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-document-delivery",
+      "description": "Überführt ein kanonisches Learning-Content-Modell und seine Visuals DESIGN.md-konform in ein editierbares Lern-DOCX und daraus in ein geprüftes PDF, mit Corporate-Renderer-Routing wenn ein verbindlicher Firmenkontext vorliegt. Verwenden für Lernhandouts, SOP-Drafts und Video-Study-Guides; nicht zum inhaltlichen Re-Authoring beim Rendering.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-document-qa.json",
+        "learning-handout.docx",
+        "learning-handout.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-document-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-document-delivery"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-handout.docx",
+          "ambiguous": false,
+          "producers": [
+            "learning-document-delivery"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-handout.pdf",
+          "ambiguous": false,
+          "producers": [
+            "learning-document-delivery"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-image-generator",
+      "description": "Erzeugt aus einem evidenzgebundenen Visual-Plan und dem aktiven DESIGN.md konsistente erklärende Illustrationen oder realistische Lernbilder und kennzeichnet sie eindeutig als illustrative, nicht experimentelle Evidenz. Verwenden wenn räumliche, physische oder konzeptionelle Inhalte von einem Bild profitieren; nicht für textlastige Diagramme, Markenrekonstruktion oder erfundene wissenschaftliche Evidenz.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-content-design-system",
+        "learning-visual-planner"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-image-assets",
+        "learning-image-manifest.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-image-assets",
+          "ambiguous": false,
+          "producers": [
+            "learning-image-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-image-manifest.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-image-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-landingpage-renderer",
+      "description": "Rendert ein kanonisches Learning-Content-Modell mit Visuals und DESIGN.md als portable responsive Landingpage-Style-HTML mit Key Takeaways, Mental Model, Kapitelstruktur, optionaler SOP und timestamp-verlinkter Source Map. Verwenden für sharebare Lernseiten; nicht zum erneuten fachlichen Autorieren des Inhalts.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-landingpage",
+        "learning-landingpage-qa.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-landingpage",
+          "ambiguous": false,
+          "producers": [
+            "learning-landingpage-renderer"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-landingpage-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-landingpage-renderer"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "learning-mission",
       "description": "Definiert oder revidiert ein einzelnes kohärentes Lernziel als portablen Vertrag mit Warum, beobachtbaren Erfolgskriterien, Constraints und Out-of-Scope. Verwenden, wenn ein Teach-Lernworkspace gestartet, geschärft oder aufgrund neuer Realität bewusst geändert wird; nicht zum Bewerten von Kompetenz oder Planen einzelner Übungen.",
       "invocation": {
@@ -7117,6 +7490,86 @@
       }
     },
     {
+      "name": "learning-path-planner",
+      "description": "Plant aus einem Course-Concept-Graph eine didaktisch begründete Modul- und Lektionenreihenfolge mit Voraussetzungen, Einstiegspunkten, optionalen Abkürzungen und Abschlusskompetenzen. Verwenden für Course Builder und Learning Paths nach Multi-Source-Synthese.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "course-concept-graph"
+      ],
+      "dependents": [
+        "learning-activity-generator",
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "learning-path.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-path.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-path-planner"
+          ],
+          "consumerSkills": [
+            "learning-activity-generator",
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-source-arbitration",
+      "description": "Bewertet mehrere Lernquellen hinsichtlich Unabhängigkeit, Autorität, Aktualität, Evidenznähe und gegenseitiger Bestätigung, ohne Mehrheitsvoten mit Wahrheit gleichzusetzen. Verwenden vor Multi-Video-Synthesen, wenn Claims zwischen Quellen konsolidiert oder Konflikte transparent eingeordnet werden müssen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "dependents": [
+        "multi-source-learning-synthesis",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-source-arbitration.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-source-arbitration.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-source-arbitration"
+          ],
+          "consumerSkills": [
+            "multi-source-learning-synthesis",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "learning-state",
       "description": "Pflegt einen portablen semantischen Lernzustand aus nachgewiesenen Kompetenzen, relevantem Vorwissen, Fehlvorstellungen, Lücken und kurzen Learning Records. Verwenden, wenn Lern- oder Prüfungsevidenz in dauerhaften Kompetenzzustand überführt oder ein bestehender Zustand nachvollziehbar revidiert werden soll; nicht als Roh-Eventlog oder Scheduler.",
       "invocation": {
@@ -7164,6 +7617,157 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "learning-summary-synthesis",
+      "description": "Verdichtet eine evidenzgebundene Videoanalyse zu lernorientierten Key Take-Home Messages, Mental Model, Kernaussagen, typischen Fehlern, Fragen und Zeitankern. Verwenden für kompakte Lernzusammenfassungen aus Videoevidenz; nicht für Schritt-für-Schritt-SOPs oder Layout/Rendering.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "dependents": [
+        "youtube-learning-workflow"
+      ],
+      "outputs": [
+        "learning-summary.json",
+        "learning-summary.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-summary.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-summary-synthesis"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-summary.md",
+          "ambiguous": false,
+          "producers": [
+            "learning-summary-synthesis"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-svg-generator",
+      "description": "Erzeugt aus einem evidenzgebundenen Visual-Plan und dem aktiven DESIGN.md skalierbare Diagramme, Prozessgrafiken, Timelines, Matrizen und technische Schematics als saubere SVG-Assets. Verwenden für strukturierte Lernvisuals; nicht zum Erfinden von Daten, Markenassets oder fachlichen Beziehungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-content-design-system",
+        "learning-visual-planner"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-svg-assets",
+        "learning-svg-manifest.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-svg-assets",
+          "ambiguous": false,
+          "producers": [
+            "learning-svg-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-svg-manifest.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-svg-generator"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "learning-visual-planner",
+      "description": "Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visualisierung und entscheidet zwischen Quellframe, Diagramm/SVG, Chart, annotiertem Screenshot oder generierter Illustration. Verwenden vor Grafik- oder Bilderzeugung; nicht zum Erzeugen dekorativer Assets oder zum Verändern fachlicher Claims.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "dependents": [
+        "learning-image-generator",
+        "learning-svg-generator",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-visual-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-visual-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-visual-planner"
+          ],
+          "consumerSkills": [
+            "learning-image-generator",
+            "learning-svg-generator",
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -9756,6 +10360,115 @@
       }
     },
     {
+      "name": "multi-source-learning-synthesis",
+      "description": "Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten gemeinsamen Wissensmodell mit Claim-Clustern, Konflikten, Quellenabdeckung, Konsensstärke und offenen Lücken. Verwenden für Playlist-, Kurs- oder Multi-Video-Learning vor gemeinsamer HTML/PPTX/DOCX/PDF-Ausgabe.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-source-arbitration"
+      ],
+      "dependents": [
+        "course-concept-graph",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "multi-source-conflict-map.json",
+        "multi-source-learning-model.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "multi-source-conflict-map.json",
+          "ambiguous": false,
+          "producers": [
+            "multi-source-learning-synthesis"
+          ],
+          "consumerSkills": [
+            "course-concept-graph",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "multi-source-learning-model.json",
+          "ambiguous": true,
+          "producers": [
+            "multi-source-learning-synthesis",
+            "youtube-playlist-learning-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "multimodal-learning-analysis",
+      "description": "Analysiert ein zeitcodiertes Videoquellenpaket gemeinsam aus Sprache, visuellen Beobachtungen und Metadaten und erzeugt evidenzgebundene Lernclaims, Konzepte, Demonstrationen, Warnungen und Beziehungen. Verwenden nach Video-Ingestion; nicht zum Rendern finaler Lernartefakte oder zum Erfinden nicht sichtbarer Prozessdetails.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "learning-source-arbitration",
+        "learning-summary-synthesis",
+        "learning-visual-planner",
+        "procedure-sop-extractor",
+        "youtube-learning-workflow"
+      ],
+      "outputs": [
+        "learning-concept-map.json",
+        "learning-evidence.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-concept-map.json",
+          "ambiguous": false,
+          "producers": [
+            "multimodal-learning-analysis"
+          ],
+          "consumerSkills": [
+            "learning-source-arbitration",
+            "learning-summary-synthesis",
+            "learning-visual-planner",
+            "procedure-sop-extractor",
+            "youtube-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "multimodal-learning-analysis"
+          ],
+          "consumerSkills": [
+            "learning-source-arbitration",
+            "learning-summary-synthesis",
+            "learning-visual-planner",
+            "procedure-sop-extractor",
+            "youtube-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "nonconformance-mrb-disposition",
       "description": "Strukturiert Medical-Device-Nichtkonformitäten von Containment und Impact Assessment bis risikobasierter MRB-Disposition, Rework-Evidenz und CAPA-Routing.",
       "invocation": {
@@ -11170,6 +11883,55 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "procedure-sop-extractor",
+      "description": "Rekonstruiert aus multimodaler Videoevidenz einen nachvollziehbaren Ablauf mit Zweck, Voraussetzungen, Materialien, Schritten, Kontrollpunkten, Warnungen, Akzeptanzkriterien und Troubleshooting und kennzeichnet jeden Punkt als observed, derived oder recommended. Verwenden für Anleitungen und SOP-Entwürfe aus Demonstrationsvideos; nicht zur Freigabe einer regulierten oder sicherheitskritischen Unternehmens-SOP ohne externe Validierung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "dependents": [
+        "youtube-learning-workflow"
+      ],
+      "outputs": [
+        "derived-procedure.json",
+        "derived-sop.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "derived-procedure.json",
+          "ambiguous": false,
+          "producers": [
+            "procedure-sop-extractor"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        },
+        {
+          "output": "derived-sop.md",
+          "ambiguous": false,
+          "producers": [
+            "procedure-sop-extractor"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -14341,7 +15103,10 @@
         "presentation-template-profiler"
       ],
       "dependents": [
-        "euroimmun-presentation-workflow"
+        "euroimmun-presentation-workflow",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "presentation-qa.md",
@@ -14376,7 +15141,10 @@
             "template-presentation-workflow"
           ],
           "consumerSkills": [
-            "euroimmun-presentation-workflow"
+            "euroimmun-presentation-workflow",
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -14386,7 +15154,10 @@
             "template-presentation-workflow"
           ],
           "consumerSkills": [
-            "euroimmun-presentation-workflow"
+            "euroimmun-presentation-workflow",
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -15032,6 +15803,236 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "youtube-course-builder-workflow",
+      "description": "Baut aus mehreren YouTube-Videos oder einem Multi-Source-Learning-Modell einen modularen Learning Path mit Voraussetzungen, Lernzielen, Übungen, Wissenchecks und konsistenten Kursartefakten in HTML/PPTX/DOCX/PDF. Verwenden für Course Builder, Curriculum aus Videoquellen oder strukturierte Learning Paths; nicht als psychometrisch validierte Prüfung oder automatische Zertifizierung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "course-concept-graph",
+        "learning-activity-generator",
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-path-planner",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "template-presentation-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "dependents": [],
+      "outputs": [
+        "course-learning-model.json",
+        "youtube-course-builder-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "course-learning-model.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-course-builder-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "youtube-course-builder-run.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-course-builder-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "youtube-learning-workflow",
+      "description": "Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen Key Take-Home Messages und optionalen derived SOPs, plant passende Diagramme/SVGs/Bilder, bindet alles an DESIGN.md und erzeugt wahlweise Landingpage-HTML, Präsentation und DOCX/PDF mit Cross-Format-QA. Verwenden für YouTube-Learner, Video-to-SOP, Video-to-Study-Guide oder Video-to-Presentation; nicht zum Umgehen von YouTube-Zugriffsschutz oder zur ungeprüften Freigabe regulierter SOPs.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-summary-synthesis",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multimodal-learning-analysis",
+        "procedure-sop-extractor",
+        "template-presentation-workflow",
+        "youtube-video-ingestion"
+      ],
+      "dependents": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-content-model.json",
+        "youtube-learning-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-content-model.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-learning-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "youtube-learning-run.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-learning-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "youtube-playlist-learning-workflow",
+      "description": "Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evidenzgebundenen Lernpaket: Einzelanalyse je Video, Quellenarbitration, Deduplication, Konflikterkennung, konsolidiertes Wissensmodell und Ausgabe als Landingpage, Präsentation oder DOCX/PDF unter DESIGN.md. Verwenden für Playlist-Learner, Multi-Video-Tutorials, Kurs-Synthesen und konsolidierte SOP-Entwürfe.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-source-arbitration",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multi-source-learning-synthesis",
+        "template-presentation-workflow",
+        "youtube-learning-workflow"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow"
+      ],
+      "outputs": [
+        "multi-source-learning-model.json",
+        "youtube-playlist-learning-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "multi-source-learning-model.json",
+          "ambiguous": true,
+          "producers": [
+            "multi-source-learning-synthesis",
+            "youtube-playlist-learning-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "youtube-playlist-learning-run.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-playlist-learning-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "youtube-video-ingestion",
+      "description": "Normalisiert ein zugängliches YouTube-Video zu einem nachvollziehbaren Quellenpaket aus Metadaten, zeitcodiertem Transcript, Kapitel-/Segmentstruktur und selektierten visuellen Evidenzankern. Verwenden als Ingestion-Schritt für Lern-, SOP- oder Analyseworkflows; nicht zum Umgehen von Zugriffsschutz, DRM oder Plattformbeschränkungen und nicht zur inhaltlichen Synthese.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "youtube-learning-workflow"
+      ],
+      "outputs": [
+        "youtube-frame-index.json",
+        "youtube-transcript-index.json",
+        "youtube-video-source.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "youtube-frame-index.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-video-ingestion"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        },
+        {
+          "output": "youtube-transcript-index.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-video-ingestion"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        },
+        {
+          "output": "youtube-video-source.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-video-ingestion"
+          ],
+          "consumerSkills": [
+            "youtube-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     }
   ]
