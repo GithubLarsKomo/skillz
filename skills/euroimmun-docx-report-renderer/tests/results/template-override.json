@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "euroimmun-docx-report-renderer",
   "caseId": "template-override",
-  "recordedAt": "2026-08-19",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "das bereitgestellte Template statt des gebündelten Public-Reference-Templates verwenden", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
-    {"behavior": "Header Footer Logo und Corporate Styles des Overrides beibehalten", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."},
-    {"behavior": "nur vereinbarte Platzhalter und Report-Body befüllen", "passed": true, "evidence": "The skill contract explicitly requires this behavior and defines the corresponding validation or QA step."}
+    {"behavior": "das bereitgestellte Template statt des gebündelten Public-Reference-Templates verwenden", "passed": true, "evidence": "The reference-priority contract gives a task-specific approved-controlled DOCX/DOTX highest precedence."},
+    {"behavior": "Header Footer Logo Fields und Corporate Styles des Overrides beibehalten", "passed": true, "evidence": "The controlled binary remains source of truth for Sections, styles, Header/Footer, logos, fields and numbering; Level 2 prohibits reconstructing those elements."},
+    {"behavior": "Report-Body ausschließlich über den validierten Adapter und sicheren Content-Anchor einfügen", "passed": true, "evidence": "The Level-2 template model separates the binary from its adapter/profile and requires an explicit safe body insertion point before rendering."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "Public-Reference-Header über das kontrollierte Template legen", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."},
-    {"behavior": "Corporate Styles eigenmächtig durch Working-Theme-Werte ersetzen", "observed": false, "evidence": "The skill contract explicitly prohibits this behavior or routes failure to a safe abort/rework path."}
+    {"behavior": "Public-Reference-Header über das kontrollierte Template legen", "observed": false, "evidence": "The skill explicitly prohibits replacing controlled logo/footer/field behavior with Public-Reference assets."},
+    {"behavior": "das kontrollierte Template nur für Skillz-Platzhalter destruktiv verändern", "observed": false, "evidence": "The contract states that Skillz placeholder tokens are not mandatory for real Level-2 templates and the binary must not be destructively rebuilt to add them."}
   ],
   "overall": "pass"
 }
