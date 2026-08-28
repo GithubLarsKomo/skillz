@@ -3320,6 +3320,28 @@
       ]
     },
     {
+      "name": "template-document-workflow",
+      "requires": [
+        "document-layout-qa",
+        "document-render-verifier",
+        "document-template-profiler"
+      ],
+      "consumes": [
+        "document-layout-qa.json",
+        "document-layout-qa.md",
+        "document-preview.pdf",
+        "document-render-qa.json",
+        "document-render-qa.md",
+        "document-template-profile.json"
+      ],
+      "outputs": [
+        "document-delivery-manifest.json",
+        "document-qa.md",
+        "document.docx",
+        "document.pdf"
+      ]
+    },
+    {
       "name": "template-presentation-workflow",
       "requires": [
         "presentation-language-rewriter",
@@ -5915,6 +5937,18 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "template-document-workflow",
+      "to": "document-layout-qa"
+    },
+    {
+      "from": "template-document-workflow",
+      "to": "document-render-verifier"
+    },
+    {
+      "from": "template-document-workflow",
+      "to": "document-template-profiler"
+    },
+    {
       "from": "template-presentation-workflow",
       "to": "presentation-language-rewriter"
     },
@@ -6235,6 +6269,36 @@
       "consumer": "role-architecture",
       "artifact": "role-requirements-handoff.json",
       "producer": "role-requirements-grilling"
+    },
+    {
+      "consumer": "template-document-workflow",
+      "artifact": "document-layout-qa.json",
+      "producer": "document-layout-qa"
+    },
+    {
+      "consumer": "template-document-workflow",
+      "artifact": "document-layout-qa.md",
+      "producer": "document-layout-qa"
+    },
+    {
+      "consumer": "template-document-workflow",
+      "artifact": "document-preview.pdf",
+      "producer": "document-render-verifier"
+    },
+    {
+      "consumer": "template-document-workflow",
+      "artifact": "document-render-qa.json",
+      "producer": "document-render-verifier"
+    },
+    {
+      "consumer": "template-document-workflow",
+      "artifact": "document-render-qa.md",
+      "producer": "document-render-verifier"
+    },
+    {
+      "consumer": "template-document-workflow",
+      "artifact": "document-template-profile.json",
+      "producer": "document-template-profiler"
     }
   ],
   "outputContracts": [
@@ -8274,6 +8338,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "document-delivery-manifest.json",
+      "producers": [
+        "template-document-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "document-forensics.json",
       "producers": [
         "document-generation-forensics"
@@ -8303,7 +8376,8 @@
         "document-layout-qa"
       ],
       "consumerSkills": [
-        "document-render-verifier"
+        "document-render-verifier",
+        "template-document-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
@@ -8313,14 +8387,27 @@
       "producers": [
         "document-layout-qa"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "template-document-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "document-preview.pdf",
       "producers": [
         "document-render-verifier"
+      ],
+      "consumerSkills": [
+        "template-document-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "document-qa.md",
+      "producers": [
+        "template-document-workflow"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -8331,18 +8418,22 @@
       "producers": [
         "document-render-verifier"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "template-document-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "document-render-qa.md",
       "producers": [
         "document-render-verifier"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "template-document-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "document-template-profile.json",
@@ -8350,7 +8441,8 @@
         "document-template-profiler"
       ],
       "consumerSkills": [
-        "document-layout-qa"
+        "document-layout-qa",
+        "template-document-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
@@ -8359,6 +8451,24 @@
       "output": "document-template-profile.md",
       "producers": [
         "document-template-profiler"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document.docx",
+      "producers": [
+        "template-document-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document.pdf",
+      "producers": [
+        "template-document-workflow"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -14333,11 +14443,11 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-layout-qa.md",
-    "document-preview.pdf",
-    "document-render-qa.json",
-    "document-render-qa.md",
+    "document-delivery-manifest.json",
+    "document-qa.md",
     "document-template-profile.md",
+    "document.docx",
+    "document.pdf",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
@@ -14599,11 +14709,11 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-layout-qa.md",
-    "document-preview.pdf",
-    "document-render-qa.json",
-    "document-render-qa.md",
+    "document-delivery-manifest.json",
+    "document-qa.md",
     "document-template-profile.md",
+    "document.docx",
+    "document.pdf",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",

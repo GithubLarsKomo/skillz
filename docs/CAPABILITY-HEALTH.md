@@ -4,15 +4,15 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **274**
-- User-facing entrypoints: **228**
+- Skills: **275**
+- User-facing entrypoints: **229**
 - Evaluation suites: **246**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **incomplete**
-- Skills with evaluation suite: **246/274**
-- User-facing entrypoints with evaluation suite: **213/228**
-- Skills without evaluation suite: **28**
-- User-facing entrypoints without evaluation suite: **15**
+- Skills with evaluation suite: **246/275**
+- User-facing entrypoints with evaluation suite: **213/229**
+- Skills without evaluation suite: **29**
+- User-facing entrypoints without evaluation suite: **16**
 - Ambiguous outputs (multiple producers): **0**
 - Outputs without inferred hard-requires consumers: **264**
 
@@ -43,6 +43,7 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 - `presentation-render-verifier`
 - `presentation-template-profiler`
 - `procedure-sop-extractor`
+- `template-document-workflow`
 - `template-presentation-workflow`
 - `youtube-course-builder-workflow`
 - `youtube-learning-workflow`
@@ -62,6 +63,7 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 - `presentation-render-verifier`
 - `presentation-template-profiler`
 - `procedure-sop-extractor`
+- `template-document-workflow`
 - `template-presentation-workflow`
 - `youtube-course-builder-workflow`
 - `youtube-learning-workflow`
@@ -137,11 +139,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
-- `document-layout-qa.md` — producer: `document-layout-qa`
-- `document-preview.pdf` — producer: `document-render-verifier`
-- `document-render-qa.json` — producer: `document-render-verifier`
-- `document-render-qa.md` — producer: `document-render-verifier`
+- `document-delivery-manifest.json` — producer: `template-document-workflow`
+- `document-qa.md` — producer: `template-document-workflow`
 - `document-template-profile.md` — producer: `document-template-profiler`
+- `document.docx` — producer: `template-document-workflow`
+- `document.pdf` — producer: `template-document-workflow`
 - `domain-change-plan.md` — producer: `domain-model-maintenance`
 - `domain-model-map.json` — producer: `domain-model-maintenance`
 - `domain-validation.json` — producer: `domain-model-maintenance`

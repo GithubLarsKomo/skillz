@@ -31,6 +31,7 @@ Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdoku
 ## Required by
 
 - [[skills/document-layout-qa|document-layout-qa]]
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ## Outputs
 
@@ -42,6 +43,7 @@ Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdoku
 ### `document-template-profile.json`
 
 - [[skills/document-layout-qa|document-layout-qa]]
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ### `document-template-profile.md`
 

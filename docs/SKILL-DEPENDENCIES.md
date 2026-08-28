@@ -605,6 +605,9 @@ graph TD
   teach --> research_to_evidence_note
   technology_due_diligence --> technology_offer_assessment
   technology_offer_assessment --> research_to_evidence_note
+  template_document_workflow --> document_layout_qa
+  template_document_workflow --> document_render_verifier
+  template_document_workflow --> document_template_profiler
   template_presentation_workflow --> presentation_language_rewriter
   template_presentation_workflow --> presentation_layout_qa
   template_presentation_workflow --> presentation_render_verifier
@@ -685,6 +688,12 @@ graph TD
 | `person-profile-report` | `person-timeline.json` | `person-research-dossier` |
 | `research-to-evidence-note` | `source-context.json` | `source-to-context` |
 | `role-architecture` | `role-requirements-handoff.json` | `role-requirements-grilling` |
+| `template-document-workflow` | `document-layout-qa.json` | `document-layout-qa` |
+| `template-document-workflow` | `document-layout-qa.md` | `document-layout-qa` |
+| `template-document-workflow` | `document-preview.pdf` | `document-render-verifier` |
+| `template-document-workflow` | `document-render-qa.json` | `document-render-verifier` |
+| `template-document-workflow` | `document-render-qa.md` | `document-render-verifier` |
+| `template-document-workflow` | `document-template-profile.json` | `document-template-profiler` |
 
 ## Output contracts
 
@@ -863,15 +872,19 @@ graph TD
 | `docs/agents/CONTEXT.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/DECISIONS.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `document-control-assessment.json` | `controlled-quality-documentation` | `ivdr-field-safety-corrective-action`, `medical-device-field-action-communication`, `medical-device-field-action-physical-execution`, `quality-record-integrity` | inferred |
+| `document-delivery-manifest.json` | `template-document-workflow` | — | unconsumed |
 | `document-forensics.json` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
 | `document-forensics.md` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
-| `document-layout-qa.json` | `document-layout-qa` | `document-render-verifier` | explicit |
-| `document-layout-qa.md` | `document-layout-qa` | — | unconsumed |
-| `document-preview.pdf` | `document-render-verifier` | — | unconsumed |
-| `document-render-qa.json` | `document-render-verifier` | — | unconsumed |
-| `document-render-qa.md` | `document-render-verifier` | — | unconsumed |
-| `document-template-profile.json` | `document-template-profiler` | `document-layout-qa` | explicit |
+| `document-layout-qa.json` | `document-layout-qa` | `document-render-verifier`, `template-document-workflow` | explicit |
+| `document-layout-qa.md` | `document-layout-qa` | `template-document-workflow` | explicit |
+| `document-preview.pdf` | `document-render-verifier` | `template-document-workflow` | explicit |
+| `document-qa.md` | `template-document-workflow` | — | unconsumed |
+| `document-render-qa.json` | `document-render-verifier` | `template-document-workflow` | explicit |
+| `document-render-qa.md` | `document-render-verifier` | `template-document-workflow` | explicit |
+| `document-template-profile.json` | `document-template-profiler` | `document-layout-qa`, `template-document-workflow` | explicit |
 | `document-template-profile.md` | `document-template-profiler` | — | unconsumed |
+| `document.docx` | `template-document-workflow` | — | unconsumed |
+| `document.pdf` | `template-document-workflow` | — | unconsumed |
 | `domain-change-plan.md` | `domain-model-maintenance` | — | unconsumed |
 | `domain-model-map.json` | `domain-model-maintenance` | — | unconsumed |
 | `domain-validation.json` | `domain-model-maintenance` | — | unconsumed |

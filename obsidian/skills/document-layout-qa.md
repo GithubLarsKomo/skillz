@@ -31,6 +31,7 @@ Prüft editierbare DOCX-Dokumente strukturell gegen ein dokumentiertes Template-
 ## Required by
 
 - [[skills/document-render-verifier|document-render-verifier]]
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ## Outputs
 
@@ -42,10 +43,11 @@ Prüft editierbare DOCX-Dokumente strukturell gegen ein dokumentiertes Template-
 ### `document-layout-qa.json`
 
 - [[skills/document-render-verifier|document-render-verifier]]
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ### `document-layout-qa.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ## Evaluation
 

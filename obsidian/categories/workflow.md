@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **75**
+Skills: **76**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -82,6 +82,7 @@ Skills: **75**
 - [[skills/sport-training-music|sport-training-music]]
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/technology-due-diligence|technology-due-diligence]]
+- [[skills/template-document-workflow|template-document-workflow]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 - [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]

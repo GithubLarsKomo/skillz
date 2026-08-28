@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 274,
-  "entrypointCount": 228,
+  "skillCount": 275,
+  "entrypointCount": 229,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -2550,7 +2550,8 @@
         "document-template-profiler"
       ],
       "dependents": [
-        "document-render-verifier"
+        "document-render-verifier",
+        "template-document-workflow"
       ],
       "outputs": [
         "document-layout-qa.json",
@@ -2564,7 +2565,8 @@
             "document-layout-qa"
           ],
           "consumerSkills": [
-            "document-render-verifier"
+            "document-render-verifier",
+            "template-document-workflow"
           ]
         },
         {
@@ -2573,7 +2575,9 @@
           "producers": [
             "document-layout-qa"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
         }
       ],
       "portableFiles": [
@@ -2596,7 +2600,9 @@
       "requires": [
         "document-layout-qa"
       ],
-      "dependents": [],
+      "dependents": [
+        "template-document-workflow"
+      ],
       "outputs": [
         "document-preview.pdf",
         "document-render-qa.json",
@@ -2609,7 +2615,9 @@
           "producers": [
             "document-render-verifier"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
         },
         {
           "output": "document-render-qa.json",
@@ -2617,7 +2625,9 @@
           "producers": [
             "document-render-verifier"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
         },
         {
           "output": "document-render-qa.md",
@@ -2625,7 +2635,9 @@
           "producers": [
             "document-render-verifier"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
         }
       ],
       "portableFiles": [
@@ -2647,7 +2659,8 @@
       },
       "requires": [],
       "dependents": [
-        "document-layout-qa"
+        "document-layout-qa",
+        "template-document-workflow"
       ],
       "outputs": [
         "document-template-profile.json",
@@ -2661,7 +2674,8 @@
             "document-template-profiler"
           ],
           "consumerSkills": [
-            "document-layout-qa"
+            "document-layout-qa",
+            "template-document-workflow"
           ]
         },
         {
@@ -15220,6 +15234,69 @@
         "caseCount": 7,
         "recordedResultCount": 7,
         "passed": true
+      }
+    },
+    {
+      "name": "template-document-workflow",
+      "description": "Orchestriert die Erstellung oder Überarbeitung editierbarer DOCX-Dokumente auf Basis eines vorhandenen Word-Templates oder einer bestätigten Referenz, bewahrt fachlich finalisierten Inhalt, wendet Template-/Designregeln an und erzwingt strukturelle DOCX- sowie seitenweise DOCX/PDF-Render-QA. Verwenden für template-basierte Reports, Memos, Handouts und professionelle Dokumente; Corporate-Spezialregeln bleiben in dünnen Wrappern.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "document-layout-qa",
+        "document-render-verifier",
+        "document-template-profiler"
+      ],
+      "dependents": [],
+      "outputs": [
+        "document-delivery-manifest.json",
+        "document-qa.md",
+        "document.docx",
+        "document.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-delivery-manifest.json",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document.docx",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document.pdf",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {

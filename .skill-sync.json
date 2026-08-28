@@ -1642,6 +1642,12 @@
         "agents/openai.yaml": "e8506c6a872c2fe6162bf8b9d56b9cd60e07a3f2d2146c205628dabdbc6baa8c"
       }
     },
+    "template-document-workflow": {
+      "files": {
+        "SKILL.md": "4922e8fb2a3d9effe2fe381d33d012502e0bbd5efc511ecc76e57531a4562855",
+        "agents/openai.yaml": "f715b7133cbaadf9a2bb82cda75650ebbc1119a6e0c36c1b6fb55a4f6efea740"
+      }
+    },
     "template-presentation-workflow": {
       "files": {
         "SKILL.md": "9b915c8125c2e8e6059b991471ee28bf03eabff433d506b9ca0290365eda8170",

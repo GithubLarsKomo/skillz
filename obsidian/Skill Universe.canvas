@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n274 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n275 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -1897,7 +1897,7 @@
       "x": 10980,
       "y": 0,
       "width": 1120,
-      "height": 3600,
+      "height": 3740,
       "color": "4"
     },
     {
@@ -2531,10 +2531,19 @@
       "height": 110
     },
     {
+      "id": "skill-template-document-workflow",
+      "type": "file",
+      "file": "skills/template-document-workflow.md",
+      "x": 11350,
+      "y": 3290,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-template-presentation-workflow",
       "type": "file",
       "file": "skills/template-presentation-workflow.md",
-      "x": 11350,
+      "x": 11680,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -2543,8 +2552,8 @@
       "id": "skill-thought-to-concept-flow",
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
-      "x": 11680,
-      "y": 3290,
+      "x": 11020,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2552,7 +2561,7 @@
       "id": "skill-youtube-course-builder-workflow",
       "type": "file",
       "file": "skills/youtube-course-builder-workflow.md",
-      "x": 11020,
+      "x": 11350,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -2561,7 +2570,7 @@
       "id": "skill-youtube-learning-workflow",
       "type": "file",
       "file": "skills/youtube-learning-workflow.md",
-      "x": 11350,
+      "x": 11680,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -2570,8 +2579,8 @@
       "id": "skill-youtube-playlist-learning-workflow",
       "type": "file",
       "file": "skills/youtube-playlist-learning-workflow.md",
-      "x": 11680,
-      "y": 3430,
+      "x": 11020,
+      "y": 3570,
       "width": 300,
       "height": 110
     }
@@ -7987,6 +7996,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-9722d233974c",
+      "fromNode": "skill-template-document-workflow",
+      "fromSide": "left",
+      "toNode": "skill-document-layout-qa",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ea8acc68a52d",
+      "fromNode": "skill-template-document-workflow",
+      "fromSide": "left",
+      "toNode": "skill-document-render-verifier",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cf2166106584",
+      "fromNode": "skill-template-document-workflow",
+      "fromSide": "left",
+      "toNode": "skill-document-template-profiler",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-88423c645621",
       "fromNode": "skill-template-presentation-workflow",
       "fromSide": "right",
@@ -8007,9 +8043,9 @@
     {
       "id": "requires-c4ac1ab1560c",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-presentation-render-verifier",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8259,9 +8295,9 @@
     {
       "id": "requires-249ced83a1a9",
       "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-youtube-playlist-learning-workflow",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8340,9 +8376,9 @@
     {
       "id": "requires-403cc09758d6",
       "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-youtube-learning-workflow",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     }

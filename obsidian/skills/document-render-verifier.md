@@ -30,7 +30,7 @@ Rendert ein DOCX und die daraus erzeugte PDF-Version seitenweise und verifiziert
 
 ## Required by
 
-- —
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ## Outputs
 
@@ -42,15 +42,15 @@ Rendert ein DOCX und die daraus erzeugte PDF-Version seitenweise und verifiziert
 
 ### `document-preview.pdf`
 
-- Terminal or currently unconsumed output.
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ### `document-render-qa.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ### `document-render-qa.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/template-document-workflow|template-document-workflow]]
 
 ## Evaluation
 
