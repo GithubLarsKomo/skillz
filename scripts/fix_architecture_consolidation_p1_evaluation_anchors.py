@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,15 +26,31 @@ def main() -> int:
     changed = 0
     for relative, (old, new) in REPLACEMENTS.items():
         path = ROOT / relative
-        text = path.read_text(encoding="utf-8")
-        if new in text:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        replaced = 0
+        seen_new = False
+        for case in data.get("cases", []):
+            anchors = case.get("skillAnchors", [])
+            for index, anchor in enumerate(anchors):
+                if anchor == old:
+                    anchors[index] = new
+                    replaced += 1
+                if anchors[index] == new:
+                    seen_new = True
+        if replaced:
+            path.write_text(
+                json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
+            print(f"UPDATED: {relative} ({replaced} anchor)")
+            changed += replaced
+        elif seen_new:
             print(f"OK: {relative}")
-            continue
-        if old not in text:
-            raise RuntimeError(f"{relative}: expected anchor {old!r} not found")
-        path.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
-        print(f"UPDATED: {relative}")
-        changed += 1
+        else:
+            raise RuntimeError(
+                f"{relative}: neither expected anchor {old!r} nor replacement {new!r} found"
+            )
     print(f"Evaluation anchors corrected: {changed}")
     return 0
 
