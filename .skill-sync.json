@@ -310,8 +310,8 @@
     },
     "euroimmun-docx-report-renderer": {
       "files": {
-        "SKILL.md": "3f25407e2616ff5dbf6e18dcabb740defb18c9a60112241ade7d9362cebec04d",
-        "agents/openai.yaml": "ecc2a458a98afaa120f6a8fbf01fbc92764fa635fa41f33859dff4dba1ed6b33",
+        "SKILL.md": "56e6682e173857d9143fa2d90ff8921a0d2000d934fc7ca78a85e0044f540c11",
+        "agents/openai.yaml": "6b7db45da435828b434e399864395004c7767f09ffd5b11583bbae5da52ee5f8",
         "assets/euroimmun-logo-public-reference.svg": "20673472ace86929aeff8ec1ce26567fbe12c82d1577edda44e6f62cc37b251e",
         "assets/euroimmun-report-template.docx.b64": "78cbb82b3ce3b503575277067938a04ff90dd67bae12224e0ac19f5e5eecf3d5",
         "assets/report-spec.example.json": "71a0ccf976091fa41b133746a459f330013ae713af5669be1c97cd09a290d2c4",
@@ -323,8 +323,8 @@
     },
     "euroimmun-pdf-report-renderer": {
       "files": {
-        "SKILL.md": "12cb3e3590e16ecbd645c782749061cf0e3781af29c3bdc9f2964b19cc4c834f",
-        "agents/openai.yaml": "e89362ba0d47ccc97549ff2025eb69a8607902144b27e16aa21e711fb5352e53",
+        "SKILL.md": "e51826d237f8b4dd5a0f538014b25e868ef8f62098a821111b12b2754d1479cb",
+        "agents/openai.yaml": "eb78c44695a409d481cb2fe94eaf11c8a33b20d3cd3f2901578af7b5c07cac43",
         "scripts/render_pdf.py": "6d22759bccc6042af64239cfb48d6a21737866dafa3a7ad2c9891ae830a10999"
       }
     },
