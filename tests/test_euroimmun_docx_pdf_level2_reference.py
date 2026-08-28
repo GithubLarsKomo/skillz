@@ -41,6 +41,7 @@ class TestEuroimmunDocxPdfLevel2Reference(unittest.TestCase):
             "template-derived",
             "Template-Profil/Adapter",
             "Public-Reference-Fallback",
+            "approved-controlled",
             "NOT_RUN",
         ):
             self.assertIn(marker, self.docx)
