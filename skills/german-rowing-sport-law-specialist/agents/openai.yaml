@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Rowing Sport Law Specialist"
+  short_description: "Analysiert DRV-, RWR-, Regatta-, Start-, Disziplinar- und Anti-Doping-Fragen im deutschen Rudersport."
+policy:
+  allow_implicit_invocation: true

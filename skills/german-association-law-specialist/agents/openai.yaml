@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Association Law Specialist"
+  short_description: "Analysiert deutsches Vereinsrecht, Satzung, Organe, Mitgliedschaft, Beschlüsse, Haftung und Registerfragen."
+policy:
+  allow_implicit_invocation: true

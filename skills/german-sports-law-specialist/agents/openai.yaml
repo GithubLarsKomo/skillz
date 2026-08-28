@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Sports Law Specialist"
+  short_description: "Analysiert deutsches Sport- und Verbandsrecht mit DOSB, Safe Sport, Anti-Doping und Verfahrensrouting."
+policy:
+  allow_implicit_invocation: true
