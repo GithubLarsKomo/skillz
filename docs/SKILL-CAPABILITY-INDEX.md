@@ -16,7 +16,16 @@ python scripts/generate_repository_metadata.py --check
 
 ## Schema
 
-The index uses `schemaVersion: 1` and contains repository-wide evaluation counts plus one entry per skill. Each skill entry includes:
+The index uses `schemaVersion: 1` and contains repository-wide evaluation counts plus one entry per skill. Repository-level evaluation metadata deliberately separates execution success from coverage:
+
+- `evaluationSuiteCount` is the number of discovered suites;
+- `evaluatedSkillCount` is the number of indexed skills with a suite;
+- `evaluatedEntrypointCount` is the number of user-facing entrypoints with a suite;
+- `evaluationCoverageComplete` is true only when every indexed skill has a suite;
+- `evaluationPassed` means all executed suites passed and must not be interpreted as proof of complete coverage;
+- `evaluationErrorCount` records deterministic evaluation-runner errors.
+
+Each skill entry includes:
 
 - `name` and canonical frontmatter `description`
 - hard `requires` dependencies and reverse `dependents`
