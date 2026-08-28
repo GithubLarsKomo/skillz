@@ -1,0 +1,5 @@
+interface:
+  display_name: "Trade, Sanctions & Export Control"
+  short_description: "Prüft Exportkontrolle, Sanktionen, Dual-Use und Genehmigungsgates."
+policy:
+  allow_implicit_invocation: true
