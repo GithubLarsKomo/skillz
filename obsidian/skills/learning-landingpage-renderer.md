@@ -31,6 +31,7 @@ Rendert ein kanonisches Learning-Content-Modell mit Visuals und DESIGN.md als po
 ## Required by
 
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -42,10 +43,12 @@ Rendert ein kanonisches Learning-Content-Modell mit Visuals und DESIGN.md als po
 ### `learning-landingpage`
 
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `learning-landingpage-qa.json`
 
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **37**
+Skills: **39**
 
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
@@ -31,11 +31,13 @@ Skills: **37**
 - [[skills/learning-content-design-system|learning-content-design-system]]
 - [[skills/learning-mission|learning-mission]]
 - [[skills/learning-next-step|learning-next-step]]
+- [[skills/learning-source-arbitration|learning-source-arbitration]]
 - [[skills/learning-state|learning-state]]
 - [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/multi-source-learning-synthesis|multi-source-learning-synthesis]]
 - [[skills/multimodal-learning-analysis|multimodal-learning-analysis]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
 - [[skills/opaque-system-analysis|opaque-system-analysis]]

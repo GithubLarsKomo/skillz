@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **56**
+Skills: **57**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
@@ -68,3 +68,4 @@ Skills: **56**
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]

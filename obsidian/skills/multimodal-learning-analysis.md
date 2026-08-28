@@ -30,6 +30,7 @@ Analysiert ein zeitcodiertes Videoquellenpaket gemeinsam aus Sprache, visuellen 
 
 ## Required by
 
+- [[skills/learning-source-arbitration|learning-source-arbitration]]
 - [[skills/learning-summary-synthesis|learning-summary-synthesis]]
 - [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/procedure-sop-extractor|procedure-sop-extractor]]
@@ -44,6 +45,7 @@ Analysiert ein zeitcodiertes Videoquellenpaket gemeinsam aus Sprache, visuellen 
 
 ### `learning-concept-map.json`
 
+- [[skills/learning-source-arbitration|learning-source-arbitration]]
 - [[skills/learning-summary-synthesis|learning-summary-synthesis]]
 - [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/procedure-sop-extractor|procedure-sop-extractor]]
@@ -51,6 +53,7 @@ Analysiert ein zeitcodiertes Videoquellenpaket gemeinsam aus Sprache, visuellen 
 
 ### `learning-evidence.json`
 
+- [[skills/learning-source-arbitration|learning-source-arbitration]]
 - [[skills/learning-summary-synthesis|learning-summary-synthesis]]
 - [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/procedure-sop-extractor|procedure-sop-extractor]]

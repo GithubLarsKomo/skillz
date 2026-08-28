@@ -35,6 +35,7 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf
 
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -57,11 +58,13 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf
 
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `presentation.pptx`
 
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 

@@ -41,7 +41,7 @@ Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen K
 
 ## Required by
 
-- —
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -52,11 +52,11 @@ Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen K
 
 ### `learning-content-model.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `youtube-learning-run.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 

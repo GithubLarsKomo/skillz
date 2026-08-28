@@ -1,0 +1,38 @@
+name: YouTube multi-video learning contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/learning-source-arbitration/**"
+      - "skills/multi-source-learning-synthesis/**"
+      - "skills/youtube-playlist-learning-workflow/**"
+      - "docs/learning-content/multi-source/**"
+      - "docs/specs/youtube-learner/MULTI_VIDEO.md"
+      - "tests/fixtures/youtube-learning/pcr-multivideo-golden.json"
+      - "tests/test_youtube_multivideo_learning_contract.py"
+      - ".github/workflows/youtube-multivideo-learning.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/learning-source-arbitration/**"
+      - "skills/multi-source-learning-synthesis/**"
+      - "skills/youtube-playlist-learning-workflow/**"
+      - "docs/learning-content/multi-source/**"
+      - "docs/specs/youtube-learner/MULTI_VIDEO.md"
+      - "tests/fixtures/youtube-learning/pcr-multivideo-golden.json"
+      - "tests/test_youtube_multivideo_learning_contract.py"
+      - ".github/workflows/youtube-multivideo-learning.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test YouTube multi-video learning contract
+        run: python -m unittest tests.test_youtube_multivideo_learning_contract

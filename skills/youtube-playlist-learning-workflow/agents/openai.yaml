@@ -1,0 +1,5 @@
+interface:
+  display_name: "Youtube Playlist Learning Workflow"
+  short_description: "Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evidenzgebundenen Lernpaket: Einzelanalys..."
+policy:
+  allow_implicit_invocation: true

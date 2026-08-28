@@ -36,6 +36,7 @@ Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertra
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -51,6 +52,7 @@ Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertra
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 
