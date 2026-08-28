@@ -78,6 +78,7 @@ graph TD
   dispute_litigation_strategy_specialist --> current_law_context
   dispute_litigation_strategy_specialist --> legal_client_strategy
   dispute_litigation_strategy_specialist --> privilege_and_counsel_routing
+  document_layout_qa --> document_template_profiler
   domain_model_maintenance --> agent_handoff
   domain_model_maintenance --> architecture_deepening_review
   domain_model_maintenance --> decision_record
@@ -653,6 +654,7 @@ graph TD
 |---|---|---|
 | `candidate-role-fit-assessment` | `role-architecture.json` | `role-architecture` |
 | `candidate-role-fit-assessment` | `role-scorecard.json` | `role-architecture` |
+| `document-layout-qa` | `document-template-profile.json` | `document-template-profiler` |
 | `job-description-authoring` | `role-architecture.json` | `role-architecture` |
 | `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
 | `learning-delivery-workflow` | `course-learning-model.json` | `youtube-course-builder-workflow` |
@@ -861,7 +863,9 @@ graph TD
 | `document-control-assessment.json` | `controlled-quality-documentation` | `ivdr-field-safety-corrective-action`, `medical-device-field-action-communication`, `medical-device-field-action-physical-execution`, `quality-record-integrity` | inferred |
 | `document-forensics.json` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
 | `document-forensics.md` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
-| `document-template-profile.json` | `document-template-profiler` | — | unconsumed |
+| `document-layout-qa.json` | `document-layout-qa` | — | unconsumed |
+| `document-layout-qa.md` | `document-layout-qa` | — | unconsumed |
+| `document-template-profile.json` | `document-template-profiler` | `document-layout-qa` | explicit |
 | `document-template-profile.md` | `document-template-profiler` | — | unconsumed |
 | `domain-change-plan.md` | `domain-model-maintenance` | — | unconsumed |
 | `domain-model-map.json` | `domain-model-maintenance` | — | unconsumed |

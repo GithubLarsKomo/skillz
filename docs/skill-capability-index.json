@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 272,
+  "skillCount": 273,
   "entrypointCount": 228,
   "entrypointCategories": [
     "analysis",
@@ -2540,6 +2540,49 @@
       }
     },
     {
+      "name": "document-layout-qa",
+      "description": "Prüft editierbare DOCX-Dokumente strukturell gegen ein dokumentiertes Template-Profil auf Seiten-/Section-Setup, Style-Drift, Tabellenbreiten, Bild-/Caption-Verankerung, Listen/Nummerierung, Header/Footer, Felder, Seitenumbrüche und typische Overflow-/Reflow-Risiken. Verwenden vor finalem Render; nicht als Ersatz für die visuelle PDF-Prüfung.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "document-template-profiler"
+      ],
+      "dependents": [],
+      "outputs": [
+        "document-layout-qa.json",
+        "document-layout-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-layout-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "document-layout-qa"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document-layout-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "document-layout-qa"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "document-template-profiler",
       "description": "Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdokument und erzeugt ein wiederverwendbares, provenance-gebundenes Profil für Page Setup, Sections, Styles, Typografie, Header/Footer, Nummerierung, Tabellen, Felder, Content Controls und sichere Einfügepunkte. Verwenden vor template-treuer Dokumenterzeugung; nicht zum Erfinden eines Corporate Designs.",
       "invocation": {
@@ -2547,7 +2590,9 @@
         "category": null
       },
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "document-layout-qa"
+      ],
       "outputs": [
         "document-template-profile.json",
         "document-template-profile.md"
@@ -2559,7 +2604,9 @@
           "producers": [
             "document-template-profiler"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "document-layout-qa"
+          ]
         },
         {
           "output": "document-template-profile.md",

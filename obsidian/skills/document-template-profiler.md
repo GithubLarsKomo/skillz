@@ -30,7 +30,7 @@ Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdoku
 
 ## Required by
 
-- —
+- [[skills/document-layout-qa|document-layout-qa]]
 
 ## Outputs
 
@@ -41,7 +41,7 @@ Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdoku
 
 ### `document-template-profile.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/document-layout-qa|document-layout-qa]]
 
 ### `document-template-profile.md`
 

@@ -483,6 +483,19 @@
       ]
     },
     {
+      "name": "document-layout-qa",
+      "requires": [
+        "document-template-profiler"
+      ],
+      "consumes": [
+        "document-template-profile.json"
+      ],
+      "outputs": [
+        "document-layout-qa.json",
+        "document-layout-qa.md"
+      ]
+    },
+    {
       "name": "document-template-profiler",
       "requires": [],
       "consumes": [],
@@ -3780,6 +3793,10 @@
       "to": "privilege-and-counsel-routing"
     },
     {
+      "from": "document-layout-qa",
+      "to": "document-template-profiler"
+    },
+    {
       "from": "domain-model-maintenance",
       "to": "agent-handoff"
     },
@@ -6052,6 +6069,11 @@
       "producer": "role-architecture"
     },
     {
+      "consumer": "document-layout-qa",
+      "artifact": "document-template-profile.json",
+      "producer": "document-template-profiler"
+    },
+    {
       "consumer": "job-description-authoring",
       "artifact": "role-architecture.json",
       "producer": "role-architecture"
@@ -8253,13 +8275,33 @@
       "consumptionStatus": "inferred"
     },
     {
-      "output": "document-template-profile.json",
+      "output": "document-layout-qa.json",
       "producers": [
-        "document-template-profiler"
+        "document-layout-qa"
       ],
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document-layout-qa.md",
+      "producers": [
+        "document-layout-qa"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document-template-profile.json",
+      "producers": [
+        "document-template-profiler"
+      ],
+      "consumerSkills": [
+        "document-layout-qa"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
     },
     {
       "output": "document-template-profile.md",
@@ -14239,7 +14281,8 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-template-profile.json",
+    "document-layout-qa.json",
+    "document-layout-qa.md",
     "document-template-profile.md",
     "domain-change-plan.md",
     "domain-model-map.json",
@@ -14502,7 +14545,8 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-template-profile.json",
+    "document-layout-qa.json",
+    "document-layout-qa.md",
     "document-template-profile.md",
     "domain-change-plan.md",
     "domain-model-map.json",
