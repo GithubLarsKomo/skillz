@@ -15,6 +15,21 @@ requires:
   - legal-negotiation-strategy
   - legal-redline-review-loop
   - legal-matter-final-gate
+consumes:
+  - agreement-deal-model.json
+  - agreement-clause-coverage.json
+  - agreement-specialist-routes.json
+  - contract-review.json
+  - contract-issue-list.json
+  - contract-risk-input.json
+  - contract-draft.md
+  - contract-drafting-report.json
+  - contract-open-points.md
+  - negotiation-positions.json
+  - redline-delta.json
+  - negotiation-state.json
+  - legal-final-gate.json
+  - legal-open-points.md
 outputs:
   - contract-matter-status.json
   - contract-matter-plan.md

@@ -11,6 +11,11 @@ owners:
 requires:
   - legal-compliance-risk-assessment
   - privilege-and-counsel-routing
+consumes:
+  - legal-risk-register.json
+  - legal-risk-decision-handoff.json
+  - privilege-routing.json
+  - counsel-scope.json
 outputs:
   - legal-final-gate.json
   - legal-open-points.md

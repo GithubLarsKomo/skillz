@@ -1389,10 +1389,7 @@
           "producers": [
             "contract-review"
           ],
-          "consumerSkills": [
-            "contract-matter-workflow",
-            "legal-redline-review-loop"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "contract-risk-input.json",
@@ -1401,8 +1398,7 @@
             "contract-review"
           ],
           "consumerSkills": [
-            "contract-matter-workflow",
-            "legal-redline-review-loop"
+            "contract-matter-workflow"
           ]
         }
       ],
@@ -9189,7 +9185,6 @@
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
-            "legal-matter-final-gate",
             "legal-negotiation-strategy",
             "public-procurement-healthcare-law-specialist"
           ]
@@ -9475,10 +9470,7 @@
           "producers": [
             "legal-negotiation-strategy"
           ],
-          "consumerSkills": [
-            "contract-matter-workflow",
-            "legal-redline-review-loop"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "negotiation-positions.json",
@@ -9554,9 +9546,7 @@
           "producers": [
             "legal-redline-review-loop"
           ],
-          "consumerSkills": [
-            "contract-matter-workflow"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -13275,7 +13265,6 @@
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
             "legal-compliance-office",
-            "legal-matter-final-gate",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
             "public-procurement-healthcare-law-specialist",

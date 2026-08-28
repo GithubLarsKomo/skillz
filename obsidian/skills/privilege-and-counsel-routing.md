@@ -108,7 +108,6 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
-- [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
 - [[skills/public-procurement-healthcare-law-specialist|public-procurement-healthcare-law-specialist]]

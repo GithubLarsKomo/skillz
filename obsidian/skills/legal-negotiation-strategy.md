@@ -43,8 +43,7 @@ tags:
 
 ### `negotiation-playbook.md`
 
-- [[skills/contract-matter-workflow|contract-matter-workflow]]
-- [[skills/legal-redline-review-loop|legal-redline-review-loop]]
+- Terminal or currently unconsumed output.
 
 ### `negotiation-positions.json`
 

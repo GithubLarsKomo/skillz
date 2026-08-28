@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - euroimmun-docx-report-renderer
+consumes:
+  - euroimmun-report.docx
 outputs:
   - euroimmun-report.pdf
 lastEvaluated: 2026-08-28

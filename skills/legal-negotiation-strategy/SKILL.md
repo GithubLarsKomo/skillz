@@ -11,6 +11,12 @@ owners:
 requires:
   - legal-client-strategy
   - legal-compliance-risk-assessment
+consumes:
+  - client-strategy.json
+  - legal-decision-boundaries.json
+  - legal-risk-register.json
+  - commercial-exposure-analysis.json
+  - legal-risk-decision-handoff.json
 outputs:
   - negotiation-positions.json
   - negotiation-playbook.md

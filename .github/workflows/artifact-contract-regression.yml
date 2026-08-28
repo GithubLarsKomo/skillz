@@ -9,6 +9,7 @@ on:
       - "scripts/generate_capability_index.py"
       - "scripts/generate_dependency_graph.py"
       - "tests/test_architecture_consolidation_p3_artifact_contracts.py"
+      - "tests/test_architecture_consolidation_p3_legal_document_handoffs.py"
       - ".github/workflows/artifact-contract-regression.yml"
   push:
     branches: [main]
@@ -19,6 +20,7 @@ on:
       - "scripts/generate_capability_index.py"
       - "scripts/generate_dependency_graph.py"
       - "tests/test_architecture_consolidation_p3_artifact_contracts.py"
+      - "tests/test_architecture_consolidation_p3_legal_document_handoffs.py"
       - ".github/workflows/artifact-contract-regression.yml"
 
 permissions:
@@ -36,3 +38,5 @@ jobs:
         run: python scripts/generate_repository_metadata.py --check
       - name: Test typed artifact contracts
         run: python -m unittest tests.test_architecture_consolidation_p3_artifact_contracts
+      - name: Test legal and document handoff contracts
+        run: python -m unittest tests.test_architecture_consolidation_p3_legal_document_handoffs

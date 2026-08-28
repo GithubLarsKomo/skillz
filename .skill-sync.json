@@ -122,7 +122,7 @@
     },
     "contract-matter-workflow": {
       "files": {
-        "SKILL.md": "a8fec727fb56f299932c0fbc054c170a2ad366a3e3eddd8e9faa23545119807f",
+        "SKILL.md": "2f8e2642dbf9a098407fefb636e5b2e953aac2e00fd5d1e0bed8a35b7ff69f14",
         "agents/openai.yaml": "05ad7c4a41c2352688425285079820921fdace07ed534eab1f64fd87fe6b047b"
       }
     },
@@ -347,7 +347,7 @@
     },
     "euroimmun-pdf-report-renderer": {
       "files": {
-        "SKILL.md": "e51826d237f8b4dd5a0f538014b25e868ef8f62098a821111b12b2754d1479cb",
+        "SKILL.md": "f3679faa50065416e2ee6edab5a3d79822bfe0e64e51f4c1a57f3dbf3dae78f3",
         "agents/openai.yaml": "eb78c44695a409d481cb2fe94eaf11c8a33b20d3cd3f2901578af7b5c07cac43",
         "scripts/render_pdf.py": "6d22759bccc6042af64239cfb48d6a21737866dafa3a7ad2c9891ae830a10999"
       }
@@ -933,7 +933,7 @@
     },
     "legal-matter-final-gate": {
       "files": {
-        "SKILL.md": "00a2fb2bbb5894bdbb0f2c573b33e75dff5ab696c461198a71e4c8af19f8c01b",
+        "SKILL.md": "5e5aa5c001610e127ea2459835f262281834bfd1c1660ed4056dc1f5fbacff24",
         "agents/openai.yaml": "c57ba6022785c929e6dbd31626aa8772ed9bff33f87a08da96c60e28b7fe56af"
       }
     },
@@ -951,13 +951,13 @@
     },
     "legal-negotiation-strategy": {
       "files": {
-        "SKILL.md": "4b323b620f295ed26fe4d2401886d193baab67441b47c4352b4e12a72a336038",
+        "SKILL.md": "7857aa0c988f537bcdf96e0f9ba47ff1164cd5650055c63734535704bd94fe17",
         "agents/openai.yaml": "de5d4c3d72ae70db58d20cd20db6e52ee0ac4fc3991291aa1da79aadc90aa6ad"
       }
     },
     "legal-redline-review-loop": {
       "files": {
-        "SKILL.md": "d512909a24dde1629343fd0a8a4350fcc0bb0bd74ee1148212cc9922013ffbbc",
+        "SKILL.md": "beee7efd9e71e48892de93862515e475e918b96f47097a8a35396e06a9e27712",
         "agents/openai.yaml": "27254cb13b13c9b51e39d3bf4e15dc342ecb9e36422d3864dab9cb079dcdf34d"
       }
     },
