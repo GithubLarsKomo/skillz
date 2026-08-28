@@ -2,6 +2,12 @@
 
 Derived from user-confirmed reference deck `260610 Innovation Topics.pptx` on 2026-08-26.
 
+## Normative status
+
+This file is a **format-specific observed template specification**, not the company-wide design authority. For every EUROIMMUN corporate presentation, `docs/corporate/euroimmun/DESIGN.md` is the mandatory shared design/QA contract and `skills/frontend-design-system-context/references/brand-profiles/euroimmun.json` is the authoritative corporate RGB palette.
+
+When the original confirmed PowerPoint template is available, its master/theme/layout values remain authoritative for template-owned elements. Approximate colors observed below are descriptive evidence only; they MUST NOT be promoted to canonical Corporate Color values or override the exact `euroimmun-corporate` tokens.
+
 ## Reference identity
 
 - SHA-256: `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`
@@ -17,8 +23,8 @@ Derived from user-confirmed reference deck `260610 Innovation Topics.pptx` on 20
 - Content slides use a small Revvity mark/footer system and fine lower rule.
 - Corporate confidentiality labels appear in the footer, typically `Confidential | Do not share` or equivalent; use the classification appropriate to the deck.
 - Section headers use high-contrast Revvity-family color fields and a large, minimal section title.
-- EUROIMMUN green is the dominant functional color for tables and product/portfolio data; observed core green approximately `#158A38` to `#179B43` depending on element/theme rendering.
-- Additional Revvity-family section/accent colors observed include deep purple, yellow, teal and dark green. Use them selectively, not as a rainbow palette on a single analytical slide.
+- EUROIMMUN green is the dominant functional color for tables and product/portfolio data in the observed deck. Rendered/observed values around `#158A38` to `#179B43` are **non-normative observations** only; use the active PowerPoint theme or authoritative Corporate Color tokens for newly authored elements.
+- Additional Revvity-family section/accent colors observed include deep purple, yellow, teal and dark green. Use them selectively according to the active master/theme, not as a rainbow palette on a single analytical slide.
 
 ## Core layout archetypes in the reference file
 
@@ -47,7 +53,7 @@ Typical hierarchy inferred from the deck:
 
 1. Keep content slides predominantly white.
 2. Prefer one clear visual anchor per slide.
-3. Use green table headers with white type for structured portfolio comparisons.
+3. Use table-header colors from the active Corporate theme with accessible foreground text for structured portfolio comparisons.
 4. Avoid dense decorative card systems foreign to the reference deck.
 5. Use section-color slides sparingly to reset the narrative.
 6. Retain generous margins and avoid filling the page edge-to-edge unless using a full-bleed section/image slide.
@@ -74,4 +80,5 @@ The reference deck contains proprietary and confidential business/scientific con
 - do not store the binary source deck in Skillz;
 - do not copy reference-deck scientific/business content into unrelated presentations;
 - only the non-confidential design grammar, layout metadata and workflow are persisted here;
-- when the original template is available at execution time, use it directly as the source of truth.
+- when the original template is available at execution time, use it directly as the source of truth for template-owned behavior;
+- always apply the shared Corporate Design Gate from `docs/corporate/euroimmun/DESIGN.md` before final delivery.
