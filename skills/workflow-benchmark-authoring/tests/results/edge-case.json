@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "workflow-benchmark-authoring",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "preserve the shared delivery orchestration boundary",
+      "passed": true,
+      "evidence": "SKILL.md requires Shared Delivery and generic cores to be checked at their current architecture boundary."
+    },
+    {
+      "behavior": "remove direct top-level worker bypasses from the benchmark sequence",
+      "passed": true,
+      "evidence": "SKILL.md explicitly forbids pulling direkte Renderer/Delivery-Worker to top level when a shared delivery orchestrator owns the boundary."
+    },
+    {
+      "behavior": "bind the regression to the current delegated architecture rather than legacy topology",
+      "passed": true,
+      "evidence": "SKILL.md forbids reactivating a frühere Legacy-Fassade merely because it used to be the entrypoint."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "restore direct renderer dependencies merely to keep a stale benchmark green",
+      "observed": false,
+      "evidence": "The normative authoring flow rejects topology changes made only to satisfy stale benchmark expectations."
+    }
+  ],
+  "overall": "pass"
+}
