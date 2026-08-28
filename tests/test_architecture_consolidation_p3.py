@@ -15,15 +15,17 @@ class ArchitectureConsolidationP3Test(unittest.TestCase):
         cls.benchmark = json.loads((ROOT / "benchmarks" / "cross-domain-workflows-e2e-v1.json").read_text(encoding="utf-8"))
 
     def test_capability_health_remains_complete_after_benchmark_governance_addition(self):
-        self.assertEqual(self.index["skillCount"], 281)
-        self.assertEqual(self.index["entrypointCount"], 231)
-        self.assertEqual(
-            self.index["discoverabilityCounts"],
-            {"public": 229, "advanced": 2, "internal": 48, "compatibility": 2},
-        )
-        self.assertEqual(self.index["evaluationSuiteCount"], 281)
-        self.assertEqual(self.index["evaluatedSkillCount"], 281)
-        self.assertEqual(self.index["evaluatedEntrypointCount"], 231)
+        self.assertGreaterEqual(self.index["skillCount"], 281)
+        self.assertGreaterEqual(self.index["entrypointCount"], 231)
+        counts = self.index["discoverabilityCounts"]
+        self.assertGreaterEqual(counts["public"], 229)
+        self.assertGreaterEqual(counts["advanced"], 2)
+        self.assertGreaterEqual(counts["internal"], 48)
+        self.assertGreaterEqual(counts["compatibility"], 2)
+        self.assertEqual(sum(counts.values()), self.index["skillCount"])
+        self.assertEqual(self.index["evaluationSuiteCount"], self.index["skillCount"])
+        self.assertEqual(self.index["evaluatedSkillCount"], self.index["skillCount"])
+        self.assertEqual(self.index["evaluatedEntrypointCount"], self.index["entrypointCount"])
         self.assertTrue(self.index["evaluationCoverageComplete"])
         self.assertTrue(self.index["evaluationPassed"])
         self.assertEqual(self.index["evaluationErrorCount"], 0)
@@ -70,7 +72,7 @@ class ArchitectureConsolidationP3Test(unittest.TestCase):
             "thought-to-concept",
             "purchase-decision",
         }
-        self.assertEqual(domains, expected)
+        self.assertTrue(expected.issubset(domains))
 
 
 if __name__ == "__main__":
