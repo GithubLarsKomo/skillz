@@ -1145,6 +1145,17 @@
       ]
     },
     {
+      "name": "learning-artifact-qa",
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-artifact-qa.json",
+        "learning-artifact-qa.md"
+      ]
+    },
+    {
       "name": "learning-assessment",
       "requires": [
         "learning-assessment-spec"
@@ -1163,6 +1174,49 @@
       "consumes": [],
       "outputs": [
         "learning-assessment-spec.json"
+      ]
+    },
+    {
+      "name": "learning-content-design-system",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-design-context.json"
+      ]
+    },
+    {
+      "name": "learning-document-delivery",
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-document-qa.json",
+        "learning-handout.docx",
+        "learning-handout.pdf"
+      ]
+    },
+    {
+      "name": "learning-image-generator",
+      "requires": [
+        "learning-content-design-system",
+        "learning-visual-planner"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-image-assets",
+        "learning-image-manifest.json"
+      ]
+    },
+    {
+      "name": "learning-landingpage-renderer",
+      "requires": [
+        "learning-content-design-system"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-landingpage",
+        "learning-landingpage-qa.json"
       ]
     },
     {
@@ -1191,6 +1245,39 @@
       "outputs": [
         "learning-record.md",
         "learning-state.json"
+      ]
+    },
+    {
+      "name": "learning-summary-synthesis",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-summary.json",
+        "learning-summary.md"
+      ]
+    },
+    {
+      "name": "learning-svg-generator",
+      "requires": [
+        "learning-content-design-system",
+        "learning-visual-planner"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-svg-assets",
+        "learning-svg-manifest.json"
+      ]
+    },
+    {
+      "name": "learning-visual-planner",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-visual-plan.json"
       ]
     },
     {
@@ -1578,6 +1665,15 @@
       ]
     },
     {
+      "name": "multimodal-learning-analysis",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "learning-concept-map.json",
+        "learning-evidence.json"
+      ]
+    },
+    {
       "name": "nonconformance-mrb-disposition",
       "requires": [
         "medical-device-qms-iso13485",
@@ -1832,6 +1928,17 @@
       "outputs": [
         "price-snapshot.json",
         "price-snapshot.md"
+      ]
+    },
+    {
+      "name": "procedure-sop-extractor",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "derived-procedure.json",
+        "derived-sop.md"
       ]
     },
     {
@@ -2553,6 +2660,38 @@
         "compliance-evidence-effectiveness.json",
         "compliance-requirement-coverage.json",
         "compliance-review-decision.md"
+      ]
+    },
+    {
+      "name": "youtube-learning-workflow",
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-summary-synthesis",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multimodal-learning-analysis",
+        "procedure-sop-extractor",
+        "template-presentation-workflow",
+        "youtube-video-ingestion"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-content-model.json",
+        "youtube-learning-run.json"
+      ]
+    },
+    {
+      "name": "youtube-video-ingestion",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "youtube-frame-index.json",
+        "youtube-transcript-index.json",
+        "youtube-video-source.json"
       ]
     }
   ],
@@ -3422,6 +3561,10 @@
       "to": "disciplined-diagnosis"
     },
     {
+      "from": "learning-artifact-qa",
+      "to": "learning-content-design-system"
+    },
+    {
       "from": "learning-assessment",
       "to": "learning-assessment-spec"
     },
@@ -3434,12 +3577,44 @@
       "to": "learning-state"
     },
     {
+      "from": "learning-document-delivery",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "learning-image-generator",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "learning-image-generator",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "learning-landingpage-renderer",
+      "to": "learning-content-design-system"
+    },
+    {
       "from": "learning-next-step",
       "to": "learning-mission"
     },
     {
       "from": "learning-next-step",
       "to": "learning-state"
+    },
+    {
+      "from": "learning-summary-synthesis",
+      "to": "multimodal-learning-analysis"
+    },
+    {
+      "from": "learning-svg-generator",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "learning-svg-generator",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "learning-visual-planner",
+      "to": "multimodal-learning-analysis"
     },
     {
       "from": "llm-generation-evidence-assessment",
@@ -3908,6 +4083,10 @@
     {
       "from": "presentation-render-verifier",
       "to": "presentation-layout-qa"
+    },
+    {
+      "from": "procedure-sop-extractor",
+      "to": "multimodal-learning-analysis"
     },
     {
       "from": "process-validation-iq-oq-pq",
@@ -4436,6 +4615,54 @@
     {
       "from": "two-axis-compliance-review",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-artifact-qa"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-document-delivery"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-image-generator"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-landingpage-renderer"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-summary-synthesis"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-svg-generator"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "multimodal-learning-analysis"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "procedure-sop-extractor"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "template-presentation-workflow"
+    },
+    {
+      "from": "youtube-learning-workflow",
+      "to": "youtube-video-ingestion"
     }
   ],
   "consumptionEdges": [
@@ -5809,6 +6036,28 @@
       "consumerSkills": [
         "test-driven-vertical-slice",
         "throwaway-prototype"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "derived-procedure.json",
+      "producers": [
+        "procedure-sop-extractor"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "derived-sop.md",
+      "producers": [
+        "procedure-sop-extractor"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7302,6 +7551,28 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "learning-artifact-qa.json",
+      "producers": [
+        "learning-artifact-qa"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-artifact-qa.md",
+      "producers": [
+        "learning-artifact-qa"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "learning-assessment-spec.json",
       "producers": [
         "learning-assessment-spec"
@@ -7321,6 +7592,136 @@
       ],
       "consumerSkills": [
         "teach"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-concept-map.json",
+      "producers": [
+        "multimodal-learning-analysis"
+      ],
+      "consumerSkills": [
+        "learning-summary-synthesis",
+        "learning-visual-planner",
+        "procedure-sop-extractor",
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-content-model.json",
+      "producers": [
+        "youtube-learning-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "learning-design-context.json",
+      "producers": [
+        "learning-content-design-system"
+      ],
+      "consumerSkills": [
+        "learning-artifact-qa",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-svg-generator",
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-document-qa.json",
+      "producers": [
+        "learning-document-delivery"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-evidence.json",
+      "producers": [
+        "multimodal-learning-analysis"
+      ],
+      "consumerSkills": [
+        "learning-summary-synthesis",
+        "learning-visual-planner",
+        "procedure-sop-extractor",
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-handout.docx",
+      "producers": [
+        "learning-document-delivery"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-handout.pdf",
+      "producers": [
+        "learning-document-delivery"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-image-assets",
+      "producers": [
+        "learning-image-generator"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-image-manifest.json",
+      "producers": [
+        "learning-image-generator"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-landingpage",
+      "producers": [
+        "learning-landingpage-renderer"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-landingpage-qa.json",
+      "producers": [
+        "learning-landingpage-renderer"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7387,6 +7788,63 @@
       "consumerSkills": [],
       "ambiguous": true,
       "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "learning-summary.json",
+      "producers": [
+        "learning-summary-synthesis"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-summary.md",
+      "producers": [
+        "learning-summary-synthesis"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-svg-assets",
+      "producers": [
+        "learning-svg-generator"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-svg-manifest.json",
+      "producers": [
+        "learning-svg-generator"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "learning-visual-plan.json",
+      "producers": [
+        "learning-visual-planner"
+      ],
+      "consumerSkills": [
+        "learning-image-generator",
+        "learning-svg-generator",
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "lifecycle-impact-gates.json",
@@ -8325,7 +8783,8 @@
         "template-presentation-workflow"
       ],
       "consumerSkills": [
-        "euroimmun-presentation-workflow"
+        "euroimmun-presentation-workflow",
+        "youtube-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8336,7 +8795,8 @@
         "template-presentation-workflow"
       ],
       "consumerSkills": [
-        "euroimmun-presentation-workflow"
+        "euroimmun-presentation-workflow",
+        "youtube-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -10208,6 +10668,48 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-frame-index.json",
+      "producers": [
+        "youtube-video-ingestion"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-learning-run.json",
+      "producers": [
+        "youtube-learning-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "youtube-transcript-index.json",
+      "producers": [
+        "youtube-video-ingestion"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-video-source.json",
+      "producers": [
+        "youtube-video-ingestion"
+      ],
+      "consumerSkills": [
+        "youtube-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     }
   ],
   "unconsumedOutputs": [
@@ -10315,6 +10817,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "learning-content-model.json",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
@@ -10399,7 +10902,8 @@
     "usability-engineering-assessment.json",
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
-    "vigilance-entry-handoff.json"
+    "vigilance-entry-handoff.json",
+    "youtube-learning-run.json"
   ],
   "orphanOutputs": [
     "acceptance-gaps.json",
@@ -10506,6 +11010,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "learning-content-model.json",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
@@ -10590,6 +11095,7 @@
     "usability-engineering-assessment.json",
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
-    "vigilance-entry-handoff.json"
+    "vigilance-entry-handoff.json",
+    "youtube-learning-run.json"
   ]
 }

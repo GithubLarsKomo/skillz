@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Visual Planner"
+  short_description: "Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visualisierung und entscheidet zwischen Quell..."
+policy:
+  allow_implicit_invocation: true

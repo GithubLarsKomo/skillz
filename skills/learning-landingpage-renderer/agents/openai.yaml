@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Landingpage Renderer"
+  short_description: "Rendert ein kanonisches Learning-Content-Modell mit Visuals und DESIGN.md als portable responsive Landingpage-Style-H..."
+policy:
+  allow_implicit_invocation: true

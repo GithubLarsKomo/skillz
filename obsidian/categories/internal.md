@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **32**
+Skills: **37**
 
 - [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
@@ -25,14 +25,18 @@ Skills: **32**
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
+- [[skills/learning-artifact-qa|learning-artifact-qa]]
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/learning-assessment-spec|learning-assessment-spec]]
+- [[skills/learning-content-design-system|learning-content-design-system]]
 - [[skills/learning-mission|learning-mission]]
 - [[skills/learning-next-step|learning-next-step]]
 - [[skills/learning-state|learning-state]]
+- [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/llm-generation-evidence-assessment|llm-generation-evidence-assessment]]
 - [[skills/memory-sync-reconciliation|memory-sync-reconciliation]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
+- [[skills/multimodal-learning-analysis|multimodal-learning-analysis]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
 - [[skills/opaque-system-analysis|opaque-system-analysis]]
 - [[skills/openasr-offline-model-import|openasr-offline-model-import]]
@@ -44,3 +48,4 @@ Skills: **32**
 - [[skills/synapse-orchestrator|synapse-orchestrator]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
+- [[skills/youtube-video-ingestion|youtube-video-ingestion]]

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Image Generator"
+  short_description: "Erzeugt aus einem evidenzgebundenen Visual-Plan und dem aktiven DESIGN.md konsistente erklärende Illustrationen oder..."
+policy:
+  allow_implicit_invocation: true
