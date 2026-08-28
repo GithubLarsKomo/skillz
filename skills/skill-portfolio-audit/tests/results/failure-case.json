@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-portfolio-audit",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject semantic similarity as sufficient evidence of redundancy",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this failure-case contract behavior: reject semantic similarity as sufficient evidence of redundancy."
+    },
+    {
+      "behavior": "inspect contract and responsibility differences before consolidation",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this failure-case contract behavior: inspect contract and responsibility differences before consolidation."
+    },
+    {
+      "behavior": "retain both skills when the specialist boundary remains material",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this failure-case contract behavior: retain both skills when the specialist boundary remains material."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "recommend automatic merge from topic similarity alone",
+      "observed": false,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this failure-case contract behavior: recommend automatic merge from topic similarity alone."
+    }
+  ],
+  "overall": "pass"
+}

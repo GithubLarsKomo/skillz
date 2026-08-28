@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **76**
+Skills: **78**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -61,6 +61,8 @@ Skills: **76**
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
+- [[skills/skill-lifecycle-migration|skill-lifecycle-migration]]
+- [[skills/skill-portfolio-audit|skill-portfolio-audit]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-athlete-profile|sport-athlete-profile]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
@@ -80,7 +82,7 @@ Skills: **76**
 - [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
-- [[skills/sport-training-programming|sport-training-programming]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 - [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/template-document-workflow|template-document-workflow]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-portfolio-audit",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Audit a growing capability repository for consolidation priorities using generated health, dependency and ownership data.",
+      "requiredBehaviors": [
+        "inventory lifecycle discoverability evaluation and ownership from canonical repository evidence",
+        "separate real architecture defects from review queues",
+        "prioritize concrete actions with migration and acceptance criteria"
+      ],
+      "forbiddenBehaviors": [
+        "merge specialists only because their names or topics are similar",
+        "treat every unconsumed terminal output as an orphan defect"
+      ],
+      "skillAnchors": [
+        "Inventar fixieren",
+        "Entrypoints prüfen",
+        "Maßnahmen priorisieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Capability health lists many outputs without inferred hard-requires consumers, including final reports and exports.",
+      "requiredBehaviors": [
+        "classify terminal outputs separately from intended machine-consumed contracts",
+        "require additional evidence before calling an output orphaned",
+        "keep the unconsumed list as a review queue"
+      ],
+      "forbiddenBehaviors": [
+        "delete terminal output producers solely because no hard consumer is inferred"
+      ],
+      "skillAnchors": [
+        "Unconsumed terminal artifacts",
+        "nicht automatisch Orphans"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Two regulated specialist skills share vocabulary and the proposed audit recommends merging them without comparing their contracts.",
+      "requiredBehaviors": [
+        "reject semantic similarity as sufficient evidence of redundancy",
+        "inspect contract and responsibility differences before consolidation",
+        "retain both skills when the specialist boundary remains material"
+      ],
+      "forbiddenBehaviors": [
+        "recommend automatic merge from topic similarity alone"
+      ],
+      "skillAnchors": [
+        "semantische Nähe",
+        "beide Skills erhalten"
+      ]
+    }
+  ]
+}

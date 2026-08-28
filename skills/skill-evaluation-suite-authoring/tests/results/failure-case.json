@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-evaluation-suite-authoring",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject the missing anchor",
+      "passed": true,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this failure-case contract behavior: reject the missing anchor."
+    },
+    {
+      "behavior": "refresh stale result evidence",
+      "passed": true,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this failure-case contract behavior: refresh stale result evidence."
+    },
+    {
+      "behavior": "avoid claiming PASS from desired behavior alone",
+      "passed": true,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this failure-case contract behavior: avoid claiming PASS from desired behavior alone."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "fabricate a near-match anchor or blindly copy PASS evidence",
+      "observed": false,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this failure-case contract behavior: fabricate a near-match anchor or blindly copy PASS evidence."
+    }
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-evaluation-suite-authoring",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "update tests to verify the new delegation boundary",
+      "passed": true,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this edge-case contract behavior: update tests to verify the new delegation boundary."
+    },
+    {
+      "behavior": "avoid restoring removed responsibilities only to satisfy stale tests",
+      "passed": true,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this edge-case contract behavior: avoid restoring removed responsibilities only to satisfy stale tests."
+    },
+    {
+      "behavior": "anchor the revised suite to the post-refactor canonical text",
+      "passed": true,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this edge-case contract behavior: anchor the revised suite to the post-refactor canonical text."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "reactivate obsolete direct dependencies because an old test expects them",
+      "observed": false,
+      "evidence": "SKILL.md for skill-evaluation-suite-authoring explicitly covers this edge-case contract behavior: reactivate obsolete direct dependencies because an old test expects them."
+    }
+  ],
+  "overall": "pass"
+}

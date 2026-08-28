@@ -1,0 +1,5 @@
+interface:
+  display_name: "Skill Portfolio Audit"
+  short_description: "Analysiert das Skillz-Portfolio als Capability-System anhand von Capability Index, Dependency Graph, Evaluation Healt..."
+policy:
+  allow_implicit_invocation: true

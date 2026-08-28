@@ -22,6 +22,12 @@
         "agents/openai.yaml": "0a94809d20c0dcffd8657f66e6efad3be41aae246f7b04379724c575f39e075b"
       }
     },
+    "artifact-contract-normalizer": {
+      "files": {
+        "SKILL.md": "0c7e35b2b78e03702c26bee86bbe3e9cc5bcb747a37f82a0fa924a2bceca285d",
+        "agents/openai.yaml": "6ed8e15b17e063cd089c3bca4829eb34f503e6ae3790328d9e0e49f003fa0908"
+      }
+    },
     "audit-inspection-finding-response": {
       "files": {
         "SKILL.md": "5d7d63f5d7a9e00112b225223c5d7895a9cf379deaae366e440613756f48537e",
@@ -290,7 +296,7 @@
     },
     "dr-komorowski-sport-report-renderer": {
       "files": {
-        "SKILL.md": "7a46df0b6b1324b63a42584a0cc7102a7be98dd728b75c444fdc1bb873e3e6a5",
+        "SKILL.md": "7ef24b609de7095e1227cf3b87815dc781589739f36881297b9d389b6cc49c1c",
         "agents/openai.yaml": "0735e9ffef42734fc8be84c80d16adb4dd0fddbce05b1e4c5914679b84f7fbb6",
         "assets/dr-komorowski-logo.svg": "f76a60ab95974b888a434489d964b632cfec2b0e9365c39ec4bca19154b3e8d1",
         "assets/report-spec.example.json": "983a2e0f02ec205e2ba4d8748b6310562b4da8eb9ac98b915423ef57830bc9fb",
@@ -1448,6 +1454,24 @@
         "agents/openai.yaml": "dd83c237fe3023e9d5acb23ab1f500b0b2fd2fa438c2011738dce1b5dff71b72"
       }
     },
+    "skill-evaluation-suite-authoring": {
+      "files": {
+        "SKILL.md": "3e409190dbd662235a9279879e8efb60f1e76f28efec143beb72e6abe5065e10",
+        "agents/openai.yaml": "20ee7e48441c6b4f11894a97373fe951418b6d7a9103256efe3d46b3ce60fdb0"
+      }
+    },
+    "skill-lifecycle-migration": {
+      "files": {
+        "SKILL.md": "73c95c27c9c2a84e46df402c1bcb117dc2c44acf2aa40ee6219054b346fa0008",
+        "agents/openai.yaml": "4b50b2801c0852f45e352d7b5f9be4dbcdc72d3703e710bb88bc8c850d9802f7"
+      }
+    },
+    "skill-portfolio-audit": {
+      "files": {
+        "SKILL.md": "796ed35a713f69dbe8bb36acee32af6437aa0234b7280f4a9cfcab0bf4dc4f28",
+        "agents/openai.yaml": "32abf10b46448c2197a000be554a33f5bc325f5ef0b655eaa4349b0eba2e582f"
+      }
+    },
     "source-to-context": {
       "files": {
         "SKILL.md": "d92be37e6f9ab1b4f2318b05cd95508e23465bbd1f27367f10fc06f898365bff",
@@ -1468,7 +1492,7 @@
     },
     "sport-athlete-management": {
       "files": {
-        "SKILL.md": "37c1628eba8c68a6dc55898e4a73c13019fb3564b39f7b4f26ae8d65b3aee658",
+        "SKILL.md": "f860fd2481345a7e7ce82f6354c349a1c8bd7dc4e920062a91712223bb338e7b",
         "agents/openai.yaml": "d3b904557a2f39b15deeb35a4fd9590dd68332f8caea162df1ae4a1c48552238"
       }
     },
@@ -1486,7 +1510,7 @@
     },
     "sport-diagnostics-training-report-workflow": {
       "files": {
-        "SKILL.md": "7d2a7bf80b3ee682c640b0ea1380f15fdb297e947cca2d91ce7054ee01b29d35",
+        "SKILL.md": "f33efe097fde5a250d2ea0305f907eba049c453ff8750aeaad3f4bc592949b50",
         "agents/openai.yaml": "8c3ed9360ffe5e9bfc2946ae8a5cca42adaffbc47c0ae6a74ce2b07cfdcb80ed"
       }
     },
@@ -1592,10 +1616,16 @@
         "agents/openai.yaml": "b445b58f8d8bd78559a09165bbaa44baf9baedc7fce8b62e007adb34e2b0945a"
       }
     },
+    "sport-training-plan-workflow": {
+      "files": {
+        "SKILL.md": "50132c371eda2a28208f99a1dc1bd4a7809c1ec7b6300e0c1a1a03262dcc50d9",
+        "agents/openai.yaml": "e4f0aef47a931a61265c5bcf11b823c47048fb1780d091c9c581b240902b0c51"
+      }
+    },
     "sport-training-programming": {
       "files": {
-        "SKILL.md": "ee9167a1fe158c3abd81c4d7b103ec70862f531153c71b209ff45921399cea42",
-        "agents/openai.yaml": "d338a7ecd4fced618d5637e010c30a016051c9ba720670ea9ce4fffe5c922580"
+        "SKILL.md": "67fd2970319e9f49c240caebf0719be1e22aaf6272a8bdc3a1d23a102c671150",
+        "agents/openai.yaml": "f0ffdfed3d4eaa4bc1007190b195a45ca7a3123deff7ea242b7ac5fae20f924e"
       }
     },
     "structured-knowledge-artifact": {

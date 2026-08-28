@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 275,
-  "entrypointCount": 229,
+  "skillCount": 280,
+  "entrypointCount": 231,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,9 +13,15 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 275,
-  "evaluatedSkillCount": 275,
-  "evaluatedEntrypointCount": 229,
+  "discoverabilityCounts": {
+    "public": 229,
+    "advanced": 2,
+    "internal": 47,
+    "compatibility": 2
+  },
+  "evaluationSuiteCount": 280,
+  "evaluatedSkillCount": 280,
+  "evaluatedEntrypointCount": 231,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -26,6 +32,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "iterate-software-projects"
@@ -90,6 +102,12 @@
       "invocation": {
         "userFacing": true,
         "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -160,6 +178,12 @@
         "userFacing": true,
         "category": "engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "disciplined-diagnosis",
         "iterate-software-projects"
@@ -227,11 +251,57 @@
       }
     },
     {
+      "name": "artifact-contract-normalizer",
+      "description": "Analysiert und normalisiert Skill-Artefaktverträge für eindeutige Producer-Ownership, explizite consumes-Beziehungen, Orchestrator-vs-Worker-Grenzen und sichere Compatibility-Referenzen. Verwenden intern bei Architekturrefactorings und Output-Ambiguitäten; keine Consumer- oder Producer-Beziehungen ohne Vertragsbeleg erfinden.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "skill-portfolio-audit"
+      ],
+      "dependents": [],
+      "outputs": [
+        "artifact-contract-normalization.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "artifact-contract-normalization.json",
+          "ambiguous": false,
+          "producers": [
+            "artifact-contract-normalizer"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "audit-inspection-finding-response",
       "description": "Strukturiert Antworten auf Audit-, Inspection- und MDSAP-Findings aus Originalwortlaut, Criteria, Evidence, Fristen und Actions und routet Investigation, CAPA, Risk und Regulatory Follow-up ohne externe Closure zu simulieren.",
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -286,6 +356,12 @@
         "userFacing": true,
         "category": "communication-memory"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "llm-generation-evidence-assessment",
@@ -338,6 +414,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "patent-landscape-analysis",
@@ -419,6 +501,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "role-architecture"
       ],
@@ -471,6 +559,12 @@
         "userFacing": true,
         "category": "skill-system"
       },
+      "governance": {
+        "status": "stable",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "composable-skill-factory"
       ],
@@ -513,6 +607,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -569,6 +669,12 @@
         "userFacing": true,
         "category": "communication-memory"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "frontend-design-director",
@@ -618,6 +724,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -673,6 +785,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "compliance-control-mapping"
@@ -733,6 +851,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "compliance-obligation-register",
@@ -803,6 +927,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "compliance-control-assurance",
         "compliance-control-mapping",
@@ -865,6 +995,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context"
@@ -942,6 +1078,12 @@
         "userFacing": true,
         "category": "skill-system"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "central-skill-repository-curation"
@@ -999,6 +1141,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agreement-type-analysis",
@@ -1061,6 +1209,12 @@
         "userFacing": true,
         "category": "research-knowledge"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context"
       ],
@@ -1110,6 +1264,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agreement-type-analysis",
@@ -1175,6 +1335,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agreement-type-analysis",
@@ -1253,6 +1419,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "contract-legal-context",
         "contract-matter-workflow",
@@ -1306,6 +1478,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "regulated-product-context",
@@ -1380,6 +1558,12 @@
         "userFacing": true,
         "category": "engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "spec-to-vertical-issues"
@@ -1438,6 +1622,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "compliance-obligation-register",
         "current-law-context",
@@ -1493,6 +1683,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -1561,6 +1757,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "corporate-governance-law-specialist",
         "current-law-context",
@@ -1617,6 +1819,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "multi-source-learning-synthesis"
       ],
@@ -1656,6 +1864,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -1903,6 +2117,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "inbox-action-triage"
       ],
@@ -1951,6 +2171,12 @@
       "invocation": {
         "userFacing": true,
         "category": "productivity"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "daily-and-weekly-review",
@@ -2002,6 +2228,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -2089,6 +2321,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "stable",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "engineering-delivery-followup",
@@ -2159,6 +2397,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "decision-record",
         "design-control-traceability",
@@ -2221,6 +2465,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-risk-management-iso14971",
@@ -2288,6 +2538,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-compliance-risk-assessment",
@@ -2343,6 +2599,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "iterate-software-projects"
@@ -2428,6 +2690,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy",
@@ -2495,6 +2763,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "llm-generation-evidence-assessment",
@@ -2546,6 +2820,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "document-template-profiler"
       ],
@@ -2596,6 +2876,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "document-layout-qa"
@@ -2657,6 +2943,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "document-layout-qa",
@@ -2703,6 +2995,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agent-handoff",
@@ -2760,6 +3058,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "dr-komorowski-sport-pdf-report-renderer",
@@ -2808,6 +3112,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "dr-komorowski-sport-docx-report-renderer"
       ],
@@ -2848,6 +3158,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "deprecated",
+        "discoverability": "compatibility",
+        "replacedBy": "dr-komorowski-sport-pdf-report-renderer",
+        "deprecatedSince": "2026-08-28"
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -2886,6 +3202,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "deferred-external-action-verification",
@@ -2939,6 +3261,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "compliance-obligation-register",
@@ -2994,6 +3322,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-risk-management-iso14971",
@@ -3057,6 +3391,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "ivdr-device-classification",
         "medical-device-labeling-ifu",
@@ -3103,6 +3443,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "euroimmun-pdf-report-renderer"
@@ -3146,6 +3492,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "euroimmun-docx-report-renderer"
       ],
@@ -3180,6 +3532,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "template-presentation-workflow"
@@ -3224,6 +3582,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -3273,6 +3637,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-assessment-spec",
@@ -3324,6 +3694,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "teach"
@@ -3359,6 +3735,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "compliance-management-workflow",
@@ -3426,6 +3808,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -3466,6 +3854,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "fda-device-classification-product-code",
@@ -3518,6 +3912,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "fda-510k-predicate-strategy",
@@ -3581,6 +3981,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "fda-estar-submission-builder",
         "regulatory-evidence-traceability",
@@ -3625,6 +4031,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -3680,6 +4092,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-risk-management-iso14971",
         "quality-record-integrity",
@@ -3734,6 +4152,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -3798,6 +4222,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "fda-de-novo-strategy",
         "medical-device-risk-management-iso14971",
@@ -3842,6 +4272,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "fda-device-classification-product-code",
@@ -3894,6 +4330,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "regulated-product-context",
@@ -3952,6 +4394,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "fda-510k-substantial-equivalence",
         "fda-ivd-clia-waiver",
@@ -4006,6 +4454,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "fda-medical-device-ivd-regulatory-specialist",
         "regulatory-evidence-traceability"
@@ -4058,6 +4512,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "fda-device-classification-product-code",
@@ -4121,6 +4581,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-qms-iso13485",
@@ -4192,6 +4658,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "decision-record",
         "design-change-regulatory-impact",
@@ -4247,6 +4719,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "fda-qmsr-iso13485-gap",
         "iso13485-qms-audit",
@@ -4291,6 +4769,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-qms-iso13485",
@@ -4342,6 +4826,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -4396,6 +4886,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "fda-corrections-removals",
@@ -4452,6 +4948,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "decision-record",
         "medical-device-labeling-ifu",
@@ -4506,6 +5008,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "corporate-governance-law-specialist",
@@ -4562,6 +5070,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -4624,6 +5138,12 @@
         "userFacing": true,
         "category": "engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "communication-memory-governance",
         "frontend-design-review",
@@ -4672,6 +5192,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "frontend-design-system-context",
@@ -4734,6 +5260,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "frontend-design-system-context",
         "frontend-product-context",
@@ -4785,6 +5317,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "frontend-product-context",
@@ -4847,6 +5385,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "round-based-requirements-grilling"
       ],
@@ -4905,6 +5449,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "dispute-litigation-strategy-specialist",
@@ -4960,6 +5510,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy"
@@ -5013,6 +5569,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -5069,6 +5631,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "investigation-evidence-preservation",
@@ -5123,6 +5691,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -5179,6 +5753,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-compliance-risk-assessment",
@@ -5233,6 +5813,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -5289,6 +5875,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "german-sports-law-specialist"
       ],
@@ -5341,6 +5933,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -5404,6 +6002,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -5444,6 +6048,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "design-control-traceability",
@@ -5508,6 +6118,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "design-control-traceability",
         "medical-device-labeling-ifu",
@@ -5562,6 +6178,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agent-handoff",
@@ -5630,6 +6252,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "daily-and-weekly-review"
@@ -5676,6 +6304,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "investigation-evidence-preservation",
@@ -5751,6 +6385,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "privilege-and-counsel-routing"
@@ -5816,6 +6456,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "compliance-control-mapping",
         "legal-compliance-risk-assessment"
@@ -5877,6 +6523,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy",
@@ -5931,6 +6583,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-qms-iso13485",
@@ -6001,6 +6659,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-isms-governance",
         "two-axis-compliance-review"
@@ -6053,6 +6717,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "stable",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -6149,6 +6819,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-risk-management-iso14971",
         "regulated-product-context",
@@ -6211,6 +6887,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "ivdr-device-classification",
         "ivdr-performance-evaluation",
@@ -6256,6 +6938,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "mdcg-guidance-navigator",
@@ -6320,6 +7008,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "decision-record",
         "ivdr-device-classification",
@@ -6375,6 +7069,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "mdcg-guidance-navigator",
@@ -6433,6 +7133,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "quality-record-integrity",
         "regulated-product-context",
@@ -6486,6 +7192,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "controlled-quality-documentation",
@@ -6552,6 +7264,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "ivdr-field-safety-corrective-action",
         "mdcg-guidance-navigator",
@@ -6606,6 +7324,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -6662,6 +7386,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "ivdr-analytical-performance",
@@ -6724,6 +7454,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "ivdr-performance-evaluation",
         "mdcg-guidance-navigator",
@@ -6768,6 +7504,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "ivdr-performance-evaluation",
@@ -6823,6 +7565,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "mdcg-guidance-navigator",
@@ -6893,6 +7641,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "regulated-product-context",
         "regulatory-evidence-traceability",
@@ -6943,6 +7697,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "role-architecture"
@@ -6996,6 +7756,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "structured-knowledge-artifact"
       ],
@@ -7038,6 +7804,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "structured-knowledge-artifact"
       ],
@@ -7075,6 +7847,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agent-handoff",
@@ -7146,6 +7924,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-path-planner"
       ],
@@ -7194,6 +7978,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-content-design-system"
@@ -7244,6 +8034,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-assessment-spec"
       ],
@@ -7281,6 +8077,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-mission",
@@ -7324,6 +8126,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -7370,6 +8178,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-artifact-qa",
@@ -7433,6 +8247,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-content-design-system"
       ],
@@ -7493,6 +8313,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-content-design-system",
         "learning-visual-planner"
@@ -7543,6 +8369,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-content-design-system"
       ],
@@ -7592,6 +8424,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "exam-trainer-catalog-builder",
@@ -7634,6 +8472,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-mission",
         "learning-state"
@@ -7672,6 +8516,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "course-concept-graph"
@@ -7713,6 +8563,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "multimodal-learning-analysis"
       ],
@@ -7752,6 +8608,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "draft",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -7806,6 +8668,12 @@
         "userFacing": true,
         "category": "research-knowledge"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "multimodal-learning-analysis"
       ],
@@ -7854,6 +8722,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-content-design-system",
@@ -7905,6 +8779,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "multimodal-learning-analysis"
       ],
@@ -7946,6 +8826,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "compliance-obligation-register",
@@ -8010,6 +8896,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "research-to-evidence-note"
@@ -8070,6 +8962,12 @@
       "invocation": {
         "userFacing": true,
         "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "legal-matter-intake"
@@ -8174,6 +9072,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy",
@@ -8232,6 +9136,12 @@
       "invocation": {
         "userFacing": true,
         "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -8342,6 +9252,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "legal-compliance-risk-assessment",
         "privilege-and-counsel-routing"
@@ -8401,6 +9317,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "legal-client-strategy",
@@ -8456,6 +9378,12 @@
       "invocation": {
         "userFacing": true,
         "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -8518,6 +9446,12 @@
         "userFacing": true,
         "category": "analysis"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "legal-client-strategy",
         "legal-compliance-risk-assessment"
@@ -8570,6 +9504,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "contract-review",
@@ -8631,6 +9571,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -8697,6 +9643,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "author-voice-profiler",
         "document-generation-forensics",
@@ -8749,6 +9701,12 @@
         "userFacing": true,
         "category": "analysis"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "author-voice-profiler",
         "document-generation-forensics",
@@ -8795,6 +9753,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -8850,6 +9814,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "regulated-product-context",
@@ -8923,6 +9893,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "iso13485-qms-audit",
         "medical-device-qms-iso13485",
@@ -8976,6 +9952,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-qms-iso13485",
@@ -9031,6 +10013,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-complaint-handling",
         "regulatory-evidence-traceability"
@@ -9083,6 +10071,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "evidence-based-causal-investigation",
@@ -9158,6 +10152,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-complaint-handling",
         "quality-record-integrity",
@@ -9219,6 +10219,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-customer-contact-intake",
@@ -9303,6 +10309,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "fda-complaint-mdr-reportability",
         "ivdr-pms-vigilance",
@@ -9359,6 +10371,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "quality-record-integrity"
@@ -9424,6 +10442,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "design-control-traceability",
         "iec62304-software-lifecycle",
@@ -9478,6 +10502,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "controlled-quality-documentation",
@@ -9544,6 +10574,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-capa",
@@ -9614,6 +10650,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "controlled-quality-documentation",
         "medical-device-field-action-communication",
@@ -9676,6 +10718,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "regulated-product-context",
         "two-axis-compliance-review"
@@ -9736,6 +10784,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "medical-device-risk-management-iso14971",
@@ -9810,6 +10864,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "decision-record",
@@ -9895,6 +10955,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "regulated-product-context",
         "research-to-evidence-note",
@@ -9948,6 +11014,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "regulated-product-context",
@@ -10058,6 +11130,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "eu-mdr-ivdr-regulatory-specialist",
         "fda-medical-device-ivd-regulatory-specialist",
@@ -10113,6 +11191,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "regulated-product-context",
@@ -10283,6 +11367,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-customer-contact-intake",
         "quality-record-integrity"
@@ -10336,6 +11426,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "research-to-evidence-note"
       ],
@@ -10384,6 +11480,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "communication-memory-governance"
@@ -10436,6 +11538,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agent-handoff",
@@ -10493,6 +11601,12 @@
         "userFacing": true,
         "category": "research-knowledge"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "knowledge-map-generator"
       ],
@@ -10535,6 +11649,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-source-arbitration"
@@ -10588,6 +11708,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -10648,6 +11774,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-qms-iso13485",
         "medical-device-risk-management-iso14971",
@@ -10701,6 +11833,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "knowledge-map-generator",
@@ -10765,6 +11903,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -10815,6 +11959,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -10856,6 +12006,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "implement-from-issue",
         "iterate-software-projects",
@@ -10896,6 +12052,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -10956,6 +12118,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "iterate-software-projects"
@@ -11025,6 +12193,12 @@
         "userFacing": true,
         "category": "engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "performance-baseline"
       ],
@@ -11089,6 +12263,12 @@
         "userFacing": true,
         "category": "engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "architecture-deepening-review",
         "performance-hotspot-analysis"
@@ -11149,6 +12329,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "performance-baseline",
@@ -11212,6 +12398,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "precision-writing-revision"
       ],
@@ -11272,6 +12464,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "person-research-dossier"
       ],
@@ -11309,6 +12507,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -11397,6 +12601,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "person-profile-document-delivery",
         "person-profile-report",
@@ -11433,6 +12643,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -11480,6 +12696,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "author-voice-profiler",
@@ -11536,6 +12758,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "rewrite-fidelity-verifier"
       ],
@@ -11584,6 +12812,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "presentation-template-profiler"
@@ -11636,6 +12870,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "presentation-layout-qa"
@@ -11697,6 +12937,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "presentation-layout-qa",
@@ -11747,6 +12993,12 @@
         "userFacing": true,
         "category": "research-knowledge"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "purchase-decision-planner"
@@ -11795,6 +13047,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -11858,6 +13116,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy",
@@ -11913,6 +13177,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "legal-matter-intake"
@@ -12066,6 +13336,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "multimodal-learning-analysis"
       ],
@@ -12114,6 +13390,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "design-control-traceability",
@@ -12169,6 +13451,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "purchase-decision-planner"
@@ -12218,6 +13506,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -12269,6 +13563,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -12324,6 +13624,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "iterate-software-projects"
@@ -12386,6 +13692,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "decision-and-follow-up-tracker",
@@ -12435,6 +13747,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -12491,6 +13809,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "price-availability-snapshot",
         "product-comparison-ranking",
@@ -12546,6 +13870,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "decision-and-follow-up-tracker",
         "deferred-external-action-verification",
@@ -12599,6 +13929,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "iso13485-qms-audit",
@@ -12663,6 +13999,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "controlled-quality-documentation",
@@ -12762,6 +14104,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy",
@@ -12816,6 +14164,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -12975,6 +14329,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "decision-record",
         "regulated-product-context",
@@ -13029,6 +14389,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "regulatory-evidence-traceability",
         "research-to-evidence-note"
@@ -13081,6 +14447,12 @@
       "invocation": {
         "userFacing": true,
         "category": "regulated-engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "design-control-traceability",
@@ -13136,6 +14508,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "regulated-product-context",
@@ -13313,6 +14691,12 @@
         "userFacing": true,
         "category": "skill-system"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -13363,6 +14747,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -13480,6 +14870,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "precision-writing-revision",
@@ -13530,6 +14926,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -13590,6 +14992,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "round-based-requirements-grilling"
       ],
@@ -13634,6 +15042,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "stable",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -13691,11 +15105,160 @@
       }
     },
     {
+      "name": "skill-evaluation-suite-authoring",
+      "description": "Entwirft und prüft deterministische Skill-Evaluation-Suites aus dem normativen SKILL.md-Vertrag mit Happy Path, Edge Case, Failure Case, belastbaren Anchors und aufgezeichneten Resultaten. Verwenden intern beim Erstellen oder Aktualisieren von Skills; keine PASS-Evidenz erfinden und keine entfernten Vertragsanker testen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "skill-evaluation-suite-authoring-report.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "skill-evaluation-suite-authoring-report.json",
+          "ambiguous": false,
+          "producers": [
+            "skill-evaluation-suite-authoring"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "skill-lifecycle-migration",
+      "description": "Plant und verifiziert sichere Skill-Lifecycle-Änderungen von candidate/stable zu deprecated und späterer Entfernung, einschließlich replacedBy, Discoverability, Consumer-Migration, Output-Ownership und Compatibility-Evaluation. Verwenden bei Skill-Ablösung oder struktureller Konsolidierung; keine aktiven Consumer stillschweigend brechen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "advanced",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "skill-portfolio-audit"
+      ],
+      "dependents": [],
+      "outputs": [
+        "skill-lifecycle-migration-plan.json",
+        "skill-lifecycle-migration-plan.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "skill-lifecycle-migration-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "skill-lifecycle-migration"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "skill-lifecycle-migration-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "skill-lifecycle-migration"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "skill-portfolio-audit",
+      "description": "Analysiert das Skillz-Portfolio als Capability-System anhand von Capability Index, Dependency Graph, Evaluation Health, Lifecycle, Discoverability und Artefakt-Ownership. Verwenden für Konsolidierungs-, Redundanz-, Orphan-, Entrypoint- und Governance-Audits; keine Skills allein aufgrund semantischer Nähe löschen oder zusammenführen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "advanced",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "artifact-contract-normalizer",
+        "skill-lifecycle-migration"
+      ],
+      "outputs": [
+        "skill-portfolio-audit.json",
+        "skill-portfolio-audit.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "skill-portfolio-audit.json",
+          "ambiguous": false,
+          "producers": [
+            "skill-portfolio-audit"
+          ],
+          "consumerSkills": [
+            "artifact-contract-normalizer",
+            "skill-lifecycle-migration"
+          ]
+        },
+        {
+          "output": "skill-portfolio-audit.md",
+          "ambiguous": false,
+          "producers": [
+            "skill-portfolio-audit"
+          ],
+          "consumerSkills": [
+            "artifact-contract-normalizer",
+            "skill-lifecycle-migration"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "source-to-context",
       "description": "Normalisiert bereits geladene Quelleninhalte in einen provider-neutralen, provenance-erhaltenden Kontextvertrag mit stabilen Segmentgrenzen, Digests, Extraktionshinweisen und expliziten Datenlücken. Verwenden, wenn Web-, Datei-, OCR-, PDF-, Datenbank- oder Connector-Inhalte vor Research, Evidence-Synthese oder Knowledge-Artifacts vereinheitlicht werden sollen, ohne Retrieval oder fachliche Schlussfolgerungen zu duplizieren.",
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [],
@@ -13740,6 +15303,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "conversation-to-spec"
@@ -13805,6 +15374,12 @@
         "userFacing": true,
         "category": "analysis"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-daily-athlete-monitoring",
         "sport-microcycle-planning",
@@ -13844,6 +15419,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-adaptation-analysis",
@@ -13915,6 +15496,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "sport-athlete-management",
@@ -13931,7 +15518,8 @@
         "sport-strength-power-programming",
         "sport-testing-battery",
         "sport-training-adaptation-engine",
-        "sport-training-music"
+        "sport-training-music",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "athlete-profile.json"
@@ -13958,7 +15546,8 @@
             "sport-strength-power-programming",
             "sport-testing-battery",
             "sport-training-adaptation-engine",
-            "sport-training-music"
+            "sport-training-music",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -13978,6 +15567,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile"
@@ -14044,16 +15639,22 @@
     },
     {
       "name": "sport-diagnostics-training-report-workflow",
-      "description": "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.",
+      "description": "Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und den kanonischen One-shot-Trainingsplan bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "dr-komorowski-sport-docx-report-renderer",
         "dr-komorowski-sport-pdf-report-renderer",
         "sport-performance-diagnostics",
-        "sport-training-programming"
+        "sport-training-plan-workflow"
       ],
       "dependents": [],
       "outputs": [
@@ -14086,6 +15687,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile",
         "sport-goal-performance-model",
@@ -14094,7 +15701,8 @@
         "sport-performance-diagnostics"
       ],
       "dependents": [
-        "sport-athlete-management"
+        "sport-athlete-management",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "endurance-plan.json"
@@ -14107,7 +15715,8 @@
             "sport-endurance-programming"
           ],
           "consumerSkills": [
-            "sport-athlete-management"
+            "sport-athlete-management",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14127,6 +15736,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile",
@@ -14168,6 +15783,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile"
       ],
@@ -14177,7 +15798,8 @@
         "sport-performance-psychology",
         "sport-season-periodization",
         "sport-strength-power-programming",
-        "sport-testing-battery"
+        "sport-testing-battery",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "sport-performance-model.json"
@@ -14195,7 +15817,8 @@
             "sport-performance-psychology",
             "sport-season-periodization",
             "sport-strength-power-programming",
-            "sport-testing-battery"
+            "sport-testing-battery",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14215,6 +15838,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile",
@@ -14255,6 +15884,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring"
@@ -14294,6 +15929,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-season-periodization"
       ],
@@ -14302,7 +15943,8 @@
         "sport-endurance-programming",
         "sport-microcycle-planning",
         "sport-nutrition-fueling",
-        "sport-strength-power-programming"
+        "sport-strength-power-programming",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "sport-mesocycle.json"
@@ -14319,7 +15961,8 @@
             "sport-endurance-programming",
             "sport-microcycle-planning",
             "sport-nutrition-fueling",
-            "sport-strength-power-programming"
+            "sport-strength-power-programming",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14340,6 +15983,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-mesocycle-planning"
       ],
@@ -14352,7 +16001,8 @@
         "sport-performance-psychology",
         "sport-strength-power-programming",
         "sport-training-adaptation-engine",
-        "sport-training-music"
+        "sport-training-music",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "sport-microcycle.json"
@@ -14373,7 +16023,8 @@
             "sport-performance-psychology",
             "sport-strength-power-programming",
             "sport-training-adaptation-engine",
-            "sport-training-music"
+            "sport-training-music",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14393,6 +16044,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile",
@@ -14446,11 +16103,18 @@
         "userFacing": true,
         "category": "research-knowledge"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "sport-adaptation-analysis",
         "sport-diagnostics-training-report-workflow",
-        "sport-endurance-programming"
+        "sport-endurance-programming",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "sport-diagnostics.json"
@@ -14465,7 +16129,8 @@
           "consumerSkills": [
             "sport-adaptation-analysis",
             "sport-diagnostics-training-report-workflow",
-            "sport-endurance-programming"
+            "sport-endurance-programming",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14485,6 +16150,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile",
@@ -14525,6 +16196,12 @@
       "invocation": {
         "userFacing": true,
         "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile",
@@ -14567,6 +16244,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring"
@@ -14606,13 +16289,20 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-goal-performance-model"
       ],
       "dependents": [
         "sport-athlete-management",
         "sport-mesocycle-planning",
-        "sport-testing-battery"
+        "sport-testing-battery",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "sport-season-plan.json"
@@ -14627,7 +16317,8 @@
           "consumerSkills": [
             "sport-athlete-management",
             "sport-mesocycle-planning",
-            "sport-testing-battery"
+            "sport-testing-battery",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14648,6 +16339,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile",
         "sport-goal-performance-model",
@@ -14655,7 +16352,8 @@
         "sport-microcycle-planning"
       ],
       "dependents": [
-        "sport-athlete-management"
+        "sport-athlete-management",
+        "sport-training-plan-workflow"
       ],
       "outputs": [
         "strength-power-plan.json"
@@ -14668,7 +16366,8 @@
             "sport-strength-power-programming"
           ],
           "consumerSkills": [
-            "sport-athlete-management"
+            "sport-athlete-management",
+            "sport-training-plan-workflow"
           ]
         }
       ],
@@ -14688,6 +16387,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "sport-athlete-profile",
@@ -14729,6 +16434,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
@@ -14769,6 +16480,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "sport-athlete-profile",
         "sport-microcycle-planning"
@@ -14802,15 +16519,31 @@
       }
     },
     {
-      "name": "sport-training-programming",
-      "description": "Erstellt aus Zieltermin, Leistungsstand, Trainingshistorie, Kraftwerten, verfügbaren Einheiten und Belastungsgrenzen einen periodisierten Sporttrainingsplan mit konkreten Übungen, Sätzen, Wiederholungen, RIR/Prozentlast, Pausen, Ausdauerzonen, Progression und Taper. Verwenden, wenn aus Diagnostik oder Zielsetzung ein ausführbarer Wochenplan entstehen soll; nicht als medizinische Rehabilitationsfreigabe.",
+      "name": "sport-training-plan-workflow",
+      "description": "Orchestriert einen einmaligen ausführbaren Trainingsplan aus Athletenprofil, Ziel-/Performance-Modell, Saison-/Meso-/Mikroplanung und den spezialisierten Kraft-/Power- und Ausdauer-Prescriptions. Verwenden für konkrete Wochen-/Blockpläne ohne longitudinalen Athlete-Management-State; Fachlogik bleibt in den spezialisierten Sport-Skills.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
-      "requires": [],
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "sport-athlete-profile",
+        "sport-endurance-programming",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-performance-diagnostics",
+        "sport-season-periodization",
+        "sport-strength-power-programming"
+      ],
       "dependents": [
-        "sport-diagnostics-training-report-workflow"
+        "sport-diagnostics-training-report-workflow",
+        "sport-training-programming"
       ],
       "outputs": [
         "sport-training-plan.json"
@@ -14820,11 +16553,52 @@
           "output": "sport-training-plan.json",
           "ambiguous": false,
           "producers": [
-            "sport-training-programming"
+            "sport-training-plan-workflow"
           ],
           "consumerSkills": [
-            "sport-diagnostics-training-report-workflow"
+            "sport-diagnostics-training-report-workflow",
+            "sport-training-programming"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "sport-training-programming",
+      "description": "Deprecated Compatibility-Fassade für frühere Aufrufe des monolithischen Sport-Trainingsprogrammierers. Übersetzt Legacy-Inputs in den kanonischen sport-training-plan-workflow und referenziert dessen sport-training-plan.json, ohne Kraft-, Ausdauer- oder Periodisierungslogik erneut zu besitzen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "deprecated",
+        "discoverability": "compatibility",
+        "replacedBy": "sport-training-plan-workflow",
+        "deprecatedSince": "2026-08-28"
+      },
+      "requires": [
+        "sport-training-plan-workflow"
+      ],
+      "dependents": [],
+      "outputs": [
+        "sport-training-programming-compatibility-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "sport-training-programming-compatibility-run.json",
+          "ambiguous": false,
+          "producers": [
+            "sport-training-programming"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -14843,6 +16617,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [
@@ -14900,6 +16680,12 @@
         "userFacing": true,
         "category": "regulated-engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "medical-device-qms-iso13485",
         "medical-device-risk-management-iso14971",
@@ -14954,6 +16740,12 @@
         "userFacing": false,
         "category": null
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [],
       "outputs": [
@@ -15004,6 +16796,12 @@
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "current-law-context",
@@ -15068,6 +16866,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "draft",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "exam-trainer-catalog-builder",
         "exam-trainer-result-import",
@@ -15108,6 +16912,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "technology-offer-assessment"
@@ -15160,6 +16970,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -15243,6 +17059,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "document-layout-qa",
         "document-render-verifier",
@@ -15305,6 +17127,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "presentation-language-rewriter",
@@ -15372,6 +17200,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "disciplined-diagnosis",
@@ -15450,6 +17284,12 @@
         "userFacing": true,
         "category": "productivity"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [],
       "dependents": [
         "thought-graph-extractor",
@@ -15499,6 +17339,12 @@
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "structured-knowledge-artifact",
@@ -15560,6 +17406,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "knowledge-map-generator",
@@ -15625,6 +17477,12 @@
         "userFacing": true,
         "category": "engineering"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "agent-handoff",
         "disciplined-diagnosis",
@@ -15680,6 +17538,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "legal-client-strategy",
@@ -15734,6 +17598,12 @@
       "invocation": {
         "userFacing": true,
         "category": "engineering"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "agent-handoff",
@@ -15828,6 +17698,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "research-to-evidence-note"
@@ -15945,6 +17821,12 @@
         "userFacing": true,
         "category": "legal-specialist"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "current-law-context",
         "privilege-and-counsel-routing"
@@ -16007,6 +17889,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "course-concept-graph",
         "learning-activity-generator",
@@ -16055,6 +17943,12 @@
       "invocation": {
         "userFacing": true,
         "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [
         "learning-delivery-workflow",
@@ -16110,6 +18004,12 @@
         "userFacing": true,
         "category": "workflow"
       },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
       "requires": [
         "learning-delivery-workflow",
         "learning-source-arbitration",
@@ -16150,6 +18050,12 @@
       "invocation": {
         "userFacing": false,
         "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
       },
       "requires": [],
       "dependents": [

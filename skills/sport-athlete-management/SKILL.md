@@ -4,7 +4,7 @@ description: Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athlet
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.3.0
+version: 0.3.1
 status: candidate
 owners:
   - GithubLarsKomo
@@ -43,7 +43,7 @@ Koordiniere die Sport-Skills als persistenten Regelkreis. Strukturierte Artefakt
 
 Nutze diesen Orchestrator, wenn nicht nur ein einmaliger Trainingsplan, sondern fortlaufende Zielsetzung, Planung, tägliche Rückmeldung und Anpassung verlangt werden.
 
-Für reine Testauswertung weiterhin `sport-performance-diagnostics`; für einen einmaligen Plan kann `sport-training-programming` direkt verwendet werden.
+Für reine Testauswertung weiterhin `sport-performance-diagnostics`; für einen einmaligen Plan `sport-training-plan-workflow` verwenden. `sport-training-programming` bleibt nur als explizite Compatibility-Fassade für Legacy-Aufrufer erhalten.
 
 ## Voraussetzungen
 

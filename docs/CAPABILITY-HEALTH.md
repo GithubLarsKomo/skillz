@@ -4,19 +4,22 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **275**
-- User-facing entrypoints: **229**
-- Evaluation suites: **275**
+- Skills: **280**
+- User-facing entrypoints: **231**
+- Discoverability — public: **229**, advanced: **2**, internal: **47**, compatibility: **2**
+- Evaluation suites: **280**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **275/275**
-- User-facing entrypoints with evaluation suite: **229/229**
+- Skills with evaluation suite: **280/280**
+- User-facing entrypoints with evaluation suite: **231/231**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **264**
+- Outputs without inferred hard-requires consumers: **269**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
+
+Discoverability is resolved independently from lifecycle: `public` and `advanced` are user-facing; `internal` is composition-only; `compatibility` is deprecated explicit-use-only surface.
 
 ## Evaluation gaps
 
@@ -40,6 +43,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
 - `antitrust-risk-gates.json` — producer: `competition-antitrust-law-specialist`
+- `artifact-contract-normalization.json` — producer: `artifact-contract-normalizer`
 - `association-governance-map.json` — producer: `german-association-law-specialist`
 - `association-law-open-points.json` — producer: `german-association-law-specialist`
 - `athlete-management-state.json` — producer: `sport-athlete-management`
@@ -272,9 +276,13 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`
+- `skill-evaluation-suite-authoring-report.json` — producer: `skill-evaluation-suite-authoring`
+- `skill-lifecycle-migration-plan.json` — producer: `skill-lifecycle-migration`
+- `skill-lifecycle-migration-plan.md` — producer: `skill-lifecycle-migration`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
 - `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`
+- `sport-training-programming-compatibility-run.json` — producer: `sport-training-programming`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
 - `succession-professional-work-orders.json` — producer: `german-inheritance-succession-law-specialist`

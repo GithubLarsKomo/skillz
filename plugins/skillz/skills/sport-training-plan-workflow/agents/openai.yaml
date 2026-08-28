@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sport Training Plan Workflow"
+  short_description: "Orchestriert einen einmaligen ausführbaren Trainingsplan aus Athletenprofil, Ziel-/Performance-Modell, Saison-/Meso-/..."
+policy:
+  allow_implicit_invocation: true

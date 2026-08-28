@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "artifact-contract-normalizer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "keep ambiguity explicit until fachliche ownership is resolved",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this failure-case contract behavior: keep ambiguity explicit until fachliche ownership is resolved."
+    },
+    {
+      "behavior": "reject consumer edges without evidence",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this failure-case contract behavior: reject consumer edges without evidence."
+    },
+    {
+      "behavior": "avoid random producer selection",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this failure-case contract behavior: avoid random producer selection."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent producer or consumer relationships",
+      "observed": false,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this failure-case contract behavior: invent producer or consumer relationships."
+    }
+  ],
+  "overall": "pass"
+}

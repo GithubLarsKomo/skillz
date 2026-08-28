@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-lifecycle-migration",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Replace an old monolithic workflow with a new canonical orchestrator while preserving explicit legacy callers.",
+      "requiredBehaviors": [
+        "migrate active internal consumers before deprecating the old skill",
+        "move canonical artifact ownership to exactly one replacement producer",
+        "set explicit compatibility lifecycle metadata and a compatibility evaluation"
+      ],
+      "forbiddenBehaviors": [
+        "remove the old skill while active consumers still depend on it"
+      ],
+      "skillAnchors": [
+        "Consumer migrieren",
+        "Ownership migrieren",
+        "Deprecation setzen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "No internal dependents remain, but an unknown external automation may still call the old skill name.",
+      "requiredBehaviors": [
+        "retain a compatibility facade when external consumer status is unknown",
+        "document migration uncertainty",
+        "keep replacement artifact ownership with the canonical producer"
+      ],
+      "forbiddenBehaviors": [
+        "assume external consumers do not exist and delete immediately"
+      ],
+      "skillAnchors": [
+        "Externer Consumer unbekannt",
+        "Compatibility-Fassade erhalten"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A deprecated skill still has an active consumer and declares the same canonical output as its replacement.",
+      "requiredBehaviors": [
+        "block removal while active consumers remain",
+        "remove duplicate canonical output ownership from the facade",
+        "migrate the consumer to the replacement first"
+      ],
+      "forbiddenBehaviors": [
+        "allow duplicate producer ownership during deprecation"
+      ],
+      "skillAnchors": [
+        "Aktiver Consumer verbleibt",
+        "Output würde doppelt produziert"
+      ]
+    }
+  ]
+}

@@ -34,6 +34,7 @@ Spezialisiert Kraft- und Schnellkrafttraining für sportliche Leistung mit Hyper
 ## Required by
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Outputs
 
@@ -44,6 +45,7 @@ Spezialisiert Kraft- und Schnellkrafttraining für sportliche Leistung mit Hyper
 ### `strength-power-plan.json`
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Evaluation
 

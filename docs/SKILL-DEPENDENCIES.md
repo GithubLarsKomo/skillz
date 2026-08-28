@@ -9,6 +9,7 @@ graph TD
   agreement_type_analysis --> legal_client_strategy
   architecture_deepening_review --> disciplined_diagnosis
   architecture_deepening_review --> iterate_software_projects
+  artifact_contract_normalizer --> skill_portfolio_audit
   audit_inspection_finding_response --> decision_record
   audit_inspection_finding_response --> regulatory_evidence_traceability
   biopatent_deep_analysis --> patent_landscape_analysis
@@ -522,6 +523,7 @@ graph TD
   regulatory_evidence_traceability --> regulated_product_context
   regulatory_evidence_traceability --> research_to_evidence_note
   role_requirements_grilling --> round_based_requirements_grilling
+  skill_lifecycle_migration --> skill_portfolio_audit
   spec_to_vertical_issues --> conversation_to_spec
   sport_adaptation_analysis --> sport_daily_athlete_monitoring
   sport_adaptation_analysis --> sport_microcycle_planning
@@ -549,7 +551,7 @@ graph TD
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_docx_report_renderer
   sport_diagnostics_training_report_workflow --> dr_komorowski_sport_pdf_report_renderer
   sport_diagnostics_training_report_workflow --> sport_performance_diagnostics
-  sport_diagnostics_training_report_workflow --> sport_training_programming
+  sport_diagnostics_training_report_workflow --> sport_training_plan_workflow
   sport_endurance_programming --> sport_athlete_profile
   sport_endurance_programming --> sport_goal_performance_model
   sport_endurance_programming --> sport_mesocycle_planning
@@ -589,6 +591,15 @@ graph TD
   sport_training_adaptation_engine --> sport_microcycle_planning
   sport_training_music --> sport_athlete_profile
   sport_training_music --> sport_microcycle_planning
+  sport_training_plan_workflow --> sport_athlete_profile
+  sport_training_plan_workflow --> sport_endurance_programming
+  sport_training_plan_workflow --> sport_goal_performance_model
+  sport_training_plan_workflow --> sport_mesocycle_planning
+  sport_training_plan_workflow --> sport_microcycle_planning
+  sport_training_plan_workflow --> sport_performance_diagnostics
+  sport_training_plan_workflow --> sport_season_periodization
+  sport_training_plan_workflow --> sport_strength_power_programming
+  sport_training_programming --> sport_training_plan_workflow
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -723,10 +734,11 @@ graph TD
 | `antitrust-risk-gates.json` | `competition-antitrust-law-specialist` | — | unconsumed |
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
+| `artifact-contract-normalization.json` | `artifact-contract-normalizer` | — | unconsumed |
 | `association-governance-map.json` | `german-association-law-specialist` | — | unconsumed |
 | `association-law-open-points.json` | `german-association-law-specialist` | — | unconsumed |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
-| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
+| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | inferred |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `author-voice-profile.json` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
 | `author-voice-profile.md` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
@@ -898,7 +910,7 @@ graph TD
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `due-diligence-handoff.json` | `technology-due-diligence` | — | unconsumed |
 | `employment-action-gates.json` | `german-employment-labor-law-specialist` | — | unconsumed |
-| `endurance-plan.json` | `sport-endurance-programming` | `sport-athlete-management` | inferred |
+| `endurance-plan.json` | `sport-endurance-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | inferred |
 | `energy-availability-risk.json` | `sport-nutrition-fueling` | `sport-athlete-management` | inferred |
 | `engineering-closure-gaps.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-delivery-status.json` | `engineering-delivery-followup` | — | unconsumed |
@@ -1301,6 +1313,11 @@ graph TD
 | `service-complaint-handoff.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
 | `service-event-quality-record.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
 | `service-quality-routing.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
+| `skill-evaluation-suite-authoring-report.json` | `skill-evaluation-suite-authoring` | — | unconsumed |
+| `skill-lifecycle-migration-plan.json` | `skill-lifecycle-migration` | — | unconsumed |
+| `skill-lifecycle-migration-plan.md` | `skill-lifecycle-migration` | — | unconsumed |
+| `skill-portfolio-audit.json` | `skill-portfolio-audit` | `artifact-contract-normalizer`, `skill-lifecycle-migration` | inferred |
+| `skill-portfolio-audit.md` | `skill-portfolio-audit` | `artifact-contract-normalizer`, `skill-lifecycle-migration` | inferred |
 | `skills/<skill-name>/SKILL.md` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
 | `software-evidence-gaps.json` | `iec62304-software-lifecycle` | `medical-device-cybersecurity-lifecycle` | inferred |
 | `software-lifecycle-assessment.json` | `iec62304-software-lifecycle` | `medical-device-cybersecurity-lifecycle` | inferred |
@@ -1309,20 +1326,21 @@ graph TD
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
 | `sport-adaptation-analysis.json` | `sport-adaptation-analysis` | `sport-athlete-management` | inferred |
-| `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-adaptation-analysis`, `sport-diagnostics-training-report-workflow`, `sport-endurance-programming` | inferred |
+| `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-adaptation-analysis`, `sport-diagnostics-training-report-workflow`, `sport-endurance-programming`, `sport-training-plan-workflow` | inferred |
 | `sport-fueling-plan.json` | `sport-nutrition-fueling` | `sport-athlete-management` | inferred |
-| `sport-mesocycle.json` | `sport-mesocycle-planning` | `sport-athlete-management`, `sport-endurance-programming`, `sport-microcycle-planning`, `sport-nutrition-fueling`, `sport-strength-power-programming` | inferred |
-| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-endurance-programming`, `sport-environment-travel`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-strength-power-programming`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
-| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-endurance-programming`, `sport-performance-psychology`, `sport-season-periodization`, `sport-strength-power-programming`, `sport-testing-battery` | inferred |
+| `sport-mesocycle.json` | `sport-mesocycle-planning` | `sport-athlete-management`, `sport-endurance-programming`, `sport-microcycle-planning`, `sport-nutrition-fueling`, `sport-strength-power-programming`, `sport-training-plan-workflow` | inferred |
+| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-endurance-programming`, `sport-environment-travel`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-strength-power-programming`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | inferred |
+| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-endurance-programming`, `sport-performance-psychology`, `sport-season-periodization`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-plan-workflow` | inferred |
 | `sport-report-package` | `sport-diagnostics-training-report-workflow` | — | unconsumed |
-| `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning`, `sport-testing-battery` | inferred |
+| `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning`, `sport-testing-battery`, `sport-training-plan-workflow` | inferred |
 | `sport-testing-plan.json` | `sport-testing-battery` | `sport-athlete-management` | inferred |
-| `sport-training-plan.json` | `sport-training-programming` | `sport-diagnostics-training-report-workflow` | inferred |
+| `sport-training-plan.json` | `sport-training-plan-workflow` | `sport-diagnostics-training-report-workflow`, `sport-training-programming` | inferred |
+| `sport-training-programming-compatibility-run.json` | `sport-training-programming` | — | unconsumed |
 | `sports-law-route-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `sports-rule-binding-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
-| `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management` | inferred |
+| `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | inferred |
 | `structured thought artifacts` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
 | `submission-readiness.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |

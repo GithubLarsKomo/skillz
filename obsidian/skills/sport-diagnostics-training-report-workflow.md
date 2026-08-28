@@ -16,7 +16,7 @@ tags:
 
 # sport-diagnostics-training-report-workflow
 
-Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.
+Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und den kanonischen One-shot-Trainingsplan bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -29,7 +29,7 @@ Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
 - [[skills/dr-komorowski-sport-pdf-report-renderer|dr-komorowski-sport-pdf-report-renderer]]
 - [[skills/sport-performance-diagnostics|sport-performance-diagnostics]]
-- [[skills/sport-training-programming|sport-training-programming]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Required by
 

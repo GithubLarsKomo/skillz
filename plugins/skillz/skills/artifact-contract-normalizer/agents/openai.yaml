@@ -1,0 +1,5 @@
+interface:
+  display_name: "Artifact Contract Normalizer"
+  short_description: "Analysiert und normalisiert Skill-Artefaktverträge für eindeutige Producer-Ownership, explizite consumes-Beziehungen,..."
+policy:
+  allow_implicit_invocation: true

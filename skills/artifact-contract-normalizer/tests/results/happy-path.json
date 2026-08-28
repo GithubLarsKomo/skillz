@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "artifact-contract-normalizer",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "identify the actual producing worker",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this happy-path contract behavior: identify the actual producing worker."
+    },
+    {
+      "behavior": "remove duplicate orchestrator ownership while retaining references",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this happy-path contract behavior: remove duplicate orchestrator ownership while retaining references."
+    },
+    {
+      "behavior": "document consumer evidence separately from producer ownership",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this happy-path contract behavior: document consumer evidence separately from producer ownership."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "assign ownership to every skill that references the artifact",
+      "observed": false,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this happy-path contract behavior: assign ownership to every skill that references the artifact."
+    }
+  ],
+  "overall": "pass"
+}

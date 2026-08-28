@@ -1,0 +1,5 @@
+interface:
+  display_name: "Skill Lifecycle Migration"
+  short_description: "Plant und verifiziert sichere Skill-Lifecycle-Änderungen von candidate/stable zu deprecated und späterer Entfernung,..."
+policy:
+  allow_implicit_invocation: true
