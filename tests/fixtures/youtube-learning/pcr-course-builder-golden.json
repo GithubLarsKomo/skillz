@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "courseId": "pcr-foundations-and-qpcr-extension",
+  "title": "PCR verstehen: vom Zyklus zur qPCR-Erweiterung",
+  "audience": "professional",
+  "language": "de",
+  "courseDepth": "standard",
+  "pathMode": "standard",
+  "sourceSet": [
+    {"sourceId": "S1", "youtubeVideoId": "Q2847XA-Rfk", "role": "foundation"},
+    {"sourceId": "S2", "youtubeVideoId": "rpLSvEbOmqc", "role": "extension"}
+  ],
+  "assumedPrerequisites": ["DNA-Grundstruktur", "Basenpaarung"],
+  "graph": {
+    "mustBeAcyclic": true,
+    "requiredRelations": ["prerequisite-of", "variant-of", "applies-to"],
+    "forbiddenBasis": "playlist-order-alone"
+  },
+  "modules": [
+    {
+      "moduleId": "M1",
+      "state": "foundation",
+      "title": "PCR-Ziel und Reaktionslogik",
+      "competencePromise": "Zweck und benötigte Komponenten einer PCR erklären",
+      "objectives": ["LO1", "LO2"],
+      "exitCriteria": ["PCR-Zweck erklären", "Template, Primer, Polymerase und Nukleotide funktional zuordnen"]
+    },
+    {
+      "moduleId": "M2",
+      "state": "core",
+      "title": "Der PCR-Zyklus",
+      "competencePromise": "Denaturierung, Annealing und Extension in richtiger Reihenfolge und Funktion erklären",
+      "objectives": ["LO3", "LO4"],
+      "prerequisites": ["M1"],
+      "exitCriteria": ["Drei Phasen korrekt sequenzieren", "Rolle der Temperaturänderungen erklären"]
+    },
+    {
+      "moduleId": "M3",
+      "state": "application",
+      "title": "Amplifikation und Interpretation",
+      "competencePromise": "Zykluswiederholung und idealisierte Amplifikation fachlich qualifiziert interpretieren",
+      "objectives": ["LO5"],
+      "prerequisites": ["M2"],
+      "exitCriteria": ["2^n als idealisiertes Modell erklären", "ideale und reale Amplifikation unterscheiden"]
+    },
+    {
+      "moduleId": "M4",
+      "state": "variant",
+      "title": "qPCR als quantitative Erweiterung",
+      "competencePromise": "qPCR vom klassischen PCR-Kern abgrenzen und Ct-basierte Quantifizierung einordnen",
+      "objectives": ["LO6", "LO7"],
+      "prerequisites": ["M2"],
+      "sourceScope": ["S2"],
+      "exitCriteria": ["qPCR als Erweiterung statt Konsens-Kern kennzeichnen", "Ct-Wert konzeptionell einordnen"]
+    }
+  ],
+  "learningObjectives": {
+    "LO1": "den Zweck der PCR erklären",
+    "LO2": "zentrale Reaktionskomponenten funktional zuordnen",
+    "LO3": "Denaturierung, Annealing und Extension korrekt sequenzieren",
+    "LO4": "die Funktion der drei Zyklusphasen erklären",
+    "LO5": "idealisierte exponentielle Amplifikation von realer Ausbeute unterscheiden",
+    "LO6": "klassische PCR und qPCR hinsichtlich Zielsetzung unterscheiden",
+    "LO7": "Ct als qPCR-spezifisches Auswertungskonzept einordnen"
+  },
+  "knowledgeChecks": {
+    "minimumCheckpointCount": 4,
+    "mustMapToObjectives": true,
+    "mustMapToEvidence": true,
+    "psychometricallyValidated": false,
+    "certification": false,
+    "inventedPassMarkAllowed": false,
+    "conflictedClaimSingleAnswerAllowed": false
+  },
+  "pathRules": {
+    "playlistOrderBinding": false,
+    "fastTrackRequiresEntryCheck": true,
+    "requiredPrerequisitesCannotBeSkipped": true,
+    "specializedBeforeFoundationAllowed": false
+  },
+  "designAuthority": [
+    "docs/learning-content/DESIGN.md",
+    "docs/learning-content/multi-source/DESIGN.md",
+    "docs/learning-content/course/DESIGN.md"
+  ],
+  "requestedFormats": ["html", "pptx", "docx", "pdf"],
+  "acceptance": {
+    "sameCourseFingerprintAcrossFormats": true,
+    "requiredModulesHaveExitCriteria": true,
+    "fakeProgressMetricsAllowed": false,
+    "hybridProtocolAllowed": false,
+    "unresolvedCritical": 0,
+    "unresolvedMajor": 0
+  }
+}
