@@ -4,7 +4,7 @@ generated: true
 name: "presentation-layout-qa"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -53,7 +53,7 @@ Prüft PowerPoint-Folien strukturell und kompositorisch auf Text-/Box-Overflow, 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 
