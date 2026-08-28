@@ -1,57 +1,59 @@
 {
   "schemaVersion": 1,
   "skill": "dr-komorowski-sport-report-renderer",
+  "compatibilityMode": true,
   "cases": [
     {
       "id": "happy-path",
-      "input": "Rendere einen bereits finalisierten Schnellkraft- und Taperplan als professionelles PDF im Dr.-Komorowski-Stil.",
+      "input": "Reproduce an older Dr.-Komorowski report explicitly through the historical ReportLab direct-PDF path.",
       "requiredBehaviors": [
-        "kanonisches Vektorlogo und Theme verwenden",
-        "A4 mit konsistenten Headern, Footern, Tabellen und Callouts erzeugen",
-        "PDF nach dem Rendern visuell prüfen"
+        "require explicit legacy selection",
+        "preserve the historical ReportLab layout path and available vector assets",
+        "visually verify the rendered PDF page by page"
       ],
       "forbiddenBehaviors": [
-        "fachliche Lastwerte still ändern",
-        "Logo als unscharfes Rasterbild nachbauen"
+        "select the legacy renderer automatically for a new report",
+        "introduce a new fachliche interpretation while rendering"
       ],
       "skillAnchors": [
-        "Inhalt einfrieren",
-        "Designstandard",
-        "Visuell verifizieren"
+        "explizit als Legacy-Pfad ausgewählt",
+        "historische ReportLab-Layoutlogik",
+        "visuell seitenweise prüfen"
       ]
     },
     {
       "id": "edge-case",
-      "input": "Eine Tabelle hat sechs Spalten und lange Erläuterungstexte, die bei Standardbreite aus der Seite laufen würden.",
+      "input": "A caller explicitly selects the legacy renderer, but the supplied report spec belongs to the new DOCX-first report model.",
       "requiredBehaviors": [
-        "Spaltenbreiten und Umbruch anpassen oder logisch teilen",
-        "A4-Grenzen erhalten",
-        "erneut visuell rendern und prüfen"
+        "recognize the incompatible new report specification",
+        "route the case to the canonical DOCX-first renderer path",
+        "avoid mixing modern DOCX template rules into historical ReportLab reproduction"
       ],
       "forbiddenBehaviors": [
-        "Text außerhalb der Seite akzeptieren",
-        "Schrift unlesbar klein skalieren"
+        "force an incompatible new report through the legacy renderer",
+        "silently modernize the legacy output path"
       ],
       "skillAnchors": [
-        "Zu breite Tabelle",
-        "Visuell verifizieren"
+        "Nicht kompatibler neuer Report-Spec",
+        "keine modernen DOCX-Template-Regeln einmischen"
       ]
     },
     {
       "id": "failure-case",
-      "input": "Beim Rendern ist DejaVu Sans nicht installiert und eine Fontdatei aus einem Systemverzeichnis könnte in den Skill kopiert werden.",
+      "input": "Historical brand assets are missing and the PDF render has visible defects, but a replacement logo could be invented to finish the legacy report.",
       "requiredBehaviors": [
-        "Helvetica-Fallback verwenden oder lokalen Font korrekt auflösen",
-        "keine Fontdatei weitergeben",
-        "PDF trotzdem auf Glyphenprobleme prüfen"
+        "report missing historical assets instead of inventing replacement branding",
+        "reject a successful result while render defects remain",
+        "preserve the migration path to the canonical DOCX-first workflow"
       ],
       "forbiddenBehaviors": [
-        "Fontdateien in assets einbetten",
-        "Rendering-Erfolg ohne Sichtprüfung behaupten"
+        "invent corporate or brand assets to simulate historical fidelity",
+        "claim successful rendering before visual verification passes"
       ],
       "skillAnchors": [
-        "Font nicht vorhanden",
-        "Keine Fontdateien"
+        "Fehlende historische Assets",
+        "Renderfehler",
+        "DOCX-first-Pfad"
       ]
     }
   ]
