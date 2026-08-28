@@ -3,7 +3,6 @@ name: learning-source-arbitration
 description: Bewertet mehrere Lernquellen hinsichtlich Unabhängigkeit, Autorität, Aktualität, Evidenznähe und gegenseitiger Bestätigung, ohne Mehrheitsvoten mit Wahrheit gleichzusetzen. Verwenden vor Multi-Video-Synthesen, wenn Claims zwischen Quellen konsolidiert oder Konflikte transparent eingeordnet werden müssen.
 userFacing: false
 implicitInvocation: true
-category: research-knowledge
 version: 0.1.0
 status: candidate
 owners:
