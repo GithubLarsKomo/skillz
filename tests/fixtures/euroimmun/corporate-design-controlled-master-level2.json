@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "id": "euroimmun-corporate-controlled-master-level2",
+  "level": 2,
+  "name": "Controlled Master Golden Reference",
+  "purpose": "Higher-fidelity EUROIMMUN presentation certification against the real controlled PowerPoint binary master",
+  "designContract": "docs/corporate/euroimmun/DESIGN.md",
+  "policy": "docs/corporate/euroimmun/GOLDEN_REFERENCE.md",
+  "activeReference": "docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md",
+  "status": "LEVEL_2_PASS",
+  "activation": {
+    "requiredWhen": [
+      "a controlled or confirmed EUROIMMUN PowerPoint binary master is available in the execution context",
+      "the output is claimed to be template-derived",
+      "the output is claimed to preserve controlled master, layout, logo or footer behavior",
+      "pixel/template parity or controlled-template verification is claimed"
+    ],
+    "mustNotPassWithoutBinaryMaster": true,
+    "repositoryStorageOfProprietaryMaster": false
+  },
+  "masterEvidence": {
+    "runtimeBinaryRequired": true,
+    "sha256Required": true,
+    "preferredCurrentReferenceName": "260828 NDD Review.pptx",
+    "preferredCurrentReferenceSha256": "349e5599ee0c1876a474057ec659244e0f37dd39d65636d2042b7eee46bab02e",
+    "preferredCurrentReferenceStatus": "confirmed-reference-binary",
+    "historicalReferenceName": "260610 Innovation Topics.pptx",
+    "historicalReferenceSha256": "a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2",
+    "approvedMasterSha256": null,
+    "approvedMasterIdentityMustBeRecordedAtRunTime": true,
+    "masterLayoutInventoryRequired": true,
+    "themeInventoryRequired": true,
+    "logoFooterFingerprintRequired": true,
+    "fontInventoryRequired": true
+  },
+  "certifiedRun": {
+    "runDate": "2026-08-28",
+    "sourceBinary": {
+      "filename": "260828 NDD Review.pptx",
+      "sha256": "349e5599ee0c1876a474057ec659244e0f37dd39d65636d2042b7eee46bab02e",
+      "templateStatus": "confirmed-reference-binary",
+      "slides": 12,
+      "slideSizeInches": [13.3333333333, 7.5],
+      "masters": 3,
+      "visibleLayouts": 51,
+      "themes": 4,
+      "primaryTheme": {
+        "majorFont": "Hanken Grotesk Light",
+        "minorFont": "Hanken Grotesk",
+        "colors": {
+          "dk1": "#000000",
+          "lt1": "#FFFFFF",
+          "dk2": "#7F7F7F",
+          "lt2": "#FFEB0F",
+          "accent1": "#208528",
+          "accent2": "#7F03B0",
+          "accent3": "#148087",
+          "accent4": "#C94D00",
+          "accent5": "#9E306E",
+          "accent6": "#000000"
+        }
+      }
+    },
+    "derivedArtifact": {
+      "repositoryStored": false,
+      "filename": "euroimmun_neuro_24h_level2_template_derived.pptx",
+      "sha256": "5308f30c30f99288f6e192a9e49dd13125d6780649cfd6307a8ef43041d1fa7d",
+      "derivation": "template-derived",
+      "slides": 7,
+      "layoutsUsed": [
+        "Title Slide 05",
+        "Section Header 03",
+        "Title + 2 Column Content",
+        "Titel und Inhalt",
+        "Charts: Title and Content 02",
+        "Content 02 Euroimmun",
+        "Title Only"
+      ],
+      "outOfBoundsObjects": 0
+    },
+    "renderEvidence": {
+      "slideCoverage": "7/7",
+      "presentationPdfCoverage": "7/7",
+      "pdfParity": "PASS",
+      "masterOwnedPixelParity": {
+        "coverTopLogo": "100% exact",
+        "coverBottomBrand": "100% exact",
+        "coverRightArtwork": "100% exact",
+        "contentFooterLeft": "100% exact",
+        "contentFooterCenter": "100% exact",
+        "contentFooterRule": "100% exact"
+      }
+    },
+    "findings": {
+      "critical": 0,
+      "major": 0,
+      "warningIds": [
+        "FONT-RUNTIME-001",
+        "TEMPLATE-STATUS-001",
+        "THEME-PALETTE-001"
+      ]
+    },
+    "corporateDesignGate": "PASS",
+    "goldenReferenceLevel": "LEVEL_2_PASS"
+  },
+  "requiredArchetypes": [
+    "corporate cover",
+    "section header",
+    "standard analytical content slide",
+    "two-column comparison slide",
+    "figure plus bullets plus conclusion slide",
+    "table or portfolio comparison slide",
+    "visual-heavy or custom diagram slide"
+  ],
+  "requiredChecks": {
+    "sourceSha256": true,
+    "slideSizeParity": true,
+    "masterAndLayoutIdentity": true,
+    "themeColorParity": true,
+    "logoGeometryAndAspectRatio": true,
+    "footerAndConfidentialityGeometry": true,
+    "slideNumberBehavior": true,
+    "fontFamilyAndFallbackDisposition": true,
+    "placeholderGeometry": true,
+    "safeAreaAndOverflow": true,
+    "allSlidesRendered": true,
+    "presentationPdfRendered": true,
+    "sourcePdfParity": true,
+    "visualDifferenceAssessment": true,
+    "languageAndContentGate": true
+  },
+  "acceptance": {
+    "requiredDerivation": "template-derived",
+    "requiredTemplateStatus": "approved-controlled|confirmed-reference-binary",
+    "critical": 0,
+    "major": 0,
+    "renderCoverage": "all/all",
+    "pdfParity": "PASS",
+    "corporateDesignGate": "PASS",
+    "goldenReferenceLevel": "LEVEL_2_PASS"
+  },
+  "failureRules": [
+    "FAIL if the binary master is unavailable but template-derived or controlled-template parity is claimed",
+    "FAIL if the runtime binary SHA-256 is not recorded",
+    "FAIL if logo, footer, master or layout elements are reconstructed instead of inherited from the source template",
+    "FAIL if any applicable slide or presentation-PDF page is not rendered and inspected",
+    "FAIL if unresolved Critical or Major findings remain",
+    "FAIL if a modified artifact is delivered without repeating the affected render/parity checks"
+  ],
+  "supersession": {
+    "level1RemainsFallbackRegression": true,
+    "level2SupersedesLevel1ForControlledPresentationClaims": true,
+    "rerunRequiredWhen": [
+      "approved/confirmed master SHA-256 changes",
+      "master/layout/theme/logo/footer structure changes",
+      "corporate presentation design contract changes materially",
+      "rendering stack changes materially enough to affect pagination or slide rendering"
+    ]
+  }
+}

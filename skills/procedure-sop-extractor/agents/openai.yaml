@@ -1,0 +1,5 @@
+interface:
+  display_name: "Procedure Sop Extractor"
+  short_description: "Rekonstruiert aus multimodaler Videoevidenz einen nachvollziehbaren Ablauf mit Zweck, Voraussetzungen, Materialien, S..."
+policy:
+  allow_implicit_invocation: true

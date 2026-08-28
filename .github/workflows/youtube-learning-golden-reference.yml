@@ -1,0 +1,38 @@
+name: YouTube learning golden reference
+
+on:
+  pull_request:
+    paths:
+      - "docs/learning-content/**"
+      - "skills/youtube-learning-*/**"
+      - "skills/youtube-video-ingestion/**"
+      - "skills/multimodal-learning-analysis/**"
+      - "skills/procedure-sop-extractor/**"
+      - "tests/fixtures/youtube-learning/**"
+      - "tests/test_youtube_learning_golden_reference.py"
+      - ".github/workflows/youtube-learning-golden-reference.yml"
+  push:
+    branches: [main]
+    paths:
+      - "docs/learning-content/**"
+      - "skills/youtube-learning-*/**"
+      - "skills/youtube-video-ingestion/**"
+      - "skills/multimodal-learning-analysis/**"
+      - "skills/procedure-sop-extractor/**"
+      - "tests/fixtures/youtube-learning/**"
+      - "tests/test_youtube_learning_golden_reference.py"
+      - ".github/workflows/youtube-learning-golden-reference.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  golden-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test YouTube learning Golden Reference
+        run: python -m unittest tests.test_youtube_learning_golden_reference

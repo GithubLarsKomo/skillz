@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "youtube-learning-pcr-golden-2026-08-28",
+  "source": {
+    "title": "PCR explained | biology animation",
+    "publisher": "yourgenome / Wellcome Sanger Institute",
+    "youtubeVideoId": "Q2847XA-Rfk"
+  },
+  "mode": "full",
+  "language": "de",
+  "audience": "professional-training",
+  "designAuthority": [
+    "docs/learning-content/DESIGN.md",
+    "project DESIGN.md"
+  ],
+  "learningAnchors": {
+    "denaturationC": 95,
+    "annealingC": 50,
+    "extensionC": 72,
+    "cycles": 35,
+    "amplificationStatement": "2^35 > 34 billion",
+    "annealingQualification": "source-simplified-not-universal",
+    "sopClassification": "derived-instructional-sop",
+    "sopApproved": false,
+    "sopLabReady": false
+  },
+  "requiredMissingParameters": [
+    "reaction volumes",
+    "reagent concentrations",
+    "primer sequences",
+    "annealing-temperature optimization",
+    "exact phase dwell times",
+    "initial denaturation",
+    "final extension or hold",
+    "product control"
+  ],
+  "generatedVisuals": [
+    {
+      "id": "pcr-reaction-mix",
+      "format": "svg",
+      "sourceFrame": false,
+      "requiresTitle": true,
+      "requiresDesc": true
+    },
+    {
+      "id": "pcr-cycle",
+      "format": "svg",
+      "sourceFrame": false,
+      "requiresTitle": true,
+      "requiresDesc": true
+    },
+    {
+      "id": "pcr-amplification",
+      "format": "svg",
+      "sourceFrame": false,
+      "requiresTitle": true,
+      "requiresDesc": true
+    }
+  ],
+  "renderCoverage": {
+    "htmlWide": "1/1 full-page",
+    "htmlNarrow": "1/1 full-page",
+    "htmlPrint": "7/7 pages",
+    "pptx": "9/9 slides + presentation PDF",
+    "docx": "4/4 pages",
+    "pdf": "4/4 pages",
+    "svg": "3/3 assets"
+  },
+  "warnings": [
+    {
+      "id": "TS-001",
+      "meaning": "exact caption timestamps unavailable; derived approximate chapter windows are used"
+    },
+    {
+      "id": "VIS-001",
+      "meaning": "direct frame-level source inspection unavailable; no frame-specific claims or source-frame reproduction"
+    },
+    {
+      "id": "SOP-001",
+      "meaning": "derived instructional SOP is not approved and not lab-ready"
+    }
+  ],
+  "acceptance": {
+    "qaStatus": "Learning Artifact QA: PASS",
+    "crossFormatFidelity": "PASS",
+    "sourcePdfParity": "PASS",
+    "unresolvedCritical": 0,
+    "unresolvedMajor": 0,
+    "warningCount": 3
+  }
+}

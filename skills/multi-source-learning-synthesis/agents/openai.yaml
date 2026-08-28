@@ -1,0 +1,5 @@
+interface:
+  display_name: "Multi Source Learning Synthesis"
+  short_description: "Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten gemeinsamen Wissensmodell mit Claim-Cl..."
+policy:
+  allow_implicit_invocation: true
