@@ -1,0 +1,5 @@
+interface:
+  display_name: "Private Legal Matter Router"
+  short_description: "Routet private Rechtsangelegenheiten mit eigenen Frist-, Conflict- und Authority-Gates."
+policy:
+  allow_implicit_invocation: true
