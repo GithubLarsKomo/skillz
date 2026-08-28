@@ -3,6 +3,7 @@ name: contract-review
 description: Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen und AGB gegen bestätigte Requirements, aktuelle Rechtsgrundlagen, funktionales Deal Model, Mandantenstrategie und wirtschaftlich-operative Risiken und erzeugt eine priorisierte Issue-Liste mit Risk- und Negotiation-Handoffs. Verwenden für Vertragsprüfung und Redline-Vorbereitung, nicht für initiales Drafting.
 userFacing: true
 implicitInvocation: false
+discoverability: advanced
 category: workflow
 version: 0.2.0
 status: candidate
