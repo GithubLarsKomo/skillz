@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-plan-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a six-week rowing plan from athlete profile, lactate diagnostics and an A-race date, integrating strength/power, endurance and taper work.",
+      "requiredBehaviors": [
+        "route goal season mesocycle microcycle strength-power and endurance responsibilities to their specialized skills",
+        "assemble one canonical sport-training-plan.json without re-authoring specialized prescriptions",
+        "preserve target hierarchy recovery safety and taper logic"
+      ],
+      "forbiddenBehaviors": [
+        "duplicate strength or endurance programming logic in the orchestrator",
+        "create a second producer for specialist artifacts"
+      ],
+      "skillAnchors": [
+        "Fachlogik der modernen Sport-Planungsschicht",
+        "Kanonischen Plan assemblieren",
+        "genau einen Producer für `sport-training-plan.json`"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The athlete has no current 1RM and lactate threshold is only a broad range; only five training sessions per week are available.",
+      "requiredBehaviors": [
+        "preserve uncertainty instead of inventing percentage loads or exact thresholds",
+        "use conservative substitute control through specialist skills",
+        "reduce secondary work before compromising key stimuli"
+      ],
+      "forbiddenBehaviors": [
+        "invent exact 1RM threshold or zone values",
+        "schedule more sessions than the real availability"
+      ],
+      "skillAnchors": [
+        "Fehlende Schwellen oder 1RM/e1RM werden nicht erfunden",
+        "Diagnostik unzureichend",
+        "Zu wenig Trainingszeit"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Strength and endurance prescriptions conflict and the proposed plan silently averages both, while a new joint locking symptom is ignored.",
+      "requiredBehaviors": [
+        "reject silent hybridization and return contradictions to the responsible producer",
+        "resolve interference through the goal meso micro hierarchy",
+        "stop aggressive progression and prioritize health routing for red flags"
+      ],
+      "forbiddenBehaviors": [
+        "invent a hybrid prescription",
+        "ignore health constraints to preserve the calendar"
+      ],
+      "skillAnchors": [
+        "Der Orchestrator erfindet keine dritte Fach-Prescription",
+        "Widersprüchliche Fachartefakte",
+        "Red Flag oder nicht freigegebene Bewegung"
+      ]
+    }
+  ]
+}

@@ -14,6 +14,7 @@ from generate_repository_metadata import parse_frontmatter, skill_files
 
 INDEX_JSON = "docs/skill-capability-index.json"
 CATEGORY_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+DISCOVERABILITY_VALUES = ("public", "advanced", "internal", "compatibility")
 
 
 def portable_files(skill_dir: Path) -> list[str]:
@@ -48,6 +49,58 @@ def invocation_metadata(frontmatter: dict[str, object], path: Path) -> dict[str,
     return {"userFacing": user_facing, "category": category}
 
 
+def governance_metadata(
+    frontmatter: dict[str, object], invocation: dict[str, object], path: Path
+) -> dict[str, object]:
+    raw_status = frontmatter.get("status")
+    if isinstance(raw_status, list):
+        raise ValueError(f"{path}: status muss ein einzelner Wert sein")
+    status = str(raw_status).strip().lower() if raw_status is not None else None
+    if status == "":
+        status = None
+
+    raw_discoverability = frontmatter.get("discoverability")
+    if isinstance(raw_discoverability, list):
+        raise ValueError(f"{path}: discoverability muss ein einzelner Wert sein")
+    discoverability = (
+        str(raw_discoverability).strip().lower()
+        if raw_discoverability is not None
+        else None
+    )
+    if discoverability == "":
+        discoverability = None
+    if discoverability is None:
+        if status == "deprecated":
+            discoverability = "compatibility"
+        elif bool(invocation["userFacing"]):
+            discoverability = "public"
+        else:
+            discoverability = "internal"
+    if discoverability not in DISCOVERABILITY_VALUES:
+        raise ValueError(
+            f"{path}: discoverability muss public, advanced, internal oder compatibility sein"
+        )
+
+    user_facing = bool(invocation["userFacing"])
+    if discoverability in {"public", "advanced"} and not user_facing:
+        raise ValueError(f"{path}: {discoverability} erfordert userFacing=true")
+    if discoverability in {"internal", "compatibility"} and user_facing:
+        raise ValueError(f"{path}: {discoverability} ist nicht user-facing")
+    if status == "deprecated" and discoverability != "compatibility":
+        raise ValueError(f"{path}: deprecated erfordert discoverability=compatibility")
+    if discoverability == "compatibility" and status != "deprecated":
+        raise ValueError(f"{path}: compatibility erfordert status=deprecated")
+
+    replaced_by = frontmatter.get("replacedBy")
+    deprecated_since = frontmatter.get("deprecatedSince")
+    return {
+        "status": status,
+        "discoverability": discoverability,
+        "replacedBy": str(replaced_by).strip() if replaced_by is not None else None,
+        "deprecatedSince": str(deprecated_since).strip() if deprecated_since is not None else None,
+    }
+
+
 def build_index(root: Path) -> dict[str, object]:
     graph = build_graph(root)
     graph_skills = {item["name"]: item for item in graph["skills"]}
@@ -72,6 +125,8 @@ def build_index(root: Path) -> dict[str, object]:
         slug = skill_md.parent.name
         fm = parse_frontmatter(skill_md)
         graph_meta = graph_skills[slug]
+        invocation = invocation_metadata(fm, skill_md)
+        governance = governance_metadata(fm, invocation, skill_md)
         suite = evaluations.get(slug)
         if suite is None:
             evaluation = {
@@ -90,7 +145,8 @@ def build_index(root: Path) -> dict[str, object]:
         skills.append({
             "name": slug,
             "description": str(fm.get("description", "")),
-            "invocation": invocation_metadata(fm, skill_md),
+            "invocation": invocation,
+            "governance": governance,
             "requires": graph_meta["requires"],
             "dependents": sorted(reverse[slug]),
             "outputs": graph_meta["outputs"],
@@ -105,11 +161,16 @@ def build_index(root: Path) -> dict[str, object]:
     evaluated_entrypoints = [
         skill for skill in entrypoint_skills if skill["evaluation"]["mode"] != "none"
     ]
+    discoverability_counts = {
+        value: sum(1 for skill in skills if skill["governance"]["discoverability"] == value)
+        for value in DISCOVERABILITY_VALUES
+    }
     return {
         "schemaVersion": 1,
         "skillCount": len(skills),
         "entrypointCount": len(entrypoint_skills),
         "entrypointCategories": entrypoint_categories,
+        "discoverabilityCounts": discoverability_counts,
         "evaluationSuiteCount": evaluation_summary["suiteCount"],
         "evaluatedSkillCount": len(evaluated_skills),
         "evaluatedEntrypointCount": len(evaluated_entrypoints),

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-lifecycle-migration",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "migrate active internal consumers before deprecating the old skill",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this happy-path contract behavior: migrate active internal consumers before deprecating the old skill."
+    },
+    {
+      "behavior": "move canonical artifact ownership to exactly one replacement producer",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this happy-path contract behavior: move canonical artifact ownership to exactly one replacement producer."
+    },
+    {
+      "behavior": "set explicit compatibility lifecycle metadata and a compatibility evaluation",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this happy-path contract behavior: set explicit compatibility lifecycle metadata and a compatibility evaluation."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "remove the old skill while active consumers still depend on it",
+      "observed": false,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this happy-path contract behavior: remove the old skill while active consumers still depend on it."
+    }
+  ],
+  "overall": "pass"
+}

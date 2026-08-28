@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-lifecycle-migration",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "retain a compatibility facade when external consumer status is unknown",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this edge-case contract behavior: retain a compatibility facade when external consumer status is unknown."
+    },
+    {
+      "behavior": "document migration uncertainty",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this edge-case contract behavior: document migration uncertainty."
+    },
+    {
+      "behavior": "keep replacement artifact ownership with the canonical producer",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this edge-case contract behavior: keep replacement artifact ownership with the canonical producer."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "assume external consumers do not exist and delete immediately",
+      "observed": false,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this edge-case contract behavior: assume external consumers do not exist and delete immediately."
+    }
+  ],
+  "overall": "pass"
+}

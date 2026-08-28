@@ -1,21 +1,21 @@
 ---
 name: sport-diagnostics-training-report-workflow
-description: Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und periodisierte Trainingsplanung bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.
+description: Orchestriert den vollständigen Dr.-Komorowski-Sportdiagnostik-Workflow von Test-/Athletendaten über nachvollziehbare Leistungsinterpretation und den kanonischen One-shot-Trainingsplan bis zum kanonischen DOCX und dem daraus abgeleiteten, visuell abgeglichenen PDF. Fachlogik bleibt in den spezialisierten Skills.
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
   - sport-performance-diagnostics
-  - sport-training-programming
+  - sport-training-plan-workflow
   - dr-komorowski-sport-docx-report-renderer
   - dr-komorowski-sport-pdf-report-renderer
 outputs:
   - sport-report-package
-lastEvaluated: 2026-08-19
+lastEvaluated: 2026-08-28
 ---
 
 # Sport Diagnostics to Training Report Workflow
@@ -30,7 +30,7 @@ Nutze diesen Orchestrator bei Aufträgen wie:
 - „Überführe meinen aktuellen Kraftblock in einen Taperplan und generiere den professionellen Report.“
 - „Erstelle aus Befund/Leistungsdaten und Trainingsziel einen vollständigen Sportdiagnostik- und Trainingsreport.“
 
-Bei reiner Testauswertung, reiner Trainingsplanung oder reinem Dokumentsatz direkt den jeweiligen Fach- oder Renderer-Skill verwenden.
+Bei reiner Testauswertung, reiner Trainingsplanung oder reinem Dokumentsatz direkt den jeweiligen Fach- oder Renderer-Skill verwenden. Für reine einmalige Trainingsplanung ist `sport-training-plan-workflow` der kanonische Entrypoint.
 
 ## Voraussetzungen
 
@@ -41,9 +41,9 @@ Bei reiner Testauswertung, reiner Trainingsplanung oder reinem Dokumentsatz dire
 
 ## Ablauf
 
-1. **Auftrag zerlegen.** Feststellen, welche Eingangsdaten vorhanden sind und ob Diagnostik, Trainingsprogrammierung und Rendering tatsächlich alle benötigt werden.
+1. **Auftrag zerlegen.** Feststellen, welche Eingangsdaten vorhanden sind und ob Diagnostik, Trainingsplanung und Rendering tatsächlich alle benötigt werden.
 2. **Diagnostik ausführen.** Falls erforderlich Testdaten an `sport-performance-diagnostics` übergeben. Ergebnis als `sport-diagnostics.json` sichern.
-3. **Trainingsplan ableiten.** Falls erforderlich Arbeitswerte, Zieltermin und Belastungsgrenzen an `sport-training-programming` übergeben. Ergebnis als `sport-training-plan.json` sichern.
+3. **Trainingsplan ableiten.** Falls erforderlich Diagnostik/Arbeitswerte, Zieltermin, Verfügbarkeit und Belastungsgrenzen an `sport-training-plan-workflow` übergeben. Ergebnis als kanonisches `sport-training-plan.json` sichern. Die darunterliegenden Ziel-/Saison-/Meso-/Mikro-/Strength-/Endurance-Skills bleiben fachliche Eigentümer ihrer Artefakte.
 4. **Konsistenz-Gate.** Trainingszonen, 1RM/e1RM, Termine, Übungsnamen, RIR/RPE, Dauer/Kadenz und Sicherheitsgrenzen zwischen Diagnose und Plan widerspruchsfrei halten.
 5. **Report-Spec bauen.** Nur freigegebene Inhalte in Metadaten, Abschnitte, Tabellen, Callouts, Charts und Seitenumbrüche des DOCX-Renderer-Schemas transformieren.
 6. **Kanonisches DOCX rendern.** `dr-komorowski-sport-docx-report-renderer` aufrufen und jede Seite visuell prüfen. Mehrseitige Tabellen müssen ungeteilte Datenzeilen und wiederholte Kopfzeilen behalten.
@@ -62,6 +62,7 @@ Für neue Reports gilt zwingend:
 ## Prüfungen
 
 - Wurde jeder fachliche Wert nur an einer Stelle interpretiert und danach referenziert?
+- Wird `sport-training-plan.json` ausschließlich über `sport-training-plan-workflow` erzeugt?
 - Stimmen Testmodalität und Trainingsmodalität zusammen oder ist die Übertragung ausdrücklich begründet?
 - Sind Plan, Report-Spec, DOCX und PDF numerisch identisch?
 - Sind medizinische Quellenbefunde von sportwissenschaftlichen Ableitungen getrennt?
@@ -73,7 +74,7 @@ Für neue Reports gilt zwingend:
 ## Fehlerbehandlung
 
 - **Diagnostik nicht auflösbar:** keine Trainingszone erzwingen; konservative Ersatzsteuerung oder Klärungsbedarf erhalten.
-- **Trainingskonflikt:** vor dem Rendering korrigieren; Renderer sind kein Ort für fachliche Änderungen.
+- **Trainingskonflikt:** an `sport-training-plan-workflow` beziehungsweise den dort verantwortlichen Spezialskill zurückgeben; vor dem Rendering korrigieren. Renderer sind kein Ort für fachliche Änderungen.
 - **Quellbefund widersprüchlich:** Widerspruch sichtbar erhalten und gezielte Bestätigung/medizinische Klärung verlangen.
 - **DOCX-Layoutfehler:** nur Layout an den DOCX-Renderer zurückgeben; Fachartefakte unverändert lassen.
 - **PDF-Reflow:** nicht im PDF reparieren; DOCX-Quelle korrigieren und neu konvertieren.
@@ -103,4 +104,4 @@ Die strukturierten Fachartefakte sind die fachliche Wahrheit; das DOCX ist die k
 
 ## Abschlusskriterien
 
-Der Workflow ist abgeschlossen, wenn alle benötigten Fach-Skills beendet wurden, Diagnose und Trainingsplan konsistent sind, der Report-Spec keine stillen Inhaltsänderungen enthält, das DOCX visuell geprüft wurde, das PDF ausschließlich daraus konvertiert wurde und die visuelle DOCX/PDF-Übereinstimmung bestätigt ist.
+Der Workflow ist abgeschlossen, wenn alle benötigten Fach-Skills beendet wurden, Diagnose und kanonischer Trainingsplan konsistent sind, der Report-Spec keine stillen Inhaltsänderungen enthält, das DOCX visuell geprüft wurde, das PDF ausschließlich daraus konvertiert wurde und die visuelle DOCX/PDF-Übereinstimmung bestätigt ist.

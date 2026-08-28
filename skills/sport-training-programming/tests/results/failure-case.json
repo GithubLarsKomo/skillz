@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "sport-training-programming",
   "caseId": "failure-case",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "aggressive Progression stoppen", "passed": true, "evidence": "Joint locking and increasing swelling are explicit safety boundaries against aggressive progression."},
-    {"behavior": "medizinische/physiotherapeutische Re-Evaluation priorisieren", "passed": true, "evidence": "The safety section requires reassessment for acute warning signs."},
-    {"behavior": "nur sichere freigegebene Belastung weiterführen", "passed": true, "evidence": "Medical source restrictions are carried into safe loading rules."}
+    {"behavior": "reject implicit use of the deprecated facade", "passed": true, "evidence": "The trigger explicitly restricts the facade to explicit legacy calls and forbids implicit selection."},
+    {"behavior": "route new requests directly to sport-training-plan-workflow", "passed": true, "evidence": "The new-normal-request error path explicitly routes directly to sport-training-plan-workflow."},
+    {"behavior": "reject duplicate canonical output ownership", "passed": true, "evidence": "The purpose and handoff reserve sport-training-plan.json ownership for the replacement only."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "Warnzeichen ignorieren", "observed": false, "evidence": "The skill lists locking and swelling as warning signs."},
-    {"behavior": "Plyometrie als unveränderte Pflichtbelastung einplanen", "observed": false, "evidence": "Plyometrics remain subordinate to safety, landing quality and symptom response."}
+    {"behavior": "use the facade as a default entrypoint", "observed": false, "evidence": "implicitInvocation is false and discoverability is compatibility."},
+    {"behavior": "produce a second canonical sport-training-plan.json", "observed": false, "evidence": "The facade declares only sport-training-programming-compatibility-run.json as its output."}
   ],
   "overall": "pass"
 }

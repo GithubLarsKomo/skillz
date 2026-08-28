@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-plan-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "route goal season mesocycle microcycle strength-power and endurance responsibilities to their specialized skills",
+      "passed": true,
+      "evidence": "SKILL.md explicitly sequences the specialized goal, season, mesocycle, microcycle, strength-power and endurance skills."
+    },
+    {
+      "behavior": "assemble one canonical sport-training-plan.json without re-authoring specialized prescriptions",
+      "passed": true,
+      "evidence": "The workflow owns only sport-training-plan.json and states that specialist artifacts remain owned by their producers."
+    },
+    {
+      "behavior": "preserve target hierarchy recovery safety and taper logic",
+      "passed": true,
+      "evidence": "The workflow includes hierarchy-based interference reconciliation, recovery checks, safety constraints and taper rules."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "duplicate strength or endurance programming logic in the orchestrator",
+      "observed": false,
+      "evidence": "Strength/power and endurance detail prescriptions are delegated to their respective specialist skills."
+    },
+    {
+      "behavior": "create a second producer for specialist artifacts",
+      "observed": false,
+      "evidence": "Only sport-training-plan.json is declared as output; specialist artifacts are referenced."
+    }
+  ],
+  "overall": "pass"
+}

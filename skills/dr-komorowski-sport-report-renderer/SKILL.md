@@ -2,8 +2,10 @@
 name: dr-komorowski-sport-report-renderer
 description: Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und Trainingsreports auf ReportLab-Basis. Bleibt zur reproduzierbaren Ausgabe älterer Report-Specs mit Vektorlogo und Vektor-Charts erhalten; neue Reports sollen über den kanonischen DOCX- und den daraus abgeleiteten PDF-Renderer laufen.
 implicitInvocation: false
-version: 0.3.0
+version: 0.3.1
 status: deprecated
+discoverability: compatibility
+deprecatedSince: 2026-08-28
 replacedBy: dr-komorowski-sport-pdf-report-renderer
 owners:
   - GithubLarsKomo
@@ -39,47 +41,30 @@ Die historischen Designwerte stehen in `assets/report-theme.json`; das Vektorlog
 
 ## Ablauf
 
-1. **Inhalt einfrieren.** Der Legacy-Renderer verändert keine Schwellen, Lasten, Diagnosen, Trainingswerte oder medizinischen Aussagen.
-2. Report-Spec mit den vom vorhandenen `scripts/render_report.py` unterstützten Blöcken validieren.
-3. Direkt-PDF mit dem bestehenden ReportLab-Renderer erzeugen.
-4. Kopf-/Fußzeilen, Tabellen, Callouts und Charts kontrollieren.
-5. **Visuell verifizieren.** PDF in Seitenbilder rendern und auf Clipping, Überlauf, Glyphenfehler, Achsen/Legenden und Seitenumbrüche prüfen.
-6. Bei Layoutfehlern nur Layoutparameter/Blockstruktur korrigieren, keine Fachwerte.
+1. Bestehenden Legacy-Report-Spec validieren.
+2. Historische ReportLab-Layoutlogik unverändert anwenden.
+3. Vektorlogo und vorhandene Vektor-Charts verwenden; keine modernen DOCX-Template-Regeln einmischen.
+4. PDF erzeugen und visuell seitenweise prüfen.
+5. Abweichungen vom historischen Referenzpfad dokumentieren statt stillschweigend zu modernisieren.
 
-Beispiel:
+## Prüfungen
 
-```bash
-python scripts/render_report.py assets/report-spec.example.json /tmp/dr-komorowski-legacy.pdf
-python scripts/render_report.py assets/report-spec.lactate-chart.example.json /tmp/dr-komorowski-legacy-lactate.pdf
-```
-
-## Chart-Kompatibilität
-
-Der bestehende `lactate_hr_power`-Block bleibt für historische Specs erhalten. Leistung, Laktat, Herzfrequenz sowie übergebene LT1-/LT2-Bänder werden als ReportLab-Vektorinhalt gerendert. Der Renderer berechnet oder verschiebt LT1/LT2 nicht.
-
-## Designstandard
-
-Historisches Referenzdesign:
-
-- Navy `#173652`,
-- Dark `#1C2B3A` / Body `#24313E`,
-- Teal `#2B8884` / Teal Text `#246F6C`,
-- Border `#D6E0E6`, Table Fill `#EDF3F6`, Callout Fill `#F6F8F9`,
-- Warning Fill `#FFF4D6` / Warning Border `#9A6500`,
-- A4, Vektorlogo und ReportLab-Vektor-Charts.
+- Wurde der Skill explizit als Legacy-Pfad ausgewählt?
+- Ist der Input mit dem historischen ReportLab-Schema kompatibel?
+- Sind Logo, Charts, Tabellen und Seitenumbrüche reproduzierbar?
+- Wurde keine neue fachliche Interpretation im Renderer vorgenommen?
+- Wird für neue Reports weiterhin der DOCX-first-Pfad empfohlen?
 
 ## Fehlerbehandlung
 
-- **ReportLab fehlt:** Abhängigkeit explizit melden; keine Ersatzdatei als PDF ausgeben.
-- **Font nicht vorhanden:** DejaVu Sans über Systempfade suchen, andernfalls Helvetica-Fallback; keine Fontdatei kopieren.
-- **Zu breite Tabelle:** Spaltenbreiten/Umbruch anpassen oder logisch teilen; niemals horizontal aus A4 laufen lassen.
-- **Ungültiger Chart:** bei fehlenden/nichtnumerischen Punkten, nicht aufsteigender Leistung oder ungültigen LT-Bändern abbrechen; keine Werte erraten oder sortieren.
-- **Seitenüberlauf:** ReportLab-Flowables/PageBreaks verwenden, keine manuellen Leerzeichen-Tricks.
+- **Nicht kompatibler neuer Report-Spec:** an `dr-komorowski-sport-docx-report-renderer` und anschließend `dr-komorowski-sport-pdf-report-renderer` routen.
+- **Fehlende historische Assets:** nicht durch erfundene Corporate-/Brand-Assets ersetzen; fehlende Reproduzierbarkeit dokumentieren.
+- **Renderfehler:** Legacy-PDF nicht als erfolgreich ausgeben, bis die visuelle Prüfung bestanden ist.
 
 ## Übergabe
 
-Primärer Output bleibt `dr-komorowski-report.pdf`. Bei neuen Reportaufträgen stattdessen auf die DOCX-first-Pipeline routen und DOCX sowie daraus abgeleitetes PDF gemeinsam ausgeben.
+Primärer Output bleibt `dr-komorowski-report.pdf` ausschließlich für explizite Legacy-Reproduktion. Neue Berichte verwenden den Nachfolgerpfad und erhalten kein zweites paralleles PDF-Layoutsystem.
 
 ## Abschlusskriterien
 
-Der Legacy-Skill ist abgeschlossen, wenn das PDF im historischen Design gerendert, visuell geprüft und inhaltlich identisch zum freigegebenen Spec ist. Er ist **kein** zweiter kanonischer Layoutpfad für neue Dokumente.
+Der Skill ist abgeschlossen, wenn der explizit angeforderte historische Report reproduzierbar gerendert und visuell geprüft wurde oder der Fall als nicht kompatibel an den kanonischen DOCX-first-Pfad zurückgegeben wurde.

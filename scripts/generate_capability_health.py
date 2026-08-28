@@ -49,6 +49,7 @@ def build_health(root: Path) -> dict[str, object]:
     return {
         "skillCount": skill_count,
         "entrypointCount": entrypoint_count,
+        "discoverabilityCounts": dict(index.get("discoverabilityCounts", {})),
         "evaluationSuiteCount": index["evaluationSuiteCount"],
         "executedEvaluationsPassed": bool(index["evaluationPassed"]),
         "evaluationCoverageComplete": not missing_evaluations,
@@ -66,6 +67,7 @@ def render_markdown(health: dict[str, object]) -> str:
     missing_entrypoints = health["missingEntrypointEvaluations"]
     ambiguous = health["ambiguousOutputs"]
     unconsumed = health["unconsumedOutputs"]
+    discoverability = health["discoverabilityCounts"]
     executed_pass = "PASS" if health["executedEvaluationsPassed"] else "FAIL"
     coverage = "complete" if health["evaluationCoverageComplete"] else "incomplete"
     lines = [
@@ -77,6 +79,7 @@ def render_markdown(health: dict[str, object]) -> str:
         "",
         f"- Skills: **{health['skillCount']}**",
         f"- User-facing entrypoints: **{health['entrypointCount']}**",
+        f"- Discoverability — public: **{discoverability.get('public', 0)}**, advanced: **{discoverability.get('advanced', 0)}**, internal: **{discoverability.get('internal', 0)}**, compatibility: **{discoverability.get('compatibility', 0)}**",
         f"- Evaluation suites: **{health['evaluationSuiteCount']}**",
         f"- Executed evaluation suites: **{executed_pass}**",
         f"- Evaluation coverage: **{coverage}**",
@@ -88,6 +91,8 @@ def render_markdown(health: dict[str, object]) -> str:
         f"- Outputs without inferred hard-requires consumers: **{len(unconsumed)}**",
         "",
         "Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.",
+        "",
+        "Discoverability is resolved independently from lifecycle: `public` and `advanced` are user-facing; `internal` is composition-only; `compatibility` is deprecated explicit-use-only surface.",
         "",
         "## Evaluation gaps",
         "",

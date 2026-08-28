@@ -1,5 +1,5 @@
 interface:
   display_name: "Sport Training Programming"
-  short_description: "Erstellt aus Zieltermin, Leistungsstand, Trainingshistorie, Kraftwerten, verfügbaren Einheiten und Belastungsgrenzen..."
+  short_description: "Deprecated Compatibility-Fassade für frühere Aufrufe des monolithischen Sport-Trainingsprogrammierers. Übersetzt Lega..."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

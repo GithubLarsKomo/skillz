@@ -36,6 +36,7 @@ tags:
 - [[skills/sport-season-periodization|sport-season-periodization]]
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-testing-battery|sport-testing-battery]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Outputs
 
@@ -51,6 +52,7 @@ tags:
 - [[skills/sport-season-periodization|sport-season-periodization]]
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-testing-battery|sport-testing-battery]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Evaluation
 

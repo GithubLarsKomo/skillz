@@ -39,6 +39,7 @@ Verteilt die Ziele eines Mesozylus auf einen konkreten kurzen Trainingszyklus mi
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Outputs
 
@@ -57,6 +58,7 @@ Verteilt die Ziele eines Mesozylus auf einen konkreten kurzen Trainingszyklus mi
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Evaluation
 

@@ -13,7 +13,7 @@
     },
     {
       "type": "object",
-      "required": ["name", "description", "invocation", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
+      "required": ["name", "description", "invocation", "governance", "requires", "dependents", "outputs", "outputContracts", "portableFiles", "evaluation"],
       "properties": {
         "name": {"type": "string"},
         "description": {"type": "string"},
@@ -23,6 +23,17 @@
           "properties": {
             "userFacing": {"type": "boolean"},
             "category": {"type": ["string", "null"]}
+          },
+          "additionalProperties": false
+        },
+        "governance": {
+          "type": "object",
+          "required": ["status", "discoverability", "replacedBy", "deprecatedSince"],
+          "properties": {
+            "status": {"type": ["string", "null"]},
+            "discoverability": {"enum": ["public", "advanced", "internal", "compatibility"]},
+            "replacedBy": {"type": ["string", "null"]},
+            "deprecatedSince": {"type": ["string", "null"]}
           },
           "additionalProperties": false
         },

@@ -10,8 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **46**
+Skills: **49**
 
+- [[skills/artifact-contract-normalizer|artifact-contract-normalizer]]
 - [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/document-generation-forensics|document-generation-forensics]]
@@ -53,7 +54,9 @@ Skills: **46**
 - [[skills/regulated-product-context|regulated-product-context]]
 - [[skills/regulatory-evidence-traceability|regulatory-evidence-traceability]]
 - [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]
+- [[skills/skill-evaluation-suite-authoring|skill-evaluation-suite-authoring]]
 - [[skills/source-to-context|source-to-context]]
+- [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/synapse-orchestrator|synapse-orchestrator]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]

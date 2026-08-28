@@ -35,6 +35,7 @@ Erstellt sportartspezifische Ausdauerprescriptions aus Diagnostik, Ziel, Saisonp
 ## Required by
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Outputs
 
@@ -45,6 +46,7 @@ Erstellt sportartspezifische Ausdauerprescriptions aus Diagnostik, Ziel, Saisonp
 ### `endurance-plan.json`
 
 - [[skills/sport-athlete-management|sport-athlete-management]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Evaluation
 

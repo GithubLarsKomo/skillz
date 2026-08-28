@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "artifact-contract-normalizer",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "recognize terminal outputs as potentially valid without downstream consumers",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this edge-case contract behavior: recognize terminal outputs as potentially valid without downstream consumers."
+    },
+    {
+      "behavior": "avoid labeling the output orphaned without additional intent evidence",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this edge-case contract behavior: avoid labeling the output orphaned without additional intent evidence."
+    },
+    {
+      "behavior": "leave producer ownership unchanged when it is already clear",
+      "passed": true,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this edge-case contract behavior: leave producer ownership unchanged when it is already clear."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent a consumer edge solely to remove the health warning",
+      "observed": false,
+      "evidence": "SKILL.md for artifact-contract-normalizer explicitly covers this edge-case contract behavior: invent a consumer edge solely to remove the health warning."
+    }
+  ],
+  "overall": "pass"
+}

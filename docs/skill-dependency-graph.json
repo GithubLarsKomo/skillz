@@ -39,6 +39,16 @@
       ]
     },
     {
+      "name": "artifact-contract-normalizer",
+      "requires": [
+        "skill-portfolio-audit"
+      ],
+      "consumes": [],
+      "outputs": [
+        "artifact-contract-normalization.json"
+      ]
+    },
+    {
       "name": "audit-inspection-finding-response",
       "requires": [
         "decision-record",
@@ -2935,6 +2945,34 @@
       ]
     },
     {
+      "name": "skill-evaluation-suite-authoring",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "skill-evaluation-suite-authoring-report.json"
+      ]
+    },
+    {
+      "name": "skill-lifecycle-migration",
+      "requires": [
+        "skill-portfolio-audit"
+      ],
+      "consumes": [],
+      "outputs": [
+        "skill-lifecycle-migration-plan.json",
+        "skill-lifecycle-migration-plan.md"
+      ]
+    },
+    {
+      "name": "skill-portfolio-audit",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "skill-portfolio-audit.json",
+        "skill-portfolio-audit.md"
+      ]
+    },
+    {
       "name": "source-to-context",
       "requires": [],
       "consumes": [],
@@ -3022,7 +3060,7 @@
         "dr-komorowski-sport-docx-report-renderer",
         "dr-komorowski-sport-pdf-report-renderer",
         "sport-performance-diagnostics",
-        "sport-training-programming"
+        "sport-training-plan-workflow"
       ],
       "consumes": [],
       "outputs": [
@@ -3222,11 +3260,30 @@
       ]
     },
     {
-      "name": "sport-training-programming",
-      "requires": [],
+      "name": "sport-training-plan-workflow",
+      "requires": [
+        "sport-athlete-profile",
+        "sport-endurance-programming",
+        "sport-goal-performance-model",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-performance-diagnostics",
+        "sport-season-periodization",
+        "sport-strength-power-programming"
+      ],
       "consumes": [],
       "outputs": [
         "sport-training-plan.json"
+      ]
+    },
+    {
+      "name": "sport-training-programming",
+      "requires": [
+        "sport-training-plan-workflow"
+      ],
+      "consumes": [],
+      "outputs": [
+        "sport-training-programming-compatibility-run.json"
       ]
     },
     {
@@ -3551,6 +3608,10 @@
     {
       "from": "architecture-deepening-review",
       "to": "iterate-software-projects"
+    },
+    {
+      "from": "artifact-contract-normalizer",
+      "to": "skill-portfolio-audit"
     },
     {
       "from": "audit-inspection-finding-response",
@@ -5605,6 +5666,10 @@
       "to": "round-based-requirements-grilling"
     },
     {
+      "from": "skill-lifecycle-migration",
+      "to": "skill-portfolio-audit"
+    },
+    {
       "from": "spec-to-vertical-issues",
       "to": "conversation-to-spec"
     },
@@ -5714,7 +5779,7 @@
     },
     {
       "from": "sport-diagnostics-training-report-workflow",
-      "to": "sport-training-programming"
+      "to": "sport-training-plan-workflow"
     },
     {
       "from": "sport-endurance-programming",
@@ -5871,6 +5936,42 @@
     {
       "from": "sport-training-music",
       "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-athlete-profile"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-endurance-programming"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-goal-performance-model"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-mesocycle-planning"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-microcycle-planning"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-performance-diagnostics"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-season-periodization"
+    },
+    {
+      "from": "sport-training-plan-workflow",
+      "to": "sport-strength-power-programming"
+    },
+    {
+      "from": "sport-training-programming",
+      "to": "sport-training-plan-workflow"
     },
     {
       "from": "supplier-quality-medical-device",
@@ -6565,6 +6666,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "artifact-contract-normalization.json",
+      "producers": [
+        "artifact-contract-normalizer"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "association-governance-map.json",
       "producers": [
         "german-association-law-specialist"
@@ -6611,7 +6721,8 @@
         "sport-strength-power-programming",
         "sport-testing-battery",
         "sport-training-adaptation-engine",
-        "sport-training-music"
+        "sport-training-music",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8602,7 +8713,8 @@
         "sport-endurance-programming"
       ],
       "consumerSkills": [
-        "sport-athlete-management"
+        "sport-athlete-management",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13492,6 +13604,57 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "skill-evaluation-suite-authoring-report.json",
+      "producers": [
+        "skill-evaluation-suite-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "skill-lifecycle-migration-plan.json",
+      "producers": [
+        "skill-lifecycle-migration"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "skill-lifecycle-migration-plan.md",
+      "producers": [
+        "skill-lifecycle-migration"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "skill-portfolio-audit.json",
+      "producers": [
+        "skill-portfolio-audit"
+      ],
+      "consumerSkills": [
+        "artifact-contract-normalizer",
+        "skill-lifecycle-migration"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "skill-portfolio-audit.md",
+      "producers": [
+        "skill-portfolio-audit"
+      ],
+      "consumerSkills": [
+        "artifact-contract-normalizer",
+        "skill-lifecycle-migration"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "skills/<skill-name>/SKILL.md",
       "producers": [
         "composable-skill-factory"
@@ -13584,7 +13747,8 @@
       "consumerSkills": [
         "sport-adaptation-analysis",
         "sport-diagnostics-training-report-workflow",
-        "sport-endurance-programming"
+        "sport-endurance-programming",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13610,7 +13774,8 @@
         "sport-endurance-programming",
         "sport-microcycle-planning",
         "sport-nutrition-fueling",
-        "sport-strength-power-programming"
+        "sport-strength-power-programming",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13629,7 +13794,8 @@
         "sport-performance-psychology",
         "sport-strength-power-programming",
         "sport-training-adaptation-engine",
-        "sport-training-music"
+        "sport-training-music",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13645,7 +13811,8 @@
         "sport-performance-psychology",
         "sport-season-periodization",
         "sport-strength-power-programming",
-        "sport-testing-battery"
+        "sport-testing-battery",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13667,7 +13834,8 @@
       "consumerSkills": [
         "sport-athlete-management",
         "sport-mesocycle-planning",
-        "sport-testing-battery"
+        "sport-testing-battery",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -13686,13 +13854,23 @@
     {
       "output": "sport-training-plan.json",
       "producers": [
-        "sport-training-programming"
+        "sport-training-plan-workflow"
       ],
       "consumerSkills": [
-        "sport-diagnostics-training-report-workflow"
+        "sport-diagnostics-training-report-workflow",
+        "sport-training-programming"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sport-training-programming-compatibility-run.json",
+      "producers": [
+        "sport-training-programming"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "sports-law-route-map.json",
@@ -13740,7 +13918,8 @@
         "sport-strength-power-programming"
       ],
       "consumerSkills": [
-        "sport-athlete-management"
+        "sport-athlete-management",
+        "sport-training-plan-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -14387,6 +14566,7 @@
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
     "antitrust-risk-gates.json",
+    "artifact-contract-normalization.json",
     "association-governance-map.json",
     "association-law-open-points.json",
     "athlete-management-state.json",
@@ -14619,9 +14799,13 @@
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
+    "skill-evaluation-suite-authoring-report.json",
+    "skill-lifecycle-migration-plan.json",
+    "skill-lifecycle-migration-plan.md",
     "source-context.md",
     "special-controls-matrix.json",
     "sport-report-package",
+    "sport-training-programming-compatibility-run.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "succession-professional-work-orders.json",
@@ -14653,6 +14837,7 @@
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
     "antitrust-risk-gates.json",
+    "artifact-contract-normalization.json",
     "association-governance-map.json",
     "association-law-open-points.json",
     "athlete-management-state.json",
@@ -14885,9 +15070,13 @@
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
+    "skill-evaluation-suite-authoring-report.json",
+    "skill-lifecycle-migration-plan.json",
+    "skill-lifecycle-migration-plan.md",
     "source-context.md",
     "special-controls-matrix.json",
     "sport-report-package",
+    "sport-training-programming-compatibility-run.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
     "succession-professional-work-orders.json",

@@ -35,6 +35,7 @@ tags:
 - [[skills/sport-microcycle-planning|sport-microcycle-planning]]
 - [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Outputs
 
@@ -49,6 +50,7 @@ tags:
 - [[skills/sport-microcycle-planning|sport-microcycle-planning]]
 - [[skills/sport-nutrition-fueling|sport-nutrition-fueling]]
 - [[skills/sport-strength-power-programming|sport-strength-power-programming]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Evaluation
 

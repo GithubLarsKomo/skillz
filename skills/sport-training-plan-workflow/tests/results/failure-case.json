@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-plan-workflow",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject silent hybridization and return contradictions to the responsible producer",
+      "passed": true,
+      "evidence": "The workflow forbids inventing hybrid values and routes contradictory specialist artifacts back to their responsible producer."
+    },
+    {
+      "behavior": "resolve interference through the goal meso micro hierarchy",
+      "passed": true,
+      "evidence": "Interference is explicitly reconciled through the target, mesocycle and microcycle hierarchy rather than by averaging prescriptions."
+    },
+    {
+      "behavior": "stop aggressive progression and prioritize health routing for red flags",
+      "passed": true,
+      "evidence": "The red-flag error path stops aggressive progression and prioritizes appropriate health or medical routing."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent a hybrid prescription",
+      "observed": false,
+      "evidence": "The workflow explicitly states that the orchestrator does not invent a third specialist prescription."
+    },
+    {
+      "behavior": "ignore health constraints to preserve the calendar",
+      "observed": false,
+      "evidence": "Health and safety constraints are mandatory and red flags override normal progression."
+    }
+  ],
+  "overall": "pass"
+}

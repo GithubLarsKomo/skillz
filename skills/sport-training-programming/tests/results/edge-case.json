@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "sport-training-programming",
   "caseId": "edge-case",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "keine Prozentwerte erfinden", "passed": true, "evidence": "Missing 1RM/e1RM explicitly blocks fabricated percentage prescriptions."},
-    {"behavior": "RIR/RPE/Velocity als Ersatzsteuerung verwenden", "passed": true, "evidence": "The prerequisites define RIR/RPE/velocity as valid substitute control methods."},
-    {"behavior": "Plan an reale Wochenkapazität anpassen", "passed": true, "evidence": "Available training days and duration are mandatory constraints."}
+    {"behavior": "preserve unknown legacy fields as unmapped instead of inventing values", "passed": true, "evidence": "The prerequisites and unknown-field error path explicitly preserve missing or unknown legacy fields rather than fabricating mappings."},
+    {"behavior": "ask for clarification only when the missing field changes the training decision", "passed": true, "evidence": "Unknown legacy fields are clarified only when they affect fachliche planning."},
+    {"behavior": "let the replacement workflow handle uncertainty and safety rules", "passed": true, "evidence": "Replacement safety and health review results are forwarded unchanged without a legacy override."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "ein fiktives 1RM annehmen", "observed": false, "evidence": "The skill prohibits pretending a percentage load when 1RM is unknown."},
-    {"behavior": "mehr Einheiten planen als verfügbar", "observed": false, "evidence": "Weekly availability is a prerequisite and planning constraint."}
+    {"behavior": "fabricate a mapping for an unknown field", "observed": false, "evidence": "The facade explicitly forbids inventing missing legacy fields."},
+    {"behavior": "reactivate legacy calculations to fill missing data", "observed": false, "evidence": "The facade explicitly performs no independent periodization, load, endurance or taper calculations."}
   ],
   "overall": "pass"
 }

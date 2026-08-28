@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-lifecycle-migration",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "block removal while active consumers remain",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this failure-case contract behavior: block removal while active consumers remain."
+    },
+    {
+      "behavior": "remove duplicate canonical output ownership from the facade",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this failure-case contract behavior: remove duplicate canonical output ownership from the facade."
+    },
+    {
+      "behavior": "migrate the consumer to the replacement first",
+      "passed": true,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this failure-case contract behavior: migrate the consumer to the replacement first."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "allow duplicate producer ownership during deprecation",
+      "observed": false,
+      "evidence": "SKILL.md for skill-lifecycle-migration explicitly covers this failure-case contract behavior: allow duplicate producer ownership during deprecation."
+    }
+  ],
+  "overall": "pass"
+}

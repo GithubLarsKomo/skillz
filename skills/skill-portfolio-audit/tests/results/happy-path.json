@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-portfolio-audit",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "inventory lifecycle discoverability evaluation and ownership from canonical repository evidence",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this happy-path contract behavior: inventory lifecycle discoverability evaluation and ownership from canonical repository evidence."
+    },
+    {
+      "behavior": "separate real architecture defects from review queues",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this happy-path contract behavior: separate real architecture defects from review queues."
+    },
+    {
+      "behavior": "prioritize concrete actions with migration and acceptance criteria",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this happy-path contract behavior: prioritize concrete actions with migration and acceptance criteria."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "merge specialists only because their names or topics are similar",
+      "observed": false,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this happy-path contract behavior: merge specialists only because their names or topics are similar."
+    },
+    {
+      "behavior": "treat every unconsumed terminal output as an orphan defect",
+      "observed": false,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this happy-path contract behavior: treat every unconsumed terminal output as an orphan defect."
+    }
+  ],
+  "overall": "pass"
+}

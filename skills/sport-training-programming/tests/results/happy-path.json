@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "sport-training-programming",
   "caseId": "happy-path",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "sportartspezifische Hauptreize priorisieren", "passed": true, "evidence": "The load-budget step protects sport-specific key sessions first."},
-    {"behavior": "jede Kraftübung mit Last, Wiederholungen, Pause und Qualitätsregel dosieren", "passed": true, "evidence": "Session concretization requires volume, intensity, rest and stop/adaptation rules."},
-    {"behavior": "Volumen zur Regatta reduzieren ohne neue 1RM-Tests", "passed": true, "evidence": "The taper rule reduces volume and explicitly avoids late 1RM testing."}
+    {"behavior": "recognize explicit legacy use and normalize legacy inputs", "passed": true, "evidence": "The facade trigger is explicit-only and the first two workflow steps identify legacy use and normalize legacy inputs."},
+    {"behavior": "route the request to sport-training-plan-workflow", "passed": true, "evidence": "The facade requires and explicitly calls sport-training-plan-workflow as the replacement."},
+    {"behavior": "reference the replacement sport-training-plan.json without claiming ownership", "passed": true, "evidence": "The plan-reference step and handoff state that sport-training-plan.json remains owned by the replacement."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "Kraftausdauer in die Peak-Woche hinein maximieren", "observed": false, "evidence": "Taper rules protect specific quality while reducing overall volume."},
-    {"behavior": "verpasste Einheiten in der Wettkampfwoche nachholen", "observed": false, "evidence": "The programming rules explicitly prohibit catching up missed work during race week."}
+    {"behavior": "execute independent periodization strength endurance or taper logic", "observed": false, "evidence": "The workflow explicitly forbids running its own fachliche planning logic."},
+    {"behavior": "declare sport-training-plan.json as a compatibility-facade output", "observed": false, "evidence": "The only declared output is sport-training-programming-compatibility-run.json."}
   ],
   "overall": "pass"
 }

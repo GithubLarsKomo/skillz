@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-portfolio-audit",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "classify terminal outputs separately from intended machine-consumed contracts",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this edge-case contract behavior: classify terminal outputs separately from intended machine-consumed contracts."
+    },
+    {
+      "behavior": "require additional evidence before calling an output orphaned",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this edge-case contract behavior: require additional evidence before calling an output orphaned."
+    },
+    {
+      "behavior": "keep the unconsumed list as a review queue",
+      "passed": true,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this edge-case contract behavior: keep the unconsumed list as a review queue."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "delete terminal output producers solely because no hard consumer is inferred",
+      "observed": false,
+      "evidence": "SKILL.md for skill-portfolio-audit explicitly covers this edge-case contract behavior: delete terminal output producers solely because no hard consumer is inferred."
+    }
+  ],
+  "overall": "pass"
+}

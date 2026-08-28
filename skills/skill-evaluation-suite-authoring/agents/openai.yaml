@@ -1,0 +1,5 @@
+interface:
+  display_name: "Skill Evaluation Suite Authoring"
+  short_description: "Entwirft und prüft deterministische Skill-Evaluation-Suites aus dem normativen SKILL.md-Vertrag mit Happy Path, Edge..."
+policy:
+  allow_implicit_invocation: true

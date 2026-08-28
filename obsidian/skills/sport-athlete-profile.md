@@ -45,6 +45,7 @@ Erfasst und versioniert den trainingsrelevanten Athletenkontext als belastbaren 
 - [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Outputs
 
@@ -69,6 +70,7 @@ Erfasst und versioniert den trainingsrelevanten Athletenkontext als belastbaren 
 - [[skills/sport-testing-battery|sport-testing-battery]]
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Evaluation
 

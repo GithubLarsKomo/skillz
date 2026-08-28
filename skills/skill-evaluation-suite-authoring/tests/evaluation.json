@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "skill": "skill-evaluation-suite-authoring",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create evaluation coverage for a newly added internal orchestration skill from its current SKILL.md contract.",
+      "requiredBehaviors": [
+        "author distinct happy edge and failure cases",
+        "bind required and forbidden behaviors to current normative anchors",
+        "record result evidence that reflects the actual contract"
+      ],
+      "forbiddenBehaviors": [
+        "invent PASS evidence that is not present in the contract"
+      ],
+      "skillAnchors": [
+        "Happy Path wählen",
+        "Anchors wählen",
+        "Resultate aufzeichnen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A refactor delegates rendering from a domain orchestrator to a shared delivery workflow and old tests still expect direct renderer dependencies.",
+      "requiredBehaviors": [
+        "update tests to verify the new delegation boundary",
+        "avoid restoring removed responsibilities only to satisfy stale tests",
+        "anchor the revised suite to the post-refactor canonical text"
+      ],
+      "forbiddenBehaviors": [
+        "reactivate obsolete direct dependencies because an old test expects them"
+      ],
+      "skillAnchors": [
+        "Verantwortung wurde delegiert",
+        "neue Ownership"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "An evaluation uses an anchor that no longer exists and marks the case PASS by copying an old result date and evidence.",
+      "requiredBehaviors": [
+        "reject the missing anchor",
+        "refresh stale result evidence",
+        "avoid claiming PASS from desired behavior alone"
+      ],
+      "forbiddenBehaviors": [
+        "fabricate a near-match anchor or blindly copy PASS evidence"
+      ],
+      "skillAnchors": [
+        "Anchor fehlt",
+        "PASS nie",
+        "Stale Result Evidence"
+      ]
+    }
+  ]
+}

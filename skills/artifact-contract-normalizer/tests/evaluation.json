@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "skill": "artifact-contract-normalizer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A worker and two orchestrators all declare the same generated presentation QA artifact as their output.",
+      "requiredBehaviors": [
+        "identify the actual producing worker",
+        "remove duplicate orchestrator ownership while retaining references",
+        "document consumer evidence separately from producer ownership"
+      ],
+      "forbiddenBehaviors": [
+        "assign ownership to every skill that references the artifact"
+      ],
+      "skillAnchors": [
+        "Producer bestimmen",
+        "Orchestrator bereinigen",
+        "Consumer explizieren"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A final exported report has no inferred hard-requires consumer and appears in the capability-health review queue.",
+      "requiredBehaviors": [
+        "recognize terminal outputs as potentially valid without downstream consumers",
+        "avoid labeling the output orphaned without additional intent evidence",
+        "leave producer ownership unchanged when it is already clear"
+      ],
+      "forbiddenBehaviors": [
+        "invent a consumer edge solely to remove the health warning"
+      ],
+      "skillAnchors": [
+        "Terminal Outputs erkennen",
+        "nicht automatisch als Orphans"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Producer responsibility is unclear and a proposed normalization guesses both a producer and a consumes edge from naming similarity.",
+      "requiredBehaviors": [
+        "keep ambiguity explicit until fachliche ownership is resolved",
+        "reject consumer edges without evidence",
+        "avoid random producer selection"
+      ],
+      "forbiddenBehaviors": [
+        "invent producer or consumer relationships"
+      ],
+      "skillAnchors": [
+        "Producer nicht entscheidbar",
+        "Consumer nur vermutet"
+      ]
+    }
+  ]
+}

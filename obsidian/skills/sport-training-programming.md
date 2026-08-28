@@ -2,8 +2,8 @@
 type: skill
 generated: true
 name: "sport-training-programming"
-category: "workflow"
-userFacing: true
+category: "internal"
+userFacing: false
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
@@ -11,36 +11,36 @@ recordedResultCount: 3
 sourcePath: "skills/sport-training-programming/SKILL.md"
 tags:
   - skill
-  - skill-category/workflow
+  - skill-category/internal
 ---
 
 # sport-training-programming
 
-Erstellt aus Zieltermin, Leistungsstand, Trainingshistorie, Kraftwerten, verfügbaren Einheiten und Belastungsgrenzen einen periodisierten Sporttrainingsplan mit konkreten Übungen, Sätzen, Wiederholungen, RIR/Prozentlast, Pausen, Ausdauerzonen, Progression und Taper. Verwenden, wenn aus Diagnostik oder Zielsetzung ein ausführbarer Wochenplan entstehen soll; nicht als medizinische Rehabilitationsfreigabe.
+Deprecated Compatibility-Fassade für frühere Aufrufe des monolithischen Sport-Trainingsprogrammierers. Übersetzt Legacy-Inputs in den kanonischen sport-training-plan-workflow und referenziert dessen sport-training-plan.json, ohne Kraft-, Ausdauer- oder Periodisierungslogik erneut zu besitzen.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
 ## Category
 
-[[categories/workflow|workflow]]
+[[categories/internal|internal]]
 
 ## Requires
 
-- —
+- [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 
 ## Required by
 
-- [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- —
 
 ## Outputs
 
-- `sport-training-plan.json`
+- `sport-training-programming-compatibility-run.json`
 
 ## Output consumers
 
-### `sport-training-plan.json`
+### `sport-training-programming-compatibility-run.json`
 
-- [[skills/sport-diagnostics-training-report-workflow|sport-diagnostics-training-report-workflow]]
+- Terminal or currently unconsumed output.
 
 ## Evaluation
 
