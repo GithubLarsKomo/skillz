@@ -8,7 +8,7 @@ Canonical hard-dependency source: [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.m
 
 This document is the human-readable architecture map for the `skillz` repository. It intentionally does **not** reproduce every hard `requires` edge. The generated [`SKILL-DEPENDENCIES.md`](SKILL-DEPENDENCIES.md) remains the exact machine-derived graph; this view highlights responsibilities, lifecycle paths and feedback loops.
 
-Current canonical inventory after the customer-service/complaint follow-up wave: **108 skills, 90 user-facing entrypoints, 108/108 evaluation suites passing, 0 evaluation errors**.
+Current inventory and evaluation health are generated from the canonical capability metadata. Use [`skill-capability-index.json`](skill-capability-index.json) for the machine-readable inventory and [`CAPABILITY-HEALTH.md`](CAPABILITY-HEALTH.md) for current counts and health findings.
 
 ### Reading the diagrams
 
