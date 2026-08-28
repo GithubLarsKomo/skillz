@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/skillz-architecture-p3-legal-document-handoffs]
+    branches: [main]
     paths:
       - "skills/**"
       - "benchmarks/**"
@@ -13,8 +13,6 @@ on:
       - "scripts/generate_capability_health.py"
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
-      - "scripts/apply_p3_legal_document_handoffs.py"
-      - "tests/test_architecture_consolidation_p3_legal_document_handoffs.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -46,18 +44,10 @@ jobs:
         run: python -m unittest tests.test_role_selection_artifact_schemas
       - name: Test role selection routing policy
         run: python -m unittest tests.test_role_selection_routing_policy
-      - name: Apply P3 legal/document handoff migration
-        run: python scripts/apply_p3_legal_document_handoffs.py
       - name: Materialize OpenAI agent metadata
         run: python scripts/materialize_openai_agent_metadata.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
-      - name: Test legal/document handoff architecture contracts
-        run: python -m unittest tests.test_architecture_consolidation_p3_legal_document_handoffs
-      - name: Test typed artifact contracts
-        run: python -m unittest tests.test_architecture_consolidation_p3_artifact_contracts
-      - name: Test cross-domain workflow end-to-end contracts
-        run: python -m unittest tests.test_cross_domain_workflows_e2e
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
@@ -86,7 +76,7 @@ jobs:
             plugins/skillz \
             skills/*/SKILL.md \
             skills/*/agents/openai.yaml
-          git commit -m "Materialize legal and document handoffs"
+          git commit -m "Regenerate skill repository artifacts"
           git push origin HEAD:"$GITHUB_REF_NAME"
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
