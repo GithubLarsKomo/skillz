@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/skillz-architecture-consolidation]
+    branches: [main]
     paths:
       - "skills/**"
       - "benchmarks/**"
@@ -13,13 +13,6 @@ on:
       - "scripts/generate_capability_health.py"
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
-      - "scripts/finalize_architecture_consolidation_p0.py"
-      - "scripts/apply_architecture_consolidation_p1_source_spine.py"
-      - "scripts/apply_architecture_consolidation_p1_learning_delivery.py"
-      - "scripts/apply_architecture_consolidation_p1_presentation_evaluations.py"
-      - "scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py"
-      - "scripts/apply_architecture_consolidation_p1_internal_learning_evaluations.py"
-      - "scripts/fix_architecture_consolidation_p1_evaluation_anchors.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -30,7 +23,7 @@ permissions:
 
 concurrency:
   group: sync-generated-metadata-${{ github.ref_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   sync:
@@ -53,50 +46,8 @@ jobs:
         run: python -m unittest tests.test_role_selection_routing_policy
       - name: Materialize OpenAI agent metadata
         run: python scripts/materialize_openai_agent_metadata.py
-      - name: Apply P1 source-context spine
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/apply_architecture_consolidation_p1_source_spine.py
-      - name: Apply P1 shared learning delivery
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/apply_architecture_consolidation_p1_learning_delivery.py
-      - name: Backfill P1 presentation evaluations
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/apply_architecture_consolidation_p1_presentation_evaluations.py
-      - name: Backfill P1 user-facing learning evaluations
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py
-      - name: Backfill P1 internal learning evaluations
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/apply_architecture_consolidation_p1_internal_learning_evaluations.py
-      - name: Correct P1 evaluation anchors
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/fix_architecture_consolidation_p1_evaluation_anchors.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
-      - name: Evaluate backfilled suites
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/evaluate_skills.py
-      - name: Finalize architecture consolidation P0
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python scripts/finalize_architecture_consolidation_p0.py
-      - name: Verify P1 source-context spine
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python -m unittest tests.test_architecture_consolidation_p1_source_spine
-      - name: Verify P1 shared learning delivery
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python -m unittest tests.test_architecture_consolidation_p1_learning_delivery
-      - name: Verify P1 generic document core
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python -m unittest tests.test_architecture_consolidation_p1_document_core
-      - name: Verify P1 presentation evaluation coverage
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python -m unittest tests.test_architecture_consolidation_p1_presentation_evaluations
-      - name: Verify user-facing evaluation coverage
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python -m unittest tests.test_architecture_consolidation_p1_user_evaluation_coverage
-      - name: Verify complete evaluation coverage
-        if: github.ref_name == 'feat/skillz-architecture-consolidation'
-        run: python -m unittest tests.test_architecture_consolidation_p1_evaluation_coverage_complete
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
@@ -117,7 +68,6 @@ jobs:
           git add \
             README.md \
             .skill-sync.json \
-            docs/SKILL-UNIVERSE.md \
             docs/skill-dependency-graph.json \
             docs/SKILL-DEPENDENCIES.md \
             docs/skill-capability-index.json \
@@ -125,7 +75,6 @@ jobs:
             obsidian \
             plugins/skillz \
             skills/*/SKILL.md \
-            skills/*/tests \
             skills/*/agents/openai.yaml
           git commit -m "Regenerate skill repository artifacts"
           git push origin HEAD:"$GITHUB_REF_NAME"
