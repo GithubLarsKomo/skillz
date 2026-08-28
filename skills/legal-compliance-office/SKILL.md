@@ -4,7 +4,7 @@ description: Orchestriert unternehmerische und private Legal-/Compliance-Matters
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.4.0
+version: 0.5.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -50,6 +50,8 @@ Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zus�
 ## Operating-System Routing
 
 - Verträge → kompatibler `contract-workflow` / kanonischer Contract Matter Stack.
+- Corporate Integrity/Anti-Corruption/Third Parties → `corporate-compliance-law-specialist` plus Obligation/Control/Investigation-System.
+- Digital/AI/Cyber/Data → `digital-ai-cyber-law-specialist` plus bestehende Privacy-/ISMS-/Cybersecurity-/Regulatory-Specialists.
 - Compliance-System/Control Framework → `compliance-management-workflow` mit Obligation→Control→Evidence Lineage.
 - Rechtsänderungen außerhalb des Medical-Device-Spezialmonitorings → `legal-change-monitoring` → `legal-change-impact-orchestrator`.
 - Medical-Device-/IVD-Regulatory Changes → bestehendes `regulatory-change-monitoring` und `regulatory-change-impact-orchestrator`; nicht in ein generisches Legal-Monitoring umdeuten.
@@ -64,6 +66,8 @@ Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zus�
 - Privacy/Data → `privacy-data-law-specialist`; regulierte IVD/Medical-Device-Privacy zusätzlich beim vorhandenen Fach-Skill.
 - Corporate Governance → `corporate-governance-law-specialist`.
 - M&A/Transactions → `corporate-transactions-ma-specialist`.
+- Corporate Compliance/Integrity → `corporate-compliance-law-specialist`.
+- Digital/AI/Cyber/Data → `digital-ai-cyber-law-specialist`.
 - IP/Licensing → `ip-licensing-law-specialist` plus vorhandene Patent/Biopatent/FTO-Skills.
 - Competition/Antitrust → `competition-antitrust-law-specialist`.
 - Trade/Sanctions/Export → `trade-sanctions-export-control-specialist`.
@@ -71,12 +75,19 @@ Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zus�
 - Disputes/Litigation → `dispute-litigation-strategy-specialist` mit Counsel Gate für formelle Prozesshandlungen.
 - Tax Dependencies → `tax-legal-interface-specialist`; bestätigte materielle Tax Position vom befugten Tax Professional.
 - Real Estate → `real-estate-law-specialist`, mit Tax-/Notary-/Authority-Handoffs soweit ausgelöst.
+- Family → `german-family-law-specialist`.
+- Inheritance/Succession → `german-inheritance-succession-law-specialist`.
+- Consumer/Insurance/Private Contracts → `german-consumer-insurance-private-contract-law-specialist`.
+- Criminal/OWi/Investigation Procedure → `german-criminal-administrative-offence-procedure-specialist`.
+- Administrative/Social/Traffic Public Law → `german-administrative-social-traffic-law-specialist`.
 
 ## Orchestrator-Regeln
 
 - Fach-Specialists besitzen ihre Domänenlogik; der Orchestrator dupliziert keine Subsumtion.
 - Existing Assets first: Regulatory-, QMS-, Complaint-, CAPA-, Audit-, Patent-, Biopatent-, FTO-, Research- und Grilling-Skills werden bevorzugt wiederverwendet.
 - Compliance bedeutet nicht nur Policy-Vorhandensein: materielle Pflichten, Controls, Evidenz und Assurance bleiben getrennte Layer.
+- Corporate Compliance Legal Analysis, Control Design und Investigation Fact-Finding sind getrennte Ownership-Layer.
+- Digital/AI/Cyber-Rechtsklassifikation ersetzt weder technische Security-Bewertung noch Privacy-, ISMS- oder Regulatory-Fachentscheidungen.
 - Detection einer Rechtsänderung ist weder Applicability noch Implementation noch Compliance Closure.
 - Investigation Findings ersetzen weder regulatorische Reportability noch arbeits-/straf-/datenschutzrechtliche Entscheidungsgates.
 - Tax Research wird nicht als bestätigte individuelle Steuerposition ausgegeben, wenn ein Tax Professional erforderlich ist.
