@@ -3535,6 +3535,19 @@
       ]
     },
     {
+      "name": "workflow-benchmark-authoring",
+      "requires": [
+        "artifact-contract-normalizer",
+        "skill-evaluation-suite-authoring"
+      ],
+      "consumes": [],
+      "outputs": [
+        "workflow-benchmark-authoring-report.md",
+        "workflow-benchmark-regression.py",
+        "workflow-benchmark-spec.json"
+      ]
+    },
+    {
       "name": "youtube-course-builder-workflow",
       "requires": [
         "course-concept-graph",
@@ -6154,6 +6167,14 @@
       "to": "privilege-and-counsel-routing"
     },
     {
+      "from": "workflow-benchmark-authoring",
+      "to": "artifact-contract-normalizer"
+    },
+    {
+      "from": "workflow-benchmark-authoring",
+      "to": "skill-evaluation-suite-authoring"
+    },
+    {
       "from": "youtube-course-builder-workflow",
       "to": "course-concept-graph"
     },
@@ -6670,9 +6691,11 @@
       "producers": [
         "artifact-contract-normalizer"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "workflow-benchmark-authoring"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "association-governance-map.json",
@@ -13608,9 +13631,11 @@
       "producers": [
         "skill-evaluation-suite-authoring"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "workflow-benchmark-authoring"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "skill-lifecycle-migration-plan.json",
@@ -14486,6 +14511,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "workflow-benchmark-authoring-report.md",
+      "producers": [
+        "workflow-benchmark-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "workflow-benchmark-regression.py",
+      "producers": [
+        "workflow-benchmark-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "workflow-benchmark-spec.json",
+      "producers": [
+        "workflow-benchmark-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "works-council-route-map.json",
       "producers": [
         "german-employment-labor-law-specialist"
@@ -14566,7 +14618,6 @@
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
     "antitrust-risk-gates.json",
-    "artifact-contract-normalization.json",
     "association-governance-map.json",
     "association-law-open-points.json",
     "athlete-management-state.json",
@@ -14799,7 +14850,6 @@
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
-    "skill-evaluation-suite-authoring-report.json",
     "skill-lifecycle-migration-plan.json",
     "skill-lifecycle-migration-plan.md",
     "source-context.md",
@@ -14827,6 +14877,9 @@
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
     "vigilance-entry-handoff.json",
+    "workflow-benchmark-authoring-report.md",
+    "workflow-benchmark-regression.py",
+    "workflow-benchmark-spec.json",
     "works-council-route-map.json",
     "youtube-course-builder-run.json"
   ],
@@ -14837,7 +14890,6 @@
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
     "antitrust-risk-gates.json",
-    "artifact-contract-normalization.json",
     "association-governance-map.json",
     "association-law-open-points.json",
     "athlete-management-state.json",
@@ -15070,7 +15122,6 @@
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
-    "skill-evaluation-suite-authoring-report.json",
     "skill-lifecycle-migration-plan.json",
     "skill-lifecycle-migration-plan.md",
     "source-context.md",
@@ -15098,6 +15149,9 @@
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
     "vigilance-entry-handoff.json",
+    "workflow-benchmark-authoring-report.md",
+    "workflow-benchmark-regression.py",
+    "workflow-benchmark-spec.json",
     "works-council-route-map.json",
     "youtube-course-builder-run.json"
   ]

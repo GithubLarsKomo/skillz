@@ -9,9 +9,9 @@ tags:
 
 > Generated from `docs/skill-capability-index.json`, `docs/skill-dependency-graph.json` and executable E2E benchmark sequences. Do not edit generated files manually.
 
-- Skills: **280**
+- Skills: **281**
 - Categories: **10**
-- Workflow views: **13**
+- Workflow views: **24**
 - Repository evaluation passed: **True**
 
 ## Views
@@ -25,7 +25,7 @@ tags:
 - [[categories/analysis|analysis]] (8)
 - [[categories/communication-memory|communication-memory]] (2)
 - [[categories/engineering|engineering]] (17)
-- [[categories/internal|internal]] (49)
+- [[categories/internal|internal]] (50)
 - [[categories/legal-specialist|legal-specialist]] (26)
 - [[categories/productivity|productivity]] (8)
 - [[categories/regulated-engineering|regulated-engineering]] (74)
@@ -37,17 +37,28 @@ tags:
 
 - [[workflows/audit-capa-loop|audit-capa-loop]]
 - [[workflows/connected-ai-ivd|connected-ai-ivd]]
+- [[workflows/contract-lifecycle-to-final-gate|contract-lifecycle-to-final-gate]]
 - [[workflows/customer-contact-to-dual-market-vigilance|customer-contact-to-dual-market-vigilance]]
 - [[workflows/customer-followup-reassessment-loop|customer-followup-reassessment-loop]]
 - [[workflows/fda-correction-removal-to-recall-closure|fda-correction-removal-to-recall-closure]]
 - [[workflows/fda-recall-through-termination|fda-recall-through-termination]]
 - [[workflows/fda-recall-to-physical-closure|fda-recall-to-physical-closure]]
+- [[workflows/frontend-design-governed-redesign|frontend-design-governed-redesign]]
 - [[workflows/ivdr-economic-operator-to-physical-closure|ivdr-economic-operator-to-physical-closure]]
 - [[workflows/ivdr-field-action-through-authority-finalization|ivdr-field-action-through-authority-finalization]]
 - [[workflows/ivdr-vigilance-to-fsca-closure|ivdr-vigilance-to-fsca-closure]]
 - [[workflows/new-eu-ivd|new-eu-ivd]]
+- [[workflows/person-research-to-auditable-report|person-research-to-auditable-report]]
+- [[workflows/purchase-decision-with-current-evidence|purchase-decision-with-current-evidence]]
 - [[workflows/service-and-coding-to-vigilance|service-and-coding-to-vigilance]]
+- [[workflows/software-performance-optimization|software-performance-optimization]]
+- [[workflows/sport-longitudinal-adaptation-loop|sport-longitudinal-adaptation-loop]]
+- [[workflows/template-presentation-production|template-presentation-production]]
+- [[workflows/thought-capture-to-concept|thought-capture-to-concept]]
 - [[workflows/us-eu-dual-market|us-eu-dual-market]]
+- [[workflows/youtube-course-builder|youtube-course-builder]]
+- [[workflows/youtube-playlist-arbitrated-learning|youtube-playlist-arbitrated-learning]]
+- [[workflows/youtube-single-video-learning|youtube-single-video-learning]]
 
 ## Source-of-truth rule
 

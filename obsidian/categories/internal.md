@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **49**
+Skills: **50**
 
 - [[skills/artifact-contract-normalizer|artifact-contract-normalizer]]
 - [[skills/course-concept-graph|course-concept-graph]]
@@ -60,4 +60,5 @@ Skills: **49**
 - [[skills/synapse-orchestrator|synapse-orchestrator]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
+- [[skills/workflow-benchmark-authoring|workflow-benchmark-authoring]]
 - [[skills/youtube-video-ingestion|youtube-video-ingestion]]

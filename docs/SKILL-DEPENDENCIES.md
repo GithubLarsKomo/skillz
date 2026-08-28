@@ -645,6 +645,8 @@ graph TD
   two_axis_compliance_review --> research_to_evidence_note
   whistleblowing_law_specialist --> current_law_context
   whistleblowing_law_specialist --> privilege_and_counsel_routing
+  workflow_benchmark_authoring --> artifact_contract_normalizer
+  workflow_benchmark_authoring --> skill_evaluation_suite_authoring
   youtube_course_builder_workflow --> course_concept_graph
   youtube_course_builder_workflow --> learning_activity_generator
   youtube_course_builder_workflow --> learning_delivery_workflow
@@ -734,7 +736,7 @@ graph TD
 | `antitrust-risk-gates.json` | `competition-antitrust-law-specialist` | — | unconsumed |
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
-| `artifact-contract-normalization.json` | `artifact-contract-normalizer` | — | unconsumed |
+| `artifact-contract-normalization.json` | `artifact-contract-normalizer` | `workflow-benchmark-authoring` | inferred |
 | `association-governance-map.json` | `german-association-law-specialist` | — | unconsumed |
 | `association-law-open-points.json` | `german-association-law-specialist` | — | unconsumed |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
@@ -1313,7 +1315,7 @@ graph TD
 | `service-complaint-handoff.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
 | `service-event-quality-record.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
 | `service-quality-routing.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
-| `skill-evaluation-suite-authoring-report.json` | `skill-evaluation-suite-authoring` | — | unconsumed |
+| `skill-evaluation-suite-authoring-report.json` | `skill-evaluation-suite-authoring` | `workflow-benchmark-authoring` | inferred |
 | `skill-lifecycle-migration-plan.json` | `skill-lifecycle-migration` | — | unconsumed |
 | `skill-lifecycle-migration-plan.md` | `skill-lifecycle-migration` | — | unconsumed |
 | `skill-portfolio-audit.json` | `skill-portfolio-audit` | `artifact-contract-normalizer`, `skill-lifecycle-migration` | inferred |
@@ -1392,6 +1394,9 @@ graph TD
 | `wayfinding-brief.md` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `whistleblowing-law-assessment.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `whistleblowing-source-note.md` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
+| `workflow-benchmark-authoring-report.md` | `workflow-benchmark-authoring` | — | unconsumed |
+| `workflow-benchmark-regression.py` | `workflow-benchmark-authoring` | — | unconsumed |
+| `workflow-benchmark-spec.json` | `workflow-benchmark-authoring` | — | unconsumed |
 | `works-council-route-map.json` | `german-employment-labor-law-specialist` | — | unconsumed |
 | `youtube-course-builder-run.json` | `youtube-course-builder-workflow` | — | unconsumed |
 | `youtube-frame-index.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |

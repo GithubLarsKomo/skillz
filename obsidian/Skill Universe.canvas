@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n280 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n281 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -725,10 +725,19 @@
       "height": 110
     },
     {
+      "id": "skill-workflow-benchmark-authoring",
+      "type": "file",
+      "file": "skills/workflow-benchmark-authoring.md",
+      "x": 3700,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-youtube-video-ingestion",
       "type": "file",
       "file": "skills/youtube-video-ingestion.md",
-      "x": 3700,
+      "x": 4030,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -8396,6 +8405,24 @@
       "fromNode": "skill-whistleblowing-law-specialist",
       "fromSide": "right",
       "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4ba96a53920d",
+      "fromNode": "skill-workflow-benchmark-authoring",
+      "fromSide": "right",
+      "toNode": "skill-artifact-contract-normalizer",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-758db2d879b9",
+      "fromNode": "skill-workflow-benchmark-authoring",
+      "fromSide": "right",
+      "toNode": "skill-skill-evaluation-suite-authoring",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"

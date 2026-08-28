@@ -30,7 +30,7 @@ Analysiert und normalisiert Skill-Artefaktverträge für eindeutige Producer-Own
 
 ## Required by
 
-- —
+- [[skills/workflow-benchmark-authoring|workflow-benchmark-authoring]]
 
 ## Outputs
 
@@ -40,7 +40,7 @@ Analysiert und normalisiert Skill-Artefaktverträge für eindeutige Producer-Own
 
 ### `artifact-contract-normalization.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/workflow-benchmark-authoring|workflow-benchmark-authoring]]
 
 ## Evaluation
 
