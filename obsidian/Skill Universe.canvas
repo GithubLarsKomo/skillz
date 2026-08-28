@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n226 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n232 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -578,15 +578,42 @@
       "x": 4880,
       "y": 0,
       "width": 1120,
-      "height": 380,
+      "height": 660,
       "color": "5"
+    },
+    {
+      "id": "skill-competition-antitrust-law-specialist",
+      "type": "file",
+      "file": "skills/competition-antitrust-law-specialist.md",
+      "x": 4920,
+      "y": 70,
+      "width": 300,
+      "height": 110
     },
     {
       "id": "skill-compliance-obligation-register",
       "type": "file",
       "file": "skills/compliance-obligation-register.md",
-      "x": 4920,
+      "x": 5250,
       "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-corporate-governance-law-specialist",
+      "type": "file",
+      "file": "skills/corporate-governance-law-specialist.md",
+      "x": 5580,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-corporate-transactions-ma-specialist",
+      "type": "file",
+      "file": "skills/corporate-transactions-ma-specialist.md",
+      "x": 4920,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -595,7 +622,16 @@
       "type": "file",
       "file": "skills/german-association-law-specialist.md",
       "x": 5250,
-      "y": 70,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-employment-labor-law-specialist",
+      "type": "file",
+      "file": "skills/german-employment-labor-law-specialist.md",
+      "x": 5580,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -603,8 +639,8 @@
       "id": "skill-german-rowing-sport-law-specialist",
       "type": "file",
       "file": "skills/german-rowing-sport-law-specialist.md",
-      "x": 5580,
-      "y": 70,
+      "x": 4920,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -612,8 +648,26 @@
       "id": "skill-german-sports-law-specialist",
       "type": "file",
       "file": "skills/german-sports-law-specialist.md",
+      "x": 5250,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ip-licensing-law-specialist",
+      "type": "file",
+      "file": "skills/ip-licensing-law-specialist.md",
+      "x": 5580,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-privacy-data-law-specialist",
+      "type": "file",
+      "file": "skills/privacy-data-law-specialist.md",
       "x": 4920,
-      "y": 210,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -622,7 +676,7 @@
       "type": "file",
       "file": "skills/whistleblowing-law-specialist.md",
       "x": 5250,
-      "y": 210,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -2281,6 +2335,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-3d8bc97104fc",
+      "fromNode": "skill-competition-antitrust-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e1fc85c40e5e",
+      "fromNode": "skill-competition-antitrust-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4041c7bb6510",
+      "fromNode": "skill-competition-antitrust-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-5968454adbb8",
       "fromNode": "skill-compliance-control-assurance",
       "fromSide": "right",
@@ -2493,6 +2574,69 @@
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cbcc7ca06ae3",
+      "fromNode": "skill-corporate-governance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8db4a1565e9b",
+      "fromNode": "skill-corporate-governance-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5a7ecf268ac3",
+      "fromNode": "skill-corporate-governance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bdaa42aa5c82",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "right",
+      "toNode": "skill-corporate-governance-law-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f66b3fea75df",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4f3643b6f990",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f49a34644dac",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3523,11 +3667,38 @@
       "label": "requires"
     },
     {
+      "id": "requires-7ad776911239",
+      "fromNode": "skill-german-employment-labor-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-04c2c597d79e",
+      "fromNode": "skill-german-employment-labor-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2c497d4ec11f",
+      "fromNode": "skill-german-employment-labor-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-9a35f7a737eb",
       "fromNode": "skill-german-rowing-sport-law-specialist",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-german-sports-law-specialist",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3726,6 +3897,33 @@
       "fromSide": "left",
       "toNode": "skill-legal-compliance-risk-assessment",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2b3a840404bc",
+      "fromNode": "skill-ip-licensing-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ff468a491799",
+      "fromNode": "skill-ip-licensing-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-47e8da64e189",
+      "fromNode": "skill-ip-licensing-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5615,6 +5813,24 @@
       "fromNode": "skill-presentation-render-verifier",
       "fromSide": "left",
       "toNode": "skill-presentation-layout-qa",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-050c4f5a91cd",
+      "fromNode": "skill-privacy-data-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a974277b7750",
+      "fromNode": "skill-privacy-data-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"

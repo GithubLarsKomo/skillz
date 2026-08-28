@@ -31,12 +31,18 @@ tags:
 ## Required by
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
 
 ## Outputs
 
@@ -48,22 +54,34 @@ tags:
 ### `client-strategy.json`
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
 
 ### `legal-decision-boundaries.json`
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
 
 ## Evaluation
 

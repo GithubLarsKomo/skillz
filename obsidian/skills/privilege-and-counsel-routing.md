@@ -30,7 +30,12 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 
 ## Required by
 
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
@@ -45,21 +50,36 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 
 ### `counsel-scope.json`
 
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `external-counsel-brief.md`
 
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `privilege-routing.json`
 
+- [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
+- [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
+- [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
+- [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]

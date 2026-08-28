@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 226,
-  "entrypointCount": 195,
+  "skillCount": 232,
+  "entrypointCount": 201,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 220,
+  "evaluationSuiteCount": 226,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -601,6 +601,61 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "competition-antitrust-law-specialist",
+      "description": "Analysiert deutsches/EU-Kartellrecht für Vereinbarungen, Wettbewerberkontakte, Vertrieb, Exklusivität, IP-Lizenzen, Marktbeherrschung, Informationsaustausch und Transaktionen einschließlich Merger-Control-Routing. Verwenden für GWB-/Art.-101/102-AEUV-Fragen; Marktdefinition, Freistellung, Filing und Behördenrisiko aktuell und evidenzbasiert prüfen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "antitrust-risk-gates.json",
+        "competition-law-assessment.json",
+        "merger-control-route-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "antitrust-risk-gates.json",
+          "ambiguous": false,
+          "producers": [
+            "competition-antitrust-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "competition-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "competition-antitrust-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "merger-control-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "competition-antitrust-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -1354,6 +1409,125 @@
       }
     },
     {
+      "name": "corporate-governance-law-specialist",
+      "description": "Analysiert deutsches Gesellschafts- und Organrecht für AG/GmbH mit Zuständigkeiten, Vertretungsmacht, Geschäftsleitung, Aufsicht, Beschlusskompetenzen, Interessenkonflikten, Informationsgrundlage, Organpflichten und persönlicher Haftung. Verwenden für Board-/Geschäftsführungsentscheidungen, Governance-Freigaben und Organhaftungsfragen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [
+        "corporate-transactions-ma-specialist"
+      ],
+      "outputs": [
+        "board-decision-gates.json",
+        "corporate-authority-map.json",
+        "corporate-governance-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "board-decision-gates.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-governance-law-specialist"
+          ],
+          "consumerSkills": [
+            "corporate-transactions-ma-specialist"
+          ]
+        },
+        {
+          "output": "corporate-authority-map.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-governance-law-specialist"
+          ],
+          "consumerSkills": [
+            "corporate-transactions-ma-specialist"
+          ]
+        },
+        {
+          "output": "corporate-governance-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-governance-law-specialist"
+          ],
+          "consumerSkills": [
+            "corporate-transactions-ma-specialist"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "corporate-transactions-ma-specialist",
+      "description": "Analysiert M&A-, Beteiligungs-, Asset-/Share-Deal-, Umwandlungs- und sonstige Corporate-Transaction-Matters von Struktur und Due Diligence über Signing/Closing, Conditions, Covenants, Haftung, Zustimmungserfordernisse und Post-Closing. Verwenden für Transaktionen; Tax, Employment, IP, Privacy, Antitrust, Regulatory und Notar/Counsel als eigene Specialist-Layer routen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "corporate-governance-law-specialist",
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "transaction-gate-map.json",
+        "transaction-legal-assessment.json",
+        "transaction-specialist-work-orders.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "transaction-gate-map.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-transactions-ma-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "transaction-legal-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-transactions-ma-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "transaction-specialist-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-transactions-ma-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "current-law-context",
       "description": "Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogenen Rechts- und Regelwerkskontext aus autoritativen Quellen und trennt Gesetz, Rechtsprechung, Behördenmaterial, Verbands-/Satzungsrecht, Vertragsregeln und Interpretation. Verwenden vor materiellen Rechtsaussagen oder Specialist Assessments.",
       "invocation": {
@@ -1365,17 +1539,23 @@
       ],
       "dependents": [
         "agreement-type-analysis",
+        "competition-antitrust-law-specialist",
         "compliance-obligation-register",
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
+        "corporate-governance-law-specialist",
+        "corporate-transactions-ma-specialist",
         "german-association-law-specialist",
+        "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
+        "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
         "legal-specialist-router",
+        "privacy-data-law-specialist",
         "whistleblowing-law-specialist"
       ],
       "outputs": [
@@ -1393,17 +1573,23 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "competition-antitrust-law-specialist",
             "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
             "german-association-law-specialist",
+            "german-employment-labor-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
             "legal-specialist-router",
+            "privacy-data-law-specialist",
             "whistleblowing-law-specialist"
           ]
         },
@@ -1415,17 +1601,23 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "competition-antitrust-law-specialist",
             "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
             "german-association-law-specialist",
+            "german-employment-labor-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
             "legal-specialist-router",
+            "privacy-data-law-specialist",
             "whistleblowing-law-specialist"
           ]
         },
@@ -1437,17 +1629,23 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "competition-antitrust-law-specialist",
             "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
             "german-association-law-specialist",
+            "german-employment-labor-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
             "legal-specialist-router",
+            "privacy-data-law-specialist",
             "whistleblowing-law-specialist"
           ]
         },
@@ -1459,17 +1657,23 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "competition-antitrust-law-specialist",
             "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
             "german-association-law-specialist",
+            "german-employment-labor-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
             "legal-specialist-router",
+            "privacy-data-law-specialist",
             "whistleblowing-law-specialist"
           ]
         }
@@ -4101,6 +4305,61 @@
       }
     },
     {
+      "name": "german-employment-labor-law-specialist",
+      "description": "Analysiert deutsches Individual- und Kollektivarbeitsrecht einschließlich Arbeitnehmerstatus, Vertrag, Vergütung, Arbeitszeit, Befristung, Gleichbehandlung, Performance/Disziplin, Kündigung, Betriebsrat/Mitbestimmung, Investigations und Beschäftigtendaten. Verwenden für deutsche Employment-/Labor-Matters und als Specialist-Handoff aus Verträgen, Compliance und Investigations.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "employment-action-gates.json",
+        "german-employment-law-assessment.json",
+        "works-council-route-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "employment-action-gates.json",
+          "ambiguous": false,
+          "producers": [
+            "german-employment-labor-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "german-employment-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-employment-labor-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "works-council-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-employment-labor-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "german-rowing-sport-law-specialist",
       "description": "Analysiert sportartspezifische Rechts- und Verbandsfragen im deutschen Rudersport mit Fokus auf den Deutschen Ruderverband (DRV), seine Satzung und Ordnungen, aktuelle Ruder-Wettkampfregeln, Startberechtigung, Regatten, Disziplinar-/Rechtsverfahren, Anti-Doping und DRJ-Regeln. Verwenden als Rudern-Overlay nach dem allgemeinen deutschen Sports-Law-Specialist.",
       "invocation": {
@@ -4666,6 +4925,61 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ip-licensing-law-specialist",
+      "description": "Analysiert IP-Ownership, Lizenzierung und Technology-Transfer für Patente, Know-how, Software, Urheberrechte, Marken, Daten und Arbeitnehmererfindungen; verbindet bestehende Patent-/Biopatent-/FTO-Analysen mit rechtlicher Deal-Struktur, ohne Claim Construction oder FTO-Rechtsgutachten zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "ip-legal-assessment.json",
+        "ip-license-deal-model.json",
+        "ip-rights-chain-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "ip-legal-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "ip-licensing-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ip-license-deal-model.json",
+          "ambiguous": false,
+          "producers": [
+            "ip-licensing-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "ip-rights-chain-map.json",
+          "ambiguous": false,
+          "producers": [
+            "ip-licensing-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -6107,12 +6421,18 @@
       ],
       "dependents": [
         "agreement-type-analysis",
+        "competition-antitrust-law-specialist",
+        "corporate-governance-law-specialist",
+        "corporate-transactions-ma-specialist",
         "german-association-law-specialist",
+        "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
+        "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-negotiation-strategy",
-        "legal-specialist-router"
+        "legal-specialist-router",
+        "privacy-data-law-specialist"
       ],
       "outputs": [
         "client-strategy.json",
@@ -6127,12 +6447,18 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "competition-antitrust-law-specialist",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
             "german-association-law-specialist",
+            "german-employment-labor-law-specialist",
             "german-sports-law-specialist",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-negotiation-strategy",
-            "legal-specialist-router"
+            "legal-specialist-router",
+            "privacy-data-law-specialist"
           ]
         },
         {
@@ -6143,12 +6469,18 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "competition-antitrust-law-specialist",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
             "german-association-law-specialist",
+            "german-employment-labor-law-specialist",
             "german-sports-law-specialist",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-negotiation-strategy",
-            "legal-specialist-router"
+            "legal-specialist-router",
+            "privacy-data-law-specialist"
           ]
         }
       ],
@@ -9633,6 +9965,60 @@
       }
     },
     {
+      "name": "privacy-data-law-specialist",
+      "description": "Analysiert allgemeine Datenschutz- und Datenrechtsfragen mit EU/Deutschland-Baseline von Data Inventory und Rollen über Zwecke/Rechtsgrundlagen, besondere Kategorien, Transparenz/Rechte, Processor/Joint Controller, Security/DPIA, Retention, internationale Transfers, Incident/Breach und Beschäftigtendaten. Verwenden für unternehmensweite Privacy/Data-Matters; Medical-Device-/IVD-Kontexte an den vorhandenen Fach-Specialist routen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "dependents": [],
+      "outputs": [
+        "data-processing-role-map.json",
+        "privacy-action-gates.json",
+        "privacy-data-law-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "data-processing-role-map.json",
+          "ambiguous": false,
+          "producers": [
+            "privacy-data-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "privacy-action-gates.json",
+          "ambiguous": false,
+          "producers": [
+            "privacy-data-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "privacy-data-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "privacy-data-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "privilege-and-counsel-routing",
       "description": "Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedarf, ohne pauschal anwaltliches Privileg zu behaupten, und routet Fragen nach interner Bearbeitung, qualifiziertem externem Counsel, Behörde, Notar oder sonstiger zwingender Autorität. Verwenden früh im Matter und erneut vor irreversiblen Rechtsentscheidungen.",
       "invocation": {
@@ -9643,7 +10029,12 @@
         "legal-matter-intake"
       ],
       "dependents": [
+        "competition-antitrust-law-specialist",
+        "corporate-governance-law-specialist",
+        "corporate-transactions-ma-specialist",
+        "german-employment-labor-law-specialist",
         "investigation-evidence-preservation",
+        "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "whistleblowing-law-specialist"
@@ -9661,7 +10052,12 @@
             "privilege-and-counsel-routing"
           ],
           "consumerSkills": [
+            "competition-antitrust-law-specialist",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
+            "german-employment-labor-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "whistleblowing-law-specialist"
@@ -9674,7 +10070,12 @@
             "privilege-and-counsel-routing"
           ],
           "consumerSkills": [
+            "competition-antitrust-law-specialist",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
+            "german-employment-labor-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "whistleblowing-law-specialist"
@@ -9687,7 +10088,12 @@
             "privilege-and-counsel-routing"
           ],
           "consumerSkills": [
+            "competition-antitrust-law-specialist",
+            "corporate-governance-law-specialist",
+            "corporate-transactions-ma-specialist",
+            "german-employment-labor-law-specialist",
             "investigation-evidence-preservation",
+            "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "whistleblowing-law-specialist"

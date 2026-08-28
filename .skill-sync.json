@@ -64,6 +64,13 @@
         "agents/openai.yaml": "33f87a1f7369ef473081280695d0e82a47627b462828c8fc9d8de56c9f11ecc1"
       }
     },
+    "competition-antitrust-law-specialist": {
+      "files": {
+        "SKILL.md": "80b6132cfe6f388c28911994498b204a3e7ce479ecad31d117e37e5a8590e812",
+        "agents/openai.yaml": "f7997fe72255831fefe697e4a39f36e6581e4525bf3015552551ce9983b3551e",
+        "references/authoritative-sources.md": "af942fa9832b855c1f60f372877e3c978cc862b9920371049ef055a9a3a735e9"
+      }
+    },
     "compliance-control-assurance": {
       "files": {
         "SKILL.md": "ec3e59e6eb3639a9d145e5449a114f33f9366fe636ebc4b806a3fc5c2a688352",
@@ -135,6 +142,20 @@
       "files": {
         "SKILL.md": "42252f241b94d707b34675bca1147256f696a5be072990becca87f6b3c86617f",
         "agents/openai.yaml": "6b39d1a47df6050566162437178f9ff3c204144d59cb7735520e725ab8c13de9"
+      }
+    },
+    "corporate-governance-law-specialist": {
+      "files": {
+        "SKILL.md": "44456e04a7b7cc5e07d74bfb2e40fac00732a4a039535a5cbab424c418d513ec",
+        "agents/openai.yaml": "83c4d4f2f35e6a51c35bf5e7c6b32e9e342cc1992ccb4de1eeef28a7ae6c1d95",
+        "references/authoritative-sources.md": "c638909404b7fd5ec2d2d2da9a2d5b384dc0a3e7bf0d80d6797484bfe69ab93f"
+      }
+    },
+    "corporate-transactions-ma-specialist": {
+      "files": {
+        "SKILL.md": "6d481880a0ad46dd62fc05b0e96c3b5e8f3eb16f1b7c298cb5a6bdc88059d7cd",
+        "agents/openai.yaml": "7df59f1587aec76bad020c53b4cb203c040b2fd9820408089e73d14af4864315",
+        "references/authoritative-sources.md": "cf9c4f654a1425585944a04cc0360c43f0804d91f82a90d1a9c13fe685f7d7f5"
       }
     },
     "current-law-context": {
@@ -468,6 +489,13 @@
         "references/authoritative-sources.md": "c2339472fa48c96176524deb9714c609bfc4f61a01a672c653d93364b547f8a4"
       }
     },
+    "german-employment-labor-law-specialist": {
+      "files": {
+        "SKILL.md": "c5fb29c3abec9a4cd3cc5dd131bb0e6c3cf9af8ae1e141633bf6ff6d76f40f9a",
+        "agents/openai.yaml": "fac709e47fc3c81a4eff9790c7ea710285296eb10dbbfc076e958f0071b963b4",
+        "references/authoritative-sources.md": "fc30501373e8d27e61a978aa633d7e7041188bb33ab27377614ab03f03b3a8b7"
+      }
+    },
     "german-rowing-sport-law-specialist": {
       "files": {
         "SKILL.md": "fd9e8d83fd47bd4ee211a25fb61fce4f9dc5f2f65a9f6229993fcfc6e3e828b5",
@@ -528,6 +556,13 @@
       "files": {
         "SKILL.md": "3e2b0b9a1f67668d80054062a2fcfd04b0c654e37e448608cc0f673de8c8e318",
         "agents/openai.yaml": "9de2e363765cba9a230e36beff76c3abfcb83b1902f3e2a0e12dc75ff8528d02"
+      }
+    },
+    "ip-licensing-law-specialist": {
+      "files": {
+        "SKILL.md": "87f9ac059a91641898193f11a46d4d7ef58bae4c4f79144d62140d9022c7e286",
+        "agents/openai.yaml": "c9e5019e194093dee4805d967705c4df92aeaa5651e54e9ffba1effd684972b4",
+        "references/authoritative-sources.md": "fce6c756fb6581cd886bd3e5dbd729539db93be14f3ed1ef02bb0c99384c0db7"
       }
     },
     "iso13485-qms-audit": {
@@ -737,7 +772,7 @@
     },
     "legal-specialist-router": {
       "files": {
-        "SKILL.md": "4de9a9f5cf7ae4b96686db910b3ee0a1096ec81d39245fdfe9d054d6645711d4",
+        "SKILL.md": "5667505eee7a9d208c913765e286ce91908c3e1aa44dc6923f26af37117ba3ec",
         "agents/openai.yaml": "ff6a8072537f63d5328ec41f062206c255b7efebf021b3aba3b25f2e7d247573"
       }
     },
@@ -1039,6 +1074,13 @@
         "agents/openai.yaml": "d0caaaaf7db090f9dda6f5f349d873e563322abcc1e2c8d3e8986387363372ec",
         "references/price-normalization.md": "293e82dc600a3c8b96f7ba9175774b2ad1a572be4aa3670fed6b351572926b55",
         "scripts/validate_price_snapshot.py": "c62c511534cc78791f3c562415841c06b1b3e19a83833b048e2f5f1b107c2c71"
+      }
+    },
+    "privacy-data-law-specialist": {
+      "files": {
+        "SKILL.md": "7823c8cb4de0d703ed173d6f17b673fe4047c79e2d4773aea1c70ac2469a8f30",
+        "agents/openai.yaml": "6ac491986e7aef13a22f112cad140e1c8f698bb7e2aad30f53d9f42e03f25d5e",
+        "references/authoritative-sources.md": "1d610b26dcf2c66bbfafc453f956ff200d8472ddcea2313b749d5fd64d713369"
       }
     },
     "privilege-and-counsel-routing": {
