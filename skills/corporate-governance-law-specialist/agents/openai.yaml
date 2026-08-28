@@ -1,0 +1,5 @@
+interface:
+  display_name: "Corporate Governance Law"
+  short_description: "Prüft Organpflichten, Zuständigkeiten, Beschlüsse und Governance-Gates."
+policy:
+  allow_implicit_invocation: true
