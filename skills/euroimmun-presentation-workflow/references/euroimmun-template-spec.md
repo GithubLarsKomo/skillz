@@ -4,7 +4,7 @@ Current preferred reference derived from user-supplied `260828 NDD Review.pptx` 
 
 ## Normative status
 
-This file is a **format-specific observed template specification**, not the company-wide design authority. For every EUROIMMUN corporate presentation, `docs/corporate/euroimmun/DESIGN.md` is the mandatory shared design/QA contract, `docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md` identifies the preferred current binary reference, and `docs/corporate/euroimmun/GOLDEN_REFERENCE.md` governs Level-1/Level-2 certification.
+This file is a **format-specific observed template specification**, not the company-wide design authority. For every EUROIMMUN corporate presentation, `docs/corporate/euroimmun/DESIGN.md` is the mandatory shared design/QA contract, `docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md` identifies the preferred current binary reference, `docs/corporate/euroimmun/GOLDEN_REFERENCE.md` governs Level-1/Level-2 certification, and `euroimmun-corporate` remains the authoritative cross-format corporate brand profile where the active template does not define the role.
 
 When a verified PowerPoint binary reference is available, its master/theme/layout values are authoritative for template-owned elements. For `template-derived` work, template-owned theme values take precedence over cross-format palette tokens for roles the template explicitly defines.
 
@@ -37,13 +37,13 @@ Primary active theme colors observed in the preferred reference:
 | accent5 | `#9E306E` |
 | accent6 | `#000000` |
 
-`accent1 #208528` is therefore the correct green for new elements that intentionally follow this PowerPoint theme. The cross-format corporate palette still contains forest `#218529`; do not normalize template-owned PowerPoint elements from `#208528` to `#218529`.
+`accent1 #208528` is therefore the correct green for new elements that intentionally follow this PowerPoint theme. The `euroimmun-corporate` cross-format corporate palette still contains forest `#218529`; do not normalize template-owned PowerPoint elements from `#208528` to `#218529`.
 
 ## Historical reference
 
 `260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`, is retained as a **historical confirmed reference**. It was the basis of the first template characterization and remains useful for compatible layout observations. It is no longer the preferred current binary reference.
 
-Approximate rendered greens previously observed around `#158A38` to `#179B43` remain non-normative observations only and MUST NOT override either the active PowerPoint theme or the authoritative cross-format corporate palette.
+Approximate rendered greens previously observed around `#158A38` to `#179B43` remain **non-normative observations** only and MUST NOT override either the active PowerPoint theme or the authoritative `euroimmun-corporate` cross-format corporate palette.
 
 ## Brand behavior confirmed
 
