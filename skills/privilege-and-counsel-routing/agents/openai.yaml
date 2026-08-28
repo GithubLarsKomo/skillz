@@ -1,0 +1,5 @@
+interface:
+  display_name: "Privilege and Counsel Routing"
+  short_description: "Routet Vertraulichkeit, Privilege und zwingende externe Legal-/Authority-Eskalationen."
+policy:
+  allow_implicit_invocation: true

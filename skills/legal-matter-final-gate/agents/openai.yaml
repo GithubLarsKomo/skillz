@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Matter Final Gate"
+  short_description: "Prüft Legal-Readiness, Restrisiken, Specialist- und externe Authority-Gates vor Abschluss."
+policy:
+  allow_implicit_invocation: true

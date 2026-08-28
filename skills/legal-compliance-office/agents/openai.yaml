@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Compliance Office"
+  short_description: "Orchestriert Legal- und Compliance-Matters vom Intake über Specialists und Risiko bis zum Final Gate."
+policy:
+  allow_implicit_invocation: true

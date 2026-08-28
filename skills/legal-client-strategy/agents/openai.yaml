@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Client Strategy"
+  short_description: "Fixiert Mandantenziel, Red Lines, Risikotoleranz, Fallbacks und Entscheidungsgrenzen."
+policy:
+  allow_implicit_invocation: true

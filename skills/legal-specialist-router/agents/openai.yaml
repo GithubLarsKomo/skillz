@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Specialist Router"
+  short_description: "Routet Legal-Fragen an passende Specialists und integriert Ergebnisse ohne Fachlogik zu duplizieren."
+policy:
+  allow_implicit_invocation: true

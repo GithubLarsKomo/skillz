@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Matter Wayfinder"
+  short_description: "Priorisiert entscheidungskritische Legal-Investigations mit Evidenzbedarf und Stop Conditions."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Current Law Context"
+  short_description: "Ermittelt aktuellen, jurisdiktionsbezogenen Rechts- und Regelwerkskontext aus autoritativen Quellen."
+policy:
+  allow_implicit_invocation: true

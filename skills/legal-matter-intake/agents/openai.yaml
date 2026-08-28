@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Matter Intake"
+  short_description: "Strukturiert neue Legal- und Compliance-Sachverhalte in einen belastbaren Matter-Kontext."
+policy:
+  allow_implicit_invocation: true

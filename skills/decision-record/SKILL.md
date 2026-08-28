@@ -1,31 +1,29 @@
 ---
 name: decision-record
-description: Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.
-version: 0.1.0
+description: Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governance-Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.
+userFacing: true
+implicitInvocation: true
+category: workflow
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
-requires:
-  - large-work-wayfinder
-  - throwaway-prototype
-  - two-axis-code-review
-  - agent-handoff
+requires: []
 outputs:
   - decision-record.md
   - decision-record.json
-lastEvaluated: 2026-08-01
-implicitInvocation: true
+lastEvaluated: 2026-08-28
 ---
 
 # Decision Record
 
 ## Trigger
 
-Verwenden bei irreversiblen, querschnittlichen oder sicherheits-, migrations-, architektur-, produkt-, compliance- oder betriebsrelevanten Entscheidungen.
+Verwenden bei irreversiblen, querschnittlichen oder sicherheits-, migrations-, architektur-, produkt-, legal-, compliance-, governance- oder betriebsrelevanten Entscheidungen.
 
 ## Voraussetzungen
 
-Benötigt werden eine präzise Entscheidungsfrage, ein unveränderlicher Repository- oder Artefaktstand, Fakten, Annahmen, Constraints, Alternativen, Kriterien, Evidenz, Entscheidungsverantwortung und genehmigungsberechtigte Person.
+Benötigt werden eine präzise Entscheidungsfrage, belastbare Artefakt- oder Zustandsreferenzen, Fakten, Annahmen, Constraints, Alternativen, Kriterien, Evidenz, Entscheidungsverantwortung und genehmigungsberechtigte Person. Repository-SHAs sind bei Softwareentscheidungen bevorzugte Referenzen, aber keine universelle Voraussetzung.
 
 ## Ablauf
 
@@ -43,7 +41,7 @@ Akzeptierte Entscheidungen benötigen einen benannten Entscheider und einen auto
 
 ### 4. Entscheidung dokumentieren
 
-Halte gewählte Option, Begründung, Folgen, Risiken, Rollback- oder Exit-Pfad, Nachfolgepflichten und Links zu Issues, PRs, Spezifikationen, Migrationen, Reviews und Prototypen fest.
+Halte gewählte Option, Begründung, Folgen, Risiken, Rollback- oder Exit-Pfad, Nachfolgepflichten und unveränderliche Referenzen zu den zugrunde liegenden Artefakten fest.
 
 ### 5. Historie schützen
 
@@ -51,7 +49,7 @@ Bestehende akzeptierte Records werden nie überschrieben. Änderungen erzeugen e
 
 ### 6. Übergabe erzeugen
 
-Erzeuge menschenlesbaren ADR-Text und maschinenlesbares JSON mit genau einer ausführbaren nächsten Aktion.
+Erzeuge menschenlesbaren Record und maschinenlesbares JSON mit genau einer ausführbaren nächsten Aktion.
 
 ## Prüfungen
 
@@ -59,27 +57,27 @@ Prüfe Trennung von Fakten und Annahmen, Vollständigkeit der Alternativen, Evid
 
 ## Fehlerbehandlung
 
-Stoppe bei stiller Architekturwahl, nachträglicher Rationalisierung, fehlenden Alternativen, ungeklärter Autorität, Überschreiben historischer Records oder Nutzung grüner CI als Entscheidungsbefugnis.
+Stoppe bei stiller Architektur- oder Rechtswahl, nachträglicher Rationalisierung, fehlenden Alternativen, ungeklärter Autorität, Überschreiben historischer Records oder Nutzung eines technischen Prüfsignals als Entscheidungsbefugnis.
 
 ## Übergabe
 
 ```json
 {
-  "id": "ADR-...",
+  "id": "DEC-...",
   "state": "proposed|accepted|rejected|superseded|deprecated",
   "question": "...",
-  "repository": {"name": "...", "headSha": "..."},
-  "facts": ["..."],
-  "assumptions": ["..."],
-  "constraints": ["..."],
-  "alternatives": [{"name": "...", "evidence": ["..."], "tradeoffs": ["..."]}],
-  "criteria": ["..."],
+  "contextRefs": [],
+  "facts": [],
+  "assumptions": [],
+  "constraints": [],
+  "alternatives": [{"name": "...", "evidence": [], "tradeoffs": []}],
+  "criteria": [],
   "decision": "...",
   "authority": {"owner": "...", "approver": "..."},
-  "consequences": ["..."],
-  "risks": ["..."],
+  "consequences": [],
+  "risks": [],
   "rollback": "...",
-  "links": ["..."],
+  "links": [],
   "supersedes": null,
   "nextAction": "exactly one executable action"
 }

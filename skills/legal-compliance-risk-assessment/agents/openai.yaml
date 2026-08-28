@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Compliance Risk Assessment"
+  short_description: "Priorisiert Legal- und Compliance-Risiken nach Exposure, Mitigation, Residual Risk und Autorität."
+policy:
+  allow_implicit_invocation: true
