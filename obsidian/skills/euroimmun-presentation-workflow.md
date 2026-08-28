@@ -16,7 +16,7 @@ tags:
 
 # euroimmun-presentation-workflow
 
-Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.
+Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis der bevorzugten aktuellen bestätigten EUROIMMUN-Corporate-PowerPoint-Referenz und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

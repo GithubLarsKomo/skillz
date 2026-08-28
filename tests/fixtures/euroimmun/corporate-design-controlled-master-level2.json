@@ -6,6 +6,7 @@
   "purpose": "Higher-fidelity EUROIMMUN presentation certification against the real controlled PowerPoint binary master",
   "designContract": "docs/corporate/euroimmun/DESIGN.md",
   "policy": "docs/corporate/euroimmun/GOLDEN_REFERENCE.md",
+  "activeReference": "docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md",
   "status": "LEVEL_2_PASS",
   "activation": {
     "requiredWhen": [
@@ -20,8 +21,11 @@
   "masterEvidence": {
     "runtimeBinaryRequired": true,
     "sha256Required": true,
-    "confirmedReferenceSha256": "a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2",
-    "confirmedReferenceName": "260610 Innovation Topics.pptx",
+    "preferredCurrentReferenceName": "260828 NDD Review.pptx",
+    "preferredCurrentReferenceSha256": "349e5599ee0c1876a474057ec659244e0f37dd39d65636d2042b7eee46bab02e",
+    "preferredCurrentReferenceStatus": "confirmed-reference-binary",
+    "historicalReferenceName": "260610 Innovation Topics.pptx",
+    "historicalReferenceSha256": "a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2",
     "approvedMasterSha256": null,
     "approvedMasterIdentityMustBeRecordedAtRunTime": true,
     "masterLayoutInventoryRequired": true,

@@ -1,10 +1,10 @@
 ---
 name: euroimmun-presentation-workflow
-description: Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis des bestätigten EUROIMMUN-Corporate-PowerPoint-Templates und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.
+description: Erstellt oder überarbeitet EUROIMMUN-/Revvity-Präsentationen auf Basis der bevorzugten aktuellen bestätigten EUROIMMUN-Corporate-PowerPoint-Referenz und delegiert Storyline, präsentationsspezifische Sprachoptimierung sowie Layout-/Render-QA an den generischen Template-Presentation-Workflow. Verwenden für EUROIMMUN Board-, Management-, R&D-, Innovation- oder bestehende Corporate-Decks; nicht für fremde Corporate Templates.
 userFacing: true
 implicitInvocation: false
 category: workflow
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -15,7 +15,7 @@ outputs:
   - euroimmun-presentation.pdf
   - presentation-qa.md
   - presentation-template-profile.json
-lastEvaluated: 2026-08-26
+lastEvaluated: 2026-08-28
 ---
 
 # EUROIMMUN Presentation Workflow
@@ -24,38 +24,57 @@ Dieser Skill ist ein dünner Corporate Wrapper um `template-presentation-workflo
 
 ## Verbindlicher Corporate Design Contract
 
-Für jede EUROIMMUN-Firmenpräsentation MUSS vor der Bearbeitung `docs/corporate/euroimmun/DESIGN.md` gelesen und als normativer Design Contract angewendet werden. Er definiert die gemeinsame Corporate-Design-, Sprach-, Accessibility- und Verifikationslogik für PPTX, DOCX und PDF.
+Für jede EUROIMMUN-Firmenpräsentation MUSS vor der Bearbeitung `docs/corporate/euroimmun/DESIGN.md` gelesen und als normativer Design Contract angewendet werden. Zusätzlich MUSS `docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md` für die aktuell bevorzugte Referenz und `docs/corporate/euroimmun/GOLDEN_REFERENCE.md` für die Level-1-/Level-2-Verifikation berücksichtigt werden.
 
 - Ist `docs/corporate/euroimmun/DESIGN.md` nicht verfügbar, den Corporate Workflow abbrechen statt Designregeln zu improvisieren.
-- Das konkrete freigegebene/gelieferte Corporate Template bleibt Source of Truth für Master, Layouts, Theme, Logo, Footer und kontrollierte Template-Elemente.
-- Neue farbige Elemente verwenden das autoritative Brand-Profil `euroimmun-corporate`; beobachtete Näherungsfarben aus Referenzdecks dürfen die exakten Corporate Tokens nicht überschreiben.
-- `presentation-qa.md` MUSS einen Abschnitt `Corporate Design Gate` mit Design-Contract-Pfad, Template-Status, Brand-Profil-Version, Render-Coverage, Findings und finalem `PASS|FAIL` enthalten.
-- Die Präsentation darf erst als final/verified ausgegeben werden, wenn der Corporate Design Gate aus `DESIGN.md` PASS ist.
+- Ein konkret für die Aufgabe geliefertes freigegebenes Corporate Template hat immer Vorrang vor der allgemeinen Referenz.
+- Das verwendete Binärtemplate bleibt Source of Truth für Master, Layouts, Theme, Logo, Footer, Seitennummern und kontrollierte Template-Elemente.
+- `presentation-qa.md` MUSS Design-Contract, Template-Identität/Status, SHA-256 bei Binärquelle, Brand-/Theme-Verhalten, Render-Coverage, Findings und finalen Corporate Design Gate dokumentieren.
+- Eine `template-derived`- oder Master-Paritätsaussage ist nur nach Level-2-Verifikation zulässig.
 
-## Verbindliche Designquelle
+## Bevorzugte aktuelle Designquelle
 
-Die bestätigte Referenz ist `260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`.
+Die bevorzugte aktuelle bestätigte Binärreferenz ist:
 
-Die Originaldatei wird nicht im Skill-Repository gespeichert. `references/euroimmun-template-spec.md` enthält ausschließlich abgeleitete Design- und Layoutregeln. Ist die bestätigte Referenzdatei im Arbeitskontext verfügbar, hat sie Vorrang vor der textuellen Spezifikation für template-eigene Geometrie und Theme-Verhalten. Die übergreifenden Governance- und QA-Regeln aus `docs/corporate/euroimmun/DESIGN.md` bleiben trotzdem verpflichtend.
+- `260828 NDD Review.pptx`
+- SHA-256 `349e5599ee0c1876a474057ec659244e0f37dd39d65636d2042b7eee46bab02e`
+- Status: `confirmed-reference-binary`
+- Golden Reference: `LEVEL_2_PASS` am 2026-08-28
+- 16:9, 13.333 × 7.5 in
+- 3 Slide-Master, 51 sichtbare PowerPoint-Layouts, 4 Themes
+- Primärtheme: `Hanken Grotesk Light` / `Hanken Grotesk`
+- aktiver grüner Theme-Akzent: `#208528`
+
+Die Originaldatei wird nicht im Skill-Repository gespeichert. Wenn eine Datei mit dieser Referenz im Arbeitskontext verfügbar ist, MUSS vor einer Level-2-Aussage ihr SHA-256 gegen die dokumentierte Identität geprüft werden.
+
+`260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`, ist ab 2026-08-28 eine **historische bestätigte Referenz**. Sie darf weiterhin für historische Kompatibilität oder explizit darauf basierende Aufgaben genutzt werden, darf die aktuelle Referenz aber nicht stillschweigend verdrängen.
+
+## Referenz-Priorität
+
+1. Für die konkrete Aufgabe geliefertes `approved-controlled` Template.
+2. Verifizierte bevorzugte aktuelle Referenz `260828 NDD Review.pptx`.
+3. Andere explizit gelieferte bestätigte Corporate-Binärreferenz mit dokumentierter Provenienz.
+4. `references/euroimmun-template-spec.md` als `template-compatible` Fallback, wenn keine Binärreferenz verfügbar ist.
+5. Historische Referenz `260610 Innovation Topics.pptx` nur bei explizitem Bedarf.
 
 ## Corporate Context für den generischen Workflow
 
 An `template-presentation-workflow` übergeben:
 
-- bevorzugte Source of Truth: bestätigte EUROIMMUN-PPTX,
-- Fallback: `references/euroimmun-template-spec.md`, dann als `template-compatible`, nicht `template-derived`, kennzeichnen,
-- Seitenformat: 16:9 widescreen gemäß Template,
-- Primärschrift: Hanken Grotesk; SemiBold für starke Hierarchie, Fallback nur wenn technisch nötig,
-- exakte Corporate-/Template-Farben gemäß `DESIGN.md` und aktivem Theme; keine per Augenmaß rekonstruierten Brandfarben,
-- Revvity-Farbflächen für Section Header nur entsprechend dem bestätigten Corporate Template,
-- EUROIMMUN-Logo, Revvity-Branding, Footer, Confidentiality und Seitennummern gemäß Master beibehalten,
+- Source of Truth gemäß obiger Priorität,
+- Fallback ohne Binärmaster stets als `template-compatible`, nicht `template-derived`, kennzeichnen,
+- Seitenformat 16:9 widescreen gemäß aktivem Template,
+- Theme-Schriften aus dem aktiven Template verwenden; beim aktuellen Referenzdeck `Hanken Grotesk Light` / `Hanken Grotesk`,
+- template-eigene Farbwerte haben für template-derived Elemente Vorrang vor formatübergreifenden Palette-Tokens; beim aktuellen Referenzdeck ist der aktive grüne Theme-Akzent `#208528`,
+- das Brand-Profil `euroimmun-corporate` bleibt autoritativ für neue Corporate-Farben, soweit das aktive Template die betreffende Rolle nicht definiert,
+- EUROIMMUN-/Revvity-Logo, Footer, Proprietary/Confidential-Kennzeichnung und Seitennummern aus Master/Layout erben, nicht rekonstruieren,
 - Corporate Layouts und Platzhalter bevorzugt wiederverwenden,
-- keine frei erfundene EUROIMMUN-Branding-Variante, wenn das echte Template verfügbar ist.
+- keine vertraulichen fachlichen Inhalte einer Referenzpräsentation übernehmen, sofern sie nicht Teil der aktuellen Aufgabenbasis sind.
 
 ## EUROIMMUN-spezifische Slide-Präferenzen
 
-- Cover: Corporate Title Layout.
-- Kapiteltrenner: bestätigter Section Header.
+- Cover: natives Corporate Title Layout.
+- Kapiteltrenner: nativer Section Header.
 - Standardanalyse: weißer Content-Slide mit Corporate Header/Footer und wenigen klaren Informationsblöcken.
 - Tabellen nur für echte Vergleiche und auf entscheidungsrelevante Zeilen begrenzen.
 - Timeline, Portfolio, Financials und Stage Gates bevorzugt visualisieren.
@@ -63,9 +82,9 @@ An `template-presentation-workflow` übergeben:
 
 ## Sprach- und QA-Regel
 
-Präsentationstexte werden nicht mehr über `precision-writing-revision` wie Reports behandelt. Die Sprachoptimierung erfolgt durch `presentation-language-rewriter` innerhalb des generischen Workflows, separat für Deutsch und Englisch und abhängig von Elementtyp und Zielgruppe.
+Präsentationstexte werden durch `presentation-language-rewriter` innerhalb des generischen Workflows optimiert, separat für Deutsch und Englisch und abhängig von Elementtyp und Zielgruppe.
 
-Layout- und Box-Overflow-Prüfung erfolgt über `presentation-layout-qa`. Das finale visuelle Gate erfolgt über `presentation-render-verifier` einschließlich vollständigem Slide-Render, PDF-/Druckrender und erneutem Render nach Korrekturen. Die formatübergreifenden Abnahmekriterien und Severity-Regeln stehen in `docs/corporate/euroimmun/DESIGN.md` und sind zusätzlich anzuwenden.
+Layout- und Box-Overflow-Prüfung erfolgt über `presentation-layout-qa`. Das finale visuelle Gate erfolgt über `presentation-render-verifier` einschließlich vollständigem Slide-Render, PDF-/Druckrender und erneutem Render nach Korrekturen. Bei verfügbarer Binärreferenz ist zusätzlich die Level-2-Prüfung aus `docs/corporate/euroimmun/GOLDEN_REFERENCE.md` anzuwenden.
 
 ## Nicht-Ziele
 
@@ -76,4 +95,4 @@ Layout- und Box-Overflow-Prüfung erfolgt über `presentation-layout-qa`. Das fi
 
 ## Abschluss
 
-Abgeschlossen, wenn der generische Template-Presentation-Workflow erfolgreich durchlaufen wurde, EUROIMMUN Corporate Master/Branding konsistent erhalten sind, die finale PPTX editierbar ist, eine geprüfte PDF vorliegt, der QA-Bericht keine ungeklärten Critical/Major Layout-, Sprach-, Brand- oder Renderfehler enthält und `Corporate Design Gate: PASS` dokumentiert ist.
+Abgeschlossen, wenn der generische Template-Presentation-Workflow erfolgreich durchlaufen wurde, EUROIMMUN Corporate Master/Branding konsistent erhalten sind, die finale PPTX editierbar ist, eine geprüfte PDF vorliegt, der QA-Bericht keine ungeklärten Critical/Major Layout-, Sprach-, Brand- oder Renderfehler enthält und `Corporate Design Gate: PASS` dokumentiert ist. `template-derived` darf nur ausgegeben werden, wenn die relevante Level-2-Prüfung PASS ist.
