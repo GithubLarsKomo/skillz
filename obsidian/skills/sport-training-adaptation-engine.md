@@ -16,7 +16,7 @@ tags:
 
 # sport-training-adaptation-engine
 
-Vergleicht geplante Belastung, tatsächlich absolvierte Einheit, subjektive und objektive Reaktion, Trends und Health Constraints und erzeugt eine erklärbare akute, taktische oder strategische Trainingsanpassung. Verwenden für Proceed/Modify/Recover/Review-Entscheidungen; nicht als autonomes medizinisches Clearance- oder Verletzungsvorhersagesystem.
+Vergleicht geplante Belastung, tatsächlich absolvierte Einheit, subjektive und objektive Reaktion, passive Biomarker, Trends und Health Constraints und erzeugt eine erklärbare akute, taktische oder strategische Trainingsanpassung. Verwenden für Proceed/Modify/Recover/Review-Entscheidungen; Vendor-Readiness-Scores nicht als autonome Regler und den Skill nicht als medizinisches Clearance- oder Verletzungsvorhersagesystem verwenden.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

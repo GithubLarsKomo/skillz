@@ -1438,8 +1438,8 @@
     },
     "sport-adaptation-analysis": {
       "files": {
-        "SKILL.md": "a6b38707f3cf7d2ca0081d70328bf389b620d8774c7da55828355b00d068cb27",
-        "agents/openai.yaml": "bcffd28663e77b31afb7a73aa171e6d524663305ef28b8b401a2f728e8541569"
+        "SKILL.md": "833faf6a2b57759bdaa78d385bb9e097b9170da05b57cbe04ce3511dc40470cb",
+        "agents/openai.yaml": "5190242949afd9d9e30ed75d623c0b222595eb9305aa85f6ee223ed05b8777af"
       }
     },
     "sport-athlete-management": {
@@ -1456,8 +1456,8 @@
     },
     "sport-daily-athlete-monitoring": {
       "files": {
-        "SKILL.md": "1090938d617b4df005d08db219a6c78bfd5d8d66f0194fbf3d5da455a7031ff9",
-        "agents/openai.yaml": "a0165b7492f4d67e3d87345f24b08fd62e3aa6022a356bde606a198656dd08ee"
+        "SKILL.md": "0857958e0ab72bd065f285e8cce142726cbd8562245a3bcd4cde60e10cc8f445",
+        "agents/openai.yaml": "c7ce99da858ca7a71fef5b178e94aee1e33837a5ae115edffedd32f0849ed1c8"
       }
     },
     "sport-diagnostics-training-report-workflow": {
@@ -1510,7 +1510,7 @@
     },
     "sport-nutrition-fueling": {
       "files": {
-        "SKILL.md": "7d765f0815f1b34729e23be042cfca15a1929a7e0dc11db2b896f4fd1b756a7c",
+        "SKILL.md": "aa9c9e56bec1a642d5de7d58c95a2b536b9033bdfdaeed40144780ee443b707f",
         "agents/openai.yaml": "31ff0ec7a93dac510c756db11aecd1c5806f84e8d880373e5a95a2297ad61117"
       }
     },
@@ -1528,8 +1528,8 @@
     },
     "sport-recovery-sleep": {
       "files": {
-        "SKILL.md": "2907d5609877938899dce51c58a2660edf90d9615a5a8ddd295c2793c98b6c3a",
-        "agents/openai.yaml": "9358fd36645d50aacc4fe234960ff28471c2a111bef18da6c17fa27e2a90dffd"
+        "SKILL.md": "a29e288cc0a08f5dc0e2199f11186a9c33f37999174789b2eb862dae774a1526",
+        "agents/openai.yaml": "2d77dcbcc918bb1abfd7376669f43c3f41bbd3fc1a5eead82dbac6ca1bcbf22b"
       }
     },
     "sport-return-after-illness": {
@@ -1558,8 +1558,8 @@
     },
     "sport-training-adaptation-engine": {
       "files": {
-        "SKILL.md": "29dc8ed8ccbdfeec1894351effdf9e87013fde8514215b8285de22127e0bd963",
-        "agents/openai.yaml": "07f08bb354f31fabef3412dd73323a87004928cc41625f7d65603583475d9774"
+        "SKILL.md": "7888f0da0c51f0c40b9381a89fec30c7d88c2d4ed4f63a613688ca7d5321ea96",
+        "agents/openai.yaml": "9aa9e0a4d34168cb04569934e4147b2918e46c7e774d0f88560bd75999754000"
       }
     },
     "sport-training-music": {

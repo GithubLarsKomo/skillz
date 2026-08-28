@@ -16,7 +16,7 @@ tags:
 
 # sport-recovery-sleep
 
-Interpretiert Schlaf, Ermüdung und Erholung longitudinal gegen die individuelle Baseline und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise oder Wettkampfbelastung; keinen opaken Readiness-Score und keine HRV-Alleinsteuerung erzeugen.
+Interpretiert Schlaf, Ermüdung, passive physiologische Signale und Erholung longitudinal gegen individuelle Baselines und leitet konkrete Recovery-Optionen ab. Verwenden bei kumulierter Müdigkeit, Schlafproblemen, Reise, Wettkampfbelastung oder Health Drift; keinen opaken Readiness-Score und keine HRV-/Vendor-Score-Alleinsteuerung erzeugen.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

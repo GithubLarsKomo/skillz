@@ -16,7 +16,7 @@ tags:
 
 # sport-nutrition-fueling
 
-Plant leistungsorientiertes Fueling, Proteinverteilung, Flüssigkeit und Wettkampfernährung und erkennt Hinweise auf niedrige Energieverfügbarkeit/RED-S. Verwenden für Trainings- und Wettkampfernährung; nicht als klinische Diätetik oder autonome Diagnose von RED-S.
+Plant leistungsorientiertes Fueling, Proteinverteilung, Flüssigkeit und Wettkampfernährung und erkennt Hinweise auf niedrige Energieverfügbarkeit/RED-S unter Einbezug methodenbewusster Body-/Gewichtstrends. Verwenden für Trainings- und Wettkampfernährung; nicht als klinische Diätetik, autonome RED-S-Diagnose oder Interpretation proprietärer Metabolic-/Longevity-Scores.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

@@ -4,7 +4,7 @@ generated: true
 name: "sport-adaptation-analysis"
 category: "analysis"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -16,7 +16,7 @@ tags:
 
 # sport-adaptation-analysis
 
-Analysiert longitudinale Trainings- und Leistungsdaten auf Adaptation, Plateau, Drift und übermäßige Ermüdung mit individueller Baseline und expliziter Unsicherheit. Verwenden für Block-/Trendanalysen; ACWR, HRV oder Korrelationen nicht als kausale Verletzungsvorhersage behandeln.
+Analysiert longitudinale Trainings-, Leistungs-, Recovery-, passive Biometrie- und Body/Energy-Daten auf Adaptation, Plateau, Drift und übermäßige Ermüdung mit individueller Baseline und expliziter Unsicherheit. Verwenden für Block-/Trendanalysen; ACWR, HRV, Vendor-Scores oder Korrelationen nicht als kausale Verletzungs- oder Readiness-Regler behandeln.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -47,7 +47,7 @@ Analysiert longitudinale Trainings- und Leistungsdaten auf Adaptation, Plateau, 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
+- Passed: `False`
 - Cases: `3`
 - Recorded results: `3`
 

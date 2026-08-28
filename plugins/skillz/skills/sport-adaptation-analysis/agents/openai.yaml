@@ -1,5 +1,5 @@
 interface:
   display_name: "Sport Adaptation Analysis"
-  short_description: "Analysiert longitudinale Trainings- und Leistungsdaten auf Adaptation, Plateau, Drift und übermäßige Ermüdung mit ind..."
+  short_description: "Analysiert longitudinale Trainings-, Leistungs-, Recovery-, passive Biometrie- und Body/Energy-Daten auf Adaptation,..."
 policy:
   allow_implicit_invocation: true

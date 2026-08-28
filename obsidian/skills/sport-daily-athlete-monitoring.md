@@ -4,7 +4,7 @@ generated: true
 name: "sport-daily-athlete-monitoring"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -16,7 +16,7 @@ tags:
 
 # sport-daily-athlete-monitoring
 
-Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit, Muskelkater, Stress, Motivation, Schmerz, Krankheitssymptomen und optionalen objektiven Metriken. Verwenden für tägliches longitudinales Monitoring; nicht als alleiniger Readiness-Score oder medizinische Diagnose.
+Erfasst einen kurzen Morning-Check, passive Wearable-/Biometrie-Kontexte und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit, Muskelkater, Stress, Motivation, Schmerz und Krankheitssymptomen. Verwenden für tägliches longitudinales Monitoring; Wearable- oder Vendor-Scores nie als alleinigen Readiness-Regler oder medizinische Diagnose verwenden.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -71,7 +71,7 @@ Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion e
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
+- Passed: `False`
 - Cases: `3`
 - Recorded results: `3`
 

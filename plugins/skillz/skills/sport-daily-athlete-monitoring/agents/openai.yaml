@@ -1,5 +1,5 @@
 interface:
   display_name: "Sport Daily Athlete Monitoring"
-  short_description: "Erfasst einen kurzen Morning-Check und die tatsächliche Post-Session-Reaktion einschließlich sRPE, Schlaf, Müdigkeit,..."
+  short_description: "Erfasst einen kurzen Morning-Check, passive Wearable-/Biometrie-Kontexte und die tatsächliche Post-Session-Reaktion e..."
 policy:
   allow_implicit_invocation: true
