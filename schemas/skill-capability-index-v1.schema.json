@@ -8,6 +8,16 @@
     "skillCount": {"type": "integer"},
     "entrypointCount": {"type": "integer"},
     "entrypointCategories": {"type": "array", "items": {"type": "string"}},
+    "discoverabilityCounts": {
+      "type": "object",
+      "properties": {
+        "public": {"type": "integer"},
+        "advanced": {"type": "integer"},
+        "internal": {"type": "integer"},
+        "compatibility": {"type": "integer"}
+      },
+      "additionalProperties": false
+    },
     "evaluationSuiteCount": {"type": "integer"},
     "evaluatedSkillCount": {"type": "integer"},
     "evaluatedEntrypointCount": {"type": "integer"},
@@ -28,6 +38,17 @@
             "properties": {
               "userFacing": {"type": "boolean"},
               "category": {"type": ["string", "null"]}
+            },
+            "additionalProperties": false
+          },
+          "governance": {
+            "type": "object",
+            "required": ["status", "discoverability", "replacedBy", "deprecatedSince"],
+            "properties": {
+              "status": {"type": ["string", "null"]},
+              "discoverability": {"enum": ["public", "advanced", "internal", "compatibility"]},
+              "replacedBy": {"type": ["string", "null"]},
+              "deprecatedSince": {"type": ["string", "null"]}
             },
             "additionalProperties": false
           },
