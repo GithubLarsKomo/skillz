@@ -10,12 +10,13 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **50**
+Skills: **56**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
+- [[skills/decision-record|decision-record]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
 - [[skills/dr-komorowski-sport-pdf-report-renderer|dr-komorowski-sport-pdf-report-renderer]]
 - [[skills/dr-komorowski-sport-report-renderer|dr-komorowski-sport-report-renderer]]
@@ -24,6 +25,10 @@ Skills: **50**
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/legal-compliance-office|legal-compliance-office]]
+- [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/legal-matter-intake|legal-matter-intake]]
+- [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
 - [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
@@ -35,6 +40,7 @@ Skills: **50**
 - [[skills/presentation-layout-qa|presentation-layout-qa]]
 - [[skills/presentation-render-verifier|presentation-render-verifier]]
 - [[skills/presentation-template-profiler|presentation-template-profiler]]
+- [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
 - [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]

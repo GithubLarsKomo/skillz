@@ -26,14 +26,11 @@ graph TD
   contract_workflow --> round_based_requirements_grilling
   controlled_quality_documentation --> regulated_product_context
   controlled_quality_documentation --> two_axis_compliance_review
+  current_law_context --> research_to_evidence_note
   daily_and_weekly_review --> inbox_action_triage
   decision_and_follow_up_tracker --> daily_and_weekly_review
   decision_and_follow_up_tracker --> meeting_preparation
   decision_and_follow_up_tracker --> project_status_brief
-  decision_record --> agent_handoff
-  decision_record --> large_work_wayfinder
-  decision_record --> throwaway_prototype
-  decision_record --> two_axis_code_review
   design_change_regulatory_impact --> decision_record
   design_change_regulatory_impact --> design_control_traceability
   design_change_regulatory_impact --> medical_device_risk_management_iso14971
@@ -141,6 +138,11 @@ graph TD
   frontend_design_system_context --> frontend_product_context
   frontend_design_system_context --> round_based_requirements_grilling
   frontend_product_context --> round_based_requirements_grilling
+  german_association_law_specialist --> current_law_context
+  german_association_law_specialist --> legal_client_strategy
+  german_rowing_sport_law_specialist --> german_sports_law_specialist
+  german_sports_law_specialist --> current_law_context
+  german_sports_law_specialist --> legal_client_strategy
   iec62304_software_lifecycle --> design_control_traceability
   iec62304_software_lifecycle --> medical_device_qms_iso13485
   iec62304_software_lifecycle --> medical_device_risk_management_iso14971
@@ -225,6 +227,23 @@ graph TD
   learning_assessment_spec --> learning_state
   learning_next_step --> learning_mission
   learning_next_step --> learning_state
+  legal_client_strategy --> legal_matter_intake
+  legal_compliance_office --> current_law_context
+  legal_compliance_office --> legal_client_strategy
+  legal_compliance_office --> legal_compliance_risk_assessment
+  legal_compliance_office --> legal_matter_final_gate
+  legal_compliance_office --> legal_matter_intake
+  legal_compliance_office --> legal_matter_wayfinder
+  legal_compliance_office --> legal_specialist_router
+  legal_compliance_office --> privilege_and_counsel_routing
+  legal_compliance_risk_assessment --> current_law_context
+  legal_compliance_risk_assessment --> legal_client_strategy
+  legal_matter_final_gate --> legal_compliance_risk_assessment
+  legal_matter_final_gate --> privilege_and_counsel_routing
+  legal_matter_wayfinder --> current_law_context
+  legal_matter_wayfinder --> research_to_evidence_note
+  legal_specialist_router --> current_law_context
+  legal_specialist_router --> legal_client_strategy
   llm_generation_evidence_assessment --> author_voice_profiler
   llm_generation_evidence_assessment --> document_generation_forensics
   llm_generation_evidence_assessment --> llm_prose_pattern_audit
@@ -342,6 +361,7 @@ graph TD
   presentation_language_rewriter --> rewrite_fidelity_verifier
   presentation_layout_qa --> presentation_template_profiler
   presentation_render_verifier --> presentation_layout_qa
+  privilege_and_counsel_routing --> legal_matter_intake
   process_validation_iq_oq_pq --> design_control_traceability
   process_validation_iq_oq_pq --> medical_device_qms_iso13485
   process_validation_iq_oq_pq --> medical_device_risk_management_iso14971
@@ -508,13 +528,15 @@ graph TD
 | `adverse-event-code-set.json` | `medical-device-adverse-event-coding` | — | unconsumed |
 | `adverse-event-coding-delta.json` | `medical-device-adverse-event-coding` | — | unconsumed |
 | `adverse-event-coding-rationale.json` | `medical-device-adverse-event-coding` | — | unconsumed |
-| `agent-handoff.json` | `agent-handoff` | `decision-record`, `domain-model-maintenance`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `throwaway-prototype`, `two-axis-code-review` | inferred |
-| `agent-handoff.md` | `agent-handoff` | `decision-record`, `domain-model-maintenance`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `throwaway-prototype`, `two-axis-code-review` | inferred |
+| `agent-handoff.json` | `agent-handoff` | `domain-model-maintenance`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `throwaway-prototype`, `two-axis-code-review` | inferred |
+| `agent-handoff.md` | `agent-handoff` | `domain-model-maintenance`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `analytical-performance-assessment.json` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `analytical-performance-plan.json` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `analytical-performance-report.md` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `architecture-review.json` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
 | `architecture-review.md` | `architecture-deepening-review` | `domain-model-maintenance`, `large-work-wayfinder`, `performance-optimization-plan`, `two-axis-code-review` | inferred |
+| `association-governance-map.json` | `german-association-law-specialist` | — | unconsumed |
+| `association-law-open-points.json` | `german-association-law-specialist` | — | unconsumed |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
 | `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music` | inferred |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
@@ -551,11 +573,13 @@ graph TD
 | `class-d-external-dependencies.json` | `ivdr-class-d-conformity` | — | unconsumed |
 | `clia-evidence-gaps.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
 | `clia-waiver-strategy.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
+| `client-strategy.json` | `legal-client-strategy` | `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-specialist-router` | inferred |
 | `clinical-evidence-actions.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-evidence-delta.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-evidence-impact-map.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-performance-evidence.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `clinical-performance-study-plan.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
+| `commercial-exposure-analysis.json` | `legal-compliance-risk-assessment` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
 | `communication-profile.json` | `communication-memory-governance` | `frontend-design-director`, `memory-sync-reconciliation` | inferred |
 | `communication-profile.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `complaint-closure-readiness.json` | `medical-device-complaint-handling` | `medical-device-adverse-event-coding`, `medical-device-complaint-customer-followup`, `medical-device-complaint-regulatory-routing` | inferred |
@@ -591,6 +615,7 @@ graph TD
 | `correction-removal-action-plan.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-assessment.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-reporting-state.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
+| `counsel-scope.json` | `privilege-and-counsel-routing` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
 | `customer-communication-record.json` | `medical-device-complaint-customer-followup` | `medical-device-complaint-regulatory-routing` | inferred |
 | `customer-contact-record.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
 | `customer-contact-triage.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
@@ -608,15 +633,15 @@ graph TD
 | `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator` | inferred |
-| `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
-| `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `delivery-review-handoff.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
+| `dependency-graph.json` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
 | `design-control-traceability.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
 | `design-evidence-gaps.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
 | `diagnosis-report.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `diagnosis-residual-risk-handoff.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
-| `disposal-record.json` | `throwaway-prototype` | `decision-record` | inferred |
+| `disposal-record.json` | `throwaway-prototype` | — | unconsumed |
 | `docs/agents/CONFIG.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/CONTEXT.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/DECISIONS.md` | `repository-skill-bootstrap` | — | unconsumed |
@@ -630,6 +655,7 @@ graph TD
 | `dr-komorowski-report.pdf` | `dr-komorowski-sport-report-renderer` | — | unconsumed |
 | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` | `dr-komorowski-sport-pdf-report-renderer`, `sport-diagnostics-training-report-workflow` | inferred |
 | `dr-komorowski-sport-report.pdf` | `dr-komorowski-sport-pdf-report-renderer` | `sport-diagnostics-training-report-workflow` | inferred |
+| `drv-rule-applicability-map.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
 | `dual-510k-clia-strategy.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-evidence-package.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
@@ -653,11 +679,12 @@ graph TD
 | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | inferred |
 | `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `evidence-note.json` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
-| `evidence-note.md` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `contract-legal-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.json` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `contract-legal-context`, `current-law-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `legal-matter-wayfinder`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.md` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `contract-legal-context`, `current-law-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `legal-matter-wayfinder`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
+| `external-counsel-brief.md` | `privilege-and-counsel-routing` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
 | `fda-acceptance-preflight.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `fda-device-classification.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver` | inferred |
 | `fda-device-listing-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
@@ -699,6 +726,9 @@ graph TD
 | `fto-design-around-options.json` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-risk-heatmap.md` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-scope.json` | `freedom-to-operate-assessment` | — | unconsumed |
+| `german-association-law-assessment.json` | `german-association-law-specialist` | — | unconsumed |
+| `german-rowing-law-assessment.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
+| `german-sports-law-assessment.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `gudid-udi-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
 | `hotspot-analysis.md` | `performance-hotspot-analysis` | `optimize-software-performance`, `performance-optimization-plan` | inferred |
 | `hotspot-map.json` | `performance-hotspot-analysis` | `optimize-software-performance`, `performance-optimization-plan` | inferred |
@@ -715,7 +745,7 @@ graph TD
 | `inhouse-ivd-transition-readiness.json` | `ivdr-inhouse-health-institution` | — | unconsumed |
 | `inspection-evidence-index.json` | `fda-qmsr-inspection-readiness` | — | unconsumed |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | unconsumed |
-| `investigation-backlog.json` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `investigation-backlog.json` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `isms-audit-findings.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-plan.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-report.md` | `iso27001-isms-audit` | — | unconsumed |
@@ -753,6 +783,26 @@ graph TD
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
+| `legal-authority-evidence.json` | `current-law-context` | `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
+| `legal-context.md` | `current-law-context` | `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
+| `legal-decision-boundaries.json` | `legal-client-strategy` | `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-specialist-router` | inferred |
+| `legal-dependency-graph.json` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
+| `legal-final-gate.json` | `legal-matter-final-gate` | `legal-compliance-office` | inferred |
+| `legal-intake-open-points.json` | `legal-matter-intake` | `legal-client-strategy`, `legal-compliance-office`, `privilege-and-counsel-routing` | inferred |
+| `legal-investigation-backlog.json` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
+| `legal-jurisdiction-map.json` | `current-law-context` | `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
+| `legal-matter-handoff.json` | `legal-compliance-office` | — | unconsumed |
+| `legal-matter-plan.md` | `legal-compliance-office` | — | unconsumed |
+| `legal-matter-status.json` | `legal-compliance-office` | — | unconsumed |
+| `legal-matter.json` | `legal-matter-intake` | `legal-client-strategy`, `legal-compliance-office`, `privilege-and-counsel-routing` | inferred |
+| `legal-open-points.md` | `legal-matter-final-gate` | `legal-compliance-office` | inferred |
+| `legal-research-open-questions.json` | `current-law-context` | `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
+| `legal-risk-decision-handoff.json` | `legal-compliance-risk-assessment` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
+| `legal-risk-register.json` | `legal-compliance-risk-assessment` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
+| `legal-specialist-integration-status.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
+| `legal-specialist-route-map.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
+| `legal-specialist-work-orders.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
+| `legal-wayfinding-brief.md` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `llm-generation-assessment.json` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
 | `llm-generation-assessment.md` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
@@ -846,6 +896,7 @@ graph TD
 | `price-snapshot.md` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
 | `privacy-governance.md` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
+| `privilege-routing.json` | `privilege-and-counsel-routing` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
 | `process-validation-assessment.json` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `process-validation-protocol.md` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `process-validation-strategy.json` | `process-validation-iq-oq-pq` | — | unconsumed |
@@ -858,8 +909,8 @@ graph TD
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `prose-audit.json` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
 | `prose-audit.md` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
-| `prototype-brief.md` | `throwaway-prototype` | `decision-record` | inferred |
-| `prototype-evidence.json` | `throwaway-prototype` | `decision-record` | inferred |
+| `prototype-brief.md` | `throwaway-prototype` | — | unconsumed |
+| `prototype-evidence.json` | `throwaway-prototype` | — | unconsumed |
 | `public-job-posting.md` | `job-description-authoring` | — | unconsumed |
 | `pull request` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
 | `purchase-plan.json` | `purchase-decision-planner` | — | unconsumed |
@@ -878,7 +929,7 @@ graph TD
 | `qsub-commitments.json` | `fda-qsub-strategy` | — | unconsumed |
 | `qsub-question-set.json` | `fda-qsub-strategy` | — | unconsumed |
 | `quality-record-integrity-assessment.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
-| `quality-review.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
+| `quality-review.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `record-integrity-gaps.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
 | `record-retrieval-index.json` | `quality-record-integrity` | `fda-complaint-mdr-reportability`, `fda-recall-status-termination`, `ivdr-economic-operator-postmarket-propagation`, `medical-device-complaint-customer-followup`, `medical-device-complaint-handling`, `medical-device-customer-contact-intake`, `medical-device-field-action-communication`, `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution`, `medical-device-service-report-quality-routing` | inferred |
 | `recovered-system-model.json` | `opaque-system-analysis` | — | unconsumed |
@@ -898,7 +949,7 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `rehab-progression.json` | `sport-injury-rehabilitation` | `sport-athlete-management` | inferred |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
-| `requirement-coverage.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
+| `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
@@ -906,7 +957,7 @@ graph TD
 | `review findings` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
 | `review-brief.json` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
 | `review-brief.md` | `daily-and-weekly-review` | `decision-and-follow-up-tracker` | inferred |
-| `review-decision.md` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
+| `review-decision.md` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `reviewable-change-brief.md` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |
 | `revised-text` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
 | `rewrite-change-map.json` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
@@ -919,6 +970,7 @@ graph TD
 | `role-requirements-handoff.json` | `role-requirements-grilling` | `role-architecture` | explicit |
 | `role-requirements-report.md` | `role-requirements-grilling` | — | unconsumed |
 | `role-scorecard.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring` | explicit |
+| `rowing-legal-open-points.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `se-evidence-gaps.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
@@ -942,6 +994,8 @@ graph TD
 | `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning`, `sport-testing-battery` | inferred |
 | `sport-testing-plan.json` | `sport-testing-battery` | `sport-athlete-management` | inferred |
 | `sport-training-plan.json` | `sport-training-programming` | `sport-diagnostics-training-report-workflow` | inferred |
+| `sports-law-route-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
+| `sports-rule-binding-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management` | inferred |
@@ -983,4 +1037,4 @@ graph TD
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
-| `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `wayfinding-brief.md` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |

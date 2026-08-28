@@ -30,7 +30,6 @@ Erzeugt einen kompakten, verifizierbaren Übergabestand für neue Sitzungen oder
 
 ## Required by
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
@@ -47,7 +46,6 @@ Erzeugt einen kompakten, verifizierbaren Übergabestand für neue Sitzungen oder
 
 ### `agent-handoff.json`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
@@ -57,7 +55,6 @@ Erzeugt einen kompakten, verifizierbaren Übergabestand für neue Sitzungen oder
 
 ### `agent-handoff.md`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/implement-from-issue|implement-from-issue]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]

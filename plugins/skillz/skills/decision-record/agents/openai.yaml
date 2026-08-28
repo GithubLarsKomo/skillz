@@ -1,5 +1,5 @@
 interface:
   display_name: "Decision Record"
-  short_description: "Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext..."
+  short_description: "Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governance-Entscheidungen als unveränderliche,..."
 policy:
   allow_implicit_invocation: true

@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
-  "skillCount": 202,
-  "entrypointCount": 170,
+  "skillCount": 214,
+  "entrypointCount": 183,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
     "engineering",
+    "legal-specialist",
     "productivity",
     "regulated-engineering",
     "research-knowledge",
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 196,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationSuiteCount": 208,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 51,
   "skills": [
     {
       "name": "agent-handoff",
@@ -27,7 +28,6 @@
         "iterate-software-projects"
       ],
       "dependents": [
-        "decision-record",
         "domain-model-maintenance",
         "implement-from-issue",
         "large-work-wayfinder",
@@ -47,7 +47,6 @@
             "agent-handoff"
           ],
           "consumerSkills": [
-            "decision-record",
             "domain-model-maintenance",
             "implement-from-issue",
             "large-work-wayfinder",
@@ -63,7 +62,6 @@
             "agent-handoff"
           ],
           "consumerSkills": [
-            "decision-record",
             "domain-model-maintenance",
             "implement-from-issue",
             "large-work-wayfinder",
@@ -963,6 +961,102 @@
       }
     },
     {
+      "name": "current-law-context",
+      "description": "Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogenen Rechts- und Regelwerkskontext aus autoritativen Quellen und trennt Gesetz, Rechtsprechung, Behördenmaterial, Verbands-/Satzungsrecht, Vertragsregeln und Interpretation. Verwenden vor materiellen Rechtsaussagen oder Specialist Assessments.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-matter-wayfinder",
+        "legal-specialist-router"
+      ],
+      "outputs": [
+        "legal-authority-evidence.json",
+        "legal-context.md",
+        "legal-jurisdiction-map.json",
+        "legal-research-open-questions.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-authority-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "current-law-context"
+          ],
+          "consumerSkills": [
+            "german-association-law-specialist",
+            "german-sports-law-specialist",
+            "legal-compliance-office",
+            "legal-compliance-risk-assessment",
+            "legal-matter-wayfinder",
+            "legal-specialist-router"
+          ]
+        },
+        {
+          "output": "legal-context.md",
+          "ambiguous": false,
+          "producers": [
+            "current-law-context"
+          ],
+          "consumerSkills": [
+            "german-association-law-specialist",
+            "german-sports-law-specialist",
+            "legal-compliance-office",
+            "legal-compliance-risk-assessment",
+            "legal-matter-wayfinder",
+            "legal-specialist-router"
+          ]
+        },
+        {
+          "output": "legal-jurisdiction-map.json",
+          "ambiguous": false,
+          "producers": [
+            "current-law-context"
+          ],
+          "consumerSkills": [
+            "german-association-law-specialist",
+            "german-sports-law-specialist",
+            "legal-compliance-office",
+            "legal-compliance-risk-assessment",
+            "legal-matter-wayfinder",
+            "legal-specialist-router"
+          ]
+        },
+        {
+          "output": "legal-research-open-questions.json",
+          "ambiguous": false,
+          "producers": [
+            "current-law-context"
+          ],
+          "consumerSkills": [
+            "german-association-law-specialist",
+            "german-sports-law-specialist",
+            "legal-compliance-office",
+            "legal-compliance-risk-assessment",
+            "legal-matter-wayfinder",
+            "legal-specialist-router"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
       "name": "daily-and-weekly-review",
       "description": "Verdichtet bestätigte Kalender-, Aufgaben-, Projekt- und Inbox-Triage-Daten zu einem priorisierten Tages- oder Wochenreview mit Commitments, Follow-ups, Blockern und nächsten Schritten. Verwenden, wenn aus mehreren Arbeitskontexten eine belastbare Review-Sicht entstehen soll, ohne Kalender-, Mail-, Task- oder Projekt-Systeme selbst zu verändern.",
       "invocation": {
@@ -1064,17 +1158,12 @@
     },
     {
       "name": "decision-record",
-      "description": "Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.",
+      "description": "Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governance-Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.",
       "invocation": {
-        "userFacing": false,
-        "category": null
+        "userFacing": true,
+        "category": "workflow"
       },
-      "requires": [
-        "agent-handoff",
-        "large-work-wayfinder",
-        "throwaway-prototype",
-        "two-axis-code-review"
-      ],
+      "requires": [],
       "dependents": [
         "audit-inspection-finding-response",
         "clinical-evidence-update-impact",
@@ -1147,7 +1236,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {
@@ -3530,6 +3619,175 @@
       }
     },
     {
+      "name": "german-association-law-specialist",
+      "description": "Analysiert deutsches Vereinsrecht für eingetragene und nicht eingetragene Vereine sowie Verbandsstrukturen, insbesondere Satzung, Organe, Vertretung, Mitgliedschaft, Beschlüsse, Wahlen, Haftung, Register und Gemeinnützigkeits-Schnittstellen. Verwenden für deutsche Vereine und Verbände; sportartspezifische Wettkampf- und Verbandsregeln an den Sports-Law-Specialist übergeben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "dependents": [],
+      "outputs": [
+        "association-governance-map.json",
+        "association-law-open-points.json",
+        "german-association-law-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "association-governance-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-association-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "association-law-open-points.json",
+          "ambiguous": false,
+          "producers": [
+            "german-association-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "german-association-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-association-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "german-rowing-sport-law-specialist",
+      "description": "Analysiert sportartspezifische Rechts- und Verbandsfragen im deutschen Rudersport mit Fokus auf den Deutschen Ruderverband (DRV), seine Satzung und Ordnungen, aktuelle Ruder-Wettkampfregeln, Startberechtigung, Regatten, Disziplinar-/Rechtsverfahren, Anti-Doping und DRJ-Regeln. Verwenden als Rudern-Overlay nach dem allgemeinen deutschen Sports-Law-Specialist.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "german-sports-law-specialist"
+      ],
+      "dependents": [],
+      "outputs": [
+        "drv-rule-applicability-map.json",
+        "german-rowing-law-assessment.json",
+        "rowing-legal-open-points.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "drv-rule-applicability-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-rowing-sport-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "german-rowing-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-rowing-sport-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "rowing-legal-open-points.json",
+          "ambiguous": false,
+          "producers": [
+            "german-rowing-sport-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "german-sports-law-specialist",
+      "description": "Analysiert deutsches Sportrecht an der Schnittstelle von staatlichem Recht und autonomem Verbandsrecht, insbesondere DOSB-Strukturen, Lizenzen/Startrechte, Disziplinar- und Rechtsbehelfsverfahren, Safe Sport, Anti-Doping, Athleten-/Trainer-/Vereinsbeziehungen, Veranstaltung, Haftung und Datenschutz-/Arbeitsrechts-Handoffs. Verwenden für Sportmatters in Deutschland; sportartspezifische Regeln an den zuständigen Fachverbands-Specialist übergeben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "dependents": [
+        "german-rowing-sport-law-specialist"
+      ],
+      "outputs": [
+        "german-sports-law-assessment.json",
+        "sports-law-route-map.json",
+        "sports-rule-binding-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "german-sports-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-sports-law-specialist"
+          ],
+          "consumerSkills": [
+            "german-rowing-sport-law-specialist"
+          ]
+        },
+        {
+          "output": "sports-law-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-sports-law-specialist"
+          ],
+          "consumerSkills": [
+            "german-rowing-sport-law-specialist"
+          ]
+        },
+        {
+          "output": "sports-rule-binding-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-sports-law-specialist"
+          ],
+          "consumerSkills": [
+            "german-rowing-sport-law-specialist"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
       "name": "human-procedure-wizard",
       "description": "Führt sicher durch unvermeidbare menschliche Schritte in ansonsten agentengesteuerten Workflows, etwa Dashboard-Aktionen, Freigaben, Secret-Eingaben, physische Bestätigungen oder irreversible Cutover-Gates. Verwenden, wenn ein Agent den nächsten Schritt nicht selbst ausführen darf oder kann und danach verifizierbar weiterarbeiten soll; nicht für normale Anforderungsklärung oder reine Übergaben.",
       "invocation": {
@@ -4959,7 +5217,6 @@
         "disciplined-diagnosis"
       ],
       "dependents": [
-        "decision-record",
         "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
@@ -4977,7 +5234,6 @@
             "large-work-wayfinder"
           ],
           "consumerSkills": [
-            "decision-record",
             "frontend-design-shaping",
             "medical-device-regulatory-strategy",
             "throwaway-prototype"
@@ -4990,7 +5246,6 @@
             "large-work-wayfinder"
           ],
           "consumerSkills": [
-            "decision-record",
             "frontend-design-shaping",
             "medical-device-regulatory-strategy",
             "throwaway-prototype"
@@ -5003,7 +5258,6 @@
             "large-work-wayfinder"
           ],
           "consumerSkills": [
-            "decision-record",
             "frontend-design-shaping",
             "medical-device-regulatory-strategy",
             "throwaway-prototype"
@@ -5225,6 +5479,416 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "legal-client-strategy",
+      "description": "Übersetzt einen bestätigten Legal-Matter-Kontext in eine explizite Mandantenstrategie mit Zielbild, Must-haves, Red Lines, Risikotoleranz, Verhandlungsspielraum, Fallbacks und Entscheidungsautorität. Verwenden, bevor Specialists, Vertragsreview oder Verhandlungen Empfehlungen priorisieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "legal-matter-intake"
+      ],
+      "dependents": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-specialist-router"
+      ],
+      "outputs": [
+        "client-strategy.json",
+        "legal-decision-boundaries.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "client-strategy.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-client-strategy"
+          ],
+          "consumerSkills": [
+            "german-association-law-specialist",
+            "german-sports-law-specialist",
+            "legal-compliance-office",
+            "legal-compliance-risk-assessment",
+            "legal-specialist-router"
+          ]
+        },
+        {
+          "output": "legal-decision-boundaries.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-client-strategy"
+          ],
+          "consumerSkills": [
+            "german-association-law-specialist",
+            "german-sports-law-specialist",
+            "legal-compliance-office",
+            "legal-compliance-risk-assessment",
+            "legal-specialist-router"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "legal-compliance-office",
+      "description": "Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake und Mandantenstrategie über aktuelle Rechtsgrundlage, Wayfinding, Specialist Routing und Risiko bis zum Final Gate, ohne Fachlogik der Specialists zu duplizieren. Verwenden als zentralen General-Counsel-/Compliance-Einstieg für komplexe oder mehrdomänige Sachverhalte.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "legal-compliance-risk-assessment",
+        "legal-matter-final-gate",
+        "legal-matter-intake",
+        "legal-matter-wayfinder",
+        "legal-specialist-router",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "legal-matter-handoff.json",
+        "legal-matter-plan.md",
+        "legal-matter-status.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-matter-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-compliance-office"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "legal-matter-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "legal-compliance-office"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "legal-matter-status.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-compliance-office"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "legal-compliance-risk-assessment",
+      "description": "Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein priorisiertes Risiko- und Exposure-Modell mit Probability, Impact, Velocity, Reversibility, Mitigation, Residual Risk und Entscheidungsautorität. Verwenden vor wesentlichen Legal-Entscheidungen, Verhandlungen und Final Gates.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "dependents": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "outputs": [
+        "commercial-exposure-analysis.json",
+        "legal-risk-decision-handoff.json",
+        "legal-risk-register.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "commercial-exposure-analysis.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-compliance-risk-assessment"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office",
+            "legal-matter-final-gate"
+          ]
+        },
+        {
+          "output": "legal-risk-decision-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-compliance-risk-assessment"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office",
+            "legal-matter-final-gate"
+          ]
+        },
+        {
+          "output": "legal-risk-register.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-compliance-risk-assessment"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office",
+            "legal-matter-final-gate"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "legal-matter-final-gate",
+      "description": "Prüft vor Abschluss, Unterzeichnung, Veröffentlichung oder irreversibler Legal-/Compliance-Aktion, ob Specialist-Fragen, aktuelle Rechtsgrundlage, Risiken, Freigaben und externe Authority-Gates ausreichend geklärt sind. Verwenden als letztes Matter-Gate; der Skill erteilt keine externe Genehmigung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [
+        "legal-compliance-office"
+      ],
+      "outputs": [
+        "legal-final-gate.json",
+        "legal-open-points.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-final-gate.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-final-gate"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        },
+        {
+          "output": "legal-open-points.md",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-final-gate"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "legal-matter-intake",
+      "description": "Strukturiert neue unternehmerische oder private Rechts- und Compliance-Sachverhalte in einen belastbaren Matter-Kontext mit Mandantenziel, Parteien, Fakten, Annahmen, Jurisdiktionen, Fristen, Dokumenten, Autorität und offenen Punkten. Verwenden, bevor ein Legal-Specialist, Vertragsworkflow oder Compliance-Workflow fachlich arbeitet.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [],
+      "dependents": [
+        "legal-client-strategy",
+        "legal-compliance-office",
+        "privilege-and-counsel-routing"
+      ],
+      "outputs": [
+        "legal-intake-open-points.json",
+        "legal-matter.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-intake-open-points.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-intake"
+          ],
+          "consumerSkills": [
+            "legal-client-strategy",
+            "legal-compliance-office",
+            "privilege-and-counsel-routing"
+          ]
+        },
+        {
+          "output": "legal-matter.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-intake"
+          ],
+          "consumerSkills": [
+            "legal-client-strategy",
+            "legal-compliance-office",
+            "privilege-and-counsel-routing"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "legal-matter-wayfinder",
+      "description": "Zerlegt komplexe Legal- und Compliance-Matters in priorisierte tatsächliche, rechtliche, wirtschaftliche und regulatorische Investigations mit Evidenzbedarf und Stop Conditions. Verwenden, wenn die nächste sichere Legal-Aktion durch mehrere unbekannte oder voneinander abhängige Fragen blockiert ist.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "current-law-context",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "legal-compliance-office"
+      ],
+      "outputs": [
+        "legal-dependency-graph.json",
+        "legal-investigation-backlog.json",
+        "legal-wayfinding-brief.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-dependency-graph.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-wayfinder"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        },
+        {
+          "output": "legal-investigation-backlog.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-wayfinder"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        },
+        {
+          "output": "legal-wayfinding-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "legal-matter-wayfinder"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "legal-specialist-router",
+      "description": "Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compliance-, Regulatory-, IP- oder Sports-Law-Specialists und integriert deren Ergebnisse, ohne deren Fachlogik zu duplizieren. Verwenden, wenn ein Matter mehrere Rechts- oder Regelwerksschichten berührt.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "dependents": [
+        "legal-compliance-office"
+      ],
+      "outputs": [
+        "legal-specialist-integration-status.json",
+        "legal-specialist-route-map.json",
+        "legal-specialist-work-orders.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "legal-specialist-integration-status.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-specialist-router"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        },
+        {
+          "output": "legal-specialist-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-specialist-router"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        },
+        {
+          "output": "legal-specialist-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-specialist-router"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
       }
     },
     {
@@ -8214,6 +8878,70 @@
       }
     },
     {
+      "name": "privilege-and-counsel-routing",
+      "description": "Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedarf, ohne pauschal anwaltliches Privileg zu behaupten, und routet Fragen nach interner Bearbeitung, qualifiziertem externem Counsel, Behörde, Notar oder sonstiger zwingender Autorität. Verwenden früh im Matter und erneut vor irreversiblen Rechtsentscheidungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "legal-matter-intake"
+      ],
+      "dependents": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "outputs": [
+        "counsel-scope.json",
+        "external-counsel-brief.md",
+        "privilege-routing.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "counsel-scope.json",
+          "ambiguous": false,
+          "producers": [
+            "privilege-and-counsel-routing"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office",
+            "legal-matter-final-gate"
+          ]
+        },
+        {
+          "output": "external-counsel-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "privilege-and-counsel-routing"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office",
+            "legal-matter-final-gate"
+          ]
+        },
+        {
+          "output": "privilege-routing.json",
+          "ambiguous": false,
+          "producers": [
+            "privilege-and-counsel-routing"
+          ],
+          "consumerSkills": [
+            "legal-compliance-office",
+            "legal-matter-final-gate"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
       "name": "process-validation-iq-oq-pq",
       "description": "Plant und bewertet risikobasierte Medical-Device-Prozessvalidierung mit geeigneter IQ/OQ/PQ-Evidenz, vorab definierten Kriterien, Revalidierung und Change-Traceability.",
       "invocation": {
@@ -9309,6 +10037,7 @@
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "contract-legal-context",
+        "current-law-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -9316,6 +10045,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
+        "legal-matter-wayfinder",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
@@ -9344,6 +10074,7 @@
             "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
             "contract-legal-context",
+            "current-law-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -9351,6 +10082,7 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "freedom-to-operate-assessment",
             "ivdr-scientific-validity",
+            "legal-matter-wayfinder",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
@@ -9375,6 +10107,7 @@
             "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
             "contract-legal-context",
+            "current-law-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -9382,6 +10115,7 @@
             "fda-medical-device-ivd-regulatory-specialist",
             "freedom-to-operate-assessment",
             "ivdr-scientific-validity",
+            "legal-matter-wayfinder",
             "mdcg-guidance-navigator",
             "medical-device-privacy-gdpr-bdsg",
             "medical-device-risk-management-iso14971",
@@ -11472,9 +12206,7 @@
         "large-work-wayfinder",
         "spec-to-vertical-issues"
       ],
-      "dependents": [
-        "decision-record"
-      ],
+      "dependents": [],
       "outputs": [
         "disposal-record.json",
         "prototype-brief.md",
@@ -11487,9 +12219,7 @@
           "producers": [
             "throwaway-prototype"
           ],
-          "consumerSkills": [
-            "decision-record"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "prototype-brief.md",
@@ -11497,9 +12227,7 @@
           "producers": [
             "throwaway-prototype"
           ],
-          "consumerSkills": [
-            "decision-record"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "prototype-evidence.json",
@@ -11507,9 +12235,7 @@
           "producers": [
             "throwaway-prototype"
           ],
-          "consumerSkills": [
-            "decision-record"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -11536,7 +12262,6 @@
         "implement-from-issue"
       ],
       "dependents": [
-        "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
         "merge-conflict-resolution",
@@ -11557,7 +12282,6 @@
             "two-axis-code-review"
           ],
           "consumerSkills": [
-            "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
             "merge-conflict-resolution",
@@ -11572,7 +12296,6 @@
             "two-axis-code-review"
           ],
           "consumerSkills": [
-            "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
             "merge-conflict-resolution",
@@ -11587,7 +12310,6 @@
             "two-axis-code-review"
           ],
           "consumerSkills": [
-            "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
             "merge-conflict-resolution",
@@ -11602,7 +12324,6 @@
             "two-axis-code-review"
           ],
           "consumerSkills": [
-            "decision-record",
             "domain-model-maintenance",
             "engineering-delivery-followup",
             "merge-conflict-resolution",

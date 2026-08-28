@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **202**
-- User-facing entrypoints: **170**
-- Evaluation suites: **196**
+- Skills: **214**
+- User-facing entrypoints: **183**
+- Evaluation suites: **208**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **189**
+- Outputs without inferred hard-requires consumers: **201**
 
 ## Evaluation gaps
 
@@ -46,6 +46,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
+- `association-governance-map.json` — producer: `german-association-law-specialist`
+- `association-law-open-points.json` — producer: `german-association-law-specialist`
 - `athlete-management-state.json` — producer: `sport-athlete-management`
 - `audit-finding-response-map.json` — producer: `audit-inspection-finding-response`
 - `beta-readiness.json` — producer: `project-beta-readiness`
@@ -86,6 +88,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
+- `disposal-record.json` — producer: `throwaway-prototype`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -94,6 +97,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `domain-validation.json` — producer: `domain-model-maintenance`
 - `dpia-decision.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `dr-komorowski-report.pdf` — producer: `dr-komorowski-sport-report-renderer`
+- `drv-rule-applicability-map.json` — producer: `german-rowing-sport-law-specialist`
 - `dual-510k-clia-strategy.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-evidence-package.json` — producer: `fda-dual-510k-clia-waiver`
 - `dual-study-evidence-map.json` — producer: `fda-dual-510k-clia-waiver`
@@ -124,6 +128,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fto-design-around-options.json` — producer: `freedom-to-operate-assessment`
 - `fto-risk-heatmap.md` — producer: `freedom-to-operate-assessment`
 - `fto-scope.json` — producer: `freedom-to-operate-assessment`
+- `german-association-law-assessment.json` — producer: `german-association-law-specialist`
+- `german-rowing-law-assessment.json` — producer: `german-rowing-sport-law-specialist`
 - `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
@@ -147,6 +153,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `knowledge-map.md` — producer: `mermaid-knowledge-map-renderer`
 - `knowledge-map.mmd` — producer: `mermaid-knowledge-map-renderer`
 - `learning-practice-request.json` — producer: `teach`
+- `legal-matter-handoff.json` — producer: `legal-compliance-office`
+- `legal-matter-plan.md` — producer: `legal-compliance-office`
+- `legal-matter-status.json` — producer: `legal-compliance-office`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `llm-generation-review.json` — producer: `llm-generation-review-workflow`
 - `llm-generation-review.md` — producer: `llm-generation-review-workflow`
@@ -188,6 +197,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `process-validation-protocol.md` — producer: `process-validation-iq-oq-pq`
 - `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
 - `progress summary` — producer: `synapse-orchestrator`
+- `prototype-brief.md` — producer: `throwaway-prototype`
+- `prototype-evidence.json` — producer: `throwaway-prototype`
 - `public-job-posting.md` — producer: `job-description-authoring`
 - `purchase-plan.json` — producer: `purchase-decision-planner`
 - `purchase-plan.md` — producer: `purchase-decision-planner`
@@ -210,6 +221,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
 - `role-architecture.md` — producer: `role-architecture`
 - `role-requirements-report.md` — producer: `role-requirements-grilling`
+- `rowing-legal-open-points.json` — producer: `german-rowing-sport-law-specialist`
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`

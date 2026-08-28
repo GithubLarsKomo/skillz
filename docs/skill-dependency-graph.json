@@ -197,6 +197,19 @@
       ]
     },
     {
+      "name": "current-law-context",
+      "requires": [
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-authority-evidence.json",
+        "legal-context.md",
+        "legal-jurisdiction-map.json",
+        "legal-research-open-questions.json"
+      ]
+    },
+    {
       "name": "daily-and-weekly-review",
       "requires": [
         "inbox-action-triage"
@@ -222,12 +235,7 @@
     },
     {
       "name": "decision-record",
-      "requires": [
-        "agent-handoff",
-        "large-work-wayfinder",
-        "throwaway-prototype",
-        "two-axis-code-review"
-      ],
+      "requires": [],
       "consumes": [],
       "outputs": [
         "decision-record.json",
@@ -790,6 +798,44 @@
       ]
     },
     {
+      "name": "german-association-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "consumes": [],
+      "outputs": [
+        "association-governance-map.json",
+        "association-law-open-points.json",
+        "german-association-law-assessment.json"
+      ]
+    },
+    {
+      "name": "german-rowing-sport-law-specialist",
+      "requires": [
+        "german-sports-law-specialist"
+      ],
+      "consumes": [],
+      "outputs": [
+        "drv-rule-applicability-map.json",
+        "german-rowing-law-assessment.json",
+        "rowing-legal-open-points.json"
+      ]
+    },
+    {
+      "name": "german-sports-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "consumes": [],
+      "outputs": [
+        "german-sports-law-assessment.json",
+        "sports-law-route-map.json",
+        "sports-rule-binding-map.json"
+      ]
+    },
+    {
       "name": "human-procedure-wizard",
       "requires": [],
       "consumes": [],
@@ -1191,6 +1237,96 @@
       "outputs": [
         "learning-record.md",
         "learning-state.json"
+      ]
+    },
+    {
+      "name": "legal-client-strategy",
+      "requires": [
+        "legal-matter-intake"
+      ],
+      "consumes": [],
+      "outputs": [
+        "client-strategy.json",
+        "legal-decision-boundaries.json"
+      ]
+    },
+    {
+      "name": "legal-compliance-office",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "legal-compliance-risk-assessment",
+        "legal-matter-final-gate",
+        "legal-matter-intake",
+        "legal-matter-wayfinder",
+        "legal-specialist-router",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-matter-handoff.json",
+        "legal-matter-plan.md",
+        "legal-matter-status.json"
+      ]
+    },
+    {
+      "name": "legal-compliance-risk-assessment",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "consumes": [],
+      "outputs": [
+        "commercial-exposure-analysis.json",
+        "legal-risk-decision-handoff.json",
+        "legal-risk-register.json"
+      ]
+    },
+    {
+      "name": "legal-matter-final-gate",
+      "requires": [
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-final-gate.json",
+        "legal-open-points.md"
+      ]
+    },
+    {
+      "name": "legal-matter-intake",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "legal-intake-open-points.json",
+        "legal-matter.json"
+      ]
+    },
+    {
+      "name": "legal-matter-wayfinder",
+      "requires": [
+        "current-law-context",
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-dependency-graph.json",
+        "legal-investigation-backlog.json",
+        "legal-wayfinding-brief.md"
+      ]
+    },
+    {
+      "name": "legal-specialist-router",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "consumes": [],
+      "outputs": [
+        "legal-specialist-integration-status.json",
+        "legal-specialist-route-map.json",
+        "legal-specialist-work-orders.json"
       ]
     },
     {
@@ -1832,6 +1968,18 @@
       "outputs": [
         "price-snapshot.json",
         "price-snapshot.md"
+      ]
+    },
+    {
+      "name": "privilege-and-counsel-routing",
+      "requires": [
+        "legal-matter-intake"
+      ],
+      "consumes": [],
+      "outputs": [
+        "counsel-scope.json",
+        "external-counsel-brief.md",
+        "privilege-routing.json"
       ]
     },
     {
@@ -2646,6 +2794,10 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "current-law-context",
+      "to": "research-to-evidence-note"
+    },
+    {
       "from": "daily-and-weekly-review",
       "to": "inbox-action-triage"
     },
@@ -2660,22 +2812,6 @@
     {
       "from": "decision-and-follow-up-tracker",
       "to": "project-status-brief"
-    },
-    {
-      "from": "decision-record",
-      "to": "agent-handoff"
-    },
-    {
-      "from": "decision-record",
-      "to": "large-work-wayfinder"
-    },
-    {
-      "from": "decision-record",
-      "to": "throwaway-prototype"
-    },
-    {
-      "from": "decision-record",
-      "to": "two-axis-code-review"
     },
     {
       "from": "design-change-regulatory-impact",
@@ -3106,6 +3242,26 @@
       "to": "round-based-requirements-grilling"
     },
     {
+      "from": "german-association-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-association-law-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "german-rowing-sport-law-specialist",
+      "to": "german-sports-law-specialist"
+    },
+    {
+      "from": "german-sports-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-sports-law-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
       "from": "iec62304-software-lifecycle",
       "to": "design-control-traceability"
     },
@@ -3440,6 +3596,74 @@
     {
       "from": "learning-next-step",
       "to": "learning-state"
+    },
+    {
+      "from": "legal-client-strategy",
+      "to": "legal-matter-intake"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "current-law-context"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "legal-matter-final-gate"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "legal-matter-intake"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "legal-matter-wayfinder"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "legal-specialist-router"
+    },
+    {
+      "from": "legal-compliance-office",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "legal-compliance-risk-assessment",
+      "to": "current-law-context"
+    },
+    {
+      "from": "legal-compliance-risk-assessment",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "legal-matter-final-gate",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "legal-matter-final-gate",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "legal-matter-wayfinder",
+      "to": "current-law-context"
+    },
+    {
+      "from": "legal-matter-wayfinder",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "legal-specialist-router",
+      "to": "current-law-context"
+    },
+    {
+      "from": "legal-specialist-router",
+      "to": "legal-client-strategy"
     },
     {
       "from": "llm-generation-evidence-assessment",
@@ -3908,6 +4132,10 @@
     {
       "from": "presentation-render-verifier",
       "to": "presentation-layout-qa"
+    },
+    {
+      "from": "privilege-and-counsel-routing",
+      "to": "legal-matter-intake"
     },
     {
       "from": "process-validation-iq-oq-pq",
@@ -4604,7 +4832,6 @@
         "agent-handoff"
       ],
       "consumerSkills": [
-        "decision-record",
         "domain-model-maintenance",
         "implement-from-issue",
         "large-work-wayfinder",
@@ -4621,7 +4848,6 @@
         "agent-handoff"
       ],
       "consumerSkills": [
-        "decision-record",
         "domain-model-maintenance",
         "implement-from-issue",
         "large-work-wayfinder",
@@ -4692,6 +4918,24 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "association-governance-map.json",
+      "producers": [
+        "german-association-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "association-law-open-points.json",
+      "producers": [
+        "german-association-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "athlete-management-state.json",
@@ -5076,6 +5320,21 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "client-strategy.json",
+      "producers": [
+        "legal-client-strategy"
+      ],
+      "consumerSkills": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-specialist-router"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "clinical-evidence-actions.json",
       "producers": [
         "clinical-evidence-update-impact"
@@ -5120,6 +5379,18 @@
       ],
       "consumerSkills": [
         "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "commercial-exposure-analysis.json",
+      "producers": [
+        "legal-compliance-risk-assessment"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5560,6 +5831,18 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "counsel-scope.json",
+      "producers": [
+        "privilege-and-counsel-routing"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "customer-communication-record.json",
       "producers": [
         "medical-device-complaint-customer-followup"
@@ -5777,7 +6060,6 @@
         "two-axis-code-review"
       ],
       "consumerSkills": [
-        "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
         "merge-conflict-resolution",
@@ -5793,7 +6075,6 @@
         "large-work-wayfinder"
       ],
       "consumerSkills": [
-        "decision-record",
         "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
@@ -5895,11 +6176,9 @@
       "producers": [
         "throwaway-prototype"
       ],
-      "consumerSkills": [
-        "decision-record"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "docs/agents/CONFIG.md",
@@ -6033,6 +6312,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "drv-rule-applicability-map.json",
+      "producers": [
+        "german-rowing-sport-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "dual-510k-clia-strategy.json",
@@ -6280,6 +6568,7 @@
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "contract-legal-context",
+        "current-law-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -6287,6 +6576,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
+        "legal-matter-wayfinder",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
@@ -6312,6 +6602,7 @@
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "contract-legal-context",
+        "current-law-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -6319,6 +6610,7 @@
         "fda-medical-device-ivd-regulatory-specialist",
         "freedom-to-operate-assessment",
         "ivdr-scientific-validity",
+        "legal-matter-wayfinder",
         "mdcg-guidance-navigator",
         "medical-device-privacy-gdpr-bdsg",
         "medical-device-risk-management-iso14971",
@@ -6361,6 +6653,18 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "external-counsel-brief.md",
+      "producers": [
+        "privilege-and-counsel-routing"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "fda-acceptance-preflight.json",
@@ -6805,6 +7109,35 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "german-association-law-assessment.json",
+      "producers": [
+        "german-association-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "german-rowing-law-assessment.json",
+      "producers": [
+        "german-rowing-sport-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "german-sports-law-assessment.json",
+      "producers": [
+        "german-sports-law-specialist"
+      ],
+      "consumerSkills": [
+        "german-rowing-sport-law-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "gudid-udi-readiness.json",
       "producers": [
         "fda-registration-listing-udi"
@@ -6975,7 +7308,6 @@
         "large-work-wayfinder"
       ],
       "consumerSkills": [
-        "decision-record",
         "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
@@ -7387,6 +7719,250 @@
       "consumerSkills": [],
       "ambiguous": true,
       "consumptionStatus": "ambiguous"
+    },
+    {
+      "output": "legal-authority-evidence.json",
+      "producers": [
+        "current-law-context"
+      ],
+      "consumerSkills": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-matter-wayfinder",
+        "legal-specialist-router"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-context.md",
+      "producers": [
+        "current-law-context"
+      ],
+      "consumerSkills": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-matter-wayfinder",
+        "legal-specialist-router"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-decision-boundaries.json",
+      "producers": [
+        "legal-client-strategy"
+      ],
+      "consumerSkills": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-specialist-router"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-dependency-graph.json",
+      "producers": [
+        "legal-matter-wayfinder"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-final-gate.json",
+      "producers": [
+        "legal-matter-final-gate"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-intake-open-points.json",
+      "producers": [
+        "legal-matter-intake"
+      ],
+      "consumerSkills": [
+        "legal-client-strategy",
+        "legal-compliance-office",
+        "privilege-and-counsel-routing"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-investigation-backlog.json",
+      "producers": [
+        "legal-matter-wayfinder"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-jurisdiction-map.json",
+      "producers": [
+        "current-law-context"
+      ],
+      "consumerSkills": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-matter-wayfinder",
+        "legal-specialist-router"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-matter-handoff.json",
+      "producers": [
+        "legal-compliance-office"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "legal-matter-plan.md",
+      "producers": [
+        "legal-compliance-office"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "legal-matter-status.json",
+      "producers": [
+        "legal-compliance-office"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "legal-matter.json",
+      "producers": [
+        "legal-matter-intake"
+      ],
+      "consumerSkills": [
+        "legal-client-strategy",
+        "legal-compliance-office",
+        "privilege-and-counsel-routing"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-open-points.md",
+      "producers": [
+        "legal-matter-final-gate"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-research-open-questions.json",
+      "producers": [
+        "current-law-context"
+      ],
+      "consumerSkills": [
+        "german-association-law-specialist",
+        "german-sports-law-specialist",
+        "legal-compliance-office",
+        "legal-compliance-risk-assessment",
+        "legal-matter-wayfinder",
+        "legal-specialist-router"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-risk-decision-handoff.json",
+      "producers": [
+        "legal-compliance-risk-assessment"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-risk-register.json",
+      "producers": [
+        "legal-compliance-risk-assessment"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-specialist-integration-status.json",
+      "producers": [
+        "legal-specialist-router"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-specialist-route-map.json",
+      "producers": [
+        "legal-specialist-router"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-specialist-work-orders.json",
+      "producers": [
+        "legal-specialist-router"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "legal-wayfinding-brief.md",
+      "producers": [
+        "legal-matter-wayfinder"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "lifecycle-impact-gates.json",
@@ -8382,6 +8958,18 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "privilege-routing.json",
+      "producers": [
+        "privilege-and-counsel-routing"
+      ],
+      "consumerSkills": [
+        "legal-compliance-office",
+        "legal-matter-final-gate"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "process-validation-assessment.json",
       "producers": [
         "process-validation-iq-oq-pq"
@@ -8516,22 +9104,18 @@
       "producers": [
         "throwaway-prototype"
       ],
-      "consumerSkills": [
-        "decision-record"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "prototype-evidence.json",
       "producers": [
         "throwaway-prototype"
       ],
-      "consumerSkills": [
-        "decision-record"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "public-job-posting.md",
@@ -8772,7 +9356,6 @@
         "two-axis-code-review"
       ],
       "consumerSkills": [
-        "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
         "merge-conflict-resolution",
@@ -9154,7 +9737,6 @@
         "two-axis-code-review"
       ],
       "consumerSkills": [
-        "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
         "merge-conflict-resolution",
@@ -9253,7 +9835,6 @@
         "two-axis-code-review"
       ],
       "consumerSkills": [
-        "decision-record",
         "domain-model-maintenance",
         "engineering-delivery-followup",
         "merge-conflict-resolution",
@@ -9475,6 +10056,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
+    },
+    {
+      "output": "rowing-legal-open-points.json",
+      "producers": [
+        "german-rowing-sport-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "scientific-validity-assessment.json",
@@ -9732,6 +10322,28 @@
       ],
       "consumerSkills": [
         "sport-diagnostics-training-report-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sports-law-route-map.json",
+      "producers": [
+        "german-sports-law-specialist"
+      ],
+      "consumerSkills": [
+        "german-rowing-sport-law-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "sports-rule-binding-map.json",
+      "producers": [
+        "german-sports-law-specialist"
+      ],
+      "consumerSkills": [
+        "german-rowing-sport-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -10201,7 +10813,6 @@
         "large-work-wayfinder"
       ],
       "consumerSkills": [
-        "decision-record",
         "frontend-design-shaping",
         "medical-device-regulatory-strategy",
         "throwaway-prototype"
@@ -10215,6 +10826,8 @@
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
+    "association-governance-map.json",
+    "association-law-open-points.json",
     "athlete-management-state.json",
     "audit-finding-response-map.json",
     "beta-readiness.json",
@@ -10255,6 +10868,7 @@
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
+    "disposal-record.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -10263,6 +10877,7 @@
     "domain-validation.json",
     "dpia-decision.json",
     "dr-komorowski-report.pdf",
+    "drv-rule-applicability-map.json",
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
@@ -10293,6 +10908,8 @@
     "fto-design-around-options.json",
     "fto-risk-heatmap.md",
     "fto-scope.json",
+    "german-association-law-assessment.json",
+    "german-rowing-law-assessment.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -10316,6 +10933,9 @@
     "knowledge-map.md",
     "knowledge-map.mmd",
     "learning-practice-request.json",
+    "legal-matter-handoff.json",
+    "legal-matter-plan.md",
+    "legal-matter-status.json",
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
     "llm-generation-review.md",
@@ -10357,6 +10977,8 @@
     "process-validation-protocol.md",
     "process-validation-strategy.json",
     "progress summary",
+    "prototype-brief.md",
+    "prototype-evidence.json",
     "public-job-posting.md",
     "purchase-plan.json",
     "purchase-plan.md",
@@ -10379,6 +11001,7 @@
     "response-evidence-matrix.json",
     "role-architecture.md",
     "role-requirements-report.md",
+    "rowing-legal-open-points.json",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
@@ -10406,6 +11029,8 @@
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
+    "association-governance-map.json",
+    "association-law-open-points.json",
     "athlete-management-state.json",
     "audit-finding-response-map.json",
     "beta-readiness.json",
@@ -10446,6 +11071,7 @@
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
     "de-novo-risk-control-rationale.md",
+    "disposal-record.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -10454,6 +11080,7 @@
     "domain-validation.json",
     "dpia-decision.json",
     "dr-komorowski-report.pdf",
+    "drv-rule-applicability-map.json",
     "dual-510k-clia-strategy.json",
     "dual-evidence-package.json",
     "dual-study-evidence-map.json",
@@ -10484,6 +11111,8 @@
     "fto-design-around-options.json",
     "fto-risk-heatmap.md",
     "fto-scope.json",
+    "german-association-law-assessment.json",
+    "german-rowing-law-assessment.json",
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
@@ -10507,6 +11136,9 @@
     "knowledge-map.md",
     "knowledge-map.mmd",
     "learning-practice-request.json",
+    "legal-matter-handoff.json",
+    "legal-matter-plan.md",
+    "legal-matter-status.json",
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
     "llm-generation-review.md",
@@ -10548,6 +11180,8 @@
     "process-validation-protocol.md",
     "process-validation-strategy.json",
     "progress summary",
+    "prototype-brief.md",
+    "prototype-evidence.json",
     "public-job-posting.md",
     "purchase-plan.json",
     "purchase-plan.md",
@@ -10570,6 +11204,7 @@
     "response-evidence-matrix.json",
     "role-architecture.md",
     "role-requirements-report.md",
+    "rowing-legal-open-points.json",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",

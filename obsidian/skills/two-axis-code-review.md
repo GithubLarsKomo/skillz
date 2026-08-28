@@ -33,7 +33,6 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 
 ## Required by
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
@@ -51,7 +50,6 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 
 ### `delivery-review-handoff.json`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
@@ -60,7 +58,6 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 
 ### `quality-review.json`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
@@ -69,7 +66,6 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 
 ### `requirement-coverage.json`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
@@ -78,7 +74,6 @@ Prüft eine Änderung unabhängig auf Anforderungsabdeckung und auf Implementier
 
 ### `review-decision.md`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/engineering-delivery-followup|engineering-delivery-followup]]
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
