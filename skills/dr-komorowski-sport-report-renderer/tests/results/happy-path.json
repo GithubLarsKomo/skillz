@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "dr-komorowski-sport-report-renderer",
   "caseId": "happy-path",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "kanonisches Vektorlogo und Theme verwenden", "passed": true, "evidence": "The renderer bundles vector logo geometry plus the canonical theme JSON."},
-    {"behavior": "A4 mit konsistenten Headern, Footern, Tabellen und Callouts erzeugen", "passed": true, "evidence": "The deterministic ReportLab script implements A4 page furniture, tables and callouts."},
-    {"behavior": "PDF nach dem Rendern visuell prüfen", "passed": true, "evidence": "Visual PNG verification is a mandatory workflow step and completion criterion."}
+    {"behavior": "require explicit legacy selection", "passed": true, "evidence": "The compatibility skill explicitly requires legacy-path selection and is no longer automatically selected."},
+    {"behavior": "preserve the historical ReportLab layout path and available vector assets", "passed": true, "evidence": "The workflow preserves historical ReportLab layout logic, theme values and vector assets for reproduction."},
+    {"behavior": "visually verify the rendered PDF page by page", "passed": true, "evidence": "The canonical legacy workflow requires page-by-page visual verification before completion."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "fachliche Lastwerte still ändern", "observed": false, "evidence": "The renderer freezes content and explicitly forbids changing diagnostics or loads."},
-    {"behavior": "Logo als unscharfes Rasterbild nachbauen", "observed": false, "evidence": "The logo is stored and drawn as vector content."}
+    {"behavior": "select the legacy renderer automatically for a new report", "observed": false, "evidence": "The skill states that it is not automatically selected and new reports use the DOCX-first path."},
+    {"behavior": "introduce a new fachliche interpretation while rendering", "observed": false, "evidence": "The renderer explicitly forbids new fachliche interpretation during legacy rendering."}
   ],
   "overall": "pass"
 }
