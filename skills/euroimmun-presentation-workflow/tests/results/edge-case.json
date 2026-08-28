@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-presentation-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "give the task-specific approved template priority for master and theme",
+      "passed": true,
+      "evidence": "The reference priority puts a supplied approved-controlled template first."
+    },
+    {
+      "behavior": "use storytelling only as an orthogonal visual grammar compatible with the active template",
+      "passed": true,
+      "evidence": "The storytelling reference is explicitly secondary and may not override the active master/theme contract."
+    },
+    {
+      "behavior": "retain scientific/regulatory caveats even in storytelling mode",
+      "passed": true,
+      "evidence": "The mode rules prohibit storytelling from hiding sources, limitations or uncertainty."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "replace the active template with the storytelling reference",
+      "observed": false,
+      "evidence": "The secondary reference is not a master/template replacement."
+    },
+    {
+      "behavior": "simplify away required evidence limitations",
+      "observed": false,
+      "evidence": "Storytelling cannot reduce scientific or regulatory qualifications below necessary visibility."
+    }
+  ],
+  "overall": "pass"
+}

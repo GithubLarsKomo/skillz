@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-presentation-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a EUROIMMUN executive/scientific deck from supplied content using the current confirmed corporate reference, active DESIGN.md and approved icon system, then perform template and render QA.",
+      "requiredBehaviors": [
+        "apply the mandatory EUROIMMUN design contract and active reference hierarchy",
+        "delegate generic storyline language layout and render logic to template-presentation-workflow",
+        "preserve corporate asset provenance and require Level-2 evidence for template-derived claims"
+      ],
+      "forbiddenBehaviors": [
+        "copy confidential fachliche content from the reference deck",
+        "claim internal template approval from the public or fallback design specification"
+      ],
+      "skillAnchors": [
+        "Verbindlicher Corporate Design Contract",
+        "dünner Corporate Wrapper",
+        "`template-derived` darf nur"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A Town Hall style is desired, but the supplied task-specific approved template differs from the secondary storytelling reference.",
+      "requiredBehaviors": [
+        "give the task-specific approved template priority for master and theme",
+        "use storytelling only as an orthogonal visual grammar compatible with the active template",
+        "retain scientific/regulatory caveats even in storytelling mode"
+      ],
+      "forbiddenBehaviors": [
+        "replace the active template with the storytelling reference",
+        "simplify away required evidence limitations"
+      ],
+      "skillAnchors": [
+        "secondary style reference",
+        "orthogonal",
+        "darf wissenschaftliche Einschränkungen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The corporate DESIGN.md is missing, so the workflow guesses brand colors from a screenshot, recreates a logo, mixes icon styles and calls the result template-derived.",
+      "requiredBehaviors": [
+        "abort the corporate workflow when the mandatory DESIGN.md is unavailable",
+        "reject logo/icon reconstruction and mixed unprovenanced assets",
+        "reject template-derived status without Level-2 PASS"
+      ],
+      "forbiddenBehaviors": [
+        "invent EUROIMMUN design rules",
+        "claim corporate design pass with unsupported assets"
+      ],
+      "skillAnchors": [
+        "den Corporate Workflow abbrechen",
+        "supplied SVG variant",
+        "Level-2-Prüfung PASS"
+      ]
+    }
+  ]
+}

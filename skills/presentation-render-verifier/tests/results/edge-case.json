@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-render-verifier",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "treat PDF as a second renderer with independent findings",
+      "passed": true,
+      "evidence": "The PDF/print section explicitly checks font metrics and line-break differences."
+    },
+    {
+      "behavior": "report parity issues instead of accepting the clean PPTX render",
+      "passed": true,
+      "evidence": "PDF-specific differences remain findings."
+    },
+    {
+      "behavior": "rerender after the font issue is corrected",
+      "passed": true,
+      "evidence": "Corrections require a new render cycle."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "declare final PASS from PPTX render only",
+      "observed": false,
+      "evidence": "Final verification includes the PDF/print render."
+    },
+    {
+      "behavior": "ignore font substitution as cosmetic",
+      "observed": false,
+      "evidence": "Font substitution is an explicit slide/PDF check."
+    }
+  ],
+  "overall": "pass"
+}

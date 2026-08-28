@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-playlist-learning-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Synthesize several accessible videos into one deduplicated evidence-bound learning model with source arbitration, conflict traceability and consistent multi-format delivery.",
+      "requiredBehaviors": [
+        "analyze each source individually before multi-source synthesis",
+        "use source arbitration rather than majority voting",
+        "delegate final multi-format delivery from the canonical multi-source model"
+      ],
+      "forbiddenBehaviors": [
+        "treat repeated copies of one origin as independent confirmation",
+        "erase material source conflicts through smoothing"
+      ],
+      "skillAnchors": [
+        "Einzelanalyse",
+        "Kein Mehrheitsvotum",
+        "multi-source-learning-model.json"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A large playlist contains unavailable videos and only a prioritized subset can be deeply analyzed.",
+      "requiredBehaviors": [
+        "record unavailable sources and sampling explicitly",
+        "avoid claiming complete-playlist coverage",
+        "preserve analyzed-source fingerprints and exclusions"
+      ],
+      "forbiddenBehaviors": [
+        "hallucinate unavailable videos",
+        "silently omit unanalyzed playlist portions"
+      ],
+      "skillAnchors": [
+        "unavailable",
+        "Sampling muss im Run-Manifest sichtbar sein",
+        "kein `complete-playlist`-Status"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The playlist workflow averages incompatible protocol parameters, hides a source conflict and directly controls separate renderers with different content versions.",
+      "requiredBehaviors": [
+        "reject invalid averaging and hybrid protocol synthesis",
+        "retain unresolved conflicts",
+        "use one canonical multi-source fingerprint through the shared delivery layer"
+      ],
+      "forbiddenBehaviors": [
+        "independently author content per renderer",
+        "claim consensus for single-source evidence"
+      ],
+      "skillAnchors": [
+        "keine Hybrid-SOP",
+        "Single-Source-Aussagen werden nicht als Konsens dargestellt",
+        "learning-delivery-workflow"
+      ]
+    }
+  ]
+}

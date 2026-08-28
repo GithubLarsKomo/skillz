@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-learning-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Analyze one accessible YouTube demonstration into evidence-bound takeaways and an optional derived SOP, then deliver requested formats from one canonical model.",
+      "requiredBehaviors": [
+        "lock video source identity and access provenance before analysis",
+        "assemble one canonical learning-content model as content source of truth",
+        "delegate design visual rendering and cross-format QA to learning-delivery-workflow"
+      ],
+      "forbiddenBehaviors": [
+        "invent missing SOP parameters",
+        "bypass YouTube access restrictions or claim final without delivered-format QA"
+      ],
+      "skillAnchors": [
+        "Source Lock",
+        "inhaltliche Source of Truth",
+        "learning-delivery-workflow"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A transcript is available but part of the visual demonstration is unreadable, so several process details cannot be confirmed.",
+      "requiredBehaviors": [
+        "retain unknown or low-confidence process details",
+        "allow a summary while limiting SOP completeness",
+        "propagate evidence limitations into the canonical model and delivery"
+      ],
+      "forbiddenBehaviors": [
+        "fill unreadable details from general knowledge",
+        "upgrade the SOP to controlled/final"
+      ],
+      "skillAnchors": [
+        "teilweise unlesbar",
+        "unknown",
+        "offene Evidenzlücken"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The workflow guesses missing parameters, bulk-reproduces original frames, applies corporate styling without the required gate and reports final status without QA.",
+      "requiredBehaviors": [
+        "reject invented parameters",
+        "reject mass source-frame reproduction and ungoverned corporate design",
+        "reject final status without complete QA of delivered formats"
+      ],
+      "forbiddenBehaviors": [
+        "parallel-orchestrate delivery workers after consolidation",
+        "claim final when delivery QA is incomplete"
+      ],
+      "skillAnchors": [
+        "Failure Case",
+        "Kein `final`-Status",
+        "einzelnen Delivery-Worker nicht parallel"
+      ]
+    }
+  ]
+}

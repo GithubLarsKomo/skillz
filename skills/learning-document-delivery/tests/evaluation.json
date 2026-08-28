@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-document-delivery",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Render an approved learning-content model as editable DOCX and derived PDF under the active DESIGN.md, preserving claims, timestamps and visual provenance.",
+      "requiredBehaviors": [
+        "keep DOCX as the canonical layout source and derive PDF from it",
+        "preserve claim confidence evidence classes numbers warnings and source references",
+        "perform complete page-by-page DOCX and PDF QA"
+      ],
+      "forbiddenBehaviors": [
+        "re-author learning claims during rendering",
+        "silently claim corporate approval or fallback status"
+      ],
+      "skillAnchors": [
+        "canonical DOCX",
+        "Fidelity",
+        "Komplettes Dokument seitenweise rendern"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A corporate context exists but no confirmed corporate DOCX renderer/template can be safely applied; a neutral fallback would violate the requested brand authority.",
+      "requiredBehaviors": [
+        "respect corporate/template routing authority",
+        "avoid silent fallback when a corporate gate is required",
+        "surface the missing renderer/template authority as a delivery limitation"
+      ],
+      "forbiddenBehaviors": [
+        "invent a corporate document style",
+        "label a neutral document as corporate-approved"
+      ],
+      "skillAnchors": [
+        "Renderer-Routing",
+        "Kein stilles Corporate-Fallback",
+        "Corporate Design Gate"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The renderer changes a parameter to shorten a table, creates DOCX and PDF independently and reports parity without page rendering.",
+      "requiredBehaviors": [
+        "reject fachliche value changes for layout",
+        "reject independent DOCX and PDF authoring",
+        "reject parity claims without actual page render"
+      ],
+      "forbiddenBehaviors": [
+        "solve layout by altering claims or data",
+        "simulate PDF parity"
+      ],
+      "skillAnchors": [
+        "DOCX und PDF werden nicht unabhängig neu geschrieben",
+        "Zahlen, Einheiten",
+        "jede PDF-Seite rendern"
+      ]
+    }
+  ]
+}

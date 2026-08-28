@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-image-generator",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "tie the image to prioritized learning claims and the visual plan",
+      "passed": true,
+      "evidence": "The rules require each image to transport at least one prioritized learning claim and follow the visual plan."
+    },
+    {
+      "behavior": "follow the active DESIGN.md across style perspective contrast and color",
+      "passed": true,
+      "evidence": "The generator explicitly binds these image properties to DESIGN.md."
+    },
+    {
+      "behavior": "mark generated images as illustrative-only in the manifest",
+      "passed": true,
+      "evidence": "The evidence-role section requires illustrative-only unless the asset is an unchanged source-provenanced original."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "present a generated illustration as experimental or photographic evidence",
+      "observed": false,
+      "evidence": "The rules explicitly forbid representing generated images as real experiments, patients, device states or measurements."
+    },
+    {
+      "behavior": "hallucinate confidential logos product shapes or brand features",
+      "observed": false,
+      "evidence": "This is explicitly prohibited."
+    }
+  ],
+  "overall": "pass"
+}

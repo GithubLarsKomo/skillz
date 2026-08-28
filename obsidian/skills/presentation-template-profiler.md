@@ -4,10 +4,10 @@ generated: true
 name: "presentation-template-profiler"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/presentation-template-profiler/SKILL.md"
 tags:
   - skill
@@ -52,10 +52,10 @@ Analysiert eine vorhandene PowerPoint-Referenz oder ein Corporate-Template und e
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

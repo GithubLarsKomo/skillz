@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-layout-qa",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "use template-specific layout baselines",
+      "passed": true,
+      "evidence": "The skill requires observed template baselines rather than universal thresholds."
+    },
+    {
+      "behavior": "check text boxes geometry visuals charts tables and footer collisions",
+      "passed": true,
+      "evidence": "These are explicit structural finding classes."
+    },
+    {
+      "behavior": "prioritize editorial or structural fixes before font reduction",
+      "passed": true,
+      "evidence": "The correction order lists shortening, splitting, box/layout changes before font size reduction."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "declare visual quality from structural inspection alone",
+      "observed": false,
+      "evidence": "The skill explicitly states structural PASS does not replace a render test."
+    },
+    {
+      "behavior": "apply a universal minimum font rule contrary to the template",
+      "observed": false,
+      "evidence": "The baseline logic forbids this."
+    }
+  ],
+  "overall": "pass"
+}

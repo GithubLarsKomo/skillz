@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-svg-generator",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "keep all relationships labels and data anchored in the visual plan",
+      "passed": true,
+      "evidence": "The fachliche Grenze prohibits adding any number, relationship, sequence or component label not present in the plan."
+    },
+    {
+      "behavior": "apply DESIGN.md tokens and robust SVG structure",
+      "passed": true,
+      "evidence": "The SVG contract requires viewBox, semantic colors, consistent geometry, text handling and title/desc metadata."
+    },
+    {
+      "behavior": "verify browser raster fallback PPTX/A4 readability and clipping",
+      "passed": true,
+      "evidence": "These are explicit multi-format checks."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent data or relationships",
+      "observed": false,
+      "evidence": "The skill explicitly prohibits this."
+    },
+    {
+      "behavior": "redraw corporate logos or alter scientific data geometry",
+      "observed": false,
+      "evidence": "Both behaviors are explicitly forbidden."
+    }
+  ],
+  "overall": "pass"
+}

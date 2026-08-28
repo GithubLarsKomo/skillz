@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-course-builder-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a structured course from a valid multi-source learning model using a concept graph, prerequisite-aware learning path, formative activities and consistent multi-format delivery.",
+      "requiredBehaviors": [
+        "derive course order from prerequisites and learning objectives rather than playlist order",
+        "bind activities and knowledge checks to learning objectives and evidence",
+        "lock one course-learning-model and delegate delivery"
+      ],
+      "forbiddenBehaviors": [
+        "claim psychometric validation certification or competency release",
+        "skip real prerequisites without evidence"
+      ],
+      "skillAnchors": [
+        "Playlist-Reihenfolge ist ausdrücklich nicht bindend",
+        "jede Aufgabe verweist",
+        "course-learning-model.json"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "An expert audience may already know foundations and requests a fast-track path.",
+      "requiredBehaviors": [
+        "use entry checks to support fast-track decisions",
+        "retain true prerequisites even for expert audiences",
+        "keep course fingerprint and module semantics consistent in delivered formats"
+      ],
+      "forbiddenBehaviors": [
+        "assume unknown competence from audience label alone",
+        "reorder modules independently in each format"
+      ],
+      "skillAnchors": [
+        "Entry Checks erlauben Fast-Track",
+        "Kein automatisches Überspringen echter Voraussetzungen",
+        "Course-Fingerprint"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The course builder copies playlist order, creates trivia without learning-objective evidence and invents a passing score for certification.",
+      "requiredBehaviors": [
+        "reject playlist-order curriculum design",
+        "reject unbound trivia questions",
+        "reject invented pass thresholds and certification claims"
+      ],
+      "forbiddenBehaviors": [
+        "present formative checks as validated certification",
+        "delegate course-semantic decisions to renderers"
+      ],
+      "skillAnchors": [
+        "Trivia-Fragen ohne Lernziel-/Evidenzbindung",
+        "keine erfundenen Bestehensgrenzen",
+        "Keine Zertifizierung/Kompetenzfreigabe"
+      ]
+    }
+  ]
+}

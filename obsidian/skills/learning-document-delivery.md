@@ -4,10 +4,10 @@ generated: true
 name: "learning-document-delivery"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/learning-document-delivery/SKILL.md"
 tags:
   - skill
@@ -54,10 +54,10 @@ tags:
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-svg-generator",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "keep the SVG functional without embedded proprietary font files",
+      "passed": true,
+      "evidence": "The SVG contract explicitly requires this."
+    },
+    {
+      "behavior": "preserve readable text and geometry across target surfaces",
+      "passed": true,
+      "evidence": "Multi-format checking includes browser, raster fallback, PPTX and A4 use."
+    },
+    {
+      "behavior": "document any necessary technical fallback without changing semantics",
+      "passed": true,
+      "evidence": "The manifest and design contract preserve provenance and intended meaning."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "embed proprietary font binaries into the SVG",
+      "observed": false,
+      "evidence": "The contract explicitly says the SVG must remain functional without them."
+    },
+    {
+      "behavior": "convert labels into clipped decorative paths without need",
+      "observed": false,
+      "evidence": "Text should remain text unless a technical exception is necessary."
+    }
+  ],
+  "overall": "pass"
+}

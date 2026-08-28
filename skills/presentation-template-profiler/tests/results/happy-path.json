@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-template-profiler",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "preserve the supplied template as source of truth",
+      "passed": true,
+      "evidence": "The contract gives an original PPTX/POTX highest priority and forbids replacing it with an invented reconstruction."
+    },
+    {
+      "behavior": "capture masters layouts theme typography spacing branding and QA baselines",
+      "passed": true,
+      "evidence": "The profiler explicitly inventories these properties and requires template-specific QA baselines."
+    },
+    {
+      "behavior": "separate template-derived fidelity from fallbacks",
+      "passed": true,
+      "evidence": "The profile contract carries source type/templateDerived state and requires deviations/fallbacks to be documented."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent brand rules not supported by the template",
+      "observed": false,
+      "evidence": "Brand rules may not be invented when not derivable from the supplied template."
+    },
+    {
+      "behavior": "copy confidential slide content as design rules",
+      "observed": false,
+      "evidence": "The skill explicitly limits transfer of confidential reference content to what is required for design profiling."
+    }
+  ],
+  "overall": "pass"
+}

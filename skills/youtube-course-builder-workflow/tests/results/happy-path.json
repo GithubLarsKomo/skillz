@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-course-builder-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "derive course order from prerequisites and learning objectives rather than playlist order",
+      "passed": true,
+      "evidence": "The workflow explicitly states playlist order is not binding and uses course-concept-graph plus learning-path-planner."
+    },
+    {
+      "behavior": "bind activities and knowledge checks to learning objectives and evidence",
+      "passed": true,
+      "evidence": "The activity stage requires each task to reference learning objective and Evidence/Claim IDs."
+    },
+    {
+      "behavior": "lock one course-learning-model and delegate delivery",
+      "passed": true,
+      "evidence": "The course model is the single semantic rendering basis and delivery is consolidated through learning-delivery-workflow."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "claim psychometric validation certification or competency release",
+      "observed": false,
+      "evidence": "All are explicit limits."
+    },
+    {
+      "behavior": "skip real prerequisites without evidence",
+      "observed": false,
+      "evidence": "Fast-track/entry checks may not bypass actual prerequisite knowledge."
+    }
+  ],
+  "overall": "pass"
+}

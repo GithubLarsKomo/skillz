@@ -6,13 +6,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 - Skills: **275**
 - User-facing entrypoints: **229**
-- Evaluation suites: **250**
+- Evaluation suites: **265**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **incomplete**
-- Skills with evaluation suite: **250/275**
-- User-facing entrypoints with evaluation suite: **214/229**
-- Skills without evaluation suite: **25**
-- User-facing entrypoints without evaluation suite: **15**
+- Skills with evaluation suite: **265/275**
+- User-facing entrypoints with evaluation suite: **229/229**
+- Skills without evaluation suite: **10**
+- User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
 - Outputs without inferred hard-requires consumers: **264**
 
@@ -21,48 +21,19 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 ## Evaluation gaps
 
 - `course-concept-graph`
-- `euroimmun-presentation-workflow`
 - `learning-activity-generator`
 - `learning-artifact-qa`
 - `learning-content-design-system`
-- `learning-document-delivery`
-- `learning-image-generator`
-- `learning-landingpage-renderer`
 - `learning-path-planner`
 - `learning-source-arbitration`
-- `learning-summary-synthesis`
-- `learning-svg-generator`
 - `learning-visual-planner`
 - `multi-source-learning-synthesis`
 - `multimodal-learning-analysis`
-- `presentation-language-rewriter`
-- `presentation-layout-qa`
-- `presentation-render-verifier`
-- `presentation-template-profiler`
-- `procedure-sop-extractor`
-- `template-presentation-workflow`
-- `youtube-course-builder-workflow`
-- `youtube-learning-workflow`
-- `youtube-playlist-learning-workflow`
 - `youtube-video-ingestion`
 
 ### User-facing evaluation gaps
 
-- `euroimmun-presentation-workflow`
-- `learning-document-delivery`
-- `learning-image-generator`
-- `learning-landingpage-renderer`
-- `learning-summary-synthesis`
-- `learning-svg-generator`
-- `presentation-language-rewriter`
-- `presentation-layout-qa`
-- `presentation-render-verifier`
-- `presentation-template-profiler`
-- `procedure-sop-extractor`
-- `template-presentation-workflow`
-- `youtube-course-builder-workflow`
-- `youtube-learning-workflow`
-- `youtube-playlist-learning-workflow`
+None.
 
 ## Ambiguous outputs
 

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-learning-workflow",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject invented parameters",
+      "passed": true,
+      "evidence": "The failure case explicitly identifies this as a stop condition."
+    },
+    {
+      "behavior": "reject mass source-frame reproduction and ungoverned corporate design",
+      "passed": true,
+      "evidence": "Rights/provenance and corporate design gates constrain both behaviors."
+    },
+    {
+      "behavior": "reject final status without complete QA of delivered formats",
+      "passed": true,
+      "evidence": "This is an explicit boundary."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "parallel-orchestrate delivery workers after consolidation",
+      "observed": false,
+      "evidence": "The workflow now delegates the delivery layer once through learning-delivery-workflow."
+    },
+    {
+      "behavior": "claim final when delivery QA is incomplete",
+      "observed": false,
+      "evidence": "Final status requires complete QA for actual delivered formats."
+    }
+  ],
+  "overall": "pass"
+}

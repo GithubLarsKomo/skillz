@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-render-verifier",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Render all slides and a PDF, inspect slide-level and deck-level quality, correct findings, rerender and only then issue the final status.",
+      "requiredBehaviors": [
+        "perform actual slide and PDF rendering",
+        "inspect both individual slides and deck-level consistency",
+        "rerender after corrections before final PASS"
+      ],
+      "forbiddenBehaviors": [
+        "claim visually verified without a render",
+        "treat PDF export alone as proof of editable PPTX quality"
+      ],
+      "skillAnchors": [
+        "Verbindlicher Ablauf",
+        "erneut rendern",
+        "Keine Aussage `visually verified`"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The PPTX render is clean but the PDF substitutes a font and changes line breaks on two slides.",
+      "requiredBehaviors": [
+        "treat PDF as a second renderer with independent findings",
+        "report parity issues instead of accepting the clean PPTX render",
+        "rerender after the font issue is corrected"
+      ],
+      "forbiddenBehaviors": [
+        "declare final PASS from PPTX render only",
+        "ignore font substitution as cosmetic"
+      ],
+      "skillAnchors": [
+        "PDF dient als zweiter Renderer",
+        "Font-Substitutionen",
+        "Re-Render"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "No rendering tool is available, so the reviewer inspects slide XML, assumes the deck looks fine and reports pass.",
+      "requiredBehaviors": [
+        "return fail or unverified when no real render is available",
+        "avoid converting structural inspection into visual evidence",
+        "preserve the requirement for a later real render"
+      ],
+      "forbiddenBehaviors": [
+        "simulate visual verification",
+        "claim pass without render coverage"
+      ],
+      "skillAnchors": [
+        "prüft, was der Betrachter tatsächlich sieht",
+        "kein belastbarer Render verfügbar",
+        "Keine rein textuelle Behauptung"
+      ]
+    }
+  ]
+}

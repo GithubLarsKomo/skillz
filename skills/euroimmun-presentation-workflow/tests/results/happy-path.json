@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-presentation-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "apply the mandatory EUROIMMUN design contract and active reference hierarchy",
+      "passed": true,
+      "evidence": "The wrapper requires DESIGN.md, ACTIVE_PRESENTATION_REFERENCE.md and GOLDEN_REFERENCE.md before work."
+    },
+    {
+      "behavior": "delegate generic storyline language layout and render logic to template-presentation-workflow",
+      "passed": true,
+      "evidence": "The wrapper explicitly remains thin and does not duplicate generic presentation logic."
+    },
+    {
+      "behavior": "preserve corporate asset provenance and require Level-2 evidence for template-derived claims",
+      "passed": true,
+      "evidence": "The corporate gate requires template identity/SHA and Level-2 PASS for template-derived status."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "copy confidential fachliche content from the reference deck",
+      "observed": false,
+      "evidence": "The Corporate Context and non-goals explicitly prohibit this unless it is part of the task basis."
+    },
+    {
+      "behavior": "claim internal template approval from the public or fallback design specification",
+      "observed": false,
+      "evidence": "The reference hierarchy and Level-2 rules prevent unsupported template-derived/approved claims."
+    }
+  ],
+  "overall": "pass"
+}

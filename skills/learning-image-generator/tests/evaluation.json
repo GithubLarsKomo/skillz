@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-image-generator",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Generate a consistent explanatory image from the approved visual plan and DESIGN.md for a spatial concept, with clear provenance and intended meaning.",
+      "requiredBehaviors": [
+        "tie the image to prioritized learning claims and the visual plan",
+        "follow the active DESIGN.md across style perspective contrast and color",
+        "mark generated images as illustrative-only in the manifest"
+      ],
+      "forbiddenBehaviors": [
+        "present a generated illustration as experimental or photographic evidence",
+        "hallucinate confidential logos product shapes or brand features"
+      ],
+      "skillAnchors": [
+        "mindestens einen priorisierten Lernclaim",
+        "illustrative-only",
+        "Keine vertraulichen Logos"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A learning visual needs several precise labels and a small amount of explanatory text; the requested bitmap would make the text unreadable on mobile.",
+      "requiredBehaviors": [
+        "prefer overlay text or SVG/HTML/PPTX text when labels should remain crisp",
+        "keep the generated image focused on explanatory visual content",
+        "record intended meaning and prohibited interpretations"
+      ],
+      "forbiddenBehaviors": [
+        "bake unreadable critical text into the raster image",
+        "use image generation for a text-heavy diagram better served by SVG"
+      ],
+      "skillAnchors": [
+        "Kritische Labels/Text nicht in das Rasterbild backen",
+        "wenn ein SVG oder Quellframe",
+        "prohibitedInterpretations"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A generated image adds an unverified instrument component, recreates a corporate logo and is captioned as a photograph from the experiment.",
+      "requiredBehaviors": [
+        "reject unverified fachliche additions",
+        "reject confidential or invented brand reconstruction",
+        "reject misleading evidence labeling"
+      ],
+      "forbiddenBehaviors": [
+        "turn illustration into source evidence",
+        "copy the source video's visual expression as closely as possible"
+      ],
+      "skillAnchors": [
+        "keine fachlichen Zusatzdetails",
+        "Keine generierte Illustration als Foto",
+        "Konzept neu visualisieren"
+      ]
+    }
+  ]
+}

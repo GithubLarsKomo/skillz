@@ -4,10 +4,10 @@ generated: true
 name: "learning-landingpage-renderer"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/learning-landingpage-renderer/SKILL.md"
 tags:
   - skill
@@ -49,10 +49,10 @@ Rendert ein kanonisches Learning-Content-Modell mit Visuals und DESIGN.md als po
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

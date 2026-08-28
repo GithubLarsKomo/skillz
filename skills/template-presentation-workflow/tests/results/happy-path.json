@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "template-presentation-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "use the supplied template as source of truth",
+      "passed": true,
+      "evidence": "The workflow starts by profiling and prioritizing the real template and its masters/layouts/theme."
+    },
+    {
+      "behavior": "separate content curation from language layout and render QA",
+      "passed": true,
+      "evidence": "The workflow has explicit stages for storyline, language, structural QA and render/PDF QA."
+    },
+    {
+      "behavior": "deliver editable PPTX and verified PDF only after rerender",
+      "passed": true,
+      "evidence": "Completion requires editable PPTX, structural QA, PPTX/PDF render checks and rerender after corrections."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent fachliche claims",
+      "observed": false,
+      "evidence": "The non-goals explicitly forbid inventing regulatory, medical, legal, IP or financial analysis."
+    },
+    {
+      "behavior": "replace an available corporate template with a newly invented style",
+      "observed": false,
+      "evidence": "Template fidelity requires reuse of existing masters/layouts and prevents invented alternatives."
+    }
+  ],
+  "overall": "pass"
+}

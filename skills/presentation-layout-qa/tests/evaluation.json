@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-layout-qa",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Structurally inspect a PPTX against its template profile for overflow, overlap, clipping, alignment, placeholder misuse and font outliers before rendering.",
+      "requiredBehaviors": [
+        "use template-specific layout baselines",
+        "check text boxes geometry visuals charts tables and footer collisions",
+        "prioritize editorial or structural fixes before font reduction"
+      ],
+      "forbiddenBehaviors": [
+        "declare visual quality from structural inspection alone",
+        "apply a universal minimum font rule contrary to the template"
+      ],
+      "skillAnchors": [
+        "Template-spezifische Baselines",
+        "Ein struktureller Pass ersetzt keinen Render-Test",
+        "Schriftgröße nur als letzte Option"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A slide uses an 11 pt source label while the template normally uses 10-12 pt source text, but a universal checker would flag anything below 14 pt.",
+      "requiredBehaviors": [
+        "prefer the template baseline over a universal threshold",
+        "avoid false major findings from valid template behavior",
+        "leave aesthetic judgement to render review"
+      ],
+      "forbiddenBehaviors": [
+        "force the label to 14 pt solely because of a generic rule",
+        "call template-conformant source text an overflow defect without geometry evidence"
+      ],
+      "skillAnchors": [
+        "Keine starre globale Mindestschriftgröße",
+        "templateMedianPt",
+        "bewertet nicht allein, ob eine Slide ästhetisch gut wirkt"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A checker fixes overflow by shrinking all body text, ignores clipped chart labels and then reports visually verified PASS without rendering the deck.",
+      "requiredBehaviors": [
+        "reject blanket font shrinking as first-line correction",
+        "detect chart label clipping",
+        "reject visual PASS without render"
+      ],
+      "forbiddenBehaviors": [
+        "hide overflow through indiscriminate font reduction",
+        "simulate visual QA"
+      ],
+      "skillAnchors": [
+        "Chart-Labels",
+        "Textproblemen in dieser Reihenfolge",
+        "keinen Render-Test"
+      ]
+    }
+  ]
+}

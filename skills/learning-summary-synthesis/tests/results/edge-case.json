@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-summary-synthesis",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "compress repetition and examples more strongly than core logic",
+      "passed": true,
+      "evidence": "Pedagogical compression explicitly prioritizes core logic and reduces repetition/examples."
+    },
+    {
+      "behavior": "keep the uncertain mechanism qualified",
+      "passed": true,
+      "evidence": "Observed/derived/unknown states must remain semantically preserved."
+    },
+    {
+      "behavior": "avoid forcing empty standard sections",
+      "passed": true,
+      "evidence": "The standard structure says empty sections should not be forced."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "treat repetition as additional evidence",
+      "observed": false,
+      "evidence": "Takeaway traceability is evidence-based rather than frequency-based."
+    },
+    {
+      "behavior": "fill missing sections with speculation",
+      "observed": false,
+      "evidence": "No empty sections are forced and uncertain points stay open."
+    }
+  ],
+  "overall": "pass"
+}

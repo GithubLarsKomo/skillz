@@ -4,10 +4,10 @@ generated: true
 name: "youtube-course-builder-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/youtube-course-builder-workflow/SKILL.md"
 tags:
   - skill
@@ -53,10 +53,10 @@ Baut aus mehreren YouTube-Videos oder einem Multi-Source-Learning-Modell einen m
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

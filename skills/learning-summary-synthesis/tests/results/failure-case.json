@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-summary-synthesis",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject chronological retelling as synthesis",
+      "passed": true,
+      "evidence": "The quality gate explicitly rejects a chronological content list as substitute for synthesis."
+    },
+    {
+      "behavior": "reject long verbatim transcript reproduction",
+      "passed": true,
+      "evidence": "Long wörtliche Transcriptauszüge are prohibited."
+    },
+    {
+      "behavior": "restore evidence qualification",
+      "passed": true,
+      "evidence": "Derived and uncertain evidence must remain visibly qualified."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "upgrade uncertainty for rhetorical clarity",
+      "observed": false,
+      "evidence": "Evidence classes outrank stylistic compression."
+    },
+    {
+      "behavior": "invent quotes",
+      "observed": false,
+      "evidence": "The language section explicitly forbids invented quotes."
+    }
+  ],
+  "overall": "pass"
+}

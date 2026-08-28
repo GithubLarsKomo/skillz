@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-playlist-learning-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "analyze each source individually before multi-source synthesis",
+      "passed": true,
+      "evidence": "The workflow explicitly performs per-video analysis before arbitration and synthesis."
+    },
+    {
+      "behavior": "use source arbitration rather than majority voting",
+      "passed": true,
+      "evidence": "The source-arbitration stage and explicit rule reject majority vote as truth."
+    },
+    {
+      "behavior": "delegate final multi-format delivery from the canonical multi-source model",
+      "passed": true,
+      "evidence": "The consolidated workflow hands the locked multi-source model to learning-delivery-workflow."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "treat repeated copies of one origin as independent confirmation",
+      "observed": false,
+      "evidence": "The boundaries explicitly prohibit this."
+    },
+    {
+      "behavior": "erase material source conflicts through smoothing",
+      "observed": false,
+      "evidence": "Conflicts must remain visible and traceable."
+    }
+  ],
+  "overall": "pass"
+}

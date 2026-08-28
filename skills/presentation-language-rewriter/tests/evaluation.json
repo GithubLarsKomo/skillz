@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-language-rewriter",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Rewrite German executive slide titles, bullets and notes to be concise and idiomatic while preserving numbers, modality, claims and protected terminology.",
+      "requiredBehaviors": [
+        "adapt wording by slide element rather than applying report prose",
+        "preserve semantic and epistemic fidelity",
+        "run rewrite fidelity verification on material changes"
+      ],
+      "forbiddenBehaviors": [
+        "change numbers negations conditions modality or protected terms for style",
+        "solve dense slides primarily by shrinking fonts"
+      ],
+      "skillAnchors": [
+        "Semantic fidelity",
+        "Keine niedrigere Priorität darf",
+        "Jede materielle Überarbeitung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "An English scientific slide is too dense and contains an association that must not be rewritten as causation.",
+      "requiredBehaviors": [
+        "preserve cautious scientific evidence language",
+        "reduce redundancy before layout compromises",
+        "keep units time periods and reference frames explicit"
+      ],
+      "forbiddenBehaviors": [
+        "upgrade association to causal language",
+        "remove qualifiers solely to hit a word target"
+      ],
+      "skillAnchors": [
+        "keine Suggestion von Kausalität aus Assoziation",
+        "Wortgrenzen sind keine Hard Stops",
+        "Einheiten, Zeiträume und Bezugsgrößen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A rewrite makes a cautious recommendation sound proven, changes a percentage, removes a negation and reports success because the slide is shorter.",
+      "requiredBehaviors": [
+        "reject changes to evidence strength percentage and negation",
+        "restore or authorize any material semantic change",
+        "treat brevity as subordinate to truth"
+      ],
+      "forbiddenBehaviors": [
+        "accept semantic distortion because scanability improved",
+        "skip fidelity verification"
+      ],
+      "skillAnchors": [
+        "Keine niedrigere Priorität",
+        "Bei Hard Fail",
+        "Präsentationsgerechte Kürze"
+      ]
+    }
+  ]
+}

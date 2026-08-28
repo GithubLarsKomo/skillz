@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-summary-synthesis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Synthesize a video evidence model into a mental model and five key takeaways with timestamps, common mistakes and open questions.",
+      "requiredBehaviors": [
+        "produce a learning-oriented synthesis rather than chronological retelling",
+        "bind every takeaway to evidence and preserve observed derived unknown status",
+        "keep uncertainty visible and use timestamps where available"
+      ],
+      "forbiddenBehaviors": [
+        "create SOP steps from incomplete evidence",
+        "reproduce long transcript passages"
+      ],
+      "skillAnchors": [
+        "lernwirksame Verdichtung",
+        "jeder Takeaway ist evidenzgebunden",
+        "keine SOP-Schritte aus unvollständiger Evidenz"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The video repeats one idea many times, gives two examples, and leaves one mechanism uncertain.",
+      "requiredBehaviors": [
+        "compress repetition and examples more strongly than core logic",
+        "keep the uncertain mechanism qualified",
+        "avoid forcing empty standard sections"
+      ],
+      "forbiddenBehaviors": [
+        "treat repetition as additional evidence",
+        "fill missing sections with speculation"
+      ],
+      "skillAnchors": [
+        "Reduziere Beispiele, Wiederholungen",
+        "Open/uncertain points",
+        "Keine leeren Abschnitte erzwingen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A summary follows the video minute-by-minute, copies long transcript sentences and upgrades a derived claim to a certain takeaway.",
+      "requiredBehaviors": [
+        "reject chronological retelling as synthesis",
+        "reject long verbatim transcript reproduction",
+        "restore evidence qualification"
+      ],
+      "forbiddenBehaviors": [
+        "upgrade uncertainty for rhetorical clarity",
+        "invent quotes"
+      ],
+      "skillAnchors": [
+        "keine chronologische Inhaltsliste",
+        "keine langen wörtlichen Transcriptauszüge",
+        "Keine erfundenen Zitate"
+      ]
+    }
+  ]
+}

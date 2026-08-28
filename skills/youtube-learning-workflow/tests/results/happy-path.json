@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-learning-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "lock video source identity and access provenance before analysis",
+      "passed": true,
+      "evidence": "The Source Lock step fixes video ID, URL, transcript origin and access constraints."
+    },
+    {
+      "behavior": "assemble one canonical learning-content model as content source of truth",
+      "passed": true,
+      "evidence": "The workflow explicitly defines learning-content-model.json as the single content basis."
+    },
+    {
+      "behavior": "delegate design visual rendering and cross-format QA to learning-delivery-workflow",
+      "passed": true,
+      "evidence": "The consolidated workflow routes the post-model delivery phase through the shared delivery layer."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent missing SOP parameters",
+      "observed": false,
+      "evidence": "Critical missing parameters are explicitly allowed to limit SOP completeness rather than being fabricated."
+    },
+    {
+      "behavior": "bypass YouTube access restrictions or claim final without delivered-format QA",
+      "observed": false,
+      "evidence": "Both are explicit workflow boundaries."
+    }
+  ],
+  "overall": "pass"
+}

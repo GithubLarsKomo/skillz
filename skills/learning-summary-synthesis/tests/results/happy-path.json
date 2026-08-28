@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-summary-synthesis",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "produce a learning-oriented synthesis rather than chronological retelling",
+      "passed": true,
+      "evidence": "The Ziel explicitly demands lernwirksame Verdichtung rather than chronological narration."
+    },
+    {
+      "behavior": "bind every takeaway to evidence and preserve observed derived unknown status",
+      "passed": true,
+      "evidence": "Takeaway rules and quality gate require claim traceability and semantic evidence-state preservation."
+    },
+    {
+      "behavior": "keep uncertainty visible and use timestamps where available",
+      "passed": true,
+      "evidence": "Derived/uncertain evidence remains qualified and takeaways should carry timestamp links/ranges."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "create SOP steps from incomplete evidence",
+      "observed": false,
+      "evidence": "The quality gate explicitly forbids this."
+    },
+    {
+      "behavior": "reproduce long transcript passages",
+      "observed": false,
+      "evidence": "Long verbatim transcript excerpts are explicitly prohibited."
+    }
+  ],
+  "overall": "pass"
+}

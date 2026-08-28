@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "procedure-sop-extractor",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject invented missing parameters",
+      "passed": true,
+      "evidence": "The reconstruction rules explicitly prohibit them."
+    },
+    {
+      "behavior": "keep variants and optional steps distinct",
+      "passed": true,
+      "evidence": "Variants may not be merged into a false single standard."
+    },
+    {
+      "behavior": "reject effective/approved corporate status without the controlled workflow",
+      "passed": true,
+      "evidence": "The regulated-context boundary requires fachliche verification and controlled-quality-documentation before approval/effective state."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "simulate QMS approval",
+      "observed": false,
+      "evidence": "Approval status may not be pretended."
+    },
+    {
+      "behavior": "erase evidence classes",
+      "observed": false,
+      "evidence": "Readers must see observed versus derived versus recommended content."
+    }
+  ],
+  "overall": "pass"
+}

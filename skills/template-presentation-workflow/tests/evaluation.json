@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "template-presentation-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create an editable executive deck from approved content using a supplied PowerPoint template, improve slide language, run structural QA, render PPTX and PDF, correct and rerender.",
+      "requiredBehaviors": [
+        "use the supplied template as source of truth",
+        "separate content curation from language layout and render QA",
+        "deliver editable PPTX and verified PDF only after rerender"
+      ],
+      "forbiddenBehaviors": [
+        "invent fachliche claims",
+        "replace an available corporate template with a newly invented style"
+      ],
+      "skillAnchors": [
+        "Source of truth und Template fixieren",
+        "strukturelle Layout-QA",
+        "Render- und PDF-QA"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A slide has two independent messages and too much text for the template body area.",
+      "requiredBehaviors": [
+        "split or restructure the slide before reducing font size",
+        "preserve the template grid and layout logic",
+        "re-run layout and render QA after correction"
+      ],
+      "forbiddenBehaviors": [
+        "shrink text until both messages fit",
+        "drop evidence or caveats simply to fit"
+      ],
+      "skillAnchors": [
+        "Pro Slide genau eine primäre Botschaft",
+        "Slide teilen statt Schrift zu verkleinern",
+        "erneut rendern"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A deck is recreated from scratch despite an available template, report sentences are pasted unchanged onto slides, and the reviewer claims visual QA without rendering.",
+      "requiredBehaviors": [
+        "reject from-scratch template reconstruction",
+        "rewrite report prose for presentation use while preserving claims",
+        "reject visual QA without actual render"
+      ],
+      "forbiddenBehaviors": [
+        "claim successful visual QA without rendering",
+        "sacrifice editability for PDF-only output"
+      ],
+      "skillAnchors": [
+        "Keine frei erfundene Corporate-Variante",
+        "Report-Sätze nicht unverändert",
+        "Keine Behauptung erfolgreicher visueller QA ohne tatsächlichen Render"
+      ]
+    }
+  ]
+}

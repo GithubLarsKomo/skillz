@@ -1712,19 +1712,19 @@
     },
     "youtube-course-builder-workflow": {
       "files": {
-        "SKILL.md": "fa6b2cdb02947837f1b2d7b0e96ea795da3246ee4ec450a2806f33b6dae7a9d1",
+        "SKILL.md": "b49ba821dc474bdbf46fc702c5951c0cea460f3c8c32834bebc4ea2f35dc0c9d",
         "agents/openai.yaml": "15633870db6bf72d60a074c35c00d1488fadec4585547668caa768aad11421e8"
       }
     },
     "youtube-learning-workflow": {
       "files": {
-        "SKILL.md": "42f8b316493f53365da192550676e7151659be2f86caeb58b6eb171125933363",
+        "SKILL.md": "fa0c3154bef0626d63bc74771d02cc93624f65114a07e351032aac66bd4a5f6f",
         "agents/openai.yaml": "34adcfc982b4e1288098b1944e824ed0562d68fce813ac55fbd89ed42a0a670a"
       }
     },
     "youtube-playlist-learning-workflow": {
       "files": {
-        "SKILL.md": "5c0170f41759d39801910094965c8d6f64e7a01eb10ed4a1a901d6aef825c99f",
+        "SKILL.md": "f0bfd44fba01852bb8ed238028b8e6abc54888d5defb828e830527cf9f06b0cf",
         "agents/openai.yaml": "1abc68388efbac293319467e63faef75f580d92cf4d7c6adf2ecf61697d34acf"
       }
     },

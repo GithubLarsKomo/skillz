@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-template-profiler",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject replacement of an available real template",
+      "passed": true,
+      "evidence": "The skill explicitly says a real template must not be replaced by a freely invented reconstruction."
+    },
+    {
+      "behavior": "reject invented palette font and footer rules",
+      "passed": true,
+      "evidence": "Template properties must be observed from the source; brand invention is outside scope."
+    },
+    {
+      "behavior": "reject unsupported template-derived claims",
+      "passed": true,
+      "evidence": "Template fidelity and deviations must remain evidence-bound."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "treat aesthetic preference as template evidence",
+      "observed": false,
+      "evidence": "The profiler analyzes an existing design and does not create a new brand design."
+    },
+    {
+      "behavior": "erase provenance of the actual reference",
+      "observed": false,
+      "evidence": "The source priority and profile format preserve the source identity."
+    }
+  ],
+  "overall": "pass"
+}
