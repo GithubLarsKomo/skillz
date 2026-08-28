@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - dr-komorowski-sport-docx-report-renderer
+consumes:
+  - dr-komorowski-sport-report.docx
 outputs:
   - dr-komorowski-sport-report.pdf
 lastEvaluated: 2026-08-19

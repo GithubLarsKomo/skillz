@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - sport-season-periodization
+consumes:
+  - sport-season-plan.json
 outputs:
   - sport-mesocycle.json
 lastEvaluated: 2026-08-22

@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - sport-athlete-profile
+consumes:
+  - athlete-profile.json
 outputs:
   - sport-performance-model.json
 lastEvaluated: 2026-08-22

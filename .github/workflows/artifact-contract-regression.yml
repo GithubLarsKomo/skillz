@@ -1,0 +1,38 @@
+name: Artifact contract regression
+
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "docs/skill-capability-index.json"
+      - "docs/skill-dependency-graph.json"
+      - "scripts/generate_capability_index.py"
+      - "scripts/generate_dependency_graph.py"
+      - "tests/test_architecture_consolidation_p3_artifact_contracts.py"
+      - ".github/workflows/artifact-contract-regression.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "docs/skill-capability-index.json"
+      - "docs/skill-dependency-graph.json"
+      - "scripts/generate_capability_index.py"
+      - "scripts/generate_dependency_graph.py"
+      - "tests/test_architecture_consolidation_p3_artifact_contracts.py"
+      - ".github/workflows/artifact-contract-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  artifact-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify generated repository metadata
+        run: python scripts/generate_repository_metadata.py --check
+      - name: Test typed artifact contracts
+        run: python -m unittest tests.test_architecture_consolidation_p3_artifact_contracts

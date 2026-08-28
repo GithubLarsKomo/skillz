@@ -673,6 +673,7 @@ graph TD
 | `candidate-role-fit-assessment` | `role-scorecard.json` | `role-architecture` |
 | `document-layout-qa` | `document-template-profile.json` | `document-template-profiler` |
 | `document-render-verifier` | `document-layout-qa.json` | `document-layout-qa` |
+| `dr-komorowski-sport-pdf-report-renderer` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
 | `job-description-authoring` | `role-architecture.json` | `role-architecture` |
 | `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
 | `learning-delivery-workflow` | `course-learning-model.json` | `youtube-course-builder-workflow` |
@@ -695,18 +696,55 @@ graph TD
 | `learning-delivery-workflow` | `presentation.pdf` | `template-presentation-workflow` |
 | `learning-delivery-workflow` | `presentation.pptx` | `template-presentation-workflow` |
 | `multimodal-learning-analysis` | `source-context.json` | `source-to-context` |
+| `person-profile-document-delivery` | `final-revised-text` | `precision-writing-revision` |
+| `person-profile-document-delivery` | `precision-writing-report.json` | `precision-writing-revision` |
 | `person-profile-report` | `person-ip-map.json` | `person-research-dossier` |
 | `person-profile-report` | `person-publications.json` | `person-research-dossier` |
 | `person-profile-report` | `person-research-evidence.json` | `person-research-dossier` |
 | `person-profile-report` | `person-timeline.json` | `person-research-dossier` |
+| `presentation-layout-qa` | `presentation-template-profile.json` | `presentation-template-profiler` |
+| `presentation-render-verifier` | `presentation-layout-qa.json` | `presentation-layout-qa` |
 | `research-to-evidence-note` | `source-context.json` | `source-to-context` |
 | `role-architecture` | `role-requirements-handoff.json` | `role-requirements-grilling` |
+| `sport-diagnostics-training-report-workflow` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
+| `sport-diagnostics-training-report-workflow` | `dr-komorowski-sport-report.pdf` | `dr-komorowski-sport-pdf-report-renderer` |
+| `sport-diagnostics-training-report-workflow` | `sport-diagnostics.json` | `sport-performance-diagnostics` |
+| `sport-diagnostics-training-report-workflow` | `sport-training-plan.json` | `sport-training-plan-workflow` |
+| `sport-endurance-programming` | `athlete-profile.json` | `sport-athlete-profile` |
+| `sport-endurance-programming` | `sport-diagnostics.json` | `sport-performance-diagnostics` |
+| `sport-endurance-programming` | `sport-mesocycle.json` | `sport-mesocycle-planning` |
+| `sport-endurance-programming` | `sport-microcycle.json` | `sport-microcycle-planning` |
+| `sport-endurance-programming` | `sport-performance-model.json` | `sport-goal-performance-model` |
+| `sport-goal-performance-model` | `athlete-profile.json` | `sport-athlete-profile` |
+| `sport-mesocycle-planning` | `sport-season-plan.json` | `sport-season-periodization` |
+| `sport-microcycle-planning` | `sport-mesocycle.json` | `sport-mesocycle-planning` |
+| `sport-season-periodization` | `sport-performance-model.json` | `sport-goal-performance-model` |
+| `sport-strength-power-programming` | `athlete-profile.json` | `sport-athlete-profile` |
+| `sport-strength-power-programming` | `sport-mesocycle.json` | `sport-mesocycle-planning` |
+| `sport-strength-power-programming` | `sport-microcycle.json` | `sport-microcycle-planning` |
+| `sport-strength-power-programming` | `sport-performance-model.json` | `sport-goal-performance-model` |
+| `sport-training-plan-workflow` | `athlete-profile.json` | `sport-athlete-profile` |
+| `sport-training-plan-workflow` | `endurance-plan.json` | `sport-endurance-programming` |
+| `sport-training-plan-workflow` | `sport-diagnostics.json` | `sport-performance-diagnostics` |
+| `sport-training-plan-workflow` | `sport-mesocycle.json` | `sport-mesocycle-planning` |
+| `sport-training-plan-workflow` | `sport-microcycle.json` | `sport-microcycle-planning` |
+| `sport-training-plan-workflow` | `sport-performance-model.json` | `sport-goal-performance-model` |
+| `sport-training-plan-workflow` | `sport-season-plan.json` | `sport-season-periodization` |
+| `sport-training-plan-workflow` | `strength-power-plan.json` | `sport-strength-power-programming` |
 | `template-document-workflow` | `document-layout-qa.json` | `document-layout-qa` |
 | `template-document-workflow` | `document-layout-qa.md` | `document-layout-qa` |
 | `template-document-workflow` | `document-preview.pdf` | `document-render-verifier` |
 | `template-document-workflow` | `document-render-qa.json` | `document-render-verifier` |
 | `template-document-workflow` | `document-render-qa.md` | `document-render-verifier` |
 | `template-document-workflow` | `document-template-profile.json` | `document-template-profiler` |
+| `template-presentation-workflow` | `presentation-language-report.json` | `presentation-language-rewriter` |
+| `template-presentation-workflow` | `presentation-layout-qa.json` | `presentation-layout-qa` |
+| `template-presentation-workflow` | `presentation-layout-qa.md` | `presentation-layout-qa` |
+| `template-presentation-workflow` | `presentation-preview.pdf` | `presentation-render-verifier` |
+| `template-presentation-workflow` | `presentation-render-qa.json` | `presentation-render-verifier` |
+| `template-presentation-workflow` | `presentation-render-qa.md` | `presentation-render-verifier` |
+| `template-presentation-workflow` | `presentation-revised-text` | `presentation-language-rewriter` |
+| `template-presentation-workflow` | `presentation-template-profile.json` | `presentation-template-profiler` |
 
 ## Output contracts
 
@@ -740,7 +778,7 @@ graph TD
 | `association-governance-map.json` | `german-association-law-specialist` | — | unconsumed |
 | `association-law-open-points.json` | `german-association-law-specialist` | — | unconsumed |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
-| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | inferred |
+| `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | mixed |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `author-voice-profile.json` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
 | `author-voice-profile.md` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
@@ -904,15 +942,15 @@ graph TD
 | `domain-validation.json` | `domain-model-maintenance` | — | unconsumed |
 | `dpia-decision.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
 | `dr-komorowski-report.pdf` | `dr-komorowski-sport-report-renderer` | — | unconsumed |
-| `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` | `dr-komorowski-sport-pdf-report-renderer`, `sport-diagnostics-training-report-workflow` | inferred |
-| `dr-komorowski-sport-report.pdf` | `dr-komorowski-sport-pdf-report-renderer` | `sport-diagnostics-training-report-workflow` | inferred |
+| `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` | `dr-komorowski-sport-pdf-report-renderer`, `sport-diagnostics-training-report-workflow` | explicit |
+| `dr-komorowski-sport-report.pdf` | `dr-komorowski-sport-pdf-report-renderer` | `sport-diagnostics-training-report-workflow` | explicit |
 | `drv-rule-applicability-map.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
 | `dual-510k-clia-strategy.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-evidence-package.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `dual-study-evidence-map.json` | `fda-dual-510k-clia-waiver` | — | unconsumed |
 | `due-diligence-handoff.json` | `technology-due-diligence` | — | unconsumed |
 | `employment-action-gates.json` | `german-employment-labor-law-specialist` | — | unconsumed |
-| `endurance-plan.json` | `sport-endurance-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | inferred |
+| `endurance-plan.json` | `sport-endurance-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | mixed |
 | `energy-availability-risk.json` | `sport-nutrition-fueling` | `sport-athlete-management` | inferred |
 | `engineering-closure-gaps.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-delivery-status.json` | `engineering-delivery-followup` | — | unconsumed |
@@ -972,7 +1010,7 @@ graph TD
 | `field-action-recipient-scope.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-unit-custody-ledger.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
 | `field-safety-notice-content.json` | `ivdr-field-safety-corrective-action` | `ivdr-fsca-status-final-reporting` | inferred |
-| `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
+| `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
 | `finance-counsel-work-orders.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finance-restructuring-law-assessment.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
@@ -1195,19 +1233,19 @@ graph TD
 | `pms-review-status.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-source-register.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-system-plan.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
-| `precision-writing-report.json` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | inferred |
+| `precision-writing-report.json` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
 | `predicate-candidate-set.json` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `predicate-strategy.md` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
-| `presentation-language-report.json` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
-| `presentation-layout-qa.json` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | inferred |
-| `presentation-layout-qa.md` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | inferred |
-| `presentation-preview.pdf` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
+| `presentation-language-report.json` | `presentation-language-rewriter` | `template-presentation-workflow` | explicit |
+| `presentation-layout-qa.json` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | explicit |
+| `presentation-layout-qa.md` | `presentation-layout-qa` | `template-presentation-workflow` | explicit |
+| `presentation-preview.pdf` | `presentation-render-verifier` | `template-presentation-workflow` | explicit |
 | `presentation-qa.md` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `learning-delivery-workflow` | mixed |
-| `presentation-render-qa.json` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
-| `presentation-render-qa.md` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
-| `presentation-revised-text` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
-| `presentation-template-profile.json` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
-| `presentation-template-profile.md` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
+| `presentation-render-qa.json` | `presentation-render-verifier` | `template-presentation-workflow` | explicit |
+| `presentation-render-qa.md` | `presentation-render-verifier` | `template-presentation-workflow` | explicit |
+| `presentation-revised-text` | `presentation-language-rewriter` | `template-presentation-workflow` | explicit |
+| `presentation-template-profile.json` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | explicit |
+| `presentation-template-profile.md` | `presentation-template-profiler` | — | unconsumed |
 | `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `learning-delivery-workflow` | mixed |
 | `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `learning-delivery-workflow` | mixed |
 | `price-snapshot.json` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
@@ -1328,21 +1366,21 @@ graph TD
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
 | `sport-adaptation-analysis.json` | `sport-adaptation-analysis` | `sport-athlete-management` | inferred |
-| `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-adaptation-analysis`, `sport-diagnostics-training-report-workflow`, `sport-endurance-programming`, `sport-training-plan-workflow` | inferred |
+| `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-adaptation-analysis`, `sport-diagnostics-training-report-workflow`, `sport-endurance-programming`, `sport-training-plan-workflow` | mixed |
 | `sport-fueling-plan.json` | `sport-nutrition-fueling` | `sport-athlete-management` | inferred |
-| `sport-mesocycle.json` | `sport-mesocycle-planning` | `sport-athlete-management`, `sport-endurance-programming`, `sport-microcycle-planning`, `sport-nutrition-fueling`, `sport-strength-power-programming`, `sport-training-plan-workflow` | inferred |
-| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-endurance-programming`, `sport-environment-travel`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-strength-power-programming`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | inferred |
-| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-endurance-programming`, `sport-performance-psychology`, `sport-season-periodization`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-plan-workflow` | inferred |
+| `sport-mesocycle.json` | `sport-mesocycle-planning` | `sport-athlete-management`, `sport-endurance-programming`, `sport-microcycle-planning`, `sport-nutrition-fueling`, `sport-strength-power-programming`, `sport-training-plan-workflow` | mixed |
+| `sport-microcycle.json` | `sport-microcycle-planning` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-endurance-programming`, `sport-environment-travel`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-strength-power-programming`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | mixed |
+| `sport-performance-model.json` | `sport-goal-performance-model` | `sport-athlete-management`, `sport-endurance-programming`, `sport-performance-psychology`, `sport-season-periodization`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-plan-workflow` | mixed |
 | `sport-report-package` | `sport-diagnostics-training-report-workflow` | — | unconsumed |
-| `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning`, `sport-testing-battery`, `sport-training-plan-workflow` | inferred |
+| `sport-season-plan.json` | `sport-season-periodization` | `sport-athlete-management`, `sport-mesocycle-planning`, `sport-testing-battery`, `sport-training-plan-workflow` | mixed |
 | `sport-testing-plan.json` | `sport-testing-battery` | `sport-athlete-management` | inferred |
-| `sport-training-plan.json` | `sport-training-plan-workflow` | `sport-diagnostics-training-report-workflow`, `sport-training-programming` | inferred |
+| `sport-training-plan.json` | `sport-training-plan-workflow` | `sport-diagnostics-training-report-workflow`, `sport-training-programming` | mixed |
 | `sport-training-programming-compatibility-run.json` | `sport-training-programming` | — | unconsumed |
 | `sports-law-route-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `sports-rule-binding-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
-| `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | inferred |
+| `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | mixed |
 | `structured thought artifacts` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
 | `submission-readiness.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |

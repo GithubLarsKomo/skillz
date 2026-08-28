@@ -10,6 +10,8 @@ owners:
   - GithubLarsKomo
 requires:
   - presentation-layout-qa
+consumes:
+  - presentation-layout-qa.json
 outputs:
   - presentation-render-qa.json
   - presentation-render-qa.md

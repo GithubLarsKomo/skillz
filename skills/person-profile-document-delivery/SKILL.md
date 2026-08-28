@@ -10,6 +10,9 @@ owners:
   - GithubLarsKomo
 requires:
   - precision-writing-revision
+consumes:
+  - final-revised-text
+  - precision-writing-report.json
 outputs:
   - person-profile-report.docx
   - person-profile-report.pdf
