@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 238,
-  "entrypointCount": 207,
+  "skillCount": 241,
+  "entrypointCount": 210,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 232,
+  "evaluationSuiteCount": 235,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1570,7 +1570,10 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -1608,7 +1611,10 @@
             "legal-matter-wayfinder",
             "legal-specialist-router",
             "privacy-data-law-specialist",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -1640,7 +1646,10 @@
             "legal-matter-wayfinder",
             "legal-specialist-router",
             "privacy-data-law-specialist",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -1672,7 +1681,10 @@
             "legal-matter-wayfinder",
             "legal-specialist-router",
             "privacy-data-law-specialist",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -1704,7 +1716,10 @@
             "legal-matter-wayfinder",
             "legal-specialist-router",
             "privacy-data-law-specialist",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -6724,7 +6739,10 @@
         "legal-negotiation-strategy",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist"
       ],
       "outputs": [
@@ -6753,7 +6771,10 @@
             "legal-negotiation-strategy",
             "legal-specialist-router",
             "privacy-data-law-specialist",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist"
           ]
         },
@@ -6778,7 +6799,10 @@
             "legal-negotiation-strategy",
             "legal-specialist-router",
             "privacy-data-law-specialist",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist"
           ]
         }
@@ -7007,6 +7031,7 @@
       "dependents": [
         "legal-client-strategy",
         "legal-compliance-office",
+        "private-legal-matter-router",
         "privilege-and-counsel-routing"
       ],
       "outputs": [
@@ -7023,6 +7048,7 @@
           "consumerSkills": [
             "legal-client-strategy",
             "legal-compliance-office",
+            "private-legal-matter-router",
             "privilege-and-counsel-routing"
           ]
         },
@@ -7035,6 +7061,7 @@
           "consumerSkills": [
             "legal-client-strategy",
             "legal-compliance-office",
+            "private-legal-matter-router",
             "privilege-and-counsel-routing"
           ]
         }
@@ -10330,6 +10357,62 @@
       }
     },
     {
+      "name": "private-legal-matter-router",
+      "description": "Routet private deutsche/europäische Rechtsangelegenheiten getrennt vom Unternehmens-/Konzernkontext nach Rechtsgebiet, Dringlichkeit, Verfahrenslage, benötigter Specialist-Kompetenz und externer Authority. Verwenden für persönliche Vertrags-, Verbraucher-, Miet-, Immobilien-, Arbeits-, Familien-, Erb-, Steuer-, Versicherungs-, Verkehrs-, Straf-/Bußgeld- oder sonstige Privatmatters.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "legal-matter-intake",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "private-authority-escalation.json",
+        "private-legal-matter-route.json",
+        "private-specialist-work-orders.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "private-authority-escalation.json",
+          "ambiguous": false,
+          "producers": [
+            "private-legal-matter-router"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "private-legal-matter-route.json",
+          "ambiguous": false,
+          "producers": [
+            "private-legal-matter-router"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "private-specialist-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "private-legal-matter-router"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "privilege-and-counsel-routing",
       "description": "Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedarf, ohne pauschal anwaltliches Privileg zu behaupten, und routet Fragen nach interner Bearbeitung, qualifiziertem externem Counsel, Behörde, Notar oder sonstiger zwingender Autorität. Verwenden früh im Matter und erneut vor irreversiblen Rechtsentscheidungen.",
       "invocation": {
@@ -10349,7 +10432,10 @@
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -10375,7 +10461,10 @@
             "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-matter-final-gate",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -10396,7 +10485,10 @@
             "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-matter-final-gate",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -10417,7 +10509,10 @@
             "ip-licensing-law-specialist",
             "legal-compliance-office",
             "legal-matter-final-gate",
+            "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "real-estate-law-specialist",
+            "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
           ]
@@ -11017,6 +11112,61 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "real-estate-law-specialist",
+      "description": "Analysiert deutsches Immobilienrecht für Kauf/Verkauf, Gewerbe- und Wohnraummiete, Grundstücksrechte, Due Diligence, Nutzung/Bau-/Umwelt-Schnittstellen, Betriebskosten, Sicherheiten, Übergabe, Gewährleistung, Kündigung und Immobilientransaktionen; notarielle, Grundbuch-, Steuer- und Spezialrechtsfragen werden gezielt geroutet.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "real-estate-due-diligence.json",
+        "real-estate-legal-assessment.json",
+        "real-estate-transaction-gates.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "real-estate-due-diligence.json",
+          "ambiguous": false,
+          "producers": [
+            "real-estate-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "real-estate-legal-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "real-estate-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "real-estate-transaction-gates.json",
+          "ambiguous": false,
+          "producers": [
+            "real-estate-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -13202,6 +13352,61 @@
       "portableFiles": [
         "agents/openai.yaml",
         "references/commands.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-legal-interface-specialist",
+      "description": "Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts, modelliert offene Steuerfragen und routet materielle Steueraussagen an befugte Tax Specialists, ohne eigenständig eine Steuerberaterfunktion oder verbindliche Steuermeinung zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "tax-decision-dependencies.json",
+        "tax-legal-interface-assessment.json",
+        "tax-specialist-work-order.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-decision-dependencies.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-legal-interface-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-legal-interface-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-legal-interface-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-specialist-work-order.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-legal-interface-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",

@@ -25,8 +25,9 @@ Unterstütze insbesondere:
 - Trade/Sanctions/Export → `trade-sanctions-export-control-specialist`
 - Product Liability/Safety → `product-liability-safety-law-specialist`; Medical-Device-/IVD-Sicherheitsentscheidungen bleiben bei den vorhandenen Regulatory/Risk/CAPA Specialists
 - Disputes/Litigation → `dispute-litigation-strategy-specialist`
-- Tax Legal Interface
-- Real Estate
+- Tax-relevante Legal Dependencies → `tax-legal-interface-specialist`; materielle Steuerpositionen an befugte Tax Professionals
+- Real Estate → `real-estate-law-specialist`
+- private Matters → zuerst `private-legal-matter-router`, danach passender Domain Specialist oder Counsel/Professional Gate
 - deutsches Vereinsrecht
 - deutsches Sportrecht einschließlich DOSB-Strukturen und Safe-Sport-Verfahren
 - Rudersportrecht/DRV als sportartspezifisches Overlay
@@ -40,6 +41,8 @@ Unterstütze insbesondere:
 - Board-Entscheidung über material risk erzeugt Governance/Risk/Decision Work Orders; eine AI-Empfehlung wird nicht als Organbeschluss behandelt.
 - Internationale Technology- oder Materialtransfers erzeugen Trade/Export-Control Work Orders zusätzlich zu IP, Contract, Regulatory oder Scientific Specialists.
 - Produktschaden erzeugt getrennte Work Orders für Regulatory/Vigilance, Risk/CAPA, Product Liability und bei Streitdrohung Litigation/Preservation.
+- Immobilientransaktion erzeugt Real-Estate-, Tax- und je nach Struktur M&A/Governance/Notary Work Orders.
+- Private Angelegenheit wird zunächst im Private Router auf Mandant, Frist, Conflict und Vertretung geprüft; Unternehmensannahmen werden nicht übernommen.
 
 ## Work Order Contract
 
@@ -63,6 +66,8 @@ Unterstütze insbesondere:
 - Eine Work Order enthält genau eine fachlich kohärente Frage.
 - Bestehende Regulatory-/IP-/QMS-/Complaint-/CAPA-Skills werden wiederverwendet, nicht neu implementiert.
 - Whistleblowing-Rechtsanalyse und Investigation Fact-Finding sind getrennte Work Orders, können aber denselben Matter State nutzen.
+- Tax wird als Specialist Interface geroutet; eine Legal-Analyse wird nicht zur behaupteten Steuerberatermeinung hochgestuft.
+- Private und Corporate Matter States werden nicht vermischt.
 - Mehrere Specialists dürfen dieselben Facts konsumieren; ihre Schlussfolgerungen werden nicht automatisch harmonisiert.
 - Widersprüche werden im `legal-specialist-integration-status.json` sichtbar und an Risk/Decision Routing übergeben.
 - Fehlender Specialist erzeugt einen offenen Capability Gap statt improvisierter Rechtsberatung.

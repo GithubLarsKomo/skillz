@@ -39,7 +39,10 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 - [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
@@ -62,7 +65,10 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 - [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
@@ -77,7 +83,10 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 - [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
@@ -92,7 +101,10 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 - [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 

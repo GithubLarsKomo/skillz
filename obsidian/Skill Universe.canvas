@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n238 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n241 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -578,7 +578,7 @@
       "x": 4880,
       "y": 0,
       "width": 1120,
-      "height": 800,
+      "height": 940,
       "color": "5"
     },
     {
@@ -690,10 +690,28 @@
       "height": 110
     },
     {
+      "id": "skill-real-estate-law-specialist",
+      "type": "file",
+      "file": "skills/real-estate-law-specialist.md",
+      "x": 4920,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-tax-legal-interface-specialist",
+      "type": "file",
+      "file": "skills/tax-legal-interface-specialist.md",
+      "x": 5250,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-trade-sanctions-export-control-specialist",
       "type": "file",
       "file": "skills/trade-sanctions-export-control-specialist.md",
-      "x": 4920,
+      "x": 5580,
       "y": 630,
       "width": 300,
       "height": 110
@@ -702,8 +720,8 @@
       "id": "skill-whistleblowing-law-specialist",
       "type": "file",
       "file": "skills/whistleblowing-law-specialist.md",
-      "x": 5250,
-      "y": 630,
+      "x": 4920,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -2000,10 +2018,19 @@
       "height": 110
     },
     {
+      "id": "skill-private-legal-matter-router",
+      "type": "file",
+      "file": "skills/private-legal-matter-router.md",
+      "x": 11020,
+      "y": 1890,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-privilege-and-counsel-routing",
       "type": "file",
       "file": "skills/privilege-and-counsel-routing.md",
-      "x": 11020,
+      "x": 11350,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -2012,7 +2039,7 @@
       "id": "skill-purchase-decision-planner",
       "type": "file",
       "file": "skills/purchase-decision-planner.md",
-      "x": 11350,
+      "x": 11680,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -2021,8 +2048,8 @@
       "id": "skill-rewrite-fidelity-verifier",
       "type": "file",
       "file": "skills/rewrite-fidelity-verifier.md",
-      "x": 11680,
-      "y": 1890,
+      "x": 11020,
+      "y": 2030,
       "width": 300,
       "height": 110
     },
@@ -2030,7 +2057,7 @@
       "id": "skill-role-architecture",
       "type": "file",
       "file": "skills/role-architecture.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -2039,7 +2066,7 @@
       "id": "skill-role-requirements-grilling",
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -2048,8 +2075,8 @@
       "id": "skill-sport-athlete-management",
       "type": "file",
       "file": "skills/sport-athlete-management.md",
-      "x": 11680,
-      "y": 2030,
+      "x": 11020,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -2057,7 +2084,7 @@
       "id": "skill-sport-athlete-profile",
       "type": "file",
       "file": "skills/sport-athlete-profile.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -2066,7 +2093,7 @@
       "id": "skill-sport-daily-athlete-monitoring",
       "type": "file",
       "file": "skills/sport-daily-athlete-monitoring.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -2075,8 +2102,8 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 11680,
-      "y": 2170,
+      "x": 11020,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -2084,7 +2111,7 @@
       "id": "skill-sport-endurance-programming",
       "type": "file",
       "file": "skills/sport-endurance-programming.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -2093,7 +2120,7 @@
       "id": "skill-sport-environment-travel",
       "type": "file",
       "file": "skills/sport-environment-travel.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -2102,8 +2129,8 @@
       "id": "skill-sport-goal-performance-model",
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
-      "x": 11680,
-      "y": 2310,
+      "x": 11020,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -2111,7 +2138,7 @@
       "id": "skill-sport-injury-rehabilitation",
       "type": "file",
       "file": "skills/sport-injury-rehabilitation.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -2120,7 +2147,7 @@
       "id": "skill-sport-mental-health-routing",
       "type": "file",
       "file": "skills/sport-mental-health-routing.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -2129,8 +2156,8 @@
       "id": "skill-sport-mesocycle-planning",
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
-      "x": 11680,
-      "y": 2450,
+      "x": 11020,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -2138,7 +2165,7 @@
       "id": "skill-sport-microcycle-planning",
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -2147,7 +2174,7 @@
       "id": "skill-sport-nutrition-fueling",
       "type": "file",
       "file": "skills/sport-nutrition-fueling.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -2156,8 +2183,8 @@
       "id": "skill-sport-performance-psychology",
       "type": "file",
       "file": "skills/sport-performance-psychology.md",
-      "x": 11680,
-      "y": 2590,
+      "x": 11020,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -2165,7 +2192,7 @@
       "id": "skill-sport-return-after-illness",
       "type": "file",
       "file": "skills/sport-return-after-illness.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -2174,7 +2201,7 @@
       "id": "skill-sport-season-periodization",
       "type": "file",
       "file": "skills/sport-season-periodization.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -2183,8 +2210,8 @@
       "id": "skill-sport-strength-power-programming",
       "type": "file",
       "file": "skills/sport-strength-power-programming.md",
-      "x": 11680,
-      "y": 2730,
+      "x": 11020,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -2192,7 +2219,7 @@
       "id": "skill-sport-testing-battery",
       "type": "file",
       "file": "skills/sport-testing-battery.md",
-      "x": 11020,
+      "x": 11350,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -2201,7 +2228,7 @@
       "id": "skill-sport-training-adaptation-engine",
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
-      "x": 11350,
+      "x": 11680,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -2210,8 +2237,8 @@
       "id": "skill-sport-training-music",
       "type": "file",
       "file": "skills/sport-training-music.md",
-      "x": 11680,
-      "y": 2870,
+      "x": 11020,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -2219,7 +2246,7 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 11020,
+      "x": 11350,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -2228,7 +2255,7 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 11350,
+      "x": 11680,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -2237,8 +2264,8 @@
       "id": "skill-template-presentation-workflow",
       "type": "file",
       "file": "skills/template-presentation-workflow.md",
-      "x": 11680,
-      "y": 3010,
+      "x": 11020,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2246,7 +2273,7 @@
       "id": "skill-thought-to-concept-flow",
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
-      "x": 11020,
+      "x": 11350,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -2985,9 +3012,9 @@
     {
       "id": "requires-1886e9ed367f",
       "fromNode": "skill-euroimmun-presentation-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-template-presentation-workflow",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5964,18 +5991,18 @@
     {
       "id": "requires-06bbff5be0b2",
       "fromNode": "skill-precision-writing-revision",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-rewrite-fidelity-verifier",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-e83dbb41729a",
       "fromNode": "skill-presentation-language-rewriter",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-rewrite-fidelity-verifier",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6012,6 +6039,42 @@
       "fromSide": "left",
       "toNode": "skill-legal-client-strategy",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-197d12df1789",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-acc8aa477a3d",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-57be249ff0d1",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-intake",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c4fabd9f9192",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6223,6 +6286,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-3929fb4c7a41",
+      "fromNode": "skill-real-estate-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f51a8e76271f",
+      "fromNode": "skill-real-estate-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-984374bb8e52",
+      "fromNode": "skill-real-estate-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-a40e6416faa2",
       "fromNode": "skill-regulatory-change-impact-orchestrator",
       "fromSide": "right",
@@ -6378,36 +6468,36 @@
     {
       "id": "requires-190bbfae710d",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-416ad1b343db",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-daily-athlete-monitoring",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-f1ff9cb33e48",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-endurance-programming",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-0eb793f844f7",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-environment-travel",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6423,18 +6513,18 @@
     {
       "id": "requires-2d72dca19485",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-injury-rehabilitation",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-1e5b02d56b79",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-mental-health-routing",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6450,18 +6540,18 @@
     {
       "id": "requires-aa53168a2304",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-34eceee6e438",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-nutrition-fueling",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6486,18 +6576,18 @@
     {
       "id": "requires-e572ea5ff31d",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-return-after-illness",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-0edd948a3911",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6513,18 +6603,18 @@
     {
       "id": "requires-af3cb00f26fc",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-testing-battery",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-34b8340a024f",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-training-adaptation-engine",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6549,18 +6639,18 @@
     {
       "id": "requires-f9f360d89e41",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-d8fff5f8fd1e",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-dr-komorowski-sport-pdf-report-renderer",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6576,9 +6666,9 @@
     {
       "id": "requires-f8d7f10ec331",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-training-programming",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6594,18 +6684,18 @@
     {
       "id": "requires-eb278bb96431",
       "fromNode": "skill-sport-endurance-programming",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-04e4d02b18ef",
       "fromNode": "skill-sport-endurance-programming",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-mesocycle-planning",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6657,9 +6747,9 @@
     {
       "id": "requires-04b80368b874",
       "fromNode": "skill-sport-goal-performance-model",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6702,18 +6792,18 @@
     {
       "id": "requires-bc3012bacae7",
       "fromNode": "skill-sport-mesocycle-planning",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-2215266000e2",
       "fromNode": "skill-sport-microcycle-planning",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-mesocycle-planning",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6738,9 +6828,9 @@
     {
       "id": "requires-72a43b0dee86",
       "fromNode": "skill-sport-nutrition-fueling",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-mesocycle-planning",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6756,9 +6846,9 @@
     {
       "id": "requires-ef93aa87ae73",
       "fromNode": "skill-sport-performance-psychology",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6774,9 +6864,9 @@
     {
       "id": "requires-6e3233a8199b",
       "fromNode": "skill-sport-performance-psychology",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6819,18 +6909,18 @@
     {
       "id": "requires-969dd884ed88",
       "fromNode": "skill-sport-season-periodization",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-978b261c9bb5",
       "fromNode": "skill-sport-strength-power-programming",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6855,9 +6945,9 @@
     {
       "id": "requires-89ae96e65e13",
       "fromNode": "skill-sport-strength-power-programming",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6873,9 +6963,9 @@
     {
       "id": "requires-a004e9a37036",
       "fromNode": "skill-sport-testing-battery",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6918,18 +7008,18 @@
     {
       "id": "requires-feb344033238",
       "fromNode": "skill-sport-training-music",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-8e86121d8d2a",
       "fromNode": "skill-sport-training-music",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6957,6 +7047,33 @@
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a0ffe1683cfa",
+      "fromNode": "skill-tax-legal-interface-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-81fe980dd010",
+      "fromNode": "skill-tax-legal-interface-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-81c074cbb76f",
+      "fromNode": "skill-tax-legal-interface-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7062,18 +7179,18 @@
     {
       "id": "requires-3bb301ebab48",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-presentation-layout-qa",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-c4ac1ab1560c",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-presentation-render-verifier",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },

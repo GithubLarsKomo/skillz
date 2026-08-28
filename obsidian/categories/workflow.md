@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **67**
+Skills: **68**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -51,6 +51,7 @@ Skills: **67**
 - [[skills/presentation-layout-qa|presentation-layout-qa]]
 - [[skills/presentation-render-verifier|presentation-render-verifier]]
 - [[skills/presentation-template-profiler|presentation-template-profiler]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
 - [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]

@@ -32,6 +32,7 @@ Strukturiert neue unternehmerische oder private Rechts- und Compliance-Sachverha
 
 - [[skills/legal-client-strategy|legal-client-strategy]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
 
 ## Outputs
@@ -45,12 +46,14 @@ Strukturiert neue unternehmerische oder private Rechts- und Compliance-Sachverha
 
 - [[skills/legal-client-strategy|legal-client-strategy]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
 
 ### `legal-matter.json`
 
 - [[skills/legal-client-strategy|legal-client-strategy]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
 
 ## Evaluation

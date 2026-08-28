@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **238**
-- User-facing entrypoints: **207**
-- Evaluation suites: **232**
+- Skills: **241**
+- User-facing entrypoints: **210**
+- Evaluation suites: **235**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **229**
+- Outputs without inferred hard-requires consumers: **238**
 
 ## Evaluation gaps
 
@@ -213,6 +213,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
 - `privacy-data-law-assessment.json` — producer: `privacy-data-law-specialist`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
+- `private-authority-escalation.json` — producer: `private-legal-matter-router`
+- `private-legal-matter-route.json` — producer: `private-legal-matter-router`
+- `private-specialist-work-orders.json` — producer: `private-legal-matter-router`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`
 - `process-validation-protocol.md` — producer: `process-validation-iq-oq-pq`
 - `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
@@ -229,6 +232,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
+- `real-estate-due-diligence.json` — producer: `real-estate-law-specialist`
+- `real-estate-legal-assessment.json` — producer: `real-estate-law-specialist`
+- `real-estate-transaction-gates.json` — producer: `real-estate-law-specialist`
 - `recovered-system-model.json` — producer: `opaque-system-analysis`
 - `regulatory-awareness-timeline.json` — producer: `medical-device-complaint-regulatory-routing`
 - `regulatory-change-events.json` — producer: `regulatory-change-monitoring`
@@ -258,6 +264,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
+- `tax-decision-dependencies.json` — producer: `tax-legal-interface-specialist`
+- `tax-legal-interface-assessment.json` — producer: `tax-legal-interface-specialist`
+- `tax-specialist-work-order.json` — producer: `tax-legal-interface-specialist`
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
 - `trade-control-assessment.json` — producer: `trade-sanctions-export-control-specialist`

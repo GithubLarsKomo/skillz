@@ -2265,6 +2265,21 @@
       ]
     },
     {
+      "name": "private-legal-matter-router",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "legal-matter-intake",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "private-authority-escalation.json",
+        "private-legal-matter-route.json",
+        "private-specialist-work-orders.json"
+      ]
+    },
+    {
       "name": "privilege-and-counsel-routing",
       "requires": [
         "legal-matter-intake"
@@ -2402,6 +2417,20 @@
         "quality-record-integrity-assessment.json",
         "record-integrity-gaps.json",
         "record-retrieval-index.json"
+      ]
+    },
+    {
+      "name": "real-estate-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "real-estate-due-diligence.json",
+        "real-estate-legal-assessment.json",
+        "real-estate-transaction-gates.json"
       ]
     },
     {
@@ -2853,6 +2882,20 @@
         "execution plan",
         "expert handoff",
         "progress summary"
+      ]
+    },
+    {
+      "name": "tax-legal-interface-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-decision-dependencies.json",
+        "tax-legal-interface-assessment.json",
+        "tax-specialist-work-order.json"
       ]
     },
     {
@@ -4713,6 +4756,22 @@
       "to": "legal-client-strategy"
     },
     {
+      "from": "private-legal-matter-router",
+      "to": "current-law-context"
+    },
+    {
+      "from": "private-legal-matter-router",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "private-legal-matter-router",
+      "to": "legal-matter-intake"
+    },
+    {
+      "from": "private-legal-matter-router",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
       "from": "privilege-and-counsel-routing",
       "to": "legal-matter-intake"
     },
@@ -4803,6 +4862,18 @@
     {
       "from": "quality-record-integrity",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "real-estate-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "real-estate-law-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "real-estate-law-specialist",
+      "to": "privilege-and-counsel-routing"
     },
     {
       "from": "regulatory-change-impact-orchestrator",
@@ -5131,6 +5202,18 @@
     {
       "from": "supplier-quality-medical-device",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "tax-legal-interface-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "tax-legal-interface-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "tax-legal-interface-specialist",
+      "to": "privilege-and-counsel-routing"
     },
     {
       "from": "teach",
@@ -6018,7 +6101,10 @@
         "legal-negotiation-strategy",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist"
       ],
       "ambiguous": false,
@@ -6759,7 +6845,10 @@
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -7667,7 +7756,10 @@
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -8900,7 +8992,10 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -8988,7 +9083,10 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -9015,7 +9113,10 @@
         "legal-negotiation-strategy",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist"
       ],
       "ambiguous": false,
@@ -9054,6 +9155,7 @@
       "consumerSkills": [
         "legal-client-strategy",
         "legal-compliance-office",
+        "private-legal-matter-router",
         "privilege-and-counsel-routing"
       ],
       "ambiguous": false,
@@ -9096,7 +9198,10 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -9138,6 +9243,7 @@
       "consumerSkills": [
         "legal-client-strategy",
         "legal-compliance-office",
+        "private-legal-matter-router",
         "privilege-and-counsel-routing"
       ],
       "ambiguous": false,
@@ -9183,7 +9289,10 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -10356,6 +10465,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "private-authority-escalation.json",
+      "producers": [
+        "private-legal-matter-router"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "private-legal-matter-route.json",
+      "producers": [
+        "private-legal-matter-router"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "private-specialist-work-orders.json",
+      "producers": [
+        "private-legal-matter-router"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "privilege-routing.json",
       "producers": [
         "privilege-and-counsel-routing"
@@ -10370,7 +10506,10 @@
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "real-estate-law-specialist",
+        "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
@@ -10790,6 +10929,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "real-estate-due-diligence.json",
+      "producers": [
+        "real-estate-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "real-estate-legal-assessment.json",
+      "producers": [
+        "real-estate-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "real-estate-transaction-gates.json",
+      "producers": [
+        "real-estate-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "record-integrity-gaps.json",
@@ -11927,6 +12093,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "tax-decision-dependencies.json",
+      "producers": [
+        "tax-legal-interface-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-legal-interface-assessment.json",
+      "producers": [
+        "tax-legal-interface-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-specialist-work-order.json",
+      "producers": [
+        "tax-legal-interface-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "technology-due-diligence.json",
       "producers": [
         "technology-due-diligence"
@@ -12528,6 +12721,9 @@
     "privacy-assessment.json",
     "privacy-data-law-assessment.json",
     "privacy-governance.md",
+    "private-authority-escalation.json",
+    "private-legal-matter-route.json",
+    "private-specialist-work-orders.json",
     "process-validation-assessment.json",
     "process-validation-protocol.md",
     "process-validation-strategy.json",
@@ -12544,6 +12740,9 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
+    "real-estate-due-diligence.json",
+    "real-estate-legal-assessment.json",
+    "real-estate-transaction-gates.json",
     "recovered-system-model.json",
     "regulatory-awareness-timeline.json",
     "regulatory-change-events.json",
@@ -12573,6 +12772,9 @@
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
+    "tax-decision-dependencies.json",
+    "tax-legal-interface-assessment.json",
+    "tax-specialist-work-order.json",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "trade-control-assessment.json",
@@ -12759,6 +12961,9 @@
     "privacy-assessment.json",
     "privacy-data-law-assessment.json",
     "privacy-governance.md",
+    "private-authority-escalation.json",
+    "private-legal-matter-route.json",
+    "private-specialist-work-orders.json",
     "process-validation-assessment.json",
     "process-validation-protocol.md",
     "process-validation-strategy.json",
@@ -12775,6 +12980,9 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
+    "real-estate-due-diligence.json",
+    "real-estate-legal-assessment.json",
+    "real-estate-transaction-gates.json",
     "recovered-system-model.json",
     "regulatory-awareness-timeline.json",
     "regulatory-change-events.json",
@@ -12804,6 +13012,9 @@
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
+    "tax-decision-dependencies.json",
+    "tax-legal-interface-assessment.json",
+    "tax-specialist-work-order.json",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "trade-control-assessment.json",

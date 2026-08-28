@@ -756,7 +756,7 @@
     },
     "legal-compliance-office": {
       "files": {
-        "SKILL.md": "b99dd90c1ffa444e21244dc7bf067546cb454828ffb872801a1e864f03ba7120",
+        "SKILL.md": "cc5c52c590d98bde922c249bb5a613b1b34a3dcfb632daff972ddc4b13687e1a",
         "agents/openai.yaml": "d368ad736ce363bf01a02dbcb4eb4847bd9cf2d3c64ff3b4ba30ed45101601ef"
       }
     },
@@ -798,7 +798,7 @@
     },
     "legal-specialist-router": {
       "files": {
-        "SKILL.md": "3b76344503571adf945e28613fcae51675fd893f217dac402edf35ce0d561b14",
+        "SKILL.md": "d3ca4b55ccdeedbdb824dd344512a8c9185a55eac9b98db4d5b7994f579e7408",
         "agents/openai.yaml": "ff6a8072537f63d5328ec41f062206c255b7efebf021b3aba3b25f2e7d247573"
       }
     },
@@ -1109,6 +1109,13 @@
         "references/authoritative-sources.md": "1d610b26dcf2c66bbfafc453f956ff200d8472ddcea2313b749d5fd64d713369"
       }
     },
+    "private-legal-matter-router": {
+      "files": {
+        "SKILL.md": "40176c46cc9ccb8e10eb527f12e8b7844bc7ea14b0040c56bfa4c6c23a0b8941",
+        "agents/openai.yaml": "bab287fca7b1cff699b83295b9d94a85e486d910d0cf0ab9b2863337e9cbdbf9",
+        "references/authoritative-sources.md": "4ab92eda911bf92b2e00bc8b6c90826274739c5e452de497313fa8de1c818d12"
+      }
+    },
     "privilege-and-counsel-routing": {
       "files": {
         "SKILL.md": "34502500a4d96b263790452a28af51d096f4fc75d813ba5c8d6dd6f6a726f848",
@@ -1180,6 +1187,13 @@
       "files": {
         "SKILL.md": "8881a5110723cb45444a4ba106ac01c04f8b82b9b440237c4e1d90158568e2a8",
         "agents/openai.yaml": "c6e06c3b09df1348dc28aeae81d17b333ce213a378f451e67ce94c123f126d90"
+      }
+    },
+    "real-estate-law-specialist": {
+      "files": {
+        "SKILL.md": "f2a1b18de1bcbc5ea71fb613fb93f0b109f1cad3b892e548e00efd3cf075d84b",
+        "agents/openai.yaml": "c8a14e832985961db0f45c3024d4e4939be6991a54291f6e1c88c82390bb1785",
+        "references/authoritative-sources.md": "3bbc7212c6260e99c4943a045e6282a078a8db4946f8991fa9903ee452416985"
       }
     },
     "regulated-product-context": {
@@ -1417,6 +1431,13 @@
         "SKILL.md": "d5dd187e60570493715c2fb0d984626fbd0546fc60ea2e4d2c53804b86d3649b",
         "agents/openai.yaml": "5a71dddcaf2b0e294902a410c01c020d365d922bbefa347d0170ee5464e2b5d5",
         "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
+      }
+    },
+    "tax-legal-interface-specialist": {
+      "files": {
+        "SKILL.md": "c046a7c59892654a3ffda5dee1f2beccd0be9dab81f18d5ae8d9463c9e34f4c5",
+        "agents/openai.yaml": "41ebc42c635480117b99d5ab448d5f352ac3bd00217ad22f2e9b0f754ffe717f",
+        "references/authoritative-sources.md": "713939642cfbe4aa450b860986a9f724e430ff07168e32706b48b8c6917a0393"
       }
     },
     "teach": {

@@ -44,7 +44,10 @@ tags:
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 
 ## Outputs
@@ -70,7 +73,10 @@ tags:
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 
 ### `legal-decision-boundaries.json`
@@ -89,7 +95,10 @@ tags:
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/real-estate-law-specialist|real-estate-law-specialist]]
+- [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 
 ## Evaluation
