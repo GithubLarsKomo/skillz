@@ -38,6 +38,8 @@ jobs:
         run: python -m unittest tests.test_brand_profile_resolver
       - name: Test EUROIMMUN corporate design contract
         run: python -m unittest tests.test_euroimmun_corporate_design_contract
+      - name: Test EUROIMMUN corporate design golden reference
+        run: python -m unittest tests.test_euroimmun_corporate_design_golden_reference
       - name: Test YouTube learning workflow contract
         run: python -m unittest tests.test_youtube_learning_contract
       - name: Test binding Sport design template contract
