@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Legal Interface"
+  short_description: "Erkennt Tax-Trigger und erzeugt präzise Work Orders für befugte Tax Specialists."
+policy:
+  allow_implicit_invocation: true
