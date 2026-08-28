@@ -21,6 +21,8 @@ For DOCX/PDF, the bundled Public-Reference template is explicitly Level 1 only.
 
 ### Level 2 — Real Binary Template Golden Reference
 
+For presentations, this retains the established **Level 2 — Controlled Master Golden Reference** semantics while extending the same rigor to reports.
+
 Level 2 certifies fidelity against a **real controlled or confirmed corporate binary available at runtime**. It is artifact-family specific:
 
 - Presentation Level 2: real PPTX binary master/reference.
@@ -31,7 +33,7 @@ Level 2 is mandatory when a qualifying binary is available, `template-derived` i
 Presentation fixture: `tests/fixtures/euroimmun/corporate-design-controlled-master-level2.json`.
 Report fixture: `tests/fixtures/euroimmun/corporate-design-controlled-report-level2.json`.
 
-**Hard rule:** Level 2 MUST NOT report `PASS` without the actual artifact-family binary. A reconstructed template, copied logo, manually recreated footer, textual specification, Base64 Public-Reference fallback or screenshot is not a substitute.
+**Hard rule:** Presentation Level 2 MUST NOT report `PASS` without the actual binary master; Report Level 2 MUST NOT report `PASS` without the actual DOCX/DOTX binary template. A reconstructed template, copied logo, manually recreated footer, textual specification, Base64 Public-Reference fallback or screenshot is not a substitute.
 
 ## Presentation Level 2
 
@@ -44,7 +46,7 @@ Before Presentation-Level-2 authoring or verification, record:
 - template status (`approved-controlled` or `confirmed-reference-binary`);
 - slide size and master/layout inventory;
 - theme/color and font inventory;
-- logo/footer/confidentiality geometry or stable fingerprints.
+- logo geometry and aspect ratio, footer/confidentiality geometry, or stable fingerprints.
 
 ### Preferred current presentation reference
 
