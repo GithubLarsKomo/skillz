@@ -14,6 +14,7 @@ REQUIRED_SECTIONS = [
     "Trigger", "Voraussetzungen", "Ablauf", "Prüfungen",
     "Fehlerbehandlung", "Übergabe", "Abschlusskriterien",
 ]
+DISCOVERABILITY_VALUES = {"public", "advanced", "internal", "compatibility"}
 
 
 def parse_frontmatter(path: Path) -> tuple[dict[str, object], str]:
@@ -76,6 +77,40 @@ def main() -> int:
         evaluation = skill_file.parent / "tests" / "evaluation.json"
         status = str(fm.get("status", "")).strip().lower()
         user_facing = frontmatter_true(fm.get("userFacing"))
+        raw_discoverability = fm.get("discoverability")
+        discoverability = (
+            str(raw_discoverability).strip().lower()
+            if raw_discoverability not in (None, "")
+            else None
+        )
+        if discoverability is not None and discoverability not in DISCOVERABILITY_VALUES:
+            errors.append(
+                f"{skill_file.relative_to(ROOT)}: unbekannte discoverability '{discoverability}'"
+            )
+        if discoverability in {"public", "advanced"} and not user_facing:
+            errors.append(
+                f"{skill_file.relative_to(ROOT)}: discoverability={discoverability} erfordert userFacing=true"
+            )
+        if discoverability in {"internal", "compatibility"} and user_facing:
+            errors.append(
+                f"{skill_file.relative_to(ROOT)}: discoverability={discoverability} ist nicht user-facing"
+            )
+        if status == "deprecated":
+            if not str(fm.get("replacedBy", "")).strip():
+                errors.append(f"{skill_file.relative_to(ROOT)}: deprecated erfordert replacedBy")
+            if discoverability != "compatibility":
+                errors.append(
+                    f"{skill_file.relative_to(ROOT)}: deprecated erfordert discoverability=compatibility"
+                )
+            if not str(fm.get("deprecatedSince", "")).strip():
+                errors.append(f"{skill_file.relative_to(ROOT)}: deprecated erfordert deprecatedSince")
+            if user_facing:
+                errors.append(f"{skill_file.relative_to(ROOT)}: deprecated darf nicht userFacing=true sein")
+        elif discoverability == "compatibility":
+            errors.append(
+                f"{skill_file.relative_to(ROOT)}: discoverability=compatibility erfordert status=deprecated"
+            )
+
         if status == "stable" and user_facing and not evaluation.exists():
             errors.append(
                 f"{skill_file.relative_to(ROOT)}: stabiler user-facing Entrypoint ohne tests/evaluation.json"
