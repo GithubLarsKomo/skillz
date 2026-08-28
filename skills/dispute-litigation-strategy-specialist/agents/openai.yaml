@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dispute & Litigation Strategy"
+  short_description: "Strukturiert Claims, Beweise, Fristen, Vergleich und Counsel-Handoff."
+policy:
+  allow_implicit_invocation: true
