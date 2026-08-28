@@ -7,6 +7,8 @@ description: Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gem
 
 ## Ziel
 
+Die Multi-Source-Arbitration und Synthese bleiben in diesem Skill. Sobald `multi-source-learning-model.json` fixiert ist, wird die gemeinsame Design-, Visual-, Render- und Cross-Format-QA-Schicht über `learning-delivery-workflow` ausgeführt.
+
 Mehrere Videos werden zunächst **einzeln evidenzgebunden analysiert** und erst danach zu einer gemeinsamen Lernbasis synthetisiert. Die Ausgabe folgt der Lernlogik und nicht der Video-Reihenfolge.
 
 ```text

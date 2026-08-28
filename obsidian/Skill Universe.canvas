@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n270 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n271 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -289,7 +289,7 @@
       "x": 3660,
       "y": 0,
       "width": 1120,
-      "height": 2060,
+      "height": 2200,
       "color": "4"
     },
     {
@@ -464,10 +464,19 @@
       "height": 110
     },
     {
+      "id": "skill-learning-delivery-workflow",
+      "type": "file",
+      "file": "skills/learning-delivery-workflow.md",
+      "x": 4030,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-learning-mission",
       "type": "file",
       "file": "skills/learning-mission.md",
-      "x": 4030,
+      "x": 4360,
       "y": 910,
       "width": 300,
       "height": 110
@@ -476,8 +485,8 @@
       "id": "skill-learning-next-step",
       "type": "file",
       "file": "skills/learning-next-step.md",
-      "x": 4360,
-      "y": 910,
+      "x": 3700,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -485,7 +494,7 @@
       "id": "skill-learning-path-planner",
       "type": "file",
       "file": "skills/learning-path-planner.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -494,7 +503,7 @@
       "id": "skill-learning-source-arbitration",
       "type": "file",
       "file": "skills/learning-source-arbitration.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -503,8 +512,8 @@
       "id": "skill-learning-state",
       "type": "file",
       "file": "skills/learning-state.md",
-      "x": 4360,
-      "y": 1050,
+      "x": 3700,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -512,7 +521,7 @@
       "id": "skill-learning-visual-planner",
       "type": "file",
       "file": "skills/learning-visual-planner.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -521,7 +530,7 @@
       "id": "skill-llm-generation-evidence-assessment",
       "type": "file",
       "file": "skills/llm-generation-evidence-assessment.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -530,8 +539,8 @@
       "id": "skill-memory-sync-reconciliation",
       "type": "file",
       "file": "skills/memory-sync-reconciliation.md",
-      "x": 4360,
-      "y": 1190,
+      "x": 3700,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -539,7 +548,7 @@
       "id": "skill-merge-conflict-resolution",
       "type": "file",
       "file": "skills/merge-conflict-resolution.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -548,7 +557,7 @@
       "id": "skill-multi-source-learning-synthesis",
       "type": "file",
       "file": "skills/multi-source-learning-synthesis.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -557,8 +566,8 @@
       "id": "skill-multimodal-learning-analysis",
       "type": "file",
       "file": "skills/multimodal-learning-analysis.md",
-      "x": 4360,
-      "y": 1330,
+      "x": 3700,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -566,7 +575,7 @@
       "id": "skill-obsidian-adapter",
       "type": "file",
       "file": "skills/obsidian-adapter.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -575,7 +584,7 @@
       "id": "skill-opaque-system-analysis",
       "type": "file",
       "file": "skills/opaque-system-analysis.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -584,8 +593,8 @@
       "id": "skill-openasr-offline-model-import",
       "type": "file",
       "file": "skills/openasr-offline-model-import.md",
-      "x": 4360,
-      "y": 1470,
+      "x": 3700,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -593,7 +602,7 @@
       "id": "skill-product-comparison-ranking",
       "type": "file",
       "file": "skills/product-comparison-ranking.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -602,7 +611,7 @@
       "id": "skill-regulated-product-context",
       "type": "file",
       "file": "skills/regulated-product-context.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -611,8 +620,8 @@
       "id": "skill-regulatory-evidence-traceability",
       "type": "file",
       "file": "skills/regulatory-evidence-traceability.md",
-      "x": 4360,
-      "y": 1610,
+      "x": 3700,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -620,7 +629,7 @@
       "id": "skill-round-based-requirements-grilling",
       "type": "file",
       "file": "skills/round-based-requirements-grilling.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -629,7 +638,7 @@
       "id": "skill-source-to-context",
       "type": "file",
       "file": "skills/source-to-context.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -638,8 +647,8 @@
       "id": "skill-synapse-orchestrator",
       "type": "file",
       "file": "skills/synapse-orchestrator.md",
-      "x": 4360,
-      "y": 1750,
+      "x": 3700,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -647,7 +656,7 @@
       "id": "skill-test-driven-vertical-slice",
       "type": "file",
       "file": "skills/test-driven-vertical-slice.md",
-      "x": 3700,
+      "x": 4030,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -656,7 +665,7 @@
       "id": "skill-two-axis-compliance-review",
       "type": "file",
       "file": "skills/two-axis-compliance-review.md",
-      "x": 4030,
+      "x": 4360,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -665,8 +674,8 @@
       "id": "skill-youtube-video-ingestion",
       "type": "file",
       "file": "skills/youtube-video-ingestion.md",
-      "x": 4360,
-      "y": 1890,
+      "x": 3700,
+      "y": 2030,
       "width": 300,
       "height": 110
     },
@@ -4191,9 +4200,9 @@
     {
       "id": "requires-e548d6e2f919",
       "fromNode": "skill-frontend-design-system-context",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-round-based-requirements-grilling",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5253,17 +5262,89 @@
     {
       "id": "requires-fd3bd78fce3f",
       "fromNode": "skill-learning-assessment-spec",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-learning-mission",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-16c0e542cd4c",
       "fromNode": "skill-learning-assessment-spec",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-learning-state",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1cfb5c99f7a6",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "left",
+      "toNode": "skill-learning-artifact-qa",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8d208ae74097",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "left",
+      "toNode": "skill-learning-content-design-system",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4bf4916d013d",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "right",
+      "toNode": "skill-learning-document-delivery",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6917b16a8adc",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "right",
+      "toNode": "skill-learning-image-generator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6a97716f8a5a",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "right",
+      "toNode": "skill-learning-landingpage-renderer",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c620d9764111",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "right",
+      "toNode": "skill-learning-svg-generator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d00c6029db32",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "right",
+      "toNode": "skill-learning-visual-planner",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-18d62b790676",
+      "fromNode": "skill-learning-delivery-workflow",
+      "fromSide": "right",
+      "toNode": "skill-template-presentation-workflow",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -5307,9 +5388,9 @@
     {
       "id": "requires-65d2727d3af1",
       "fromNode": "skill-learning-next-step",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-learning-mission",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5325,18 +5406,18 @@
     {
       "id": "requires-b7e755e5d121",
       "fromNode": "skill-learning-path-planner",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-course-concept-graph",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-f7624999db29",
       "fromNode": "skill-learning-source-arbitration",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-multimodal-learning-analysis",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5370,9 +5451,9 @@
     {
       "id": "requires-8ab72ff49159",
       "fromNode": "skill-learning-visual-planner",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-multimodal-learning-analysis",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6387,9 +6468,9 @@
     {
       "id": "requires-53c59a4442ba",
       "fromNode": "skill-obsidian-adapter",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-knowledge-map-generator",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7089,9 +7170,9 @@
     {
       "id": "requires-de82c48ca352",
       "fromNode": "skill-regulatory-evidence-traceability",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-regulated-product-context",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8113,47 +8194,11 @@
       "label": "requires"
     },
     {
-      "id": "requires-6a1bf994b5d6",
+      "id": "requires-79623a4727cc",
       "fromNode": "skill-youtube-course-builder-workflow",
       "fromSide": "left",
-      "toNode": "skill-learning-artifact-qa",
+      "toNode": "skill-learning-delivery-workflow",
       "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-0e1945b17050",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-content-design-system",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-3e65ba9ba42f",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-document-delivery",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-ff2888bbb923",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-image-generator",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-8ef2251f45e7",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-landingpage-renderer",
-      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8167,33 +8212,6 @@
       "label": "requires"
     },
     {
-      "id": "requires-f867dc07e90e",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-svg-generator",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-c11c7ac76a40",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-visual-planner",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-0bda927ff46c",
-      "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
-      "toNode": "skill-template-presentation-workflow",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
       "id": "requires-249ced83a1a9",
       "fromNode": "skill-youtube-course-builder-workflow",
       "fromSide": "right",
@@ -8203,47 +8221,11 @@
       "label": "requires"
     },
     {
-      "id": "requires-9bb69a770926",
+      "id": "requires-c67e6d1a61c1",
       "fromNode": "skill-youtube-learning-workflow",
       "fromSide": "left",
-      "toNode": "skill-learning-artifact-qa",
+      "toNode": "skill-learning-delivery-workflow",
       "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-2383c7c76016",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-content-design-system",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-00fec29dadbc",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-document-delivery",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-89d9ad9d00aa",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-image-generator",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-89f9369fb3e0",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-landingpage-renderer",
-      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8252,24 +8234,6 @@
       "fromNode": "skill-youtube-learning-workflow",
       "fromSide": "left",
       "toNode": "skill-learning-summary-synthesis",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-89e146f71907",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-svg-generator",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-670e3474d4f7",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-visual-planner",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
@@ -8293,15 +8257,6 @@
       "label": "requires"
     },
     {
-      "id": "requires-b2e953edf9b1",
-      "fromNode": "skill-youtube-learning-workflow",
-      "fromSide": "right",
-      "toNode": "skill-template-presentation-workflow",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
       "id": "requires-5771b29a411b",
       "fromNode": "skill-youtube-learning-workflow",
       "fromSide": "left",
@@ -8311,46 +8266,10 @@
       "label": "requires"
     },
     {
-      "id": "requires-f096ba2eb1be",
+      "id": "requires-f1b3c88c7f38",
       "fromNode": "skill-youtube-playlist-learning-workflow",
       "fromSide": "left",
-      "toNode": "skill-learning-artifact-qa",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-bcdf6b00b771",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-content-design-system",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-52d9665582ab",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-document-delivery",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-a40849499cd7",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-image-generator",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-c68f506c300f",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-landingpage-renderer",
+      "toNode": "skill-learning-delivery-workflow",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
@@ -8365,37 +8284,10 @@
       "label": "requires"
     },
     {
-      "id": "requires-145f1ce017cd",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "right",
-      "toNode": "skill-learning-svg-generator",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-5a4151e9a335",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-learning-visual-planner",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
       "id": "requires-b5fac413b59c",
       "fromNode": "skill-youtube-playlist-learning-workflow",
       "fromSide": "left",
       "toNode": "skill-multi-source-learning-synthesis",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-e5c31d8f10cd",
-      "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
-      "toNode": "skill-template-presentation-workflow",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"

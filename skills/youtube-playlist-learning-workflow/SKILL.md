@@ -12,14 +12,7 @@ requires:
   - youtube-learning-workflow
   - learning-source-arbitration
   - multi-source-learning-synthesis
-  - learning-visual-planner
-  - learning-content-design-system
-  - learning-svg-generator
-  - learning-image-generator
-  - learning-landingpage-renderer
-  - learning-document-delivery
-  - learning-artifact-qa
-  - template-presentation-workflow
+  - learning-delivery-workflow
 outputs:
   - youtube-playlist-learning-run.json
 lastEvaluated: 2026-08-28
@@ -28,6 +21,8 @@ lastEvaluated: 2026-08-28
 # YouTube Playlist Learning Workflow
 
 ## Ziel
+
+Die Multi-Source-Arbitration und Synthese bleiben in diesem Skill. Sobald `multi-source-learning-model.json` fixiert ist, wird die gemeinsame Design-, Visual-, Render- und Cross-Format-QA-Schicht über `learning-delivery-workflow` ausgeführt.
 
 Mehrere Videos werden zunächst **einzeln evidenzgebunden analysiert** und erst danach zu einer gemeinsamen Lernbasis synthetisiert. Die Ausgabe folgt der Lernlogik und nicht der Video-Reihenfolge.
 

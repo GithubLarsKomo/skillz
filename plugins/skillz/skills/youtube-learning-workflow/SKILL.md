@@ -7,6 +7,8 @@ description: Orchestriert die tiefgehende Analyse eines YouTube-Videos zu eviden
 
 ## Ziel
 
+Die fachliche Einzelvideo-Analyse bleibt in diesem Skill. Sobald `learning-content-model.json` fixiert ist, wird Design-, Visual-, Render- und Cross-Format-QA an `learning-delivery-workflow` delegiert; die einzelnen Renderer werden hier nicht parallel orchestriert.
+
 Ein einzelnes Video wird einmal fachlich analysiert und anschließend aus **derselben kanonischen Learning-Basis** in mehrere Medien projiziert.
 
 ```text

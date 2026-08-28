@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 270,
+  "skillCount": 271,
   "entrypointCount": 228,
   "entrypointCategories": [
     "analysis",
@@ -13,8 +13,8 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 245,
-  "evaluatedSkillCount": 245,
+  "evaluationSuiteCount": 246,
+  "evaluatedSkillCount": 246,
   "evaluatedEntrypointCount": 213,
   "evaluationCoverageComplete": false,
   "evaluationPassed": true,
@@ -7041,9 +7041,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-artifact-qa.json",
@@ -7057,9 +7055,7 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7069,9 +7065,7 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7176,13 +7170,11 @@
       "requires": [],
       "dependents": [
         "learning-artifact-qa",
+        "learning-delivery-workflow",
         "learning-document-delivery",
         "learning-image-generator",
         "learning-landingpage-renderer",
-        "learning-svg-generator",
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-svg-generator"
       ],
       "outputs": [
         "learning-design-context.json"
@@ -7196,13 +7188,11 @@
           ],
           "consumerSkills": [
             "learning-artifact-qa",
+            "learning-delivery-workflow",
             "learning-document-delivery",
             "learning-image-generator",
             "learning-landingpage-renderer",
-            "learning-svg-generator",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-svg-generator"
           ]
         }
       ],
@@ -7217,6 +7207,68 @@
       }
     },
     {
+      "name": "learning-delivery-workflow",
+      "description": "Orchestriert die formatübergreifende Auslieferung eines bereits kanonischen Learning-Content-, Multi-Source- oder Course-Modells über DESIGN.md, Visualplanung, SVG/Bild-Assets, Landingpage, Präsentation, DOCX/PDF und finales Cross-Format-QA, ohne fachliche Learning-Semantik neu zu autorieren. Verwenden als interne gemeinsame Delivery-Schicht für Learning-Orchestratoren.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "template-presentation-workflow"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-delivery-bundle.json",
+        "learning-delivery-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-delivery-bundle.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-delivery-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-delivery-run.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-delivery-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "learning-document-delivery",
       "description": "Überführt ein kanonisches Learning-Content-Modell und seine Visuals DESIGN.md-konform in ein editierbares Lern-DOCX und daraus in ein geprüftes PDF, mit Corporate-Renderer-Routing wenn ein verbindlicher Firmenkontext vorliegt. Verwenden für Lernhandouts, SOP-Drafts und Video-Study-Guides; nicht zum inhaltlichen Re-Authoring beim Rendering.",
       "invocation": {
@@ -7227,9 +7279,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-document-qa.json",
@@ -7244,9 +7294,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7256,9 +7304,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7268,9 +7314,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7296,9 +7340,7 @@
         "learning-visual-planner"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-image-assets",
@@ -7312,9 +7354,7 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7324,9 +7364,7 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7351,9 +7389,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-landingpage",
@@ -7367,9 +7403,7 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7379,9 +7413,7 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7670,9 +7702,7 @@
         "learning-visual-planner"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-svg-assets",
@@ -7686,9 +7716,7 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7698,9 +7726,7 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7725,11 +7751,9 @@
         "multimodal-learning-analysis"
       ],
       "dependents": [
+        "learning-delivery-workflow",
         "learning-image-generator",
-        "learning-svg-generator",
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-svg-generator"
       ],
       "outputs": [
         "learning-visual-plan.json"
@@ -7742,11 +7766,9 @@
             "learning-visual-planner"
           ],
           "consumerSkills": [
+            "learning-delivery-workflow",
             "learning-image-generator",
-            "learning-svg-generator",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-svg-generator"
           ]
         }
       ],
@@ -10387,6 +10409,7 @@
           ],
           "consumerSkills": [
             "course-concept-graph",
+            "learning-delivery-workflow",
             "youtube-playlist-learning-workflow"
           ]
         }
@@ -15070,9 +15093,7 @@
       ],
       "dependents": [
         "euroimmun-presentation-workflow",
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "presentation-qa.md",
@@ -15088,9 +15109,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -15101,9 +15120,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -15114,9 +15131,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -15774,15 +15789,8 @@
       "requires": [
         "course-concept-graph",
         "learning-activity-generator",
-        "learning-artifact-qa",
-        "learning-content-design-system",
-        "learning-document-delivery",
-        "learning-image-generator",
-        "learning-landingpage-renderer",
+        "learning-delivery-workflow",
         "learning-path-planner",
-        "learning-svg-generator",
-        "learning-visual-planner",
-        "template-presentation-workflow",
         "youtube-playlist-learning-workflow"
       ],
       "dependents": [],
@@ -15797,7 +15805,9 @@
           "producers": [
             "youtube-course-builder-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "learning-delivery-workflow"
+          ]
         },
         {
           "output": "youtube-course-builder-run.json",
@@ -15826,17 +15836,10 @@
         "category": "workflow"
       },
       "requires": [
-        "learning-artifact-qa",
-        "learning-content-design-system",
-        "learning-document-delivery",
-        "learning-image-generator",
-        "learning-landingpage-renderer",
+        "learning-delivery-workflow",
         "learning-summary-synthesis",
-        "learning-svg-generator",
-        "learning-visual-planner",
         "multimodal-learning-analysis",
         "procedure-sop-extractor",
-        "template-presentation-workflow",
         "youtube-video-ingestion"
       ],
       "dependents": [
@@ -15854,6 +15857,7 @@
             "youtube-learning-workflow"
           ],
           "consumerSkills": [
+            "learning-delivery-workflow",
             "youtube-playlist-learning-workflow"
           ]
         },
@@ -15886,16 +15890,9 @@
         "category": "workflow"
       },
       "requires": [
-        "learning-artifact-qa",
-        "learning-content-design-system",
-        "learning-document-delivery",
-        "learning-image-generator",
-        "learning-landingpage-renderer",
+        "learning-delivery-workflow",
         "learning-source-arbitration",
-        "learning-svg-generator",
-        "learning-visual-planner",
         "multi-source-learning-synthesis",
-        "template-presentation-workflow",
         "youtube-learning-workflow"
       ],
       "dependents": [

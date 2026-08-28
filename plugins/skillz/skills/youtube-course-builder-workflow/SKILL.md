@@ -7,6 +7,8 @@ description: Baut aus mehreren YouTube-Videos oder einem Multi-Source-Learning-M
 
 ## Ziel
 
+Course Concept, Learning Path und Activities bleiben in diesem Skill. Nach dem Lock von `course-learning-model.json` wird die gemeinsame Design-, Visual-, Render- und Cross-Format-QA-Schicht über `learning-delivery-workflow` ausgeführt.
+
 Aus einer Playlist, einem URL-Set oder einem bestehenden `multi-source-learning-model.json` wird ein **didaktisch strukturierter Kurs**. Die Reihenfolge folgt fachlichen Voraussetzungen und Lernzielen, nicht der Reihenfolge der Videos.
 
 ```text

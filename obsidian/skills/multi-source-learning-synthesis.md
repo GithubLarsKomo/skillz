@@ -48,6 +48,7 @@ Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten g
 ### `multi-source-learning-model.json`
 
 - [[skills/course-concept-graph|course-concept-graph]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation

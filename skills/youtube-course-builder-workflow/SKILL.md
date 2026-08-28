@@ -13,14 +13,7 @@ requires:
   - course-concept-graph
   - learning-path-planner
   - learning-activity-generator
-  - learning-visual-planner
-  - learning-content-design-system
-  - learning-svg-generator
-  - learning-image-generator
-  - learning-landingpage-renderer
-  - template-presentation-workflow
-  - learning-document-delivery
-  - learning-artifact-qa
+  - learning-delivery-workflow
 outputs:
   - course-learning-model.json
   - youtube-course-builder-run.json
@@ -30,6 +23,8 @@ lastEvaluated: 2026-08-28
 # YouTube Course Builder Workflow
 
 ## Ziel
+
+Course Concept, Learning Path und Activities bleiben in diesem Skill. Nach dem Lock von `course-learning-model.json` wird die gemeinsame Design-, Visual-, Render- und Cross-Format-QA-Schicht über `learning-delivery-workflow` ausgeführt.
 
 Aus einer Playlist, einem URL-Set oder einem bestehenden `multi-source-learning-model.json` wird ein **didaktisch strukturierter Kurs**. Die Reihenfolge folgt fachlichen Voraussetzungen und Lernzielen, nicht der Reihenfolge der Videos.
 

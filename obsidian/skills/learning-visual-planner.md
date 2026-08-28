@@ -30,11 +30,9 @@ Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visual
 
 ## Required by
 
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -44,11 +42,9 @@ Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visual
 
 ### `learning-visual-plan.json`
 
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 

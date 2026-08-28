@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **42**
+Skills: **43**
 
 - [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
@@ -31,6 +31,7 @@ Skills: **42**
 - [[skills/learning-assessment|learning-assessment]]
 - [[skills/learning-assessment-spec|learning-assessment-spec]]
 - [[skills/learning-content-design-system|learning-content-design-system]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-mission|learning-mission]]
 - [[skills/learning-next-step|learning-next-step]]
 - [[skills/learning-path-planner|learning-path-planner]]

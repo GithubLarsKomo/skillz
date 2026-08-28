@@ -30,9 +30,7 @@ Prüft HTML-, PPTX-, DOCX- und PDF-Lernartefakte sowie ihre SVG-/Bildassets geme
 
 ## Required by
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ## Outputs
 
@@ -43,15 +41,11 @@ Prüft HTML-, PPTX-, DOCX- und PDF-Lernartefakte sowie ihre SVG-/Bildassets geme
 
 ### `learning-artifact-qa.json`
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ### `learning-artifact-qa.md`
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ## Evaluation
 

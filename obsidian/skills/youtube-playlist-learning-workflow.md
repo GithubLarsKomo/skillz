@@ -26,16 +26,9 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ## Requires
 
-- [[skills/learning-artifact-qa|learning-artifact-qa]]
-- [[skills/learning-content-design-system|learning-content-design-system]]
-- [[skills/learning-document-delivery|learning-document-delivery]]
-- [[skills/learning-image-generator|learning-image-generator]]
-- [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-source-arbitration|learning-source-arbitration]]
-- [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/multi-source-learning-synthesis|multi-source-learning-synthesis]]
-- [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 
 ## Required by

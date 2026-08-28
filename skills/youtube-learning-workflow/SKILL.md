@@ -13,14 +13,7 @@ requires:
   - multimodal-learning-analysis
   - learning-summary-synthesis
   - procedure-sop-extractor
-  - learning-visual-planner
-  - learning-content-design-system
-  - learning-svg-generator
-  - learning-image-generator
-  - learning-landingpage-renderer
-  - learning-document-delivery
-  - learning-artifact-qa
-  - template-presentation-workflow
+  - learning-delivery-workflow
 outputs:
   - learning-content-model.json
   - youtube-learning-run.json
@@ -30,6 +23,8 @@ lastEvaluated: 2026-08-28
 # YouTube Learning Workflow
 
 ## Ziel
+
+Die fachliche Einzelvideo-Analyse bleibt in diesem Skill. Sobald `learning-content-model.json` fixiert ist, wird Design-, Visual-, Render- und Cross-Format-QA an `learning-delivery-workflow` delegiert; die einzelnen Renderer werden hier nicht parallel orchestriert.
 
 Ein einzelnes Video wird einmal fachlich analysiert und anschließend aus **derselben kanonischen Learning-Basis** in mehrere Medien projiziert.
 
