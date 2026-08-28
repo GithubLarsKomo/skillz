@@ -1,0 +1,5 @@
+interface:
+  display_name: "Executive Legal & Compliance Governance"
+  short_description: "Verdichtet Legal-/Compliance-Risiken in eine entscheidungsfähige Executive Queue."
+policy:
+  allow_implicit_invocation: true
