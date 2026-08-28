@@ -38,6 +38,7 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/contract-review|contract-review]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -48,6 +49,8 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Outputs
@@ -69,6 +72,7 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/contract-review|contract-review]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -79,6 +83,8 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `legal-context.md`
@@ -91,6 +97,7 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/contract-review|contract-review]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -101,6 +108,8 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `legal-jurisdiction-map.json`
@@ -113,6 +122,7 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/contract-review|contract-review]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -123,6 +133,8 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `legal-research-open-questions.json`
@@ -135,6 +147,7 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/contract-review|contract-review]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -145,6 +158,8 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Evaluation

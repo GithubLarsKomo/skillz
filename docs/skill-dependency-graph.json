@@ -420,6 +420,20 @@
       ]
     },
     {
+      "name": "dispute-litigation-strategy-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "claim-defense-matrix.json",
+        "dispute-strategy.json",
+        "litigation-counsel-brief.md"
+      ]
+    },
+    {
       "name": "document-generation-forensics",
       "requires": [],
       "consumes": [],
@@ -2252,6 +2266,20 @@
       ]
     },
     {
+      "name": "product-liability-safety-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "liability-evidence-map.json",
+        "product-liability-assessment.json",
+        "product-safety-legal-gates.json"
+      ]
+    },
+    {
       "name": "project-beta-readiness",
       "requires": [
         "iterate-software-projects"
@@ -2911,6 +2939,20 @@
       ]
     },
     {
+      "name": "trade-sanctions-export-control-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "export-license-gates.json",
+        "sanctions-screening-route-map.json",
+        "trade-control-assessment.json"
+      ]
+    },
+    {
       "name": "two-axis-code-review",
       "requires": [
         "agent-handoff",
@@ -3200,6 +3242,18 @@
     {
       "from": "disciplined-diagnosis",
       "to": "iterate-software-projects"
+    },
+    {
+      "from": "dispute-litigation-strategy-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "dispute-litigation-strategy-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "dispute-litigation-strategy-specialist",
+      "to": "privilege-and-counsel-routing"
     },
     {
       "from": "domain-model-maintenance",
@@ -4590,6 +4644,18 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "product-liability-safety-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "product-liability-safety-law-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "product-liability-safety-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
       "from": "project-beta-readiness",
       "to": "iterate-software-projects"
     },
@@ -5080,6 +5146,18 @@
     {
       "from": "throwaway-prototype",
       "to": "spec-to-vertical-issues"
+    },
+    {
+      "from": "trade-sanctions-export-control-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "trade-sanctions-export-control-specialist",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "trade-sanctions-export-control-specialist",
+      "to": "privilege-and-counsel-routing"
     },
     {
       "from": "two-axis-code-review",
@@ -5765,6 +5843,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "claim-defense-matrix.json",
+      "producers": [
+        "dispute-litigation-strategy-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "claims-consistency-map.json",
       "producers": [
         "regulatory-claims-consistency"
@@ -5832,6 +5919,7 @@
         "competition-antitrust-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-association-law-specialist",
         "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
@@ -5840,7 +5928,9 @@
         "legal-compliance-risk-assessment",
         "legal-negotiation-strategy",
         "legal-specialist-router",
-        "privacy-data-law-specialist"
+        "privacy-data-law-specialist",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6563,11 +6653,14 @@
         "competition-antitrust-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-employment-labor-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -6915,6 +7008,15 @@
       "output": "disposal-record.json",
       "producers": [
         "throwaway-prototype"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "dispute-strategy.json",
+      "producers": [
+        "dispute-litigation-strategy-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -7402,6 +7504,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "export-license-gates.json",
+      "producers": [
+        "trade-sanctions-export-control-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "external-counsel-brief.md",
       "producers": [
         "privilege-and-counsel-routing"
@@ -7410,11 +7521,14 @@
         "competition-antitrust-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-employment-labor-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -8626,6 +8740,7 @@
         "contract-review",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-association-law-specialist",
         "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
@@ -8636,6 +8751,8 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -8655,6 +8772,7 @@
         "contract-review",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-association-law-specialist",
         "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
@@ -8665,6 +8783,8 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -8680,6 +8800,7 @@
         "competition-antitrust-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-association-law-specialist",
         "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
@@ -8688,7 +8809,9 @@
         "legal-compliance-risk-assessment",
         "legal-negotiation-strategy",
         "legal-specialist-router",
-        "privacy-data-law-specialist"
+        "privacy-data-law-specialist",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8756,6 +8879,7 @@
         "contract-review",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-association-law-specialist",
         "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
@@ -8766,6 +8890,8 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -8839,6 +8965,7 @@
         "contract-review",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-association-law-specialist",
         "german-employment-labor-law-specialist",
         "german-sports-law-specialist",
@@ -8849,6 +8976,8 @@
         "legal-matter-wayfinder",
         "legal-specialist-router",
         "privacy-data-law-specialist",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -8929,9 +9058,27 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "liability-evidence-map.json",
+      "producers": [
+        "product-liability-safety-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "lifecycle-impact-gates.json",
       "producers": [
         "regulatory-change-impact-orchestrator"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "litigation-counsel-brief.md",
+      "producers": [
+        "dispute-litigation-strategy-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -9992,11 +10139,14 @@
         "competition-antitrust-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "dispute-litigation-strategy-specialist",
         "german-employment-labor-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
         "legal-matter-final-gate",
+        "product-liability-safety-law-specialist",
+        "trade-sanctions-export-control-specialist",
         "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
@@ -10052,6 +10202,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "product-liability-assessment.json",
+      "producers": [
+        "product-liability-safety-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "product-ranking.json",
       "producers": [
         "product-comparison-ranking"
@@ -10072,6 +10231,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "product-safety-legal-gates.json",
+      "producers": [
+        "product-liability-safety-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "progress summary",
@@ -11133,6 +11301,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "sanctions-screening-route-map.json",
+      "producers": [
+        "trade-sanctions-export-control-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "scientific-validity-assessment.json",
       "producers": [
         "ivdr-scientific-validity"
@@ -11644,6 +11821,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "trade-control-assessment.json",
+      "producers": [
+        "trade-sanctions-export-control-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "training-adaptation-decision.json",
       "producers": [
         "sport-training-adaptation-engine"
@@ -11972,6 +12158,7 @@
     "cdx-scope-assessment.json",
     "change-integration-status.json",
     "claim-conflicts.json",
+    "claim-defense-matrix.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
@@ -11999,6 +12186,7 @@
     "data-processing-role-map.json",
     "de-novo-risk-control-rationale.md",
     "disposal-record.json",
+    "dispute-strategy.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -12023,6 +12211,7 @@
     "execution plan",
     "executive-search-brief.md",
     "expert handoff",
+    "export-license-gates.json",
     "fda-acceptance-preflight.json",
     "fda-device-listing-readiness.json",
     "fda-recall-authority-state.json",
@@ -12075,7 +12264,9 @@
     "legal-matter-handoff.json",
     "legal-matter-plan.md",
     "legal-matter-status.json",
+    "liability-evidence-map.json",
     "lifecycle-impact-gates.json",
+    "litigation-counsel-brief.md",
     "llm-generation-review.json",
     "llm-generation-review.md",
     "management-review-effectiveness-gaps.json",
@@ -12118,6 +12309,8 @@
     "process-validation-assessment.json",
     "process-validation-protocol.md",
     "process-validation-strategy.json",
+    "product-liability-assessment.json",
+    "product-safety-legal-gates.json",
     "progress summary",
     "prototype-brief.md",
     "prototype-evidence.json",
@@ -12144,6 +12337,7 @@
     "role-architecture.md",
     "role-requirements-report.md",
     "rowing-legal-open-points.json",
+    "sanctions-screening-route-map.json",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
@@ -12159,6 +12353,7 @@
     "synchronization manifest",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
+    "trade-control-assessment.json",
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
     "transaction-specialist-work-orders.json",
@@ -12197,6 +12392,7 @@
     "cdx-scope-assessment.json",
     "change-integration-status.json",
     "claim-conflicts.json",
+    "claim-defense-matrix.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
@@ -12224,6 +12420,7 @@
     "data-processing-role-map.json",
     "de-novo-risk-control-rationale.md",
     "disposal-record.json",
+    "dispute-strategy.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -12248,6 +12445,7 @@
     "execution plan",
     "executive-search-brief.md",
     "expert handoff",
+    "export-license-gates.json",
     "fda-acceptance-preflight.json",
     "fda-device-listing-readiness.json",
     "fda-recall-authority-state.json",
@@ -12300,7 +12498,9 @@
     "legal-matter-handoff.json",
     "legal-matter-plan.md",
     "legal-matter-status.json",
+    "liability-evidence-map.json",
     "lifecycle-impact-gates.json",
+    "litigation-counsel-brief.md",
     "llm-generation-review.json",
     "llm-generation-review.md",
     "management-review-effectiveness-gaps.json",
@@ -12343,6 +12543,8 @@
     "process-validation-assessment.json",
     "process-validation-protocol.md",
     "process-validation-strategy.json",
+    "product-liability-assessment.json",
+    "product-safety-legal-gates.json",
     "progress summary",
     "prototype-brief.md",
     "prototype-evidence.json",
@@ -12369,6 +12571,7 @@
     "role-architecture.md",
     "role-requirements-report.md",
     "rowing-legal-open-points.json",
+    "sanctions-screening-route-map.json",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
@@ -12384,6 +12587,7 @@
     "synchronization manifest",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
+    "trade-control-assessment.json",
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
     "transaction-specialist-work-orders.json",

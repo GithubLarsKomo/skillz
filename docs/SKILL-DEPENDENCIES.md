@@ -66,6 +66,9 @@ graph TD
   design_control_traceability --> regulated_product_context
   design_control_traceability --> two_axis_compliance_review
   disciplined_diagnosis --> iterate_software_projects
+  dispute_litigation_strategy_specialist --> current_law_context
+  dispute_litigation_strategy_specialist --> legal_client_strategy
+  dispute_litigation_strategy_specialist --> privilege_and_counsel_routing
   domain_model_maintenance --> agent_handoff
   domain_model_maintenance --> architecture_deepening_review
   domain_model_maintenance --> decision_record
@@ -413,6 +416,9 @@ graph TD
   process_validation_iq_oq_pq --> medical_device_qms_iso13485
   process_validation_iq_oq_pq --> medical_device_risk_management_iso14971
   product_evidence_research --> research_to_evidence_note
+  product_liability_safety_law_specialist --> current_law_context
+  product_liability_safety_law_specialist --> legal_client_strategy
+  product_liability_safety_law_specialist --> privilege_and_counsel_routing
   project_beta_readiness --> iterate_software_projects
   purchase_decision_planner --> price_availability_snapshot
   purchase_decision_planner --> product_comparison_ranking
@@ -536,6 +542,9 @@ graph TD
   throwaway_prototype --> disciplined_diagnosis
   throwaway_prototype --> large_work_wayfinder
   throwaway_prototype --> spec_to_vertical_issues
+  trade_sanctions_export_control_specialist --> current_law_context
+  trade_sanctions_export_control_specialist --> legal_client_strategy
+  trade_sanctions_export_control_specialist --> privilege_and_counsel_routing
   two_axis_code_review --> agent_handoff
   two_axis_code_review --> architecture_deepening_review
   two_axis_code_review --> disciplined_diagnosis
@@ -621,13 +630,14 @@ graph TD
 | `change-integration-status.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `change-verification-needs.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
 | `claim-conflicts.json` | `regulatory-claims-consistency` | — | unconsumed |
+| `claim-defense-matrix.json` | `dispute-litigation-strategy-specialist` | — | unconsumed |
 | `claims-consistency-map.json` | `regulatory-claims-consistency` | — | unconsumed |
 | `claims-remediation-plan.md` | `regulatory-claims-consistency` | — | unconsumed |
 | `class-d-conformity-plan.json` | `ivdr-class-d-conformity` | — | unconsumed |
 | `class-d-external-dependencies.json` | `ivdr-class-d-conformity` | — | unconsumed |
 | `clia-evidence-gaps.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
 | `clia-waiver-strategy.json` | `fda-ivd-clia-waiver` | `fda-dual-510k-clia-waiver` | inferred |
-| `client-strategy.json` | `legal-client-strategy` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-negotiation-strategy`, `legal-specialist-router`, `privacy-data-law-specialist` | inferred |
+| `client-strategy.json` | `legal-client-strategy` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-negotiation-strategy`, `legal-specialist-router`, `privacy-data-law-specialist`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist` | inferred |
 | `clinical-evidence-actions.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-evidence-delta.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-evidence-impact-map.json` | `clinical-evidence-update-impact` | — | unconsumed |
@@ -688,7 +698,7 @@ graph TD
 | `correction-removal-action-plan.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-assessment.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-reporting-state.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
-| `counsel-scope.json` | `privilege-and-counsel-routing` | `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-employment-labor-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-matter-final-gate`, `whistleblowing-law-specialist` | inferred |
+| `counsel-scope.json` | `privilege-and-counsel-routing` | `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-employment-labor-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-matter-final-gate`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
 | `customer-communication-record.json` | `medical-device-complaint-customer-followup` | `medical-device-complaint-regulatory-routing` | inferred |
 | `customer-contact-record.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
 | `customer-contact-triage.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
@@ -716,6 +726,7 @@ graph TD
 | `diagnosis-report.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `diagnosis-residual-risk-handoff.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `disposal-record.json` | `throwaway-prototype` | — | unconsumed |
+| `dispute-strategy.json` | `dispute-litigation-strategy-specialist` | — | unconsumed |
 | `docs/agents/CONFIG.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/CONTEXT.md` | `repository-skill-bootstrap` | — | unconsumed |
 | `docs/agents/DECISIONS.md` | `repository-skill-bootstrap` | — | unconsumed |
@@ -759,7 +770,8 @@ graph TD
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
-| `external-counsel-brief.md` | `privilege-and-counsel-routing` | `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-employment-labor-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-matter-final-gate`, `whistleblowing-law-specialist` | inferred |
+| `export-license-gates.json` | `trade-sanctions-export-control-specialist` | — | unconsumed |
+| `external-counsel-brief.md` | `privilege-and-counsel-routing` | `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-employment-labor-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-matter-final-gate`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
 | `fda-acceptance-preflight.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `fda-device-classification.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver` | inferred |
 | `fda-device-listing-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
@@ -872,27 +884,29 @@ graph TD
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
-| `legal-authority-evidence.json` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `whistleblowing-law-specialist` | inferred |
-| `legal-context.md` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `whistleblowing-law-specialist` | inferred |
-| `legal-decision-boundaries.json` | `legal-client-strategy` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-negotiation-strategy`, `legal-specialist-router`, `privacy-data-law-specialist` | inferred |
+| `legal-authority-evidence.json` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
+| `legal-context.md` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
+| `legal-decision-boundaries.json` | `legal-client-strategy` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-negotiation-strategy`, `legal-specialist-router`, `privacy-data-law-specialist`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist` | inferred |
 | `legal-dependency-graph.json` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
 | `legal-final-gate.json` | `legal-matter-final-gate` | `compliance-management-workflow`, `contract-matter-workflow`, `internal-investigation-workflow`, `legal-compliance-office` | inferred |
 | `legal-intake-open-points.json` | `legal-matter-intake` | `legal-client-strategy`, `legal-compliance-office`, `privilege-and-counsel-routing` | inferred |
 | `legal-investigation-backlog.json` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
-| `legal-jurisdiction-map.json` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `whistleblowing-law-specialist` | inferred |
+| `legal-jurisdiction-map.json` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
 | `legal-matter-handoff.json` | `legal-compliance-office` | — | unconsumed |
 | `legal-matter-plan.md` | `legal-compliance-office` | — | unconsumed |
 | `legal-matter-status.json` | `legal-compliance-office` | — | unconsumed |
 | `legal-matter.json` | `legal-matter-intake` | `legal-client-strategy`, `legal-compliance-office`, `privilege-and-counsel-routing` | inferred |
 | `legal-open-points.md` | `legal-matter-final-gate` | `compliance-management-workflow`, `contract-matter-workflow`, `internal-investigation-workflow`, `legal-compliance-office` | inferred |
-| `legal-research-open-questions.json` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `whistleblowing-law-specialist` | inferred |
+| `legal-research-open-questions.json` | `current-law-context` | `agreement-type-analysis`, `competition-antitrust-law-specialist`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-association-law-specialist`, `german-employment-labor-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `privacy-data-law-specialist`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
 | `legal-risk-decision-handoff.json` | `legal-compliance-risk-assessment` | `compliance-control-mapping`, `investigation-findings-remediation`, `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
 | `legal-risk-register.json` | `legal-compliance-risk-assessment` | `compliance-control-mapping`, `investigation-findings-remediation`, `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
 | `legal-specialist-integration-status.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
 | `legal-specialist-route-map.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
 | `legal-specialist-work-orders.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
 | `legal-wayfinding-brief.md` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
+| `liability-evidence-map.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
+| `litigation-counsel-brief.md` | `dispute-litigation-strategy-specialist` | — | unconsumed |
 | `llm-generation-assessment.json` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
 | `llm-generation-assessment.md` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
 | `llm-generation-review.json` | `llm-generation-review-workflow` | — | unconsumed |
@@ -991,14 +1005,16 @@ graph TD
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
 | `privacy-data-law-assessment.json` | `privacy-data-law-specialist` | — | unconsumed |
 | `privacy-governance.md` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
-| `privilege-routing.json` | `privilege-and-counsel-routing` | `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `german-employment-labor-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-matter-final-gate`, `whistleblowing-law-specialist` | inferred |
+| `privilege-routing.json` | `privilege-and-counsel-routing` | `competition-antitrust-law-specialist`, `corporate-governance-law-specialist`, `corporate-transactions-ma-specialist`, `dispute-litigation-strategy-specialist`, `german-employment-labor-law-specialist`, `investigation-evidence-preservation`, `ip-licensing-law-specialist`, `legal-compliance-office`, `legal-matter-final-gate`, `product-liability-safety-law-specialist`, `trade-sanctions-export-control-specialist`, `whistleblowing-law-specialist` | inferred |
 | `process-validation-assessment.json` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `process-validation-protocol.md` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `process-validation-strategy.json` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `product-evidence-set.json` | `product-evidence-research` | `purchase-decision-planner` | inferred |
 | `product-evidence-set.md` | `product-evidence-research` | `purchase-decision-planner` | inferred |
+| `product-liability-assessment.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `product-ranking.json` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
 | `product-ranking.md` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
+| `product-safety-legal-gates.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
@@ -1069,6 +1085,7 @@ graph TD
 | `role-requirements-report.md` | `role-requirements-grilling` | — | unconsumed |
 | `role-scorecard.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring` | explicit |
 | `rowing-legal-open-points.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
+| `sanctions-screening-route-map.json` | `trade-sanctions-export-control-specialist` | — | unconsumed |
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `se-evidence-gaps.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
@@ -1116,6 +1133,7 @@ graph TD
 | `thought-graph.json` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
 | `thought-journal.json` | `thought-capture-journal` | `thought-graph-extractor`, `thought-to-concept-flow` | inferred |
 | `thought-journal.md` | `thought-capture-journal` | `thought-graph-extractor`, `thought-to-concept-flow` | inferred |
+| `trade-control-assessment.json` | `trade-sanctions-export-control-specialist` | — | unconsumed |
 | `training-adaptation-decision.json` | `sport-training-adaptation-engine` | `sport-athlete-management` | inferred |
 | `training-music-profile.json` | `sport-training-music` | `sport-athlete-management` | inferred |
 | `transaction-gate-map.json` | `corporate-transactions-ma-specialist` | — | unconsumed |

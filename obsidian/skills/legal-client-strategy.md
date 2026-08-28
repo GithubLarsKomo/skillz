@@ -34,6 +34,7 @@ tags:
 - [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -43,6 +44,8 @@ tags:
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 
 ## Outputs
 
@@ -57,6 +60,7 @@ tags:
 - [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -66,6 +70,8 @@ tags:
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 
 ### `legal-decision-boundaries.json`
 
@@ -73,6 +79,7 @@ tags:
 - [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
 - [[skills/corporate-governance-law-specialist|corporate-governance-law-specialist]]
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
+- [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-employment-labor-law-specialist|german-employment-labor-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
@@ -82,6 +89,8 @@ tags:
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
+- [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
 
 ## Evaluation
 

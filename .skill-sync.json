@@ -206,6 +206,13 @@
         "agents/openai.yaml": "f419aee4c4793c6472bc35119d3e0a22c855336f712df05172ca29f39d84cbdc"
       }
     },
+    "dispute-litigation-strategy-specialist": {
+      "files": {
+        "SKILL.md": "0edc0b0ff4d8c25b02354aefd01cbfba7648aa5cdd31ba01bc35c2468653d1c6",
+        "agents/openai.yaml": "23b907f3d674ef444988ab598242ebd6228c678d4414b1ea32169fdef07439bf",
+        "references/authoritative-sources.md": "ddf27edee41732c19961365b04e2b93bc6a27ccd8030cd805516db6c36c1ad0e"
+      }
+    },
     "document-generation-forensics": {
       "files": {
         "SKILL.md": "7d9edba01c03b4a03ae30a6361d6107ad8ef93e78bb949a8ceb73daeab601425",
@@ -772,7 +779,7 @@
     },
     "legal-specialist-router": {
       "files": {
-        "SKILL.md": "5667505eee7a9d208c913765e286ce91908c3e1aa44dc6923f26af37117ba3ec",
+        "SKILL.md": "3b76344503571adf945e28613fcae51675fd893f217dac402edf35ce0d561b14",
         "agents/openai.yaml": "ff6a8072537f63d5328ec41f062206c255b7efebf021b3aba3b25f2e7d247573"
       }
     },
@@ -1112,6 +1119,13 @@
         "scripts/normalize_product_identity.py": "e208718b16add05171569411531460c20f620aa66f19e07f6a052d25ab367f1e"
       }
     },
+    "product-liability-safety-law-specialist": {
+      "files": {
+        "SKILL.md": "2fe4b4e732e3730c9002d27ff50b91400f3648d3593943bfffe635bc3e5b316d",
+        "agents/openai.yaml": "94037c0187de9790fb0eea56d2367a11c38b6c02dcd986abfc5530704fcc9fe5",
+        "references/authoritative-sources.md": "523cd14747e45bab78dc5783045133cc6b83dde379f10279c3142e947f14589b"
+      }
+    },
     "project-beta-readiness": {
       "files": {
         "SKILL.md": "d4e4d9c950df62cd7836b9afd4b8bae212812b19bc9ad79ebfa6cc2c487050d5",
@@ -1438,6 +1452,13 @@
       "files": {
         "SKILL.md": "8d1091d655d0f5a1b75d38993a58c1215a6a60a8d279490ba47f49e26f16ad9c",
         "agents/openai.yaml": "0f946fdd37a33ae74415afff78adda8e86ec866fd37c7a0b184163771ff8a088"
+      }
+    },
+    "trade-sanctions-export-control-specialist": {
+      "files": {
+        "SKILL.md": "a9ab94900436390ffed1fa4b9593a6c69a7438cc30e4552df795196ab3215324",
+        "agents/openai.yaml": "0635a2b0ff13dcfc23c9b3e9f4ea2102ad18c708fdc00019048fc6d6fffe85e2",
+        "references/authoritative-sources.md": "722b089a615de46b90bdd4608ad324bd555197df35b4753de739e5472d618cfb"
       }
     },
     "two-axis-code-review": {

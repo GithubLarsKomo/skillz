@@ -22,9 +22,9 @@ Unterstütze insbesondere:
 - Competition/Antitrust/Merger Control → `competition-antitrust-law-specialist`
 - Corporate Compliance einschließlich `compliance-obligation-register`, Control Mapping und Assurance
 - Whistleblowing/HinSchG und `internal-investigation-workflow`
-- Trade/Sanctions/Export
-- Product Liability/Safety
-- Disputes/Litigation
+- Trade/Sanctions/Export → `trade-sanctions-export-control-specialist`
+- Product Liability/Safety → `product-liability-safety-law-specialist`; Medical-Device-/IVD-Sicherheitsentscheidungen bleiben bei den vorhandenen Regulatory/Risk/CAPA Specialists
+- Disputes/Litigation → `dispute-litigation-strategy-specialist`
 - Tax Legal Interface
 - Real Estate
 - deutsches Vereinsrecht
@@ -38,6 +38,8 @@ Unterstütze insbesondere:
 - IP-Lizenz mit Exklusivität erzeugt getrennte Work Orders an IP/Licensing und Antitrust; Patent-/FTO-Analyse bleibt technisch/rechtlich separat.
 - Investigation mit möglicher Kündigung und Beschäftigtendaten erzeugt getrennte Work Orders an Investigation, Employment und Privacy sowie bei Bedarf Whistleblowing/Counsel.
 - Board-Entscheidung über material risk erzeugt Governance/Risk/Decision Work Orders; eine AI-Empfehlung wird nicht als Organbeschluss behandelt.
+- Internationale Technology- oder Materialtransfers erzeugen Trade/Export-Control Work Orders zusätzlich zu IP, Contract, Regulatory oder Scientific Specialists.
+- Produktschaden erzeugt getrennte Work Orders für Regulatory/Vigilance, Risk/CAPA, Product Liability und bei Streitdrohung Litigation/Preservation.
 
 ## Work Order Contract
 

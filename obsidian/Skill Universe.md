@@ -9,10 +9,10 @@ tags:
 
 > Generated from `docs/skill-capability-index.json`, `docs/skill-dependency-graph.json` and executable E2E benchmark sequences. Do not edit generated files manually.
 
-- Skills: **232**
+- Skills: **235**
 - Categories: **10**
 - Workflow views: **13**
-- Repository evaluation passed: **True**
+- Repository evaluation passed: **False**
 
 ## Views
 
@@ -26,7 +26,7 @@ tags:
 - [[categories/communication-memory|communication-memory]] (2)
 - [[categories/engineering|engineering]] (17)
 - [[categories/internal|internal]] (31)
-- [[categories/legal-specialist|legal-specialist]] (11)
+- [[categories/legal-specialist|legal-specialist]] (14)
 - [[categories/productivity|productivity]] (8)
 - [[categories/regulated-engineering|regulated-engineering]] (74)
 - [[categories/research-knowledge|research-knowledge]] (14)

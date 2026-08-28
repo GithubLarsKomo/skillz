@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **232**
-- User-facing entrypoints: **201**
-- Evaluation suites: **226**
+- Skills: **235**
+- User-facing entrypoints: **204**
+- Evaluation suites: **229**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **223**
+- Outputs without inferred hard-requires consumers: **232**
 
 ## Evaluation gaps
 
@@ -68,6 +68,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `change-integration-status.json` — producer: `regulatory-change-impact-orchestrator`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
+- `claim-defense-matrix.json` — producer: `dispute-litigation-strategy-specialist`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
 - `class-d-conformity-plan.json` — producer: `ivdr-class-d-conformity`
@@ -95,6 +96,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `data-processing-role-map.json` — producer: `privacy-data-law-specialist`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
 - `disposal-record.json` — producer: `throwaway-prototype`
+- `dispute-strategy.json` — producer: `dispute-litigation-strategy-specialist`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -119,6 +121,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `execution plan` — producer: `synapse-orchestrator`
 - `executive-search-brief.md` — producer: `job-description-authoring`
 - `expert handoff` — producer: `synapse-orchestrator`
+- `export-license-gates.json` — producer: `trade-sanctions-export-control-specialist`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
 - `fda-device-listing-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-recall-authority-state.json` — producer: `fda-recall-status-termination`
@@ -171,7 +174,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `legal-matter-handoff.json` — producer: `legal-compliance-office`
 - `legal-matter-plan.md` — producer: `legal-compliance-office`
 - `legal-matter-status.json` — producer: `legal-compliance-office`
+- `liability-evidence-map.json` — producer: `product-liability-safety-law-specialist`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
+- `litigation-counsel-brief.md` — producer: `dispute-litigation-strategy-specialist`
 - `llm-generation-review.json` — producer: `llm-generation-review-workflow`
 - `llm-generation-review.md` — producer: `llm-generation-review-workflow`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
@@ -214,6 +219,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`
 - `process-validation-protocol.md` — producer: `process-validation-iq-oq-pq`
 - `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
+- `product-liability-assessment.json` — producer: `product-liability-safety-law-specialist`
+- `product-safety-legal-gates.json` — producer: `product-liability-safety-law-specialist`
 - `progress summary` — producer: `synapse-orchestrator`
 - `prototype-brief.md` — producer: `throwaway-prototype`
 - `prototype-evidence.json` — producer: `throwaway-prototype`
@@ -240,6 +247,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `role-architecture.md` — producer: `role-architecture`
 - `role-requirements-report.md` — producer: `role-requirements-grilling`
 - `rowing-legal-open-points.json` — producer: `german-rowing-sport-law-specialist`
+- `sanctions-screening-route-map.json` — producer: `trade-sanctions-export-control-specialist`
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`
@@ -255,6 +263,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `synchronization manifest` — producer: `central-skill-repository-curation`
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
+- `trade-control-assessment.json` — producer: `trade-sanctions-export-control-specialist`
 - `transaction-gate-map.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-legal-assessment.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-specialist-work-orders.json` — producer: `corporate-transactions-ma-specialist`
