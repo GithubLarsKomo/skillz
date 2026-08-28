@@ -65,6 +65,9 @@ jobs:
         run: python scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
+      - name: Evaluate backfilled suites
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/evaluate_skills.py
       - name: Finalize architecture consolidation P0
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/finalize_architecture_consolidation_p0.py
