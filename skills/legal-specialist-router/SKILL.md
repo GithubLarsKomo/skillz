@@ -4,7 +4,7 @@ description: Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compl
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.5.0
+version: 0.6.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -32,20 +32,21 @@ Unterstütze insbesondere:
 - deutsches Individual-/Kollektivarbeitsrecht → `german-employment-labor-law-specialist`
 - Corporate Governance/Organrecht → `corporate-governance-law-specialist`
 - Corporate Transactions/M&A → `corporate-transactions-ma-specialist`
+- Corporate Compliance/Integrity/Anti-Corruption → `corporate-compliance-law-specialist` plus Obligation/Control/Investigation-Systeme
+- Digital/AI/Cyber/Data → `digital-ai-cyber-law-specialist`; technische Cybersecurity/ISMS und Medical-Device-Cybersecurity bleiben bei den vorhandenen Fach-Skills
 - allgemeines Privacy/Data Law → `privacy-data-law-specialist`; Medical-Device-/IVD-Privacy zusätzlich zum vorhandenen `medical-device-privacy-gdpr-bdsg`
 - IP/Licensing → `ip-licensing-law-specialist`; Patentlandschaft/Biopatent/FTO bleiben bei den vorhandenen Fach-Skills
 - Competition/Antitrust/Merger Control → `competition-antitrust-law-specialist`
-- Corporate Compliance einschließlich `compliance-obligation-register`, Control Mapping und Assurance
 - Whistleblowing/HinSchG und `internal-investigation-workflow`
 - Trade/Sanctions/Export → `trade-sanctions-export-control-specialist`
 - Product Liability/Safety → `product-liability-safety-law-specialist`; Medical-Device-/IVD-Sicherheitsentscheidungen bleiben bei den vorhandenen Regulatory/Risk/CAPA Specialists
 - Disputes/Litigation → `dispute-litigation-strategy-specialist`
 - Tax-relevante Legal Dependencies → `tax-legal-interface-specialist`; materielle Steuerpositionen an befugte Tax Professionals
 - Real Estate → `real-estate-law-specialist`
-- private Matters → zuerst `private-legal-matter-router`, danach passender Domain Specialist oder Counsel/Professional Gate
-- deutsches Vereinsrecht
-- deutsches Sportrecht einschließlich DOSB-Strukturen und Safe-Sport-Verfahren
-- Rudersportrecht/DRV als sportartspezifisches Overlay
+- private Matters → zuerst `private-legal-matter-router`, danach insbesondere `german-family-law-specialist`, `german-inheritance-succession-law-specialist`, `german-consumer-insurance-private-contract-law-specialist`, `german-criminal-administrative-offence-procedure-specialist` oder `german-administrative-social-traffic-law-specialist`
+- deutsches Vereinsrecht → `german-association-law-specialist`
+- deutsches Sportrecht einschließlich DOSB-Strukturen und Safe-Sport-Verfahren → `german-sports-law-specialist`
+- Rudersportrecht/DRV → `german-rowing-sport-law-specialist`
 - bestehende MDR/IVDR/FDA/QMS/Risk/Complaint/CAPA-Specialists bei regulierten Produkten.
 
 ## Cross-Domain Examples
@@ -56,6 +57,8 @@ Unterstütze insbesondere:
 - Board-Entscheidung über material risk erzeugt Governance/Risk/Decision Work Orders; eine AI-Empfehlung wird nicht als Organbeschluss behandelt.
 - Internationale Technology- oder Materialtransfers erzeugen Trade/Export-Control Work Orders zusätzlich zu IP, Contract, Regulatory oder Scientific Specialists.
 - Produktschaden erzeugt getrennte Work Orders für Regulatory/Vigilance, Risk/CAPA, Product Liability und bei Streitdrohung Litigation/Preservation.
+- AI-gestützte HR-Entscheidung erzeugt Digital/AI-, Employment-, Privacy- und ggf. Works-Council-/Governance-Work Orders statt einer monolithischen „AI-Compliance“-Antwort.
+- Korruptionsverdacht bei Distributor erzeugt Corporate-Compliance-, Investigation-, Employment-, Trade/Sanctions- und ggf. Criminal/Counsel-Work Orders.
 - Immobilientransaktion erzeugt Real-Estate-, Tax- und je nach Struktur M&A/Governance/Notary Work Orders.
 - Private Angelegenheit wird zunächst im Private Router auf Mandant, Frist, Conflict und Vertretung geprüft; Unternehmensannahmen werden nicht übernommen.
 
@@ -80,6 +83,8 @@ Unterstütze insbesondere:
 
 - Eine Work Order enthält genau eine fachlich kohärente Frage.
 - Bestehende Regulatory-/IP-/QMS-/Complaint-/CAPA-Skills werden wiederverwendet, nicht neu implementiert.
+- Corporate Compliance definiert materielle Integrity-/Organisationsfragen; Obligation Register, Controls und Investigation bleiben getrennte Systeme.
+- Digital/AI/Cyber Legal klassifiziert Rechtsregime/Rollen; technische Security-, Privacy- und Regulatory-Ownership bleibt bei den Fach-Specialists.
 - Whistleblowing-Rechtsanalyse und Investigation Fact-Finding sind getrennte Work Orders, können aber denselben Matter State nutzen.
 - Tax wird als Specialist Interface geroutet; eine Legal-Analyse wird nicht zur behaupteten Steuerberatermeinung hochgestuft.
 - Private und Corporate Matter States werden nicht vermischt.
