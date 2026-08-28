@@ -233,9 +233,9 @@
     },
     "euroimmun-presentation-workflow": {
       "files": {
-        "SKILL.md": "37a3edc13930533dda5d2f71ed677cd5c129949aee7d350706593fe2c055faf4",
-        "agents/openai.yaml": "b6330e6d885fd4ee53efd7575434d32dd6547a5429fbd1b4c441696604b6ef22",
-        "references/euroimmun-template-spec.md": "9e482df7b34e32bbdfe3ee1f09a19a399dca081b795ec0fda8bc896ca811f35e"
+        "SKILL.md": "3569db15c909edfe8128f3c7f5efe2e6d3224f8d45fbad3c596dc3a9a347ff2e",
+        "agents/openai.yaml": "2c028a778d8aa30d91ba18aec46d8827d6263b7173195477a9257eac3455534c",
+        "references/euroimmun-template-spec.md": "79311ce76a0e76406bd4c15d1650fdabe0e8903241bec74de2aeee31d2ed700e"
       }
     },
     "evidence-based-causal-investigation": {
