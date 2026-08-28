@@ -3,6 +3,7 @@ name: contract-drafting
 description: Erzeugt aus bestätigten Requirements, Client Strategy, aktuellem Rechtskontext und funktionalem Deal Model einen privaten oder beruflichen Vertragsentwurf, wahlweise auf Basis einer hochgeladenen Vorlage, und dokumentiert Platzhalter, Abweichungen, Specialist Inputs, Rechtsannahmen und offene Punkte. Verwenden für neue Vertragsentwürfe oder template-basiertes Drafting, nicht für primäre Fremdvertragsbewertung.
 userFacing: true
 implicitInvocation: false
+discoverability: advanced
 category: workflow
 version: 0.2.0
 status: candidate
