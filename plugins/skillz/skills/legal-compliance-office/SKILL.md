@@ -31,6 +31,9 @@ Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zus�
 - Verträge → kompatibler `contract-workflow` / kanonischer Contract Matter Stack.
 - Corporate Integrity/Anti-Corruption/Third Parties → `corporate-compliance-law-specialist` plus Obligation/Control/Investigation-System.
 - Digital/AI/Cyber/Data → `digital-ai-cyber-law-specialist` plus bestehende Privacy-/ISMS-/Cybersecurity-/Regulatory-Specialists.
+- Public Procurement/Healthcare → `public-procurement-healthcare-law-specialist` plus Contract/Antitrust/Compliance/Regulatory.
+- ESG/Supply Chain/Environmental → `esg-supply-chain-environmental-law-specialist` plus Supplier-/Control-/Reporting-Fachlayer.
+- Finance/Insolvency/Restructuring → `finance-insolvency-restructuring-law-specialist` plus Governance/Tax/Finance/Accounting/Counsel-Schnittstellen.
 - Compliance-System/Control Framework → `compliance-management-workflow` mit Obligation→Control→Evidence Lineage.
 - Rechtsänderungen außerhalb des Medical-Device-Spezialmonitorings → `legal-change-monitoring` → `legal-change-impact-orchestrator`.
 - Medical-Device-/IVD-Regulatory Changes → bestehendes `regulatory-change-monitoring` und `regulatory-change-impact-orchestrator`; nicht in ein generisches Legal-Monitoring umdeuten.
@@ -45,7 +48,10 @@ Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zus�
 - Privacy/Data → `privacy-data-law-specialist`; regulierte IVD/Medical-Device-Privacy zusätzlich beim vorhandenen Fach-Skill.
 - Corporate Governance → `corporate-governance-law-specialist`.
 - M&A/Transactions → `corporate-transactions-ma-specialist`.
+- Finance/Insolvency/Restructuring → `finance-insolvency-restructuring-law-specialist`.
 - Corporate Compliance/Integrity → `corporate-compliance-law-specialist`.
+- ESG/Supply Chain/Environmental → `esg-supply-chain-environmental-law-specialist`.
+- Public Procurement/Healthcare → `public-procurement-healthcare-law-specialist`.
 - Digital/AI/Cyber/Data → `digital-ai-cyber-law-specialist`.
 - IP/Licensing → `ip-licensing-law-specialist` plus vorhandene Patent/Biopatent/FTO-Skills.
 - Competition/Antitrust → `competition-antitrust-law-specialist`.
@@ -66,6 +72,9 @@ Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zus�
 - Existing Assets first: Regulatory-, QMS-, Complaint-, CAPA-, Audit-, Patent-, Biopatent-, FTO-, Research- und Grilling-Skills werden bevorzugt wiederverwendet.
 - Compliance bedeutet nicht nur Policy-Vorhandensein: materielle Pflichten, Controls, Evidenz und Assurance bleiben getrennte Layer.
 - Corporate Compliance Legal Analysis, Control Design und Investigation Fact-Finding sind getrennte Ownership-Layer.
+- ESG-/Supply-Chain-Rechtsanalyse ersetzt weder Supplier Quality noch technische Umweltbewertung oder Reporting-Fachverantwortung.
+- Public Procurement Legal ersetzt weder Tender-Fachinhalt noch Product Regulatory; Vergabe-, Competition-, Integrity- und Contract-Layer bleiben getrennt.
+- Finance/Insolvency Legal verarbeitet bestätigte Finanzdaten, ersetzt aber weder Accounting/Valuation noch Tax Professional oder formelle Insolvenzberatung.
 - Digital/AI/Cyber-Rechtsklassifikation ersetzt weder technische Security-Bewertung noch Privacy-, ISMS- oder Regulatory-Fachentscheidungen.
 - Detection einer Rechtsänderung ist weder Applicability noch Implementation noch Compliance Closure.
 - Investigation Findings ersetzen weder regulatorische Reportability noch arbeits-/straf-/datenschutzrechtliche Entscheidungsgates.
