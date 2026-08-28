@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 218,
-  "entrypointCount": 187,
+  "skillCount": 226,
+  "entrypointCount": 195,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,9 +13,9 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 212,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationSuiteCount": 220,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 2,
   "skills": [
     {
       "name": "agent-handoff",
@@ -610,6 +610,254 @@
       }
     },
     {
+      "name": "compliance-control-assurance",
+      "description": "Prüft Design und tatsächliche operative Wirksamkeit von Compliance-Kontrollen evidenzbasiert, dokumentiert Population, Sampling/Testschritte, Exceptions und Remediation und routet domänenspezifische Auditfragen an bestehende Fach-Skills.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "compliance-control-mapping"
+      ],
+      "dependents": [
+        "compliance-management-workflow"
+      ],
+      "outputs": [
+        "compliance-assurance-exceptions.json",
+        "compliance-assurance-plan.json",
+        "compliance-control-test-results.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "compliance-assurance-exceptions.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-control-assurance"
+          ],
+          "consumerSkills": [
+            "compliance-management-workflow"
+          ]
+        },
+        {
+          "output": "compliance-assurance-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-control-assurance"
+          ],
+          "consumerSkills": [
+            "compliance-management-workflow"
+          ]
+        },
+        {
+          "output": "compliance-control-test-results.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-control-assurance"
+          ],
+          "consumerSkills": [
+            "compliance-management-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "compliance-control-mapping",
+      "description": "Übersetzt verifizierte Compliance-Pflichten in prüfbare Control Objectives, präventive/detektive/korrigierende Kontrollen, Owner, Frequenzen, Systeme und Evidenz und identifiziert Design- und Coverage-Gaps. Verwenden nach einem Compliance Obligation Register.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "compliance-obligation-register",
+        "legal-compliance-risk-assessment"
+      ],
+      "dependents": [
+        "compliance-control-assurance",
+        "compliance-management-workflow",
+        "investigation-findings-remediation"
+      ],
+      "outputs": [
+        "compliance-control-design-note.md",
+        "compliance-control-gaps.json",
+        "compliance-control-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "compliance-control-design-note.md",
+          "ambiguous": false,
+          "producers": [
+            "compliance-control-mapping"
+          ],
+          "consumerSkills": [
+            "compliance-control-assurance",
+            "compliance-management-workflow",
+            "investigation-findings-remediation"
+          ]
+        },
+        {
+          "output": "compliance-control-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-control-mapping"
+          ],
+          "consumerSkills": [
+            "compliance-control-assurance",
+            "compliance-management-workflow",
+            "investigation-findings-remediation"
+          ]
+        },
+        {
+          "output": "compliance-control-map.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-control-mapping"
+          ],
+          "consumerSkills": [
+            "compliance-control-assurance",
+            "compliance-management-workflow",
+            "investigation-findings-remediation"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "compliance-management-workflow",
+      "description": "Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Register über Risk-based Control Mapping und Assurance bis zu Gaps, Remediation, Change Monitoring und Final Gate. Verwenden für Compliance-Frameworks und Management-Reviews jenseits einzelner Rechtsfragen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "compliance-control-assurance",
+        "compliance-control-mapping",
+        "compliance-obligation-register",
+        "legal-matter-final-gate"
+      ],
+      "dependents": [],
+      "outputs": [
+        "compliance-gap-remediation-plan.json",
+        "compliance-management-handoff.json",
+        "compliance-management-status.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "compliance-gap-remediation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-management-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "compliance-management-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-management-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "compliance-management-status.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-management-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "compliance-obligation-register",
+      "description": "Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quellenbelegtes Register bindender und nichtbindender Compliance-Anforderungen mit Triggern, Verantwortlichen, Fristen und Evidenzbedarf. Verwenden als Ausgangspunkt für Compliance-Systeme, Audits und Control Mapping.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context"
+      ],
+      "dependents": [
+        "compliance-control-mapping",
+        "compliance-management-workflow"
+      ],
+      "outputs": [
+        "compliance-obligation-gaps.json",
+        "compliance-obligation-register.json",
+        "compliance-obligation-source-note.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "compliance-obligation-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-obligation-register"
+          ],
+          "consumerSkills": [
+            "compliance-control-mapping",
+            "compliance-management-workflow"
+          ]
+        },
+        {
+          "output": "compliance-obligation-register.json",
+          "ambiguous": false,
+          "producers": [
+            "compliance-obligation-register"
+          ],
+          "consumerSkills": [
+            "compliance-control-mapping",
+            "compliance-management-workflow"
+          ]
+        },
+        {
+          "output": "compliance-obligation-source-note.md",
+          "ambiguous": false,
+          "producers": [
+            "compliance-obligation-register"
+          ],
+          "consumerSkills": [
+            "compliance-control-mapping",
+            "compliance-management-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": false
+      }
+    },
+    {
       "name": "composable-skill-factory",
       "description": "Entwirft, prüft und veröffentlicht kleine, komponierbare Agent-Skills mit progressiver Offenlegung, deterministischen Hilfswerkzeugen, klaren Triggern und überprüfbaren Abschlusskriterien. Verwenden, wenn aus einem wiederholbaren Workflow ein neuer Skill werden soll oder ein bestehender Skill zu groß, unklar, fragil oder schwer kombinierbar ist.",
       "invocation": {
@@ -1117,15 +1365,18 @@
       ],
       "dependents": [
         "agreement-type-analysis",
+        "compliance-obligation-register",
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
+        "investigation-evidence-preservation",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
-        "legal-specialist-router"
+        "legal-specialist-router",
+        "whistleblowing-law-specialist"
       ],
       "outputs": [
         "legal-authority-evidence.json",
@@ -1142,15 +1393,18 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
+            "investigation-evidence-preservation",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
-            "legal-specialist-router"
+            "legal-specialist-router",
+            "whistleblowing-law-specialist"
           ]
         },
         {
@@ -1161,15 +1415,18 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
+            "investigation-evidence-preservation",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
-            "legal-specialist-router"
+            "legal-specialist-router",
+            "whistleblowing-law-specialist"
           ]
         },
         {
@@ -1180,15 +1437,18 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
+            "investigation-evidence-preservation",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
-            "legal-specialist-router"
+            "legal-specialist-router",
+            "whistleblowing-law-specialist"
           ]
         },
         {
@@ -1199,15 +1459,18 @@
           ],
           "consumerSkills": [
             "agreement-type-analysis",
+            "compliance-obligation-register",
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
+            "investigation-evidence-preservation",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
             "legal-matter-wayfinder",
-            "legal-specialist-router"
+            "legal-specialist-router",
+            "whistleblowing-law-specialist"
           ]
         }
       ],
@@ -4226,6 +4489,192 @@
       }
     },
     {
+      "name": "internal-investigation-workflow",
+      "description": "Orchestriert interne Untersuchungen von Allegation-Triage, Independence/Privilege und rechtmäßiger Beweissicherung über Interview-/Fact-Finding bis Findings, Reporting, Remediation, Repressalienschutz und Final Gate. Verwenden für Whistleblowing-, Compliance-, Audit-, Safe-Sport- oder Management-Untersuchungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "investigation-evidence-preservation",
+        "investigation-findings-remediation",
+        "legal-matter-final-gate",
+        "whistleblowing-law-specialist"
+      ],
+      "dependents": [],
+      "outputs": [
+        "investigation-charter.json",
+        "investigation-handoff.json",
+        "investigation-status.json",
+        "investigation-workplan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "investigation-charter.json",
+          "ambiguous": false,
+          "producers": [
+            "internal-investigation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "investigation-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "internal-investigation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "investigation-status.json",
+          "ambiguous": false,
+          "producers": [
+            "internal-investigation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "investigation-workplan.json",
+          "ambiguous": false,
+          "producers": [
+            "internal-investigation-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "investigation-evidence-preservation",
+      "description": "Plant und dokumentiert rechtmäßige Beweissicherung für interne Untersuchungen einschließlich Originalerhalt, Collection Scope, Chain of Custody, Legal-Hold-/Retention-Konflikten, Datenschutz und Zugriffsbefugnissen. Verwenden vor oder unmittelbar zu Beginn einer internen Investigation.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "current-law-context",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [
+        "internal-investigation-workflow"
+      ],
+      "outputs": [
+        "investigation-evidence-preservation-plan.json",
+        "investigation-evidence-register.json",
+        "investigation-legal-hold-plan.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "investigation-evidence-preservation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "investigation-evidence-preservation"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        },
+        {
+          "output": "investigation-evidence-register.json",
+          "ambiguous": false,
+          "producers": [
+            "investigation-evidence-preservation"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        },
+        {
+          "output": "investigation-legal-hold-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "investigation-evidence-preservation"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "investigation-findings-remediation",
+      "description": "Übersetzt Untersuchungsevidenz in nachvollziehbare Findings, trennt Fakt, Inferenz und Rechtsbewertung und entwickelt Remediation-, Disziplinar-, Reporting-, CAPA-/Control- und Retest-Pfade. Verwenden am Ende oder bei Zwischenfeststellungen einer internen Investigation.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "compliance-control-mapping",
+        "legal-compliance-risk-assessment"
+      ],
+      "dependents": [
+        "internal-investigation-workflow"
+      ],
+      "outputs": [
+        "investigation-findings.json",
+        "investigation-remediation-plan.json",
+        "investigation-reporting-decisions.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "investigation-findings.json",
+          "ambiguous": false,
+          "producers": [
+            "investigation-findings-remediation"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        },
+        {
+          "output": "investigation-remediation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "investigation-findings-remediation"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        },
+        {
+          "output": "investigation-reporting-decisions.json",
+          "ambiguous": false,
+          "producers": [
+            "investigation-findings-remediation"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "iso13485-qms-audit",
       "description": "Plant und bewertet risikobasierte ISO-13485-QMS-Audits mit unabhängiger Evidenz, nachvollziehbarem Sampling und findingspezifischer Traceability, ohne fixe Frequenzen, Samplegrößen oder Schweregrade als Norm zu erfinden.",
       "invocation": {
@@ -5784,6 +6233,8 @@
         "legal-client-strategy"
       ],
       "dependents": [
+        "compliance-control-mapping",
+        "investigation-findings-remediation",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -5801,6 +6252,8 @@
             "legal-compliance-risk-assessment"
           ],
           "consumerSkills": [
+            "compliance-control-mapping",
+            "investigation-findings-remediation",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "legal-negotiation-strategy"
@@ -5813,6 +6266,8 @@
             "legal-compliance-risk-assessment"
           ],
           "consumerSkills": [
+            "compliance-control-mapping",
+            "investigation-findings-remediation",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "legal-negotiation-strategy"
@@ -5825,6 +6280,8 @@
             "legal-compliance-risk-assessment"
           ],
           "consumerSkills": [
+            "compliance-control-mapping",
+            "investigation-findings-remediation",
             "legal-compliance-office",
             "legal-matter-final-gate",
             "legal-negotiation-strategy"
@@ -5853,7 +6310,9 @@
         "privilege-and-counsel-routing"
       ],
       "dependents": [
+        "compliance-management-workflow",
         "contract-matter-workflow",
+        "internal-investigation-workflow",
         "legal-compliance-office"
       ],
       "outputs": [
@@ -5868,7 +6327,9 @@
             "legal-matter-final-gate"
           ],
           "consumerSkills": [
+            "compliance-management-workflow",
             "contract-matter-workflow",
+            "internal-investigation-workflow",
             "legal-compliance-office"
           ]
         },
@@ -5879,7 +6340,9 @@
             "legal-matter-final-gate"
           ],
           "consumerSkills": [
+            "compliance-management-workflow",
             "contract-matter-workflow",
+            "internal-investigation-workflow",
             "legal-compliance-office"
           ]
         }
@@ -9180,8 +9643,10 @@
         "legal-matter-intake"
       ],
       "dependents": [
+        "investigation-evidence-preservation",
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "whistleblowing-law-specialist"
       ],
       "outputs": [
         "counsel-scope.json",
@@ -9196,8 +9661,10 @@
             "privilege-and-counsel-routing"
           ],
           "consumerSkills": [
+            "investigation-evidence-preservation",
             "legal-compliance-office",
-            "legal-matter-final-gate"
+            "legal-matter-final-gate",
+            "whistleblowing-law-specialist"
           ]
         },
         {
@@ -9207,8 +9674,10 @@
             "privilege-and-counsel-routing"
           ],
           "consumerSkills": [
+            "investigation-evidence-preservation",
             "legal-compliance-office",
-            "legal-matter-final-gate"
+            "legal-matter-final-gate",
+            "whistleblowing-law-specialist"
           ]
         },
         {
@@ -9218,8 +9687,10 @@
             "privilege-and-counsel-routing"
           ],
           "consumerSkills": [
+            "investigation-evidence-preservation",
             "legal-compliance-office",
-            "legal-matter-final-gate"
+            "legal-matter-final-gate",
+            "whistleblowing-law-specialist"
           ]
         }
       ],
@@ -12745,6 +13216,68 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "whistleblowing-law-specialist",
+      "description": "Analysiert Hinweisgeber- und Meldestellenrecht mit Schwerpunkt Deutschland/EU, insbesondere HinSchG, Vertraulichkeit, Meldekanäle, Verfahrensfristen, Datenschutz, Repressalienschutz und Folgemaßnahmen. Verwenden für Whistleblowing-Systeme und einzelne Meldungen vor einer internen Untersuchung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [
+        "internal-investigation-workflow"
+      ],
+      "outputs": [
+        "reporting-office-obligations.json",
+        "whistleblowing-law-assessment.json",
+        "whistleblowing-source-note.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "reporting-office-obligations.json",
+          "ambiguous": false,
+          "producers": [
+            "whistleblowing-law-specialist"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        },
+        {
+          "output": "whistleblowing-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "whistleblowing-law-specialist"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        },
+        {
+          "output": "whistleblowing-source-note.md",
+          "ambiguous": false,
+          "producers": [
+            "whistleblowing-law-specialist"
+          ],
+          "consumerSkills": [
+            "internal-investigation-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": false
       }
     }
   ]

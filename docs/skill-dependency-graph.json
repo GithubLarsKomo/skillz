@@ -127,6 +127,58 @@
       ]
     },
     {
+      "name": "compliance-control-assurance",
+      "requires": [
+        "compliance-control-mapping"
+      ],
+      "consumes": [],
+      "outputs": [
+        "compliance-assurance-exceptions.json",
+        "compliance-assurance-plan.json",
+        "compliance-control-test-results.json"
+      ]
+    },
+    {
+      "name": "compliance-control-mapping",
+      "requires": [
+        "compliance-obligation-register",
+        "legal-compliance-risk-assessment"
+      ],
+      "consumes": [],
+      "outputs": [
+        "compliance-control-design-note.md",
+        "compliance-control-gaps.json",
+        "compliance-control-map.json"
+      ]
+    },
+    {
+      "name": "compliance-management-workflow",
+      "requires": [
+        "compliance-control-assurance",
+        "compliance-control-mapping",
+        "compliance-obligation-register",
+        "legal-matter-final-gate"
+      ],
+      "consumes": [],
+      "outputs": [
+        "compliance-gap-remediation-plan.json",
+        "compliance-management-handoff.json",
+        "compliance-management-status.json"
+      ]
+    },
+    {
+      "name": "compliance-obligation-register",
+      "requires": [
+        "current-law-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "compliance-obligation-gaps.json",
+        "compliance-obligation-register.json",
+        "compliance-obligation-source-note.md"
+      ]
+    },
+    {
       "name": "composable-skill-factory",
       "requires": [],
       "consumes": [],
@@ -928,6 +980,48 @@
       "outputs": [
         "inbox-triage.json",
         "inbox-triage.md"
+      ]
+    },
+    {
+      "name": "internal-investigation-workflow",
+      "requires": [
+        "investigation-evidence-preservation",
+        "investigation-findings-remediation",
+        "legal-matter-final-gate",
+        "whistleblowing-law-specialist"
+      ],
+      "consumes": [],
+      "outputs": [
+        "investigation-charter.json",
+        "investigation-handoff.json",
+        "investigation-status.json",
+        "investigation-workplan.json"
+      ]
+    },
+    {
+      "name": "investigation-evidence-preservation",
+      "requires": [
+        "current-law-context",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "investigation-evidence-preservation-plan.json",
+        "investigation-evidence-register.json",
+        "investigation-legal-hold-plan.md"
+      ]
+    },
+    {
+      "name": "investigation-findings-remediation",
+      "requires": [
+        "compliance-control-mapping",
+        "legal-compliance-risk-assessment"
+      ],
+      "consumes": [],
+      "outputs": [
+        "investigation-findings.json",
+        "investigation-remediation-plan.json",
+        "investigation-reporting-decisions.json"
       ]
     },
     {
@@ -2759,6 +2853,19 @@
         "compliance-requirement-coverage.json",
         "compliance-review-decision.md"
       ]
+    },
+    {
+      "name": "whistleblowing-law-specialist",
+      "requires": [
+        "current-law-context",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "reporting-office-obligations.json",
+        "whistleblowing-law-assessment.json",
+        "whistleblowing-source-note.md"
+      ]
     }
   ],
   "requirementEdges": [
@@ -2821,6 +2928,38 @@
     {
       "from": "clinical-evidence-update-impact",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "compliance-control-assurance",
+      "to": "compliance-control-mapping"
+    },
+    {
+      "from": "compliance-control-mapping",
+      "to": "compliance-obligation-register"
+    },
+    {
+      "from": "compliance-control-mapping",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "compliance-management-workflow",
+      "to": "compliance-control-assurance"
+    },
+    {
+      "from": "compliance-management-workflow",
+      "to": "compliance-control-mapping"
+    },
+    {
+      "from": "compliance-management-workflow",
+      "to": "compliance-obligation-register"
+    },
+    {
+      "from": "compliance-management-workflow",
+      "to": "legal-matter-final-gate"
+    },
+    {
+      "from": "compliance-obligation-register",
+      "to": "current-law-context"
     },
     {
       "from": "contract-drafting",
@@ -3401,6 +3540,38 @@
     {
       "from": "implement-from-issue",
       "to": "test-driven-vertical-slice"
+    },
+    {
+      "from": "internal-investigation-workflow",
+      "to": "investigation-evidence-preservation"
+    },
+    {
+      "from": "internal-investigation-workflow",
+      "to": "investigation-findings-remediation"
+    },
+    {
+      "from": "internal-investigation-workflow",
+      "to": "legal-matter-final-gate"
+    },
+    {
+      "from": "internal-investigation-workflow",
+      "to": "whistleblowing-law-specialist"
+    },
+    {
+      "from": "investigation-evidence-preservation",
+      "to": "current-law-context"
+    },
+    {
+      "from": "investigation-evidence-preservation",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "investigation-findings-remediation",
+      "to": "compliance-control-mapping"
+    },
+    {
+      "from": "investigation-findings-remediation",
+      "to": "legal-compliance-risk-assessment"
     },
     {
       "from": "iso13485-qms-audit",
@@ -4773,6 +4944,14 @@
     {
       "from": "two-axis-compliance-review",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "whistleblowing-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "whistleblowing-law-specialist",
+      "to": "privilege-and-counsel-routing"
     }
   ],
   "consumptionEdges": [
@@ -5539,6 +5718,8 @@
         "legal-compliance-risk-assessment"
       ],
       "consumerSkills": [
+        "compliance-control-mapping",
+        "investigation-findings-remediation",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -5671,6 +5852,78 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "compliance-assurance-exceptions.json",
+      "producers": [
+        "compliance-control-assurance"
+      ],
+      "consumerSkills": [
+        "compliance-management-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-assurance-plan.json",
+      "producers": [
+        "compliance-control-assurance"
+      ],
+      "consumerSkills": [
+        "compliance-management-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-control-design-note.md",
+      "producers": [
+        "compliance-control-mapping"
+      ],
+      "consumerSkills": [
+        "compliance-control-assurance",
+        "compliance-management-workflow",
+        "investigation-findings-remediation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-control-gaps.json",
+      "producers": [
+        "compliance-control-mapping"
+      ],
+      "consumerSkills": [
+        "compliance-control-assurance",
+        "compliance-management-workflow",
+        "investigation-findings-remediation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-control-map.json",
+      "producers": [
+        "compliance-control-mapping"
+      ],
+      "consumerSkills": [
+        "compliance-control-assurance",
+        "compliance-management-workflow",
+        "investigation-findings-remediation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-control-test-results.json",
+      "producers": [
+        "compliance-control-assurance"
+      ],
+      "consumerSkills": [
+        "compliance-management-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "compliance-evidence-effectiveness.json",
       "producers": [
         "two-axis-compliance-review"
@@ -5691,6 +5944,69 @@
         "nonconformance-mrb-disposition",
         "quality-record-integrity",
         "supplier-quality-medical-device"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-gap-remediation-plan.json",
+      "producers": [
+        "compliance-management-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "compliance-management-handoff.json",
+      "producers": [
+        "compliance-management-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "compliance-management-status.json",
+      "producers": [
+        "compliance-management-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "compliance-obligation-gaps.json",
+      "producers": [
+        "compliance-obligation-register"
+      ],
+      "consumerSkills": [
+        "compliance-control-mapping",
+        "compliance-management-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-obligation-register.json",
+      "producers": [
+        "compliance-obligation-register"
+      ],
+      "consumerSkills": [
+        "compliance-control-mapping",
+        "compliance-management-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "compliance-obligation-source-note.md",
+      "producers": [
+        "compliance-obligation-register"
+      ],
+      "consumerSkills": [
+        "compliance-control-mapping",
+        "compliance-management-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6031,8 +6347,10 @@
         "privilege-and-counsel-routing"
       ],
       "consumerSkills": [
+        "investigation-evidence-preservation",
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6853,8 +7171,10 @@
         "privilege-and-counsel-routing"
       ],
       "consumerSkills": [
+        "investigation-evidence-preservation",
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7509,6 +7829,108 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "investigation-charter.json",
+      "producers": [
+        "internal-investigation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "investigation-evidence-preservation-plan.json",
+      "producers": [
+        "investigation-evidence-preservation"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "investigation-evidence-register.json",
+      "producers": [
+        "investigation-evidence-preservation"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "investigation-findings.json",
+      "producers": [
+        "investigation-findings-remediation"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "investigation-handoff.json",
+      "producers": [
+        "internal-investigation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "investigation-legal-hold-plan.md",
+      "producers": [
+        "investigation-evidence-preservation"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "investigation-remediation-plan.json",
+      "producers": [
+        "investigation-findings-remediation"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "investigation-reporting-decisions.json",
+      "producers": [
+        "investigation-findings-remediation"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "investigation-status.json",
+      "producers": [
+        "internal-investigation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "investigation-workplan.json",
+      "producers": [
+        "internal-investigation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "isms-audit-findings.json",
       "producers": [
         "iso27001-isms-audit"
@@ -7920,15 +8342,18 @@
       ],
       "consumerSkills": [
         "agreement-type-analysis",
+        "compliance-obligation-register",
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
+        "investigation-evidence-preservation",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
-        "legal-specialist-router"
+        "legal-specialist-router",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7940,15 +8365,18 @@
       ],
       "consumerSkills": [
         "agreement-type-analysis",
+        "compliance-obligation-register",
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
+        "investigation-evidence-preservation",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
-        "legal-specialist-router"
+        "legal-specialist-router",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7987,7 +8415,9 @@
         "legal-matter-final-gate"
       ],
       "consumerSkills": [
+        "compliance-management-workflow",
         "contract-matter-workflow",
+        "internal-investigation-workflow",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -8024,15 +8454,18 @@
       ],
       "consumerSkills": [
         "agreement-type-analysis",
+        "compliance-obligation-register",
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
+        "investigation-evidence-preservation",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
-        "legal-specialist-router"
+        "legal-specialist-router",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8083,7 +8516,9 @@
         "legal-matter-final-gate"
       ],
       "consumerSkills": [
+        "compliance-management-workflow",
         "contract-matter-workflow",
+        "internal-investigation-workflow",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -8096,15 +8531,18 @@
       ],
       "consumerSkills": [
         "agreement-type-analysis",
+        "compliance-obligation-register",
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
+        "investigation-evidence-preservation",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
         "legal-matter-wayfinder",
-        "legal-specialist-router"
+        "legal-specialist-router",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8115,6 +8553,8 @@
         "legal-compliance-risk-assessment"
       ],
       "consumerSkills": [
+        "compliance-control-mapping",
+        "investigation-findings-remediation",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -8128,6 +8568,8 @@
         "legal-compliance-risk-assessment"
       ],
       "consumerSkills": [
+        "compliance-control-mapping",
+        "investigation-findings-remediation",
         "legal-compliance-office",
         "legal-matter-final-gate",
         "legal-negotiation-strategy"
@@ -9213,8 +9655,10 @@
         "privilege-and-counsel-routing"
       ],
       "consumerSkills": [
+        "investigation-evidence-preservation",
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "whistleblowing-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -10002,6 +10446,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reporting-office-obligations.json",
+      "producers": [
+        "whistleblowing-law-specialist"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "requirement-coverage.json",
@@ -11091,6 +11546,28 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "whistleblowing-law-assessment.json",
+      "producers": [
+        "whistleblowing-law-specialist"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "whistleblowing-source-note.md",
+      "producers": [
+        "whistleblowing-law-specialist"
+      ],
+      "consumerSkills": [
+        "internal-investigation-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     }
   ],
   "unconsumedOutputs": [
@@ -11128,6 +11605,9 @@
     "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
     "complaint-regulatory-routing.json",
+    "compliance-gap-remediation-plan.json",
+    "compliance-management-handoff.json",
+    "compliance-management-status.json",
     "concept-handoff.json",
     "concept.md",
     "conflict-residual-risk-handoff.json",
@@ -11191,6 +11671,10 @@
     "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
+    "investigation-charter.json",
+    "investigation-handoff.json",
+    "investigation-status.json",
+    "investigation-workplan.json",
     "isms-audit-findings.json",
     "isms-audit-plan.json",
     "isms-audit-report.md",
@@ -11331,6 +11815,9 @@
     "clinical-evidence-impact-map.json",
     "communication-profile.merged.json",
     "complaint-regulatory-routing.json",
+    "compliance-gap-remediation-plan.json",
+    "compliance-management-handoff.json",
+    "compliance-management-status.json",
     "concept-handoff.json",
     "concept.md",
     "conflict-residual-risk-handoff.json",
@@ -11394,6 +11881,10 @@
     "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
+    "investigation-charter.json",
+    "investigation-handoff.json",
+    "investigation-status.json",
+    "investigation-workplan.json",
     "isms-audit-findings.json",
     "isms-audit-plan.json",
     "isms-audit-report.md",

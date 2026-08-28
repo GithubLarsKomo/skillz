@@ -13,8 +13,20 @@ Schütze sensible Legal-Arbeit und verhindere, dass Skillz Befugnisse oder Schut
 
 - Legal Privilege, anwaltliche Verschwiegenheit, Beschlagnahmeschutz und Work-Product-Schutz sind jurisdiktions- und rollenspezifisch; keine US-artige Schutzwirkung pauschal auf In-house-Kommunikation übertragen.
 - Vertraulichkeit ist nicht automatisch Privileg.
-- Litigation Hold, Beweissicherung und Kommunikationsdisziplin werden bei Streit-/Investigation-Risiko früh geprüft.
+- Litigation Hold, Beweissicherung und Kommunikationsdisziplin werden bei Streit-/Investigationsnähe früh geprüft.
 - Externer Counsel wird nicht für jede Frage verlangt: Skillz soll Facts, Quellen, Alternativen und die verbleibende Fachfrage maximal vorbereiten.
+
+## Investigation Gate
+
+Bei internen Untersuchungen zusätzlich klären:
+
+- wer Auftraggeber/Decision Owner ist und wer Untersuchungsergebnisse erhalten darf,
+- ob Investigator-/Management-Interessenkonflikte bestehen,
+- ob externe Counsel-Steuerung aus rechtlichen oder strategischen Gründen erforderlich ist,
+- welche Kommunikation tatsächlich geschützt sein kann und welche nur vertraulich ist,
+- ob Preservation/Hold, Strafverfahrens-, Behörden-, Arbeits- oder grenzüberschreitende Risiken die Untersuchung beeinflussen.
+
+Keine Kommunikation nur mit einem `privileged`-Label versehen und daraus Schutzwirkung ableiten.
 
 ## Eskalationsstufen
 

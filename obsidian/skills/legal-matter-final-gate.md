@@ -31,7 +31,9 @@ Prüft vor Abschluss, Unterzeichnung, Veröffentlichung oder irreversibler Legal
 
 ## Required by
 
+- [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
+- [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ## Outputs
@@ -43,12 +45,16 @@ Prüft vor Abschluss, Unterzeichnung, Veröffentlichung oder irreversibler Legal
 
 ### `legal-final-gate.json`
 
+- [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
+- [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ### `legal-open-points.md`
 
+- [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
+- [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 
 ## Evaluation

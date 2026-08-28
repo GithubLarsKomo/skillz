@@ -19,6 +19,14 @@ graph TD
   clinical_evidence_update_impact --> regulated_product_context
   clinical_evidence_update_impact --> regulatory_evidence_traceability
   clinical_evidence_update_impact --> research_to_evidence_note
+  compliance_control_assurance --> compliance_control_mapping
+  compliance_control_mapping --> compliance_obligation_register
+  compliance_control_mapping --> legal_compliance_risk_assessment
+  compliance_management_workflow --> compliance_control_assurance
+  compliance_management_workflow --> compliance_control_mapping
+  compliance_management_workflow --> compliance_obligation_register
+  compliance_management_workflow --> legal_matter_final_gate
+  compliance_obligation_register --> current_law_context
   contract_drafting --> agreement_type_analysis
   contract_drafting --> current_law_context
   contract_legal_context --> current_law_context
@@ -164,6 +172,14 @@ graph TD
   implement_from_issue --> deferred_external_action_verification
   implement_from_issue --> disciplined_diagnosis
   implement_from_issue --> test_driven_vertical_slice
+  internal_investigation_workflow --> investigation_evidence_preservation
+  internal_investigation_workflow --> investigation_findings_remediation
+  internal_investigation_workflow --> legal_matter_final_gate
+  internal_investigation_workflow --> whistleblowing_law_specialist
+  investigation_evidence_preservation --> current_law_context
+  investigation_evidence_preservation --> privilege_and_counsel_routing
+  investigation_findings_remediation --> compliance_control_mapping
+  investigation_findings_remediation --> legal_compliance_risk_assessment
   iso13485_qms_audit --> medical_device_qms_iso13485
   iso13485_qms_audit --> two_axis_compliance_review
   iso27001_isms_audit --> medical_device_isms_governance
@@ -507,6 +523,8 @@ graph TD
   two_axis_code_review --> disciplined_diagnosis
   two_axis_code_review --> implement_from_issue
   two_axis_compliance_review --> research_to_evidence_note
+  whistleblowing_law_specialist --> current_law_context
+  whistleblowing_law_specialist --> privilege_and_counsel_routing
 ```
 
 ## Artifact consumption
@@ -595,7 +613,7 @@ graph TD
 | `clinical-evidence-impact-map.json` | `clinical-evidence-update-impact` | — | unconsumed |
 | `clinical-performance-evidence.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
 | `clinical-performance-study-plan.json` | `ivdr-clinical-performance-study` | `ivdr-performance-evaluation` | inferred |
-| `commercial-exposure-analysis.json` | `legal-compliance-risk-assessment` | `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
+| `commercial-exposure-analysis.json` | `legal-compliance-risk-assessment` | `compliance-control-mapping`, `investigation-findings-remediation`, `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
 | `communication-profile.json` | `communication-memory-governance` | `frontend-design-director`, `memory-sync-reconciliation` | inferred |
 | `communication-profile.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `complaint-closure-readiness.json` | `medical-device-complaint-handling` | `medical-device-adverse-event-coding`, `medical-device-complaint-customer-followup`, `medical-device-complaint-regulatory-routing` | inferred |
@@ -606,7 +624,19 @@ graph TD
 | `complaint-regulatory-handoff.json` | `medical-device-complaint-handling` | `medical-device-adverse-event-coding`, `medical-device-complaint-customer-followup`, `medical-device-complaint-regulatory-routing` | inferred |
 | `complaint-regulatory-routing.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `completed-session.json` | `sport-daily-athlete-monitoring` | `sport-adaptation-analysis`, `sport-athlete-management`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-training-adaptation-engine` | inferred |
+| `compliance-assurance-exceptions.json` | `compliance-control-assurance` | `compliance-management-workflow` | inferred |
+| `compliance-assurance-plan.json` | `compliance-control-assurance` | `compliance-management-workflow` | inferred |
+| `compliance-control-design-note.md` | `compliance-control-mapping` | `compliance-control-assurance`, `compliance-management-workflow`, `investigation-findings-remediation` | inferred |
+| `compliance-control-gaps.json` | `compliance-control-mapping` | `compliance-control-assurance`, `compliance-management-workflow`, `investigation-findings-remediation` | inferred |
+| `compliance-control-map.json` | `compliance-control-mapping` | `compliance-control-assurance`, `compliance-management-workflow`, `investigation-findings-remediation` | inferred |
+| `compliance-control-test-results.json` | `compliance-control-assurance` | `compliance-management-workflow` | inferred |
 | `compliance-evidence-effectiveness.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
+| `compliance-gap-remediation-plan.json` | `compliance-management-workflow` | — | unconsumed |
+| `compliance-management-handoff.json` | `compliance-management-workflow` | — | unconsumed |
+| `compliance-management-status.json` | `compliance-management-workflow` | — | unconsumed |
+| `compliance-obligation-gaps.json` | `compliance-obligation-register` | `compliance-control-mapping`, `compliance-management-workflow` | inferred |
+| `compliance-obligation-register.json` | `compliance-obligation-register` | `compliance-control-mapping`, `compliance-management-workflow` | inferred |
+| `compliance-obligation-source-note.md` | `compliance-obligation-register` | `compliance-control-mapping`, `compliance-management-workflow` | inferred |
 | `compliance-requirement-coverage.json` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `compliance-review-decision.md` | `two-axis-compliance-review` | `controlled-quality-documentation`, `design-control-traceability`, `fda-acceptance-readiness`, `fda-qmsr-inspection-readiness`, `fda-qmsr-iso13485-gap`, `iso13485-qms-audit`, `iso27001-isms-audit`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-isms-governance`, `medical-device-privacy-gdpr-bdsg`, `medical-device-qms-iso13485`, `nonconformance-mrb-disposition`, `quality-record-integrity`, `supplier-quality-medical-device` | inferred |
 | `concept-handoff.json` | `thought-to-concept-flow` | — | unconsumed |
@@ -635,7 +665,7 @@ graph TD
 | `correction-removal-action-plan.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-assessment.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
 | `correction-removal-reporting-state.json` | `fda-corrections-removals` | `fda-recall-status-termination` | inferred |
-| `counsel-scope.json` | `privilege-and-counsel-routing` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
+| `counsel-scope.json` | `privilege-and-counsel-routing` | `investigation-evidence-preservation`, `legal-compliance-office`, `legal-matter-final-gate`, `whistleblowing-law-specialist` | inferred |
 | `customer-communication-record.json` | `medical-device-complaint-customer-followup` | `medical-device-complaint-regulatory-routing` | inferred |
 | `customer-contact-record.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
 | `customer-contact-triage.json` | `medical-device-customer-contact-intake` | `medical-device-complaint-handling`, `medical-device-service-report-quality-routing` | inferred |
@@ -704,7 +734,7 @@ graph TD
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-search-brief.md` | `job-description-authoring` | — | unconsumed |
 | `expert handoff` | `synapse-orchestrator` | — | unconsumed |
-| `external-counsel-brief.md` | `privilege-and-counsel-routing` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
+| `external-counsel-brief.md` | `privilege-and-counsel-routing` | `investigation-evidence-preservation`, `legal-compliance-office`, `legal-matter-final-gate`, `whistleblowing-law-specialist` | inferred |
 | `fda-acceptance-preflight.json` | `fda-acceptance-readiness` | — | unconsumed |
 | `fda-device-classification.json` | `fda-device-classification-product-code` | `fda-510k-predicate-strategy`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver` | inferred |
 | `fda-device-listing-readiness.json` | `fda-registration-listing-udi` | — | unconsumed |
@@ -766,6 +796,16 @@ graph TD
 | `inspection-evidence-index.json` | `fda-qmsr-inspection-readiness` | — | unconsumed |
 | `installed OpenASR model` | `openasr-offline-model-import` | — | unconsumed |
 | `investigation-backlog.json` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `investigation-charter.json` | `internal-investigation-workflow` | — | unconsumed |
+| `investigation-evidence-preservation-plan.json` | `investigation-evidence-preservation` | `internal-investigation-workflow` | inferred |
+| `investigation-evidence-register.json` | `investigation-evidence-preservation` | `internal-investigation-workflow` | inferred |
+| `investigation-findings.json` | `investigation-findings-remediation` | `internal-investigation-workflow` | inferred |
+| `investigation-handoff.json` | `internal-investigation-workflow` | — | unconsumed |
+| `investigation-legal-hold-plan.md` | `investigation-evidence-preservation` | `internal-investigation-workflow` | inferred |
+| `investigation-remediation-plan.json` | `investigation-findings-remediation` | `internal-investigation-workflow` | inferred |
+| `investigation-reporting-decisions.json` | `investigation-findings-remediation` | `internal-investigation-workflow` | inferred |
+| `investigation-status.json` | `internal-investigation-workflow` | — | unconsumed |
+| `investigation-workplan.json` | `internal-investigation-workflow` | — | unconsumed |
 | `isms-audit-findings.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-plan.json` | `iso27001-isms-audit` | — | unconsumed |
 | `isms-audit-report.md` | `iso27001-isms-audit` | — | unconsumed |
@@ -803,22 +843,22 @@ graph TD
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
-| `legal-authority-evidence.json` | `current-law-context` | `agreement-type-analysis`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
-| `legal-context.md` | `current-law-context` | `agreement-type-analysis`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
+| `legal-authority-evidence.json` | `current-law-context` | `agreement-type-analysis`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `whistleblowing-law-specialist` | inferred |
+| `legal-context.md` | `current-law-context` | `agreement-type-analysis`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `whistleblowing-law-specialist` | inferred |
 | `legal-decision-boundaries.json` | `legal-client-strategy` | `agreement-type-analysis`, `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-negotiation-strategy`, `legal-specialist-router` | inferred |
 | `legal-dependency-graph.json` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
-| `legal-final-gate.json` | `legal-matter-final-gate` | `contract-matter-workflow`, `legal-compliance-office` | inferred |
+| `legal-final-gate.json` | `legal-matter-final-gate` | `compliance-management-workflow`, `contract-matter-workflow`, `internal-investigation-workflow`, `legal-compliance-office` | inferred |
 | `legal-intake-open-points.json` | `legal-matter-intake` | `legal-client-strategy`, `legal-compliance-office`, `privilege-and-counsel-routing` | inferred |
 | `legal-investigation-backlog.json` | `legal-matter-wayfinder` | `legal-compliance-office` | inferred |
-| `legal-jurisdiction-map.json` | `current-law-context` | `agreement-type-analysis`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
+| `legal-jurisdiction-map.json` | `current-law-context` | `agreement-type-analysis`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `whistleblowing-law-specialist` | inferred |
 | `legal-matter-handoff.json` | `legal-compliance-office` | — | unconsumed |
 | `legal-matter-plan.md` | `legal-compliance-office` | — | unconsumed |
 | `legal-matter-status.json` | `legal-compliance-office` | — | unconsumed |
 | `legal-matter.json` | `legal-matter-intake` | `legal-client-strategy`, `legal-compliance-office`, `privilege-and-counsel-routing` | inferred |
-| `legal-open-points.md` | `legal-matter-final-gate` | `contract-matter-workflow`, `legal-compliance-office` | inferred |
-| `legal-research-open-questions.json` | `current-law-context` | `agreement-type-analysis`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router` | inferred |
-| `legal-risk-decision-handoff.json` | `legal-compliance-risk-assessment` | `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
-| `legal-risk-register.json` | `legal-compliance-risk-assessment` | `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
+| `legal-open-points.md` | `legal-matter-final-gate` | `compliance-management-workflow`, `contract-matter-workflow`, `internal-investigation-workflow`, `legal-compliance-office` | inferred |
+| `legal-research-open-questions.json` | `current-law-context` | `agreement-type-analysis`, `compliance-obligation-register`, `contract-drafting`, `contract-legal-context`, `contract-review`, `german-association-law-specialist`, `german-sports-law-specialist`, `investigation-evidence-preservation`, `legal-compliance-office`, `legal-compliance-risk-assessment`, `legal-matter-wayfinder`, `legal-specialist-router`, `whistleblowing-law-specialist` | inferred |
+| `legal-risk-decision-handoff.json` | `legal-compliance-risk-assessment` | `compliance-control-mapping`, `investigation-findings-remediation`, `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
+| `legal-risk-register.json` | `legal-compliance-risk-assessment` | `compliance-control-mapping`, `investigation-findings-remediation`, `legal-compliance-office`, `legal-matter-final-gate`, `legal-negotiation-strategy` | inferred |
 | `legal-specialist-integration-status.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
 | `legal-specialist-route-map.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
 | `legal-specialist-work-orders.json` | `legal-specialist-router` | `legal-compliance-office` | inferred |
@@ -919,7 +959,7 @@ graph TD
 | `price-snapshot.md` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
 | `privacy-governance.md` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
-| `privilege-routing.json` | `privilege-and-counsel-routing` | `legal-compliance-office`, `legal-matter-final-gate` | inferred |
+| `privilege-routing.json` | `privilege-and-counsel-routing` | `investigation-evidence-preservation`, `legal-compliance-office`, `legal-matter-final-gate`, `whistleblowing-law-specialist` | inferred |
 | `process-validation-assessment.json` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `process-validation-protocol.md` | `process-validation-iq-oq-pq` | — | unconsumed |
 | `process-validation-strategy.json` | `process-validation-iq-oq-pq` | — | unconsumed |
@@ -974,6 +1014,7 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `rehab-progression.json` | `sport-injury-rehabilitation` | `sport-athlete-management` | inferred |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
+| `reporting-office-obligations.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
@@ -1063,3 +1104,5 @@ graph TD
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `whistleblowing-law-assessment.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
+| `whistleblowing-source-note.md` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |

@@ -31,6 +31,8 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 
 ## Required by
 
+- [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
@@ -45,18 +47,24 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 
 ### `commercial-exposure-analysis.json`
 
+- [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 
 ### `legal-risk-decision-handoff.json`
 
+- [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 
 ### `legal-risk-register.json`
 
+- [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]

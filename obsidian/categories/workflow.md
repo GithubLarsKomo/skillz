@@ -10,9 +10,12 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **58**
+Skills: **64**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
+- [[skills/compliance-control-assurance|compliance-control-assurance]]
+- [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
 - [[skills/contract-review|contract-review]]
@@ -25,6 +28,9 @@ Skills: **58**
 - [[skills/euroimmun-pdf-report-renderer|euroimmun-pdf-report-renderer]]
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
+- [[skills/internal-investigation-workflow|internal-investigation-workflow]]
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
+- [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/job-description-authoring|job-description-authoring]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]

@@ -30,8 +30,10 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 
 ## Required by
 
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Outputs
 
@@ -43,18 +45,24 @@ Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedar
 
 ### `counsel-scope.json`
 
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `external-counsel-brief.md`
 
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `privilege-routing.json`
 
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Evaluation
 

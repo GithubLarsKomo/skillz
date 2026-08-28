@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **218**
-- User-facing entrypoints: **187**
-- Evaluation suites: **212**
+- Skills: **226**
+- User-facing entrypoints: **195**
+- Evaluation suites: **220**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **201**
+- Outputs without inferred hard-requires consumers: **208**
 
 ## Evaluation gaps
 
@@ -76,6 +76,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `clinical-evidence-impact-map.json` — producer: `clinical-evidence-update-impact`
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `complaint-regulatory-routing.json` — producer: `medical-device-complaint-regulatory-routing`
+- `compliance-gap-remediation-plan.json` — producer: `compliance-management-workflow`
+- `compliance-management-handoff.json` — producer: `compliance-management-workflow`
+- `compliance-management-status.json` — producer: `compliance-management-workflow`
 - `concept-handoff.json` — producer: `thought-to-concept-flow`
 - `concept.md` — producer: `thought-to-concept-flow`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
@@ -139,6 +142,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `inhouse-ivd-transition-readiness.json` — producer: `ivdr-inhouse-health-institution`
 - `inspection-evidence-index.json` — producer: `fda-qmsr-inspection-readiness`
 - `installed OpenASR model` — producer: `openasr-offline-model-import`
+- `investigation-charter.json` — producer: `internal-investigation-workflow`
+- `investigation-handoff.json` — producer: `internal-investigation-workflow`
+- `investigation-status.json` — producer: `internal-investigation-workflow`
+- `investigation-workplan.json` — producer: `internal-investigation-workflow`
 - `isms-audit-findings.json` — producer: `iso27001-isms-audit`
 - `isms-audit-plan.json` — producer: `iso27001-isms-audit`
 - `isms-audit-report.md` — producer: `iso27001-isms-audit`

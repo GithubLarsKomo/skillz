@@ -13,23 +13,24 @@ Der Router entscheidet **wer welche Frage beantwortet**, nicht die materielle Re
 
 Unterstütze insbesondere:
 
-- Commercial Contract Law
+- Commercial Contract Law / Contract Matter Stack
 - Employment/Labor
 - Corporate Governance
 - Corporate Transactions/M&A
 - Privacy/Data
 - IP/Licensing sowie bestehende Patent-/FTO-Skills
 - Competition/Antitrust
-- Corporate Compliance
+- Corporate Compliance einschließlich `compliance-obligation-register`, Control Mapping und Assurance
+- Whistleblowing/HinSchG und `internal-investigation-workflow`
 - Trade/Sanctions/Export
 - Product Liability/Safety
 - Disputes/Litigation
 - Tax Legal Interface
 - Real Estate
 - deutsches Vereinsrecht
-- deutsches Sportrecht einschließlich DOSB-Strukturen
+- deutsches Sportrecht einschließlich DOSB-Strukturen und Safe-Sport-Verfahren
 - Rudersportrecht/DRV als sportartspezifisches Overlay
-- bestehende MDR/IVDR/FDA/QMS/Risk-Specialists bei regulierten Produkten.
+- bestehende MDR/IVDR/FDA/QMS/Risk/Complaint/CAPA-Specialists bei regulierten Produkten.
 
 ## Work Order Contract
 
@@ -51,7 +52,8 @@ Unterstütze insbesondere:
 ## Kernregeln
 
 - Eine Work Order enthält genau eine fachlich kohärente Frage.
-- Bestehende Regulatory-/IP-Skills werden wiederverwendet, nicht neu implementiert.
+- Bestehende Regulatory-/IP-/QMS-/Complaint-/CAPA-Skills werden wiederverwendet, nicht neu implementiert.
+- Whistleblowing-Rechtsanalyse und Investigation Fact-Finding sind getrennte Work Orders, können aber denselben Matter State nutzen.
 - Mehrere Specialists dürfen dieselben Facts konsumieren; ihre Schlussfolgerungen werden nicht automatisch harmonisiert.
 - Widersprüche werden im `legal-specialist-integration-status.json` sichtbar und an Risk/Decision Routing übergeben.
 - Fehlender Specialist erzeugt einen offenen Capability Gap statt improvisierter Rechtsberatung.

@@ -31,15 +31,18 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 ## Required by
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/compliance-obligation-register|compliance-obligation-register]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Outputs
 
@@ -53,54 +56,66 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 ### `legal-authority-evidence.json`
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/compliance-obligation-register|compliance-obligation-register]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `legal-context.md`
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/compliance-obligation-register|compliance-obligation-register]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `legal-jurisdiction-map.json`
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/compliance-obligation-register|compliance-obligation-register]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ### `legal-research-open-questions.json`
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/compliance-obligation-register|compliance-obligation-register]]
 - [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
+- [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
+- [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Evaluation
 

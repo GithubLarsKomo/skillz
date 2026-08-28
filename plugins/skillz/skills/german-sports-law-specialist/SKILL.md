@@ -35,6 +35,16 @@ Vor Anwendung des DOSB Safe Sport Code explizit prüfen:
 
 Fehlt diese Bindung, darf der Muster-Code nicht als automatisch anwendbare Sanktionsgrundlage behandelt werden.
 
+## Safe Sport Investigation Gate
+
+Bei Vorwürfen oder Meldungen kann `internal-investigation-workflow` als Fact-Finding-Verfahren eingesetzt werden. Dabei:
+
+- akute Schutzbedarfe insbesondere bei Minderjährigen zuerst triagieren,
+- tatsächlich bindende Vereins-/Verbandsverfahrensregeln separat feststellen,
+- HinSchG nur anwenden, wenn persönlicher/sachlicher Anwendungsbereich tatsächlich erfüllt ist,
+- staatliche Straf-/Zivil-/Arbeits-/Datenschutzfragen und private Sport-Sanktionen getrennt halten,
+- Untersuchung, Disziplinarentscheidung und Rechtsbehelf nicht in einer unkontrollierten Rolle vermischen.
+
 ## Rechtsweg und Eskalation
 
 Interne Verbandsrechtswege, Schiedsvereinbarungen und staatlicher Rechtsschutz getrennt erfassen. Nicht pauschal CAS-Zuständigkeit oder Ausschluss staatlicher Gerichte annehmen. Strafrechtliche, arbeitsrechtliche oder hochstreitige Fragen bei Bedarf über `privilege-and-counsel-routing` eskalieren.

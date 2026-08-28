@@ -64,6 +64,30 @@
         "agents/openai.yaml": "33f87a1f7369ef473081280695d0e82a47627b462828c8fc9d8de56c9f11ecc1"
       }
     },
+    "compliance-control-assurance": {
+      "files": {
+        "SKILL.md": "ec3e59e6eb3639a9d145e5449a114f33f9366fe636ebc4b806a3fc5c2a688352",
+        "agents/openai.yaml": "427ffd3d4a79511bec44e2c96635f77b24ce9c3dc57a30eaaf62c4168fcda767"
+      }
+    },
+    "compliance-control-mapping": {
+      "files": {
+        "SKILL.md": "34ff373ce46e22e896567312735daac7a5a5c6fcf5bc7405c5424cb92a651010",
+        "agents/openai.yaml": "760a64bf3119f61f115d0815021fd8de10c81c04607ae6bd7a8523f67a3b1185"
+      }
+    },
+    "compliance-management-workflow": {
+      "files": {
+        "SKILL.md": "3981cfe847a751125766d22f28d2e0cc9baa05fd2287c496a50ab45391d9d1dd",
+        "agents/openai.yaml": "7190cd755ab8f7cb7b61a36189b13c991c1c911f11f83edb680f27f09675324c"
+      }
+    },
+    "compliance-obligation-register": {
+      "files": {
+        "SKILL.md": "7d9dd55e153406af9630d48a52398b6e9cff418da0f3d8ee08245fc5218892ee",
+        "agents/openai.yaml": "787435feb3ef78d7326f880e5cb48bfb9caeb2204dce8554e2d21df764ee9b26"
+      }
+    },
     "composable-skill-factory": {
       "files": {
         "SKILL.md": "680d0fc62d15c4fdac01f6d07d1a12ff0ad47ecbac557676b179d0f5049fb4dd",
@@ -453,7 +477,7 @@
     },
     "german-sports-law-specialist": {
       "files": {
-        "SKILL.md": "72d7c62db2a68110b017059c783cf3792bcb6f72abd00f417994708a2478cb99",
+        "SKILL.md": "1e8c4ed8f8d0f963918f37e4d20c5699ef1d74436d37724d84191c70e2e77a3b",
         "agents/openai.yaml": "f83f2dc79aa208947164301f3be47e7642770df6b769cfe595f87641c3f128ed",
         "references/authoritative-sources.md": "8c71ef2f1e2de5b065b011977a84089d7c1a3ca6c182d352480ec7dd1edd3742"
       }
@@ -486,6 +510,24 @@
       "files": {
         "SKILL.md": "ab2989bd4f21d6aaf60ca213f7dbe07ac045112b8b41744ce32c581e75ea5007",
         "agents/openai.yaml": "139b37ade8a89922d4e9917980ad357d93fcd26c51fb5a13d7afa351b338eb05"
+      }
+    },
+    "internal-investigation-workflow": {
+      "files": {
+        "SKILL.md": "3a044857619a96a3f77f9afc97532c69360b4f26ecf1a85aa69bdf589f0f4cf8",
+        "agents/openai.yaml": "a6ed18cff27090249f199c97a7af292b64a28173ec9cb2a9e19b254a54dbbc68"
+      }
+    },
+    "investigation-evidence-preservation": {
+      "files": {
+        "SKILL.md": "c70e0a979fa7d9025b7fb1380e7b3b62b666c33aee68c1f5bfc5f8659ba183df",
+        "agents/openai.yaml": "156b8bf36de845bd7dd8bc38036da8b944685d4829b9b4c94c4b62617c4feea0"
+      }
+    },
+    "investigation-findings-remediation": {
+      "files": {
+        "SKILL.md": "3e2b0b9a1f67668d80054062a2fcfd04b0c654e37e448608cc0f673de8c8e318",
+        "agents/openai.yaml": "9de2e363765cba9a230e36beff76c3abfcb83b1902f3e2a0e12dc75ff8528d02"
       }
     },
     "iso13485-qms-audit": {
@@ -653,7 +695,7 @@
     },
     "legal-compliance-office": {
       "files": {
-        "SKILL.md": "60c674cc2b83c6e7e1c3a271c758c9e05ae5afb59f2cb3cf548f3dd11238af1c",
+        "SKILL.md": "f15bf1632556f8a14cccbb86c8928061369010703469dd591f3cc88b92cf03d3",
         "agents/openai.yaml": "d368ad736ce363bf01a02dbcb4eb4847bd9cf2d3c64ff3b4ba30ed45101601ef"
       }
     },
@@ -695,7 +737,7 @@
     },
     "legal-specialist-router": {
       "files": {
-        "SKILL.md": "78f1a4dc3642b557499c00ee55ce56ff32d38fc73e563fb5a3800695d7423228",
+        "SKILL.md": "4de9a9f5cf7ae4b96686db910b3ee0a1096ec81d39245fdfe9d054d6645711d4",
         "agents/openai.yaml": "ff6a8072537f63d5328ec41f062206c255b7efebf021b3aba3b25f2e7d247573"
       }
     },
@@ -1001,7 +1043,7 @@
     },
     "privilege-and-counsel-routing": {
       "files": {
-        "SKILL.md": "984be208334c31d140e10c8f1d456079bb75d0c2ff680fa747db66d0ed164dc9",
+        "SKILL.md": "34502500a4d96b263790452a28af51d096f4fc75d813ba5c8d6dd6f6a726f848",
         "agents/openai.yaml": "293d4040f863705646d8761ce2973e4ccc5018d2c909023293329b0688391884"
       }
     },
@@ -1366,6 +1408,13 @@
       "files": {
         "SKILL.md": "1000bc2fffab7b0748417f31d2fa198f642ce66548c7b25ce034ed4fa53e5650",
         "agents/openai.yaml": "f0194f39aa6592eaa6bd93c324ac60c89c9b835bd9b56d5872e056855174036b"
+      }
+    },
+    "whistleblowing-law-specialist": {
+      "files": {
+        "SKILL.md": "e7e1f6e0405f5615a70b7e1520ac8f04c879fa45e97c4094dfcdcb3dda2033b3",
+        "agents/openai.yaml": "14c2545f2a77d3c7dc7e4a336084153d54d24d8067257c36f0470074331e18bf",
+        "references/authoritative-sources.md": "3811f431dfb2bf154c2c52b831b0e5cb8a5769c1357fc4670bfc605c7c9f43c2"
       }
     }
   }
