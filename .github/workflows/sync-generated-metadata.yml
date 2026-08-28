@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/skillz-architecture-consolidation]
+    branches: [main]
     paths:
       - "skills/**"
       - "benchmarks/**"
@@ -23,7 +23,7 @@ permissions:
 
 concurrency:
   group: sync-generated-metadata-${{ github.ref_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   sync:
