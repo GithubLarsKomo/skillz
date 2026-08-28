@@ -17,6 +17,7 @@ SKILLS = {
     "learning-landingpage-renderer",
     "learning-document-delivery",
     "learning-artifact-qa",
+    "learning-delivery-workflow",
     "youtube-learning-workflow",
 }
 
@@ -35,12 +36,16 @@ class TestYoutubeLearningContract(unittest.TestCase):
             self.assertIn("lastEvaluated: 2026-08-28", text)
 
     def test_orchestrator_routes_existing_presentation_stack(self) -> None:
-        text = self.read("skills/youtube-learning-workflow/SKILL.md")
+        orchestrator = self.read("skills/youtube-learning-workflow/SKILL.md")
         for dependency in (
             "youtube-video-ingestion",
             "multimodal-learning-analysis",
             "learning-summary-synthesis",
             "procedure-sop-extractor",
+            "learning-delivery-workflow",
+        ):
+            self.assertIn(f"  - {dependency}", orchestrator)
+        for delegated_worker in (
             "learning-visual-planner",
             "learning-content-design-system",
             "learning-svg-generator",
@@ -50,9 +55,22 @@ class TestYoutubeLearningContract(unittest.TestCase):
             "learning-artifact-qa",
             "template-presentation-workflow",
         ):
-            self.assertIn(f"  - {dependency}", text)
-        self.assertIn("learning-content-model.json", text)
-        self.assertIn("Der Orchestrator erklärt Subskill-Artefakte nicht zusätzlich als eigene Outputs", text)
+            self.assertNotIn(f"  - {delegated_worker}", orchestrator)
+
+        delivery = self.read("skills/learning-delivery-workflow/SKILL.md")
+        for dependency in (
+            "learning-visual-planner",
+            "learning-content-design-system",
+            "learning-svg-generator",
+            "learning-image-generator",
+            "learning-landingpage-renderer",
+            "learning-document-delivery",
+            "learning-artifact-qa",
+            "template-presentation-workflow",
+        ):
+            self.assertIn(f"  - {dependency}", delivery)
+        self.assertIn("learning-content-model.json", orchestrator)
+        self.assertIn("Der Orchestrator erklärt Subskill-Artefakte nicht zusätzlich als eigene Outputs", orchestrator)
 
     def test_sop_keeps_evidence_classes_and_control_boundary(self) -> None:
         text = self.read("skills/procedure-sop-extractor/SKILL.md")
@@ -70,12 +88,15 @@ class TestYoutubeLearningContract(unittest.TestCase):
     def test_design_authority_preserves_corporate_contract(self) -> None:
         design = self.read("docs/learning-content/DESIGN.md")
         resolver = self.read("skills/learning-content-design-system/SKILL.md")
+        delivery = self.read("skills/learning-delivery-workflow/SKILL.md")
         orchestrator = self.read("skills/youtube-learning-workflow/SKILL.md")
-        for text in (design, resolver, orchestrator):
+        for text in (design, resolver):
             self.assertIn("docs/corporate/euroimmun/DESIGN.md", text)
-        self.assertIn("Corporate Design Gate", design)
-        self.assertIn("Corporate Design Gate", resolver)
-        self.assertIn("Corporate Design Gate", orchestrator)
+            self.assertIn("Corporate Design Gate", text)
+        self.assertIn("Corporate-/Template-Autorität hat Vorrang", delivery)
+        self.assertIn("Corporate-/Template-Gates bleiben erhalten", delivery)
+        self.assertIn("Design-/Corporate-/Template-Kontext", orchestrator)
+        self.assertIn("learning-delivery-workflow", orchestrator)
 
     def test_learning_design_covers_all_requested_media_and_visuals(self) -> None:
         text = self.read("docs/learning-content/DESIGN.md")
