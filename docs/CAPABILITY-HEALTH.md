@@ -6,13 +6,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 - Skills: **275**
 - User-facing entrypoints: **229**
-- Evaluation suites: **246**
+- Evaluation suites: **250**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **incomplete**
-- Skills with evaluation suite: **246/275**
-- User-facing entrypoints with evaluation suite: **213/229**
-- Skills without evaluation suite: **29**
-- User-facing entrypoints without evaluation suite: **16**
+- Skills with evaluation suite: **250/275**
+- User-facing entrypoints with evaluation suite: **214/229**
+- Skills without evaluation suite: **25**
+- User-facing entrypoints without evaluation suite: **15**
 - Ambiguous outputs (multiple producers): **0**
 - Outputs without inferred hard-requires consumers: **264**
 
@@ -21,9 +21,6 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 ## Evaluation gaps
 
 - `course-concept-graph`
-- `document-layout-qa`
-- `document-render-verifier`
-- `document-template-profiler`
 - `euroimmun-presentation-workflow`
 - `learning-activity-generator`
 - `learning-artifact-qa`
@@ -43,7 +40,6 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 - `presentation-render-verifier`
 - `presentation-template-profiler`
 - `procedure-sop-extractor`
-- `template-document-workflow`
 - `template-presentation-workflow`
 - `youtube-course-builder-workflow`
 - `youtube-learning-workflow`
@@ -63,7 +59,6 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 - `presentation-render-verifier`
 - `presentation-template-profiler`
 - `procedure-sop-extractor`
-- `template-document-workflow`
 - `template-presentation-workflow`
 - `youtube-course-builder-workflow`
 - `youtube-learning-workflow`

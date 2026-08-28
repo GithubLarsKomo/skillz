@@ -4,10 +4,10 @@ generated: true
 name: "template-document-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/template-document-workflow/SKILL.md"
 tags:
   - skill
@@ -61,10 +61,10 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer DOCX-Dokumente auf 
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

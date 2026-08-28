@@ -4,10 +4,10 @@ generated: true
 name: "document-layout-qa"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/document-layout-qa/SKILL.md"
 tags:
   - skill
@@ -51,10 +51,10 @@ Prüft editierbare DOCX-Dokumente strukturell gegen ein dokumentiertes Template-
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

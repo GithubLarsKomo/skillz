@@ -13,9 +13,9 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 246,
-  "evaluatedSkillCount": 246,
-  "evaluatedEntrypointCount": 213,
+  "evaluationSuiteCount": 250,
+  "evaluatedSkillCount": 250,
+  "evaluatedEntrypointCount": 214,
   "evaluationCoverageComplete": false,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -2584,10 +2584,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -2644,10 +2644,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -2691,10 +2691,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -15293,10 +15293,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {

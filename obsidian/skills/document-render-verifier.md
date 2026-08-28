@@ -4,10 +4,10 @@ generated: true
 name: "document-render-verifier"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/document-render-verifier/SKILL.md"
 tags:
   - skill
@@ -54,10 +54,10 @@ Rendert ein DOCX und die daraus erzeugte PDF-Version seitenweise und verifiziert
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 
