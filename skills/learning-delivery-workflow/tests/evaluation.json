@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-delivery-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Deliver an approved single-video learning-content-model as HTML, PPTX, DOCX and PDF using the active corporate design, preserving the same claims and source traceability across formats.",
+      "requiredBehaviors": [
+        "lock one canonical content model before rendering",
+        "route each requested format to its specialized producer and preserve producer ownership",
+        "run cross-format QA and record the actual delivery bundle and run status"
+      ],
+      "forbiddenBehaviors": [
+        "re-author domain claims during rendering",
+        "claim worker-owned HTML PPTX DOCX PDF or asset files as learning-delivery-workflow outputs"
+      ],
+      "skillAnchors": [
+        "genau ein autoritatives kanonisches Inhaltsmodell",
+        "Renderer besitzen ihre nativen Dateien",
+        "Cross-Format-QA",
+        "Primäre Outputs sind ausschließlich"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A course delivery requests HTML and PDF only; one optional illustration fails, but the content remains understandable without it and all required source-linked diagrams render correctly.",
+      "requiredBehaviors": [
+        "skip unrequested formats rather than generating them implicitly",
+        "document the optional asset failure and continue only when it is semantically dispensable",
+        "keep the final status evidence-based on actual render and QA coverage"
+      ],
+      "forbiddenBehaviors": [
+        "mark an unrendered format as delivered",
+        "hide a failed asset or fabricate a replacement artifact"
+      ],
+      "skillAnchors": [
+        "Nicht angeforderte Formate müssen nicht erzeugt werden",
+        "wenn semantisch verzichtbar, dokumentiert ohne Asset fortfahren",
+        "ein visueller PASS wird nur bei tatsächlich geprüften Rendern vergeben"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Two conflicting learning models are supplied without an authority decision. The proposed workflow silently merges them, invents missing claims, exports placeholder files for unavailable renderers and reports PASS without render QA.",
+      "requiredBehaviors": [
+        "reject delivery until one authoritative model is selected by the upstream orchestrator",
+        "reject invented content and fake placeholder delivery artifacts",
+        "reject PASS without actual render and cross-format QA evidence"
+      ],
+      "forbiddenBehaviors": [
+        "synthesize competing models inside the delivery layer",
+        "simulate renderer success or QA completion"
+      ],
+      "skillAnchors": [
+        "Der Delivery-Skill synthetisiert sie nicht selbst",
+        "keine Ersatzdatei mit falscher Extension erzeugen",
+        "keine Inhalte aus Rohquellen improvisieren",
+        "ohne simulierte Render-, Delivery- oder Freigabeerfolge"
+      ]
+    }
+  ]
+}
