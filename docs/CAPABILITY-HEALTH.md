@@ -7,7 +7,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Skills: **275**
 - User-facing entrypoints: **229**
 - Evaluation suites: **275**
-- Executed evaluation suites: **PASS**
+- Executed evaluation suites: **FAIL**
 - Evaluation coverage: **complete**
 - Skills with evaluation suite: **275/275**
 - User-facing entrypoints with evaluation suite: **229/229**

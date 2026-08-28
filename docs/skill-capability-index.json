@@ -17,8 +17,8 @@
   "evaluatedSkillCount": 275,
   "evaluatedEntrypointCount": 229,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 3,
   "skills": [
     {
       "name": "agent-handoff",
@@ -11580,7 +11580,7 @@
     },
     {
       "name": "presentation-layout-qa",
-      "description": "Prüft PowerPoint-Folien strukturell auf Text- und Box-Overflow, Objektüberlagerungen, Slide-Grenzen, Font-Ausreißer, inkonsistente Ausrichtung, Platzhaltermissbrauch, Bildverzerrung, Chart-/Tabellen-Clipping und Footer-Kollisionen. Verwenden als technische QA vor finalem Rendering; nicht als visuelle Geschmacksprüfung.",
+      "description": "Prüft PowerPoint-Folien strukturell und kompositorisch auf Text-/Box-Overflow, Objektüberlagerungen, Slide-Grenzen, Footer-/Quellenkollisionen, Font-Ausreißer, Bild-/Chart-/Tabellenfehler sowie objektivierbare visuelle Qualitätsmängel wie überdimensionierte Container, schlechte Information-to-Space-Ratio, schwache Leserichtung und untergewichtete Schlussfolgerungen. Verwenden als Layout-QA vor finalem Rendering; ergänzt, aber ersetzt nicht den vollständigen visuellen Render-Review.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -11627,7 +11627,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {

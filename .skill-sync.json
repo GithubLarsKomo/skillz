@@ -1249,8 +1249,8 @@
     },
     "presentation-layout-qa": {
       "files": {
-        "SKILL.md": "af3cd1bc4800cbaef35b24ab90640d1b8ef45c6ea4af28b6bae1dd72c9a787aa",
-        "agents/openai.yaml": "92937f525a8c49a0b8a7f4203955f8c5b514f53f82a660b1e5ec7cc3e353c1f2"
+        "SKILL.md": "c3f0038a0c5d8b4a639c63bf4d86be8a373006eb93a254d07e231f0f990b606b",
+        "agents/openai.yaml": "e9f4d61e519aeba561a2c25e9ff8f87d3717466a36d94ca20ef81ebcd9e8e6ba"
       }
     },
     "presentation-render-verifier": {

@@ -1,5 +1,5 @@
 interface:
   display_name: "Presentation Layout Qa"
-  short_description: "Prüft PowerPoint-Folien strukturell auf Text- und Box-Overflow, Objektüberlagerungen, Slide-Grenzen, Font-Ausreißer,..."
+  short_description: "Prüft PowerPoint-Folien strukturell und kompositorisch auf Text-/Box-Overflow, Objektüberlagerungen, Slide-Grenzen, F..."
 policy:
   allow_implicit_invocation: true
