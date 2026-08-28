@@ -1,0 +1,5 @@
+interface:
+  display_name: "IP & Licensing Law"
+  short_description: "Prüft IP-Ownership, Chain of Title, Lizenzen und Technology Transfer."
+policy:
+  allow_implicit_invocation: true
