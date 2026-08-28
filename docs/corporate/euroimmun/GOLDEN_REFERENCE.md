@@ -1,28 +1,43 @@
 # EUROIMMUN Corporate Design Golden Reference
 
-This document defines the reproducible Golden Reference hierarchy for `docs/corporate/euroimmun/DESIGN.md`. Proprietary PowerPoint binaries are not committed; identity hashes, fixtures and QA records provide the repository evidence.
+This document defines the reproducible Golden Reference hierarchy for `docs/corporate/euroimmun/DESIGN.md`. Proprietary corporate binaries are not committed; identity hashes, fixtures and QA records provide repository evidence.
 
-The active presentation-reference pointer is `docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md`.
+Active pointers:
+
+- presentation: `docs/corporate/euroimmun/ACTIVE_PRESENTATION_REFERENCE.md`
+- DOCX/PDF reports: `docs/corporate/euroimmun/ACTIVE_REPORT_REFERENCE.md`
 
 ## Mandatory two-level model
 
 ### Level 1 — Shared Design / Fallback Golden Reference
 
-Level 1 verifies shared corporate design, language, structural QA, complete rendering and source/PDF parity when the preferred binary reference is unavailable. It may pass as `template-compatible`, but MUST NOT be used to claim `template-derived`, controlled-template/master parity, or verified inheritance of master-owned regions.
+Level 1 verifies shared corporate design, language, structural QA, complete rendering and source/PDF parity when the preferred binary reference is unavailable. It may pass as `template-compatible`, but MUST NOT be used to claim `template-derived`, controlled-template/master parity, or verified inheritance of controlled binary-template regions.
 
 Fixture: `tests/fixtures/euroimmun/corporate-design-24h-neuro.json`.
 
 The permanent Level-1 stress set uses the 27–28 Aug 2026 neurodegeneration content and remains a reproducible fallback regression. Its presentation render coverage is `7/7`, report coverage is `3/3`, unresolved Critical/Major findings are `0`, and Corporate Design Gate is `PASS`.
 
-### Level 2 — Controlled Master Golden Reference
+For DOCX/PDF, the bundled Public-Reference template is explicitly Level 1 only.
 
-Level 2 certifies presentation fidelity against a **real controlled or confirmed PowerPoint binary available at runtime**. It is mandatory when a binary master is available, `template-derived` is claimed, controlled master/layout/logo/footer preservation is claimed, or pixel/template parity is claimed.
+### Level 2 — Real Binary Template Golden Reference
 
-Fixture: `tests/fixtures/euroimmun/corporate-design-controlled-master-level2.json`.
+Level 2 certifies fidelity against a **real controlled or confirmed corporate binary available at runtime**. It is artifact-family specific:
 
-**Hard rule:** Level 2 MUST NOT report `PASS` without the actual binary master. A reconstructed template, copied logo, manually recreated footer, textual specification or screenshot is not a substitute.
+- Presentation Level 2: real PPTX binary master/reference.
+- Report Level 2: real DOCX/DOTX binary template/reference.
 
-Before Level-2 authoring or verification, record:
+Level 2 is mandatory when a qualifying binary is available, `template-derived` is claimed, controlled master/template preservation is claimed, or pixel/template parity is claimed.
+
+Presentation fixture: `tests/fixtures/euroimmun/corporate-design-controlled-master-level2.json`.
+Report fixture: `tests/fixtures/euroimmun/corporate-design-controlled-report-level2.json`.
+
+**Hard rule:** Level 2 MUST NOT report `PASS` without the actual artifact-family binary. A reconstructed template, copied logo, manually recreated footer, textual specification, Base64 Public-Reference fallback or screenshot is not a substitute.
+
+## Presentation Level 2
+
+### Source lock
+
+Before Presentation-Level-2 authoring or verification, record:
 
 - runtime source filename/identity;
 - SHA-256 of the actual PPTX binary;
@@ -31,9 +46,7 @@ Before Level-2 authoring or verification, record:
 - theme/color and font inventory;
 - logo/footer/confidentiality geometry or stable fingerprints.
 
-## Preferred current Level-2 reference
-
-The preferred current confirmed binary reference is:
+### Preferred current presentation reference
 
 - `260828 NDD Review.pptx`
 - SHA-256 `349e5599ee0c1876a474057ec659244e0f37dd39d65636d2042b7eee46bab02e`
@@ -43,11 +56,11 @@ The preferred current confirmed binary reference is:
 - primary theme: `Hanken Grotesk Light` / `Hanken Grotesk`
 - active green theme accent: `#208528`
 
-The certification record is `docs/corporate/euroimmun/GOLDEN_REFERENCE_LEVEL2_20260828.md`.
+Certification record: `docs/corporate/euroimmun/GOLDEN_REFERENCE_LEVEL2_20260828.md`.
 
-`260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`, is a **historical confirmed reference**. It remains valid provenance for earlier template observations but MUST NOT silently displace the preferred current reference.
+`260610 Innovation Topics.pptx`, SHA-256 `a85871bbe60a795436982e08bfce4a7efbc85b57471cb0c837062362844395e2`, is a **historical confirmed reference** and MUST NOT silently displace the preferred current reference.
 
-## Level 2 representative archetypes
+### Presentation representative archetypes
 
 A certification run MUST exercise the available master/layout grammar, including where supported:
 
@@ -59,54 +72,108 @@ A certification run MUST exercise the available master/layout grammar, including
 6. table/portfolio comparison;
 7. visual-heavy/custom diagram behavior.
 
-If an archetype is unavailable in the runtime master, record that fact rather than inventing it.
+### Presentation required parity checks
 
-## Level 2 required parity checks
+At minimum verify source SHA-256 and identity, slide-size parity, master/layout inheritance, theme color behavior, logo/footer/confidentiality behavior, slide numbers, font/fallback disposition, placeholder geometry/safe areas/overflow, every slide render, every presentation-PDF page render, source/PDF visible-layout parity, master-owned visual difference assessment, and Corporate Design Gate language/content checks.
+
+### Presentation Level-2 acceptance
+
+`LEVEL_2_PASS` requires derivation `template-derived`, source binary/SHA recorded, no required master-owned element reconstructed, Critical = 0, Major = 0, complete slide/PDF coverage, PDF parity = `PASS`, and Corporate Design Gate = `PASS`.
+
+The 2026-08-28 certified run using `260828 NDD Review.pptx` achieved these conditions with `7/7` slide and `7/7` PDF inspection and 100% pixel-identical matched master-owned regions.
+
+## DOCX/PDF Report Level 2
+
+### Current state
+
+As of 2026-08-28, **no eligible internally approved or confirmed EUROIMMUN DOCX/DOTX binary has been registered as the preferred report Level-2 reference**. Therefore Report Level 2 is currently `NOT_RUN`.
+
+The existing Public-Reference Word template remains Level 1. This is intentional and prevents a public-style working format from being mislabeled as a controlled internal corporate template.
+
+Authoritative pointer: `docs/corporate/euroimmun/ACTIVE_REPORT_REFERENCE.md`.
+
+### Report source lock
+
+Before DOCX-Level-2 authoring or verification, record:
+
+- exact source filename;
+- SHA-256 of the unmodified DOCX/DOTX binary;
+- template status (`approved-controlled` preferred; otherwise explicit `confirmed-reference-binary`);
+- Sections, page size, margins and orientation inventory;
+- Named Styles and hierarchy;
+- Header/Footer relationships by Section;
+- logos/images in controlled regions and stable identities/fingerprints;
+- fields, page numbering, document properties, bookmarks/content controls where relevant;
+- font inventory/fallback disposition;
+- safe body insertion adapter/profile.
+
+The binary template itself need not be stored in Skillz.
+
+### Report adapter rule
+
+A real internal Word template MUST NOT be modified merely to add Skillz-specific `{{...}}` placeholders. Binary source and template adapter are separate concerns. The adapter must identify a safe content insertion point and map body elements to existing approved styles/structures without reconstructing controlled template regions.
+
+If no safe adapter exists, Level 2 is `NOT_RUN` or `FAIL`.
+
+### DOCX required parity checks
 
 At minimum verify:
 
-- source SHA-256 and identity;
-- slide-size parity;
-- master/layout inheritance;
-- theme color behavior;
-- logo geometry and aspect ratio;
-- footer/confidentiality geometry and behavior;
-- slide-number behavior;
-- font family and fallback disposition;
-- placeholder geometry, safe areas and overflow;
-- every generated slide rendered and inspected;
-- every presentation-PDF page rendered and inspected;
-- source/PDF visible-layout parity;
-- visual-difference assessment for master-owned regions;
+- source binary identity and SHA-256;
+- Section/page-geometry parity;
+- style inheritance and hierarchy;
+- Header/Footer/logo/field preservation;
+- page numbering behavior;
+- fonts/fallbacks;
+- body insertion does not overwrite controlled regions;
+- tables/images/captions/callouts remain inside printable geometry;
+- every generated DOCX page rendered and inspected;
+- controlled-region geometry/fingerprints/render comparison;
+- no required controlled template element reconstructed;
 - Corporate Design Gate language/content checks.
 
-Master-owned regions SHOULD be checked by geometry/fingerprint and rendered visual comparison, not by manually reconstructed coordinates alone.
+### DOCX Level-2 acceptance
 
-## Level 2 acceptance
+DOCX `LEVEL_2_PASS` requires:
 
-`LEVEL_2_PASS` requires:
-
+- real DOCX/DOTX binary available;
+- source SHA-256/status recorded;
 - derivation `template-derived`;
-- source binary and SHA-256 recorded;
-- no required master-owned element reconstructed;
-- unresolved Critical findings = `0`;
-- unresolved Major findings = `0`;
-- complete slide and presentation-PDF render coverage;
-- PDF parity = `PASS`;
+- valid adapter/profile;
+- no required controlled template element reconstructed;
+- Sections/Page Setup and controlled regions preserved;
+- complete DOCX page render coverage;
+- unresolved Critical = `0`;
+- unresolved Major = `0`;
 - Corporate Design Gate = `PASS`.
 
-If any required condition is missing, Level 2 is `FAIL` or `NOT_RUN`; missing source evidence is never downgraded silently to a warning.
+Missing binary evidence is never downgraded to a warning.
 
-## Current certified run
+### PDF Level-2 inheritance and parity
 
-The 2026-08-28 run using `260828 NDD Review.pptx` produced a 7-slide `template-derived` Golden Reference with `7/7` slide and `7/7` PDF-page inspection. Master-owned cover logo, lower Revvity branding, right-side cover artwork and standard content-footer regions/rule were `100%` pixel-identical in matched render comparisons. Critical = `0`, Major = `0`, PDF parity = `PASS`, Corporate Design Gate = `PASS`, final status = `LEVEL_2_PASS`.
+PDF is never independently promoted. It inherits the DOCX report level.
 
-The known warnings are preserved in the detailed record: runtime Hanken-Grotesk substitution, `confirmed-reference-binary` rather than `approved-controlled`, and PowerPoint-theme `accent1 #208528` versus cross-format corporate `forest #218529` with template precedence for template-derived elements.
+PDF `LEVEL_2_PASS` additionally requires:
+
+- source DOCX already has Report `LEVEL_2_PASS`;
+- final source-DOCX SHA-256 recorded;
+- PDF generated from that exact DOCX revision;
+- every PDF page rendered and inspected;
+- page count/content order parity;
+- Header/Footer/logo/field/Page-Setup visible behavior preserved;
+- no PDF-specific repair/reconstruction;
+- DOCX/PDF source parity = `PASS`;
+- Critical = `0`, Major = `0`;
+- Corporate Design Gate = `PASS`.
+
+If DOCX Level 2 is `NOT_RUN`, PDF Level 2 MUST also be `NOT_RUN`.
 
 ## Supersession and rerun
 
-Level 1 remains the permanent fallback regression. The successful Level 2 run supersedes Level 1 only for controlled-presentation fidelity claims tied to the certified source identity.
+Level 1 remains the permanent fallback regression for each artifact family. A Level-2 PASS supersedes Level 1 only for fidelity claims tied to the certified source identity.
 
-Rerun Level 2 when the preferred approved/confirmed source SHA-256 changes, master/layout/theme/logo/footer structure changes, the corporate presentation design contract changes materially, or the rendering stack changes materially enough to affect output.
+Rerun Presentation Level 2 when the approved/confirmed PPTX SHA, master/layout/theme/logo/footer structure, presentation design contract, or relevant rendering stack changes materially.
 
-The repository regression test `tests/test_euroimmun_corporate_design_golden_reference.py` validates these invariants.
+Rerun Report Level 2 when the approved/confirmed DOCX/DOTX SHA, Section/page geometry, styles, Header/Footer/logo/field structure, adapter/profile, report design contract, or relevant rendering/conversion stack changes materially.
+
+The repository regression tests `tests/test_euroimmun_corporate_design_golden_reference.py` and `tests/test_euroimmun_docx_pdf_level2_reference.py` validate these invariants.
