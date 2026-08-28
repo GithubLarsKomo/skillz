@@ -235,7 +235,7 @@
       "files": {
         "SKILL.md": "3569db15c909edfe8128f3c7f5efe2e6d3224f8d45fbad3c596dc3a9a347ff2e",
         "agents/openai.yaml": "2c028a778d8aa30d91ba18aec46d8827d6263b7173195477a9257eac3455534c",
-        "references/euroimmun-template-spec.md": "79311ce76a0e76406bd4c15d1650fdabe0e8903241bec74de2aeee31d2ed700e"
+        "references/euroimmun-template-spec.md": "ad5c66cd5b854a0095482fd0c0d1bac6a5f04db0a0a7c2c751ff23db9a66b374"
       }
     },
     "evidence-based-causal-investigation": {
