@@ -14,6 +14,7 @@ on:
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
       - "scripts/apply_architecture_p2_governance.py"
+      - "tests/test_architecture_consolidation_p2.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
