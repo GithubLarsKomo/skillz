@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "workflow-benchmark-authoring",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "derive every scenario sequence from the canonical entrypoint requires closure",
+      "passed": true,
+      "evidence": "SKILL.md mandates Dependency Closure statt Wunschsequenz and requires every sequence skill to be reachable through the entrypoint requires closure."
+    },
+    {
+      "behavior": "require current passing evaluations for all active benchmark participants",
+      "passed": true,
+      "evidence": "SKILL.md states Kein grüner Benchmark auf roter oder fehlender Skill-Evaluation and makes evaluation PASS a regression gate."
+    },
+    {
+      "behavior": "distinguish contract-level architecture evidence from actual artifact execution",
+      "passed": true,
+      "evidence": "SKILL.md explicitly states Contract-Level ≠ echte Artifact-Ausführung and defines the evidence boundary."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "claim render runtime or artifact execution from a structural contract check alone",
+      "observed": false,
+      "evidence": "The normative benchmark boundary explicitly forbids this overclaim."
+    }
+  ],
+  "overall": "pass"
+}
