@@ -26,6 +26,7 @@ class TestEuroimmunDocxPdfLevel2Reference(unittest.TestCase):
 
     def test_no_false_controlled_reference_is_registered(self):
         self.assertIn("NONE_REGISTERED", self.active)
+        self.assertIn("current Level-2 certification record: `NONE`", self.active)
         self.assertIn("public-reference-fallback", self.active)
         self.assertEqual(self.fixture["status"], "NOT_RUN")
         self.assertEqual(self.fixture["currentReference"]["preferredCurrentReferenceName"], None)
