@@ -1,0 +1,5 @@
+interface:
+  display_name: "Corporate Transactions / M&A"
+  short_description: "Strukturiert M&A, DD, Signing/Closing und Deal-Gates."
+policy:
+  allow_implicit_invocation: true
