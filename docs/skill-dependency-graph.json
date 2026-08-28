@@ -496,6 +496,20 @@
       ]
     },
     {
+      "name": "document-render-verifier",
+      "requires": [
+        "document-layout-qa"
+      ],
+      "consumes": [
+        "document-layout-qa.json"
+      ],
+      "outputs": [
+        "document-preview.pdf",
+        "document-render-qa.json",
+        "document-render-qa.md"
+      ]
+    },
+    {
       "name": "document-template-profiler",
       "requires": [],
       "consumes": [],
@@ -3797,6 +3811,10 @@
       "to": "document-template-profiler"
     },
     {
+      "from": "document-render-verifier",
+      "to": "document-layout-qa"
+    },
+    {
       "from": "domain-model-maintenance",
       "to": "agent-handoff"
     },
@@ -6074,6 +6092,11 @@
       "producer": "document-template-profiler"
     },
     {
+      "consumer": "document-render-verifier",
+      "artifact": "document-layout-qa.json",
+      "producer": "document-layout-qa"
+    },
+    {
       "consumer": "job-description-authoring",
       "artifact": "role-architecture.json",
       "producer": "role-architecture"
@@ -8279,14 +8302,43 @@
       "producers": [
         "document-layout-qa"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "document-render-verifier"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "document-layout-qa.md",
       "producers": [
         "document-layout-qa"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document-preview.pdf",
+      "producers": [
+        "document-render-verifier"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document-render-qa.json",
+      "producers": [
+        "document-render-verifier"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document-render-qa.md",
+      "producers": [
+        "document-render-verifier"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -14281,8 +14333,10 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-layout-qa.json",
     "document-layout-qa.md",
+    "document-preview.pdf",
+    "document-render-qa.json",
+    "document-render-qa.md",
     "document-template-profile.md",
     "domain-change-plan.md",
     "domain-model-map.json",
@@ -14545,8 +14599,10 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
-    "document-layout-qa.json",
     "document-layout-qa.md",
+    "document-preview.pdf",
+    "document-render-qa.json",
+    "document-render-qa.md",
     "document-template-profile.md",
     "domain-change-plan.md",
     "domain-model-map.json",

@@ -10,12 +10,13 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **45**
+Skills: **46**
 
 - [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/document-generation-forensics|document-generation-forensics]]
 - [[skills/document-layout-qa|document-layout-qa]]
+- [[skills/document-render-verifier|document-render-verifier]]
 - [[skills/document-template-profiler|document-template-profiler]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/dr-komorowski-sport-report-renderer|dr-komorowski-sport-report-renderer]]

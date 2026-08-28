@@ -1,0 +1,5 @@
+interface:
+  display_name: "Document Render Verifier"
+  short_description: "Rendert ein DOCX und die daraus erzeugte PDF-Version seitenweise und verifiziert sichtbare Parität, Clipping, Font-/G..."
+policy:
+  allow_implicit_invocation: true

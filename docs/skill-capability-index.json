@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 273,
+  "skillCount": 274,
   "entrypointCount": 228,
   "entrypointCategories": [
     "analysis",
@@ -2549,7 +2549,9 @@
       "requires": [
         "document-template-profiler"
       ],
-      "dependents": [],
+      "dependents": [
+        "document-render-verifier"
+      ],
       "outputs": [
         "document-layout-qa.json",
         "document-layout-qa.md"
@@ -2561,13 +2563,67 @@
           "producers": [
             "document-layout-qa"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "document-render-verifier"
+          ]
         },
         {
           "output": "document-layout-qa.md",
           "ambiguous": false,
           "producers": [
             "document-layout-qa"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "document-render-verifier",
+      "description": "Rendert ein DOCX und die daraus erzeugte PDF-Version seitenweise und verifiziert sichtbare Parität, Clipping, Font-/Glyph-Substitution, Tabellen-/Bild-Reflow, Seitenumbrüche, Header/Footer, Felder und Druckstabilität. Verwenden nach struktureller Dokument-QA als finales visuelles Gate; nicht als Ersatz für editierbare DOCX-Prüfung.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "document-layout-qa"
+      ],
+      "dependents": [],
+      "outputs": [
+        "document-preview.pdf",
+        "document-render-qa.json",
+        "document-render-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-preview.pdf",
+          "ambiguous": false,
+          "producers": [
+            "document-render-verifier"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document-render-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "document-render-verifier"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document-render-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "document-render-verifier"
           ],
           "consumerSkills": []
         }
