@@ -1,0 +1,39 @@
+name: Sync generated metadata for PR
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync-pr:
+    if: github.head_ref == 'feat/euroimmun-preferred-260828-reference' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Materialize OpenAI agent metadata
+        run: python scripts/materialize_openai_agent_metadata.py
+      - name: Generate repository metadata
+        run: python scripts/generate_repository_metadata.py
+      - name: Build committed OpenAI plugin bundle
+        run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$(git rev-parse HEAD)"
+      - name: Commit generated artifacts
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "Generated artifacts already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md .skill-sync.json docs/skill-dependency-graph.json docs/SKILL-DEPENDENCIES.md docs/skill-capability-index.json docs/CAPABILITY-HEALTH.md obsidian plugins/skillz skills/*/SKILL.md skills/*/agents/openai.yaml
+          git commit -m "Regenerate skill repository artifacts"
+          git push origin HEAD:${{ github.head_ref }}
