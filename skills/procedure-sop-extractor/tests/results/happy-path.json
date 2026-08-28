@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "procedure-sop-extractor",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "classify every element as observed derived or recommended",
+      "passed": true,
+      "evidence": "The evidence-class contract requires exactly one of these classes per element."
+    },
+    {
+      "behavior": "preserve step evidence timestamps parameters warnings and expected results",
+      "passed": true,
+      "evidence": "The structure and minimum step fields explicitly require these data where available."
+    },
+    {
+      "behavior": "mark gaps that require validation before controlled use",
+      "passed": true,
+      "evidence": "Critical missing parameters force incomplete-for-controlled-use and explicit validation gaps."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent quantities times torque temperatures settings or tolerances",
+      "observed": false,
+      "evidence": "The reconstruction rules explicitly prohibit inventing these parameters."
+    },
+    {
+      "behavior": "present recommended additions as if stated by the video author",
+      "observed": false,
+      "evidence": "Recommended content must never be phrased as source-observed."
+    }
+  ],
+  "overall": "pass"
+}

@@ -4,10 +4,10 @@ generated: true
 name: "template-presentation-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/template-presentation-workflow/SKILL.md"
 tags:
   - skill
@@ -34,14 +34,11 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf
 ## Required by
 
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ## Outputs
 
 - `presentation-qa.md`
-- `presentation-template-profile.json`
 - `presentation.pdf`
 - `presentation.pptx`
 
@@ -49,32 +46,25 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf
 
 ### `presentation-qa.md`
 
-- Ambiguous producer contract; no inferred consumer edge.
-
-### `presentation-template-profile.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ### `presentation.pdf`
 
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ### `presentation.pptx`
 
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

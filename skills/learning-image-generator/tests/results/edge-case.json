@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-image-generator",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "prefer overlay text or SVG/HTML/PPTX text when labels should remain crisp",
+      "passed": true,
+      "evidence": "The rules explicitly say critical labels/text should not be baked into raster images when other surfaces handle them better."
+    },
+    {
+      "behavior": "keep the generated image focused on explanatory visual content",
+      "passed": true,
+      "evidence": "Image generation is reserved for cases where an image solves the learning task better than SVG or source frames."
+    },
+    {
+      "behavior": "record intended meaning and prohibited interpretations",
+      "passed": true,
+      "evidence": "These are required manifest fields."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "bake unreadable critical text into the raster image",
+      "observed": false,
+      "evidence": "The image rules prohibit this when text can be overlaid."
+    },
+    {
+      "behavior": "use image generation for a text-heavy diagram better served by SVG",
+      "observed": false,
+      "evidence": "The purpose explicitly prefers SVG/source frames when they solve the task better."
+    }
+  ],
+  "overall": "pass"
+}

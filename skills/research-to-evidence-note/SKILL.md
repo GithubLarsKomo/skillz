@@ -9,6 +9,8 @@ status: candidate
 owners:
   - GithubLarsKomo
 requires: []
+consumes:
+  - source-context.json
 outputs:
   - evidence-note.json
   - evidence-note.md

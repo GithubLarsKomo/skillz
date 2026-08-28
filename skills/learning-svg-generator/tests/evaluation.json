@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-svg-generator",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create an accessible SVG process diagram from an approved visual plan and DESIGN.md, with source-claim manifest and multi-format readability.",
+      "requiredBehaviors": [
+        "keep all relationships labels and data anchored in the visual plan",
+        "apply DESIGN.md tokens and robust SVG structure",
+        "verify browser raster fallback PPTX/A4 readability and clipping"
+      ],
+      "forbiddenBehaviors": [
+        "invent data or relationships",
+        "redraw corporate logos or alter scientific data geometry"
+      ],
+      "skillAnchors": [
+        "Keine Zahl, Beziehung, Reihenfolge",
+        "besitzt `viewBox`",
+        "Multi-Format-Prüfung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A diagram must work in browser, PowerPoint and A4 PDF, but the planned brand font is unavailable on one target environment.",
+      "requiredBehaviors": [
+        "keep the SVG functional without embedded proprietary font files",
+        "preserve readable text and geometry across target surfaces",
+        "document any necessary technical fallback without changing semantics"
+      ],
+      "forbiddenBehaviors": [
+        "embed proprietary font binaries into the SVG",
+        "convert labels into clipped decorative paths without need"
+      ],
+      "skillAnchors": [
+        "ohne eingebettete proprietäre Fontdatei",
+        "hält Text als Text",
+        "PPTX-/A4-Nutzung"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The SVG adds an unverified process step, redraws a corporate logo, modifies plotted data for aesthetics and clips arrowheads in PDF.",
+      "requiredBehaviors": [
+        "reject added process semantics",
+        "reject logo reconstruction and data-geometry modification",
+        "reject release with clipping"
+      ],
+      "forbiddenBehaviors": [
+        "present an infographic as evidence",
+        "ignore target-surface render failures"
+      ],
+      "skillAnchors": [
+        "Keine Corporate-Logos nachzeichnen",
+        "Datengeometrie verändert",
+        "keine abgeschnittenen Labels oder Pfeilspitzen"
+      ]
+    }
+  ]
+}

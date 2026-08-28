@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "euroimmun-presentation-workflow",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "abort the corporate workflow when the mandatory DESIGN.md is unavailable",
+      "passed": true,
+      "evidence": "The design contract explicitly requires aborting rather than improvising corporate rules."
+    },
+    {
+      "behavior": "reject logo/icon reconstruction and mixed unprovenanced assets",
+      "passed": true,
+      "evidence": "The icon and non-goal rules require supplied/approved assets and provenance."
+    },
+    {
+      "behavior": "reject template-derived status without Level-2 PASS",
+      "passed": true,
+      "evidence": "Template-derived is explicitly conditional on the relevant Level-2 verification."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent EUROIMMUN design rules",
+      "observed": false,
+      "evidence": "Missing DESIGN.md is a blocker, not permission to improvise."
+    },
+    {
+      "behavior": "claim corporate design pass with unsupported assets",
+      "observed": false,
+      "evidence": "Corporate Design Gate requires template/asset provenance and QA evidence."
+    }
+  ],
+  "overall": "pass"
+}

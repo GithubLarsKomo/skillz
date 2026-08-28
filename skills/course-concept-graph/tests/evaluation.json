@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "course-concept-graph",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a concept and prerequisite graph from a multi-source learning model with clear foundations, mechanisms and advanced applications.",
+      "requiredBehaviors": [
+        "model only evidence-backed prerequisite edges",
+        "keep the prerequisite graph acyclic",
+        "separate mandatory prerequisites from helpful ordering"
+      ],
+      "forbiddenBehaviors": [
+        "copy playlist order into prerequisite edges",
+        "invent missing prerequisite concepts"
+      ],
+      "skillAnchors": [
+        "prerequisite-of",
+        "Zyklen in zwingenden",
+        "fachliche Abhängigkeit"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "An expert audience already knows several foundations and a variant is useful before application but is not strictly required.",
+      "requiredBehaviors": [
+        "represent assumed prerequisites explicitly",
+        "use non-mandatory ordering where appropriate",
+        "keep module candidates tied to learning logic"
+      ],
+      "forbiddenBehaviors": [
+        "turn helpful ordering into a hard prerequisite",
+        "hide audience assumptions"
+      ],
+      "skillAnchors": [
+        "helps-before",
+        "assumed-prerequisite",
+        "Modul-Kandidaten"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft copies video order as prerequisite order and introduces a cyclic dependency between two concepts.",
+      "requiredBehaviors": [
+        "reject playlist order as prerequisite evidence",
+        "reject mandatory prerequisite cycles",
+        "rebuild edges from domain learning dependencies"
+      ],
+      "forbiddenBehaviors": [
+        "accept the cyclic graph",
+        "treat chronology as proof of dependency"
+      ],
+      "skillAnchors": [
+        "Playlist-Reihenfolge",
+        "kein Beleg für eine Voraussetzung",
+        "unzulässig"
+      ]
+    }
+  ]
+}

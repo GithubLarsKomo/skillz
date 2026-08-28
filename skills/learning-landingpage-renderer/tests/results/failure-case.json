@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-landingpage-renderer",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject claim mutation",
+      "passed": true,
+      "evidence": "Claims are outside renderer authority."
+    },
+    {
+      "behavior": "reject inaccessible JS-dependent core navigation",
+      "passed": true,
+      "evidence": "The HTML contract requires keyboard navigation and no mandatory JavaScript dependency for core content."
+    },
+    {
+      "behavior": "reject QA PASS with clipping or unchecked timestamp links",
+      "passed": true,
+      "evidence": "Mobile/narrow, SVGs, overflow and timestamp links are mandatory QA checks."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "hide mobile overflow",
+      "observed": false,
+      "evidence": "Responsive narrow QA is mandatory."
+    },
+    {
+      "behavior": "skip source-link validation",
+      "observed": false,
+      "evidence": "Timestamp links are explicit QA scope."
+    }
+  ],
+  "overall": "pass"
+}

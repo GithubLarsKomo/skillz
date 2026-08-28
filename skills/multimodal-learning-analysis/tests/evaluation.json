@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "multimodal-learning-analysis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Analyze a timestamped transcript together with relevant frames and metadata, producing evidence-bound claims and a concept map.",
+      "requiredBehaviors": [
+        "separate observed, derived and unknown states",
+        "anchor central claims to transcript or frame evidence",
+        "preserve audiovisual contradictions"
+      ],
+      "forbiddenBehaviors": [
+        "invent unseen process details",
+        "copy long source passages"
+      ],
+      "skillAnchors": [
+        "Observed",
+        "Derived",
+        "Unknown"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A visible action is clear but its purpose is not spoken, while a nearby transcript segment is ambiguous.",
+      "requiredBehaviors": [
+        "describe the action as observed",
+        "leave unsupported intent unknown",
+        "lower confidence where evidence is incomplete"
+      ],
+      "forbiddenBehaviors": [
+        "infer purpose solely from plausibility",
+        "invent visual parameters from transcript alone"
+      ],
+      "skillAnchors": [
+        "Aus einem Transcript allein keine Drehrichtung",
+        "Ein sichtbarer Schritt ohne erklärenden Ton",
+        "confidence"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "An animated schematic is treated as experimental evidence and missing rotation direction is inferred from a transcript that never states it.",
+      "requiredBehaviors": [
+        "reject the schematic as experimental evidence",
+        "reject invented rotation direction",
+        "retain the evidence gap"
+      ],
+      "forbiddenBehaviors": [
+        "upgrade illustrative content to measured evidence",
+        "copy longer source passages as output"
+      ],
+      "skillAnchors": [
+        "animiertes oder schematisches Visual ist keine experimentelle Evidenz.",
+        "keine längeren Quellpassagen werden kopiert.",
+        "keine Drehrichtung"
+      ]
+    }
+  ]
+}

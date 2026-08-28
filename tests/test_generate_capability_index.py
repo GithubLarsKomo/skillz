@@ -71,6 +71,8 @@ class CapabilityIndexTests(unittest.TestCase):
             self.assertEqual(by_name["a"]["outputContracts"][0]["consumerSkills"], ["b"])
             self.assertEqual(by_name["a"]["evaluation"]["mode"], "none")
             self.assertEqual(by_name["a"]["invocation"], {"userFacing": False, "category": None})
+            self.assertEqual(index["evaluatedSkillCount"], 0)
+            self.assertFalse(index["evaluationCoverageComplete"])
 
     def test_entrypoint_metadata_is_materialized_and_summarized(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -82,6 +84,9 @@ class CapabilityIndexTests(unittest.TestCase):
             self.assertEqual(by_name["alpha"]["invocation"], {"userFacing": True, "category": "engineering"})
             self.assertEqual(index["entrypointCount"], 1)
             self.assertEqual(index["entrypointCategories"], ["engineering"])
+            self.assertEqual(index["evaluatedSkillCount"], 0)
+            self.assertEqual(index["evaluatedEntrypointCount"], 0)
+            self.assertFalse(index["evaluationCoverageComplete"])
 
     def test_invalid_entrypoint_metadata_fails_closed(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -108,11 +113,14 @@ class CapabilityIndexTests(unittest.TestCase):
                 "threshold": 1.0,
                 "blockingCriteria": ["required-behavior-failed"],
             }), encoding="utf-8")
-            by_name = {item["name"]: item for item in build_index(root)["skills"]}
+            index = build_index(root)
+            by_name = {item["name"]: item for item in index["skills"]}
             self.assertEqual(by_name["legacy"]["evaluation"]["mode"], "compatibility")
             self.assertEqual(by_name["rubric"]["evaluation"]["mode"], "rubric")
             self.assertTrue(by_name["legacy"]["evaluation"]["passed"])
             self.assertTrue(by_name["rubric"]["evaluation"]["passed"])
+            self.assertEqual(index["evaluatedSkillCount"], 2)
+            self.assertTrue(index["evaluationCoverageComplete"])
 
     def test_ambiguous_outputs_never_invent_consumers(self):
         with tempfile.TemporaryDirectory() as tmp:

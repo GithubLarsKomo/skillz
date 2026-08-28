@@ -7,6 +7,8 @@ description: Baut aus mehreren YouTube-Videos oder einem Multi-Source-Learning-M
 
 ## Ziel
 
+Course Concept, Learning Path und Activities bleiben in diesem Skill. Nach dem Lock von `course-learning-model.json` wird die gemeinsame Design-, Visual-, Render- und Cross-Format-QA-Schicht über `learning-delivery-workflow` ausgeführt.
+
 Aus einer Playlist, einem URL-Set oder einem bestehenden `multi-source-learning-model.json` wird ein **didaktisch strukturierter Kurs**. Die Reihenfolge folgt fachlichen Voraussetzungen und Lernzielen, nicht der Reihenfolge der Videos.
 
 ```text
@@ -68,39 +70,19 @@ Wenn URLs/Playlist geliefert werden, `youtube-playlist-learning-workflow` ausfü
 
 Alle Renderer verwenden denselben unveränderlichen Course-Fingerprint.
 
-### 6. Visuals + DESIGN
+### 6. Delivery und Course-QA
 
-Zusätzlich zu `docs/learning-content/DESIGN.md` gilt `docs/learning-content/course/DESIGN.md`.
+`learning-delivery-workflow` mit `course-learning-model.json`, angeforderten Formaten und dem kombinierten Learning-/Course-/Corporate-Designkontext ausführen. Visualplanung, Assets, HTML/PPTX/DOCX/PDF sowie Cross-Format- und Render-QA gehören ausschließlich in diese Delivery-Schicht.
 
-Visuals priorisieren:
+Der Course Builder besitzt nur die **kurssemantischen** Gates:
 
-- Course Map / Learning Path;
-- prerequisite graph;
-- Modul-Mental-Models;
-- Prozess-/Varianten-Schematics;
-- Fortschritts-/Coverage-Darstellung ohne Fake-Metriken.
-
-Generated visuals bleiben illustrative-only.
-
-### 7. Ausgabe
-
-**HTML:** Course-Landingpage mit Overview, Course Map, Module Navigation, Module Lessons, Activities, Knowledge Checks, Sources.
-
-**PPTX:** kein vollständiges LMS simulieren; stattdessen Instructor-/Workshop-Deck oder Course Overview + Moduldecks über `template-presentation-workflow`.
-
-**DOCX/PDF:** Study Guide / Trainer Guide mit Kursstruktur, Inhalten, Übungen, Lösungen/Begründungen und Source Map.
-
-### 8. QA
-
-`learning-artifact-qa` plus Course-spezifische Gates:
-
-- prerequisite graph azyklisch;
-- jedes Pflichtmodul hat Lernziel und Exit Criteria;
+- prerequisite graph ist azyklisch;
+- jedes Pflichtmodul besitzt Lernziel und Exit Criteria;
 - jede formative Frage ist auf Claim/Evidence rückführbar;
-- keine ungelösten materiellen Konflikte als eindeutige Prüfungsantwort;
+- ungelöste materielle Konflikte werden nicht zu eindeutigen Prüfungsantworten;
 - keine erfundenen Bestehensgrenzen;
-- keine Formatausgabe mit abweichender Modulreihenfolge ohne dokumentierten Grund;
-- 0 offene Critical/Major Findings.
+- keine Formatausgabe verwendet eine abweichende Modulreihenfolge ohne dokumentierten Grund;
+- Delivery-Run und Course-Fingerprint sind im `youtube-course-builder-run.json` referenziert.
 
 ## Grenzen
 

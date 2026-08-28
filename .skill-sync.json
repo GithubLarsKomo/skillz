@@ -240,6 +240,24 @@
         "scripts/inspect_document_artifact.py": "93aaf18c07f38231a1fade2da7dc335827710c28a69a42012f9e91b7461827a5"
       }
     },
+    "document-layout-qa": {
+      "files": {
+        "SKILL.md": "aa6ca7828f463ac05c1bfad14263b71d64f9d4ded91b7f60fb5eac7ffbffefe9",
+        "agents/openai.yaml": "b23b1342ea86527d33138eef73bf42e010c9dfdbf68ee30999ae8cedaaf0d74a"
+      }
+    },
+    "document-render-verifier": {
+      "files": {
+        "SKILL.md": "7bd3484ca7842bf5e6c84bbfa06118a26a37abc2c74fabbfb7eec2af6128863d",
+        "agents/openai.yaml": "130b7f6541655d1701a85ecff1612cbb0c82415565e75ce711d56f4a54b55145"
+      }
+    },
+    "document-template-profiler": {
+      "files": {
+        "SKILL.md": "cf95f571c062e3e53532d6a6c4bd706efa1704578d8fecf42132463181d161a8",
+        "agents/openai.yaml": "dd662652129284adcf285c18bb991f1a8ced4fe250cf39df8d1e627ec499cc97"
+      }
+    },
     "domain-model-maintenance": {
       "files": {
         "SKILL.md": "45f13c2094d037648a1c23965acf9af2f49be5f7f19e0ca1d9054594b849d6b4",
@@ -272,7 +290,7 @@
     },
     "dr-komorowski-sport-report-renderer": {
       "files": {
-        "SKILL.md": "ec67cc5aaa9eb4009ef79685597879b19c533eba02607543967ede98993989ff",
+        "SKILL.md": "7a46df0b6b1324b63a42584a0cc7102a7be98dd728b75c444fdc1bb873e3e6a5",
         "agents/openai.yaml": "0735e9ffef42734fc8be84c80d16adb4dd0fddbce05b1e4c5914679b84f7fbb6",
         "assets/dr-komorowski-logo.svg": "f76a60ab95974b888a434489d964b632cfec2b0e9365c39ec4bca19154b3e8d1",
         "assets/report-spec.example.json": "983a2e0f02ec205e2ba4d8748b6310562b4da8eb9ac98b915423ef57830bc9fb",
@@ -330,7 +348,7 @@
     },
     "euroimmun-presentation-workflow": {
       "files": {
-        "SKILL.md": "d342131ae2248df2e4dec5d63753a5ee4bfea4ca3547830bf97560918d1cec29",
+        "SKILL.md": "c2bf24c747f3ab7dee2dd024fcfbc36708d11423c8165e31fcc7ef0f1934844d",
         "agents/openai.yaml": "2c028a778d8aa30d91ba18aec46d8827d6263b7173195477a9257eac3455534c",
         "references/euroimmun-template-spec.md": "ad5c66cd5b854a0095482fd0c0d1bac6a5f04db0a0a7c2c751ff23db9a66b374"
       }
@@ -805,6 +823,12 @@
         "agents/openai.yaml": "3760c5721cc4a56361fd164d280e5fea4061f0ac75048f65ffc10dd098365a17"
       }
     },
+    "learning-delivery-workflow": {
+      "files": {
+        "SKILL.md": "9b27347b5459856f27d393e58bd831926e76b46877198f11cf12b6a487846b6e",
+        "agents/openai.yaml": "f717f773382d6c6867b7eae6e7223539540e4802219f13092c1ce7ecec990647"
+      }
+    },
     "learning-document-delivery": {
       "files": {
         "SKILL.md": "697800689c70206306383d49a49c5f73a5443323eb6125393f4e9fdd25a6bfd0",
@@ -1117,7 +1141,7 @@
     },
     "multimodal-learning-analysis": {
       "files": {
-        "SKILL.md": "3585968de3174d9120d7b3e15af6d7db5b568a67dca83c0685bed4c2585600f8",
+        "SKILL.md": "6d5423c915ac08ccebfdf43b0277f0a9c23a0d35fa2fabfe7349ef1fd7e93c2c",
         "agents/openai.yaml": "f0dca57312feeacb18c7afe353911af390bac5cd97fb28f7fee345b3f66a7c42"
       }
     },
@@ -1395,7 +1419,7 @@
     },
     "research-to-evidence-note": {
       "files": {
-        "SKILL.md": "a89aeb93b0028bf26ee3f12f949c6f710ab35e25a1f81a1e1cabcff6c45e8e1e",
+        "SKILL.md": "8ce7f747cd0b4d9ea1d6d5ba8e989a610076c1e97b18fed879fdfbdabbd205e0",
         "agents/openai.yaml": "ef3d890b2870ab7c1feb4d86d15da1ef94eb8ab53aea400538a4ace3a444330a"
       }
     },
@@ -1602,7 +1626,7 @@
     },
     "teach": {
       "files": {
-        "SKILL.md": "840b9c64bc9ac736a258dd05418f2c27ddd8cff2832f78b78e6a7f3e3a1a2ca8",
+        "SKILL.md": "dc660acc757dda74b109c87e78be821eb9a7945664e94f5d0b29d0cfd6d11567",
         "agents/openai.yaml": "21ee825f58350cea92fec25ce4e28101bb11ecc47aae4b63ffcf8ce880292df7"
       }
     },
@@ -1618,9 +1642,15 @@
         "agents/openai.yaml": "e8506c6a872c2fe6162bf8b9d56b9cd60e07a3f2d2146c205628dabdbc6baa8c"
       }
     },
+    "template-document-workflow": {
+      "files": {
+        "SKILL.md": "4922e8fb2a3d9effe2fe381d33d012502e0bbd5efc511ecc76e57531a4562855",
+        "agents/openai.yaml": "f715b7133cbaadf9a2bb82cda75650ebbc1119a6e0c36c1b6fb55a4f6efea740"
+      }
+    },
     "template-presentation-workflow": {
       "files": {
-        "SKILL.md": "6f5aaddcf1a5cef9f81954033f938cf2f58d3d668a3b06e2bdfeeff3f9a5f065",
+        "SKILL.md": "9b915c8125c2e8e6059b991471ee28bf03eabff433d506b9ca0290365eda8170",
         "agents/openai.yaml": "30549acd003dc375b08e0d05498eeeeb2f265fd056fae5682675cfe111230711"
       }
     },
@@ -1682,19 +1712,19 @@
     },
     "youtube-course-builder-workflow": {
       "files": {
-        "SKILL.md": "917bfc19e09dbcea3116bf976286b9da7ebfac46f0acff8a40647765a7acd5ef",
+        "SKILL.md": "b49ba821dc474bdbf46fc702c5951c0cea460f3c8c32834bebc4ea2f35dc0c9d",
         "agents/openai.yaml": "15633870db6bf72d60a074c35c00d1488fadec4585547668caa768aad11421e8"
       }
     },
     "youtube-learning-workflow": {
       "files": {
-        "SKILL.md": "2226c2f092ef24f86071441a369abf309b92cb12c5776eb62ad9b6da9a49e4dd",
+        "SKILL.md": "fa0c3154bef0626d63bc74771d02cc93624f65114a07e351032aac66bd4a5f6f",
         "agents/openai.yaml": "34adcfc982b4e1288098b1944e824ed0562d68fce813ac55fbd89ed42a0a670a"
       }
     },
     "youtube-playlist-learning-workflow": {
       "files": {
-        "SKILL.md": "1f3c087d37dede1b8f83fa638711cc10699c784e51a8e7d8ccc6395e887499af",
+        "SKILL.md": "f0bfd44fba01852bb8ed238028b8e6abc54888d5defb828e830527cf9f06b0cf",
         "agents/openai.yaml": "1abc68388efbac293319467e63faef75f580d92cf4d7c6adf2ecf61697d34acf"
       }
     },

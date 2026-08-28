@@ -4,10 +4,10 @@ generated: true
 name: "learning-visual-planner"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/learning-visual-planner/SKILL.md"
 tags:
   - skill
@@ -30,11 +30,9 @@ Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visual
 
 ## Required by
 
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -44,18 +42,16 @@ Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visual
 
 ### `learning-visual-plan.json`
 
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

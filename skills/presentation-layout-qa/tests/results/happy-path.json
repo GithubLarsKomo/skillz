@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-layout-qa",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "use template-specific structural and composition baselines",
+      "passed": true,
+      "evidence": "The v0.2 contract keeps template-specific baselines authoritative and extends them to card density, whitespace, conclusion weighting and safe zones."
+    },
+    {
+      "behavior": "check both geometric defects and objective composition quality",
+      "passed": true,
+      "evidence": "The contract requires both geometry/visual checks and the mandatory composition and information-architecture class."
+    },
+    {
+      "behavior": "require render verification after material major or critical corrections",
+      "passed": true,
+      "evidence": "Render coupling explicitly requires every corrected major or critical slide to be rendered and visually inspected."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "declare layout PASS merely because no objects collide",
+      "observed": false,
+      "evidence": "The completion rule explicitly forbids PASS for collision-free but compositionally weak slides."
+    },
+    {
+      "behavior": "apply universal layout thresholds that contradict the active template",
+      "observed": false,
+      "evidence": "Template-specific baselines take precedence over universal thresholds."
+    }
+  ],
+  "overall": "pass"
+}

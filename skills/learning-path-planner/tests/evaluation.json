@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-path-planner",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Plan a course from an acyclic concept graph where foundations precede mechanisms and guided application precedes independent application.",
+      "requiredBehaviors": [
+        "place prerequisites before dependent competencies",
+        "give every module a clear competency promise",
+        "produce a coherent standard path"
+      ],
+      "forbiddenBehaviors": [
+        "sort modules only by source order",
+        "place advanced applications before required concepts"
+      ],
+      "skillAnchors": [
+        "Voraussetzungen vor abhängigen Kompetenzen",
+        "ein Modul hat ein klares Kompetenzversprechen",
+        "standard path"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Experts may skip known foundations after an entry check, but one advanced module still has a mandatory prerequisite.",
+      "requiredBehaviors": [
+        "offer a fast-track based on demonstrated prior knowledge",
+        "retain mandatory prerequisites",
+        "make entry assumptions visible"
+      ],
+      "forbiddenBehaviors": [
+        "skip prerequisites without evidence",
+        "assume expertise without an explicit basis"
+      ],
+      "skillAnchors": [
+        "fast-track",
+        "Entry Checks",
+        "Abkürzungen dürfen keine echte fachliche Voraussetzung umgehen."
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The proposed path is just the playlist order and introduces a specialty topic before the terms it depends on are explained.",
+      "requiredBehaviors": [
+        "reject playlist ordering as course logic",
+        "move the specialty topic after its prerequisites",
+        "restore a learnable dependency order"
+      ],
+      "forbiddenBehaviors": [
+        "approve the sorted playlist",
+        "hide prerequisite violations"
+      ],
+      "skillAnchors": [
+        "nicht bloß eine sortierte Playlist",
+        "Reihenfolge korrigieren.",
+        "Spezialthema"
+      ]
+    }
+  ]
+}

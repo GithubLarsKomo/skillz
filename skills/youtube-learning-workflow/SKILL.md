@@ -13,14 +13,7 @@ requires:
   - multimodal-learning-analysis
   - learning-summary-synthesis
   - procedure-sop-extractor
-  - learning-visual-planner
-  - learning-content-design-system
-  - learning-svg-generator
-  - learning-image-generator
-  - learning-landingpage-renderer
-  - learning-document-delivery
-  - learning-artifact-qa
-  - template-presentation-workflow
+  - learning-delivery-workflow
 outputs:
   - learning-content-model.json
   - youtube-learning-run.json
@@ -30,6 +23,8 @@ lastEvaluated: 2026-08-28
 # YouTube Learning Workflow
 
 ## Ziel
+
+Die fachliche Einzelvideo-Analyse bleibt in diesem Skill. Sobald `learning-content-model.json` fixiert ist, wird Design-, Visual-, Render- und Cross-Format-QA an `learning-delivery-workflow` delegiert; die einzelnen Renderer werden hier nicht parallel orchestriert.
 
 Ein einzelnes Video wird einmal fachlich analysiert und anschließend aus **derselben kanonischen Learning-Basis** in mehrere Medien projiziert.
 
@@ -92,41 +87,18 @@ Wenn `mode=sop|full` oder das Video klar einen Prozess demonstriert, `procedure-
 
 Dies ist die inhaltliche Source of Truth für alle Renderer.
 
-### 5. Visuals planen
+### 5. Delivery delegieren
 
-`learning-visual-planner` entscheidet je Botschaft, ob Quellframe, SVG/Diagramm oder generierte Illustration geeignet ist.
+Nach dem Canonical Model Lock `learning-delivery-workflow` mit `learning-content-model.json`, angeforderten Formaten, Zielgruppe/Sprache und Design-/Corporate-/Template-Kontext ausführen.
 
-### 6. DESIGN.md Authority Lock
+Die Delivery-Schicht besitzt ab hier:
 
-`learning-content-design-system` ausführen.
+- DESIGN.md-/Corporate-Authority-Auflösung;
+- Visualplanung sowie SVG-/Bild-Routing;
+- HTML-, PPTX-, DOCX- und PDF-Erzeugung;
+- Cross-Format-QA, Render-/Parity-Gates und Re-Render nach Korrekturen.
 
-- Bei neutralem Lernartefakt gelten Projekt-DESIGN.md + `docs/learning-content/DESIGN.md`.
-- Bei Corporate Content gewinnt der entsprechende Corporate-Vertrag.
-- Für EUROIMMUN gilt zusätzlich zwingend `docs/corporate/euroimmun/DESIGN.md` einschließlich Corporate Design Gate.
-
-### 7. Visual Assets erzeugen
-
-- strukturierte Diagramme/Schematics -> `learning-svg-generator`;
-- erklärende/realistische Illustration -> `learning-image-generator`;
-- Originalframe nur wenn inhaltlich nötig und provenance-/rights-seitig zulässig.
-
-Visuals dürfen keine neuen fachlichen Claims einführen.
-
-### 8. Ausgabe erzeugen
-
-**HTML** -> `learning-landingpage-renderer`.
-
-**PPTX** -> `template-presentation-workflow`. Educational Storyline als Default:
-
-`why it matters -> mental model -> key concepts -> how it works -> demonstrated procedure -> critical details -> mistakes -> takeaways`
-
-Bei bestätigtem EUROIMMUN-Kontext ist der EUROIMMUN-Corporate-Wrapper/Template-Kontext zu verwenden und der Corporate Design Gate nachzuweisen.
-
-**DOCX/PDF** -> `learning-document-delivery`.
-
-### 9. Cross-Format QA
-
-`learning-artifact-qa` ausführen. Nach jeder materiellen Korrektur neu rendern und erneut prüfen.
+Dieser Orchestrator darf die einzelnen Delivery-Worker nicht parallel erneut steuern. Video-spezifische Verantwortung bleibt hier: Source Identity, Evidence Map, Summary/SOP-Evidenzgrenzen und der unveränderliche `learning-content-model.json`-Fingerprint. `youtube-learning-run.json` referenziert `learning-delivery-bundle.json` und `learning-delivery-run.json`.
 
 ## Ausgabe-Manifest
 

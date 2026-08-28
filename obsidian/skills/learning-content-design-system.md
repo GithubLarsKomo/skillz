@@ -4,10 +4,10 @@ generated: true
 name: "learning-content-design-system"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/learning-content-design-system/SKILL.md"
 tags:
   - skill
@@ -31,13 +31,11 @@ Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertra
 ## Required by
 
 - [[skills/learning-artifact-qa|learning-artifact-qa]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-document-delivery|learning-document-delivery]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -48,20 +46,18 @@ Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertra
 ### `learning-design-context.json`
 
 - [[skills/learning-artifact-qa|learning-artifact-qa]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-document-delivery|learning-document-delivery]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

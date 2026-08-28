@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-landingpage-renderer",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "render only content already present in the canonical model",
+      "passed": true,
+      "evidence": "The input boundary and explicit statement say the renderer does not change claims or SOP classifications."
+    },
+    {
+      "behavior": "produce semantic responsive accessible portable HTML",
+      "passed": true,
+      "evidence": "The HTML contract requires semantic HTML, wide/narrow responsiveness, keyboard navigation, focus states and portable assets."
+    },
+    {
+      "behavior": "validate timestamps anchors visuals overflow print view and design compliance",
+      "passed": true,
+      "evidence": "These checks are all explicitly listed in QA."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "re-author fachliche content during rendering",
+      "observed": false,
+      "evidence": "The renderer changes neither claims nor SOP classifications."
+    },
+    {
+      "behavior": "turn the page into a generic decorative SaaS landing page",
+      "observed": false,
+      "evidence": "The Landingpage-Stil section explicitly rejects generic SaaS KPI-card styling."
+    }
+  ],
+  "overall": "pass"
+}

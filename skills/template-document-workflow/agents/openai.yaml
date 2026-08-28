@@ -1,0 +1,5 @@
+interface:
+  display_name: "Template Document Workflow"
+  short_description: "Orchestriert die Erstellung oder Überarbeitung editierbarer DOCX-Dokumente auf Basis eines vorhandenen Word-Templates..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-template-profiler",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Profile a supplied corporate PPTX with masters, layouts, theme fonts/colors, placeholders, footer rules and recurring visual patterns for faithful reuse.",
+      "requiredBehaviors": [
+        "preserve the supplied template as source of truth",
+        "capture masters layouts theme typography spacing branding and QA baselines",
+        "separate template-derived fidelity from fallbacks"
+      ],
+      "forbiddenBehaviors": [
+        "invent brand rules not supported by the template",
+        "copy confidential slide content as design rules"
+      ],
+      "skillAnchors": [
+        "Ein vorhandenes echtes Template darf nicht",
+        "Template-Fidelity-Regel",
+        "qaBaselines"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Only a confirmed reference deck and a written template specification are available; the original POTX cannot be accessed.",
+      "requiredBehaviors": [
+        "use the best available reference with explicit fallback provenance",
+        "limit fidelity claims when the actual template is unavailable",
+        "retain observed ranges instead of universal assumptions"
+      ],
+      "forbiddenBehaviors": [
+        "claim original-template identity without the file",
+        "invent missing master or theme properties"
+      ],
+      "skillAnchors": [
+        "Priorität der Quellen",
+        "template-compatible fallback",
+        "beobachtete Median-/Bereichswerte"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A profiler ignores the supplied corporate deck, makes up a new palette and fonts, reconstructs the footer and calls the result template-derived.",
+      "requiredBehaviors": [
+        "reject replacement of an available real template",
+        "reject invented palette font and footer rules",
+        "reject unsupported template-derived claims"
+      ],
+      "forbiddenBehaviors": [
+        "treat aesthetic preference as template evidence",
+        "erase provenance of the actual reference"
+      ],
+      "skillAnchors": [
+        "nicht zum Erfinden eines neuen Brand Designs",
+        "Manuelles Nachbauen",
+        "Abweichungen werden explizit dokumentiert"
+      ]
+    }
+  ]
+}

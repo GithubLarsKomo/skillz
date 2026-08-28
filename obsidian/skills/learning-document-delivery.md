@@ -4,10 +4,10 @@ generated: true
 name: "learning-document-delivery"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/learning-document-delivery/SKILL.md"
 tags:
   - skill
@@ -30,9 +30,7 @@ tags:
 
 ## Required by
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ## Outputs
 
@@ -44,28 +42,22 @@ tags:
 
 ### `learning-document-qa.json`
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ### `learning-handout.docx`
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ### `learning-handout.pdf`
 
-- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
-- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
-- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

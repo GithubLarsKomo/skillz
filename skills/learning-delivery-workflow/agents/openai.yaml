@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Delivery Workflow"
+  short_description: "Orchestriert die formatübergreifende Auslieferung eines bereits kanonischen Learning-Content-, Multi-Source- oder Cou..."
+policy:
+  allow_implicit_invocation: true

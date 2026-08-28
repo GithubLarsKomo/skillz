@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-document-delivery",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject fachliche value changes for layout",
+      "passed": true,
+      "evidence": "The renderer is not allowed to change fachliche statements or values."
+    },
+    {
+      "behavior": "reject independent DOCX and PDF authoring",
+      "passed": true,
+      "evidence": "DOCX is the canonical layout source and PDF must be derived from it."
+    },
+    {
+      "behavior": "reject parity claims without actual page render",
+      "passed": true,
+      "evidence": "Both DOCX and PDF QA require rendered pages and visible comparison."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "solve layout by altering claims or data",
+      "observed": false,
+      "evidence": "Fidelity invariants protect numbers, units, warnings and claims."
+    },
+    {
+      "behavior": "simulate PDF parity",
+      "observed": false,
+      "evidence": "Parity is an explicit render-based gate."
+    }
+  ],
+  "overall": "pass"
+}

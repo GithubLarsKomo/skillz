@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 270,
+  "skillCount": 275,
   "entrypointCount": 229,
   "entrypointCategories": [
     "analysis",
@@ -13,7 +13,10 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 245,
+  "evaluationSuiteCount": 275,
+  "evaluatedSkillCount": 275,
+  "evaluatedEntrypointCount": 229,
+  "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1641,10 +1644,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -2537,6 +2540,164 @@
       }
     },
     {
+      "name": "document-layout-qa",
+      "description": "Prüft editierbare DOCX-Dokumente strukturell gegen ein dokumentiertes Template-Profil auf Seiten-/Section-Setup, Style-Drift, Tabellenbreiten, Bild-/Caption-Verankerung, Listen/Nummerierung, Header/Footer, Felder, Seitenumbrüche und typische Overflow-/Reflow-Risiken. Verwenden vor finalem Render; nicht als Ersatz für die visuelle PDF-Prüfung.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "document-template-profiler"
+      ],
+      "dependents": [
+        "document-render-verifier",
+        "template-document-workflow"
+      ],
+      "outputs": [
+        "document-layout-qa.json",
+        "document-layout-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-layout-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "document-layout-qa"
+          ],
+          "consumerSkills": [
+            "document-render-verifier",
+            "template-document-workflow"
+          ]
+        },
+        {
+          "output": "document-layout-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "document-layout-qa"
+          ],
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "document-render-verifier",
+      "description": "Rendert ein DOCX und die daraus erzeugte PDF-Version seitenweise und verifiziert sichtbare Parität, Clipping, Font-/Glyph-Substitution, Tabellen-/Bild-Reflow, Seitenumbrüche, Header/Footer, Felder und Druckstabilität. Verwenden nach struktureller Dokument-QA als finales visuelles Gate; nicht als Ersatz für editierbare DOCX-Prüfung.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "document-layout-qa"
+      ],
+      "dependents": [
+        "template-document-workflow"
+      ],
+      "outputs": [
+        "document-preview.pdf",
+        "document-render-qa.json",
+        "document-render-qa.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-preview.pdf",
+          "ambiguous": false,
+          "producers": [
+            "document-render-verifier"
+          ],
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
+        },
+        {
+          "output": "document-render-qa.json",
+          "ambiguous": false,
+          "producers": [
+            "document-render-verifier"
+          ],
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
+        },
+        {
+          "output": "document-render-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "document-render-verifier"
+          ],
+          "consumerSkills": [
+            "template-document-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "document-template-profiler",
+      "description": "Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdokument und erzeugt ein wiederverwendbares, provenance-gebundenes Profil für Page Setup, Sections, Styles, Typografie, Header/Footer, Nummerierung, Tabellen, Felder, Content Controls und sichere Einfügepunkte. Verwenden vor template-treuer Dokumenterzeugung; nicht zum Erfinden eines Corporate Designs.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [
+        "document-layout-qa",
+        "template-document-workflow"
+      ],
+      "outputs": [
+        "document-template-profile.json",
+        "document-template-profile.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-template-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "document-template-profiler"
+          ],
+          "consumerSkills": [
+            "document-layout-qa",
+            "template-document-workflow"
+          ]
+        },
+        {
+          "output": "document-template-profile.md",
+          "ambiguous": false,
+          "producers": [
+            "document-template-profiler"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "domain-model-maintenance",
       "description": "Hält Domänenbegriffe, Invarianten, Zustände, Grenzen und Repräsentationen während Softwareänderungen konsistent und steuert kompatible Migrationen über Code, Persistenz, APIs, Events, Tests und Dokumentation.",
       "invocation": {
@@ -2684,8 +2845,8 @@
       "name": "dr-komorowski-sport-report-renderer",
       "description": "Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und Trainingsreports auf ReportLab-Basis. Bleibt zur reproduzierbaren Ausgabe älterer Report-Specs mit Vektorlogo und Vektor-Charts erhalten; neue Reports sollen über den kanonischen DOCX- und den daraus abgeleiteten PDF-Renderer laufen.",
       "invocation": {
-        "userFacing": true,
-        "category": "workflow"
+        "userFacing": false,
+        "category": null
       },
       "requires": [],
       "dependents": [],
@@ -3026,9 +3187,7 @@
       "dependents": [],
       "outputs": [
         "euroimmun-presentation.pdf",
-        "euroimmun-presentation.pptx",
-        "presentation-qa.md",
-        "presentation-template-profile.json"
+        "euroimmun-presentation.pptx"
       ],
       "outputContracts": [
         {
@@ -3046,25 +3205,6 @@
             "euroimmun-presentation-workflow"
           ],
           "consumerSkills": []
-        },
-        {
-          "output": "presentation-qa.md",
-          "ambiguous": true,
-          "producers": [
-            "euroimmun-presentation-workflow",
-            "template-presentation-workflow"
-          ],
-          "consumerSkills": []
-        },
-        {
-          "output": "presentation-template-profile.json",
-          "ambiguous": true,
-          "producers": [
-            "euroimmun-presentation-workflow",
-            "presentation-template-profiler",
-            "template-presentation-workflow"
-          ],
-          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -3072,10 +3212,10 @@
         "references/euroimmun-template-spec.md"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7042,10 +7182,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7059,9 +7199,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-artifact-qa.json",
@@ -7075,9 +7213,7 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7087,9 +7223,7 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7097,10 +7231,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7194,13 +7328,11 @@
       "requires": [],
       "dependents": [
         "learning-artifact-qa",
+        "learning-delivery-workflow",
         "learning-document-delivery",
         "learning-image-generator",
         "learning-landingpage-renderer",
-        "learning-svg-generator",
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-svg-generator"
       ],
       "outputs": [
         "learning-design-context.json"
@@ -7214,10 +7346,70 @@
           ],
           "consumerSkills": [
             "learning-artifact-qa",
+            "learning-delivery-workflow",
             "learning-document-delivery",
             "learning-image-generator",
             "learning-landingpage-renderer",
-            "learning-svg-generator",
+            "learning-svg-generator"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "learning-delivery-workflow",
+      "description": "Orchestriert die formatübergreifende Auslieferung eines bereits kanonischen Learning-Content-, Multi-Source- oder Course-Modells über DESIGN.md, Visualplanung, SVG/Bild-Assets, Landingpage, Präsentation, DOCX/PDF und finales Cross-Format-QA, ohne fachliche Learning-Semantik neu zu autorieren. Verwenden als interne gemeinsame Delivery-Schicht für Learning-Orchestratoren.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "template-presentation-workflow"
+      ],
+      "dependents": [
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-delivery-bundle.json",
+        "learning-delivery-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-delivery-bundle.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-delivery-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-course-builder-workflow",
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "learning-delivery-run.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-delivery-workflow"
+          ],
+          "consumerSkills": [
             "youtube-course-builder-workflow",
             "youtube-learning-workflow",
             "youtube-playlist-learning-workflow"
@@ -7228,10 +7420,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7245,9 +7437,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-document-qa.json",
@@ -7262,9 +7452,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7274,9 +7462,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7286,9 +7472,7 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7296,10 +7480,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7314,9 +7498,7 @@
         "learning-visual-planner"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-image-assets",
@@ -7330,9 +7512,7 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7342,9 +7522,7 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7352,10 +7530,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7369,9 +7547,7 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-landingpage",
@@ -7385,9 +7561,7 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7397,9 +7571,7 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7407,10 +7579,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7433,12 +7605,16 @@
       "outputContracts": [
         {
           "output": "learning-mission.json",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "learning-mission",
-            "teach"
+            "learning-mission"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "exam-trainer-catalog-builder",
+            "learning-assessment-spec",
+            "learning-next-step",
+            "teach"
+          ]
         }
       ],
       "portableFiles": [
@@ -7471,12 +7647,13 @@
       "outputContracts": [
         {
           "output": "learning-next-step.json",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "learning-next-step",
-            "teach"
+            "learning-next-step"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "teach"
+          ]
         }
       ],
       "portableFiles": [
@@ -7523,10 +7700,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7563,10 +7740,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7601,12 +7778,15 @@
         },
         {
           "output": "learning-state.json",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "learning-state",
-            "teach"
+            "learning-state"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "learning-assessment-spec",
+            "learning-next-step",
+            "teach"
+          ]
         }
       ],
       "portableFiles": [
@@ -7662,10 +7842,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7680,9 +7860,7 @@
         "learning-visual-planner"
       ],
       "dependents": [
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "learning-svg-assets",
@@ -7696,9 +7874,7 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -7708,9 +7884,7 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -7718,10 +7892,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7735,11 +7909,9 @@
         "multimodal-learning-analysis"
       ],
       "dependents": [
+        "learning-delivery-workflow",
         "learning-image-generator",
-        "learning-svg-generator",
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-svg-generator"
       ],
       "outputs": [
         "learning-visual-plan.json"
@@ -7752,11 +7924,9 @@
             "learning-visual-planner"
           ],
           "consumerSkills": [
+            "learning-delivery-workflow",
             "learning-image-generator",
-            "learning-svg-generator",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-svg-generator"
           ]
         }
       ],
@@ -7764,10 +7934,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -10391,22 +10561,25 @@
         },
         {
           "output": "multi-source-learning-model.json",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "multi-source-learning-synthesis",
-            "youtube-playlist-learning-workflow"
+            "multi-source-learning-synthesis"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "course-concept-graph",
+            "learning-delivery-workflow",
+            "youtube-playlist-learning-workflow"
+          ]
         }
       ],
       "portableFiles": [
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -10462,10 +10635,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -11399,10 +11572,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -11451,10 +11624,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -11511,10 +11684,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -11536,13 +11709,14 @@
       "outputContracts": [
         {
           "output": "presentation-template-profile.json",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "euroimmun-presentation-workflow",
-            "presentation-template-profiler",
-            "template-presentation-workflow"
+            "presentation-template-profiler"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "presentation-layout-qa",
+            "template-presentation-workflow"
+          ]
         },
         {
           "output": "presentation-template-profile.md",
@@ -11560,10 +11734,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -11928,10 +12102,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -13536,7 +13710,10 @@
           "producers": [
             "source-to-context"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "multimodal-learning-analysis",
+            "research-to-evidence-note"
+          ]
         },
         {
           "output": "source-context.md",
@@ -14903,43 +15080,13 @@
       ],
       "dependents": [],
       "outputs": [
-        "learning-mission.json",
-        "learning-next-step.json",
-        "learning-practice-request.json",
-        "learning-state.json"
+        "learning-practice-request.json"
       ],
       "outputContracts": [
-        {
-          "output": "learning-mission.json",
-          "ambiguous": true,
-          "producers": [
-            "learning-mission",
-            "teach"
-          ],
-          "consumerSkills": []
-        },
-        {
-          "output": "learning-next-step.json",
-          "ambiguous": true,
-          "producers": [
-            "learning-next-step",
-            "teach"
-          ],
-          "consumerSkills": []
-        },
         {
           "output": "learning-practice-request.json",
           "ambiguous": false,
           "producers": [
-            "teach"
-          ],
-          "consumerSkills": []
-        },
-        {
-          "output": "learning-state.json",
-          "ambiguous": true,
-          "producers": [
-            "learning-state",
             "teach"
           ],
           "consumerSkills": []
@@ -15090,6 +15237,69 @@
       }
     },
     {
+      "name": "template-document-workflow",
+      "description": "Orchestriert die Erstellung oder Überarbeitung editierbarer DOCX-Dokumente auf Basis eines vorhandenen Word-Templates oder einer bestätigten Referenz, bewahrt fachlich finalisierten Inhalt, wendet Template-/Designregeln an und erzwingt strukturelle DOCX- sowie seitenweise DOCX/PDF-Render-QA. Verwenden für template-basierte Reports, Memos, Handouts und professionelle Dokumente; Corporate-Spezialregeln bleiben in dünnen Wrappern.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "document-layout-qa",
+        "document-render-verifier",
+        "document-template-profiler"
+      ],
+      "dependents": [],
+      "outputs": [
+        "document-delivery-manifest.json",
+        "document-qa.md",
+        "document.docx",
+        "document.pdf"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-delivery-manifest.json",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document-qa.md",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document.docx",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document.pdf",
+          "ambiguous": false,
+          "producers": [
+            "template-document-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "template-presentation-workflow",
       "description": "Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf Basis eines vorhandenen PowerPoint-Templates oder einer Referenzpräsentation. Übernimmt Look & Feel, kuratiert Storyline und Slide-Architektur, optimiert Deutsch/Englisch präsentationsspezifisch und erzwingt strukturelle sowie Render-/PDF-QA. Verwenden für template-basierte Management-, wissenschaftliche, technische, Sales- oder Educational-Decks; Corporate-Spezialregeln bleiben in dünnen Wrapper-Skills.",
       "invocation": {
@@ -15104,35 +15314,24 @@
       ],
       "dependents": [
         "euroimmun-presentation-workflow",
-        "youtube-course-builder-workflow",
-        "youtube-learning-workflow",
-        "youtube-playlist-learning-workflow"
+        "learning-delivery-workflow"
       ],
       "outputs": [
         "presentation-qa.md",
-        "presentation-template-profile.json",
         "presentation.pdf",
         "presentation.pptx"
       ],
       "outputContracts": [
         {
           "output": "presentation-qa.md",
-          "ambiguous": true,
+          "ambiguous": false,
           "producers": [
-            "euroimmun-presentation-workflow",
             "template-presentation-workflow"
           ],
-          "consumerSkills": []
-        },
-        {
-          "output": "presentation-template-profile.json",
-          "ambiguous": true,
-          "producers": [
+          "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "presentation-template-profiler",
-            "template-presentation-workflow"
-          ],
-          "consumerSkills": []
+            "learning-delivery-workflow"
+          ]
         },
         {
           "output": "presentation.pdf",
@@ -15142,9 +15341,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         },
         {
@@ -15155,9 +15352,7 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-course-builder-workflow",
-            "youtube-learning-workflow",
-            "youtube-playlist-learning-workflow"
+            "learning-delivery-workflow"
           ]
         }
       ],
@@ -15165,10 +15360,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -15815,15 +16010,8 @@
       "requires": [
         "course-concept-graph",
         "learning-activity-generator",
-        "learning-artifact-qa",
-        "learning-content-design-system",
-        "learning-document-delivery",
-        "learning-image-generator",
-        "learning-landingpage-renderer",
+        "learning-delivery-workflow",
         "learning-path-planner",
-        "learning-svg-generator",
-        "learning-visual-planner",
-        "template-presentation-workflow",
         "youtube-playlist-learning-workflow"
       ],
       "dependents": [],
@@ -15838,7 +16026,9 @@
           "producers": [
             "youtube-course-builder-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "learning-delivery-workflow"
+          ]
         },
         {
           "output": "youtube-course-builder-run.json",
@@ -15853,10 +16043,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -15867,17 +16057,10 @@
         "category": "workflow"
       },
       "requires": [
-        "learning-artifact-qa",
-        "learning-content-design-system",
-        "learning-document-delivery",
-        "learning-image-generator",
-        "learning-landingpage-renderer",
+        "learning-delivery-workflow",
         "learning-summary-synthesis",
-        "learning-svg-generator",
-        "learning-visual-planner",
         "multimodal-learning-analysis",
         "procedure-sop-extractor",
-        "template-presentation-workflow",
         "youtube-video-ingestion"
       ],
       "dependents": [
@@ -15895,6 +16078,7 @@
             "youtube-learning-workflow"
           ],
           "consumerSkills": [
+            "learning-delivery-workflow",
             "youtube-playlist-learning-workflow"
           ]
         },
@@ -15913,10 +16097,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -15927,35 +16111,18 @@
         "category": "workflow"
       },
       "requires": [
-        "learning-artifact-qa",
-        "learning-content-design-system",
-        "learning-document-delivery",
-        "learning-image-generator",
-        "learning-landingpage-renderer",
+        "learning-delivery-workflow",
         "learning-source-arbitration",
-        "learning-svg-generator",
-        "learning-visual-planner",
         "multi-source-learning-synthesis",
-        "template-presentation-workflow",
         "youtube-learning-workflow"
       ],
       "dependents": [
         "youtube-course-builder-workflow"
       ],
       "outputs": [
-        "multi-source-learning-model.json",
         "youtube-playlist-learning-run.json"
       ],
       "outputContracts": [
-        {
-          "output": "multi-source-learning-model.json",
-          "ambiguous": true,
-          "producers": [
-            "multi-source-learning-synthesis",
-            "youtube-playlist-learning-workflow"
-          ],
-          "consumerSkills": []
-        },
         {
           "output": "youtube-playlist-learning-run.json",
           "ambiguous": false,
@@ -15971,10 +16138,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -16029,10 +16196,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     }
   ]

@@ -4,10 +4,10 @@ generated: true
 name: "course-concept-graph"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/course-concept-graph/SKILL.md"
 tags:
   - skill
@@ -46,10 +46,10 @@ Baut aus einem evidenzgebundenen Multi-Source-Learning-Modell einen gerichteten 
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

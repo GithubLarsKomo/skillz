@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-visual-planner",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Choose the most informative visual representation for an evidence-backed process, comparison and measurement claim set.",
+      "requiredBehaviors": [
+        "start from the learning message",
+        "prefer diagrams when logic and labels dominate",
+        "record the evidence role for every asset"
+      ],
+      "forbiddenBehaviors": [
+        "plan decorative assets without learning value",
+        "change domain claims to fit a visual"
+      ],
+      "skillAnchors": [
+        "Message first, visual second.",
+        "SVG/Diagramm wird bevorzugt",
+        "evidenceRole"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A real device state is important enough to require one source frame while the general mechanism is better redrawn.",
+      "requiredBehaviors": [
+        "use the source frame only for the real state",
+        "separate source and explanatory evidence roles",
+        "plan target surfaces before rendering"
+      ],
+      "forbiddenBehaviors": [
+        "use original frames as default decoration",
+        "treat a redrawn illustration as source evidence"
+      ],
+      "skillAnchors": [
+        "Originalframes sind **Evidenzanker**",
+        "selektierter Quellframe",
+        "target surfaces"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A visual plan fills empty space with stock AI images and complex diagrams that carry no claim.",
+      "requiredBehaviors": [
+        "reject decorative visual slop",
+        "remove complexity without information value",
+        "return an evidence-bound brief to generators"
+      ],
+      "forbiddenBehaviors": [
+        "approve filler visuals",
+        "delegate new domain decisions to image generators"
+      ],
+      "skillAnchors": [
+        "dekorative Stock-/AI-Bilder",
+        "komplexe Diagramme nur um Fläche zu füllen",
+        "ohne eigene fachliche Entscheidungen"
+      ]
+    }
+  ]
+}

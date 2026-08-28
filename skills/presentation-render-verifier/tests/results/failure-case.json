@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-render-verifier",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "return fail or unverified when no real render is available",
+      "passed": true,
+      "evidence": "The status rules require a belastbarer Render for pass."
+    },
+    {
+      "behavior": "avoid converting structural inspection into visual evidence",
+      "passed": true,
+      "evidence": "The skill exists specifically to inspect what viewers actually see."
+    },
+    {
+      "behavior": "preserve the requirement for a later real render",
+      "passed": true,
+      "evidence": "The completion criteria require PPTX and PDF render inspection."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "simulate visual verification",
+      "observed": false,
+      "evidence": "The limits explicitly prohibit a text-only claim of layout correctness."
+    },
+    {
+      "behavior": "claim pass without render coverage",
+      "observed": false,
+      "evidence": "Pass requires no critical/major findings and a verified rerender."
+    }
+  ],
+  "overall": "pass"
+}

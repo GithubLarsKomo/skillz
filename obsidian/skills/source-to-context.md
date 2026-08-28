@@ -41,7 +41,8 @@ Normalisiert bereits geladene Quelleninhalte in einen provider-neutralen, proven
 
 ### `source-context.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/multimodal-learning-analysis|multimodal-learning-analysis]]
+- [[skills/research-to-evidence-note|research-to-evidence-note]]
 
 ### `source-context.md`
 

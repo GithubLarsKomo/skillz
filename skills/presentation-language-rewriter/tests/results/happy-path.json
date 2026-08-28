@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-language-rewriter",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "adapt wording by slide element rather than applying report prose",
+      "passed": true,
+      "evidence": "The skill defines distinct rules for titles, key messages, bullets, labels, tables and speaker notes."
+    },
+    {
+      "behavior": "preserve semantic and epistemic fidelity",
+      "passed": true,
+      "evidence": "Semantic fidelity and epistemic precision are the top priorities before style or brevity."
+    },
+    {
+      "behavior": "run rewrite fidelity verification on material changes",
+      "passed": true,
+      "evidence": "Every material revision must be checked with rewrite-fidelity-verifier."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "change numbers negations conditions modality or protected terms for style",
+      "observed": false,
+      "evidence": "The priorities explicitly prohibit lower-priority stylistic edits from altering these elements."
+    },
+    {
+      "behavior": "solve dense slides primarily by shrinking fonts",
+      "observed": false,
+      "evidence": "The text-budget sequence makes font reduction the final option after editorial and structural fixes."
+    }
+  ],
+  "overall": "pass"
+}

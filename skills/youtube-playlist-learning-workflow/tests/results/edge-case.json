@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-playlist-learning-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "record unavailable sources and sampling explicitly",
+      "passed": true,
+      "evidence": "Source Set Lock and scaling rules require unavailable and sampled sources to remain visible."
+    },
+    {
+      "behavior": "avoid claiming complete-playlist coverage",
+      "passed": true,
+      "evidence": "The scaling section explicitly forbids complete-playlist status when parts were not analyzed."
+    },
+    {
+      "behavior": "preserve analyzed-source fingerprints and exclusions",
+      "passed": true,
+      "evidence": "The run manifest records source set, sampling/exclusions and individual model fingerprints."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "hallucinate unavailable videos",
+      "observed": false,
+      "evidence": "The boundaries explicitly prohibit this."
+    },
+    {
+      "behavior": "silently omit unanalyzed playlist portions",
+      "observed": false,
+      "evidence": "Sampling must be visible in the run manifest."
+    }
+  ],
+  "overall": "pass"
+}

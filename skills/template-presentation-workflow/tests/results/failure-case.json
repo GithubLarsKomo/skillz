@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "template-presentation-workflow",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject from-scratch template reconstruction",
+      "passed": true,
+      "evidence": "The real template has priority and master/layout placeholders should be reused."
+    },
+    {
+      "behavior": "rewrite report prose for presentation use while preserving claims",
+      "passed": true,
+      "evidence": "The language stage explicitly says report sentences should not be copied unchanged to slides."
+    },
+    {
+      "behavior": "reject visual QA without actual render",
+      "passed": true,
+      "evidence": "The non-goals and render stage explicitly require actual render verification."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "claim successful visual QA without rendering",
+      "observed": false,
+      "evidence": "This is explicitly prohibited."
+    },
+    {
+      "behavior": "sacrifice editability for PDF-only output",
+      "observed": false,
+      "evidence": "The workflow requires an editable final PPTX."
+    }
+  ],
+  "overall": "pass"
+}

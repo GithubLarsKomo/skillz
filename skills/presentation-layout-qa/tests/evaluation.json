@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-layout-qa",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Inspect a PPTX against its template profile and confirmed visual reference. The deck is structurally sound, uses space efficiently, has a clear reading path, gives the conclusion appropriate visual weight and keeps sources in a readable safe zone.",
+      "requiredBehaviors": [
+        "use template-specific structural and composition baselines",
+        "check both geometric defects and objective composition quality",
+        "require render verification after material major or critical corrections"
+      ],
+      "forbiddenBehaviors": [
+        "declare layout PASS merely because no objects collide",
+        "apply universal layout thresholds that contradict the active template"
+      ],
+      "skillAnchors": [
+        "Template-spezifische Baselines haben Vorrang vor universellen Grenzwerten.",
+        "Komposition und Informationsarchitektur",
+        "Ein Deck mit kollisionsfreien, aber kompositorisch schwachen Folien darf nicht als Layout-QA-PASS ausgegeben werden."
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A management slide has no overflow or object collisions, but three oversized cards are mostly empty, the reading order is unclear, the conclusion is visually weaker than supporting cards and the source line is tiny and crowded against the footer.",
+      "requiredBehaviors": [
+        "flag excessive empty container area as a major composition issue",
+        "flag insufficient conclusion dominance and weak reading progression",
+        "treat unreadable or footer-conflicting source text as a major finding"
+      ],
+      "forbiddenBehaviors": [
+        "treat dead space inside dominant cards as high-quality whitespace",
+        "approve the slide solely because structural collision checks pass"
+      ],
+      "skillAnchors": [
+        "Excessive container area",
+        "Insufficient conclusion dominance",
+        "Undersized or unsafe source text"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A reviewer responds to a compositionally weak slide by adding more badges and icons, shrinking body text to make everything fit and marking PASS without rendering the corrected slide.",
+      "requiredBehaviors": [
+        "reject decorative additions as a substitute for information-architecture correction",
+        "keep font-size reduction as the last correction option",
+        "reject final layout PASS without rendering materially corrected slides"
+      ],
+      "forbiddenBehaviors": [
+        "mask weak composition with additive decoration",
+        "simulate visual verification from structure alone"
+      ],
+      "skillAnchors": [
+        "Nicht zulässig:** bestehende Folie lediglich mit zusätzlichen Icons/Badges dekorieren",
+        "Bei Text- oder Kompositionsproblemen in dieser Reihenfolge korrigieren:",
+        "Ein struktureller Pass ersetzt keinen Render-Test."
+      ]
+    }
+  ]
+}

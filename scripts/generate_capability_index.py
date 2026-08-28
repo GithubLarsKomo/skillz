@@ -101,12 +101,19 @@ def build_index(root: Path) -> dict[str, object]:
 
     entrypoint_skills = [skill for skill in skills if skill["invocation"]["userFacing"]]
     entrypoint_categories = sorted({str(skill["invocation"]["category"]) for skill in entrypoint_skills})
+    evaluated_skills = [skill for skill in skills if skill["evaluation"]["mode"] != "none"]
+    evaluated_entrypoints = [
+        skill for skill in entrypoint_skills if skill["evaluation"]["mode"] != "none"
+    ]
     return {
         "schemaVersion": 1,
         "skillCount": len(skills),
         "entrypointCount": len(entrypoint_skills),
         "entrypointCategories": entrypoint_categories,
         "evaluationSuiteCount": evaluation_summary["suiteCount"],
+        "evaluatedSkillCount": len(evaluated_skills),
+        "evaluatedEntrypointCount": len(evaluated_entrypoints),
+        "evaluationCoverageComplete": len(evaluated_skills) == len(skills),
         "evaluationPassed": evaluation_summary["passed"],
         "evaluationErrorCount": len(evaluation_errors),
         "skills": skills,

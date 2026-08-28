@@ -13,14 +13,16 @@ requires:
 outputs:
   - euroimmun-presentation.pptx
   - euroimmun-presentation.pdf
-  - presentation-qa.md
-  - presentation-template-profile.json
 lastEvaluated: 2026-08-28
 ---
 
 # EUROIMMUN Presentation Workflow
 
 Dieser Skill ist ein dünner Corporate Wrapper um `template-presentation-workflow`. Er enthält ausschließlich EUROIMMUN-/Revvity-spezifische Design-, Governance-, Template-, Storytelling- und Asset-Regeln und dupliziert keine generische Storyline-, Sprach- oder QA-Logik.
+
+## Artifact Ownership
+
+Der Wrapper besitzt nur die tatsächlich gebrandeten Endartefakte `euroimmun-presentation.pptx` und `euroimmun-presentation.pdf`. Das generische `presentation-qa.md` bleibt Output von `template-presentation-workflow`; `presentation-template-profile.json` bleibt Output von `presentation-template-profiler`. Beide Artefakte werden im Corporate Workflow referenziert und müssen die EUROIMMUN-spezifischen Gates abdecken, werden aber nicht erneut als separate Wrapper-Outputs deklariert.
 
 ## Verbindlicher Corporate Design Contract
 
@@ -35,7 +37,7 @@ Wenn Corporate-Storytelling oder freigegebene Icons für die Aufgabe relevant si
 - Ein konkret für die Aufgabe geliefertes freigegebenes Corporate Template hat immer Vorrang vor der allgemeinen Referenz.
 - Das verwendete Binärtemplate bleibt Source of Truth für Master, Layouts, Theme, Logo, Footer, Seitennummern und kontrollierte Template-Elemente.
 - Storytelling-Referenz und Icon-System dürfen die aktive Binärquelle ergänzen, aber nicht deren Master-/Theme-Vertrag überschreiben.
-- `presentation-qa.md` MUSS Design-Contract, Template-Identität/Status, SHA-256 bei Binärquelle, Brand-/Theme-Verhalten, verwendeten Storytelling-Modus, Icon-Asset-Provenienz soweit angewendet, Render-Coverage, Findings und finalen Corporate Design Gate dokumentieren.
+- Das von `template-presentation-workflow` erzeugte `presentation-qa.md` MUSS Design-Contract, Template-Identität/Status, SHA-256 bei Binärquelle, Brand-/Theme-Verhalten, verwendeten Storytelling-Modus, Icon-Asset-Provenienz soweit angewendet, Render-Coverage, Findings und finalen Corporate Design Gate dokumentieren.
 - Eine `template-derived`- oder Master-Paritätsaussage ist nur nach Level-2-Verifikation zulässig.
 
 ## Bevorzugte aktuelle Designquelle
@@ -174,4 +176,4 @@ Zusätzliche visuelle QA bei Storytelling/Icon-Nutzung:
 
 ## Abschluss
 
-Abgeschlossen, wenn der generische Template-Presentation-Workflow erfolgreich durchlaufen wurde, EUROIMMUN Corporate Master/Branding konsistent erhalten sind, der gewählte Präsentationsmodus nachvollziehbar angewendet wurde, verwendete Icons/Assets provenance- und kontrastgerecht eingesetzt wurden, die finale PPTX editierbar ist, eine geprüfte PDF vorliegt, der QA-Bericht keine ungeklärten Critical/Major Layout-, Sprach-, Brand-, Asset- oder Renderfehler enthält und `Corporate Design Gate: PASS` dokumentiert ist. `template-derived` darf nur ausgegeben werden, wenn die relevante Level-2-Prüfung PASS ist.
+Abgeschlossen, wenn der generische Template-Presentation-Workflow erfolgreich durchlaufen wurde, EUROIMMUN Corporate Master/Branding konsistent erhalten sind, der gewählte Präsentationsmodus nachvollziehbar angewendet wurde, verwendete Icons/Assets provenance- und kontrastgerecht eingesetzt wurden, die finale PPTX editierbar ist, eine geprüfte PDF vorliegt, der generische QA-Bericht keine ungeklärten Critical/Major Layout-, Sprach-, Brand-, Asset- oder Renderfehler enthält und `Corporate Design Gate: PASS` dokumentiert ist. `template-derived` darf nur ausgegeben werden, wenn die relevante Level-2-Prüfung PASS ist.

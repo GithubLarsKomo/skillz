@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-landingpage-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Render a canonical learning model into a portable responsive HTML learning page with takeaways, mental model, source map and timestamp deep links.",
+      "requiredBehaviors": [
+        "render only content already present in the canonical model",
+        "produce semantic responsive accessible portable HTML",
+        "validate timestamps anchors visuals overflow print view and design compliance"
+      ],
+      "forbiddenBehaviors": [
+        "re-author fachliche content during rendering",
+        "turn the page into a generic decorative SaaS landing page"
+      ],
+      "skillAnchors": [
+        "Der Renderer verändert keine Claims",
+        "semantisches HTML",
+        "Keine generische SaaS-Startseite"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The canonical model has no SOP and only three sections, while several optional visuals are unavailable.",
+      "requiredBehaviors": [
+        "render only modules that actually exist",
+        "preserve navigation and source traceability for the available content",
+        "avoid empty placeholder sections"
+      ],
+      "forbiddenBehaviors": [
+        "invent an SOP section",
+        "fill missing visuals with decorative unsupported content"
+      ],
+      "skillAnchors": [
+        "Nur vorhandene Module rendern",
+        "Source Map",
+        "Lernartefakt"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The page changes a claim, embeds inaccessible navigation requiring JavaScript, clips SVG labels on mobile and reports PASS without checking timestamp links.",
+      "requiredBehaviors": [
+        "reject claim mutation",
+        "reject inaccessible JS-dependent core navigation",
+        "reject QA PASS with clipping or unchecked timestamp links"
+      ],
+      "forbiddenBehaviors": [
+        "hide mobile overflow",
+        "skip source-link validation"
+      ],
+      "skillAnchors": [
+        "keine zwingende JS-Abhängigkeit",
+        "Mobile/Narrow",
+        "Timestamp-Links"
+      ]
+    }
+  ]
+}

@@ -4,10 +4,10 @@ generated: true
 name: "youtube-playlist-learning-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/youtube-playlist-learning-workflow/SKILL.md"
 tags:
   - skill
@@ -26,16 +26,9 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ## Requires
 
-- [[skills/learning-artifact-qa|learning-artifact-qa]]
-- [[skills/learning-content-design-system|learning-content-design-system]]
-- [[skills/learning-document-delivery|learning-document-delivery]]
-- [[skills/learning-image-generator|learning-image-generator]]
-- [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-source-arbitration|learning-source-arbitration]]
-- [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/multi-source-learning-synthesis|multi-source-learning-synthesis]]
-- [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 
 ## Required by
@@ -44,14 +37,9 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ## Outputs
 
-- `multi-source-learning-model.json`
 - `youtube-playlist-learning-run.json`
 
 ## Output consumers
-
-### `multi-source-learning-model.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
 
 ### `youtube-playlist-learning-run.json`
 
@@ -59,10 +47,10 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

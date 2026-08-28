@@ -1,0 +1,5 @@
+interface:
+  display_name: "Document Template Profiler"
+  short_description: "Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdokument und erzeugt ein wiederverwendbare..."
+policy:
+  allow_implicit_invocation: true

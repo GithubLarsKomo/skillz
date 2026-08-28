@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "procedure-sop-extractor",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Extract a demonstrated procedure into purpose, preconditions, materials, ordered steps, controls, warnings and troubleshooting with timestamp evidence and evidence classes.",
+      "requiredBehaviors": [
+        "classify every element as observed derived or recommended",
+        "preserve step evidence timestamps parameters warnings and expected results",
+        "mark gaps that require validation before controlled use"
+      ],
+      "forbiddenBehaviors": [
+        "invent quantities times torque temperatures settings or tolerances",
+        "present recommended additions as if stated by the video author"
+      ],
+      "skillAnchors": [
+        "Jedes Element trägt genau eine Klasse",
+        "nicht erfinden",
+        "incomplete-for-controlled-use"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The demonstrated procedure is clear except for one safety-critical temperature value that is visually unreadable.",
+      "requiredBehaviors": [
+        "describe only what is actually visible or inferable",
+        "mark the procedure incomplete for controlled use",
+        "preserve the missing value as a validation gap"
+      ],
+      "forbiddenBehaviors": [
+        "guess the missing temperature",
+        "call the draft an approved SOP"
+      ],
+      "skillAnchors": [
+        "nur so präzise beschreiben",
+        "sicherheits- oder qualitätskritischer Parameter",
+        "keine kontrollierte Freigabe ersetzen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The extractor fills missing values from general knowledge, merges optional variants into one standard and labels the resulting document an effective corporate SOP.",
+      "requiredBehaviors": [
+        "reject invented missing parameters",
+        "keep variants and optional steps distinct",
+        "reject effective/approved corporate status without the controlled workflow"
+      ],
+      "forbiddenBehaviors": [
+        "simulate QMS approval",
+        "erase evidence classes"
+      ],
+      "skillAnchors": [
+        "Varianten und optionale Schritte",
+        "Approval/Effective State",
+        "Freigabestatus wird nicht vorgetäuscht"
+      ]
+    }
+  ]
+}

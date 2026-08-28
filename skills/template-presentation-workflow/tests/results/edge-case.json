@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "template-presentation-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "split or restructure the slide before reducing font size",
+      "passed": true,
+      "evidence": "The slide architecture and layout QA rules prefer one primary message and structural correction."
+    },
+    {
+      "behavior": "preserve the template grid and layout logic",
+      "passed": true,
+      "evidence": "Existing masters/layout placeholders are preferred over freeform reconstruction."
+    },
+    {
+      "behavior": "re-run layout and render QA after correction",
+      "passed": true,
+      "evidence": "Corrections require renewed verification."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "shrink text until both messages fit",
+      "observed": false,
+      "evidence": "The workflow explicitly recommends splitting slides rather than shrinking type."
+    },
+    {
+      "behavior": "drop evidence or caveats simply to fit",
+      "observed": false,
+      "evidence": "Facts, assumptions, claims and evidence remain content constraints."
+    }
+  ],
+  "overall": "pass"
+}

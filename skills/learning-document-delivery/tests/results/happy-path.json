@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-document-delivery",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "keep DOCX as the canonical layout source and derive PDF from it",
+      "passed": true,
+      "evidence": "The architecture explicitly states canonical DOCX -> full-page QA -> PDF -> parity QA and forbids independent rewriting."
+    },
+    {
+      "behavior": "preserve claim confidence evidence classes numbers warnings and source references",
+      "passed": true,
+      "evidence": "The Fidelity section enumerates these elements as invariants."
+    },
+    {
+      "behavior": "perform complete page-by-page DOCX and PDF QA",
+      "passed": true,
+      "evidence": "The DOCX and PDF QA sections explicitly require full rendering and parity checks."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "re-author learning claims during rendering",
+      "observed": false,
+      "evidence": "The description and architecture separate content authority from document rendering."
+    },
+    {
+      "behavior": "silently claim corporate approval or fallback status",
+      "observed": false,
+      "evidence": "Renderer routing explicitly forbids silent corporate fallback or invented approval."
+    }
+  ],
+  "overall": "pass"
+}

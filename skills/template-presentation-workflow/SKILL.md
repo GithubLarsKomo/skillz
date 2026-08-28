@@ -17,13 +17,16 @@ outputs:
   - presentation.pptx
   - presentation.pdf
   - presentation-qa.md
-  - presentation-template-profile.json
 lastEvaluated: 2026-08-26
 ---
 
 # Template Presentation Workflow
 
 Dieser Skill ist der generische Orchestrator für template-basierte Präsentationen. Er koordiniert Fach-Skills, dupliziert deren Detailregeln aber nicht.
+
+## Artifact Ownership
+
+`presentation-template-profiler` ist der kanonische Producer von `presentation-template-profile.json`. Dieser Workflow konsumiert und referenziert das Profil, beansprucht aber nicht selbst dessen Ownership. Der Workflow besitzt dagegen die final orchestrierten Präsentationsartefakte `presentation.pptx`, `presentation.pdf` sowie den aggregierten Workflow-Bericht `presentation-qa.md`.
 
 ## Inputs
 
@@ -106,11 +109,11 @@ Prüfen:
 
 ### 10. Finalisieren
 
-Finale PPTX editierbar halten. PDF als geprüfte Druck-/Share-Version bereitstellen. QA-Bericht mit verbleibenden Warnungen und begründeten Abweichungen erzeugen.
+Finale PPTX editierbar halten. PDF als geprüfte Druck-/Share-Version bereitstellen. `presentation-qa.md` aggregiert narrative, strukturelle und visuelle QA sowie verbleibende Warnungen und begründete Abweichungen. Das von `presentation-template-profiler` erzeugte `presentation-template-profile.json` bleibt als referenziertes Worker-Artefakt erhalten.
 
 ## Corporate Wrapper
 
-Marken- oder unternehmensspezifische Skills sollen dünne Wrapper bleiben. Sie liefern Template-Referenz, Brand-Regeln, Pflichtfooter, Terminologie oder Governance und delegieren den eigentlichen Ablauf an diesen Skill.
+Marken- oder unternehmensspezifische Skills sollen dünne Wrapper bleiben. Sie liefern Template-Referenz, Brand-Regeln, Pflichtfooter, Terminologie oder Governance und delegieren den eigentlichen Ablauf an diesen Skill. Wrapper sollen die generischen Artefakte dieses Workflows referenzieren statt sie erneut als eigene Outputs zu deklarieren; eigene Outputs sind nur echte Corporate-/Domain-Artefakte.
 
 ## Nicht-Ziele
 
@@ -130,4 +133,4 @@ Abgeschlossen, wenn:
 - strukturelle Layout-QA bestanden ist,
 - PPTX- und PDF-Render geprüft wurden,
 - Korrekturen erneut gerendert wurden,
-- finale PPTX, PDF, Template-Profil und QA-Bericht vorliegen.
+- finale PPTX, PDF, referenziertes Template-Profil und aggregierter QA-Bericht vorliegen.

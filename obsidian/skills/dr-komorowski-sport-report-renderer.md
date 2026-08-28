@@ -2,8 +2,8 @@
 type: skill
 generated: true
 name: "dr-komorowski-sport-report-renderer"
-category: "workflow"
-userFacing: true
+category: "internal"
+userFacing: false
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
@@ -11,7 +11,7 @@ recordedResultCount: 3
 sourcePath: "skills/dr-komorowski-sport-report-renderer/SKILL.md"
 tags:
   - skill
-  - skill-category/workflow
+  - skill-category/internal
 ---
 
 # dr-komorowski-sport-report-renderer
@@ -22,7 +22,7 @@ Legacy-Direkt-PDF-Renderer für bestehende Dr.-Komorowski-Sportdiagnostik- und T
 
 ## Category
 
-[[categories/workflow|workflow]]
+[[categories/internal|internal]]
 
 ## Requires
 

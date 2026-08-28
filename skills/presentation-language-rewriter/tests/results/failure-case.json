@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-language-rewriter",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject changes to evidence strength percentage and negation",
+      "passed": true,
+      "evidence": "The fidelity hierarchy explicitly protects claims, numbers, negations and modality."
+    },
+    {
+      "behavior": "restore or authorize any material semantic change",
+      "passed": true,
+      "evidence": "Hard fidelity failures must be reverted or fachlich authorized."
+    },
+    {
+      "behavior": "treat brevity as subordinate to truth",
+      "passed": true,
+      "evidence": "Presentation brevity ranks below semantic and epistemic fidelity."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "accept semantic distortion because scanability improved",
+      "observed": false,
+      "evidence": "Scanability is lower priority than fidelity."
+    },
+    {
+      "behavior": "skip fidelity verification",
+      "observed": false,
+      "evidence": "Material rewrites require rewrite-fidelity-verifier."
+    }
+  ],
+  "overall": "pass"
+}

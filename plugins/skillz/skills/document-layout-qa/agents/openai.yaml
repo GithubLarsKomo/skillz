@@ -1,0 +1,5 @@
+interface:
+  display_name: "Document Layout Qa"
+  short_description: "Prüft editierbare DOCX-Dokumente strukturell gegen ein dokumentiertes Template-Profil auf Seiten-/Section-Setup, Styl..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-document-delivery",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "respect corporate/template routing authority",
+      "passed": true,
+      "evidence": "The routing hierarchy gives supplied/confirmed corporate template paths precedence."
+    },
+    {
+      "behavior": "avoid silent fallback when a corporate gate is required",
+      "passed": true,
+      "evidence": "The skill explicitly says no silent corporate fallback or invented company approval."
+    },
+    {
+      "behavior": "surface the missing renderer/template authority as a delivery limitation",
+      "passed": true,
+      "evidence": "The architecture requires a known route before claiming corporate document delivery."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent a corporate document style",
+      "observed": false,
+      "evidence": "DESIGN.md and renderer routing are authoritative."
+    },
+    {
+      "behavior": "label a neutral document as corporate-approved",
+      "observed": false,
+      "evidence": "Invented corporate approval is explicitly forbidden."
+    }
+  ],
+  "overall": "pass"
+}

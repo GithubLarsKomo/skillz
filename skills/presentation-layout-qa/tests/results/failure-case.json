@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-layout-qa",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject decorative additions as a substitute for information-architecture correction",
+      "passed": true,
+      "evidence": "v0.2 explicitly forbids merely adding icons or badges when the underlying problem is information architecture or area usage."
+    },
+    {
+      "behavior": "keep font-size reduction as the last correction option",
+      "passed": true,
+      "evidence": "The ordered correction sequence places font-size reduction last and requires template conformity."
+    },
+    {
+      "behavior": "reject final layout PASS without rendering materially corrected slides",
+      "passed": true,
+      "evidence": "Render coupling and completion criteria require corrected slides to be rendered before layout QA can close."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "mask weak composition with additive decoration",
+      "observed": false,
+      "evidence": "Additive badges/icons are explicitly disallowed as a cosmetic substitute for recomposition."
+    },
+    {
+      "behavior": "simulate visual verification from structure alone",
+      "observed": false,
+      "evidence": "The skill explicitly states that structural PASS does not replace a render test."
+    }
+  ],
+  "overall": "pass"
+}

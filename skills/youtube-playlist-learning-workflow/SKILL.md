@@ -12,16 +12,8 @@ requires:
   - youtube-learning-workflow
   - learning-source-arbitration
   - multi-source-learning-synthesis
-  - learning-visual-planner
-  - learning-content-design-system
-  - learning-svg-generator
-  - learning-image-generator
-  - learning-landingpage-renderer
-  - learning-document-delivery
-  - learning-artifact-qa
-  - template-presentation-workflow
+  - learning-delivery-workflow
 outputs:
-  - multi-source-learning-model.json
   - youtube-playlist-learning-run.json
 lastEvaluated: 2026-08-28
 ---
@@ -29,6 +21,8 @@ lastEvaluated: 2026-08-28
 # YouTube Playlist Learning Workflow
 
 ## Ziel
+
+Die Multi-Source-Arbitration und Synthese bleiben in diesem Skill. Sobald `multi-source-learning-model.json` fixiert ist, wird die gemeinsame Design-, Visual-, Render- und Cross-Format-QA-Schicht über `learning-delivery-workflow` ausgeführt.
 
 Mehrere Videos werden zunächst **einzeln evidenzgebunden analysiert** und erst danach zu einer gemeinsamen Lernbasis synthetisiert. Die Ausgabe folgt der Lernlogik und nicht der Video-Reihenfolge.
 
@@ -87,8 +81,9 @@ Kein Mehrheitsvotum als Wahrheitsersatz.
 
 ## 4. Multi-Source-Synthese
 
-`multi-source-learning-synthesis` erzeugt:
+`multi-source-learning-synthesis` erzeugt und besitzt:
 
+- `multi-source-learning-model.json`;
 - deduplizierte Claim-Cluster;
 - Consensus Core;
 - qualifizierte Aussagen;
@@ -97,47 +92,27 @@ Kein Mehrheitsvotum als Wahrheitsersatz.
 - optionale Prozess-/SOP-Varianten;
 - lernlogische Kapitelstruktur.
 
+Der Playlist-Orchestrator referenziert dieses Modell im Run-Manifest, beansprucht aber nicht selbst dessen Artifact-Ownership.
+
 ## 5. Canonical Model Lock
 
-`multi-source-learning-model.json` wird zur einzigen Source of Truth für alle finalen Renderer. Es referenziert die Einzelmodell-Fingerprints und Arbitration-Artefakte.
+Das von `multi-source-learning-synthesis` erzeugte `multi-source-learning-model.json` wird zur einzigen Source of Truth für alle finalen Renderer. Es referenziert die Einzelmodell-Fingerprints und Arbitration-Artefakte.
 
-## 6. Visuals und DESIGN.md
+## 6. Delivery und Cross-Source QA
 
-`learning-visual-planner` plant Visuals auf Basis des **konsolidierten** Modells.
+`learning-delivery-workflow` mit dem kanonischen `multi-source-learning-model.json`, den angeforderten Formaten und dem Design-/Corporate-/Template-Kontext ausführen. Visualplanung, Assets, HTML/PPTX/DOCX/PDF, Render-/Parity-Gates und Cross-Format-QA gehören ausschließlich in diese gemeinsame Delivery-Schicht.
 
-Multi-Source-spezifische Visuals können sein:
+Der Playlist-Orchestrator ergänzt darauf nur die **Multi-Source-spezifischen** Prüfungen:
 
-- Consensus-vs-Variant-Diagramm;
-- Source Coverage Map;
-- Konfliktmatrix;
-- harmonisierter Prozessflow;
-- Varianten-Branching;
-- Concept Map mit Source-Provenienz.
+- alle finalen Claims bleiben auf Source-Cluster rückführbar;
+- `independentSourceCount` ist korrekt;
+- ungelöste Konflikte bleiben sichtbar;
+- Single-Source-Aussagen werden nicht als Konsens dargestellt;
+- Zahlen/Einheiten/Parameter werden nicht unzulässig gemittelt;
+- keine Hybrid-SOP entsteht aus inkompatiblen Protokollen;
+- alle ausgelieferten Formate referenzieren denselben Multi-Source-Fingerprint.
 
-`learning-content-design-system` löst die Designautorität. Corporate DESIGN.md bleibt höherrangig.
-
-## 7. Ausgabe
-
-**HTML:** Landingpage mit Source Navigator, Consensus Core, Varianten/Konflikten und Source Map.
-
-**PPTX:** vorhandener Template-Presentation-Workflow. Default Storyline:
-
-`problem -> shared mental model -> consensus core -> deeper mechanism -> relevant variants -> conflicts/open questions -> practical synthesis -> takeaways`.
-
-**DOCX/PDF:** kanonischer Multi-Source-Inhalt -> DOCX -> vollständiger Render -> PDF -> Paritätsprüfung.
-
-## 8. Cross-Source QA
-
-Zusätzlich zur bestehenden `learning-artifact-qa` prüfen:
-
-- alle finalen Claims auf Source-Cluster rückführbar;
-- `independentSourceCount` korrekt;
-- ungelöste Konflikte sichtbar;
-- Single-Source-Aussagen nicht als Konsens dargestellt;
-- Zahlen/Einheiten/Parameter nicht unzulässig gemittelt;
-- keine Hybrid-SOP aus inkompatiblen Protokollen;
-- Source Map in allen Formaten semantisch konsistent;
-- alle Formate nutzen denselben Multi-Source-Fingerprint.
+`youtube-playlist-learning-run.json` referenziert das `learning-delivery-bundle.json` und den zugehörigen Delivery-Run, ohne Worker-Artefakte selbst zu besitzen.
 
 ## Playlist-Skalierung
 
@@ -156,7 +131,7 @@ Zusätzlich zur bestehenden `learning-artifact-qa` prüfen:
 
 ## Output-Manifest
 
-`youtube-playlist-learning-run.json` dokumentiert Source Set, Einzelmodell-Fingerprints, Arbitration, Synthese-Fingerprint, Sampling/Exclusions, Design Authority, Render Coverage, Konflikte/Warnings und finalen QA-Status.
+`youtube-playlist-learning-run.json` dokumentiert Source Set, Einzelmodell-Fingerprints, Referenz auf das kanonische `multi-source-learning-model.json`, Arbitration, Synthese-Fingerprint, Sampling/Exclusions, Design Authority, Render Coverage, Konflikte/Warnings und finalen QA-Status.
 
 ## Abschluss
 

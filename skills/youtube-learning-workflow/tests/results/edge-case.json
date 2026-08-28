@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "youtube-learning-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "retain unknown or low-confidence process details",
+      "passed": true,
+      "evidence": "The workflow quality case explicitly keeps unreadable visual details unknown/low confidence."
+    },
+    {
+      "behavior": "allow a summary while limiting SOP completeness",
+      "passed": true,
+      "evidence": "The edge case explicitly allows summary but may leave the SOP incomplete."
+    },
+    {
+      "behavior": "propagate evidence limitations into the canonical model and delivery",
+      "passed": true,
+      "evidence": "Open evidence gaps are explicit model content and all outputs share that model."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "fill unreadable details from general knowledge",
+      "observed": false,
+      "evidence": "Missing critical process details may not be invented."
+    },
+    {
+      "behavior": "upgrade the SOP to controlled/final",
+      "observed": false,
+      "evidence": "The boundaries require external fachliche/Quality approval for regulated SOPs."
+    }
+  ],
+  "overall": "pass"
+}

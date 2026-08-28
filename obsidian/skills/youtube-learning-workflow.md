@@ -4,10 +4,10 @@ generated: true
 name: "youtube-learning-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/youtube-learning-workflow/SKILL.md"
 tags:
   - skill
@@ -26,17 +26,10 @@ Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen K
 
 ## Requires
 
-- [[skills/learning-artifact-qa|learning-artifact-qa]]
-- [[skills/learning-content-design-system|learning-content-design-system]]
-- [[skills/learning-document-delivery|learning-document-delivery]]
-- [[skills/learning-image-generator|learning-image-generator]]
-- [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/learning-summary-synthesis|learning-summary-synthesis]]
-- [[skills/learning-svg-generator|learning-svg-generator]]
-- [[skills/learning-visual-planner|learning-visual-planner]]
 - [[skills/multimodal-learning-analysis|multimodal-learning-analysis]]
 - [[skills/procedure-sop-extractor|procedure-sop-extractor]]
-- [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/youtube-video-ingestion|youtube-video-ingestion]]
 
 ## Required by
@@ -52,6 +45,7 @@ Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen K
 
 ### `learning-content-model.json`
 
+- [[skills/learning-delivery-workflow|learning-delivery-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `youtube-learning-run.json`
@@ -60,10 +54,10 @@ Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen K
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

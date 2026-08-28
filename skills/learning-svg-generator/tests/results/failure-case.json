@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-svg-generator",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "reject added process semantics",
+      "passed": true,
+      "evidence": "Unanchored sequence/relationships are prohibited."
+    },
+    {
+      "behavior": "reject logo reconstruction and data-geometry modification",
+      "passed": true,
+      "evidence": "The fachliche boundary explicitly prohibits both."
+    },
+    {
+      "behavior": "reject release with clipping",
+      "passed": true,
+      "evidence": "Multi-format QA requires no clipped labels or arrowheads."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "present an infographic as evidence",
+      "observed": false,
+      "evidence": "The skill explicitly says infographics are not proof sources."
+    },
+    {
+      "behavior": "ignore target-surface render failures",
+      "observed": false,
+      "evidence": "Browser/PPTX/A4 readability is mandatory."
+    }
+  ],
+  "overall": "pass"
+}

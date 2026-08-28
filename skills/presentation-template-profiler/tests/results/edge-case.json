@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-template-profiler",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "use the best available reference with explicit fallback provenance",
+      "passed": true,
+      "evidence": "The source-priority list permits confirmed reference/spec inputs below the original template."
+    },
+    {
+      "behavior": "limit fidelity claims when the actual template is unavailable",
+      "passed": true,
+      "evidence": "The profile distinguishes source types and template-derived status rather than silently claiming the original template."
+    },
+    {
+      "behavior": "retain observed ranges instead of universal assumptions",
+      "passed": true,
+      "evidence": "Template QA baselines are based on observed values rather than universal font/layout thresholds."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "claim original-template identity without the file",
+      "observed": false,
+      "evidence": "The priority and source contract do not permit an absent template to be represented as present."
+    },
+    {
+      "behavior": "invent missing master or theme properties",
+      "observed": false,
+      "evidence": "Unknown template properties are not a license to create a new brand design."
+    }
+  ],
+  "overall": "pass"
+}

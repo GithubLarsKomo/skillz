@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-language-rewriter",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "preserve cautious scientific evidence language",
+      "passed": true,
+      "evidence": "Scientific English explicitly retains cautious evidence language and forbids causal implication from association."
+    },
+    {
+      "behavior": "reduce redundancy before layout compromises",
+      "passed": true,
+      "evidence": "The text-budget sequence starts with redundancy and sentence structure, then slide splitting."
+    },
+    {
+      "behavior": "keep units time periods and reference frames explicit",
+      "passed": true,
+      "evidence": "Chart/table rules require units, periods and reference quantities to remain explicit."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "upgrade association to causal language",
+      "observed": false,
+      "evidence": "The English scientific rule explicitly prohibits this."
+    },
+    {
+      "behavior": "remove qualifiers solely to hit a word target",
+      "observed": false,
+      "evidence": "Word boundaries are QA signals, not hard stops that override fidelity."
+    }
+  ],
+  "overall": "pass"
+}

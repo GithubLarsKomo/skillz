@@ -49,7 +49,9 @@ Pflegt einen portablen semantischen Lernzustand aus nachgewiesenen Kompetenzen, 
 
 ### `learning-state.json`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/learning-assessment-spec|learning-assessment-spec]]
+- [[skills/learning-next-step|learning-next-step]]
+- [[skills/teach|teach]]
 
 ## Evaluation
 

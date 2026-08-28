@@ -40,10 +40,20 @@ def build_health(root: Path) -> dict[str, object]:
                 ambiguous_outputs.append(item)
             elif not contract["consumerSkills"]:
                 unconsumed_outputs.append(item)
+
+    skill_count = int(index["skillCount"])
+    entrypoint_count = int(index["entrypointCount"])
+    evaluated_skill_count = skill_count - len(missing_evaluations)
+    evaluated_entrypoint_count = entrypoint_count - len(missing_entrypoint_evaluations)
+
     return {
-        "skillCount": index["skillCount"],
-        "entrypointCount": index["entrypointCount"],
+        "skillCount": skill_count,
+        "entrypointCount": entrypoint_count,
         "evaluationSuiteCount": index["evaluationSuiteCount"],
+        "executedEvaluationsPassed": bool(index["evaluationPassed"]),
+        "evaluationCoverageComplete": not missing_evaluations,
+        "evaluatedSkillCount": evaluated_skill_count,
+        "evaluatedEntrypointCount": evaluated_entrypoint_count,
         "missingEvaluations": missing_evaluations,
         "missingEntrypointEvaluations": missing_entrypoint_evaluations,
         "ambiguousOutputs": sorted(ambiguous_outputs, key=lambda item: item["output"]),
@@ -56,6 +66,8 @@ def render_markdown(health: dict[str, object]) -> str:
     missing_entrypoints = health["missingEntrypointEvaluations"]
     ambiguous = health["ambiguousOutputs"]
     unconsumed = health["unconsumedOutputs"]
+    executed_pass = "PASS" if health["executedEvaluationsPassed"] else "FAIL"
+    coverage = "complete" if health["evaluationCoverageComplete"] else "incomplete"
     lines = [
         "# Capability Health",
         "",
@@ -66,10 +78,16 @@ def render_markdown(health: dict[str, object]) -> str:
         f"- Skills: **{health['skillCount']}**",
         f"- User-facing entrypoints: **{health['entrypointCount']}**",
         f"- Evaluation suites: **{health['evaluationSuiteCount']}**",
+        f"- Executed evaluation suites: **{executed_pass}**",
+        f"- Evaluation coverage: **{coverage}**",
+        f"- Skills with evaluation suite: **{health['evaluatedSkillCount']}/{health['skillCount']}**",
+        f"- User-facing entrypoints with evaluation suite: **{health['evaluatedEntrypointCount']}/{health['entrypointCount']}**",
         f"- Skills without evaluation suite: **{len(missing)}**",
         f"- User-facing entrypoints without evaluation suite: **{len(missing_entrypoints)}**",
         f"- Ambiguous outputs (multiple producers): **{len(ambiguous)}**",
         f"- Outputs without inferred hard-requires consumers: **{len(unconsumed)}**",
+        "",
+        "Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.",
         "",
         "## Evaluation gaps",
         "",

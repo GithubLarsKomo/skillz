@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "presentation-render-verifier",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "perform actual slide and PDF rendering",
+      "passed": true,
+      "evidence": "The mandatory process requires slide images and a PDF/print version."
+    },
+    {
+      "behavior": "inspect both individual slides and deck-level consistency",
+      "passed": true,
+      "evidence": "The skill defines separate slide-level and deck-level checks."
+    },
+    {
+      "behavior": "rerender after corrections before final PASS",
+      "passed": true,
+      "evidence": "A one-time export without rerender is explicitly insufficient."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "claim visually verified without a render",
+      "observed": false,
+      "evidence": "The limits explicitly prohibit this."
+    },
+    {
+      "behavior": "treat PDF export alone as proof of editable PPTX quality",
+      "observed": false,
+      "evidence": "PDF does not replace PPTX editability or structural checking."
+    }
+  ],
+  "overall": "pass"
+}

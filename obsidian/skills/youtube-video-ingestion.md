@@ -4,10 +4,10 @@ generated: true
 name: "youtube-video-ingestion"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/youtube-video-ingestion/SKILL.md"
 tags:
   - skill
@@ -54,10 +54,10 @@ Normalisiert ein zugängliches YouTube-Video zu einem nachvollziehbaren Quellenp
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

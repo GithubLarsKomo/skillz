@@ -8,6 +8,8 @@ status: candidate
 owners:
   - GithubLarsKomo
 requires: []
+consumes:
+  - source-context.json
 outputs:
   - learning-evidence.json
   - learning-concept-map.json
