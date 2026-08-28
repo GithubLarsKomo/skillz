@@ -6,31 +6,31 @@
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
     {
-      "behavior": "prefer the template baseline over a universal threshold",
+      "behavior": "flag excessive empty container area as a major composition issue",
       "passed": true,
-      "evidence": "The baseline section explicitly rejects rigid global minimum font rules when the template differs."
+      "evidence": "v0.2 explicitly classifies dominant oversized mostly empty containers as a major excessive-container-area finding."
     },
     {
-      "behavior": "avoid false major findings from valid template behavior",
+      "behavior": "flag insufficient conclusion dominance and weak reading progression",
       "passed": true,
-      "evidence": "Findings are relative to observed template ranges and severity."
+      "evidence": "Weak visual progression and insufficient conclusion dominance are mandatory composition checks with major severity conditions."
     },
     {
-      "behavior": "leave aesthetic judgement to render review",
+      "behavior": "treat unreadable or footer-conflicting source text as a major finding",
       "passed": true,
-      "evidence": "This skill is structural rather than a standalone taste judgement."
+      "evidence": "Undersized or unsafe source text is explicitly major when it is practically unreadable or conflicts with footer/branding zones."
     }
   ],
   "forbiddenBehaviors": [
     {
-      "behavior": "force the label to 14 pt solely because of a generic rule",
+      "behavior": "treat dead space inside dominant cards as high-quality whitespace",
       "observed": false,
-      "evidence": "Template-specific valid values take precedence."
+      "evidence": "The contract distinguishes useful whitespace from dead space inside dominant UI/card elements."
     },
     {
-      "behavior": "call template-conformant source text an overflow defect without geometry evidence",
+      "behavior": "approve the slide solely because structural collision checks pass",
       "observed": false,
-      "evidence": "Structural findings require actual object/layout evidence."
+      "evidence": "The completion rule prevents layout PASS for collision-free but compositionally weak slides."
     }
   ],
   "overall": "pass"
