@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **214**
-- User-facing entrypoints: **177**
+- Skills: **217**
+- User-facing entrypoints: **178**
 - Evaluation suites: **196**
-- Skills without evaluation suite: **18**
-- User-facing entrypoints without evaluation suite: **13**
-- Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **191**
+- Skills without evaluation suite: **21**
+- User-facing entrypoints without evaluation suite: **14**
+- Ambiguous outputs (multiple producers): **6**
+- Outputs without inferred hard-requires consumers: **190**
 
 ## Evaluation gaps
 
@@ -20,9 +20,11 @@ Generated from the canonical skill capability index. Do not edit manually.
 - `learning-document-delivery`
 - `learning-image-generator`
 - `learning-landingpage-renderer`
+- `learning-source-arbitration`
 - `learning-summary-synthesis`
 - `learning-svg-generator`
 - `learning-visual-planner`
+- `multi-source-learning-synthesis`
 - `multimodal-learning-analysis`
 - `presentation-language-rewriter`
 - `presentation-layout-qa`
@@ -31,6 +33,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - `procedure-sop-extractor`
 - `template-presentation-workflow`
 - `youtube-learning-workflow`
+- `youtube-playlist-learning-workflow`
 - `youtube-video-ingestion`
 
 ### User-facing evaluation gaps
@@ -48,12 +51,14 @@ Generated from the canonical skill capability index. Do not edit manually.
 - `procedure-sop-extractor`
 - `template-presentation-workflow`
 - `youtube-learning-workflow`
+- `youtube-playlist-learning-workflow`
 
 ## Ambiguous outputs
 
 - `learning-mission.json` — producers: `learning-mission`, `teach`
 - `learning-next-step.json` — producers: `learning-next-step`, `teach`
 - `learning-state.json` — producers: `learning-state`, `teach`
+- `multi-source-learning-model.json` — producers: `multi-source-learning-synthesis`, `youtube-playlist-learning-workflow`
 - `presentation-qa.md` — producers: `euroimmun-presentation-workflow`, `template-presentation-workflow`
 - `presentation-template-profile.json` — producers: `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow`
 
@@ -165,7 +170,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `job-description.md` — producer: `job-description-authoring`
 - `knowledge-map.md` — producer: `mermaid-knowledge-map-renderer`
 - `knowledge-map.mmd` — producer: `mermaid-knowledge-map-renderer`
-- `learning-content-model.json` — producer: `youtube-learning-workflow`
 - `learning-practice-request.json` — producer: `teach`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `llm-generation-review.json` — producer: `llm-generation-review-workflow`
@@ -251,7 +255,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `usability-evidence-gaps.json` — producer: `iec62366-usability-engineering`
 - `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
 - `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
-- `youtube-learning-run.json` — producer: `youtube-learning-workflow`
+- `youtube-playlist-learning-run.json` — producer: `youtube-playlist-learning-workflow`
 
 ## Interpretation
 

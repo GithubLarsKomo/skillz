@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Source Arbitration"
+  short_description: "Bewertet mehrere Lernquellen hinsichtlich Unabhängigkeit, Autorität, Aktualität, Evidenznähe und gegenseitiger Bestät..."
+policy:
+  allow_implicit_invocation: true

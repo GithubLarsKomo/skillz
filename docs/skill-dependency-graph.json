@@ -1239,6 +1239,16 @@
       ]
     },
     {
+      "name": "learning-source-arbitration",
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "consumes": [],
+      "outputs": [
+        "learning-source-arbitration.json"
+      ]
+    },
+    {
       "name": "learning-state",
       "requires": [],
       "consumes": [],
@@ -1662,6 +1672,17 @@
       "outputs": [
         "knowledge-map.md",
         "knowledge-map.mmd"
+      ]
+    },
+    {
+      "name": "multi-source-learning-synthesis",
+      "requires": [
+        "learning-source-arbitration"
+      ],
+      "consumes": [],
+      "outputs": [
+        "multi-source-conflict-map.json",
+        "multi-source-learning-model.json"
       ]
     },
     {
@@ -2685,6 +2706,27 @@
       ]
     },
     {
+      "name": "youtube-playlist-learning-workflow",
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-source-arbitration",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multi-source-learning-synthesis",
+        "template-presentation-workflow",
+        "youtube-learning-workflow"
+      ],
+      "consumes": [],
+      "outputs": [
+        "multi-source-learning-model.json",
+        "youtube-playlist-learning-run.json"
+      ]
+    },
+    {
       "name": "youtube-video-ingestion",
       "requires": [],
       "consumes": [],
@@ -3601,6 +3643,10 @@
       "to": "learning-state"
     },
     {
+      "from": "learning-source-arbitration",
+      "to": "multimodal-learning-analysis"
+    },
+    {
       "from": "learning-summary-synthesis",
       "to": "multimodal-learning-analysis"
     },
@@ -3939,6 +3985,10 @@
     {
       "from": "mermaid-knowledge-map-renderer",
       "to": "knowledge-map-generator"
+    },
+    {
+      "from": "multi-source-learning-synthesis",
+      "to": "learning-source-arbitration"
     },
     {
       "from": "nonconformance-mrb-disposition",
@@ -4663,6 +4713,50 @@
     {
       "from": "youtube-learning-workflow",
       "to": "youtube-video-ingestion"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-artifact-qa"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-content-design-system"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-document-delivery"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-image-generator"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-landingpage-renderer"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-source-arbitration"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-svg-generator"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "learning-visual-planner"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "multi-source-learning-synthesis"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "template-presentation-workflow"
+    },
+    {
+      "from": "youtube-playlist-learning-workflow",
+      "to": "youtube-learning-workflow"
     }
   ],
   "consumptionEdges": [
@@ -7556,7 +7650,8 @@
         "learning-artifact-qa"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7567,7 +7662,8 @@
         "learning-artifact-qa"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7602,6 +7698,7 @@
         "multimodal-learning-analysis"
       ],
       "consumerSkills": [
+        "learning-source-arbitration",
         "learning-summary-synthesis",
         "learning-visual-planner",
         "procedure-sop-extractor",
@@ -7615,9 +7712,11 @@
       "producers": [
         "youtube-learning-workflow"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "youtube-playlist-learning-workflow"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "learning-design-context.json",
@@ -7630,7 +7729,8 @@
         "learning-image-generator",
         "learning-landingpage-renderer",
         "learning-svg-generator",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7641,7 +7741,8 @@
         "learning-document-delivery"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7652,6 +7753,7 @@
         "multimodal-learning-analysis"
       ],
       "consumerSkills": [
+        "learning-source-arbitration",
         "learning-summary-synthesis",
         "learning-visual-planner",
         "procedure-sop-extractor",
@@ -7666,7 +7768,8 @@
         "learning-document-delivery"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7677,7 +7780,8 @@
         "learning-document-delivery"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7688,7 +7792,8 @@
         "learning-image-generator"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7699,7 +7804,8 @@
         "learning-image-generator"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7710,7 +7816,8 @@
         "learning-landingpage-renderer"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7721,7 +7828,8 @@
         "learning-landingpage-renderer"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7780,6 +7888,18 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "learning-source-arbitration.json",
+      "producers": [
+        "learning-source-arbitration"
+      ],
+      "consumerSkills": [
+        "multi-source-learning-synthesis",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "learning-state.json",
       "producers": [
         "learning-state",
@@ -7817,7 +7937,8 @@
         "learning-svg-generator"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7828,7 +7949,8 @@
         "learning-svg-generator"
       ],
       "consumerSkills": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7841,7 +7963,8 @@
       "consumerSkills": [
         "learning-image-generator",
         "learning-svg-generator",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8128,6 +8251,27 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "multi-source-conflict-map.json",
+      "producers": [
+        "multi-source-learning-synthesis"
+      ],
+      "consumerSkills": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "multi-source-learning-model.json",
+      "producers": [
+        "multi-source-learning-synthesis",
+        "youtube-playlist-learning-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": true,
+      "consumptionStatus": "ambiguous"
     },
     {
       "output": "next increment",
@@ -8784,7 +8928,8 @@
       ],
       "consumerSkills": [
         "euroimmun-presentation-workflow",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8796,7 +8941,8 @@
       ],
       "consumerSkills": [
         "euroimmun-presentation-workflow",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -10685,6 +10831,17 @@
       "producers": [
         "youtube-learning-workflow"
       ],
+      "consumerSkills": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "youtube-playlist-learning-run.json",
+      "producers": [
+        "youtube-playlist-learning-workflow"
+      ],
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
@@ -10817,7 +10974,6 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
-    "learning-content-model.json",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
@@ -10903,7 +11059,7 @@
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
     "vigilance-entry-handoff.json",
-    "youtube-learning-run.json"
+    "youtube-playlist-learning-run.json"
   ],
   "orphanOutputs": [
     "acceptance-gaps.json",
@@ -11010,7 +11166,6 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
-    "learning-content-model.json",
     "learning-practice-request.json",
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
@@ -11096,6 +11251,6 @@
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
     "vigilance-entry-handoff.json",
-    "youtube-learning-run.json"
+    "youtube-playlist-learning-run.json"
   ]
 }

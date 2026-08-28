@@ -630,6 +630,12 @@
         "agents/openai.yaml": "68238b1da9372ec31773882616e856e1d6e9c2b6e4797442f1b163526271dfa6"
       }
     },
+    "learning-source-arbitration": {
+      "files": {
+        "SKILL.md": "ecb3a1f8be42031cf7e61f5e521231ae8948660dda74e937c111ab278b12a2a7",
+        "agents/openai.yaml": "33174a1397c1b2052f7263e956998e23ef026a967cf2184067a1464582b922df"
+      }
+    },
     "learning-state": {
       "files": {
         "SKILL.md": "b24f41523abb1fd2fa232e0a46f82adbf76e66a96af22959dd10a203c5784728",
@@ -824,6 +830,12 @@
       "files": {
         "SKILL.md": "8a5f999d69013ad2e0169ca310b990510ccbc1a2e2b0b0cf170358a954c07e95",
         "agents/openai.yaml": "8cef93796564d63329781f523c314ca5ebaa2e44106574a3049857624ab4ab3a"
+      }
+    },
+    "multi-source-learning-synthesis": {
+      "files": {
+        "SKILL.md": "7281cae50de410857e63637162b9c16e3386965146b50c8f9187d0e7634c241f",
+        "agents/openai.yaml": "c57f35c11319e90467f573e4d9003543397c6af3ca65f196d3b07458cfbdede8"
       }
     },
     "multimodal-learning-analysis": {
@@ -1333,6 +1345,12 @@
       "files": {
         "SKILL.md": "2226c2f092ef24f86071441a369abf309b92cb12c5776eb62ad9b6da9a49e4dd",
         "agents/openai.yaml": "34adcfc982b4e1288098b1944e824ed0562d68fce813ac55fbd89ed42a0a670a"
+      }
+    },
+    "youtube-playlist-learning-workflow": {
+      "files": {
+        "SKILL.md": "1f3c087d37dede1b8f83fa638711cc10699c784e51a8e7d8ccc6395e887499af",
+        "agents/openai.yaml": "1abc68388efbac293319467e63faef75f580d92cf4d7c6adf2ecf61697d34acf"
       }
     },
     "youtube-video-ingestion": {

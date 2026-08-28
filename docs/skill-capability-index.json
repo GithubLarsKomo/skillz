@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 214,
-  "entrypointCount": 177,
+  "skillCount": 217,
+  "entrypointCount": 178,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -5031,7 +5031,8 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-artifact-qa.json",
@@ -5045,7 +5046,8 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -5055,7 +5057,8 @@
             "learning-artifact-qa"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -5164,7 +5167,8 @@
         "learning-image-generator",
         "learning-landingpage-renderer",
         "learning-svg-generator",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-design-context.json"
@@ -5182,7 +5186,8 @@
             "learning-image-generator",
             "learning-landingpage-renderer",
             "learning-svg-generator",
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -5207,7 +5212,8 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-document-qa.json",
@@ -5222,7 +5228,8 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -5232,7 +5239,8 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -5242,7 +5250,8 @@
             "learning-document-delivery"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -5268,7 +5277,8 @@
         "learning-visual-planner"
       ],
       "dependents": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-image-assets",
@@ -5282,7 +5292,8 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -5292,7 +5303,8 @@
             "learning-image-generator"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -5317,7 +5329,8 @@
         "learning-content-design-system"
       ],
       "dependents": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-landingpage",
@@ -5331,7 +5344,8 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -5341,7 +5355,8 @@
             "learning-landingpage-renderer"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -5429,6 +5444,46 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "learning-source-arbitration",
+      "description": "Bewertet mehrere Lernquellen hinsichtlich Unabhängigkeit, Autorität, Aktualität, Evidenznähe und gegenseitiger Bestätigung, ohne Mehrheitsvoten mit Wahrheit gleichzusetzen. Verwenden vor Multi-Video-Synthesen, wenn Claims zwischen Quellen konsolidiert oder Konflikte transparent eingeordnet werden müssen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "multimodal-learning-analysis"
+      ],
+      "dependents": [
+        "multi-source-learning-synthesis",
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "learning-source-arbitration.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "learning-source-arbitration.json",
+          "ambiguous": false,
+          "producers": [
+            "learning-source-arbitration"
+          ],
+          "consumerSkills": [
+            "multi-source-learning-synthesis",
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {
@@ -5542,7 +5597,8 @@
         "learning-visual-planner"
       ],
       "dependents": [
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-svg-assets",
@@ -5556,7 +5612,8 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -5566,7 +5623,8 @@
             "learning-svg-generator"
           ],
           "consumerSkills": [
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -5593,7 +5651,8 @@
       "dependents": [
         "learning-image-generator",
         "learning-svg-generator",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "learning-visual-plan.json"
@@ -5608,7 +5667,8 @@
           "consumerSkills": [
             "learning-image-generator",
             "learning-svg-generator",
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -7462,6 +7522,54 @@
       }
     },
     {
+      "name": "multi-source-learning-synthesis",
+      "description": "Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten gemeinsamen Wissensmodell mit Claim-Clustern, Konflikten, Quellenabdeckung, Konsensstärke und offenen Lücken. Verwenden für Playlist-, Kurs- oder Multi-Video-Learning vor gemeinsamer HTML/PPTX/DOCX/PDF-Ausgabe.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [
+        "learning-source-arbitration"
+      ],
+      "dependents": [
+        "youtube-playlist-learning-workflow"
+      ],
+      "outputs": [
+        "multi-source-conflict-map.json",
+        "multi-source-learning-model.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "multi-source-conflict-map.json",
+          "ambiguous": false,
+          "producers": [
+            "multi-source-learning-synthesis"
+          ],
+          "consumerSkills": [
+            "youtube-playlist-learning-workflow"
+          ]
+        },
+        {
+          "output": "multi-source-learning-model.json",
+          "ambiguous": true,
+          "producers": [
+            "multi-source-learning-synthesis",
+            "youtube-playlist-learning-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
       "name": "multimodal-learning-analysis",
       "description": "Analysiert ein zeitcodiertes Videoquellenpaket gemeinsam aus Sprache, visuellen Beobachtungen und Metadaten und erzeugt evidenzgebundene Lernclaims, Konzepte, Demonstrationen, Warnungen und Beziehungen. Verwenden nach Video-Ingestion; nicht zum Rendern finaler Lernartefakte oder zum Erfinden nicht sichtbarer Prozessdetails.",
       "invocation": {
@@ -7470,6 +7578,7 @@
       },
       "requires": [],
       "dependents": [
+        "learning-source-arbitration",
         "learning-summary-synthesis",
         "learning-visual-planner",
         "procedure-sop-extractor",
@@ -7487,6 +7596,7 @@
             "multimodal-learning-analysis"
           ],
           "consumerSkills": [
+            "learning-source-arbitration",
             "learning-summary-synthesis",
             "learning-visual-planner",
             "procedure-sop-extractor",
@@ -7500,6 +7610,7 @@
             "multimodal-learning-analysis"
           ],
           "consumerSkills": [
+            "learning-source-arbitration",
             "learning-summary-synthesis",
             "learning-visual-planner",
             "procedure-sop-extractor",
@@ -11649,7 +11760,8 @@
       ],
       "dependents": [
         "euroimmun-presentation-workflow",
-        "youtube-learning-workflow"
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
       ],
       "outputs": [
         "presentation-qa.md",
@@ -11685,7 +11797,8 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         },
         {
@@ -11696,7 +11809,8 @@
           ],
           "consumerSkills": [
             "euroimmun-presentation-workflow",
-            "youtube-learning-workflow"
+            "youtube-learning-workflow",
+            "youtube-playlist-learning-workflow"
           ]
         }
       ],
@@ -12261,7 +12375,9 @@
         "template-presentation-workflow",
         "youtube-video-ingestion"
       ],
-      "dependents": [],
+      "dependents": [
+        "youtube-playlist-learning-workflow"
+      ],
       "outputs": [
         "learning-content-model.json",
         "youtube-learning-run.json"
@@ -12273,13 +12389,71 @@
           "producers": [
             "youtube-learning-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "youtube-playlist-learning-workflow"
+          ]
         },
         {
           "output": "youtube-learning-run.json",
           "ambiguous": false,
           "producers": [
             "youtube-learning-workflow"
+          ],
+          "consumerSkills": [
+            "youtube-playlist-learning-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
+      }
+    },
+    {
+      "name": "youtube-playlist-learning-workflow",
+      "description": "Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evidenzgebundenen Lernpaket: Einzelanalyse je Video, Quellenarbitration, Deduplication, Konflikterkennung, konsolidiertes Wissensmodell und Ausgabe als Landingpage, Präsentation oder DOCX/PDF unter DESIGN.md. Verwenden für Playlist-Learner, Multi-Video-Tutorials, Kurs-Synthesen und konsolidierte SOP-Entwürfe.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "learning-artifact-qa",
+        "learning-content-design-system",
+        "learning-document-delivery",
+        "learning-image-generator",
+        "learning-landingpage-renderer",
+        "learning-source-arbitration",
+        "learning-svg-generator",
+        "learning-visual-planner",
+        "multi-source-learning-synthesis",
+        "template-presentation-workflow",
+        "youtube-learning-workflow"
+      ],
+      "dependents": [],
+      "outputs": [
+        "multi-source-learning-model.json",
+        "youtube-playlist-learning-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "multi-source-learning-model.json",
+          "ambiguous": true,
+          "producers": [
+            "multi-source-learning-synthesis",
+            "youtube-playlist-learning-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "youtube-playlist-learning-run.json",
+          "ambiguous": false,
+          "producers": [
+            "youtube-playlist-learning-workflow"
           ],
           "consumerSkills": []
         }

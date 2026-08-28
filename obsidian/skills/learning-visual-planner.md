@@ -33,6 +33,7 @@ Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visual
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Outputs
 
@@ -45,6 +46,7 @@ Plant für evidenzgebundene Lerninhalte die jeweils informationsstärkste Visual
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-svg-generator|learning-svg-generator]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 
