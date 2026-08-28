@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "euroimmun-corporate-controlled-report-level2",
+  "artifactFamily": "docx-pdf-report",
+  "level": 2,
+  "name": "Controlled DOCX/PDF Report Golden Reference",
+  "designContract": "docs/corporate/euroimmun/DESIGN.md",
+  "activeReference": "docs/corporate/euroimmun/ACTIVE_REPORT_REFERENCE.md",
+  "policy": "docs/corporate/euroimmun/GOLDEN_REFERENCE.md",
+  "status": "NOT_RUN",
+  "reason": "No eligible internally approved or confirmed EUROIMMUN DOCX/DOTX binary template is currently registered as the preferred report Level-2 reference.",
+  "activation": {
+    "runtimeBinaryRequired": true,
+    "sha256Required": true,
+    "templateProfileRequired": true,
+    "mustNotPassWithoutBinaryTemplate": true,
+    "repositoryStorageOfProprietaryTemplate": false,
+    "publicReferenceMaySatisfyLevel2": false
+  },
+  "currentReference": {
+    "preferredCurrentReferenceName": null,
+    "preferredCurrentReferenceSha256": null,
+    "preferredCurrentReferenceStatus": "NONE_REGISTERED",
+    "level1FallbackStatus": "public-reference-fallback",
+    "level1FallbackDerivation": "template-compatible"
+  },
+  "requiredSourceEvidence": {
+    "filename": true,
+    "sha256": true,
+    "templateStatus": true,
+    "sectionInventory": true,
+    "pageGeometry": true,
+    "namedStyleInventory": true,
+    "headerFooterRelationships": true,
+    "logoImageFingerprints": true,
+    "fieldAndPageNumberInventory": true,
+    "fontInventory": true,
+    "safeContentInsertionAdapter": true
+  },
+  "docxRequiredChecks": {
+    "sourceSha256": true,
+    "sectionAndPageGeometryParity": true,
+    "styleInheritance": true,
+    "headerFooterLogoFieldPreservation": true,
+    "pageNumberBehavior": true,
+    "fontFallbackDisposition": true,
+    "safeBodyInsertion": true,
+    "printableGeometry": true,
+    "allDocxPagesRendered": true,
+    "controlledRegionVisualComparison": true,
+    "noControlledElementReconstruction": true,
+    "languageAndContentGate": true
+  },
+  "docxAcceptance": {
+    "requiredStatus": "LEVEL_2_PASS",
+    "requiredDerivation": "template-derived",
+    "critical": 0,
+    "major": 0,
+    "renderCoverage": "all/all",
+    "corporateDesignGate": "PASS"
+  },
+  "pdfRequiredChecks": {
+    "sourceDocxLevel2Pass": true,
+    "finalDocxSha256": true,
+    "generatedFromExactDocxRevision": true,
+    "allPdfPagesRendered": true,
+    "pageCountParity": true,
+    "contentOrderParity": true,
+    "controlledRegionParity": true,
+    "noPdfSpecificRepair": true,
+    "docxPdfSourceParity": true
+  },
+  "pdfAcceptance": {
+    "requiredStatus": "LEVEL_2_PASS",
+    "sourceDocxRequiredStatus": "LEVEL_2_PASS",
+    "critical": 0,
+    "major": 0,
+    "renderCoverage": "all/all",
+    "sourceParity": "PASS",
+    "corporateDesignGate": "PASS"
+  },
+  "failureRules": [
+    "NOT_RUN if no eligible real DOCX/DOTX binary is available",
+    "FAIL or NOT_RUN if no safe template adapter/profile exists",
+    "FAIL if a Public-Reference fallback is represented as Level 2",
+    "FAIL if controlled Header/Footer/logo/field/style elements are reconstructed instead of inherited",
+    "FAIL if any DOCX or PDF page is not rendered and inspected",
+    "FAIL if unresolved Critical or Major findings remain",
+    "PDF Level 2 MUST remain NOT_RUN unless the source DOCX has LEVEL_2_PASS"
+  ]
+}
