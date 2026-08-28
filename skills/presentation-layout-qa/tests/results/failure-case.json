@@ -6,31 +6,31 @@
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
     {
-      "behavior": "reject blanket font shrinking as first-line correction",
+      "behavior": "reject decorative additions as a substitute for information-architecture correction",
       "passed": true,
-      "evidence": "The ordered correction principle makes font reduction the last option."
+      "evidence": "v0.2 explicitly forbids merely adding icons or badges when the underlying problem is information architecture or area usage."
     },
     {
-      "behavior": "detect chart label clipping",
+      "behavior": "keep font-size reduction as the last correction option",
       "passed": true,
-      "evidence": "Chart labels, legends and axis titles are explicit visual structure checks."
+      "evidence": "The ordered correction sequence places font-size reduction last and requires template conformity."
     },
     {
-      "behavior": "reject visual PASS without render",
+      "behavior": "reject final layout PASS without rendering materially corrected slides",
       "passed": true,
-      "evidence": "The skill explicitly says structural PASS is not render verification."
+      "evidence": "Render coupling and completion criteria require corrected slides to be rendered before layout QA can close."
     }
   ],
   "forbiddenBehaviors": [
     {
-      "behavior": "hide overflow through indiscriminate font reduction",
+      "behavior": "mask weak composition with additive decoration",
       "observed": false,
-      "evidence": "The correction order forbids this shortcut."
+      "evidence": "Additive badges/icons are explicitly disallowed as a cosmetic substitute for recomposition."
     },
     {
-      "behavior": "simulate visual QA",
+      "behavior": "simulate visual verification from structure alone",
       "observed": false,
-      "evidence": "A real render test is separately required."
+      "evidence": "The skill explicitly states that structural PASS does not replace a render test."
     }
   ],
   "overall": "pass"
