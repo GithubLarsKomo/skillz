@@ -4,7 +4,7 @@ description: Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compl
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -29,12 +29,12 @@ Der Router entscheidet **wer welche Frage beantwortet**, nicht die materielle Re
 Unterstütze insbesondere:
 
 - Commercial Contract Law / Contract Matter Stack
-- Employment/Labor
-- Corporate Governance
-- Corporate Transactions/M&A
-- Privacy/Data
-- IP/Licensing sowie bestehende Patent-/FTO-Skills
-- Competition/Antitrust
+- deutsches Individual-/Kollektivarbeitsrecht → `german-employment-labor-law-specialist`
+- Corporate Governance/Organrecht → `corporate-governance-law-specialist`
+- Corporate Transactions/M&A → `corporate-transactions-ma-specialist`
+- allgemeines Privacy/Data Law → `privacy-data-law-specialist`; Medical-Device-/IVD-Privacy zusätzlich zum vorhandenen `medical-device-privacy-gdpr-bdsg`
+- IP/Licensing → `ip-licensing-law-specialist`; Patentlandschaft/Biopatent/FTO bleiben bei den vorhandenen Fach-Skills
+- Competition/Antitrust/Merger Control → `competition-antitrust-law-specialist`
 - Corporate Compliance einschließlich `compliance-obligation-register`, Control Mapping und Assurance
 - Whistleblowing/HinSchG und `internal-investigation-workflow`
 - Trade/Sanctions/Export
@@ -46,6 +46,13 @@ Unterstütze insbesondere:
 - deutsches Sportrecht einschließlich DOSB-Strukturen und Safe-Sport-Verfahren
 - Rudersportrecht/DRV als sportartspezifisches Overlay
 - bestehende MDR/IVDR/FDA/QMS/Risk/Complaint/CAPA-Specialists bei regulierten Produkten.
+
+## Cross-Domain Examples
+
+- M&A mit Betriebsübergang, IP und Fusionskontrolle erzeugt getrennte Work Orders an M&A, Employment, IP und Antitrust.
+- IP-Lizenz mit Exklusivität erzeugt getrennte Work Orders an IP/Licensing und Antitrust; Patent-/FTO-Analyse bleibt technisch/rechtlich separat.
+- Investigation mit möglicher Kündigung und Beschäftigtendaten erzeugt getrennte Work Orders an Investigation, Employment und Privacy sowie bei Bedarf Whistleblowing/Counsel.
+- Board-Entscheidung über material risk erzeugt Governance/Risk/Decision Work Orders; eine AI-Empfehlung wird nicht als Organbeschluss behandelt.
 
 ## Work Order Contract
 
