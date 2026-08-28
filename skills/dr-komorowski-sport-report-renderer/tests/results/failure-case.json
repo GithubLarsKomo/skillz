@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "skill": "dr-komorowski-sport-report-renderer",
   "caseId": "failure-case",
-  "recordedAt": "2026-08-18",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "Helvetica-Fallback verwenden oder lokalen Font korrekt auflösen", "passed": true, "evidence": "The renderer resolves DejaVu Sans locally and falls back to Helvetica."},
-    {"behavior": "keine Fontdatei weitergeben", "passed": true, "evidence": "The skill explicitly prohibits bundling font files."},
-    {"behavior": "PDF trotzdem auf Glyphenprobleme prüfen", "passed": true, "evidence": "Visual verification remains mandatory after fallback."}
+    {"behavior": "report missing historical assets instead of inventing replacement branding", "passed": true, "evidence": "The missing-assets rule requires documenting missing reproducibility and forbids invented corporate or brand assets."},
+    {"behavior": "reject a successful result while render defects remain", "passed": true, "evidence": "The render-error rule forbids reporting success until visual verification passes."},
+    {"behavior": "preserve the migration path to the canonical DOCX-first workflow", "passed": true, "evidence": "The migration section and error handling preserve the canonical DOCX-first replacement path."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "Fontdateien in assets einbetten", "observed": false, "evidence": "No font files are stored and the brand guide forbids doing so."},
-    {"behavior": "Rendering-Erfolg ohne Sichtprüfung behaupten", "observed": false, "evidence": "Completion requires a visual PDF check."}
+    {"behavior": "invent corporate or brand assets to simulate historical fidelity", "observed": false, "evidence": "The skill explicitly says missing historical assets must not be replaced with invented corporate or brand assets."},
+    {"behavior": "claim successful rendering before visual verification passes", "observed": false, "evidence": "A visible render defect blocks successful output until the visual check passes."}
   ],
   "overall": "pass"
 }
