@@ -10,10 +10,11 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **56**
+Skills: **58**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-matter-workflow|contract-matter-workflow]]
 - [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
 - [[skills/decision-record|decision-record]]
@@ -28,6 +29,7 @@ Skills: **56**
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
 - [[skills/legal-matter-intake|legal-matter-intake]]
+- [[skills/legal-redline-review-loop|legal-redline-review-loop]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
 - [[skills/optimize-software-performance|optimize-software-performance]]

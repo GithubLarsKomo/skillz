@@ -16,7 +16,7 @@ tags:
 
 # contract-legal-context
 
-Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbaren Rechtsordnungen, zwingenden Normen, Formanforderungen und Spezialrechts-Overlays und belegt materielle Rechtsaussagen mit aktuellen autoritativen Quellen. Verwenden vor Vertragsprüfung oder Vertragserzeugung.
+Projiziert den allgemeinen aktuellen Rechtskontext auf einen privaten oder beruflichen Vertragsfall und bestimmt Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbare Rechtsordnungen, zwingende Normen, Formanforderungen und Spezialrechts-Overlays. Verwenden als kompatiblen Contract-Handoff vor Vertragsprüfung oder Vertragserzeugung.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,12 +26,10 @@ Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Partei
 
 ## Requires
 
-- [[skills/research-to-evidence-note|research-to-evidence-note]]
+- [[skills/current-law-context|current-law-context]]
 
 ## Required by
 
-- [[skills/contract-drafting|contract-drafting]]
-- [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
 
 ## Outputs
@@ -43,14 +41,10 @@ Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Partei
 
 ### `contract-legal-context.json`
 
-- [[skills/contract-drafting|contract-drafting]]
-- [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
 
 ### `contract-legal-source-note.md`
 
-- [[skills/contract-drafting|contract-drafting]]
-- [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
 
 ## Evaluation

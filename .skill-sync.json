@@ -10,6 +10,12 @@
         "agents/openai.yaml": "47482384b7303d42592a8e95519ee434fb89ee185a197ec96c1ae452264a370f"
       }
     },
+    "agreement-type-analysis": {
+      "files": {
+        "SKILL.md": "262d6f6f66e4f8b140c0928abad2bba0cd89274ca28c2cb118c9176c45dff1d8",
+        "agents/openai.yaml": "9cba5f870da32ed77d383ef882fa2e4e38c423c1796a1374a235e2719651a54a"
+      }
+    },
     "architecture-deepening-review": {
       "files": {
         "SKILL.md": "34aeb34c281fe2befaed9df7ca3060eb00cfea836bcf565d2d078755acab21f3",
@@ -66,27 +72,33 @@
     },
     "contract-drafting": {
       "files": {
-        "SKILL.md": "ca891ddd6b3ce97ad20f7b8941ff48ebf25bbdfb61033622d3dcb05420ffeb66",
-        "agents/openai.yaml": "9280ab47cf7a8ad4477d71a62c51ea30d8dc766f055f8a4ba46ecc0107930535"
+        "SKILL.md": "5e89a6265fa0adcafb8019de3d4dbe2f47da393407d54072eb7db4ba141dbae1",
+        "agents/openai.yaml": "3f4652405dcb0c6be2f5d9166fd95d5eccf3b6ed4d4d4f3a5947fa5d16d73d40"
       }
     },
     "contract-legal-context": {
       "files": {
-        "SKILL.md": "6fc48795cbf7c162266445d5e43aa197d4a15df38654178d72ab13d82e408b4c",
-        "agents/openai.yaml": "ea6d345e11d645051d4fa9ae9ae0a0336ed378fff898cb5fe2b3e8b5e92ea1e7",
+        "SKILL.md": "7c9670fd89d39c4eb89ff8a83b5fafca2627c1dbee4edbf02617cd3dd0f8d51c",
+        "agents/openai.yaml": "022f70bbf27d0e722e893e25315f7806e9c5f321c8ce232527260c70ecede143",
         "references/german-contract-law-routing.md": "a9cc57da72f9ea562b2503600a8124d0833359a25a8123b2a2cfb88b955ef02e"
+      }
+    },
+    "contract-matter-workflow": {
+      "files": {
+        "SKILL.md": "a8fec727fb56f299932c0fbc054c170a2ad366a3e3eddd8e9faa23545119807f",
+        "agents/openai.yaml": "05ad7c4a41c2352688425285079820921fdace07ed534eab1f64fd87fe6b047b"
       }
     },
     "contract-review": {
       "files": {
-        "SKILL.md": "8007b38b3e05050c65c68a71e3b4c46ca91ca49e33ba292f79bb42b425e7a16f",
+        "SKILL.md": "2e1578e7eb02e6b2e6a5a6b3eee2020e032ba48aa9a3341537953efca29aa829",
         "agents/openai.yaml": "010f00af03a37a2f0e282a39abc16c81cde2f75baf98e7355d01ac1ff7d59403"
       }
     },
     "contract-workflow": {
       "files": {
-        "SKILL.md": "9dcf3a8df5853cc6e7a643a050a054f0d2cb76526145fafd54be6940779be169",
-        "agents/openai.yaml": "9553f5dbb97bee7f98d36c344a482ec57b42d4b88201e891204a66c712e55533"
+        "SKILL.md": "b3ba825741c079f1d727ca15a485963ca989797ded457455aa2f76b92a9d6963",
+        "agents/openai.yaml": "d7e4701f5aaef96267b35331bda2431c3a56168086298ef5b8012cd0a761904b"
       }
     },
     "controlled-quality-documentation": {
@@ -667,6 +679,18 @@
       "files": {
         "SKILL.md": "004da855c5310113664c17596243fda3c4e12ba0e838e5dd9b7dabc52d944802",
         "agents/openai.yaml": "9ca41cf60156f81ff3d07350d0edbfd775ef77484f2f3e7d0a2b6b2a77d51092"
+      }
+    },
+    "legal-negotiation-strategy": {
+      "files": {
+        "SKILL.md": "4b323b620f295ed26fe4d2401886d193baab67441b47c4352b4e12a72a336038",
+        "agents/openai.yaml": "de5d4c3d72ae70db58d20cd20db6e52ee0ac4fc3991291aa1da79aadc90aa6ad"
+      }
+    },
+    "legal-redline-review-loop": {
+      "files": {
+        "SKILL.md": "d512909a24dde1629343fd0a8a4350fcc0bb0bd74ee1148212cc9922013ffbbc",
+        "agents/openai.yaml": "27254cb13b13c9b51e39d3bf4e15dc342ecb9e36422d3864dab9cb079dcdf34d"
       }
     },
     "legal-specialist-router": {

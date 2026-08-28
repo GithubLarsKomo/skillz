@@ -16,7 +16,7 @@ tags:
 
 # contract-drafting
 
-Erzeugt aus bestätigten Requirements und einem geprüften Legal Context einen privaten oder beruflichen Vertragsentwurf, wahlweise auf Basis einer hochgeladenen Vorlage, und dokumentiert Platzhalter, Abweichungen, Rechtsannahmen und offene Punkte. Verwenden für neue Vertragsentwürfe oder template-basiertes Drafting, nicht für die primäre Bewertung eines fremden Vertrags.
+Erzeugt aus bestätigten Requirements, Client Strategy, aktuellem Rechtskontext und funktionalem Deal Model einen privaten oder beruflichen Vertragsentwurf, wahlweise auf Basis einer hochgeladenen Vorlage, und dokumentiert Platzhalter, Abweichungen, Specialist Inputs, Rechtsannahmen und offene Punkte. Verwenden für neue Vertragsentwürfe oder template-basiertes Drafting, nicht für primäre Fremdvertragsbewertung.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,11 +26,12 @@ Erzeugt aus bestätigten Requirements und einem geprüften Legal Context einen p
 
 ## Requires
 
-- [[skills/contract-legal-context|contract-legal-context]]
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/current-law-context|current-law-context]]
 
 ## Required by
 
-- [[skills/contract-workflow|contract-workflow]]
+- [[skills/contract-matter-workflow|contract-matter-workflow]]
 
 ## Outputs
 
@@ -42,15 +43,15 @@ Erzeugt aus bestätigten Requirements und einem geprüften Legal Context einen p
 
 ### `contract-draft.md`
 
-- [[skills/contract-workflow|contract-workflow]]
+- [[skills/contract-matter-workflow|contract-matter-workflow]]
 
 ### `contract-drafting-report.json`
 
-- [[skills/contract-workflow|contract-workflow]]
+- [[skills/contract-matter-workflow|contract-matter-workflow]]
 
 ### `contract-open-points.md`
 
-- [[skills/contract-workflow|contract-workflow]]
+- [[skills/contract-matter-workflow|contract-matter-workflow]]
 
 ## Evaluation
 

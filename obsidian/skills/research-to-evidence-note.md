@@ -32,7 +32,6 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 
 - [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
-- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/current-law-context|current-law-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
@@ -66,7 +65,6 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 
 - [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
-- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/current-law-context|current-law-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
@@ -93,7 +91,6 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 
 - [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
-- [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/current-law-context|current-law-context]]
 - [[skills/eu-mdr-ivdr-regulatory-specialist|eu-mdr-ivdr-regulatory-specialist]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]

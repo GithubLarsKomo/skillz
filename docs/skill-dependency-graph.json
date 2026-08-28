@@ -13,6 +13,19 @@
       ]
     },
     {
+      "name": "agreement-type-analysis",
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "consumes": [],
+      "outputs": [
+        "agreement-clause-coverage.json",
+        "agreement-deal-model.json",
+        "agreement-specialist-routes.json"
+      ]
+    },
+    {
       "name": "architecture-deepening-review",
       "requires": [
         "disciplined-diagnosis",
@@ -126,7 +139,8 @@
     {
       "name": "contract-drafting",
       "requires": [
-        "contract-legal-context"
+        "agreement-type-analysis",
+        "current-law-context"
       ],
       "consumes": [],
       "outputs": [
@@ -138,7 +152,7 @@
     {
       "name": "contract-legal-context",
       "requires": [
-        "research-to-evidence-note"
+        "current-law-context"
       ],
       "consumes": [],
       "outputs": [
@@ -147,23 +161,41 @@
       ]
     },
     {
+      "name": "contract-matter-workflow",
+      "requires": [
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-review",
+        "legal-matter-final-gate",
+        "legal-negotiation-strategy",
+        "legal-redline-review-loop"
+      ],
+      "consumes": [],
+      "outputs": [
+        "contract-matter-handoff.json",
+        "contract-matter-plan.md",
+        "contract-matter-status.json"
+      ]
+    },
+    {
       "name": "contract-review",
       "requires": [
-        "contract-legal-context"
+        "agreement-type-analysis",
+        "current-law-context"
       ],
       "consumes": [],
       "outputs": [
         "contract-issue-list.json",
         "contract-review.json",
-        "contract-review.md"
+        "contract-review.md",
+        "contract-risk-input.json"
       ]
     },
     {
       "name": "contract-workflow",
       "requires": [
-        "contract-drafting",
         "contract-legal-context",
-        "contract-review",
+        "contract-matter-workflow",
         "round-based-requirements-grilling"
       ],
       "consumes": [],
@@ -1314,6 +1346,31 @@
         "legal-dependency-graph.json",
         "legal-investigation-backlog.json",
         "legal-wayfinding-brief.md"
+      ]
+    },
+    {
+      "name": "legal-negotiation-strategy",
+      "requires": [
+        "legal-client-strategy",
+        "legal-compliance-risk-assessment"
+      ],
+      "consumes": [],
+      "outputs": [
+        "negotiation-playbook.md",
+        "negotiation-positions.json"
+      ]
+    },
+    {
+      "name": "legal-redline-review-loop",
+      "requires": [
+        "contract-review",
+        "legal-negotiation-strategy"
+      ],
+      "consumes": [],
+      "outputs": [
+        "negotiation-state.json",
+        "redline-delta.json",
+        "redline-review.md"
       ]
     },
     {
@@ -2710,6 +2767,14 @@
       "to": "iterate-software-projects"
     },
     {
+      "from": "agreement-type-analysis",
+      "to": "current-law-context"
+    },
+    {
+      "from": "agreement-type-analysis",
+      "to": "legal-client-strategy"
+    },
+    {
       "from": "architecture-deepening-review",
       "to": "disciplined-diagnosis"
     },
@@ -2759,27 +2824,55 @@
     },
     {
       "from": "contract-drafting",
-      "to": "contract-legal-context"
+      "to": "agreement-type-analysis"
+    },
+    {
+      "from": "contract-drafting",
+      "to": "current-law-context"
     },
     {
       "from": "contract-legal-context",
-      "to": "research-to-evidence-note"
+      "to": "current-law-context"
     },
     {
-      "from": "contract-review",
-      "to": "contract-legal-context"
+      "from": "contract-matter-workflow",
+      "to": "agreement-type-analysis"
     },
     {
-      "from": "contract-workflow",
+      "from": "contract-matter-workflow",
       "to": "contract-drafting"
     },
     {
+      "from": "contract-matter-workflow",
+      "to": "contract-review"
+    },
+    {
+      "from": "contract-matter-workflow",
+      "to": "legal-matter-final-gate"
+    },
+    {
+      "from": "contract-matter-workflow",
+      "to": "legal-negotiation-strategy"
+    },
+    {
+      "from": "contract-matter-workflow",
+      "to": "legal-redline-review-loop"
+    },
+    {
+      "from": "contract-review",
+      "to": "agreement-type-analysis"
+    },
+    {
+      "from": "contract-review",
+      "to": "current-law-context"
+    },
+    {
       "from": "contract-workflow",
       "to": "contract-legal-context"
     },
     {
       "from": "contract-workflow",
-      "to": "contract-review"
+      "to": "contract-matter-workflow"
     },
     {
       "from": "contract-workflow",
@@ -3656,6 +3749,22 @@
     {
       "from": "legal-matter-wayfinder",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "legal-negotiation-strategy",
+      "to": "legal-client-strategy"
+    },
+    {
+      "from": "legal-negotiation-strategy",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "legal-redline-review-loop",
+      "to": "contract-review"
+    },
+    {
+      "from": "legal-redline-review-loop",
+      "to": "legal-negotiation-strategy"
     },
     {
       "from": "legal-specialist-router",
@@ -4859,6 +4968,45 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "agreement-clause-coverage.json",
+      "producers": [
+        "agreement-type-analysis"
+      ],
+      "consumerSkills": [
+        "contract-drafting",
+        "contract-matter-workflow",
+        "contract-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "agreement-deal-model.json",
+      "producers": [
+        "agreement-type-analysis"
+      ],
+      "consumerSkills": [
+        "contract-drafting",
+        "contract-matter-workflow",
+        "contract-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "agreement-specialist-routes.json",
+      "producers": [
+        "agreement-type-analysis"
+      ],
+      "consumerSkills": [
+        "contract-drafting",
+        "contract-matter-workflow",
+        "contract-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "analytical-performance-assessment.json",
       "producers": [
         "ivdr-analytical-performance"
@@ -5325,10 +5473,12 @@
         "legal-client-strategy"
       ],
       "consumerSkills": [
+        "agreement-type-analysis",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
+        "legal-negotiation-strategy",
         "legal-specialist-router"
       ],
       "ambiguous": false,
@@ -5390,7 +5540,8 @@
       ],
       "consumerSkills": [
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "legal-negotiation-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5679,7 +5830,7 @@
         "contract-drafting"
       ],
       "consumerSkills": [
-        "contract-workflow"
+        "contract-matter-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5690,7 +5841,7 @@
         "contract-drafting"
       ],
       "consumerSkills": [
-        "contract-workflow"
+        "contract-matter-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5710,7 +5861,8 @@
         "contract-review"
       ],
       "consumerSkills": [
-        "contract-workflow"
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5721,8 +5873,6 @@
         "contract-legal-context"
       ],
       "consumerSkills": [
-        "contract-drafting",
-        "contract-review",
         "contract-workflow"
       ],
       "ambiguous": false,
@@ -5734,8 +5884,39 @@
         "contract-legal-context"
       ],
       "consumerSkills": [
-        "contract-drafting",
-        "contract-review",
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-matter-handoff.json",
+      "producers": [
+        "contract-matter-workflow"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-matter-plan.md",
+      "producers": [
+        "contract-matter-workflow"
+      ],
+      "consumerSkills": [
+        "contract-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-matter-status.json",
+      "producers": [
+        "contract-matter-workflow"
+      ],
+      "consumerSkills": [
         "contract-workflow"
       ],
       "ambiguous": false,
@@ -5747,7 +5928,7 @@
         "contract-drafting"
       ],
       "consumerSkills": [
-        "contract-workflow"
+        "contract-matter-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5767,7 +5948,8 @@
         "contract-review"
       ],
       "consumerSkills": [
-        "contract-workflow"
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -5778,7 +5960,20 @@
         "contract-review"
       ],
       "consumerSkills": [
-        "contract-workflow"
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "contract-risk-input.json",
+      "producers": [
+        "contract-review"
+      ],
+      "consumerSkills": [
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -6567,7 +6762,6 @@
       "consumerSkills": [
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
-        "contract-legal-context",
         "current-law-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
@@ -6601,7 +6795,6 @@
       "consumerSkills": [
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
-        "contract-legal-context",
         "current-law-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
@@ -7726,6 +7919,10 @@
         "current-law-context"
       ],
       "consumerSkills": [
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
@@ -7742,6 +7939,10 @@
         "current-law-context"
       ],
       "consumerSkills": [
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
@@ -7758,10 +7959,12 @@
         "legal-client-strategy"
       ],
       "consumerSkills": [
+        "agreement-type-analysis",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
+        "legal-negotiation-strategy",
         "legal-specialist-router"
       ],
       "ambiguous": false,
@@ -7784,6 +7987,7 @@
         "legal-matter-final-gate"
       ],
       "consumerSkills": [
+        "contract-matter-workflow",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -7819,6 +8023,10 @@
         "current-law-context"
       ],
       "consumerSkills": [
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
@@ -7875,6 +8083,7 @@
         "legal-matter-final-gate"
       ],
       "consumerSkills": [
+        "contract-matter-workflow",
         "legal-compliance-office"
       ],
       "ambiguous": false,
@@ -7886,6 +8095,10 @@
         "current-law-context"
       ],
       "consumerSkills": [
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
@@ -7903,7 +8116,8 @@
       ],
       "consumerSkills": [
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "legal-negotiation-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7915,7 +8129,8 @@
       ],
       "consumerSkills": [
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "legal-negotiation-strategy"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8246,6 +8461,41 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "negotiation-playbook.md",
+      "producers": [
+        "legal-negotiation-strategy"
+      ],
+      "consumerSkills": [
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "negotiation-positions.json",
+      "producers": [
+        "legal-negotiation-strategy"
+      ],
+      "consumerSkills": [
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "negotiation-state.json",
+      "producers": [
+        "legal-redline-review-loop"
+      ],
+      "consumerSkills": [
+        "contract-matter-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "next increment",
@@ -9422,6 +9672,28 @@
       "consumerSkills": [
         "sport-athlete-management",
         "sport-environment-travel"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "redline-delta.json",
+      "producers": [
+        "legal-redline-review-loop"
+      ],
+      "consumerSkills": [
+        "contract-matter-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "redline-review.md",
+      "producers": [
+        "legal-redline-review-loop"
+      ],
+      "consumerSkills": [
+        "contract-matter-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"

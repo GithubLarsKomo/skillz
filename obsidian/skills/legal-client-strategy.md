@@ -30,10 +30,12 @@ tags:
 
 ## Required by
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 
 ## Outputs
@@ -45,18 +47,22 @@ tags:
 
 ### `client-strategy.json`
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 
 ### `legal-decision-boundaries.json`
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-compliance-risk-assessment|legal-compliance-risk-assessment]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/legal-specialist-router|legal-specialist-router]]
 
 ## Evaluation

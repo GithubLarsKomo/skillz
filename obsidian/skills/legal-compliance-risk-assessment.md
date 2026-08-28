@@ -33,6 +33,7 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 
 ## Outputs
 
@@ -46,16 +47,19 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 
 ### `legal-risk-decision-handoff.json`
 
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 
 ### `legal-risk-register.json`
 
 - [[skills/legal-compliance-office|legal-compliance-office]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 
 ## Evaluation
 

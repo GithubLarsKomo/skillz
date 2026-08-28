@@ -16,7 +16,7 @@ tags:
 
 # contract-workflow
 
-Orchestriert private und berufliche Vertragsarbeit von Requirements-Grilling und Rechtsgrundlagenprüfung über Dokumentbewertung oder Vertragserzeugung bis zu Verhandlung, Final-Check und anwaltlicher Eskalation. Verwenden, wenn ein Vertrag geprüft, erstellt, aus einer Vorlage erzeugt oder als Vertragsprozess strukturiert werden soll.
+Orchestriert private und berufliche Vertragsarbeit als kompatiblen user-facing Einstieg von Requirements-Grilling und Rechtsgrundlagenprüfung über Deal-Modell, Review oder Drafting, Risiko, Verhandlung/Redlines bis Final-Check und anwaltlicher Eskalation. Verwenden, wenn ein Vertrag geprüft, erstellt, aus einer Vorlage erzeugt oder als Vertragsprozess strukturiert werden soll.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -26,9 +26,8 @@ Orchestriert private und berufliche Vertragsarbeit von Requirements-Grilling und
 
 ## Requires
 
-- [[skills/contract-drafting|contract-drafting]]
 - [[skills/contract-legal-context|contract-legal-context]]
-- [[skills/contract-review|contract-review]]
+- [[skills/contract-matter-workflow|contract-matter-workflow]]
 - [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]
 
 ## Required by

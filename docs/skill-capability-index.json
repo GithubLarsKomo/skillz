@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 214,
-  "entrypointCount": 183,
+  "skillCount": 218,
+  "entrypointCount": 187,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 208,
+  "evaluationSuiteCount": 212,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -68,6 +68,75 @@
             "merge-conflict-resolution",
             "throwaway-prototype",
             "two-axis-code-review"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "agreement-type-analysis",
+      "description": "Zerlegt einen Vertragsfall nach seiner tatsächlichen Deal-Funktion in Vertragstypen, Leistungs-/Rechteflüsse, erforderliche Klauselmodule und Legal-Specialist-Routen, statt sich auf die Dokumentüberschrift zu verlassen. Verwenden vor Contract Review oder Drafting, besonders bei hybriden NDA-, MTA-, DTA/DUA-, Lizenz-, R&D-, Studien-, Supply-, Quality-, Distribution-, SaaS-, Employment- oder M&A-Verträgen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-client-strategy"
+      ],
+      "dependents": [
+        "contract-drafting",
+        "contract-matter-workflow",
+        "contract-review"
+      ],
+      "outputs": [
+        "agreement-clause-coverage.json",
+        "agreement-deal-model.json",
+        "agreement-specialist-routes.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "agreement-clause-coverage.json",
+          "ambiguous": false,
+          "producers": [
+            "agreement-type-analysis"
+          ],
+          "consumerSkills": [
+            "contract-drafting",
+            "contract-matter-workflow",
+            "contract-review"
+          ]
+        },
+        {
+          "output": "agreement-deal-model.json",
+          "ambiguous": false,
+          "producers": [
+            "agreement-type-analysis"
+          ],
+          "consumerSkills": [
+            "contract-drafting",
+            "contract-matter-workflow",
+            "contract-review"
+          ]
+        },
+        {
+          "output": "agreement-specialist-routes.json",
+          "ambiguous": false,
+          "producers": [
+            "agreement-type-analysis"
+          ],
+          "consumerSkills": [
+            "contract-drafting",
+            "contract-matter-workflow",
+            "contract-review"
           ]
         }
       ],
@@ -600,16 +669,17 @@
     },
     {
       "name": "contract-drafting",
-      "description": "Erzeugt aus bestätigten Requirements und einem geprüften Legal Context einen privaten oder beruflichen Vertragsentwurf, wahlweise auf Basis einer hochgeladenen Vorlage, und dokumentiert Platzhalter, Abweichungen, Rechtsannahmen und offene Punkte. Verwenden für neue Vertragsentwürfe oder template-basiertes Drafting, nicht für die primäre Bewertung eines fremden Vertrags.",
+      "description": "Erzeugt aus bestätigten Requirements, Client Strategy, aktuellem Rechtskontext und funktionalem Deal Model einen privaten oder beruflichen Vertragsentwurf, wahlweise auf Basis einer hochgeladenen Vorlage, und dokumentiert Platzhalter, Abweichungen, Specialist Inputs, Rechtsannahmen und offene Punkte. Verwenden für neue Vertragsentwürfe oder template-basiertes Drafting, nicht für primäre Fremdvertragsbewertung.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
-        "contract-legal-context"
+        "agreement-type-analysis",
+        "current-law-context"
       ],
       "dependents": [
-        "contract-workflow"
+        "contract-matter-workflow"
       ],
       "outputs": [
         "contract-draft.md",
@@ -624,7 +694,7 @@
             "contract-drafting"
           ],
           "consumerSkills": [
-            "contract-workflow"
+            "contract-matter-workflow"
           ]
         },
         {
@@ -634,7 +704,7 @@
             "contract-drafting"
           ],
           "consumerSkills": [
-            "contract-workflow"
+            "contract-matter-workflow"
           ]
         },
         {
@@ -644,7 +714,7 @@
             "contract-drafting"
           ],
           "consumerSkills": [
-            "contract-workflow"
+            "contract-matter-workflow"
           ]
         }
       ],
@@ -660,17 +730,15 @@
     },
     {
       "name": "contract-legal-context",
-      "description": "Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbaren Rechtsordnungen, zwingenden Normen, Formanforderungen und Spezialrechts-Overlays und belegt materielle Rechtsaussagen mit aktuellen autoritativen Quellen. Verwenden vor Vertragsprüfung oder Vertragserzeugung.",
+      "description": "Projiziert den allgemeinen aktuellen Rechtskontext auf einen privaten oder beruflichen Vertragsfall und bestimmt Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbare Rechtsordnungen, zwingende Normen, Formanforderungen und Spezialrechts-Overlays. Verwenden als kompatiblen Contract-Handoff vor Vertragsprüfung oder Vertragserzeugung.",
       "invocation": {
         "userFacing": true,
         "category": "research-knowledge"
       },
       "requires": [
-        "research-to-evidence-note"
+        "current-law-context"
       ],
       "dependents": [
-        "contract-drafting",
-        "contract-review",
         "contract-workflow"
       ],
       "outputs": [
@@ -685,8 +753,6 @@
             "contract-legal-context"
           ],
           "consumerSkills": [
-            "contract-drafting",
-            "contract-review",
             "contract-workflow"
           ]
         },
@@ -697,8 +763,6 @@
             "contract-legal-context"
           ],
           "consumerSkills": [
-            "contract-drafting",
-            "contract-review",
             "contract-workflow"
           ]
         }
@@ -715,49 +779,54 @@
       }
     },
     {
-      "name": "contract-review",
-      "description": "Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen und AGB gegen bestätigte Requirements, Rechtsgrundlagen und wirtschaftlich-operative Risiken und erzeugt eine priorisierte Issue-Liste mit Verhandlungspositionen. Verwenden für Vertragsprüfung, Risikoanalyse und Redline-Vorbereitung, nicht für die initiale Vertragserzeugung.",
+      "name": "contract-matter-workflow",
+      "description": "Führt den kanonischen Vertrags-Matter-State von Deal-Type-Analyse über Review oder Drafting, Risiko, Negotiation und iterative Redlines bis zum Legal Final Gate. Verwenden bei expliziter Contract-Matter-Steuerung; für normale Vertragsanfragen bleibt contract-workflow der bevorzugte user-facing Einstieg.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
-        "contract-legal-context"
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-review",
+        "legal-matter-final-gate",
+        "legal-negotiation-strategy",
+        "legal-redline-review-loop"
       ],
       "dependents": [
         "contract-workflow"
       ],
       "outputs": [
-        "contract-issue-list.json",
-        "contract-review.json",
-        "contract-review.md"
+        "contract-matter-handoff.json",
+        "contract-matter-plan.md",
+        "contract-matter-status.json"
       ],
       "outputContracts": [
         {
-          "output": "contract-issue-list.json",
+          "output": "contract-matter-handoff.json",
           "ambiguous": false,
           "producers": [
-            "contract-review"
+            "contract-matter-workflow"
           ],
           "consumerSkills": [
             "contract-workflow"
           ]
         },
         {
-          "output": "contract-review.json",
+          "output": "contract-matter-plan.md",
           "ambiguous": false,
           "producers": [
-            "contract-review"
+            "contract-matter-workflow"
           ],
           "consumerSkills": [
             "contract-workflow"
           ]
         },
         {
-          "output": "contract-review.md",
+          "output": "contract-matter-status.json",
           "ambiguous": false,
           "producers": [
-            "contract-review"
+            "contract-matter-workflow"
           ],
           "consumerSkills": [
             "contract-workflow"
@@ -775,16 +844,92 @@
       }
     },
     {
-      "name": "contract-workflow",
-      "description": "Orchestriert private und berufliche Vertragsarbeit von Requirements-Grilling und Rechtsgrundlagenprüfung über Dokumentbewertung oder Vertragserzeugung bis zu Verhandlung, Final-Check und anwaltlicher Eskalation. Verwenden, wenn ein Vertrag geprüft, erstellt, aus einer Vorlage erzeugt oder als Vertragsprozess strukturiert werden soll.",
+      "name": "contract-review",
+      "description": "Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen und AGB gegen bestätigte Requirements, aktuelle Rechtsgrundlagen, funktionales Deal Model, Mandantenstrategie und wirtschaftlich-operative Risiken und erzeugt eine priorisierte Issue-Liste mit Risk- und Negotiation-Handoffs. Verwenden für Vertragsprüfung und Redline-Vorbereitung, nicht für initiales Drafting.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
       },
       "requires": [
-        "contract-drafting",
+        "agreement-type-analysis",
+        "current-law-context"
+      ],
+      "dependents": [
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
+      ],
+      "outputs": [
+        "contract-issue-list.json",
+        "contract-review.json",
+        "contract-review.md",
+        "contract-risk-input.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "contract-issue-list.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow",
+            "legal-redline-review-loop"
+          ]
+        },
+        {
+          "output": "contract-review.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow",
+            "legal-redline-review-loop"
+          ]
+        },
+        {
+          "output": "contract-review.md",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow",
+            "legal-redline-review-loop"
+          ]
+        },
+        {
+          "output": "contract-risk-input.json",
+          "ambiguous": false,
+          "producers": [
+            "contract-review"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow",
+            "legal-redline-review-loop"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "contract-workflow",
+      "description": "Orchestriert private und berufliche Vertragsarbeit als kompatiblen user-facing Einstieg von Requirements-Grilling und Rechtsgrundlagenprüfung über Deal-Modell, Review oder Drafting, Risiko, Verhandlung/Redlines bis Final-Check und anwaltlicher Eskalation. Verwenden, wenn ein Vertrag geprüft, erstellt, aus einer Vorlage erzeugt oder als Vertragsprozess strukturiert werden soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
         "contract-legal-context",
-        "contract-review",
+        "contract-matter-workflow",
         "round-based-requirements-grilling"
       ],
       "dependents": [],
@@ -971,6 +1116,10 @@
         "research-to-evidence-note"
       ],
       "dependents": [
+        "agreement-type-analysis",
+        "contract-drafting",
+        "contract-legal-context",
+        "contract-review",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
@@ -992,6 +1141,10 @@
             "current-law-context"
           ],
           "consumerSkills": [
+            "agreement-type-analysis",
+            "contract-drafting",
+            "contract-legal-context",
+            "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
             "legal-compliance-office",
@@ -1007,6 +1160,10 @@
             "current-law-context"
           ],
           "consumerSkills": [
+            "agreement-type-analysis",
+            "contract-drafting",
+            "contract-legal-context",
+            "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
             "legal-compliance-office",
@@ -1022,6 +1179,10 @@
             "current-law-context"
           ],
           "consumerSkills": [
+            "agreement-type-analysis",
+            "contract-drafting",
+            "contract-legal-context",
+            "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
             "legal-compliance-office",
@@ -1037,6 +1198,10 @@
             "current-law-context"
           ],
           "consumerSkills": [
+            "agreement-type-analysis",
+            "contract-drafting",
+            "contract-legal-context",
+            "contract-review",
             "german-association-law-specialist",
             "german-sports-law-specialist",
             "legal-compliance-office",
@@ -5492,10 +5657,12 @@
         "legal-matter-intake"
       ],
       "dependents": [
+        "agreement-type-analysis",
         "german-association-law-specialist",
         "german-sports-law-specialist",
         "legal-compliance-office",
         "legal-compliance-risk-assessment",
+        "legal-negotiation-strategy",
         "legal-specialist-router"
       ],
       "outputs": [
@@ -5510,10 +5677,12 @@
             "legal-client-strategy"
           ],
           "consumerSkills": [
+            "agreement-type-analysis",
             "german-association-law-specialist",
             "german-sports-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
+            "legal-negotiation-strategy",
             "legal-specialist-router"
           ]
         },
@@ -5524,10 +5693,12 @@
             "legal-client-strategy"
           ],
           "consumerSkills": [
+            "agreement-type-analysis",
             "german-association-law-specialist",
             "german-sports-law-specialist",
             "legal-compliance-office",
             "legal-compliance-risk-assessment",
+            "legal-negotiation-strategy",
             "legal-specialist-router"
           ]
         }
@@ -5614,7 +5785,8 @@
       ],
       "dependents": [
         "legal-compliance-office",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "legal-negotiation-strategy"
       ],
       "outputs": [
         "commercial-exposure-analysis.json",
@@ -5630,7 +5802,8 @@
           ],
           "consumerSkills": [
             "legal-compliance-office",
-            "legal-matter-final-gate"
+            "legal-matter-final-gate",
+            "legal-negotiation-strategy"
           ]
         },
         {
@@ -5641,7 +5814,8 @@
           ],
           "consumerSkills": [
             "legal-compliance-office",
-            "legal-matter-final-gate"
+            "legal-matter-final-gate",
+            "legal-negotiation-strategy"
           ]
         },
         {
@@ -5652,7 +5826,8 @@
           ],
           "consumerSkills": [
             "legal-compliance-office",
-            "legal-matter-final-gate"
+            "legal-matter-final-gate",
+            "legal-negotiation-strategy"
           ]
         }
       ],
@@ -5678,6 +5853,7 @@
         "privilege-and-counsel-routing"
       ],
       "dependents": [
+        "contract-matter-workflow",
         "legal-compliance-office"
       ],
       "outputs": [
@@ -5692,6 +5868,7 @@
             "legal-matter-final-gate"
           ],
           "consumerSkills": [
+            "contract-matter-workflow",
             "legal-compliance-office"
           ]
         },
@@ -5702,6 +5879,7 @@
             "legal-matter-final-gate"
           ],
           "consumerSkills": [
+            "contract-matter-workflow",
             "legal-compliance-office"
           ]
         }
@@ -5817,6 +5995,120 @@
           ],
           "consumerSkills": [
             "legal-compliance-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "legal-negotiation-strategy",
+      "description": "Übersetzt Mandantenstrategie, Legal-/Commercial-Risiken und Vertrags-Findings in priorisierte Verhandlungspositionen mit Opening, Target, Fallback, Red Line, Concession Value, Gegenparteiinteresse und Freigabegrenzen. Verwenden vor oder während wesentlichen Vertrags- und Legal-Verhandlungen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "requires": [
+        "legal-client-strategy",
+        "legal-compliance-risk-assessment"
+      ],
+      "dependents": [
+        "contract-matter-workflow",
+        "legal-redline-review-loop"
+      ],
+      "outputs": [
+        "negotiation-playbook.md",
+        "negotiation-positions.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "negotiation-playbook.md",
+          "ambiguous": false,
+          "producers": [
+            "legal-negotiation-strategy"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow",
+            "legal-redline-review-loop"
+          ]
+        },
+        {
+          "output": "negotiation-positions.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-negotiation-strategy"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow",
+            "legal-redline-review-loop"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "legal-redline-review-loop",
+      "description": "Vergleicht neue Vertrags- oder Legal-Redline-Versionen mit dem letzten bewerteten Stand, hält Issue-Lineage und Verhandlungszustand stabil und klassifiziert Änderungen als improved, accepted, neutral, deteriorated, new-risk, resolved oder regression. Verwenden in iterativen Vertragsverhandlungen nach initialem Review und Negotiation Strategy.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "requires": [
+        "contract-review",
+        "legal-negotiation-strategy"
+      ],
+      "dependents": [
+        "contract-matter-workflow"
+      ],
+      "outputs": [
+        "negotiation-state.json",
+        "redline-delta.json",
+        "redline-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "negotiation-state.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-redline-review-loop"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow"
+          ]
+        },
+        {
+          "output": "redline-delta.json",
+          "ambiguous": false,
+          "producers": [
+            "legal-redline-review-loop"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow"
+          ]
+        },
+        {
+          "output": "redline-review.md",
+          "ambiguous": false,
+          "producers": [
+            "legal-redline-review-loop"
+          ],
+          "consumerSkills": [
+            "contract-matter-workflow"
           ]
         }
       ],
@@ -10036,7 +10328,6 @@
       "dependents": [
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
-        "contract-legal-context",
         "current-law-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
@@ -10073,7 +10364,6 @@
           "consumerSkills": [
             "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
-            "contract-legal-context",
             "current-law-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
@@ -10106,7 +10396,6 @@
           "consumerSkills": [
             "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
-            "contract-legal-context",
             "current-law-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",

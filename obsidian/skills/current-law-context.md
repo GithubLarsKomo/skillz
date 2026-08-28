@@ -30,6 +30,10 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 
 ## Required by
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-legal-context|contract-legal-context]]
+- [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -48,6 +52,10 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 
 ### `legal-authority-evidence.json`
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-legal-context|contract-legal-context]]
+- [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -57,6 +65,10 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 
 ### `legal-context.md`
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-legal-context|contract-legal-context]]
+- [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -66,6 +78,10 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 
 ### `legal-jurisdiction-map.json`
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-legal-context|contract-legal-context]]
+- [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -75,6 +91,10 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 
 ### `legal-research-open-questions.json`
 
+- [[skills/agreement-type-analysis|agreement-type-analysis]]
+- [[skills/contract-drafting|contract-drafting]]
+- [[skills/contract-legal-context|contract-legal-context]]
+- [[skills/contract-review|contract-review]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-sports-law-specialist|german-sports-law-specialist]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
