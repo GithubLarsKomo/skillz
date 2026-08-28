@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "skill": "workflow-benchmark-authoring",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a cross-domain contract-level E2E benchmark for active user-facing orchestrators and protect their dependency and artifact boundaries.",
+      "requiredBehaviors": [
+        "derive every scenario sequence from the canonical entrypoint requires closure",
+        "require current passing evaluations for all active benchmark participants",
+        "distinguish contract-level architecture evidence from actual artifact execution"
+      ],
+      "forbiddenBehaviors": [
+        "claim render runtime or artifact execution from a structural contract check alone"
+      ],
+      "skillAnchors": [
+        "Dependency Closure statt Wunschsequenz",
+        "Kein grüner Benchmark auf roter oder fehlender Skill-Evaluation",
+        "Contract-Level ≠ echte Artifact-Ausführung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A shared delivery refactor moved document and image workers behind learning-delivery-workflow, but an older benchmark lists those workers directly in every YouTube top-level sequence.",
+      "requiredBehaviors": [
+        "preserve the shared delivery orchestration boundary",
+        "remove direct top-level worker bypasses from the benchmark sequence",
+        "bind the regression to the current delegated architecture rather than legacy topology"
+      ],
+      "forbiddenBehaviors": [
+        "restore direct renderer dependencies merely to keep a stale benchmark green"
+      ],
+      "skillAnchors": [
+        "direkte Renderer/Delivery-Worker",
+        "Shared Delivery",
+        "frühere Legacy-Fassade reaktivieren"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A proposed benchmark includes a deprecated compatibility facade and a skill with no passing evaluation, then labels the whole path production-proven.",
+      "requiredBehaviors": [
+        "fail the active sequence when it regresses to deprecated or compatibility-only capability",
+        "fail when required evaluation evidence is absent or red",
+        "reject production-proven wording when no executable artifact gate was run"
+      ],
+      "forbiddenBehaviors": [
+        "invent passing benchmark evidence to compensate for missing skill evaluation or runtime proof"
+      ],
+      "skillAnchors": [
+        "Failure Conditions",
+        "deprecated/compatibility-only",
+        "nicht behauptete Evidenz"
+      ]
+    }
+  ]
+}

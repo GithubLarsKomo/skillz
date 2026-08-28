@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -11,7 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX_SCHEMA = ROOT / "schemas" / "skill-capability-index-v1.schema.json"
 QUERY_SCHEMA = ROOT / "schemas" / "capability-query-output-v1.schema.json"
 RESOLVER_SCHEMA = ROOT / "schemas" / "capability-resolver-output-v1.schema.json"
+WORKFLOW_BENCHMARK_SCHEMA = ROOT / "schemas" / "workflow-benchmark-v1.schema.json"
 INDEX_FILE = ROOT / "docs" / "skill-capability-index.json"
+CROSS_DOMAIN_WORKFLOW_BENCHMARK = ROOT / "benchmarks" / "cross-domain-workflows-e2e-v1.json"
 QUERY_SCRIPT = ROOT / "scripts" / "query_capabilities.py"
 RESOLVER_SCRIPT = ROOT / "scripts" / "resolve_capabilities.py"
 
@@ -63,13 +66,26 @@ def validate(value: object, schema: dict, path: str = "$") -> list[str]:
             errors.append(f"{path}: expected type {allowed!r}, got {type(value).__name__}")
             return errors
 
-    if isinstance(value, str) and "minLength" in schema:
-        minimum = schema["minLength"]
-        if not isinstance(minimum, int) or isinstance(minimum, bool) or minimum < 0:
-            errors.append(f"{path}: schema minLength must be a non-negative integer")
-            return errors
-        if len(value) < minimum:
-            errors.append(f"{path}: string length {len(value)} is less than minLength {minimum}")
+    if isinstance(value, str):
+        if "minLength" in schema:
+            minimum = schema["minLength"]
+            if not isinstance(minimum, int) or isinstance(minimum, bool) or minimum < 0:
+                errors.append(f"{path}: schema minLength must be a non-negative integer")
+                return errors
+            if len(value) < minimum:
+                errors.append(f"{path}: string length {len(value)} is less than minLength {minimum}")
+        if "pattern" in schema:
+            pattern = schema["pattern"]
+            if not isinstance(pattern, str):
+                errors.append(f"{path}: schema pattern must be a string")
+                return errors
+            try:
+                matched = re.search(pattern, value)
+            except re.error as exc:
+                errors.append(f"{path}: invalid schema pattern {pattern!r}: {exc}")
+                return errors
+            if matched is None:
+                errors.append(f"{path}: string {value!r} does not match pattern {pattern!r}")
 
     if isinstance(value, list) and "minItems" in schema:
         minimum = schema["minItems"]
@@ -101,7 +117,7 @@ def validate(value: object, schema: dict, path: str = "$") -> list[str]:
                 errors.append(f"{child}: unknown property")
     elif isinstance(value, list) and "items" in schema:
         for idx, item in enumerate(value):
-            errors.extend(validate(item, schema["items"], f"{path}[{idx}]") )
+            errors.extend(validate(item, schema["items"], f"{path}[{idx}]"))
     return errors
 
 
@@ -122,16 +138,23 @@ def script_json(script: Path, label: str, *args: str) -> object:
 
 
 def run(root: Path) -> list[str]:
-    global ROOT, INDEX_SCHEMA, QUERY_SCHEMA, RESOLVER_SCHEMA, INDEX_FILE, QUERY_SCRIPT, RESOLVER_SCRIPT
+    global ROOT, INDEX_SCHEMA, QUERY_SCHEMA, RESOLVER_SCHEMA, WORKFLOW_BENCHMARK_SCHEMA
+    global INDEX_FILE, CROSS_DOMAIN_WORKFLOW_BENCHMARK, QUERY_SCRIPT, RESOLVER_SCRIPT
     ROOT = root
     INDEX_SCHEMA = root / "schemas" / "skill-capability-index-v1.schema.json"
     QUERY_SCHEMA = root / "schemas" / "capability-query-output-v1.schema.json"
     RESOLVER_SCHEMA = root / "schemas" / "capability-resolver-output-v1.schema.json"
+    WORKFLOW_BENCHMARK_SCHEMA = root / "schemas" / "workflow-benchmark-v1.schema.json"
     INDEX_FILE = root / "docs" / "skill-capability-index.json"
+    CROSS_DOMAIN_WORKFLOW_BENCHMARK = root / "benchmarks" / "cross-domain-workflows-e2e-v1.json"
     QUERY_SCRIPT = root / "scripts" / "query_capabilities.py"
     RESOLVER_SCRIPT = root / "scripts" / "resolve_capabilities.py"
 
     errors = validate_file(INDEX_FILE, INDEX_SCHEMA)
+    if WORKFLOW_BENCHMARK_SCHEMA.exists() and CROSS_DOMAIN_WORKFLOW_BENCHMARK.exists():
+        for error in validate_file(CROSS_DOMAIN_WORKFLOW_BENCHMARK, WORKFLOW_BENCHMARK_SCHEMA):
+            errors.append(f"workflow-benchmark:cross-domain: {error}")
+
     query_schema = load_json(QUERY_SCHEMA)
     resolver_schema = load_json(RESOLVER_SCHEMA)
     if not isinstance(query_schema, dict):

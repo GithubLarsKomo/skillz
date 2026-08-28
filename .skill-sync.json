@@ -1740,6 +1740,12 @@
         "references/authoritative-sources.md": "3811f431dfb2bf154c2c52b831b0e5cb8a5769c1357fc4670bfc605c7c9f43c2"
       }
     },
+    "workflow-benchmark-authoring": {
+      "files": {
+        "SKILL.md": "7e4e1daad4403daa28ce2fa0019a67da59b826eccced4f1adf2af8223af7e21f",
+        "agents/openai.yaml": "b2e638c4701c0458884ecb496571e235d7923b66db9fa2a8819611951396788f"
+      }
+    },
     "youtube-course-builder-workflow": {
       "files": {
         "SKILL.md": "b49ba821dc474bdbf46fc702c5951c0cea460f3c8c32834bebc4ea2f35dc0c9d",

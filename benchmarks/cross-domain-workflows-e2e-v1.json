@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "suite": "cross-domain-workflows-e2e",
+  "scenarios": [
+    {
+      "id": "software-performance-optimization",
+      "domain": "software-performance",
+      "entrypoint": "optimize-software-performance",
+      "intent": "Measure and improve a functioning but slow software system without trading away correctness, compatibility or maintainability.",
+      "sequence": [
+        "iterate-software-projects",
+        "performance-baseline",
+        "performance-hotspot-analysis",
+        "performance-optimization-plan",
+        "implement-from-issue",
+        "test-driven-vertical-slice",
+        "two-axis-code-review",
+        "performance-regression-verification"
+      ],
+      "mustPreserve": [
+        "reproducible baseline before optimization",
+        "functional and compatibility invariants",
+        "evidence-linked dominant hotspot",
+        "measured post-change verification and regression guard"
+      ],
+      "mustNotDo": [
+        "optimize from intuition without a representative baseline",
+        "prefer cosmetic micro-optimization over the dominant measured bottleneck"
+      ]
+    },
+    {
+      "id": "frontend-design-governed-redesign",
+      "domain": "frontend-design",
+      "entrypoint": "frontend-design-director",
+      "intent": "Redesign a responsive product surface while preserving product, brand and design authority and proving visual completion by render review.",
+      "sequence": [
+        "frontend-product-context",
+        "frontend-design-system-context",
+        "frontend-design-shaping",
+        "frontend-design-review",
+        "communication-memory-governance"
+      ],
+      "mustPreserve": [
+        "PRODUCT.md and DESIGN.md authority",
+        "corporate palette and brand provenance when applicable",
+        "desktop and mobile render evidence",
+        "review-fix-rerender loop"
+      ],
+      "mustNotDo": [
+        "invent brand colors or replace authoritative corporate tokens",
+        "declare design complete from green CI without visual review"
+      ]
+    },
+    {
+      "id": "contract-lifecycle-to-final-gate",
+      "domain": "contract-lifecycle",
+      "entrypoint": "contract-workflow",
+      "intent": "Take a contract matter from clarified requirements and legal context through review or drafting, negotiation and redlines to a controlled legal final gate.",
+      "sequence": [
+        "round-based-requirements-grilling",
+        "contract-legal-context",
+        "contract-matter-workflow",
+        "agreement-type-analysis",
+        "contract-review",
+        "contract-drafting",
+        "legal-negotiation-strategy",
+        "legal-redline-review-loop",
+        "legal-matter-final-gate"
+      ],
+      "mustPreserve": [
+        "applicable-law uncertainty until verified",
+        "review and drafting as distinct work products",
+        "issue lineage across redlines",
+        "authority and counsel gates before final readiness"
+      ],
+      "mustNotDo": [
+        "claim legal certainty from an unverified default jurisdiction",
+        "erase material review findings by immediately rewriting the clause"
+      ]
+    },
+    {
+      "id": "person-research-to-auditable-report",
+      "domain": "person-research",
+      "entrypoint": "person-research-report-workflow",
+      "intent": "Research a person's public professional and scientific record, disambiguate identity and deliver an evidence-bound polished report with optional document artifacts.",
+      "sequence": [
+        "person-research-dossier",
+        "person-profile-report",
+        "precision-writing-revision",
+        "person-profile-document-delivery"
+      ],
+      "mustPreserve": [
+        "identity disambiguation before broad publication or patent attribution",
+        "source-bound biography and career claims",
+        "fidelity through language revision",
+        "document rendering does not re-author research conclusions"
+      ],
+      "mustNotDo": [
+        "perform invasive private profiling outside the workflow scope",
+        "attribute publications or patents from name similarity alone"
+      ]
+    },
+    {
+      "id": "template-presentation-production",
+      "domain": "presentation",
+      "entrypoint": "template-presentation-workflow",
+      "intent": "Create or revise an editable presentation from an authoritative template or reference deck with presentation-specific language and real render and PDF quality gates.",
+      "sequence": [
+        "presentation-template-profiler",
+        "presentation-language-rewriter",
+        "presentation-layout-qa",
+        "presentation-render-verifier"
+      ],
+      "mustPreserve": [
+        "template or reference authority",
+        "semantic fidelity during language rewriting",
+        "structural layout checks separated from visual render checks",
+        "editable PPTX and derived PDF parity"
+      ],
+      "mustNotDo": [
+        "invent a corporate design when no authoritative brand source exists",
+        "treat collision-free layout as sufficient visual quality"
+      ]
+    },
+    {
+      "id": "youtube-single-video-learning",
+      "domain": "youtube-single",
+      "entrypoint": "youtube-learning-workflow",
+      "intent": "Turn one accessible YouTube video into an evidence-bound learning model and requested multi-format outputs without inventing missing process parameters.",
+      "sequence": [
+        "youtube-video-ingestion",
+        "multimodal-learning-analysis",
+        "learning-summary-synthesis",
+        "procedure-sop-extractor",
+        "learning-delivery-workflow"
+      ],
+      "mustPreserve": [
+        "source identity and access constraints",
+        "speech and visual evidence distinction",
+        "observed derived and recommended procedure classes",
+        "one canonical learning-content fingerprint across delivery formats"
+      ],
+      "mustNotDo": [
+        "bypass access controls or reproduce long transcripts",
+        "invent critical SOP parameters missing from the evidence"
+      ]
+    },
+    {
+      "id": "youtube-playlist-arbitrated-learning",
+      "domain": "youtube-playlist",
+      "entrypoint": "youtube-playlist-learning-workflow",
+      "intent": "Synthesize multiple YouTube videos into one learning model only after individual evidence analysis, source arbitration, conflict handling and provenance-preserving deduplication.",
+      "sequence": [
+        "youtube-learning-workflow",
+        "learning-source-arbitration",
+        "multi-source-learning-synthesis",
+        "learning-delivery-workflow"
+      ],
+      "mustPreserve": [
+        "individual source analysis before synthesis",
+        "source independence and authority rather than majority vote",
+        "explicit unresolved material conflicts",
+        "single multi-source model for all delivered formats"
+      ],
+      "mustNotDo": [
+        "convert repeated dependent claims into independent confirmation",
+        "smooth conflicting procedures into an unsupported hybrid SOP"
+      ]
+    },
+    {
+      "id": "youtube-course-builder",
+      "domain": "youtube-course",
+      "entrypoint": "youtube-course-builder-workflow",
+      "intent": "Build a structured learning path from multi-video evidence using prerequisite logic, observable objectives and formative activities before shared multi-format delivery.",
+      "sequence": [
+        "youtube-playlist-learning-workflow",
+        "course-concept-graph",
+        "learning-path-planner",
+        "learning-activity-generator",
+        "learning-delivery-workflow"
+      ],
+      "mustPreserve": [
+        "acyclic prerequisite graph based on learning dependency rather than playlist order",
+        "observable objectives and exit criteria",
+        "evidence-linked formative activities",
+        "same course fingerprint across requested formats"
+      ],
+      "mustNotDo": [
+        "claim psychometric validation or certification without evidence",
+        "copy playlist order as the course prerequisite structure"
+      ]
+    },
+    {
+      "id": "sport-longitudinal-adaptation-loop",
+      "domain": "sport-athlete-management",
+      "entrypoint": "sport-athlete-management",
+      "intent": "Run longitudinal athlete management from goals and periodization through daily monitoring and specialist prescriptions to evidence-based plan adaptation.",
+      "sequence": [
+        "sport-athlete-profile",
+        "sport-goal-performance-model",
+        "sport-season-periodization",
+        "sport-mesocycle-planning",
+        "sport-microcycle-planning",
+        "sport-daily-athlete-monitoring",
+        "sport-strength-power-programming",
+        "sport-endurance-programming",
+        "sport-recovery-sleep",
+        "sport-nutrition-fueling",
+        "sport-adaptation-analysis",
+        "sport-training-adaptation-engine"
+      ],
+      "mustPreserve": [
+        "goal and periodization hierarchy",
+        "daily evidence separated from long-term adaptation inference",
+        "specialist ownership of strength endurance recovery and fueling prescriptions",
+        "auditable plan revision rather than silent schedule drift"
+      ],
+      "mustNotDo": [
+        "route a normal one-shot plan through the deprecated sport-training-programming facade",
+        "override health or safety constraints merely to preserve the calendar"
+      ]
+    },
+    {
+      "id": "thought-capture-to-concept",
+      "domain": "thought-to-concept",
+      "entrypoint": "thought-to-concept-flow",
+      "intent": "Turn a growing unstructured thought journal into a goal-driven semantic graph and structured concept without forcing an early outline onto incomplete ideas.",
+      "sequence": [
+        "round-based-requirements-grilling",
+        "thought-capture-journal",
+        "thought-graph-extractor",
+        "knowledge-map-generator"
+      ],
+      "mustPreserve": [
+        "confirmed goal frame before final concept structure",
+        "raw thought capture before premature categorization",
+        "semantic links between goals ideas risks questions and actions",
+        "traceability from concept structure back to captured thoughts"
+      ],
+      "mustNotDo": [
+        "force chronological notes directly into a final outline",
+        "ask again for requirements already answered in earlier grilling rounds"
+      ]
+    },
+    {
+      "id": "purchase-decision-with-current-evidence",
+      "domain": "purchase-decision",
+      "entrypoint": "purchase-decision-planner",
+      "intent": "Make a physical product purchase decision from explicit requirements, product evidence, current price and availability, and a transparent comparison ranking.",
+      "sequence": [
+        "product-evidence-research",
+        "price-availability-snapshot",
+        "product-comparison-ranking"
+      ],
+      "mustPreserve": [
+        "decision requirements and hard constraints",
+        "separation of product evidence from current commercial availability",
+        "transparent ranking criteria and trade-offs",
+        "fresh price and availability snapshot when relevant"
+      ],
+      "mustNotDo": [
+        "rank products from price alone when decision criteria are broader",
+        "present stale availability as a current purchasing fact"
+      ]
+    }
+  ]
+}

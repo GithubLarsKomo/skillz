@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 280,
+  "skillCount": 281,
   "entrypointCount": 231,
   "entrypointCategories": [
     "analysis",
@@ -16,11 +16,11 @@
   "discoverabilityCounts": {
     "public": 229,
     "advanced": 2,
-    "internal": 47,
+    "internal": 48,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 280,
-  "evaluatedSkillCount": 280,
+  "evaluationSuiteCount": 281,
+  "evaluatedSkillCount": 281,
   "evaluatedEntrypointCount": 231,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
@@ -266,7 +266,9 @@
       "requires": [
         "skill-portfolio-audit"
       ],
-      "dependents": [],
+      "dependents": [
+        "workflow-benchmark-authoring"
+      ],
       "outputs": [
         "artifact-contract-normalization.json"
       ],
@@ -277,7 +279,9 @@
           "producers": [
             "artifact-contract-normalizer"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "workflow-benchmark-authoring"
+          ]
         }
       ],
       "portableFiles": [
@@ -15118,7 +15122,9 @@
         "deprecatedSince": null
       },
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "workflow-benchmark-authoring"
+      ],
       "outputs": [
         "skill-evaluation-suite-authoring-report.json"
       ],
@@ -15129,7 +15135,9 @@
           "producers": [
             "skill-evaluation-suite-authoring"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "workflow-benchmark-authoring"
+          ]
         }
       ],
       "portableFiles": [
@@ -17874,6 +17882,65 @@
       "portableFiles": [
         "agents/openai.yaml",
         "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "workflow-benchmark-authoring",
+      "description": "Erstellt ausführbare, domänenübergreifende Workflow-Benchmarks aus kanonischen Skill-Orchestratoren, Dependency Closure, Artifact Ownership, Lifecycle/Discoverability und Evaluationsevidenz. Verwenden als internen Governance-Worker, wenn neue End-to-End-Architekturpfade als versionierte Regression Contracts abgesichert werden sollen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "artifact-contract-normalizer",
+        "skill-evaluation-suite-authoring"
+      ],
+      "dependents": [],
+      "outputs": [
+        "workflow-benchmark-authoring-report.md",
+        "workflow-benchmark-regression.py",
+        "workflow-benchmark-spec.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "workflow-benchmark-authoring-report.md",
+          "ambiguous": false,
+          "producers": [
+            "workflow-benchmark-authoring"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "workflow-benchmark-regression.py",
+          "ambiguous": false,
+          "producers": [
+            "workflow-benchmark-authoring"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "workflow-benchmark-spec.json",
+          "ambiguous": false,
+          "producers": [
+            "workflow-benchmark-authoring"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
       ],
       "evaluation": {
         "mode": "compatibility",

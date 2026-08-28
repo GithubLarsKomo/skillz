@@ -30,7 +30,7 @@ Entwirft und prüft deterministische Skill-Evaluation-Suites aus dem normativen 
 
 ## Required by
 
-- —
+- [[skills/workflow-benchmark-authoring|workflow-benchmark-authoring]]
 
 ## Outputs
 
@@ -40,7 +40,7 @@ Entwirft und prüft deterministische Skill-Evaluation-Suites aus dem normativen 
 
 ### `skill-evaluation-suite-authoring-report.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/workflow-benchmark-authoring|workflow-benchmark-authoring]]
 
 ## Evaluation
 

@@ -18,10 +18,15 @@ class MetadataSchemaTests(unittest.TestCase):
     def setUpClass(cls):
         cls.index_schema = json.loads((ROOT / "schemas" / "skill-capability-index-v1.schema.json").read_text())
         cls.query_schema = json.loads((ROOT / "schemas" / "capability-query-output-v1.schema.json").read_text())
+        cls.workflow_benchmark_schema = json.loads((ROOT / "schemas" / "workflow-benchmark-v1.schema.json").read_text())
         cls.index = json.loads((ROOT / "docs" / "skill-capability-index.json").read_text())
+        cls.workflow_benchmark = json.loads((ROOT / "benchmarks" / "cross-domain-workflows-e2e-v1.json").read_text())
 
     def test_current_index_validates(self):
         self.assertEqual([], module.validate(self.index, self.index_schema))
+
+    def test_current_cross_domain_workflow_benchmark_validates(self):
+        self.assertEqual([], module.validate(self.workflow_benchmark, self.workflow_benchmark_schema))
 
     def test_missing_required_field_fails_with_path(self):
         data = copy.deepcopy(self.index)
@@ -78,6 +83,12 @@ class MetadataSchemaTests(unittest.TestCase):
         errors = module.validate("", {"type": "string", "minLength": 1})
         self.assertTrue(any("minLength 1" in item for item in errors))
         self.assertEqual([], module.validate("x", {"type": "string", "minLength": 1}))
+
+    def test_pattern_is_enforced(self):
+        schema = {"type": "string", "pattern": "^[a-z]+(?:-[a-z]+)*$"}
+        self.assertEqual([], module.validate("workflow-benchmark", schema))
+        errors = module.validate("Workflow Benchmark", schema)
+        self.assertTrue(any("does not match pattern" in item for item in errors))
 
     def test_min_items_is_enforced(self):
         errors = module.validate([], {"type": "array", "minItems": 1, "items": {"type": "string"}})

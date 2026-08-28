@@ -1,0 +1,5 @@
+interface:
+  display_name: "Workflow Benchmark Authoring"
+  short_description: "Erstellt ausführbare, domänenübergreifende Workflow-Benchmarks aus kanonischen Skill-Orchestratoren, Dependency Closu..."
+policy:
+  allow_implicit_invocation: false

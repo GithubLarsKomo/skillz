@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **280**
+- Skills: **281**
 - User-facing entrypoints: **231**
-- Discoverability — public: **229**, advanced: **2**, internal: **47**, compatibility: **2**
-- Evaluation suites: **280**
+- Discoverability — public: **229**, advanced: **2**, internal: **48**, compatibility: **2**
+- Evaluation suites: **281**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **280/280**
+- Skills with evaluation suite: **281/281**
 - User-facing entrypoints with evaluation suite: **231/231**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **269**
+- Outputs without inferred hard-requires consumers: **270**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -43,7 +43,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
 - `antitrust-risk-gates.json` — producer: `competition-antitrust-law-specialist`
-- `artifact-contract-normalization.json` — producer: `artifact-contract-normalizer`
 - `association-governance-map.json` — producer: `german-association-law-specialist`
 - `association-law-open-points.json` — producer: `german-association-law-specialist`
 - `athlete-management-state.json` — producer: `sport-athlete-management`
@@ -276,7 +275,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`
-- `skill-evaluation-suite-authoring-report.json` — producer: `skill-evaluation-suite-authoring`
 - `skill-lifecycle-migration-plan.json` — producer: `skill-lifecycle-migration`
 - `skill-lifecycle-migration-plan.md` — producer: `skill-lifecycle-migration`
 - `source-context.md` — producer: `source-to-context`
@@ -304,6 +302,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `usability-evidence-gaps.json` — producer: `iec62366-usability-engineering`
 - `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
 - `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
+- `workflow-benchmark-authoring-report.md` — producer: `workflow-benchmark-authoring`
+- `workflow-benchmark-regression.py` — producer: `workflow-benchmark-authoring`
+- `workflow-benchmark-spec.json` — producer: `workflow-benchmark-authoring`
 - `works-council-route-map.json` — producer: `german-employment-labor-law-specialist`
 - `youtube-course-builder-run.json` — producer: `youtube-course-builder-workflow`
 
