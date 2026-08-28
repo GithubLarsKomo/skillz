@@ -9,6 +9,7 @@ As of 2026-08-28, **no internally approved or otherwise confirmed EUROIMMUN DOCX
 Therefore:
 
 - preferred current Level-2 binary reference: `NONE_REGISTERED`;
+- current Level-2 certification record: `NONE`;
 - DOCX Level 2: `NOT_RUN` unless an eligible runtime binary is explicitly supplied and verified;
 - PDF Level 2: `NOT_RUN` unless its source DOCX has Level-2 PASS;
 - bundled Public-Reference template remains the Level-1 fallback only;
