@@ -1213,6 +1213,13 @@
         "agents/openai.yaml": "c744dd4a46f7f5979bd0af2d7716655547c12ab529230ddc192d5f16dc67a5d1"
       }
     },
+    "public-procurement-healthcare-law-specialist": {
+      "files": {
+        "SKILL.md": "2196ecf642725bf92f9133175165f2a675edaf36c5ee241a65d5443687f6e96e",
+        "agents/openai.yaml": "60021b95bff953e033fedd5d212557febe266d15a7dd946194a16796f7c1587c",
+        "references/authoritative-sources.md": "52913760b22dcb9011be6a6f4d73014641dce613d3694940ee3bf3168f46c8c4"
+      }
+    },
     "purchase-decision-planner": {
       "files": {
         "SKILL.md": "25ce3b1e245beadb0461afe678aaef07cd5cc8b19e6d870b55247d3254a9b832",

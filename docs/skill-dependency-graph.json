@@ -2462,6 +2462,20 @@
       ]
     },
     {
+      "name": "public-procurement-healthcare-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "procurement-healthcare-law-assessment.json",
+        "procurement-healthcare-work-orders.json",
+        "tender-legal-gate-map.json"
+      ]
+    },
+    {
       "name": "purchase-decision-planner",
       "requires": [
         "price-availability-snapshot",
@@ -5000,6 +5014,18 @@
       "to": "iterate-software-projects"
     },
     {
+      "from": "public-procurement-healthcare-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "public-procurement-healthcare-law-specialist",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "public-procurement-healthcare-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
       "from": "purchase-decision-planner",
       "to": "price-availability-snapshot"
     },
@@ -6378,7 +6404,8 @@
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
-        "legal-negotiation-strategy"
+        "legal-negotiation-strategy",
+        "public-procurement-healthcare-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -7082,6 +7109,7 @@
         "legal-matter-final-gate",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -8068,6 +8096,7 @@
         "legal-matter-final-gate",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -9368,6 +9397,7 @@
         "privacy-data-law-specialist",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -9466,6 +9496,7 @@
         "privacy-data-law-specialist",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -9588,6 +9619,7 @@
         "privacy-data-law-specialist",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -9686,6 +9718,7 @@
         "privacy-data-law-specialist",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -9709,7 +9742,8 @@
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
-        "legal-negotiation-strategy"
+        "legal-negotiation-strategy",
+        "public-procurement-healthcare-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9729,7 +9763,8 @@
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
-        "legal-negotiation-strategy"
+        "legal-negotiation-strategy",
+        "public-procurement-healthcare-law-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -10941,6 +10976,7 @@
         "legal-matter-final-gate",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -10971,6 +11007,24 @@
       "output": "process-validation-strategy.json",
       "producers": [
         "process-validation-iq-oq-pq"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "procurement-healthcare-law-assessment.json",
+      "producers": [
+        "public-procurement-healthcare-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "procurement-healthcare-work-orders.json",
+      "producers": [
+        "public-procurement-healthcare-law-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -12659,6 +12713,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "tender-legal-gate-map.json",
+      "producers": [
+        "public-procurement-healthcare-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "thought-graph-summary.md",
       "producers": [
         "thought-graph-extractor"
@@ -13205,6 +13268,8 @@
     "process-validation-assessment.json",
     "process-validation-protocol.md",
     "process-validation-strategy.json",
+    "procurement-healthcare-law-assessment.json",
+    "procurement-healthcare-work-orders.json",
     "product-liability-assessment.json",
     "product-safety-legal-gates.json",
     "progress summary",
@@ -13255,6 +13320,7 @@
     "synchronization manifest",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
+    "tender-legal-gate-map.json",
     "trade-control-assessment.json",
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
@@ -13457,6 +13523,8 @@
     "process-validation-assessment.json",
     "process-validation-protocol.md",
     "process-validation-strategy.json",
+    "procurement-healthcare-law-assessment.json",
+    "procurement-healthcare-work-orders.json",
     "product-liability-assessment.json",
     "product-safety-legal-gates.json",
     "progress summary",
@@ -13507,6 +13575,7 @@
     "synchronization manifest",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
+    "tender-legal-gate-map.json",
     "trade-control-assessment.json",
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 248,
-  "entrypointCount": 217,
+  "skillCount": 249,
+  "entrypointCount": 218,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 242,
+  "evaluationSuiteCount": 243,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1639,6 +1639,7 @@
         "privacy-data-law-specialist",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -1687,6 +1688,7 @@
             "privacy-data-law-specialist",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -1729,6 +1731,7 @@
             "privacy-data-law-specialist",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -1771,6 +1774,7 @@
             "privacy-data-law-specialist",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -1813,6 +1817,7 @@
             "privacy-data-law-specialist",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -7339,7 +7344,8 @@
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
         "legal-matter-final-gate",
-        "legal-negotiation-strategy"
+        "legal-negotiation-strategy",
+        "public-procurement-healthcare-law-specialist"
       ],
       "outputs": [
         "commercial-exposure-analysis.json",
@@ -7363,7 +7369,8 @@
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
             "legal-matter-final-gate",
-            "legal-negotiation-strategy"
+            "legal-negotiation-strategy",
+            "public-procurement-healthcare-law-specialist"
           ]
         },
         {
@@ -7382,7 +7389,8 @@
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
             "legal-matter-final-gate",
-            "legal-negotiation-strategy"
+            "legal-negotiation-strategy",
+            "public-procurement-healthcare-law-specialist"
           ]
         },
         {
@@ -7401,7 +7409,8 @@
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
             "legal-matter-final-gate",
-            "legal-negotiation-strategy"
+            "legal-negotiation-strategy",
+            "public-procurement-healthcare-law-specialist"
           ]
         }
       ],
@@ -10903,6 +10912,7 @@
         "legal-matter-final-gate",
         "private-legal-matter-router",
         "product-liability-safety-law-specialist",
+        "public-procurement-healthcare-law-specialist",
         "real-estate-law-specialist",
         "tax-legal-interface-specialist",
         "trade-sanctions-export-control-specialist",
@@ -10939,6 +10949,7 @@
             "legal-matter-final-gate",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -10970,6 +10981,7 @@
             "legal-matter-final-gate",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -11001,6 +11013,7 @@
             "legal-matter-final-gate",
             "private-legal-matter-router",
             "product-liability-safety-law-specialist",
+            "public-procurement-healthcare-law-specialist",
             "real-estate-law-specialist",
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
@@ -11331,6 +11344,61 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "public-procurement-healthcare-law-specialist",
+      "description": "Analysiert deutsche/EU-Vergabe- und Healthcare-Legal-Matters für IVD/MedTech einschließlich öffentlicher Ausschreibungen, Teilnahme-/Ausschlussgründe, Bieter-/Unterauftragnehmerstrukturen, Nachprüfung, Krankenhaus-/Kassen-/Healthcare-Interaktionen und Schnittstellen zu Compliance, Antitrust, Contracts und Regulatory.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "procurement-healthcare-law-assessment.json",
+        "procurement-healthcare-work-orders.json",
+        "tender-legal-gate-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "procurement-healthcare-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "public-procurement-healthcare-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "procurement-healthcare-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "public-procurement-healthcare-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tender-legal-gate-map.json",
+          "ambiguous": false,
+          "producers": [
+            "public-procurement-healthcare-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",

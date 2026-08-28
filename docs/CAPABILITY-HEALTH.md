@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **248**
-- User-facing entrypoints: **217**
-- Evaluation suites: **242**
+- Skills: **249**
+- User-facing entrypoints: **218**
+- Evaluation suites: **243**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **250**
+- Outputs without inferred hard-requires consumers: **253**
 
 ## Evaluation gaps
 
@@ -231,6 +231,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`
 - `process-validation-protocol.md` — producer: `process-validation-iq-oq-pq`
 - `process-validation-strategy.json` — producer: `process-validation-iq-oq-pq`
+- `procurement-healthcare-law-assessment.json` — producer: `public-procurement-healthcare-law-specialist`
+- `procurement-healthcare-work-orders.json` — producer: `public-procurement-healthcare-law-specialist`
 - `product-liability-assessment.json` — producer: `product-liability-safety-law-specialist`
 - `product-safety-legal-gates.json` — producer: `product-liability-safety-law-specialist`
 - `progress summary` — producer: `synapse-orchestrator`
@@ -281,6 +283,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `synchronization manifest` — producer: `central-skill-repository-curation`
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
+- `tender-legal-gate-map.json` — producer: `public-procurement-healthcare-law-specialist`
 - `trade-control-assessment.json` — producer: `trade-sanctions-export-control-specialist`
 - `transaction-gate-map.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-legal-assessment.json` — producer: `corporate-transactions-ma-specialist`

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **23**
+Skills: **24**
 
 - [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
 - [[skills/compliance-obligation-register|compliance-obligation-register]]
@@ -31,6 +31,7 @@ Skills: **23**
 - [[skills/ip-licensing-law-specialist|ip-licensing-law-specialist]]
 - [[skills/privacy-data-law-specialist|privacy-data-law-specialist]]
 - [[skills/product-liability-safety-law-specialist|product-liability-safety-law-specialist]]
+- [[skills/public-procurement-healthcare-law-specialist|public-procurement-healthcare-law-specialist]]
 - [[skills/real-estate-law-specialist|real-estate-law-specialist]]
 - [[skills/tax-legal-interface-specialist|tax-legal-interface-specialist]]
 - [[skills/trade-sanctions-export-control-specialist|trade-sanctions-export-control-specialist]]
