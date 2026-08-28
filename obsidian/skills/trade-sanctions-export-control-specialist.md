@@ -4,7 +4,7 @@ generated: true
 name: "trade-sanctions-export-control-specialist"
 category: "legal-specialist"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -57,7 +57,7 @@ Analysiert Exportkontrolle, Sanktionen und Außenwirtschaftsrecht für Deutschla
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 
