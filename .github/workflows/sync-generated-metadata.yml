@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/skillz-architecture-p3-discoverability]
     paths:
       - "skills/**"
       - "benchmarks/**"
@@ -13,6 +13,9 @@ on:
       - "scripts/generate_capability_health.py"
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
+      - "tests/test_architecture_consolidation_p2.py"
+      - "tests/test_architecture_consolidation_p3.py"
+      - "tests/test_architecture_consolidation_p3_discoverability.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -48,6 +51,12 @@ jobs:
         run: python scripts/materialize_openai_agent_metadata.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
+      - name: Test P2 architecture regression
+        run: python -m unittest tests.test_architecture_consolidation_p2
+      - name: Test P3 architecture regression
+        run: python -m unittest tests.test_architecture_consolidation_p3
+      - name: Test P3 discoverability regression
+        run: python -m unittest tests.test_architecture_consolidation_p3_discoverability
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
@@ -76,7 +85,7 @@ jobs:
             plugins/skillz \
             skills/*/SKILL.md \
             skills/*/agents/openai.yaml
-          git commit -m "Regenerate skill repository artifacts"
+          git commit -m "Materialize P3 discoverability classification"
           git push origin HEAD:"$GITHUB_REF_NAME"
       - name: Validate repository contracts
         run: python scripts/validate_skills.py
