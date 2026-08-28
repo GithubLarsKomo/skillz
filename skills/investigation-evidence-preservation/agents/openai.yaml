@@ -1,0 +1,5 @@
+interface:
+  display_name: "Investigation Evidence Preservation"
+  short_description: "Plant rechtmäßige Beweissicherung, Chain of Custody und Retention."
+policy:
+  allow_implicit_invocation: true

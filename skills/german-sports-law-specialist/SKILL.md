@@ -4,7 +4,7 @@ description: Analysiert deutsches Sportrecht an der Schnittstelle von staatliche
 userFacing: true
 implicitInvocation: true
 category: legal-specialist
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -49,6 +49,16 @@ Vor Anwendung des DOSB Safe Sport Code explizit prüfen:
 - Welche Fassung galt zum relevanten Zeitpunkt?
 
 Fehlt diese Bindung, darf der Muster-Code nicht als automatisch anwendbare Sanktionsgrundlage behandelt werden.
+
+## Safe Sport Investigation Gate
+
+Bei Vorwürfen oder Meldungen kann `internal-investigation-workflow` als Fact-Finding-Verfahren eingesetzt werden. Dabei:
+
+- akute Schutzbedarfe insbesondere bei Minderjährigen zuerst triagieren,
+- tatsächlich bindende Vereins-/Verbandsverfahrensregeln separat feststellen,
+- HinSchG nur anwenden, wenn persönlicher/sachlicher Anwendungsbereich tatsächlich erfüllt ist,
+- staatliche Straf-/Zivil-/Arbeits-/Datenschutzfragen und private Sport-Sanktionen getrennt halten,
+- Untersuchung, Disziplinarentscheidung und Rechtsbehelf nicht in einer unkontrollierten Rolle vermischen.
 
 ## Rechtsweg und Eskalation
 

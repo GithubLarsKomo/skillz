@@ -4,7 +4,7 @@ description: Orchestriert unternehmerische und private Legal-/Compliance-Matters
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -43,11 +43,19 @@ Dünner General-Counsel-/Compliance-Orchestrator. Er hält Matter-Ziel, Evidenz,
 9. Vor Abschluss `legal-matter-final-gate` ausführen.
 10. Status, offene Punkte und genau nächste sichere Aktion dokumentieren.
 
+## Specialist Workflow Routing
+
+- Verträge → kompatibler `contract-workflow` / kanonischer Contract Matter Stack.
+- Compliance-System/Control Framework → `compliance-management-workflow` mit Obligation→Control→Evidence Lineage.
+- Whistleblowing oder interne Untersuchung → `whistleblowing-law-specialist` und `internal-investigation-workflow`.
+- Sport-/Vereinsmatters → `german-association-law-specialist`, `german-sports-law-specialist`, bei Rudern zusätzlich `german-rowing-sport-law-specialist`; Investigations bleiben ein separater Verfahrenslayer.
+
 ## Orchestrator-Regeln
 
 - Fach-Specialists besitzen ihre Domänenlogik; der Orchestrator dupliziert keine Subsumtion.
-- Existing Assets first: Regulatory-, QMS-, Patent-, Biopatent-, FTO-, Research- und Grilling-Skills werden bevorzugt wiederverwendet.
-- Sport-/Vereinsmatters können `german-association-law-specialist`, `german-sports-law-specialist` und für Rudern `german-rowing-sport-law-specialist` erhalten.
+- Existing Assets first: Regulatory-, QMS-, Complaint-, CAPA-, Audit-, Patent-, Biopatent-, FTO-, Research- und Grilling-Skills werden bevorzugt wiederverwendet.
+- Compliance bedeutet nicht nur Policy-Vorhandensein: materielle Pflichten, Controls, Evidenz und Assurance bleiben getrennte Layer.
+- Investigation Findings ersetzen weder regulatorische Reportability noch arbeits-/straf-/datenschutzrechtliche Entscheidungsgates.
 - Ein L3-Gate beendet nicht automatisch alle vorbereitenden Arbeiten.
 - Die nächste Aktion muss aus dem aktuellen Matter State ausführbar und autorisiert sein.
 

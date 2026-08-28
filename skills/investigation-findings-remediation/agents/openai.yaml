@@ -1,0 +1,5 @@
+interface:
+  display_name: "Investigation Findings & Remediation"
+  short_description: "Macht evidenzbasierte Findings und routet Remediation, Reporting und Retest."
+policy:
+  allow_implicit_invocation: true

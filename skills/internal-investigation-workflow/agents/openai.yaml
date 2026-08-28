@@ -1,0 +1,5 @@
+interface:
+  display_name: "Internal Investigation Workflow"
+  short_description: "Orchestriert rechtlich geroutete, evidenzbasierte interne Untersuchungen."
+policy:
+  allow_implicit_invocation: true

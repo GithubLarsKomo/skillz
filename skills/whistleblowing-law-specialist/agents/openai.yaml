@@ -1,0 +1,5 @@
+interface:
+  display_name: "Whistleblowing Law Specialist"
+  short_description: "Prüft HinSchG/EU-Meldestellenrecht, Datenschutz und Repressalienschutz."
+policy:
+  allow_implicit_invocation: true
