@@ -6,7 +6,7 @@
   "purpose": "Higher-fidelity EUROIMMUN presentation certification against the real controlled PowerPoint binary master",
   "designContract": "docs/corporate/euroimmun/DESIGN.md",
   "policy": "docs/corporate/euroimmun/GOLDEN_REFERENCE.md",
-  "status": "NOT_RUN",
+  "status": "LEVEL_2_PASS",
   "activation": {
     "requiredWhen": [
       "a controlled or confirmed EUROIMMUN PowerPoint binary master is available in the execution context",
@@ -28,6 +28,76 @@
     "themeInventoryRequired": true,
     "logoFooterFingerprintRequired": true,
     "fontInventoryRequired": true
+  },
+  "certifiedRun": {
+    "runDate": "2026-08-28",
+    "sourceBinary": {
+      "filename": "260828 NDD Review.pptx",
+      "sha256": "349e5599ee0c1876a474057ec659244e0f37dd39d65636d2042b7eee46bab02e",
+      "templateStatus": "confirmed-reference-binary",
+      "slides": 12,
+      "slideSizeInches": [13.3333333333, 7.5],
+      "masters": 3,
+      "visibleLayouts": 51,
+      "themes": 4,
+      "primaryTheme": {
+        "majorFont": "Hanken Grotesk Light",
+        "minorFont": "Hanken Grotesk",
+        "colors": {
+          "dk1": "#000000",
+          "lt1": "#FFFFFF",
+          "dk2": "#7F7F7F",
+          "lt2": "#FFEB0F",
+          "accent1": "#208528",
+          "accent2": "#7F03B0",
+          "accent3": "#148087",
+          "accent4": "#C94D00",
+          "accent5": "#9E306E",
+          "accent6": "#000000"
+        }
+      }
+    },
+    "derivedArtifact": {
+      "repositoryStored": false,
+      "filename": "euroimmun_neuro_24h_level2_template_derived.pptx",
+      "sha256": "5308f30c30f99288f6e192a9e49dd13125d6780649cfd6307a8ef43041d1fa7d",
+      "derivation": "template-derived",
+      "slides": 7,
+      "layoutsUsed": [
+        "Title Slide 05",
+        "Section Header 03",
+        "Title + 2 Column Content",
+        "Titel und Inhalt",
+        "Charts: Title and Content 02",
+        "Content 02 Euroimmun",
+        "Title Only"
+      ],
+      "outOfBoundsObjects": 0
+    },
+    "renderEvidence": {
+      "slideCoverage": "7/7",
+      "presentationPdfCoverage": "7/7",
+      "pdfParity": "PASS",
+      "masterOwnedPixelParity": {
+        "coverTopLogo": "100% exact",
+        "coverBottomBrand": "100% exact",
+        "coverRightArtwork": "100% exact",
+        "contentFooterLeft": "100% exact",
+        "contentFooterCenter": "100% exact",
+        "contentFooterRule": "100% exact"
+      }
+    },
+    "findings": {
+      "critical": 0,
+      "major": 0,
+      "warningIds": [
+        "FONT-RUNTIME-001",
+        "TEMPLATE-STATUS-001",
+        "THEME-PALETTE-001"
+      ]
+    },
+    "corporateDesignGate": "PASS",
+    "goldenReferenceLevel": "LEVEL_2_PASS"
   },
   "requiredArchetypes": [
     "corporate cover",
