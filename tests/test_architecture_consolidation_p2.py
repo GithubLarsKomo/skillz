@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from evaluate_skills import run as evaluate_all  # noqa: E402
 from generate_capability_health import build_health  # noqa: E402
 from generate_capability_index import build_index  # noqa: E402
 from generate_repository_metadata import parse_frontmatter  # noqa: E402
@@ -75,6 +76,14 @@ class ArchitectureConsolidationP2Tests(unittest.TestCase):
         self.assertIn("skill-portfolio-audit", normalizer_fm.get("requires", []))
 
     def test_p2_keeps_health_complete_and_outputs_unambiguous(self) -> None:
+        evaluation_summary, evaluation_errors = evaluate_all(ROOT)
+        self.assertEqual(
+            evaluation_errors,
+            [],
+            "P2 evaluation failures:\n" + "\n".join(evaluation_errors),
+        )
+        self.assertTrue(evaluation_summary["passed"])
+
         health = build_health(ROOT)
         self.assertEqual(health["skillCount"], 280)
         self.assertEqual(health["entrypointCount"], 231)
