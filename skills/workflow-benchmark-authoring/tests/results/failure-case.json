@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "skill": "workflow-benchmark-authoring",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "fail the active sequence when it regresses to deprecated or compatibility-only capability",
+      "passed": true,
+      "evidence": "SKILL.md Failure Conditions explicitly fail active paths that fall back to deprecated/compatibility-only facades."
+    },
+    {
+      "behavior": "fail when required evaluation evidence is absent or red",
+      "passed": true,
+      "evidence": "SKILL.md requires current PASS evaluation evidence and rejects missing or red suites."
+    },
+    {
+      "behavior": "reject production-proven wording when no executable artifact gate was run",
+      "passed": true,
+      "evidence": "SKILL.md requires the authoring report to separate executable gates from nicht behauptete Evidenz and forbids runtime overclaiming."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent passing benchmark evidence to compensate for missing skill evaluation or runtime proof",
+      "observed": false,
+      "evidence": "The Failure Conditions reject invented evidence and unsupported execution claims."
+    }
+  ],
+  "overall": "pass"
+}
