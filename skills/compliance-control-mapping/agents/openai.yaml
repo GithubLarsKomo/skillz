@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compliance Control Mapping"
+  short_description: "Mappt Pflichten und Risiken auf testbare Compliance-Kontrollen."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compliance Obligation Register"
+  short_description: "Erstellt ein quellenbelegtes Register konkreter Compliance-Pflichten."
+policy:
+  allow_implicit_invocation: true

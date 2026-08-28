@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compliance Management Workflow"
+  short_description: "Orchestriert Pflichten, Controls, Assurance, Gaps und Remediation."
+policy:
+  allow_implicit_invocation: true
