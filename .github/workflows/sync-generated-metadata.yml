@@ -13,6 +13,7 @@ on:
       - "scripts/generate_capability_health.py"
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
+      - "scripts/finalize_architecture_consolidation_p0.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -48,6 +49,9 @@ jobs:
         run: python scripts/materialize_openai_agent_metadata.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
+      - name: Finalize architecture consolidation P0
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/finalize_architecture_consolidation_p0.py
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
@@ -68,6 +72,7 @@ jobs:
           git add \
             README.md \
             .skill-sync.json \
+            docs/SKILL-UNIVERSE.md \
             docs/skill-dependency-graph.json \
             docs/SKILL-DEPENDENCIES.md \
             docs/skill-capability-index.json \
