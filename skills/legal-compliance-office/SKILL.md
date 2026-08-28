@@ -4,7 +4,7 @@ description: Orchestriert unternehmerische und private Legal-/Compliance-Matters
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.3.0
+version: 0.4.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -43,6 +43,10 @@ Dünner General-Counsel-/Compliance-Orchestrator. Er hält Matter-Ziel, Evidenz,
 9. Vor Abschluss `legal-matter-final-gate` ausführen.
 10. Status, offene Punkte und genau nächste sichere Aktion dokumentieren.
 
+## Client Context Gate
+
+Vor fachlichem Routing `corporate|group|private` festlegen. Private Matters zusätzlich durch `private-legal-matter-router` führen; konzerninterne Rechtsdienstleistungs-, Authority-, Privilege- oder Dokumentzugriffsannahmen werden nicht automatisch auf Privatmatters übertragen. Konflikte zwischen Unternehmens-, Organ-, Mitarbeiter- und Privatinteressen als getrennte Matter States behandeln.
+
 ## Operating-System Routing
 
 - Verträge → kompatibler `contract-workflow` / kanonischer Contract Matter Stack.
@@ -51,6 +55,7 @@ Dünner General-Counsel-/Compliance-Orchestrator. Er hält Matter-Ziel, Evidenz,
 - Medical-Device-/IVD-Regulatory Changes → bestehendes `regulatory-change-monitoring` und `regulatory-change-impact-orchestrator`; nicht in ein generisches Legal-Monitoring umdeuten.
 - Executive-/Vorstandsreview, Decision Queue und Residual-Risk-Governance → `executive-legal-compliance-governance`.
 - Whistleblowing oder interne Untersuchung → `whistleblowing-law-specialist` und `internal-investigation-workflow`.
+- Private Matters → `private-legal-matter-router` vor Domain Specialist/Authority Gate.
 - Sport-/Vereinsmatters → `german-association-law-specialist`, `german-sports-law-specialist`, bei Rudern zusätzlich `german-rowing-sport-law-specialist`; Investigations bleiben ein separater Verfahrenslayer.
 
 ## Specialist Routing Examples
@@ -64,6 +69,8 @@ Dünner General-Counsel-/Compliance-Orchestrator. Er hält Matter-Ziel, Evidenz,
 - Trade/Sanctions/Export → `trade-sanctions-export-control-specialist`.
 - Product Liability/Safety → `product-liability-safety-law-specialist` plus vorhandene Regulatory/Risk/CAPA-Skills.
 - Disputes/Litigation → `dispute-litigation-strategy-specialist` mit Counsel Gate für formelle Prozesshandlungen.
+- Tax Dependencies → `tax-legal-interface-specialist`; bestätigte materielle Tax Position vom befugten Tax Professional.
+- Real Estate → `real-estate-law-specialist`, mit Tax-/Notary-/Authority-Handoffs soweit ausgelöst.
 
 ## Orchestrator-Regeln
 
@@ -72,15 +79,16 @@ Dünner General-Counsel-/Compliance-Orchestrator. Er hält Matter-Ziel, Evidenz,
 - Compliance bedeutet nicht nur Policy-Vorhandensein: materielle Pflichten, Controls, Evidenz und Assurance bleiben getrennte Layer.
 - Detection einer Rechtsänderung ist weder Applicability noch Implementation noch Compliance Closure.
 - Investigation Findings ersetzen weder regulatorische Reportability noch arbeits-/straf-/datenschutzrechtliche Entscheidungsgates.
+- Tax Research wird nicht als bestätigte individuelle Steuerposition ausgegeben, wenn ein Tax Professional erforderlich ist.
 - Ein L3-Gate beendet nicht automatisch alle vorbereitenden Arbeiten.
 - Die nächste Aktion muss aus dem aktuellen Matter State ausführbar und autorisiert sein.
 
 ## Grenzen
 
-- Keine Simulation einer Rechtsanwaltszulassung, Behördenentscheidung, gerichtlichen Entscheidung, notariellen Beurkundung oder sonstigen externen Autorität.
+- Keine Simulation einer Rechtsanwaltszulassung, Steuerberaterbefugnis, Behördenentscheidung, gerichtlichen Entscheidung, notariellen Beurkundung oder sonstigen externen Autorität.
 - Keine Vermischung von staatlichem Recht und privaten Vereins-/Verbandsregeln.
 - Keine formale Organentscheidung aus einer AI-Empfehlung ableiten.
 
 ## Qualitätsgate
 
-Pass nur, wenn Matter-Ziel, Current Law, Specialist Ownership, Risiko, Autorität, offene Punkte und Final-Gate-State konsistent zusammenpassen und laufende Legal-Change-/Compliance-/Executive-Governance-Pfade bei Bedarf sichtbar geroutet sind.
+Pass nur, wenn Client Context, Matter-Ziel, Current Law, Specialist Ownership, Risiko, Autorität, offene Punkte und Final-Gate-State konsistent zusammenpassen und laufende Legal-Change-/Compliance-/Executive-Governance-Pfade bei Bedarf sichtbar geroutet sind.
