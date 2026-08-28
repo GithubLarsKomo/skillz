@@ -1,0 +1,5 @@
+interface:
+  display_name: "Contract Matter Workflow"
+  short_description: "Kanonische Vertrags-State-Machine von Deal Model über Review/Draft, Risiko und Redlines bis Final Gate."
+policy:
+  allow_implicit_invocation: false

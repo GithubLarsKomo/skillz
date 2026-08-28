@@ -1,0 +1,5 @@
+interface:
+  display_name: "Agreement Type Analysis"
+  short_description: "Rekonstruiert Deal-Funktion, Clause Coverage und Specialist-Routen unabhängig vom Vertragstitel."
+policy:
+  allow_implicit_invocation: false

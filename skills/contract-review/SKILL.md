@@ -1,20 +1,22 @@
 ---
 name: contract-review
-description: Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen und AGB gegen bestätigte Requirements, Rechtsgrundlagen und wirtschaftlich-operative Risiken und erzeugt eine priorisierte Issue-Liste mit Verhandlungspositionen. Verwenden für Vertragsprüfung, Risikoanalyse und Redline-Vorbereitung, nicht für die initiale Vertragserzeugung.
+description: Bewertet einen hochgeladenen oder als Text bereitgestellten privaten oder beruflichen Vertrag einschließlich Anlagen und AGB gegen bestätigte Requirements, aktuelle Rechtsgrundlagen, funktionales Deal Model, Mandantenstrategie und wirtschaftlich-operative Risiken und erzeugt eine priorisierte Issue-Liste mit Risk- und Negotiation-Handoffs. Verwenden für Vertragsprüfung und Redline-Vorbereitung, nicht für initiales Drafting.
 userFacing: true
 implicitInvocation: false
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
-  - contract-legal-context
+  - current-law-context
+  - agreement-type-analysis
 outputs:
   - contract-review.json
   - contract-review.md
   - contract-issue-list.json
-lastEvaluated: 2026-08-23
+  - contract-risk-input.json
+lastEvaluated: 2026-08-28
 ---
 
 # Contract Review
@@ -39,7 +41,23 @@ Wenn Inhalte unlesbar oder unvollständig sind, keine Lücken erfinden. Bei Scan
 
 ## Voraussetzung
 
-Ein aktuelles `contract-legal-context.json` muss vorliegen oder erzeugt werden. Außerdem müssen Zweck, Vertragsrolle des Nutzers und wesentliche Must-haves bekannt sein; fehlende fachliche Entscheidungen gehen über `contract-workflow` zu Grilling zurück.
+Kanonisch müssen aktueller `current-law-context`, `agreement-deal-model.json`, `agreement-clause-coverage.json` und bestätigtes Mandantenziel vorliegen. Der Legacy-Handoff `contract-legal-context.json` kann zusätzlich über `contract-workflow` erzeugt und referenziert werden.
+
+Außerdem müssen Zweck, Vertragsrolle des Nutzers und wesentliche Must-haves bekannt sein; fehlende fachliche Entscheidungen gehen über `contract-workflow` zu Grilling zurück.
+
+Specialist Routes aus `agreement-specialist-routes.json` werden berücksichtigt. Fehlt ein für die Entscheidung materieller Specialist-Output, wird die Bewertung entsprechend eingeschränkt oder eskaliert statt fachlich improvisiert.
+
+## Five-Lens Review
+
+Führe für materielle Klauseln und den Vertrag als System fünf Perspektiven durch:
+
+1. **Client Counsel:** Schützt die Klausel Mandantenziel, Must-haves und Red Lines?
+2. **Counterparty Counsel:** Welche legitimen Interessen, Hebel und wahrscheinlichen Gegenargumente hat die andere Seite?
+3. **Litigation / Failure Scenario:** Was passiert bei Leistungsstörung, Streit, Insolvenz, Daten-/IP-Vorfall, Kündigung oder Beweisproblem?
+4. **Operational Reality:** Ist die Klausel praktisch ausführbar, messbar und den realen Prozessen/Rollen zuordenbar?
+5. **Cross-Clause / System Consistency:** Stimmen Definitionen, Risikoallokation, Anlagen und Klauselinteraktionen zusammen?
+
+Gegenparteiinteressen bleiben Hypothesen, sofern sie nicht belegt sind. Die Gegenperspektive dient der Robustheit, nicht der Aufgabe des Mandantenziels.
 
 ## Review-Dimensionen
 
@@ -62,6 +80,8 @@ Prüfe mindestens, soweit einschlägig:
 - Form, Notices, Entire Agreement, Severability und Survival,
 - Definitionen, Querverweise, Anlagen, Rangfolge, Widersprüche und offene Platzhalter.
 
+Clause Coverage aus `agreement-clause-coverage.json` steuert, welche Themen `required`, `conditional`, `optional` oder `not-applicable` sind. Fehlende Pflichtmodule werden als `missing-term` bewertet.
+
 ## Klauselbewertung
 
 Jedes materielle Finding erhält:
@@ -75,7 +95,8 @@ Jedes materielle Finding erhält:
 - `recommendedAction`: `must-fix | negotiate | accept-or-monitor | verify-facts | counsel-review`,
 - `preferredPosition`, `fallbackPosition`, `redLine` soweit ableitbar,
 - `proposedChange` als präzise Änderungsanweisung oder Klauselvorschlag,
-- `confidence` und `openFacts`.
+- `confidence` und `openFacts`,
+- `specialistRefs` und `clientStrategyRefs`, soweit materiell.
 
 Risiko wird nicht allein aus „ungewöhnlicher“ Formulierung abgeleitet. Berücksichtige Wahrscheinlichkeit, Schadenshöhe, Kontrollierbarkeit, Reversibilität, operative Eintrittswahrscheinlichkeit und Verhandlungskontext.
 
@@ -96,9 +117,13 @@ Nach Einzelklauseln zwingend einen zweiten Pass durchführen auf:
 
 Wenn vorformulierte Bedingungen vorliegen, markiere die AGB-Relevanz aus dem Legal Context. Unterscheide B2C und B2B; behandle Individualabreden und tatsächlich ausgehandelte Klauseln gesondert. Keine pauschale Gleichsetzung von B2B mit „AGB-Kontrolle irrelevant“.
 
+## Risk Handoff
+
+Erzeuge zusätzlich `contract-risk-input.json` als normalisierten Input für `legal-compliance-risk-assessment`. Der Handoff enthält nur materielle Contract Risks, Evidenz-/Confidence-Status, Exposure-Hypothesen, mögliche Mitigations und erforderliche Authority; der Review setzt kein Residual Risk eigenständig auf `accepted`.
+
 ## Ausgabe
 
-`contract-review.json` enthält Summary, Dokumentset, Legal-Context-Version, Gesamtrisiko, Findings, Cross-Clause-Findings, Missing Documents, Material Unknowns und Escalations.
+`contract-review.json` enthält Summary, Dokumentset, Legal-Context-/Authority-Version, Deal-Model-Version, Gesamtrisiko, Findings, Cross-Clause-Findings, Missing Documents, Material Unknowns, Specialist References und Escalations.
 
 `contract-review.md` enthält:
 
@@ -106,8 +131,9 @@ Wenn vorformulierte Bedingungen vorliegen, markiere die AGB-Relevanz aus dem Leg
 2. Top-Risiken,
 3. Klausel-für-Klausel-Bewertung,
 4. fehlende oder schwache Regelungen,
-5. Verhandlungsplan,
-6. Final-Gate-Status.
+5. Five-Lens-Systembefund,
+6. Verhandlungsplan,
+7. Final-Gate-Status.
 
 `contract-issue-list.json` ist die kompakte, sortierbare Arbeitsliste für Revision/Verhandlung.
 
@@ -115,6 +141,8 @@ Wenn vorformulierte Bedingungen vorliegen, markiere die AGB-Relevanz aus dem Leg
 
 Pass nur wenn das gesamte relevante Dokumentset berücksichtigt wurde; Findings konkrete Fundstellen besitzen; Recht, Wirtschaft und Operations getrennt werden; B2C/B2B und AGB-Kontext korrekt geroutet sind; keine unlesbaren Passagen erfunden werden; Cross-Clause-Konflikte geprüft werden; Top-Risiken priorisiert und konkrete nächste Aktionen angegeben werden; Material Unknowns und Counsel-Eskalationen sichtbar bleiben.
 
+Zusätzlich müssen Deal Model und Clause Coverage konsistent verwendet, materielle Specialist Gaps sichtbar und die fünf Review-Perspektiven für High/Critical Issues berücksichtigt sein.
+
 ## Abschluss
 
-Der Skill endet mit einer nachvollziehbaren, priorisierten Vertragsbewertung, die direkt in Verhandlung, Revision oder qualifiziertes Legal Review übergeben werden kann.
+Der Skill endet mit einer nachvollziehbaren, priorisierten Vertragsbewertung, die direkt in Risk Assessment, Verhandlung, Revision oder qualifiziertes Legal Review übergeben werden kann.

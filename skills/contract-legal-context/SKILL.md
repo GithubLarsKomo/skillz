@@ -1,19 +1,19 @@
 ---
 name: contract-legal-context
-description: Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbaren Rechtsordnungen, zwingenden Normen, Formanforderungen und Spezialrechts-Overlays und belegt materielle Rechtsaussagen mit aktuellen autoritativen Quellen. Verwenden vor Vertragsprüfung oder Vertragserzeugung.
+description: Projiziert den allgemeinen aktuellen Rechtskontext auf einen privaten oder beruflichen Vertragsfall und bestimmt Parteirollen, Vertragsart, Rechtswahl, potenziell anwendbare Rechtsordnungen, zwingende Normen, Formanforderungen und Spezialrechts-Overlays. Verwenden als kompatiblen Contract-Handoff vor Vertragsprüfung oder Vertragserzeugung.
 userFacing: true
 implicitInvocation: false
 category: research-knowledge
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
-  - research-to-evidence-note
+  - current-law-context
 outputs:
   - contract-legal-context.json
   - contract-legal-source-note.md
-lastEvaluated: 2026-08-23
+lastEvaluated: 2026-08-28
 ---
 
 # Contract Legal Context
@@ -22,15 +22,17 @@ lastEvaluated: 2026-08-23
 
 Dieser Skill beantwortet vor Review oder Drafting die Frage: **Welche Rechtsgrundlagen müssen für genau diesen Vertragsfall geprüft werden?**
 
+Ab Version 0.2 ist er eine vertragsbezogene Projection aus `current-law-context`. Primärquellen, Jurisdiktion, `asOf`, Authority Type und allgemeine Rule-Binding-Logik werden dort kanonisch ermittelt. Dieser Skill ergänzt nur die vertragsbezogene Rollen-, Konflikts-, Form- und Specialist-Sicht und erhält die bestehenden Contract-Outputs für Kompatibilität.
+
 Deutschland ist der Default-Ausgangspunkt. Der Skill darf deutsches Recht aber nicht allein aus Sprache, Wohnsitz eines Beteiligten oder Nutzerwunsch als anwendbar annehmen, wenn grenzüberschreitende oder spezialgesetzliche Anknüpfungen bestehen.
 
 ## Kernprinzipien
 
 1. **Rechtsgrundlage vor Klauselbewertung.** Erst Parteirollen, Vertragstyp, Rechtswahl, Gerichtsstand und zwingende Regeln bestimmen, dann Klauseln bewerten.
-2. **Aktuelle Primärquellen.** Materielle Rechtsaussagen werden soweit praktisch möglich anhand aktueller amtlicher Gesetzestexte, EUR-Lex, amtlicher Rechtsprechung oder vergleichbarer Primärquellen verifiziert.
+2. **Aktuelle Primärquellen.** Materielle Rechtsaussagen werden über `current-law-context` soweit praktisch möglich anhand aktueller amtlicher Gesetzestexte, EUR-Lex, amtlicher Rechtsprechung oder vergleichbarer Primärquellen verifiziert.
 3. **Keine erfundene Fremdrechtsanalyse.** Ist ausländisches Recht materiell, wird aktuelle verlässliche Recherche verlangt; reicht sie nicht, wird an qualifizierte Beratung in der betreffenden Rechtsordnung eskaliert.
 4. **Zwingendes Recht schlägt Vertragswunsch.** Eine Rechtswahl oder Vorlage darf zwingende Schutzregeln nicht unsichtbar machen.
-5. **Versionierung.** Jede Legal-Context-Ausgabe trägt `asOf`, Quellenstand und offene Rechtsfragen.
+5. **Versionierung.** Jede Legal-Context-Ausgabe trägt `asOf`, Quellenstand und offene Rechtsfragen und referenziert die zugrunde liegende `legal-authority-evidence.json`.
 
 ## Mindest-Intake
 
@@ -48,7 +50,7 @@ Ermittle soweit einschlägig:
 - Immobilienbezug, Sicherheiten, Finanzierung, Gesellschaftsbezug,
 - internationale Warenlieferung oder sonstige grenzüberschreitende Leistung.
 
-Fehlt eine fachliche Entscheidung, route zurück zu `round-based-requirements-grilling`; fehlt nur juristische Evidenz, recherchiere statt den Nutzer nach einer Rechtsmeinung zu fragen.
+Fehlt eine fachliche Entscheidung, route zurück zu `round-based-requirements-grilling`; fehlt nur juristische Evidenz, route die Recherche über `current-law-context` statt den Nutzer nach einer Rechtsmeinung zu fragen.
 
 ## Deutscher Baseline-Router
 
@@ -83,7 +85,7 @@ Ein Gerichtsstand ist nicht mit einer Rechtswahl gleichzusetzen.
 
 ## Spezialrechts-Trigger
 
-Setze `specialistOverlay` statt eine generische BGB-Antwort zu erzwingen, u. a. bei:
+Setze `specialistOverlay` und eine Route im `legal-specialist-router` statt eine generische BGB-Antwort zu erzwingen, u. a. bei:
 
 - `employment`,
 - `real-estate`,
@@ -94,7 +96,8 @@ Setze `specialistOverlay` statt eine generische BGB-Antwort zu erzwingen, u. a. 
 - `regulated-industry-quality`,
 - `public-procurement`,
 - `competition-antitrust`,
-- `consumer-digital-products`.
+- `consumer-digital-products`,
+- `association-sports-law`.
 
 Für IVD/MedTech-/Pharma-nahe Qualitäts-, Entwicklungs-, Studien-, Daten- oder Lieferverträge können zusätzlich regulatorische Pflichten relevant sein; diese werden an vorhandene Regulated-Engineering-Skills übergeben, statt hier dupliziert zu werden.
 
@@ -114,13 +117,14 @@ erforderlich oder vertraglich vereinbart ist. Unterscheide gesetzliche von ledig
 
 ## Output
 
-`contract-legal-context.json` enthält mindestens:
+`contract-legal-context.json` ist eine Compatibility-Projection der allgemeinen Legal-Authority-Artefakte und enthält mindestens:
 
 - `schemaVersion`, `asOf`, `jurisdictionAssessmentStatus`,
 - `partyRoles`, `contractType`, `transactionContext`,
 - `governingLaw`, `choiceOfLaw`, `forum`, `arbitration`,
 - `mandatoryRules`, `specialistOverlays`, `formRequirements`,
-- `sourceAuthorities`, `materialUnknowns`, `counselEscalations`, `confidence`.
+- `sourceAuthorities`, `materialUnknowns`, `counselEscalations`, `confidence`,
+- Referenzen auf `legal-jurisdiction-map.json` und `legal-authority-evidence.json`.
 
 Statuswerte:
 

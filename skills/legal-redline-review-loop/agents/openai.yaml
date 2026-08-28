@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Redline Review Loop"
+  short_description: "Bewertet Vertragsversionen als Delta und erhält Issue-Lineage, Negotiation State und Regressionserkennung."
+policy:
+  allow_implicit_invocation: false

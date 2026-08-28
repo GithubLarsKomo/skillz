@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Negotiation Strategy"
+  short_description: "Erzeugt priorisierte Ziel-, Fallback-, Red-Line- und Trade-Positionen aus Client Strategy und Risiko."
+policy:
+  allow_implicit_invocation: false
