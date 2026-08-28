@@ -1,0 +1,5 @@
+interface:
+  display_name: "Competition & Antitrust Law"
+  short_description: "Prüft GWB/EU-Kartellrecht, Wettbewerberkontakte und Merger Control."
+policy:
+  allow_implicit_invocation: true
