@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/skillz-architecture-consolidation]
     paths:
       - "skills/**"
       - "benchmarks/**"
