@@ -1,0 +1,63 @@
+name: YouTube course builder large golden
+
+on:
+  pull_request:
+    paths:
+      - "tests/fixtures/youtube-learning/pcr-qpcr-course-large-golden.json"
+      - "tests/test_youtube_course_builder_large_golden_reference.py"
+      - "scripts/generate_youtube_course_large_golden.py"
+      - "scripts/verify_youtube_course_large_golden_render.py"
+      - "docs/learning-content/course/GOLDEN_REFERENCE_LARGE.md"
+      - ".github/workflows/youtube-course-builder-large-golden.yml"
+  push:
+    branches:
+      - main
+      - feat/youtube-course-large-golden
+    paths:
+      - "tests/fixtures/youtube-learning/pcr-qpcr-course-large-golden.json"
+      - "tests/test_youtube_course_builder_large_golden_reference.py"
+      - "scripts/generate_youtube_course_large_golden.py"
+      - "scripts/verify_youtube_course_large_golden_render.py"
+      - "docs/learning-content/course/GOLDEN_REFERENCE_LARGE.md"
+      - ".github/workflows/youtube-course-builder-large-golden.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  large-golden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install artifact and render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libreoffice-writer libreoffice-impress fonts-dejavu-core
+          python -m pip install --upgrade pip
+          python -m pip install python-docx python-pptx pymupdf playwright
+          python -m playwright install --with-deps chromium
+      - name: Validate large golden contract
+        run: python -m unittest tests.test_youtube_course_builder_large_golden_reference
+      - name: Generate canonical course artifacts
+        run: python scripts/generate_youtube_course_large_golden.py
+      - name: Convert PPTX and DOCX to PDF
+        run: |
+          OUT=build/youtube-course-large-golden
+          libreoffice --headless --convert-to pdf --outdir "$OUT" "$OUT/instructor-deck.pptx"
+          libreoffice --headless --convert-to pdf --outdir "$OUT" "$OUT/study-guide.docx"
+          test -s "$OUT/instructor-deck.pdf"
+          test -s "$OUT/study-guide.pdf"
+      - name: Render and inspect every delivered surface
+        run: python scripts/verify_youtube_course_large_golden_render.py --dir build/youtube-course-large-golden
+      - name: List generated package
+        run: find build/youtube-course-large-golden -maxdepth 3 -type f -printf '%p %s bytes\n' | sort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: youtube-course-large-golden
+          path: build/youtube-course-large-golden
+          if-no-files-found: error
+          retention-days: 30

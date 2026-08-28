@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "goldenReference": "youtube-course-large-pcr-qpcr-v1",
+  "courseId": "pcr-qpcr-from-principles-to-data-quality",
+  "title": "PCR und qPCR: von den Grundlagen zur belastbaren Dateninterpretation",
+  "audience": "professional",
+  "language": "de",
+  "courseDepth": "deep",
+  "pathMode": "standard",
+  "sourcePolicy": {
+    "liveDownloadInCi": false,
+    "reason": "Deterministic golden reference; source metadata is frozen after manual web verification.",
+    "sourceCountMinimum": 10,
+    "sourceCountMaximum": 20
+  },
+  "sources": [
+    {"sourceId":"S01","youtubeVideoId":"Nl6eLez3CNI","title":"Introduction to PCR","channel":"Thermo Fisher Scientific","published":"2016-08-23","role":"foundation-overview"},
+    {"sourceId":"S02","youtubeVideoId":"mOKb0Pd_Rac","title":"Basics of PCR","channel":"Thermo Fisher Scientific","published":"2016-08-23","role":"components"},
+    {"sourceId":"S03","youtubeVideoId":"ml0kxx2OJ1A","title":"PCR Primer Design","channel":"Thermo Fisher Scientific","published":"2017-03-20","role":"primer-design"},
+    {"sourceId":"S04","youtubeVideoId":"y3egwMexSTI","title":"Polymerase Chain Reaction (PCR) Protocol","channel":"Addgene","published":"2020-04-29","role":"laboratory-workflow"},
+    {"sourceId":"S05","youtubeVideoId":"dhWn_RKTDE0","title":"Tutorial: Ultimate qPCR intro (1 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"qpcr-introduction"},
+    {"sourceId":"S06","youtubeVideoId":"j6stD4MFHcU","title":"Tutorial Video: Ultimate qPCR Planning and Scoping (2 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"experimental-planning"},
+    {"sourceId":"S07","youtubeVideoId":"FGOYtwjpNPg","title":"Tutorial Video: Ultimate qPCR Major Sources of Error (3 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"error-sources"},
+    {"sourceId":"S08","youtubeVideoId":"CAaCmLBYUCs","title":"Tutorial Video: Ultimate qPCR Primer and Sample Validation (4 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"validation"},
+    {"sourceId":"S09","youtubeVideoId":"aFB-hZoGaKk","title":"Tutorial Video: Ultimate qPCR Reference Gene Problem (5 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"normalization"},
+    {"sourceId":"S10","youtubeVideoId":"TWmu7lXrvIE","title":"Tutorial Video: Ultimate qPCR Data Analysis (6 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"data-analysis"},
+    {"sourceId":"S11","youtubeVideoId":"YPKJbK2axQk","title":"Tutorial Video: Ultimate qPCR Workflow Summary and Conclusions (7 of 7)","channel":"Bio-Rad Laboratories","published":"2019-08-02","role":"workflow-synthesis"},
+    {"sourceId":"S12","youtubeVideoId":"FvJnXKzejSQ","title":"Melt curve analysis in qPCR experiments","channel":"BIOC3001 student videos / University of Western Australia","published":"2016-01-10","role":"melt-curve-interpretation"}
+  ],
+  "assumedPrerequisites": ["DNA-Grundstruktur", "komplementäre Basenpaarung", "grundlegende Laborpipettierung"],
+  "modules": [
+    {"moduleId":"M1","state":"foundation","title":"Warum PCR funktioniert","competencePromise":"Zweck, Komponenten und thermische Grundlogik der PCR erklären","prerequisites":[],"sourceScope":["S01","S02"],"objectives":["LO1","LO2"],"exitCriteria":["PCR-Zweck erklären","Template, Primer, Polymerase und dNTPs funktional zuordnen"]},
+    {"moduleId":"M2","state":"core","title":"Der PCR-Zyklus als Mental Model","competencePromise":"Denaturierung, Annealing und Extension in Reihenfolge und Funktion erklären","prerequisites":["M1"],"sourceScope":["S01","S04"],"objectives":["LO3","LO4"],"exitCriteria":["Zyklusphasen korrekt sequenzieren","Temperaturwechsel funktional begründen"]},
+    {"moduleId":"M3","state":"core","title":"Primerdesign und Spezifität","competencePromise":"Primerdesign als zentralen Spezifitäts- und Robustheitsfaktor einordnen","prerequisites":["M2"],"sourceScope":["S03","S08"],"objectives":["LO5","LO6"],"exitCriteria":["wichtige Primerdesign-Kriterien benennen","Primer- und Sample-Validierung voneinander unterscheiden"]},
+    {"moduleId":"M4","state":"application","title":"PCR im Labor: Ablauf und Fehlerbilder","competencePromise":"Einen Standard-PCR-Ablauf nachvollziehen und typische Fehlerquellen systematisch lokalisieren","prerequisites":["M2","M3"],"sourceScope":["S04","S07"],"objectives":["LO7","LO8"],"exitCriteria":["Laborworkflow in sinnvoller Reihenfolge erklären","Fehlerquellen Prozessschritten zuordnen"]},
+    {"moduleId":"M5","state":"variant","title":"qPCR als quantitative Erweiterung","competencePromise":"qPCR vom klassischen PCR-Kern abgrenzen und den zusätzlichen Messgedanken erklären","prerequisites":["M2"],"sourceScope":["S05","S11"],"objectives":["LO9","LO10"],"exitCriteria":["klassische PCR und qPCR fachlich unterscheiden","qPCR als Erweiterung statt Ersatz des PCR-Mental-Models erklären"]},
+    {"moduleId":"M6","state":"application","title":"qPCR planen und validieren","competencePromise":"Versuchsplanung, Fehlerquellen und Validierung als zusammenhängende Qualitätskette erklären","prerequisites":["M3","M5"],"sourceScope":["S06","S07","S08"],"objectives":["LO11","LO12"],"exitCriteria":["Planungsannahmen von Messfehlern unterscheiden","Validierung vor Interpretation begründen"]},
+    {"moduleId":"M7","state":"application","title":"Normalisierung und Referenzgene","competencePromise":"Referenzgene als experimentelle Annahme statt unveränderliche Konstante beurteilen","prerequisites":["M6"],"sourceScope":["S09"],"objectives":["LO13"],"exitCriteria":["Risiken ungeprüfter Referenzgene erklären","Normalisierung als Teil der Messkette einordnen"]},
+    {"moduleId":"M8","state":"application","title":"Datenanalyse, Melt Curve und belastbare Interpretation","competencePromise":"qPCR-Datenanalyse, Melt Curves und Qualitätsindikatoren gemeinsam interpretieren","prerequisites":["M6","M7"],"sourceScope":["S10","S11","S12"],"objectives":["LO14","LO15","LO16"],"exitCriteria":["Analyseergebnis von Qualitätsprüfung unterscheiden","Melt Curve als Spezifitäts-/Produktindikator einordnen","eine Ergebnisinterpretation mit methodischen Einschränkungen formulieren"]}
+  ],
+  "learningObjectives": {
+    "LO1":"den Zweck der PCR erklären",
+    "LO2":"zentrale PCR-Komponenten funktional zuordnen",
+    "LO3":"Denaturierung, Annealing und Extension korrekt sequenzieren",
+    "LO4":"die Funktion der Temperaturwechsel erklären",
+    "LO5":"Primerdesign-Kriterien mit Spezifität und Robustheit verknüpfen",
+    "LO6":"Primer- und Sample-Validierung unterscheiden",
+    "LO7":"einen Standard-PCR-Laborworkflow strukturieren",
+    "LO8":"typische Fehlerquellen Prozessschritten zuordnen",
+    "LO9":"klassische PCR und qPCR hinsichtlich Messziel unterscheiden",
+    "LO10":"qPCR als quantitative Erweiterung des PCR-Prinzips erklären",
+    "LO11":"qPCR-Versuchsplanung als Teil der Datenqualität begründen",
+    "LO12":"Validierung, Fehlerquellen und Auswertung als Qualitätskette analysieren",
+    "LO13":"Referenzgene kritisch als Normalisierungsannahme beurteilen",
+    "LO14":"qPCR-Datenanalyse evidenzgebunden interpretieren",
+    "LO15":"Melt-Curve-Information in die Qualitätsbewertung einbeziehen",
+    "LO16":"Ergebnisse mit methodischen Grenzen und Unsicherheiten kommunizieren"
+  },
+  "knowledgeChecks": [
+    {"questionId":"Q1","moduleId":"M1","objectiveIds":["LO1","LO2"],"type":"concept-check","prompt":"Welche funktionalen Rollen haben Template, Primer, Polymerase und dNTPs?","sourceIds":["S01","S02"]},
+    {"questionId":"Q2","moduleId":"M2","objectiveIds":["LO3","LO4"],"type":"sequence-task","prompt":"Ordne die drei PCR-Zyklusphasen und erkläre den Zweck jeder Phase.","sourceIds":["S01","S04"]},
+    {"questionId":"Q3","moduleId":"M3","objectiveIds":["LO5","LO6"],"type":"diagnostic-case","prompt":"Warum kann ein scheinbar funktionierender Assay trotz Produktbildung ungeeignet sein?","sourceIds":["S03","S08"]},
+    {"questionId":"Q4","moduleId":"M4","objectiveIds":["LO7","LO8"],"type":"diagnostic-case","prompt":"Ordne ein unerwartetes PCR-Ergebnis möglichen Fehlerstellen im Workflow zu.","sourceIds":["S04","S07"]},
+    {"questionId":"Q5","moduleId":"M5","objectiveIds":["LO9","LO10"],"type":"compare-variants","prompt":"Was fügt qPCR dem klassischen PCR-Prinzip konzeptionell hinzu?","sourceIds":["S05","S11"]},
+    {"questionId":"Q6","moduleId":"M6","objectiveIds":["LO11","LO12"],"type":"source-critique","prompt":"Welche Qualitätsentscheidungen müssen vor der eigentlichen Datenanalyse getroffen werden?","sourceIds":["S06","S07","S08"]},
+    {"questionId":"Q7","moduleId":"M7","objectiveIds":["LO13"],"type":"concept-check","prompt":"Warum darf ein Referenzgen nicht ungeprüft als stabil angenommen werden?","sourceIds":["S09"]},
+    {"questionId":"Q8","moduleId":"M8","objectiveIds":["LO14","LO15","LO16"],"type":"application-task","prompt":"Formuliere eine qPCR-Ergebnisinterpretation, die Datenanalyse, Melt-Curve-Hinweise und methodische Grenzen zusammenführt.","sourceIds":["S10","S11","S12"]}
+  ],
+  "pathRules": {"playlistOrderBinding":false,"prerequisiteGraphMustBeAcyclic":true,"fastTrackRequiresEntryCheck":true,"requiredPrerequisitesCannotBeSkipped":true},
+  "renderTargets": ["html","svg","pptx","pptx-pdf","docx","pdf"],
+  "designAuthority": ["docs/learning-content/DESIGN.md","docs/learning-content/multi-source/DESIGN.md","docs/learning-content/course/DESIGN.md"],
+  "acceptance": {"sameCourseFingerprintAcrossFormats":true,"renderEverySlide":true,"renderEveryDocumentPage":true,"htmlWideAndNarrow":true,"unresolvedCritical":0,"unresolvedMajor":0}
+}
