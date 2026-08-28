@@ -1,0 +1,5 @@
+interface:
+  display_name: "Workflow Benchmark Authoring"
+  short_description: "Erstellt ausführbare Cross-Domain Workflow-Benchmarks aus Capability- und Evaluationsevidenz."
+policy:
+  allow_implicit_invocation: false
