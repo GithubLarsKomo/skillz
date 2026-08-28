@@ -144,6 +144,13 @@
         "agents/openai.yaml": "6b39d1a47df6050566162437178f9ff3c204144d59cb7735520e725ab8c13de9"
       }
     },
+    "corporate-compliance-law-specialist": {
+      "files": {
+        "SKILL.md": "83e5b35419420c08064a9a445271d2c201b84fb11ba19222dff9f5c618158ccb",
+        "agents/openai.yaml": "2078f59d0196d82e2d5cc4df1f88bb7b34d6ce9aef4a547ca841fb3f9b5ab592",
+        "references/authoritative-sources.md": "61de2ff5c41df357b01ea5322ab08855cfe470efd12e89b20e83edd2b5a72b2b"
+      }
+    },
     "corporate-governance-law-specialist": {
       "files": {
         "SKILL.md": "44456e04a7b7cc5e07d74bfb2e40fac00732a4a039535a5cbab424c418d513ec",
@@ -198,6 +205,13 @@
       "files": {
         "SKILL.md": "5b8da84f31edf6a4c90dc6872555c4a42d33c05b5aac976dc197cca14ff7e8ac",
         "agents/openai.yaml": "22195a863855aaf06bc93560042a1df79d818954f2117ef2f8f66835ddc44f93"
+      }
+    },
+    "digital-ai-cyber-law-specialist": {
+      "files": {
+        "SKILL.md": "93d3ba160aea615492d0c0d50db4e15124d5763c49d820172394ac33f36e3cbd",
+        "agents/openai.yaml": "252f59182dcfa96fe35cf13b0181b72a6a19a961e5165d999f83709a04c5734b",
+        "references/authoritative-sources.md": "60179735ed06ae7583fc71a003179e6a1ab06062c556eb7821f3fe3e6e7ce7af"
       }
     },
     "disciplined-diagnosis": {
@@ -496,6 +510,13 @@
         "agents/openai.yaml": "3e29131a317a316a645a3e4d93c909dbb0fd9ebec22c68ade910a931e8cceb87"
       }
     },
+    "german-administrative-social-traffic-law-specialist": {
+      "files": {
+        "SKILL.md": "40db4b3a4bbb0daf7a71b05e9a47d96a8d716a57534481b4359e9c983cc188ce",
+        "agents/openai.yaml": "d555fc7ad76920342faaa83653308c775fbf7ad092dca8084a7105d48b0f3598",
+        "references/authoritative-sources.md": "db936651c1f171e7e095a0d4ad35e9746a17f2d43e8be45022d27bd37071ac4a"
+      }
+    },
     "german-association-law-specialist": {
       "files": {
         "SKILL.md": "ba58e649992d4439845f75da9ac3a91109edc371b363d66115825b762fb23487",
@@ -503,11 +524,39 @@
         "references/authoritative-sources.md": "c2339472fa48c96176524deb9714c609bfc4f61a01a672c653d93364b547f8a4"
       }
     },
+    "german-consumer-insurance-private-contract-law-specialist": {
+      "files": {
+        "SKILL.md": "415323743443af99ba24b75fed327e9f63e8c175c0f011e2c47ac129e4efa464",
+        "agents/openai.yaml": "466a7f21a3c60ac6be7f79734a0fc352e83ddfdbe627f12f72c5413150205dfe",
+        "references/authoritative-sources.md": "d492b94479b209c1f0f70f127118df763436f474ee24c2eade6866938894422a"
+      }
+    },
+    "german-criminal-administrative-offence-procedure-specialist": {
+      "files": {
+        "SKILL.md": "5c6b829e48c4b77a7a4ba3387deaaaea9f3efe2f36d67e3ddb8e8605efe29bd8",
+        "agents/openai.yaml": "d298be69b02fad5cbbbc2a5364a6a397439a54c0e732b6731ed626c0253909ed",
+        "references/authoritative-sources.md": "38d2340a437ca63bea3791cada5ccccd8da212d94199f88f5d55df047316f6d9"
+      }
+    },
     "german-employment-labor-law-specialist": {
       "files": {
         "SKILL.md": "c5fb29c3abec9a4cd3cc5dd131bb0e6c3cf9af8ae1e141633bf6ff6d76f40f9a",
         "agents/openai.yaml": "fac709e47fc3c81a4eff9790c7ea710285296eb10dbbfc076e958f0071b963b4",
         "references/authoritative-sources.md": "fc30501373e8d27e61a978aa633d7e7041188bb33ab27377614ab03f03b3a8b7"
+      }
+    },
+    "german-family-law-specialist": {
+      "files": {
+        "SKILL.md": "d0a335fc1ff0f4feee38d9f043968bdbc00562e835e9ff8189ae41caf1d4028c",
+        "agents/openai.yaml": "dd44b45c8db348ab3414d7a7bd0f997ca0985f0c81ef8c4b60683c0cef6c6097",
+        "references/authoritative-sources.md": "9605b00124334f26fa65230e855a554df21be7071297142a62e1e2a427c7678c"
+      }
+    },
+    "german-inheritance-succession-law-specialist": {
+      "files": {
+        "SKILL.md": "6fb8574a588668f2b5c421ecf73c275ca32ca0d0cdc90a31f3bc94686dc38939",
+        "agents/openai.yaml": "3cce7818cd77c67831fdd5ecf9468d7da02ef065760a4976023117b506be20d7",
+        "references/authoritative-sources.md": "ff22febb2a9f1ac3c497e4edb85a8e94f7c078a03746b2d67208b234864c4387"
       }
     },
     "german-rowing-sport-law-specialist": {
@@ -756,7 +805,7 @@
     },
     "legal-compliance-office": {
       "files": {
-        "SKILL.md": "cc5c52c590d98bde922c249bb5a613b1b34a3dcfb632daff972ddc4b13687e1a",
+        "SKILL.md": "5e14355535255e4bb7760fb509f0c3f5d185493d952c9c1706620ac88c5c0d40",
         "agents/openai.yaml": "d368ad736ce363bf01a02dbcb4eb4847bd9cf2d3c64ff3b4ba30ed45101601ef"
       }
     },
@@ -798,7 +847,7 @@
     },
     "legal-specialist-router": {
       "files": {
-        "SKILL.md": "d3ca4b55ccdeedbdb824dd344512a8c9185a55eac9b98db4d5b7994f579e7408",
+        "SKILL.md": "60a1f1fa9836ea1fc741d299f8f40611eda225b8fbedb2bfa755a937de7e2a42",
         "agents/openai.yaml": "ff6a8072537f63d5328ec41f062206c255b7efebf021b3aba3b25f2e7d247573"
       }
     },
@@ -1111,7 +1160,7 @@
     },
     "private-legal-matter-router": {
       "files": {
-        "SKILL.md": "40176c46cc9ccb8e10eb527f12e8b7844bc7ea14b0040c56bfa4c6c23a0b8941",
+        "SKILL.md": "a1c276c99cb95d3af89fd181a0e8c9b37e262a3d5031d3bf83a2854a0e6b9d45",
         "agents/openai.yaml": "bab287fca7b1cff699b83295b9d94a85e486d910d0cf0ab9b2863337e9cbdbf9",
         "references/authoritative-sources.md": "4ab92eda911bf92b2e00bc8b6c90826274739c5e452de497313fa8de1c818d12"
       }

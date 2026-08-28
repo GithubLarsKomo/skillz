@@ -31,7 +31,7 @@ Analysiert allgemeine Datenschutz- und Datenrechtsfragen mit EU/Deutschland-Base
 
 ## Required by
 
-- —
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 
 ## Outputs
 
@@ -43,15 +43,15 @@ Analysiert allgemeine Datenschutz- und Datenrechtsfragen mit EU/Deutschland-Base
 
 ### `data-processing-role-map.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 
 ### `privacy-action-gates.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 
 ### `privacy-data-law-assessment.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 
 ## Evaluation
 

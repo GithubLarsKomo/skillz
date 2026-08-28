@@ -32,7 +32,8 @@ Entwickelt evidenzbasierte Streit-, Claim-, Abwehr-, Vergleichs- und Litigation-
 
 ## Required by
 
-- —
+- [[skills/german-administrative-social-traffic-law-specialist|german-administrative-social-traffic-law-specialist]]
+- [[skills/german-consumer-insurance-private-contract-law-specialist|german-consumer-insurance-private-contract-law-specialist]]
 
 ## Outputs
 
@@ -44,15 +45,18 @@ Entwickelt evidenzbasierte Streit-, Claim-, Abwehr-, Vergleichs- und Litigation-
 
 ### `claim-defense-matrix.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/german-administrative-social-traffic-law-specialist|german-administrative-social-traffic-law-specialist]]
+- [[skills/german-consumer-insurance-private-contract-law-specialist|german-consumer-insurance-private-contract-law-specialist]]
 
 ### `dispute-strategy.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/german-administrative-social-traffic-law-specialist|german-administrative-social-traffic-law-specialist]]
+- [[skills/german-consumer-insurance-private-contract-law-specialist|german-consumer-insurance-private-contract-law-specialist]]
 
 ### `litigation-counsel-brief.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/german-administrative-social-traffic-law-specialist|german-administrative-social-traffic-law-specialist]]
+- [[skills/german-consumer-insurance-private-contract-law-specialist|german-consumer-insurance-private-contract-law-specialist]]
 
 ## Evaluation
 

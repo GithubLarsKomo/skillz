@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 241,
-  "entrypointCount": 210,
+  "skillCount": 248,
+  "entrypointCount": 217,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 235,
+  "evaluationSuiteCount": 242,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -869,6 +869,7 @@
       "dependents": [
         "compliance-control-mapping",
         "compliance-management-workflow",
+        "corporate-compliance-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "outputs": [
@@ -886,6 +887,7 @@
           "consumerSkills": [
             "compliance-control-mapping",
             "compliance-management-workflow",
+            "corporate-compliance-law-specialist",
             "legal-change-impact-orchestrator"
           ]
         },
@@ -898,6 +900,7 @@
           "consumerSkills": [
             "compliance-control-mapping",
             "compliance-management-workflow",
+            "corporate-compliance-law-specialist",
             "legal-change-impact-orchestrator"
           ]
         },
@@ -910,6 +913,7 @@
           "consumerSkills": [
             "compliance-control-mapping",
             "compliance-management-workflow",
+            "corporate-compliance-law-specialist",
             "legal-change-impact-orchestrator"
           ]
         }
@@ -1421,6 +1425,62 @@
       }
     },
     {
+      "name": "corporate-compliance-law-specialist",
+      "description": "Analysiert unternehmensbezogene Integrity-/Compliance-Pflichten und Risiken insbesondere Anti-Korruption, Vorteilsgewährung, Interessenkonflikte, Third Parties, Fraud, Sponsoring/Spenden, Geschäftspartner- und Public-Official-Kontakte sowie Organisations-/Aufsichtspflichten; verbindet Rechtsanalyse mit Obligation/Control/Investigation-Systemen ohne deren operative Fachlogik zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "compliance-obligation-register",
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "compliance-legal-work-orders.json",
+        "corporate-compliance-law-assessment.json",
+        "integrity-risk-route-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "compliance-legal-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-compliance-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "corporate-compliance-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-compliance-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "integrity-risk-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "corporate-compliance-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "corporate-governance-law-specialist",
       "description": "Analysiert deutsches Gesellschafts- und Organrecht für AG/GmbH mit Zuständigkeiten, Vertretungsmacht, Geschäftsleitung, Aufsicht, Beschlusskompetenzen, Interessenkonflikten, Informationsgrundlage, Organpflichten und persönlicher Haftung. Verwenden für Board-/Geschäftsführungsentscheidungen, Governance-Freigaben und Organhaftungsfragen.",
       "invocation": {
@@ -1556,11 +1616,18 @@
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
@@ -1597,11 +1664,18 @@
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
@@ -1632,11 +1706,18 @@
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
@@ -1667,11 +1748,18 @@
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
@@ -1702,11 +1790,18 @@
             "contract-drafting",
             "contract-legal-context",
             "contract-review",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "german-sports-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
@@ -2121,6 +2216,62 @@
       }
     },
     {
+      "name": "digital-ai-cyber-law-specialist",
+      "description": "Analysiert Digital-, AI-, Daten- und Cyber-Rechtsfragen für Deutschland/EU einschließlich AI Act, Data Act, NIS2/BSIG, digitale Datenschutzschnittstellen, Cybersecurity-Vertrags- und Produktpflichten und routet technische, Privacy-, Regulatory- und ISMS-Fragen an vorhandene Specialists statt deren Fachlogik zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privacy-data-law-specialist",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "digital-ai-cyber-law-assessment.json",
+        "digital-legal-work-orders.json",
+        "digital-regime-applicability-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "digital-ai-cyber-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "digital-ai-cyber-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "digital-legal-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "digital-ai-cyber-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "digital-regime-applicability-map.json",
+          "ambiguous": false,
+          "producers": [
+            "digital-ai-cyber-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "disciplined-diagnosis",
       "description": "Diagnostiziert Softwarefehler reproduzierbar und evidenzbasiert, minimiert den Fehlerraum, prüft konkurrierende Hypothesen, implementiert den kleinsten sicheren Fix und belegt ihn mit Regressionstest sowie ursprünglicher Verifikation. Verwenden, wenn CI, Tests, Laufzeitverhalten oder Integrationen fehlschlagen und spekulative Änderungen vermieden werden sollen.",
       "invocation": {
@@ -2216,7 +2367,10 @@
         "legal-client-strategy",
         "privilege-and-counsel-routing"
       ],
-      "dependents": [],
+      "dependents": [
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist"
+      ],
       "outputs": [
         "claim-defense-matrix.json",
         "dispute-strategy.json",
@@ -2229,7 +2383,10 @@
           "producers": [
             "dispute-litigation-strategy-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "german-administrative-social-traffic-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist"
+          ]
         },
         {
           "output": "dispute-strategy.json",
@@ -2237,7 +2394,10 @@
           "producers": [
             "dispute-litigation-strategy-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "german-administrative-social-traffic-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist"
+          ]
         },
         {
           "output": "litigation-counsel-brief.md",
@@ -2245,7 +2405,10 @@
           "producers": [
             "dispute-litigation-strategy-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "german-administrative-social-traffic-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist"
+          ]
         }
       ],
       "portableFiles": [
@@ -4422,6 +4585,61 @@
       }
     },
     {
+      "name": "german-administrative-social-traffic-law-specialist",
+      "description": "Analysiert private deutsche Verwaltungs-, Sozial- und Verkehrsrechtsmatters einschließlich Bescheide, Behördenverfahren, Fahrerlaubnis, Verkehrsverwaltungsrecht und sozialrechtliche Leistungs-/Statusfragen mit aktuellen Frist-, Zuständigkeits- und Rechtsbehelfsgates.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "dispute-litigation-strategy-specialist",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "administrative-social-traffic-assessment.json",
+        "public-law-professional-work-order.json",
+        "public-law-remedy-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "administrative-social-traffic-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-administrative-social-traffic-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "public-law-professional-work-order.json",
+          "ambiguous": false,
+          "producers": [
+            "german-administrative-social-traffic-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "public-law-remedy-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-administrative-social-traffic-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "german-association-law-specialist",
       "description": "Analysiert deutsches Vereinsrecht für eingetragene und nicht eingetragene Vereine sowie Verbandsstrukturen, insbesondere Satzung, Organe, Vertretung, Mitgliedschaft, Beschlüsse, Wahlen, Haftung, Register und Gemeinnützigkeits-Schnittstellen. Verwenden für deutsche Vereine und Verbände; sportartspezifische Wettkampf- und Verbandsregeln an den Sports-Law-Specialist übergeben.",
       "invocation": {
@@ -4460,6 +4678,116 @@
           "ambiguous": false,
           "producers": [
             "german-association-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "german-consumer-insurance-private-contract-law-specialist",
+      "description": "Analysiert deutsche private Vertrags-, Verbraucher- und Versicherungsrechtsmatters einschließlich Kauf/Dienstleistung, Widerruf, Gewährleistung, AGB, Fernabsatz, Schaden- und Versicherungsdeckung und routet Streit-, Immobilien-, Datenschutz- oder Spezialfragen an bestehende Legal Specialists.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "dispute-litigation-strategy-specialist",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "insurance-coverage-issue-map.json",
+        "private-contract-action-plan.md",
+        "private-contract-consumer-assessment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "insurance-coverage-issue-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-consumer-insurance-private-contract-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "private-contract-action-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "german-consumer-insurance-private-contract-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "private-contract-consumer-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-consumer-insurance-private-contract-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "german-criminal-administrative-offence-procedure-specialist",
+      "description": "Analysiert deutsche private und unternehmensnahe Straf-/OWi-/Ermittlungsverfahrensmatters aus Verteidigungs- und Verfahrenssicht, strukturiert Rechte, Fristen, Beweissicherung, Aussage-/Kooperationsentscheidungen und Counsel-/Authority-Handoffs, ohne Strafverteidigung oder Prozessvertretung zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "investigation-evidence-preservation",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "criminal-counsel-brief.md",
+        "criminal-procedure-assessment.json",
+        "defence-decision-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "criminal-counsel-brief.md",
+          "ambiguous": false,
+          "producers": [
+            "german-criminal-administrative-offence-procedure-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "criminal-procedure-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-criminal-administrative-offence-procedure-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "defence-decision-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-criminal-administrative-offence-procedure-specialist"
           ],
           "consumerSkills": []
         }
@@ -4515,6 +4843,116 @@
           "ambiguous": false,
           "producers": [
             "german-employment-labor-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "german-family-law-specialist",
+      "description": "Analysiert private deutsche Familienrechtsmatters einschließlich Trennung/Scheidung, Unterhalt, Sorge/Umgang, Gewaltschutz, Vermögens-/Zugewinn- und Versorgungsfragen und routet gerichtliche/notarielle/behördliche Schritte mit aktuellen Verfahrens- und Fristengates.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "family-law-assessment.json",
+        "family-law-counsel-work-order.json",
+        "family-law-issue-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "family-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-family-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "family-law-counsel-work-order.json",
+          "ambiguous": false,
+          "producers": [
+            "german-family-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "family-law-issue-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-family-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "german-inheritance-succession-law-specialist",
+      "description": "Analysiert deutsches Erb-, Pflichtteils-, Testaments-, Schenkungs- und private Nachfolgerecht einschließlich Form, Erbfolge, Nachlass, Haftung, Auseinandersetzung und Steuer-/Notar-Schnittstellen und routet formelle Schritte an zuständige Professionals.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "current-law-context",
+        "privilege-and-counsel-routing",
+        "tax-legal-interface-specialist"
+      ],
+      "dependents": [],
+      "outputs": [
+        "estate-structure-map.json",
+        "inheritance-succession-assessment.json",
+        "succession-professional-work-orders.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "estate-structure-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-inheritance-succession-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "inheritance-succession-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-inheritance-succession-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "succession-professional-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "german-inheritance-succession-law-specialist"
           ],
           "consumerSkills": []
         }
@@ -5004,6 +5442,7 @@
         "privilege-and-counsel-routing"
       ],
       "dependents": [
+        "german-criminal-administrative-offence-procedure-specialist",
         "internal-investigation-workflow"
       ],
       "outputs": [
@@ -5019,6 +5458,7 @@
             "investigation-evidence-preservation"
           ],
           "consumerSkills": [
+            "german-criminal-administrative-offence-procedure-specialist",
             "internal-investigation-workflow"
           ]
         },
@@ -5029,6 +5469,7 @@
             "investigation-evidence-preservation"
           ],
           "consumerSkills": [
+            "german-criminal-administrative-offence-procedure-specialist",
             "internal-investigation-workflow"
           ]
         },
@@ -5039,6 +5480,7 @@
             "investigation-evidence-preservation"
           ],
           "consumerSkills": [
+            "german-criminal-administrative-offence-procedure-specialist",
             "internal-investigation-workflow"
           ]
         }
@@ -6889,7 +7331,10 @@
       ],
       "dependents": [
         "compliance-control-mapping",
+        "corporate-compliance-law-specialist",
+        "digital-ai-cyber-law-specialist",
         "executive-legal-compliance-governance",
+        "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
@@ -6910,7 +7355,10 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
+            "corporate-compliance-law-specialist",
+            "digital-ai-cyber-law-specialist",
             "executive-legal-compliance-governance",
+            "german-family-law-specialist",
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
@@ -6926,7 +7374,10 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
+            "corporate-compliance-law-specialist",
+            "digital-ai-cyber-law-specialist",
             "executive-legal-compliance-governance",
+            "german-family-law-specialist",
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
@@ -6942,7 +7393,10 @@
           ],
           "consumerSkills": [
             "compliance-control-mapping",
+            "corporate-compliance-law-specialist",
+            "digital-ai-cyber-law-specialist",
             "executive-legal-compliance-governance",
+            "german-family-law-specialist",
             "investigation-findings-remediation",
             "legal-change-impact-orchestrator",
             "legal-compliance-office",
@@ -10313,7 +10767,9 @@
         "current-law-context",
         "legal-client-strategy"
       ],
-      "dependents": [],
+      "dependents": [
+        "digital-ai-cyber-law-specialist"
+      ],
       "outputs": [
         "data-processing-role-map.json",
         "privacy-action-gates.json",
@@ -10326,7 +10782,9 @@
           "producers": [
             "privacy-data-law-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "digital-ai-cyber-law-specialist"
+          ]
         },
         {
           "output": "privacy-action-gates.json",
@@ -10334,7 +10792,9 @@
           "producers": [
             "privacy-data-law-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "digital-ai-cyber-law-specialist"
+          ]
         },
         {
           "output": "privacy-data-law-assessment.json",
@@ -10342,7 +10802,9 @@
           "producers": [
             "privacy-data-law-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "digital-ai-cyber-law-specialist"
+          ]
         }
       ],
       "portableFiles": [
@@ -10424,10 +10886,17 @@
       ],
       "dependents": [
         "competition-antitrust-law-specialist",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
@@ -10453,10 +10922,17 @@
           ],
           "consumerSkills": [
             "competition-antitrust-law-specialist",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
             "legal-compliance-office",
@@ -10477,10 +10953,17 @@
           ],
           "consumerSkills": [
             "competition-antitrust-law-specialist",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
             "legal-compliance-office",
@@ -10501,10 +10984,17 @@
           ],
           "consumerSkills": [
             "competition-antitrust-law-specialist",
+            "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "german-administrative-social-traffic-law-specialist",
+            "german-consumer-insurance-private-contract-law-specialist",
+            "german-criminal-administrative-offence-procedure-specialist",
             "german-employment-labor-law-specialist",
+            "german-family-law-specialist",
+            "german-inheritance-succession-law-specialist",
             "investigation-evidence-preservation",
             "ip-licensing-law-specialist",
             "legal-compliance-office",
@@ -13372,7 +13862,9 @@
         "legal-client-strategy",
         "privilege-and-counsel-routing"
       ],
-      "dependents": [],
+      "dependents": [
+        "german-inheritance-succession-law-specialist"
+      ],
       "outputs": [
         "tax-decision-dependencies.json",
         "tax-legal-interface-assessment.json",
@@ -13385,7 +13877,9 @@
           "producers": [
             "tax-legal-interface-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "german-inheritance-succession-law-specialist"
+          ]
         },
         {
           "output": "tax-legal-interface-assessment.json",
@@ -13393,7 +13887,9 @@
           "producers": [
             "tax-legal-interface-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "german-inheritance-succession-law-specialist"
+          ]
         },
         {
           "output": "tax-specialist-work-order.json",
@@ -13401,7 +13897,9 @@
           "producers": [
             "tax-legal-interface-specialist"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "german-inheritance-succession-law-specialist"
+          ]
         }
       ],
       "portableFiles": [

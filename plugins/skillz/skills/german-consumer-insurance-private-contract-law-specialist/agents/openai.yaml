@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Consumer Insurance Private Contract Law Specialist"
+  short_description: "Analysiert deutsche private Vertrags-, Verbraucher- und Versicherungsrechtsmatters einschließlich Kauf/Dienstleistung..."
+policy:
+  allow_implicit_invocation: true

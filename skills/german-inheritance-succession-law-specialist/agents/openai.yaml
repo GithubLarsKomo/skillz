@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Inheritance Succession Law Specialist"
+  short_description: "Analysiert deutsches Erb-, Pflichtteils-, Testaments-, Schenkungs- und private Nachfolgerecht einschließlich Form, Er..."
+policy:
+  allow_implicit_invocation: true

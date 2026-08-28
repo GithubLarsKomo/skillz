@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n241 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n248 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -578,7 +578,7 @@
       "x": 4880,
       "y": 0,
       "width": 1120,
-      "height": 940,
+      "height": 1220,
       "color": "5"
     },
     {
@@ -600,11 +600,20 @@
       "height": 110
     },
     {
+      "id": "skill-corporate-compliance-law-specialist",
+      "type": "file",
+      "file": "skills/corporate-compliance-law-specialist.md",
+      "x": 5580,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-corporate-governance-law-specialist",
       "type": "file",
       "file": "skills/corporate-governance-law-specialist.md",
-      "x": 5580,
-      "y": 70,
+      "x": 4920,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -612,7 +621,16 @@
       "id": "skill-corporate-transactions-ma-specialist",
       "type": "file",
       "file": "skills/corporate-transactions-ma-specialist.md",
-      "x": 4920,
+      "x": 5250,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-digital-ai-cyber-law-specialist",
+      "type": "file",
+      "file": "skills/digital-ai-cyber-law-specialist.md",
+      "x": 5580,
       "y": 210,
       "width": 300,
       "height": 110
@@ -621,8 +639,17 @@
       "id": "skill-dispute-litigation-strategy-specialist",
       "type": "file",
       "file": "skills/dispute-litigation-strategy-specialist.md",
+      "x": 4920,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-administrative-social-traffic-law-specialist",
+      "type": "file",
+      "file": "skills/german-administrative-social-traffic-law-specialist.md",
       "x": 5250,
-      "y": 210,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -631,7 +658,25 @@
       "type": "file",
       "file": "skills/german-association-law-specialist.md",
       "x": 5580,
-      "y": 210,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "type": "file",
+      "file": "skills/german-consumer-insurance-private-contract-law-specialist.md",
+      "x": 4920,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "type": "file",
+      "file": "skills/german-criminal-administrative-offence-procedure-specialist.md",
+      "x": 5250,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -639,8 +684,26 @@
       "id": "skill-german-employment-labor-law-specialist",
       "type": "file",
       "file": "skills/german-employment-labor-law-specialist.md",
+      "x": 5580,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-family-law-specialist",
+      "type": "file",
+      "file": "skills/german-family-law-specialist.md",
       "x": 4920,
-      "y": 350,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-inheritance-succession-law-specialist",
+      "type": "file",
+      "file": "skills/german-inheritance-succession-law-specialist.md",
+      "x": 5250,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -648,8 +711,8 @@
       "id": "skill-german-rowing-sport-law-specialist",
       "type": "file",
       "file": "skills/german-rowing-sport-law-specialist.md",
-      "x": 5250,
-      "y": 350,
+      "x": 5580,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -657,8 +720,8 @@
       "id": "skill-german-sports-law-specialist",
       "type": "file",
       "file": "skills/german-sports-law-specialist.md",
-      "x": 5580,
-      "y": 350,
+      "x": 4920,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -666,8 +729,8 @@
       "id": "skill-ip-licensing-law-specialist",
       "type": "file",
       "file": "skills/ip-licensing-law-specialist.md",
-      "x": 4920,
-      "y": 490,
+      "x": 5250,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -675,8 +738,8 @@
       "id": "skill-privacy-data-law-specialist",
       "type": "file",
       "file": "skills/privacy-data-law-specialist.md",
-      "x": 5250,
-      "y": 490,
+      "x": 5580,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -684,8 +747,8 @@
       "id": "skill-product-liability-safety-law-specialist",
       "type": "file",
       "file": "skills/product-liability-safety-law-specialist.md",
-      "x": 5580,
-      "y": 490,
+      "x": 4920,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -693,8 +756,8 @@
       "id": "skill-real-estate-law-specialist",
       "type": "file",
       "file": "skills/real-estate-law-specialist.md",
-      "x": 4920,
-      "y": 630,
+      "x": 5250,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -702,8 +765,8 @@
       "id": "skill-tax-legal-interface-specialist",
       "type": "file",
       "file": "skills/tax-legal-interface-specialist.md",
-      "x": 5250,
-      "y": 630,
+      "x": 5580,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -711,8 +774,8 @@
       "id": "skill-trade-sanctions-export-control-specialist",
       "type": "file",
       "file": "skills/trade-sanctions-export-control-specialist.md",
-      "x": 5580,
-      "y": 630,
+      "x": 4920,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -720,8 +783,8 @@
       "id": "skill-whistleblowing-law-specialist",
       "type": "file",
       "file": "skills/whistleblowing-law-specialist.md",
-      "x": 4920,
-      "y": 770,
+      "x": 5250,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -2659,6 +2722,42 @@
       "label": "requires"
     },
     {
+      "id": "requires-0dda2240715f",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-compliance-obligation-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-224add28339d",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b4b941ae31a8",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1009e69ce31c",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-cbcc7ca06ae3",
       "fromNode": "skill-corporate-governance-law-specialist",
       "fromSide": "right",
@@ -2688,9 +2787,9 @@
     {
       "id": "requires-bdaa42aa5c82",
       "fromNode": "skill-corporate-transactions-ma-specialist",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-corporate-governance-law-specialist",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2826,6 +2925,42 @@
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-669ccb203077",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ccb23e3201e0",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2bdfbd721db7",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privacy-data-law-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e2ad5de946cd",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3802,6 +3937,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-6c17a73420fd",
+      "fromNode": "skill-german-administrative-social-traffic-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1b13d5e29368",
+      "fromNode": "skill-german-administrative-social-traffic-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-dispute-litigation-strategy-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-98f7804c9679",
+      "fromNode": "skill-german-administrative-social-traffic-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-405b6bb044b5",
       "fromNode": "skill-german-association-law-specialist",
       "fromSide": "right",
@@ -3816,6 +3978,60 @@
       "fromSide": "left",
       "toNode": "skill-legal-client-strategy",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7cce71cb023a",
+      "fromNode": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-73f37d6317d3",
+      "fromNode": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-dispute-litigation-strategy-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a318f4f80a2e",
+      "fromNode": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-eeaacfed47fd",
+      "fromNode": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c7fad87e6062",
+      "fromNode": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "fromSide": "right",
+      "toNode": "skill-investigation-evidence-preservation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1ebc55ccc59c",
+      "fromNode": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3847,11 +4063,65 @@
       "label": "requires"
     },
     {
+      "id": "requires-5124ac1db954",
+      "fromNode": "skill-german-family-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b7d48e91c2fd",
+      "fromNode": "skill-german-family-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-21ccb54d21d9",
+      "fromNode": "skill-german-family-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-565f51dffbd5",
+      "fromNode": "skill-german-inheritance-succession-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-571d0c3bec33",
+      "fromNode": "skill-german-inheritance-succession-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-739ff8788724",
+      "fromNode": "skill-german-inheritance-succession-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-tax-legal-interface-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-9a35f7a737eb",
       "fromNode": "skill-german-rowing-sport-law-specialist",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-german-sports-law-specialist",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },

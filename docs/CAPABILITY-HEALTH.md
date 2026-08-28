@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **241**
-- User-facing entrypoints: **210**
-- Evaluation suites: **235**
+- Skills: **248**
+- User-facing entrypoints: **217**
+- Evaluation suites: **242**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **238**
+- Outputs without inferred hard-requires consumers: **250**
 
 ## Evaluation gaps
 
@@ -43,6 +43,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 These are **not automatically defects**. The dependency graph infers consumers only from hard `requires` edges. User-facing reports, installed artifacts, runbooks, exported notes and other terminal products are expected to appear here. Treat this list as a review queue, not as an orphan verdict.
 
 - `acceptance-gaps.json` — producer: `fda-acceptance-readiness`
+- `administrative-social-traffic-assessment.json` — producer: `german-administrative-social-traffic-law-specialist`
 - `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
@@ -68,7 +69,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `change-integration-status.json` — producer: `regulatory-change-impact-orchestrator`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
-- `claim-defense-matrix.json` — producer: `dispute-litigation-strategy-specialist`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
 - `class-d-conformity-plan.json` — producer: `ivdr-class-d-conformity`
@@ -79,6 +79,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `communication-profile.merged.json` — producer: `memory-sync-reconciliation`
 - `competition-law-assessment.json` — producer: `competition-antitrust-law-specialist`
 - `complaint-regulatory-routing.json` — producer: `medical-device-complaint-regulatory-routing`
+- `compliance-legal-work-orders.json` — producer: `corporate-compliance-law-specialist`
 - `concept-handoff.json` — producer: `thought-to-concept-flow`
 - `concept.md` — producer: `thought-to-concept-flow`
 - `conflict-residual-risk-handoff.json` — producer: `merge-conflict-resolution`
@@ -87,13 +88,18 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `contract-case.json` — producer: `contract-workflow`
 - `contract-handoff.json` — producer: `contract-workflow`
 - `contract-plan.md` — producer: `contract-workflow`
+- `corporate-compliance-law-assessment.json` — producer: `corporate-compliance-law-specialist`
+- `criminal-counsel-brief.md` — producer: `german-criminal-administrative-offence-procedure-specialist`
+- `criminal-procedure-assessment.json` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-lifecycle-assessment.json` — producer: `medical-device-cybersecurity-lifecycle`
 - `cybersecurity-postmarket-actions.json` — producer: `medical-device-cybersecurity-lifecycle`
-- `data-processing-role-map.json` — producer: `privacy-data-law-specialist`
 - `de-novo-risk-control-rationale.md` — producer: `fda-de-novo-special-controls`
+- `defence-decision-map.json` — producer: `german-criminal-administrative-offence-procedure-specialist`
+- `digital-ai-cyber-law-assessment.json` — producer: `digital-ai-cyber-law-specialist`
+- `digital-legal-work-orders.json` — producer: `digital-ai-cyber-law-specialist`
+- `digital-regime-applicability-map.json` — producer: `digital-ai-cyber-law-specialist`
 - `disposal-record.json` — producer: `throwaway-prototype`
-- `dispute-strategy.json` — producer: `dispute-litigation-strategy-specialist`
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
@@ -111,6 +117,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `engineering-closure-gaps.json` — producer: `engineering-delivery-followup`
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
+- `estate-structure-map.json` — producer: `german-inheritance-succession-law-specialist`
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
 - `euroimmun-presentation.pdf` — producer: `euroimmun-presentation-workflow`
 - `euroimmun-presentation.pptx` — producer: `euroimmun-presentation-workflow`
@@ -123,6 +130,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `executive-search-brief.md` — producer: `job-description-authoring`
 - `expert handoff` — producer: `synapse-orchestrator`
 - `export-license-gates.json` — producer: `trade-sanctions-export-control-specialist`
+- `family-law-assessment.json` — producer: `german-family-law-specialist`
+- `family-law-counsel-work-order.json` — producer: `german-family-law-specialist`
+- `family-law-issue-map.json` — producer: `german-family-law-specialist`
 - `fda-acceptance-preflight.json` — producer: `fda-acceptance-readiness`
 - `fda-device-listing-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-recall-authority-state.json` — producer: `fda-recall-status-termination`
@@ -146,11 +156,14 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
 - `import verification` — producer: `openasr-offline-model-import`
+- `inheritance-succession-assessment.json` — producer: `german-inheritance-succession-law-specialist`
 - `inhouse-ivd-condition-map.json` — producer: `ivdr-inhouse-health-institution`
 - `inhouse-ivd-eligibility.json` — producer: `ivdr-inhouse-health-institution`
 - `inhouse-ivd-transition-readiness.json` — producer: `ivdr-inhouse-health-institution`
 - `inspection-evidence-index.json` — producer: `fda-qmsr-inspection-readiness`
 - `installed OpenASR model` — producer: `openasr-offline-model-import`
+- `insurance-coverage-issue-map.json` — producer: `german-consumer-insurance-private-contract-law-specialist`
+- `integrity-risk-route-map.json` — producer: `corporate-compliance-law-specialist`
 - `ip-legal-assessment.json` — producer: `ip-licensing-law-specialist`
 - `ip-license-deal-model.json` — producer: `ip-licensing-law-specialist`
 - `ip-rights-chain-map.json` — producer: `ip-licensing-law-specialist`
@@ -173,7 +186,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `legal-matter-status.json` — producer: `legal-compliance-office`
 - `liability-evidence-map.json` — producer: `product-liability-safety-law-specialist`
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
-- `litigation-counsel-brief.md` — producer: `dispute-litigation-strategy-specialist`
 - `llm-generation-review.json` — producer: `llm-generation-review-workflow`
 - `llm-generation-review.md` — producer: `llm-generation-review-workflow`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
@@ -209,11 +221,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
 - `pmpf-signals.json` — producer: `ivdr-pmpf`
-- `privacy-action-gates.json` — producer: `privacy-data-law-specialist`
 - `privacy-assessment.json` — producer: `medical-device-privacy-gdpr-bdsg`
-- `privacy-data-law-assessment.json` — producer: `privacy-data-law-specialist`
 - `privacy-governance.md` — producer: `medical-device-privacy-gdpr-bdsg`
 - `private-authority-escalation.json` — producer: `private-legal-matter-router`
+- `private-contract-action-plan.md` — producer: `german-consumer-insurance-private-contract-law-specialist`
+- `private-contract-consumer-assessment.json` — producer: `german-consumer-insurance-private-contract-law-specialist`
 - `private-legal-matter-route.json` — producer: `private-legal-matter-router`
 - `private-specialist-work-orders.json` — producer: `private-legal-matter-router`
 - `process-validation-assessment.json` — producer: `process-validation-iq-oq-pq`
@@ -225,6 +237,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `prototype-brief.md` — producer: `throwaway-prototype`
 - `prototype-evidence.json` — producer: `throwaway-prototype`
 - `public-job-posting.md` — producer: `job-description-authoring`
+- `public-law-professional-work-order.json` — producer: `german-administrative-social-traffic-law-specialist`
+- `public-law-remedy-map.json` — producer: `german-administrative-social-traffic-law-specialist`
 - `purchase-plan.json` — producer: `purchase-decision-planner`
 - `purchase-plan.md` — producer: `purchase-decision-planner`
 - `purchase-shortlist.json` — producer: `purchase-decision-planner`
@@ -260,13 +274,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
+- `succession-professional-work-orders.json` — producer: `german-inheritance-succession-law-specialist`
 - `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
-- `tax-decision-dependencies.json` — producer: `tax-legal-interface-specialist`
-- `tax-legal-interface-assessment.json` — producer: `tax-legal-interface-specialist`
-- `tax-specialist-work-order.json` — producer: `tax-legal-interface-specialist`
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
 - `trade-control-assessment.json` — producer: `trade-sanctions-export-control-specialist`

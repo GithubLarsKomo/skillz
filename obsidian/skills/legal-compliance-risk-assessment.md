@@ -32,7 +32,10 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ## Required by
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
+- [[skills/german-family-law-specialist|german-family-law-specialist]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -50,7 +53,10 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ### `commercial-exposure-analysis.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
+- [[skills/german-family-law-specialist|german-family-law-specialist]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -60,7 +66,10 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ### `legal-risk-decision-handoff.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
+- [[skills/german-family-law-specialist|german-family-law-specialist]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]
@@ -70,7 +79,10 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ### `legal-risk-register.json`
 
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
+- [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
+- [[skills/german-family-law-specialist|german-family-law-specialist]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 - [[skills/legal-compliance-office|legal-compliance-office]]

@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Family Law Specialist"
+  short_description: "Analysiert private deutsche Familienrechtsmatters einschließlich Trennung/Scheidung, Unterhalt, Sorge/Umgang, Gewalts..."
+policy:
+  allow_implicit_invocation: true

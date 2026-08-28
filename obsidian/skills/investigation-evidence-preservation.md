@@ -31,6 +31,7 @@ Plant und dokumentiert rechtmäßige Beweissicherung für interne Untersuchungen
 
 ## Required by
 
+- [[skills/german-criminal-administrative-offence-procedure-specialist|german-criminal-administrative-offence-procedure-specialist]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 
 ## Outputs
@@ -43,14 +44,17 @@ Plant und dokumentiert rechtmäßige Beweissicherung für interne Untersuchungen
 
 ### `investigation-evidence-preservation-plan.json`
 
+- [[skills/german-criminal-administrative-offence-procedure-specialist|german-criminal-administrative-offence-procedure-specialist]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 
 ### `investigation-evidence-register.json`
 
+- [[skills/german-criminal-administrative-offence-procedure-specialist|german-criminal-administrative-offence-procedure-specialist]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 
 ### `investigation-legal-hold-plan.md`
 
+- [[skills/german-criminal-administrative-offence-procedure-specialist|german-criminal-administrative-offence-procedure-specialist]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 
 ## Evaluation

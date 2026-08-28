@@ -295,6 +295,21 @@
       ]
     },
     {
+      "name": "corporate-compliance-law-specialist",
+      "requires": [
+        "compliance-obligation-register",
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "compliance-legal-work-orders.json",
+        "corporate-compliance-law-assessment.json",
+        "integrity-risk-route-map.json"
+      ]
+    },
+    {
       "name": "corporate-governance-law-specialist",
       "requires": [
         "current-law-context",
@@ -405,6 +420,21 @@
       "outputs": [
         "design-control-traceability.json",
         "design-evidence-gaps.json"
+      ]
+    },
+    {
+      "name": "digital-ai-cyber-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privacy-data-law-specialist",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "digital-ai-cyber-law-assessment.json",
+        "digital-legal-work-orders.json",
+        "digital-regime-applicability-map.json"
       ]
     },
     {
@@ -956,6 +986,20 @@
       ]
     },
     {
+      "name": "german-administrative-social-traffic-law-specialist",
+      "requires": [
+        "current-law-context",
+        "dispute-litigation-strategy-specialist",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "administrative-social-traffic-assessment.json",
+        "public-law-professional-work-order.json",
+        "public-law-remedy-map.json"
+      ]
+    },
+    {
       "name": "german-association-law-specialist",
       "requires": [
         "current-law-context",
@@ -966,6 +1010,34 @@
         "association-governance-map.json",
         "association-law-open-points.json",
         "german-association-law-assessment.json"
+      ]
+    },
+    {
+      "name": "german-consumer-insurance-private-contract-law-specialist",
+      "requires": [
+        "current-law-context",
+        "dispute-litigation-strategy-specialist",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "insurance-coverage-issue-map.json",
+        "private-contract-action-plan.md",
+        "private-contract-consumer-assessment.json"
+      ]
+    },
+    {
+      "name": "german-criminal-administrative-offence-procedure-specialist",
+      "requires": [
+        "current-law-context",
+        "investigation-evidence-preservation",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "criminal-counsel-brief.md",
+        "criminal-procedure-assessment.json",
+        "defence-decision-map.json"
       ]
     },
     {
@@ -980,6 +1052,34 @@
         "employment-action-gates.json",
         "german-employment-law-assessment.json",
         "works-council-route-map.json"
+      ]
+    },
+    {
+      "name": "german-family-law-specialist",
+      "requires": [
+        "current-law-context",
+        "legal-compliance-risk-assessment",
+        "privilege-and-counsel-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "family-law-assessment.json",
+        "family-law-counsel-work-order.json",
+        "family-law-issue-map.json"
+      ]
+    },
+    {
+      "name": "german-inheritance-succession-law-specialist",
+      "requires": [
+        "current-law-context",
+        "privilege-and-counsel-routing",
+        "tax-legal-interface-specialist"
+      ],
+      "consumes": [],
+      "outputs": [
+        "estate-structure-map.json",
+        "inheritance-succession-assessment.json",
+        "succession-professional-work-orders.json"
       ]
     },
     {
@@ -3252,6 +3352,22 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "corporate-compliance-law-specialist",
+      "to": "compliance-obligation-register"
+    },
+    {
+      "from": "corporate-compliance-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "corporate-compliance-law-specialist",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "corporate-compliance-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
       "from": "corporate-governance-law-specialist",
       "to": "current-law-context"
     },
@@ -3326,6 +3442,22 @@
     {
       "from": "design-control-traceability",
       "to": "two-axis-compliance-review"
+    },
+    {
+      "from": "digital-ai-cyber-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "digital-ai-cyber-law-specialist",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "digital-ai-cyber-law-specialist",
+      "to": "privacy-data-law-specialist"
+    },
+    {
+      "from": "digital-ai-cyber-law-specialist",
+      "to": "privilege-and-counsel-routing"
     },
     {
       "from": "disciplined-diagnosis",
@@ -3760,12 +3892,48 @@
       "to": "round-based-requirements-grilling"
     },
     {
+      "from": "german-administrative-social-traffic-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-administrative-social-traffic-law-specialist",
+      "to": "dispute-litigation-strategy-specialist"
+    },
+    {
+      "from": "german-administrative-social-traffic-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
       "from": "german-association-law-specialist",
       "to": "current-law-context"
     },
     {
       "from": "german-association-law-specialist",
       "to": "legal-client-strategy"
+    },
+    {
+      "from": "german-consumer-insurance-private-contract-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-consumer-insurance-private-contract-law-specialist",
+      "to": "dispute-litigation-strategy-specialist"
+    },
+    {
+      "from": "german-consumer-insurance-private-contract-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "german-criminal-administrative-offence-procedure-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-criminal-administrative-offence-procedure-specialist",
+      "to": "investigation-evidence-preservation"
+    },
+    {
+      "from": "german-criminal-administrative-offence-procedure-specialist",
+      "to": "privilege-and-counsel-routing"
     },
     {
       "from": "german-employment-labor-law-specialist",
@@ -3778,6 +3946,30 @@
     {
       "from": "german-employment-labor-law-specialist",
       "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "german-family-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-family-law-specialist",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
+      "from": "german-family-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "german-inheritance-succession-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "german-inheritance-succession-law-specialist",
+      "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "german-inheritance-succession-law-specialist",
+      "to": "tax-legal-interface-specialist"
     },
     {
       "from": "german-rowing-sport-law-specialist",
@@ -5494,6 +5686,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "administrative-social-traffic-assessment.json",
+      "producers": [
+        "german-administrative-social-traffic-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "adverse-event-code-set.json",
       "producers": [
         "medical-device-adverse-event-coding"
@@ -6019,9 +6220,12 @@
       "producers": [
         "dispute-litigation-strategy-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "claims-consistency-map.json",
@@ -6166,7 +6370,10 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
+        "corporate-compliance-law-specialist",
+        "digital-ai-cyber-law-specialist",
         "executive-legal-compliance-governance",
+        "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
@@ -6418,6 +6625,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "compliance-legal-work-orders.json",
+      "producers": [
+        "corporate-compliance-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "compliance-management-handoff.json",
       "producers": [
         "compliance-management-workflow"
@@ -6447,6 +6663,7 @@
       "consumerSkills": [
         "compliance-control-mapping",
         "compliance-management-workflow",
+        "corporate-compliance-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
@@ -6460,6 +6677,7 @@
       "consumerSkills": [
         "compliance-control-mapping",
         "compliance-management-workflow",
+        "corporate-compliance-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
@@ -6473,6 +6691,7 @@
       "consumerSkills": [
         "compliance-control-mapping",
         "compliance-management-workflow",
+        "corporate-compliance-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
@@ -6787,6 +7006,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "corporate-compliance-law-assessment.json",
+      "producers": [
+        "corporate-compliance-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "corporate-governance-assessment.json",
       "producers": [
         "corporate-governance-law-specialist"
@@ -6837,10 +7065,17 @@
       ],
       "consumerSkills": [
         "competition-antitrust-law-specialist",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
@@ -6854,6 +7089,24 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "criminal-counsel-brief.md",
+      "producers": [
+        "german-criminal-administrative-offence-procedure-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "criminal-procedure-assessment.json",
+      "producers": [
+        "german-criminal-administrative-offence-procedure-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "customer-communication-record.json",
@@ -6962,9 +7215,11 @@
       "producers": [
         "privacy-data-law-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "digital-ai-cyber-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "de-novo-evidence-gaps.json",
@@ -7077,6 +7332,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "defence-decision-map.json",
+      "producers": [
+        "german-criminal-administrative-offence-procedure-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "delivery-review-handoff.json",
@@ -7196,6 +7460,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "digital-ai-cyber-law-assessment.json",
+      "producers": [
+        "digital-ai-cyber-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "digital-legal-work-orders.json",
+      "producers": [
+        "digital-ai-cyber-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "digital-regime-applicability-map.json",
+      "producers": [
+        "digital-ai-cyber-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "disposal-record.json",
       "producers": [
         "throwaway-prototype"
@@ -7209,9 +7500,12 @@
       "producers": [
         "dispute-litigation-strategy-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "docs/agents/CONFIG.md",
@@ -7489,6 +7783,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "estate-structure-map.json",
+      "producers": [
+        "german-inheritance-succession-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "etf-hosted-release-candidate.json",
       "producers": [
         "exam-trainer-catalog-builder"
@@ -7748,10 +8051,17 @@
       ],
       "consumerSkills": [
         "competition-antitrust-law-specialist",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
@@ -7765,6 +8075,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "family-law-assessment.json",
+      "producers": [
+        "german-family-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "family-law-counsel-work-order.json",
+      "producers": [
+        "german-family-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "family-law-issue-map.json",
+      "producers": [
+        "german-family-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "fda-acceptance-preflight.json",
@@ -8367,6 +8704,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "inheritance-succession-assessment.json",
+      "producers": [
+        "german-inheritance-succession-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "inhouse-ivd-condition-map.json",
       "producers": [
         "ivdr-inhouse-health-institution"
@@ -8412,6 +8758,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "insurance-coverage-issue-map.json",
+      "producers": [
+        "german-consumer-insurance-private-contract-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "integrity-risk-route-map.json",
+      "producers": [
+        "corporate-compliance-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "investigation-backlog.json",
       "producers": [
         "large-work-wayfinder"
@@ -8441,6 +8805,7 @@
         "investigation-evidence-preservation"
       ],
       "consumerSkills": [
+        "german-criminal-administrative-offence-procedure-specialist",
         "internal-investigation-workflow"
       ],
       "ambiguous": false,
@@ -8452,6 +8817,7 @@
         "investigation-evidence-preservation"
       ],
       "consumerSkills": [
+        "german-criminal-administrative-offence-procedure-specialist",
         "internal-investigation-workflow"
       ],
       "ambiguous": false,
@@ -8485,6 +8851,7 @@
         "investigation-evidence-preservation"
       ],
       "consumerSkills": [
+        "german-criminal-administrative-offence-procedure-specialist",
         "internal-investigation-workflow"
       ],
       "ambiguous": false,
@@ -8978,11 +9345,18 @@
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
@@ -9069,11 +9443,18 @@
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
@@ -9184,11 +9565,18 @@
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
@@ -9275,11 +9663,18 @@
         "contract-drafting",
         "contract-legal-context",
         "contract-review",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "german-sports-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
@@ -9306,7 +9701,10 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
+        "corporate-compliance-law-specialist",
+        "digital-ai-cyber-law-specialist",
         "executive-legal-compliance-governance",
+        "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
@@ -9323,7 +9721,10 @@
       ],
       "consumerSkills": [
         "compliance-control-mapping",
+        "corporate-compliance-law-specialist",
+        "digital-ai-cyber-law-specialist",
         "executive-legal-compliance-governance",
+        "german-family-law-specialist",
         "investigation-findings-remediation",
         "legal-change-impact-orchestrator",
         "legal-compliance-office",
@@ -9414,9 +9815,12 @@
       "producers": [
         "dispute-litigation-strategy-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "llm-generation-assessment.json",
@@ -10433,9 +10837,11 @@
       "producers": [
         "privacy-data-law-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "digital-ai-cyber-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "privacy-assessment.json",
@@ -10451,9 +10857,11 @@
       "producers": [
         "privacy-data-law-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "digital-ai-cyber-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "privacy-governance.md",
@@ -10468,6 +10876,24 @@
       "output": "private-authority-escalation.json",
       "producers": [
         "private-legal-matter-router"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "private-contract-action-plan.md",
+      "producers": [
+        "german-consumer-insurance-private-contract-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "private-contract-consumer-assessment.json",
+      "producers": [
+        "german-consumer-insurance-private-contract-law-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -10498,10 +10924,17 @@
       ],
       "consumerSkills": [
         "competition-antitrust-law-specialist",
+        "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "german-administrative-social-traffic-law-specialist",
+        "german-consumer-insurance-private-contract-law-specialist",
+        "german-criminal-administrative-offence-procedure-specialist",
         "german-employment-labor-law-specialist",
+        "german-family-law-specialist",
+        "german-inheritance-succession-law-specialist",
         "investigation-evidence-preservation",
         "ip-licensing-law-specialist",
         "legal-compliance-office",
@@ -10686,6 +11119,24 @@
       "output": "public-job-posting.md",
       "producers": [
         "job-description-authoring"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "public-law-professional-work-order.json",
+      "producers": [
+        "german-administrative-social-traffic-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "public-law-remedy-map.json",
+      "producers": [
+        "german-administrative-social-traffic-law-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -12057,6 +12508,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "succession-professional-work-orders.json",
+      "producers": [
+        "german-inheritance-succession-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "supplier-control-plan.json",
       "producers": [
         "supplier-quality-medical-device"
@@ -12097,27 +12557,33 @@
       "producers": [
         "tax-legal-interface-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "german-inheritance-succession-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "tax-legal-interface-assessment.json",
       "producers": [
         "tax-legal-interface-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "german-inheritance-succession-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "tax-specialist-work-order.json",
       "producers": [
         "tax-legal-interface-specialist"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "german-inheritance-succession-law-specialist"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "inferred"
     },
     {
       "output": "technology-due-diligence.json",
@@ -12551,6 +13017,7 @@
   ],
   "unconsumedOutputs": [
     "acceptance-gaps.json",
+    "administrative-social-traffic-assessment.json",
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
@@ -12576,7 +13043,6 @@
     "cdx-scope-assessment.json",
     "change-integration-status.json",
     "claim-conflicts.json",
-    "claim-defense-matrix.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
@@ -12587,6 +13053,7 @@
     "communication-profile.merged.json",
     "competition-law-assessment.json",
     "complaint-regulatory-routing.json",
+    "compliance-legal-work-orders.json",
     "concept-handoff.json",
     "concept.md",
     "conflict-residual-risk-handoff.json",
@@ -12595,13 +13062,18 @@
     "contract-case.json",
     "contract-handoff.json",
     "contract-plan.md",
+    "corporate-compliance-law-assessment.json",
+    "criminal-counsel-brief.md",
+    "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
-    "data-processing-role-map.json",
     "de-novo-risk-control-rationale.md",
+    "defence-decision-map.json",
+    "digital-ai-cyber-law-assessment.json",
+    "digital-legal-work-orders.json",
+    "digital-regime-applicability-map.json",
     "disposal-record.json",
-    "dispute-strategy.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -12619,6 +13091,7 @@
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
+    "estate-structure-map.json",
     "eudamed-readiness.json",
     "euroimmun-presentation.pdf",
     "euroimmun-presentation.pptx",
@@ -12631,6 +13104,9 @@
     "executive-search-brief.md",
     "expert handoff",
     "export-license-gates.json",
+    "family-law-assessment.json",
+    "family-law-counsel-work-order.json",
+    "family-law-issue-map.json",
     "fda-acceptance-preflight.json",
     "fda-device-listing-readiness.json",
     "fda-recall-authority-state.json",
@@ -12654,11 +13130,14 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inheritance-succession-assessment.json",
     "inhouse-ivd-condition-map.json",
     "inhouse-ivd-eligibility.json",
     "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
+    "insurance-coverage-issue-map.json",
+    "integrity-risk-route-map.json",
     "ip-legal-assessment.json",
     "ip-license-deal-model.json",
     "ip-rights-chain-map.json",
@@ -12681,7 +13160,6 @@
     "legal-matter-status.json",
     "liability-evidence-map.json",
     "lifecycle-impact-gates.json",
-    "litigation-counsel-brief.md",
     "llm-generation-review.json",
     "llm-generation-review.md",
     "management-review-effectiveness-gaps.json",
@@ -12717,11 +13195,11 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "privacy-action-gates.json",
     "privacy-assessment.json",
-    "privacy-data-law-assessment.json",
     "privacy-governance.md",
     "private-authority-escalation.json",
+    "private-contract-action-plan.md",
+    "private-contract-consumer-assessment.json",
     "private-legal-matter-route.json",
     "private-specialist-work-orders.json",
     "process-validation-assessment.json",
@@ -12733,6 +13211,8 @@
     "prototype-brief.md",
     "prototype-evidence.json",
     "public-job-posting.md",
+    "public-law-professional-work-order.json",
+    "public-law-remedy-map.json",
     "purchase-plan.json",
     "purchase-plan.md",
     "purchase-shortlist.json",
@@ -12768,13 +13248,11 @@
     "sport-report-package",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
+    "succession-professional-work-orders.json",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
-    "tax-decision-dependencies.json",
-    "tax-legal-interface-assessment.json",
-    "tax-specialist-work-order.json",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "trade-control-assessment.json",
@@ -12791,6 +13269,7 @@
   ],
   "orphanOutputs": [
     "acceptance-gaps.json",
+    "administrative-social-traffic-assessment.json",
     "adverse-event-code-set.json",
     "adverse-event-coding-delta.json",
     "adverse-event-coding-rationale.json",
@@ -12816,7 +13295,6 @@
     "cdx-scope-assessment.json",
     "change-integration-status.json",
     "claim-conflicts.json",
-    "claim-defense-matrix.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
     "class-d-conformity-plan.json",
@@ -12827,6 +13305,7 @@
     "communication-profile.merged.json",
     "competition-law-assessment.json",
     "complaint-regulatory-routing.json",
+    "compliance-legal-work-orders.json",
     "concept-handoff.json",
     "concept.md",
     "conflict-residual-risk-handoff.json",
@@ -12835,13 +13314,18 @@
     "contract-case.json",
     "contract-handoff.json",
     "contract-plan.md",
+    "corporate-compliance-law-assessment.json",
+    "criminal-counsel-brief.md",
+    "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
     "cybersecurity-lifecycle-assessment.json",
     "cybersecurity-postmarket-actions.json",
-    "data-processing-role-map.json",
     "de-novo-risk-control-rationale.md",
+    "defence-decision-map.json",
+    "digital-ai-cyber-law-assessment.json",
+    "digital-legal-work-orders.json",
+    "digital-regime-applicability-map.json",
     "disposal-record.json",
-    "dispute-strategy.json",
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
@@ -12859,6 +13343,7 @@
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
+    "estate-structure-map.json",
     "eudamed-readiness.json",
     "euroimmun-presentation.pdf",
     "euroimmun-presentation.pptx",
@@ -12871,6 +13356,9 @@
     "executive-search-brief.md",
     "expert handoff",
     "export-license-gates.json",
+    "family-law-assessment.json",
+    "family-law-counsel-work-order.json",
+    "family-law-issue-map.json",
     "fda-acceptance-preflight.json",
     "fda-device-listing-readiness.json",
     "fda-recall-authority-state.json",
@@ -12894,11 +13382,14 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inheritance-succession-assessment.json",
     "inhouse-ivd-condition-map.json",
     "inhouse-ivd-eligibility.json",
     "inhouse-ivd-transition-readiness.json",
     "inspection-evidence-index.json",
     "installed OpenASR model",
+    "insurance-coverage-issue-map.json",
+    "integrity-risk-route-map.json",
     "ip-legal-assessment.json",
     "ip-license-deal-model.json",
     "ip-rights-chain-map.json",
@@ -12921,7 +13412,6 @@
     "legal-matter-status.json",
     "liability-evidence-map.json",
     "lifecycle-impact-gates.json",
-    "litigation-counsel-brief.md",
     "llm-generation-review.json",
     "llm-generation-review.md",
     "management-review-effectiveness-gaps.json",
@@ -12957,11 +13447,11 @@
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
     "pmpf-signals.json",
-    "privacy-action-gates.json",
     "privacy-assessment.json",
-    "privacy-data-law-assessment.json",
     "privacy-governance.md",
     "private-authority-escalation.json",
+    "private-contract-action-plan.md",
+    "private-contract-consumer-assessment.json",
     "private-legal-matter-route.json",
     "private-specialist-work-orders.json",
     "process-validation-assessment.json",
@@ -12973,6 +13463,8 @@
     "prototype-brief.md",
     "prototype-evidence.json",
     "public-job-posting.md",
+    "public-law-professional-work-order.json",
+    "public-law-remedy-map.json",
     "purchase-plan.json",
     "purchase-plan.md",
     "purchase-shortlist.json",
@@ -13008,13 +13500,11 @@
     "sport-report-package",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
+    "succession-professional-work-orders.json",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
     "synchronization manifest",
-    "tax-decision-dependencies.json",
-    "tax-legal-interface-assessment.json",
-    "tax-specialist-work-order.json",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "trade-control-assessment.json",

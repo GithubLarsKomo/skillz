@@ -32,7 +32,7 @@ Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corpora
 
 ## Required by
 
-- —
+- [[skills/german-inheritance-succession-law-specialist|german-inheritance-succession-law-specialist]]
 
 ## Outputs
 
@@ -44,15 +44,15 @@ Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corpora
 
 ### `tax-decision-dependencies.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/german-inheritance-succession-law-specialist|german-inheritance-succession-law-specialist]]
 
 ### `tax-legal-interface-assessment.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/german-inheritance-succession-law-specialist|german-inheritance-succession-law-specialist]]
 
 ### `tax-specialist-work-order.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/german-inheritance-succession-law-specialist|german-inheritance-succession-law-specialist]]
 
 ## Evaluation
 
