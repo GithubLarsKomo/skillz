@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Change Monitoring"
+  short_description: "Erkennt verifizierte Rechtsänderungen aus aktuellen Primärquellen."
+policy:
+  allow_implicit_invocation: true
