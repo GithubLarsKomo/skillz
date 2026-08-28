@@ -14,6 +14,7 @@ on:
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
       - "scripts/finalize_architecture_consolidation_p0.py"
+      - "scripts/apply_architecture_consolidation_p1_source_spine.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -47,11 +48,17 @@ jobs:
         run: python -m unittest tests.test_role_selection_routing_policy
       - name: Materialize OpenAI agent metadata
         run: python scripts/materialize_openai_agent_metadata.py
+      - name: Apply P1 source-context spine
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/apply_architecture_consolidation_p1_source_spine.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
       - name: Finalize architecture consolidation P0
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/finalize_architecture_consolidation_p0.py
+      - name: Verify P1 source-context spine
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python -m unittest tests.test_architecture_consolidation_p1_source_spine
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
