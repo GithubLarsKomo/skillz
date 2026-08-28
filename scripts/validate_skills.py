@@ -49,6 +49,10 @@ def parse_frontmatter(path: Path) -> tuple[dict[str, object], str]:
     return data, text[end + 5 :]
 
 
+def frontmatter_true(value: object) -> bool:
+    return isinstance(value, str) and value.strip().lower() == "true"
+
+
 def main() -> int:
     errors: list[str] = []
     skills: dict[str, Path] = {}
@@ -68,6 +72,25 @@ def main() -> int:
         if slug in skills:
             errors.append(f"doppelter Skillname: {slug}")
         skills[slug] = skill_file
+
+        evaluation = skill_file.parent / "tests" / "evaluation.json"
+        status = str(fm.get("status", "")).strip().lower()
+        user_facing = frontmatter_true(fm.get("userFacing"))
+        if status == "stable" and user_facing and not evaluation.exists():
+            errors.append(
+                f"{skill_file.relative_to(ROOT)}: stabiler user-facing Entrypoint ohne tests/evaluation.json"
+            )
+        elif status == "candidate" and user_facing and not evaluation.exists():
+            print(
+                f"WARN: {skill_file.relative_to(ROOT)} ist user-facing candidate ohne tests/evaluation.json"
+            )
+        elif status == "deprecated" and not evaluation.exists():
+            print(
+                f"WARN: {skill_file.relative_to(ROOT)} ist deprecated ohne Compatibility-Evaluation"
+            )
+        elif not user_facing and status != "deprecated" and not evaluation.exists():
+            print(f"WARN: {skill_file.relative_to(ROOT)} enthält keine Evaluation-Suite")
+
         for section in REQUIRED_SECTIONS:
             if not re.search(rf"^##+\s+{re.escape(section)}\s*$", body, re.MULTILINE | re.IGNORECASE):
                 print(f"WARN: {skill_file.relative_to(ROOT)} enthält keinen Abschnitt '{section}'")
