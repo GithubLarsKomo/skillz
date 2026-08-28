@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **24**
+Skills: **25**
 
 - [[skills/competition-antitrust-law-specialist|competition-antitrust-law-specialist]]
 - [[skills/compliance-obligation-register|compliance-obligation-register]]
@@ -19,6 +19,7 @@ Skills: **24**
 - [[skills/corporate-transactions-ma-specialist|corporate-transactions-ma-specialist]]
 - [[skills/digital-ai-cyber-law-specialist|digital-ai-cyber-law-specialist]]
 - [[skills/dispute-litigation-strategy-specialist|dispute-litigation-strategy-specialist]]
+- [[skills/esg-supply-chain-environmental-law-specialist|esg-supply-chain-environmental-law-specialist]]
 - [[skills/german-administrative-social-traffic-law-specialist|german-administrative-social-traffic-law-specialist]]
 - [[skills/german-association-law-specialist|german-association-law-specialist]]
 - [[skills/german-consumer-insurance-private-contract-law-specialist|german-consumer-insurance-private-contract-law-specialist]]

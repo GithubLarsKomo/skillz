@@ -33,6 +33,7 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/esg-supply-chain-environmental-law-specialist|esg-supply-chain-environmental-law-specialist]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ## Outputs
@@ -48,6 +49,7 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/esg-supply-chain-environmental-law-specialist|esg-supply-chain-environmental-law-specialist]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ### `compliance-obligation-register.json`
@@ -55,6 +57,7 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/esg-supply-chain-environmental-law-specialist|esg-supply-chain-environmental-law-specialist]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ### `compliance-obligation-source-note.md`
@@ -62,6 +65,7 @@ Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quelle
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
 - [[skills/corporate-compliance-law-specialist|corporate-compliance-law-specialist]]
+- [[skills/esg-supply-chain-environmental-law-specialist|esg-supply-chain-environmental-law-specialist]]
 - [[skills/legal-change-impact-orchestrator|legal-change-impact-orchestrator]]
 
 ## Evaluation

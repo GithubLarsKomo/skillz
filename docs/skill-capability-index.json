@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 249,
-  "entrypointCount": 218,
+  "skillCount": 250,
+  "entrypointCount": 219,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -13,7 +13,7 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 243,
+  "evaluationSuiteCount": 244,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -870,6 +870,7 @@
         "compliance-control-mapping",
         "compliance-management-workflow",
         "corporate-compliance-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "outputs": [
@@ -888,6 +889,7 @@
             "compliance-control-mapping",
             "compliance-management-workflow",
             "corporate-compliance-law-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "legal-change-impact-orchestrator"
           ]
         },
@@ -901,6 +903,7 @@
             "compliance-control-mapping",
             "compliance-management-workflow",
             "corporate-compliance-law-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "legal-change-impact-orchestrator"
           ]
         },
@@ -914,6 +917,7 @@
             "compliance-control-mapping",
             "compliance-management-workflow",
             "corporate-compliance-law-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "legal-change-impact-orchestrator"
           ]
         }
@@ -1621,6 +1625,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -1670,6 +1675,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -1713,6 +1719,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -1756,6 +1763,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -1799,6 +1807,7 @@
             "corporate-transactions-ma-specialist",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "german-administrative-social-traffic-law-specialist",
             "german-association-law-specialist",
             "german-consumer-insurance-private-contract-law-specialist",
@@ -2706,6 +2715,61 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "esg-supply-chain-environmental-law-specialist",
+      "description": "Analysiert unternehmerische ESG-, Lieferketten-, Menschenrechts- und Umweltrechtsmatters für Deutschland/EU einschließlich LkSG/CSDDD, Nachhaltigkeits-Due-Diligence, Umwelt-/Produktstoffpflichten und Supplier-Handoffs, ohne Reporting-, QMS- oder Fachumweltlogik zu duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "legal-specialist"
+      },
+      "requires": [
+        "compliance-obligation-register",
+        "current-law-context",
+        "legal-compliance-risk-assessment"
+      ],
+      "dependents": [],
+      "outputs": [
+        "esg-remediation-work-orders.json",
+        "esg-supply-chain-law-assessment.json",
+        "sustainability-obligation-route-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "esg-remediation-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "esg-supply-chain-environmental-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "esg-supply-chain-law-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "esg-supply-chain-environmental-law-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "sustainability-obligation-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "esg-supply-chain-environmental-law-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/authoritative-sources.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -7338,6 +7402,7 @@
         "compliance-control-mapping",
         "corporate-compliance-law-specialist",
         "digital-ai-cyber-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
         "german-family-law-specialist",
         "investigation-findings-remediation",
@@ -7363,6 +7428,7 @@
             "compliance-control-mapping",
             "corporate-compliance-law-specialist",
             "digital-ai-cyber-law-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "executive-legal-compliance-governance",
             "german-family-law-specialist",
             "investigation-findings-remediation",
@@ -7383,6 +7449,7 @@
             "compliance-control-mapping",
             "corporate-compliance-law-specialist",
             "digital-ai-cyber-law-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "executive-legal-compliance-governance",
             "german-family-law-specialist",
             "investigation-findings-remediation",
@@ -7403,6 +7470,7 @@
             "compliance-control-mapping",
             "corporate-compliance-law-specialist",
             "digital-ai-cyber-law-specialist",
+            "esg-supply-chain-environmental-law-specialist",
             "executive-legal-compliance-governance",
             "german-family-law-specialist",
             "investigation-findings-remediation",

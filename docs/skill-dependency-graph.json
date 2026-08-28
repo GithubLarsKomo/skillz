@@ -528,6 +528,20 @@
       ]
     },
     {
+      "name": "esg-supply-chain-environmental-law-specialist",
+      "requires": [
+        "compliance-obligation-register",
+        "current-law-context",
+        "legal-compliance-risk-assessment"
+      ],
+      "consumes": [],
+      "outputs": [
+        "esg-remediation-work-orders.json",
+        "esg-supply-chain-law-assessment.json",
+        "sustainability-obligation-route-map.json"
+      ]
+    },
+    {
       "name": "eu-mdr-ivdr-regulatory-specialist",
       "requires": [
         "medical-device-risk-management-iso14971",
@@ -3522,6 +3536,18 @@
       "to": "two-axis-code-review"
     },
     {
+      "from": "esg-supply-chain-environmental-law-specialist",
+      "to": "compliance-obligation-register"
+    },
+    {
+      "from": "esg-supply-chain-environmental-law-specialist",
+      "to": "current-law-context"
+    },
+    {
+      "from": "esg-supply-chain-environmental-law-specialist",
+      "to": "legal-compliance-risk-assessment"
+    },
+    {
       "from": "eu-mdr-ivdr-regulatory-specialist",
       "to": "medical-device-risk-management-iso14971"
     },
@@ -6398,6 +6424,7 @@
         "compliance-control-mapping",
         "corporate-compliance-law-specialist",
         "digital-ai-cyber-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
         "german-family-law-specialist",
         "investigation-findings-remediation",
@@ -6691,6 +6718,7 @@
         "compliance-control-mapping",
         "compliance-management-workflow",
         "corporate-compliance-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
@@ -6705,6 +6733,7 @@
         "compliance-control-mapping",
         "compliance-management-workflow",
         "corporate-compliance-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
@@ -6719,6 +6748,7 @@
         "compliance-control-mapping",
         "compliance-management-workflow",
         "corporate-compliance-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "legal-change-impact-orchestrator"
       ],
       "ambiguous": false,
@@ -7797,6 +7827,24 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "esg-remediation-work-orders.json",
+      "producers": [
+        "esg-supply-chain-environmental-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "esg-supply-chain-law-assessment.json",
+      "producers": [
+        "esg-supply-chain-environmental-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "estar-content-map.json",
@@ -9379,6 +9427,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9478,6 +9527,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9601,6 +9651,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9700,6 +9751,7 @@
         "corporate-transactions-ma-specialist",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "german-administrative-social-traffic-law-specialist",
         "german-association-law-specialist",
         "german-consumer-insurance-private-contract-law-specialist",
@@ -9736,6 +9788,7 @@
         "compliance-control-mapping",
         "corporate-compliance-law-specialist",
         "digital-ai-cyber-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
         "german-family-law-specialist",
         "investigation-findings-remediation",
@@ -9757,6 +9810,7 @@
         "compliance-control-mapping",
         "corporate-compliance-law-specialist",
         "digital-ai-cyber-law-specialist",
+        "esg-supply-chain-environmental-law-specialist",
         "executive-legal-compliance-governance",
         "german-family-law-specialist",
         "investigation-findings-remediation",
@@ -12598,6 +12652,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "sustainability-obligation-route-map.json",
+      "producers": [
+        "esg-supply-chain-environmental-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "synchronization manifest",
       "producers": [
         "central-skill-repository-curation"
@@ -13154,6 +13217,8 @@
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
+    "esg-remediation-work-orders.json",
+    "esg-supply-chain-law-assessment.json",
     "estate-structure-map.json",
     "eudamed-readiness.json",
     "euroimmun-presentation.pdf",
@@ -13317,6 +13382,7 @@
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
+    "sustainability-obligation-route-map.json",
     "synchronization manifest",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
@@ -13409,6 +13475,8 @@
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
+    "esg-remediation-work-orders.json",
+    "esg-supply-chain-law-assessment.json",
     "estate-structure-map.json",
     "eudamed-readiness.json",
     "euroimmun-presentation.pdf",
@@ -13572,6 +13640,7 @@
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
+    "sustainability-obligation-route-map.json",
     "synchronization manifest",
     "technology-due-diligence.json",
     "technology-due-diligence.md",

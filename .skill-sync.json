@@ -283,6 +283,13 @@
         "agents/openai.yaml": "6c2658e070b4e069db260bce460c4cef23581187fd7355ade8a03f534f27d9b7"
       }
     },
+    "esg-supply-chain-environmental-law-specialist": {
+      "files": {
+        "SKILL.md": "7ad37d8eaf965fbe3043039eb343063fddc54e599e14e9733f2d898cd52dbd03",
+        "agents/openai.yaml": "b026c6fc1ecb66ad7e67332b437005b87802e669868aada255806ca3594dc665",
+        "references/authoritative-sources.md": "e5ac716063f6582969d6b0f604fe0e21cee02c664512a52975def8c7ca3757de"
+      }
+    },
     "eu-mdr-ivdr-regulatory-specialist": {
       "files": {
         "SKILL.md": "9dbc70293065386b34fa8f49689ded7717a956f2efc7eca8bed14012dc69305a",

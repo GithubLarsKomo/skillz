@@ -1,0 +1,5 @@
+interface:
+  display_name: "Esg Supply Chain Environmental Law Specialist"
+  short_description: "Analysiert unternehmerische ESG-, Lieferketten-, Menschenrechts- und Umweltrechtsmatters für Deutschland/EU einschlie..."
+policy:
+  allow_implicit_invocation: true

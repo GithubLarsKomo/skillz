@@ -4,13 +4,13 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **249**
-- User-facing entrypoints: **218**
-- Evaluation suites: **243**
+- Skills: **250**
+- User-facing entrypoints: **219**
+- Evaluation suites: **244**
 - Skills without evaluation suite: **6**
 - User-facing entrypoints without evaluation suite: **6**
 - Ambiguous outputs (multiple producers): **5**
-- Outputs without inferred hard-requires consumers: **253**
+- Outputs without inferred hard-requires consumers: **256**
 
 ## Evaluation gaps
 
@@ -117,6 +117,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `engineering-closure-gaps.json` — producer: `engineering-delivery-followup`
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
+- `esg-remediation-work-orders.json` — producer: `esg-supply-chain-environmental-law-specialist`
+- `esg-supply-chain-law-assessment.json` — producer: `esg-supply-chain-environmental-law-specialist`
 - `estate-structure-map.json` — producer: `german-inheritance-succession-law-specialist`
 - `eudamed-readiness.json` — producer: `eudamed-udi-ivd`
 - `euroimmun-presentation.pdf` — producer: `euroimmun-presentation-workflow`
@@ -280,6 +282,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
+- `sustainability-obligation-route-map.json` — producer: `esg-supply-chain-environmental-law-specialist`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
