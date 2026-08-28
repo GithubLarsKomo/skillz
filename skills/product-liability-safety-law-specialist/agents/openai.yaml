@@ -1,0 +1,5 @@
+interface:
+  display_name: "Product Liability & Safety Law"
+  short_description: "Prüft Produkthaftung, Produktsicherheit, Schäden und Litigation-Gates."
+policy:
+  allow_implicit_invocation: true
