@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "mode": "full",
+  "language": "de",
+  "sources": [
+    {
+      "sourceId": "S1",
+      "youtubeVideoId": "Q2847XA-Rfk",
+      "title": "PCR explained | biology animation",
+      "creator": "yourgenome / Wellcome Sanger Institute",
+      "role": "core-PCR-explainer",
+      "license": "CC BY 4.0",
+      "modelFingerprint": "fixture:S1:pcr-core:v1"
+    },
+    {
+      "sourceId": "S2",
+      "youtubeVideoId": "rpLSvEbOmqc",
+      "title": "qPCR and PCR Explained: Real-Time PCR Animation",
+      "creator": "ClevaLab",
+      "role": "PCR-plus-qPCR-extension",
+      "license": "not-asserted-by-fixture",
+      "modelFingerprint": "fixture:S2:pcr-qpcr:v1"
+    }
+  ],
+  "designAuthority": [
+    "docs/learning-content/DESIGN.md",
+    "docs/learning-content/multi-source/DESIGN.md"
+  ],
+  "claimClusters": [
+    {
+      "id": "C1",
+      "canonicalClaim": "PCR amplifies a selected DNA region through repeated thermal cycles.",
+      "sources": ["S1", "S2"],
+      "independentSourceCount": 2,
+      "convergenceStatus": "convergent"
+    },
+    {
+      "id": "C2",
+      "canonicalClaim": "A PCR cycle is organized around denaturation, primer annealing and polymerase extension.",
+      "sources": ["S1", "S2"],
+      "independentSourceCount": 2,
+      "convergenceStatus": "convergent"
+    },
+    {
+      "id": "C3",
+      "canonicalClaim": "qPCR adds real-time signal measurement to amplification and therefore extends, rather than replaces, the PCR core model.",
+      "sources": ["S2"],
+      "independentSourceCount": 1,
+      "convergenceStatus": "single-source"
+    }
+  ],
+  "qualifiedClaims": [
+    {
+      "id": "Q1",
+      "topic": "annealing temperature",
+      "safeWording": "Annealing temperature is protocol- and primer-dependent; an example value from one teaching source is not a universal default.",
+      "status": "qualified-convergence",
+      "forbidUniversalValue": true
+    },
+    {
+      "id": "Q2",
+      "topic": "cycle count and ideal amplification",
+      "safeWording": "Cycle counts and idealized doubling examples are teaching examples, not guaranteed real-world yield.",
+      "status": "qualified-convergence",
+      "forbidGuaranteedYield": true
+    }
+  ],
+  "conflicts": [],
+  "coverageMap": [
+    {"objective": "PCR core mechanism", "sources": ["S1", "S2"], "state": "consensus"},
+    {"objective": "qPCR detection and Ct concept", "sources": ["S2"], "state": "single-source"}
+  ],
+  "procedurePolicy": {
+    "sharedSpineAllowed": true,
+    "variantBranchesRequired": true,
+    "averageNumericalParameters": false,
+    "hybridProtocolAllowed": false,
+    "controlledUseStatus": "incomplete-for-controlled-use",
+    "approved": false
+  },
+  "sourceArbitration": {
+    "countViewsAsEvidence": false,
+    "countLikesAsEvidence": false,
+    "dependentSourcesInflateIndependentCount": false,
+    "unresolvedConflictsMustRemainVisible": true
+  },
+  "renderRequirements": {
+    "formats": ["html", "pptx", "docx", "pdf"],
+    "sameMultiSourceFingerprint": true,
+    "stableSourceIdsAcrossFormats": true,
+    "fullRenderCoverageRequired": true
+  },
+  "acceptance": {
+    "unresolvedCritical": 0,
+    "unresolvedMajor": 0,
+    "crossSourceTraceability": "PASS",
+    "crossFormatFidelity": "PASS"
+  }
+}
