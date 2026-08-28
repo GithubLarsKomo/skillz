@@ -15,6 +15,7 @@ on:
       - "scripts/build_openai_plugin.py"
       - "scripts/finalize_architecture_consolidation_p0.py"
       - "scripts/apply_architecture_consolidation_p1_source_spine.py"
+      - "scripts/apply_architecture_consolidation_p1_learning_delivery.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -51,6 +52,9 @@ jobs:
       - name: Apply P1 source-context spine
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/apply_architecture_consolidation_p1_source_spine.py
+      - name: Apply P1 shared learning delivery
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/apply_architecture_consolidation_p1_learning_delivery.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
       - name: Finalize architecture consolidation P0
@@ -59,6 +63,9 @@ jobs:
       - name: Verify P1 source-context spine
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python -m unittest tests.test_architecture_consolidation_p1_source_spine
+      - name: Verify P1 shared learning delivery
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python -m unittest tests.test_architecture_consolidation_p1_learning_delivery
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
