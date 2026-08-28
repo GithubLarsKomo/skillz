@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "sport-training-plan-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "preserve uncertainty instead of inventing percentage loads or exact thresholds",
+      "passed": true,
+      "evidence": "The workflow explicitly forbids inventing missing thresholds or 1RM/e1RM and preserves uncertainty in the canonical plan."
+    },
+    {
+      "behavior": "use conservative substitute control through specialist skills",
+      "passed": true,
+      "evidence": "The prerequisites and error handling route conservative RPE/RIR or range-based control through specialized prescriptions."
+    },
+    {
+      "behavior": "reduce secondary work before compromising key stimuli",
+      "passed": true,
+      "evidence": "The insufficient-time rule explicitly reduces secondary stimuli while prioritizing key stimuli from the performance model."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "invent exact 1RM threshold or zone values",
+      "observed": false,
+      "evidence": "The workflow states that missing thresholds and 1RM/e1RM are not invented."
+    },
+    {
+      "behavior": "schedule more sessions than the real availability",
+      "observed": false,
+      "evidence": "Real weekly availability is a prerequisite and the insufficient-time path reduces secondary work."
+    }
+  ],
+  "overall": "pass"
+}
