@@ -4,7 +4,7 @@ generated: true
 name: "euroimmun-pdf-report-renderer"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 4
 recordedResultCount: 4
@@ -45,7 +45,7 @@ Erzeugt aus dem kanonischen EUROIMMUN-DOCX-Report ein professionelles PDF mit id
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `4`
 - Recorded results: `4`
 
