@@ -3,7 +3,6 @@ name: workflow-benchmark-authoring
 description: Erstellt ausführbare, domänenübergreifende Workflow-Benchmarks aus kanonischen Skill-Orchestratoren, Dependency Closure, Artifact Ownership, Lifecycle/Discoverability und Evaluationsevidenz. Verwenden als internen Governance-Worker, wenn neue End-to-End-Architekturpfade als versionierte Regression Contracts abgesichert werden sollen.
 userFacing: false
 implicitInvocation: false
-category: internal
 version: 0.1.0
 status: candidate
 discoverability: internal
