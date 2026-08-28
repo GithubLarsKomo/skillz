@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-source-arbitration",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "assess evidence proximity and independence",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "identify genuine independent convergence",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "preserve rationale at claim level",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "use simple vote counting",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    },
+    {
+      "behavior": "treat popularity as authority",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    }
+  ],
+  "overall": "pass"
+}

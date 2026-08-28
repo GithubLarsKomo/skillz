@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-content-design-system",
+  "caseId": "edge-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "keep corporate rules authoritative",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "allow compatible learning-specific additions",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "record local overrides with provenance",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "weaken the Corporate Design Gate",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    },
+    {
+      "behavior": "create competing color or font authorities",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    }
+  ],
+  "overall": "pass"
+}

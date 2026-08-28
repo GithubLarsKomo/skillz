@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-source-arbitration",
+  "caseId": "failure-case",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "detect source dependence",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "reject popularity as truth evidence",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "keep material contradictions visible",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "triple-count the shared origin",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    },
+    {
+      "behavior": "smooth away contradictions",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    }
+  ],
+  "overall": "pass"
+}

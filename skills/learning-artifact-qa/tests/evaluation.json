@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-artifact-qa",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Verify HTML, PPTX, DOCX and PDF outputs generated from one locked learning-content-model revision.",
+      "requiredBehaviors": [
+        "verify claim and source traceability",
+        "verify all formats preserve the same semantic basis",
+        "require complete render coverage for delivered formats"
+      ],
+      "forbiddenBehaviors": [
+        "approve a renderer-specific new claim",
+        "skip final render evidence"
+      ],
+      "skillAnchors": [
+        "dieselbe semantische Basis",
+        "Claim Traceability",
+        "Cross-Format Fidelity"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The PPTX is more concise than the DOCX but preserves every material claim, warning and source relationship; one cosmetic deviation remains documented.",
+      "requiredBehaviors": [
+        "allow non-material compression",
+        "keep material meaning unchanged",
+        "classify only non-material deviation as warning"
+      ],
+      "forbiddenBehaviors": [
+        "treat wording length differences alone as failure",
+        "hide missing render coverage"
+      ],
+      "skillAnchors": [
+        "Kürzung ist erlaubt, Bedeutungsänderung nicht.",
+        "warning",
+        "vollständiger Renderabdeckung"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A corporate PDF has not been rendered and inspected, carries an unverified brand authority claim and omits a safety warning.",
+      "requiredBehaviors": [
+        "block final approval",
+        "raise critical findings for authority and content loss",
+        "require a verified final render"
+      ],
+      "forbiddenBehaviors": [
+        "mark the package PASS",
+        "infer render quality from source structure"
+      ],
+      "skillAnchors": [
+        "ungeprüfter finaler Render",
+        "falsche Corporate Authority",
+        "PASS nur bei 0 offenen Critical/Major Findings"
+      ]
+    }
+  ]
+}

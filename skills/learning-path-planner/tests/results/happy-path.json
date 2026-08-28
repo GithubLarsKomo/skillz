@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-path-planner",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "place prerequisites before dependent competencies",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "give every module a clear competency promise",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "produce a coherent standard path",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "sort modules only by source order",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    },
+    {
+      "behavior": "place advanced applications before required concepts",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    }
+  ],
+  "overall": "pass"
+}

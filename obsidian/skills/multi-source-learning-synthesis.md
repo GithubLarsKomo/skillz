@@ -4,10 +4,10 @@ generated: true
 name: "multi-source-learning-synthesis"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/multi-source-learning-synthesis/SKILL.md"
 tags:
   - skill
@@ -53,10 +53,10 @@ Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten g
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 

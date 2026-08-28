@@ -13,10 +13,10 @@
     "skill-system",
     "workflow"
   ],
-  "evaluationSuiteCount": 265,
-  "evaluatedSkillCount": 265,
+  "evaluationSuiteCount": 275,
+  "evaluatedSkillCount": 275,
   "evaluatedEntrypointCount": 229,
-  "evaluationCoverageComplete": false,
+  "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
   "skills": [
@@ -1644,10 +1644,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7182,10 +7182,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7231,10 +7231,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7358,10 +7358,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7700,10 +7700,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7740,10 +7740,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -7934,10 +7934,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -10576,10 +10576,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -10635,10 +10635,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -16196,10 +16196,10 @@
         "agents/openai.yaml"
       ],
       "evaluation": {
-        "mode": "none",
-        "caseCount": 0,
-        "recordedResultCount": 0,
-        "passed": null
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     }
   ]

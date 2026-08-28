@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-activity-generator",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create formative activities and knowledge checks for a module whose objectives and evidence-backed claims are already defined.",
+      "requiredBehaviors": [
+        "bind activities to learning objectives and claims",
+        "progress from recall toward application",
+        "include answer rationale and feedback"
+      ],
+      "forbiddenBehaviors": [
+        "introduce new domain claims",
+        "claim psychometric validation"
+      ],
+      "skillAnchors": [
+        "führen keine neuen fachlichen Claims ein",
+        "Evidenz-/Claim-IDs",
+        "remember -> understand -> apply -> analyze"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A source claim is materially conflicted but learners should still practice interpreting the uncertainty.",
+      "requiredBehaviors": [
+        "test qualification or source interpretation rather than false certainty",
+        "keep the check formative",
+        "preserve the conflict in expected answers"
+      ],
+      "forbiddenBehaviors": [
+        "create a falsely unique correct answer",
+        "invent a pass threshold"
+      ],
+      "skillAnchors": [
+        "konfliktbehaftet",
+        "Keine Behauptung psychometrischer Validität",
+        "formative Lernkontrolle"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A proposed question depends on an assay parameter that is absent from every source and its distractors repeat unsupported values.",
+      "requiredBehaviors": [
+        "reject or mark the unsupported question as open",
+        "prevent unsupported parameters entering the assessment",
+        "correct misleading distractors"
+      ],
+      "forbiddenBehaviors": [
+        "present the missing parameter as fact",
+        "preserve unsupported misinformation without correction"
+      ],
+      "skillAnchors": [
+        "in keiner Quelle belegt",
+        "Frage verwerfen",
+        "keine neue Falschinformation"
+      ]
+    }
+  ]
+}

@@ -6,12 +6,12 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 - Skills: **275**
 - User-facing entrypoints: **229**
-- Evaluation suites: **265**
+- Evaluation suites: **275**
 - Executed evaluation suites: **PASS**
-- Evaluation coverage: **incomplete**
-- Skills with evaluation suite: **265/275**
+- Evaluation coverage: **complete**
+- Skills with evaluation suite: **275/275**
 - User-facing entrypoints with evaluation suite: **229/229**
-- Skills without evaluation suite: **10**
+- Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
 - Outputs without inferred hard-requires consumers: **264**
@@ -20,16 +20,7 @@ Passing executed suites does not imply complete evaluation coverage. Coverage is
 
 ## Evaluation gaps
 
-- `course-concept-graph`
-- `learning-activity-generator`
-- `learning-artifact-qa`
-- `learning-content-design-system`
-- `learning-path-planner`
-- `learning-source-arbitration`
-- `learning-visual-planner`
-- `multi-source-learning-synthesis`
-- `multimodal-learning-analysis`
-- `youtube-video-ingestion`
+None.
 
 ### User-facing evaluation gaps
 

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-content-design-system",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Resolve design authority for a neutral learning project that has an explicit project DESIGN.md and shared learning defaults.",
+      "requiredBehaviors": [
+        "apply the authority hierarchy",
+        "prevent lower-priority defaults overriding the project contract",
+        "produce one shared design context for all renderers"
+      ],
+      "forbiddenBehaviors": [
+        "guess company branding",
+        "allow each renderer to choose independent styling"
+      ],
+      "skillAnchors": [
+        "Autoritätshierarchie",
+        "Ein niedrigerer Layer darf einen höheren nicht überschreiben.",
+        "Keine Unternehmensfarben oder Logos raten."
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A EUROIMMUN learning artifact also has project-specific educational visual rules that do not conflict with the corporate contract.",
+      "requiredBehaviors": [
+        "keep corporate rules authoritative",
+        "allow compatible learning-specific additions",
+        "record local overrides with provenance"
+      ],
+      "forbiddenBehaviors": [
+        "weaken the Corporate Design Gate",
+        "create competing color or font authorities"
+      ],
+      "skillAnchors": [
+        "Corporate-Integration",
+        "Corporate Design Gate",
+        "lokale Overrides"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A draft invents corporate colors and lets HTML, PPTX and DOCX use unrelated typography because no single authority was resolved.",
+      "requiredBehaviors": [
+        "reject conflicting design authorities",
+        "reject invented brand choices",
+        "establish a traceable project design status"
+      ],
+      "forbiddenBehaviors": [
+        "accept competing font sources",
+        "silently fabricate corporate branding"
+      ],
+      "skillAnchors": [
+        "keine konkurrierenden Farb-/Fontquellen",
+        "Design-/Brand-Quelle und Provenance",
+        "verbindliche Projekt-`DESIGN.md`-Status"
+      ]
+    }
+  ]
+}

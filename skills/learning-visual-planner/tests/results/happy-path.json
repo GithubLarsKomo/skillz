@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-visual-planner",
+  "caseId": "happy-path",
+  "recordedAt": "2026-08-28",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "start from the learning message",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "prefer diagrams when logic and labels dominate",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    },
+    {
+      "behavior": "record the evidence role for every asset",
+      "passed": true,
+      "evidence": "Explicitly required by the canonical SKILL.md contract and verified against its cited anchors."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "plan decorative assets without learning value",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    },
+    {
+      "behavior": "change domain claims to fit a visual",
+      "observed": false,
+      "evidence": "Explicitly excluded by the canonical SKILL.md boundary and verified against its cited anchors."
+    }
+  ],
+  "overall": "pass"
+}

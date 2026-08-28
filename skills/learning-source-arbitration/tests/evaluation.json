@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "learning-source-arbitration",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Three independent sources support the same scoped process claim with compatible evidence and no material conflict.",
+      "requiredBehaviors": [
+        "assess evidence proximity and independence",
+        "identify genuine independent convergence",
+        "preserve rationale at claim level"
+      ],
+      "forbiddenBehaviors": [
+        "use simple vote counting",
+        "treat popularity as authority"
+      ],
+      "skillAnchors": [
+        "nicht durch bloßes Stimmenzählen",
+        "Zwei voneinander abhängige Videos zählen nicht als zwei unabhängige Bestätigungen.",
+        "convergent"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two credible videos give different temperatures because they describe different primers and protocols.",
+      "requiredBehaviors": [
+        "resolve the apparent conflict by scope where supported",
+        "consider recency only when relevant",
+        "retain qualified convergence when conditions differ"
+      ],
+      "forbiddenBehaviors": [
+        "average incompatible temperatures",
+        "declare a conflict before harmonizing scope"
+      ],
+      "skillAnchors": [
+        "Scope-Differenz statt falschem Konflikt",
+        "Aktualität muss für den Claim relevant sein.",
+        "qualified-convergence"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Three reaction videos copy the same original source and are treated as three independent confirmations because they are popular.",
+      "requiredBehaviors": [
+        "detect source dependence",
+        "reject popularity as truth evidence",
+        "keep material contradictions visible"
+      ],
+      "forbiddenBehaviors": [
+        "triple-count the shared origin",
+        "smooth away contradictions"
+      ],
+      "skillAnchors": [
+        "Popularität, Likes, Views",
+        "Widerspruch darf nicht durch sprachliches Glätten verschwinden.",
+        "Abhängigkeit modellieren"
+      ]
+    }
+  ]
+}

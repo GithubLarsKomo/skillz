@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "skill": "multi-source-learning-synthesis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Synthesize several compatible evidence-bound learning models into one compact consensus model while preserving source provenance.",
+      "requiredBehaviors": [
+        "cluster semantically identical claims",
+        "deduplicate presentation without losing provenance",
+        "build a learning-logical shared model"
+      ],
+      "forbiddenBehaviors": [
+        "concatenate source models unchanged",
+        "erase source relationships"
+      ],
+      "skillAnchors": [
+        "nicht einfach aneinandergereiht",
+        "semantisch identische Claims clustern",
+        "Provenienz bleibt erhalten."
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "One important claim remains materially unresolved and another topic is supported by only one source.",
+      "requiredBehaviors": [
+        "keep unresolved conflict explicit",
+        "prevent conflicted claims becoming definitive takeaways",
+        "mark single-source coverage"
+      ],
+      "forbiddenBehaviors": [
+        "convert unresolved conflict to consensus",
+        "hide thin coverage"
+      ],
+      "skillAnchors": [
+        "unresolved",
+        "darf nicht als eindeutige Take-Home-Message erscheinen.",
+        "Single-Source-Bereiche"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Two incompatible protocols are merged by averaging parameters into a new hybrid procedure.",
+      "requiredBehaviors": [
+        "reject the hybrid protocol",
+        "keep protocol variants separate",
+        "preserve the conditions of each parameter set"
+      ],
+      "forbiddenBehaviors": [
+        "invent averaged parameters",
+        "present the hybrid as source-backed"
+      ],
+      "skillAnchors": [
+        "hypothetischen Hybrid-Protokoll",
+        "Mittelwert kombiniert",
+        "Varianten getrennt halten"
+      ]
+    }
+  ]
+}

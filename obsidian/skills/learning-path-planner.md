@@ -4,10 +4,10 @@ generated: true
 name: "learning-path-planner"
 category: "internal"
 userFacing: false
-evaluationPassed: null
-evaluationMode: "none"
-caseCount: 0
-recordedResultCount: 0
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
 sourcePath: "skills/learning-path-planner/SKILL.md"
 tags:
   - skill
@@ -46,10 +46,10 @@ Plant aus einem Course-Concept-Graph eine didaktisch begründete Modul- und Lekt
 
 ## Evaluation
 
-- Mode: `none`
-- Passed: `None`
-- Cases: `0`
-- Recorded results: `0`
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
 
 ## Canonical source
 
