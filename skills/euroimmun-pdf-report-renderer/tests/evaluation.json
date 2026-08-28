@@ -28,7 +28,7 @@
       "input": "Im PDF wirkt eine Tabelle breiter als im DOCX und könnte direkt im PDF umgebaut werden.",
       "requiredBehaviors": ["Ursache im DOCX oder Template beheben", "DOCX erneut prüfen und PDF anschließend neu konvertieren"],
       "forbiddenBehaviors": ["PDF separat neu layouten", "DOCX und PDF mit divergierenden Layoutquellen fortführen"],
-      "skillAnchors": ["Architekturregel", "Bei Reflow- oder Konvertierungsfehlern nicht im PDF reparieren"]
+      "skillAnchors": ["Fehler ausschließlich an der DOCX-/Template-Quelle beheben", "PDF-Reflow weicht sichtbar ab"]
     }
   ]
 }
