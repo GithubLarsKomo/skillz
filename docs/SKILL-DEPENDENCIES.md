@@ -220,11 +220,20 @@ graph TD
   large_work_wayfinder --> agent_handoff
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
+  learning_artifact_qa --> learning_content_design_system
   learning_assessment --> learning_assessment_spec
   learning_assessment_spec --> learning_mission
   learning_assessment_spec --> learning_state
+  learning_document_delivery --> learning_content_design_system
+  learning_image_generator --> learning_content_design_system
+  learning_image_generator --> learning_visual_planner
+  learning_landingpage_renderer --> learning_content_design_system
   learning_next_step --> learning_mission
   learning_next_step --> learning_state
+  learning_summary_synthesis --> multimodal_learning_analysis
+  learning_svg_generator --> learning_content_design_system
+  learning_svg_generator --> learning_visual_planner
+  learning_visual_planner --> multimodal_learning_analysis
   llm_generation_evidence_assessment --> author_voice_profiler
   llm_generation_evidence_assessment --> document_generation_forensics
   llm_generation_evidence_assessment --> llm_prose_pattern_audit
@@ -342,6 +351,7 @@ graph TD
   presentation_language_rewriter --> rewrite_fidelity_verifier
   presentation_layout_qa --> presentation_template_profiler
   presentation_render_verifier --> presentation_layout_qa
+  procedure_sop_extractor --> multimodal_learning_analysis
   process_validation_iq_oq_pq --> design_control_traceability
   process_validation_iq_oq_pq --> medical_device_qms_iso13485
   process_validation_iq_oq_pq --> medical_device_risk_management_iso14971
@@ -474,6 +484,18 @@ graph TD
   two_axis_code_review --> disciplined_diagnosis
   two_axis_code_review --> implement_from_issue
   two_axis_compliance_review --> research_to_evidence_note
+  youtube_learning_workflow --> learning_artifact_qa
+  youtube_learning_workflow --> learning_content_design_system
+  youtube_learning_workflow --> learning_document_delivery
+  youtube_learning_workflow --> learning_image_generator
+  youtube_learning_workflow --> learning_landingpage_renderer
+  youtube_learning_workflow --> learning_summary_synthesis
+  youtube_learning_workflow --> learning_svg_generator
+  youtube_learning_workflow --> learning_visual_planner
+  youtube_learning_workflow --> multimodal_learning_analysis
+  youtube_learning_workflow --> procedure_sop_extractor
+  youtube_learning_workflow --> template_presentation_workflow
+  youtube_learning_workflow --> youtube_video_ingestion
 ```
 
 ## Artifact consumption
@@ -611,6 +633,8 @@ graph TD
 | `delivery-review-handoff.json` | `two-axis-code-review` | `decision-record`, `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `dependency-graph.json` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `dependency-order.json` | `spec-to-vertical-issues` | `test-driven-vertical-slice`, `throwaway-prototype` | inferred |
+| `derived-procedure.json` | `procedure-sop-extractor` | `youtube-learning-workflow` | inferred |
+| `derived-sop.md` | `procedure-sop-extractor` | `youtube-learning-workflow` | inferred |
 | `design-change-impact.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
 | `design-control-traceability.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
 | `design-evidence-gaps.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
@@ -745,14 +769,32 @@ graph TD
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
+| `learning-artifact-qa.json` | `learning-artifact-qa` | `youtube-learning-workflow` | inferred |
+| `learning-artifact-qa.md` | `learning-artifact-qa` | `youtube-learning-workflow` | inferred |
 | `learning-assessment-spec.json` | `learning-assessment-spec` | `exam-trainer-catalog-builder`, `learning-assessment`, `teach` | inferred |
 | `learning-assessment.json` | `learning-assessment` | `teach` | inferred |
+| `learning-concept-map.json` | `multimodal-learning-analysis` | `learning-summary-synthesis`, `learning-visual-planner`, `procedure-sop-extractor`, `youtube-learning-workflow` | inferred |
+| `learning-content-model.json` | `youtube-learning-workflow` | — | unconsumed |
+| `learning-design-context.json` | `learning-content-design-system` | `learning-artifact-qa`, `learning-document-delivery`, `learning-image-generator`, `learning-landingpage-renderer`, `learning-svg-generator`, `youtube-learning-workflow` | inferred |
+| `learning-document-qa.json` | `learning-document-delivery` | `youtube-learning-workflow` | inferred |
+| `learning-evidence.json` | `multimodal-learning-analysis` | `learning-summary-synthesis`, `learning-visual-planner`, `procedure-sop-extractor`, `youtube-learning-workflow` | inferred |
+| `learning-handout.docx` | `learning-document-delivery` | `youtube-learning-workflow` | inferred |
+| `learning-handout.pdf` | `learning-document-delivery` | `youtube-learning-workflow` | inferred |
+| `learning-image-assets` | `learning-image-generator` | `youtube-learning-workflow` | inferred |
+| `learning-image-manifest.json` | `learning-image-generator` | `youtube-learning-workflow` | inferred |
+| `learning-landingpage` | `learning-landingpage-renderer` | `youtube-learning-workflow` | inferred |
+| `learning-landingpage-qa.json` | `learning-landingpage-renderer` | `youtube-learning-workflow` | inferred |
 | `learning-mission.json` | `learning-mission`, `teach` | — | ambiguous |
 | `learning-next-step.json` | `learning-next-step`, `teach` | — | ambiguous |
 | `learning-practice-request.json` | `teach` | — | unconsumed |
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
+| `learning-summary.json` | `learning-summary-synthesis` | `youtube-learning-workflow` | inferred |
+| `learning-summary.md` | `learning-summary-synthesis` | `youtube-learning-workflow` | inferred |
+| `learning-svg-assets` | `learning-svg-generator` | `youtube-learning-workflow` | inferred |
+| `learning-svg-manifest.json` | `learning-svg-generator` | `youtube-learning-workflow` | inferred |
+| `learning-visual-plan.json` | `learning-visual-planner` | `learning-image-generator`, `learning-svg-generator`, `youtube-learning-workflow` | inferred |
 | `lifecycle-impact-gates.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `llm-generation-assessment.json` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
 | `llm-generation-assessment.md` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
@@ -840,8 +882,8 @@ graph TD
 | `presentation-revised-text` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
 | `presentation-template-profile.json` | `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow` | — | ambiguous |
 | `presentation-template-profile.md` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
-| `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow` | inferred |
-| `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow` | inferred |
+| `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-learning-workflow` | inferred |
+| `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-learning-workflow` | inferred |
 | `price-snapshot.json` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `price-snapshot.md` | `price-availability-snapshot` | `purchase-decision-planner` | inferred |
 | `privacy-assessment.json` | `medical-device-privacy-gdpr-bdsg` | — | unconsumed |
@@ -984,3 +1026,7 @@ graph TD
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `decision-record`, `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
+| `youtube-frame-index.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |
+| `youtube-learning-run.json` | `youtube-learning-workflow` | — | unconsumed |
+| `youtube-transcript-index.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |
+| `youtube-video-source.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |

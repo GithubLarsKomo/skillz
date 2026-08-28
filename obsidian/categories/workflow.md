@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **50**
+Skills: **56**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
@@ -24,6 +24,10 @@ Skills: **50**
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/learning-document-delivery|learning-document-delivery]]
+- [[skills/learning-image-generator|learning-image-generator]]
+- [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]
+- [[skills/learning-svg-generator|learning-svg-generator]]
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
 - [[skills/optimize-software-performance|optimize-software-performance]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
@@ -35,6 +39,7 @@ Skills: **50**
 - [[skills/presentation-layout-qa|presentation-layout-qa]]
 - [[skills/presentation-render-verifier|presentation-render-verifier]]
 - [[skills/presentation-template-profiler|presentation-template-profiler]]
+- [[skills/procedure-sop-extractor|procedure-sop-extractor]]
 - [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
@@ -62,3 +67,4 @@ Skills: **50**
 - [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
+- [[skills/youtube-learning-workflow|youtube-learning-workflow]]

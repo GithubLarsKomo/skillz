@@ -576,6 +576,12 @@
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
+    "learning-artifact-qa": {
+      "files": {
+        "SKILL.md": "69130b6de4b5cb3fd915dd74299cae0ec24d7dded95838f72ed5cbdc301191eb",
+        "agents/openai.yaml": "21077fd7014ace9ce18361ec46261dbfa4a17120f12199f88915cf79aa96f093"
+      }
+    },
     "learning-assessment": {
       "files": {
         "SKILL.md": "4e5edcfed1f81a5e1550142156cbdf2ddd2db53978c121c0827ce740e16b1a88",
@@ -586,6 +592,30 @@
       "files": {
         "SKILL.md": "072079d4a439ead04b3ba9f8e1a412c1434569fe65bfa0cb1367b6ea80c88133",
         "agents/openai.yaml": "f68b3da077b07d41f14078ec4068804ddccc849e34207790353c359a063016c6"
+      }
+    },
+    "learning-content-design-system": {
+      "files": {
+        "SKILL.md": "1d5421d1b62375c839de0248355eebefdb135b5c1ba64d039dc0da4b97942a9f",
+        "agents/openai.yaml": "3760c5721cc4a56361fd164d280e5fea4061f0ac75048f65ffc10dd098365a17"
+      }
+    },
+    "learning-document-delivery": {
+      "files": {
+        "SKILL.md": "697800689c70206306383d49a49c5f73a5443323eb6125393f4e9fdd25a6bfd0",
+        "agents/openai.yaml": "2f60d0faeca41b0d4a0fc32b281b0e4ac72ade9ea6fba9b1f6d0b3b98f830eea"
+      }
+    },
+    "learning-image-generator": {
+      "files": {
+        "SKILL.md": "fa843ac8690cf2ce283d2f49d7b543ed719bf028d69adddc472dcdd56a03c346",
+        "agents/openai.yaml": "95136332f8e42db92afbda96b312a2d32cecc5cc077acbeef3226f7a1ed8c3b5"
+      }
+    },
+    "learning-landingpage-renderer": {
+      "files": {
+        "SKILL.md": "adfd44781c6071d18790201b2ed37337dca2e2a603d77cd04e5735655f02c1af",
+        "agents/openai.yaml": "f538bd8c0471d23324f8fbdc84ccefe5ec802230cfa1e062baa175ad8170ee5e"
       }
     },
     "learning-mission": {
@@ -604,6 +634,24 @@
       "files": {
         "SKILL.md": "b24f41523abb1fd2fa232e0a46f82adbf76e66a96af22959dd10a203c5784728",
         "agents/openai.yaml": "90eb9ba04930faf757713ee0146e056254551bb5a2bbc643564056fbfbf8e230"
+      }
+    },
+    "learning-summary-synthesis": {
+      "files": {
+        "SKILL.md": "2ac7209bef10d2ca511c153217e5ae4515382e62dc08c7ade8667171c7f34dc1",
+        "agents/openai.yaml": "14b0d823353318a191a4b54e45cbc92eb1c0c7c9ab57c02708619a8250902d05"
+      }
+    },
+    "learning-svg-generator": {
+      "files": {
+        "SKILL.md": "92081a3114863c72bdfe33ca8749e4904b4408ef45230d2548c79e1ab82e6ea1",
+        "agents/openai.yaml": "5b75050ed77caa36430ec28397c13911e667225aaa1ca31893f116af8fec5933"
+      }
+    },
+    "learning-visual-planner": {
+      "files": {
+        "SKILL.md": "5e2c940111d4e421b6b1f322fd5efcc234914fbef9b5f6deb2541922cf79233b",
+        "agents/openai.yaml": "70c67a47e95f2f74345a20f014e6d762aedcafe47983fc7f51100c7231b9cb67"
       }
     },
     "llm-generation-evidence-assessment": {
@@ -778,6 +826,12 @@
         "agents/openai.yaml": "8cef93796564d63329781f523c314ca5ebaa2e44106574a3049857624ab4ab3a"
       }
     },
+    "multimodal-learning-analysis": {
+      "files": {
+        "SKILL.md": "3585968de3174d9120d7b3e15af6d7db5b568a67dca83c0685bed4c2585600f8",
+        "agents/openai.yaml": "f0dca57312feeacb18c7afe353911af390bac5cd97fb28f7fee345b3f66a7c42"
+      }
+    },
     "nonconformance-mrb-disposition": {
       "files": {
         "SKILL.md": "fa349b08f0832b0c0233fed19ce489cd07a6bf3ebf612dde960e8c06595f2546",
@@ -904,6 +958,12 @@
         "agents/openai.yaml": "d0caaaaf7db090f9dda6f5f349d873e563322abcc1e2c8d3e8986387363372ec",
         "references/price-normalization.md": "293e82dc600a3c8b96f7ba9175774b2ad1a572be4aa3670fed6b351572926b55",
         "scripts/validate_price_snapshot.py": "c62c511534cc78791f3c562415841c06b1b3e19a83833b048e2f5f1b107c2c71"
+      }
+    },
+    "procedure-sop-extractor": {
+      "files": {
+        "SKILL.md": "0327b3a65c023663323ef9c4cf0b247a084e6b864157d10086d802d2b749f8e5",
+        "agents/openai.yaml": "e7a65a150435b0838437f2de64344e4877ed5af166eb7d3dc2ec06417f475ee7"
       }
     },
     "process-validation-iq-oq-pq": {
@@ -1267,6 +1327,18 @@
       "files": {
         "SKILL.md": "1000bc2fffab7b0748417f31d2fa198f642ce66548c7b25ce034ed4fa53e5650",
         "agents/openai.yaml": "f0194f39aa6592eaa6bd93c324ac60c89c9b835bd9b56d5872e056855174036b"
+      }
+    },
+    "youtube-learning-workflow": {
+      "files": {
+        "SKILL.md": "2226c2f092ef24f86071441a369abf309b92cb12c5776eb62ad9b6da9a49e4dd",
+        "agents/openai.yaml": "34adcfc982b4e1288098b1944e824ed0562d68fce813ac55fbd89ed42a0a670a"
+      }
+    },
+    "youtube-video-ingestion": {
+      "files": {
+        "SKILL.md": "2b678762e4a76bcddf074838d77a112fd7c76076ea12d154d89fd520ee914cac",
+        "agents/openai.yaml": "87a627c0d59254a5851a2574ad0c2a68572c79e5b3a3a671fdca78734be906f3"
       }
     }
   }

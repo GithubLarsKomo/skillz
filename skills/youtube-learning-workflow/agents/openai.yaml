@@ -1,0 +1,5 @@
+interface:
+  display_name: "Youtube Learning Workflow"
+  short_description: "Orchestriert die tiefgehende Analyse eines YouTube-Videos zu evidenzgebundenen Key Take-Home Messages und optionalen..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Content Design System"
+  short_description: "Bindet Lernartefakte formatübergreifend an einen autoritativen DESIGN.md-Vertrag für HTML, Präsentation, DOCX/PDF, Di..."
+policy:
+  allow_implicit_invocation: true

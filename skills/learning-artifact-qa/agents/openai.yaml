@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Artifact Qa"
+  short_description: "Prüft HTML-, PPTX-, DOCX- und PDF-Lernartefakte sowie ihre SVG-/Bildassets gemeinsam gegen das kanonische Learning-Mo..."
+policy:
+  allow_implicit_invocation: true

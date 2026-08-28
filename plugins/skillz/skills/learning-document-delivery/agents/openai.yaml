@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Document Delivery"
+  short_description: "Überführt ein kanonisches Learning-Content-Modell und seine Visuals DESIGN.md-konform in ein editierbares Lern-DOCX u..."
+policy:
+  allow_implicit_invocation: true
