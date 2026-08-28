@@ -4,23 +4,24 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **271**
+- Skills: **272**
 - User-facing entrypoints: **228**
 - Evaluation suites: **246**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **incomplete**
-- Skills with evaluation suite: **246/271**
+- Skills with evaluation suite: **246/272**
 - User-facing entrypoints with evaluation suite: **213/228**
-- Skills without evaluation suite: **25**
+- Skills without evaluation suite: **26**
 - User-facing entrypoints without evaluation suite: **15**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **259**
+- Outputs without inferred hard-requires consumers: **261**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
 ## Evaluation gaps
 
 - `course-concept-graph`
+- `document-template-profiler`
 - `euroimmun-presentation-workflow`
 - `learning-activity-generator`
 - `learning-artifact-qa`
@@ -134,6 +135,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `docs/agents/CONFIG.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/CONTEXT.md` — producer: `repository-skill-bootstrap`
 - `docs/agents/DECISIONS.md` — producer: `repository-skill-bootstrap`
+- `document-template-profile.json` — producer: `document-template-profiler`
+- `document-template-profile.md` — producer: `document-template-profiler`
 - `domain-change-plan.md` — producer: `domain-model-maintenance`
 - `domain-model-map.json` — producer: `domain-model-maintenance`
 - `domain-validation.json` — producer: `domain-model-maintenance`

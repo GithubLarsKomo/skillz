@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 271,
+  "skillCount": 272,
   "entrypointCount": 228,
   "entrypointCategories": [
     "analysis",
@@ -2537,6 +2537,47 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "document-template-profiler",
+      "description": "Analysiert ein vorhandenes DOCX/DOTX-Template oder ein bestätigtes Referenzdokument und erzeugt ein wiederverwendbares, provenance-gebundenes Profil für Page Setup, Sections, Styles, Typografie, Header/Footer, Nummerierung, Tabellen, Felder, Content Controls und sichere Einfügepunkte. Verwenden vor template-treuer Dokumenterzeugung; nicht zum Erfinden eines Corporate Designs.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "document-template-profile.json",
+        "document-template-profile.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "document-template-profile.json",
+          "ambiguous": false,
+          "producers": [
+            "document-template-profiler"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "document-template-profile.md",
+          "ambiguous": false,
+          "producers": [
+            "document-template-profiler"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "none",
+        "caseCount": 0,
+        "recordedResultCount": 0,
+        "passed": null
       }
     },
     {

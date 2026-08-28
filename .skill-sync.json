@@ -240,6 +240,12 @@
         "scripts/inspect_document_artifact.py": "93aaf18c07f38231a1fade2da7dc335827710c28a69a42012f9e91b7461827a5"
       }
     },
+    "document-template-profiler": {
+      "files": {
+        "SKILL.md": "cf95f571c062e3e53532d6a6c4bd706efa1704578d8fecf42132463181d161a8",
+        "agents/openai.yaml": "dd662652129284adcf285c18bb991f1a8ced4fe250cf39df8d1e627ec499cc97"
+      }
+    },
     "domain-model-maintenance": {
       "files": {
         "SKILL.md": "45f13c2094d037648a1c23965acf9af2f49be5f7f19e0ca1d9054594b849d6b4",

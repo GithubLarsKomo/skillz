@@ -483,6 +483,15 @@
       ]
     },
     {
+      "name": "document-template-profiler",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "document-template-profile.json",
+        "document-template-profile.md"
+      ]
+    },
+    {
       "name": "domain-model-maintenance",
       "requires": [
         "agent-handoff",
@@ -8244,6 +8253,24 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "document-template-profile.json",
+      "producers": [
+        "document-template-profiler"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "document-template-profile.md",
+      "producers": [
+        "document-template-profiler"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "domain-change-plan.md",
       "producers": [
         "domain-model-maintenance"
@@ -14212,6 +14239,8 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
+    "document-template-profile.json",
+    "document-template-profile.md",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",
@@ -14473,6 +14502,8 @@
     "docs/agents/CONFIG.md",
     "docs/agents/CONTEXT.md",
     "docs/agents/DECISIONS.md",
+    "document-template-profile.json",
+    "document-template-profile.md",
     "domain-change-plan.md",
     "domain-model-map.json",
     "domain-validation.json",

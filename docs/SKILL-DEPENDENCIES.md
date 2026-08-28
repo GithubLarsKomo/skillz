@@ -861,6 +861,8 @@ graph TD
 | `document-control-assessment.json` | `controlled-quality-documentation` | `ivdr-field-safety-corrective-action`, `medical-device-field-action-communication`, `medical-device-field-action-physical-execution`, `quality-record-integrity` | inferred |
 | `document-forensics.json` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
 | `document-forensics.md` | `document-generation-forensics` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow` | inferred |
+| `document-template-profile.json` | `document-template-profiler` | — | unconsumed |
+| `document-template-profile.md` | `document-template-profiler` | — | unconsumed |
 | `domain-change-plan.md` | `domain-model-maintenance` | — | unconsumed |
 | `domain-model-map.json` | `domain-model-maintenance` | — | unconsumed |
 | `domain-validation.json` | `domain-model-maintenance` | — | unconsumed |

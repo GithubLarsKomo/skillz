@@ -10,11 +10,12 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **43**
+Skills: **44**
 
 - [[skills/course-concept-graph|course-concept-graph]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/document-generation-forensics|document-generation-forensics]]
+- [[skills/document-template-profiler|document-template-profiler]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/dr-komorowski-sport-report-renderer|dr-komorowski-sport-report-renderer]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
