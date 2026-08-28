@@ -28,10 +28,11 @@ class ArchitectureConsolidationP2Tests(unittest.TestCase):
         self.assertEqual(by_name["skill-lifecycle-migration"]["governance"]["discoverability"], "advanced")
         self.assertEqual(by_name["sport-training-programming"]["governance"]["discoverability"], "compatibility")
         counts = index["discoverabilityCounts"]
-        self.assertGreaterEqual(counts["public"], 229)
         self.assertGreaterEqual(counts["advanced"], 2)
         self.assertGreaterEqual(counts["internal"], 47)
         self.assertGreaterEqual(counts["compatibility"], 2)
+        self.assertEqual(counts["public"] + counts["advanced"], index["entrypointCount"])
+        self.assertEqual(counts["internal"] + counts["compatibility"], index["skillCount"] - index["entrypointCount"])
         self.assertEqual(sum(counts.values()), index["skillCount"])
 
     def test_deprecated_skills_have_explicit_migration_metadata(self) -> None:
