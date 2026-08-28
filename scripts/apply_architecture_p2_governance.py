@@ -32,7 +32,7 @@ CASES = {
                 "keep the unconsumed list as a review queue",
             ],
             ["delete terminal output producers solely because no hard consumer is inferred"],
-            ["Terminal Outputs erkennen", "nicht automatisch Orphans"],
+            ["Unconsumed terminal artifacts", "nicht automatisch Orphans"],
         ),
         (
             "failure-case",
