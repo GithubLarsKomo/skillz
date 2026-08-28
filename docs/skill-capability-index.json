@@ -14,8 +14,8 @@
     "workflow"
   ],
   "evaluationSuiteCount": 208,
-  "evaluationPassed": false,
-  "evaluationErrorCount": 51,
+  "evaluationPassed": true,
+  "evaluationErrorCount": 0,
   "skills": [
     {
       "name": "agent-handoff",
@@ -1052,8 +1052,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -1236,7 +1236,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": false
+        "passed": true
       }
     },
     {
@@ -3668,8 +3668,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -3721,8 +3721,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -3783,8 +3783,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5538,8 +5538,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5597,8 +5597,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5662,8 +5662,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5712,8 +5712,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5765,8 +5765,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5826,8 +5826,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -5887,8 +5887,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -8937,8 +8937,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {

@@ -4,10 +4,10 @@ generated: true
 name: "legal-compliance-office"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/legal-compliance-office/SKILL.md"
 tags:
   - skill
@@ -62,9 +62,9 @@ Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake u
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

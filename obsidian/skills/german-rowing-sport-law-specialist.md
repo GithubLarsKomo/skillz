@@ -4,10 +4,10 @@ generated: true
 name: "german-rowing-sport-law-specialist"
 category: "legal-specialist"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/german-rowing-sport-law-specialist/SKILL.md"
 tags:
   - skill
@@ -55,9 +55,9 @@ Analysiert sportartspezifische Rechts- und Verbandsfragen im deutschen Ruderspor
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

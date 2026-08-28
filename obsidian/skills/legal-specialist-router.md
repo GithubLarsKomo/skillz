@@ -4,10 +4,10 @@ generated: true
 name: "legal-specialist-router"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/legal-specialist-router/SKILL.md"
 tags:
   - skill
@@ -56,9 +56,9 @@ Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compliance-, Regul
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

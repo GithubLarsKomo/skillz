@@ -4,10 +4,10 @@ generated: true
 name: "current-law-context"
 category: "research-knowledge"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/current-law-context/SKILL.md"
 tags:
   - skill
@@ -85,9 +85,9 @@ Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogene
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

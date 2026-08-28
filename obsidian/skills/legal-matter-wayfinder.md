@@ -4,10 +4,10 @@ generated: true
 name: "legal-matter-wayfinder"
 category: "analysis"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/legal-matter-wayfinder/SKILL.md"
 tags:
   - skill
@@ -56,9 +56,9 @@ Zerlegt komplexe Legal- und Compliance-Matters in priorisierte tatsächliche, re
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

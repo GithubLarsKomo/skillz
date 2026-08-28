@@ -4,10 +4,10 @@ generated: true
 name: "legal-compliance-risk-assessment"
 category: "analysis"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/legal-compliance-risk-assessment/SKILL.md"
 tags:
   - skill
@@ -60,9 +60,9 @@ Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein pri
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

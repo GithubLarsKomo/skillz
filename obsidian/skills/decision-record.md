@@ -4,7 +4,7 @@ generated: true
 name: "decision-record"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -86,7 +86,7 @@ Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governanc
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 

@@ -4,10 +4,10 @@ generated: true
 name: "german-sports-law-specialist"
 category: "legal-specialist"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/german-sports-law-specialist/SKILL.md"
 tags:
   - skill
@@ -56,9 +56,9 @@ Analysiert deutsches Sportrecht an der Schnittstelle von staatlichem Recht und a
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

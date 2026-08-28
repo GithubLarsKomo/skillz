@@ -4,10 +4,10 @@ generated: true
 name: "legal-matter-final-gate"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/legal-matter-final-gate/SKILL.md"
 tags:
   - skill
@@ -51,9 +51,9 @@ Prüft vor Abschluss, Unterzeichnung, Veröffentlichung oder irreversibler Legal
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 
