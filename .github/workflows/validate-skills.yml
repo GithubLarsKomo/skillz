@@ -40,6 +40,8 @@ jobs:
         run: python -m unittest tests.test_euroimmun_corporate_design_contract
       - name: Test EUROIMMUN corporate design golden reference
         run: python -m unittest tests.test_euroimmun_corporate_design_golden_reference
+      - name: Test EUROIMMUN DOCX PDF Level-2 reference
+        run: python -m unittest tests.test_euroimmun_docx_pdf_level2_reference
       - name: Test YouTube learning workflow contract
         run: python -m unittest tests.test_youtube_learning_contract
       - name: Test binding Sport design template contract
@@ -71,7 +73,7 @@ jobs:
       - name: Test interpretation benchmark scorer
         run: python -m unittest tests.test_score_capability_interpretations
       - name: Score interpretation benchmark baseline
-        run: python scripts/score_capability_interpretations.py benchmarks/capability-interpretation-v1.json benchmarks/capability-interpretation-baseline-v1.json --json
+        run: python scripts/score_capability_interpretations.py benchmarks/capability-interpretation-v1.json benchmarks/capability-interpretation-baseline-v1.json docs/skill-capability-index.json
       - name: Test model interpretation request builder
         run: python -m unittest tests.test_build_model_interpretation_request
       - name: Test model interpretation runner
