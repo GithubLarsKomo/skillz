@@ -11,6 +11,7 @@ SKILLS = {
     "course-concept-graph": ROOT / "skills" / "course-concept-graph" / "SKILL.md",
     "learning-path-planner": ROOT / "skills" / "learning-path-planner" / "SKILL.md",
     "learning-activity-generator": ROOT / "skills" / "learning-activity-generator" / "SKILL.md",
+    "learning-delivery-workflow": ROOT / "skills" / "learning-delivery-workflow" / "SKILL.md",
     "youtube-course-builder-workflow": ROOT / "skills" / "youtube-course-builder-workflow" / "SKILL.md",
 }
 
@@ -37,9 +38,23 @@ class TestYouTubeCourseBuilderContract(unittest.TestCase):
             "course-concept-graph",
             "learning-path-planner",
             "learning-activity-generator",
-            "learning-artifact-qa",
+            "learning-delivery-workflow",
         ):
             self.assertIn(f"  - {dependency}", workflow)
+        for delegated_worker in (
+            "learning-artifact-qa",
+            "learning-content-design-system",
+            "learning-visual-planner",
+            "learning-svg-generator",
+            "learning-image-generator",
+            "learning-landingpage-renderer",
+            "learning-document-delivery",
+            "template-presentation-workflow",
+        ):
+            self.assertNotIn(f"  - {delegated_worker}", workflow)
+        delivery = self.skill_text["learning-delivery-workflow"]
+        self.assertIn("  - learning-artifact-qa", delivery)
+        self.assertIn("  - template-presentation-workflow", delivery)
         self.assertIn("course-learning-model.json", workflow)
 
     def test_prerequisite_graph_is_not_playlist_order(self):
