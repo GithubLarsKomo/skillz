@@ -41,7 +41,6 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf
 ## Outputs
 
 - `presentation-qa.md`
-- `presentation-template-profile.json`
 - `presentation.pdf`
 - `presentation.pptx`
 
@@ -49,11 +48,10 @@ Orchestriert die Erstellung oder Überarbeitung editierbarer Präsentationen auf
 
 ### `presentation-qa.md`
 
-- Ambiguous producer contract; no inferred consumer edge.
-
-### `presentation-template-profile.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
+- [[skills/youtube-learning-workflow|youtube-learning-workflow]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `presentation.pdf`
 

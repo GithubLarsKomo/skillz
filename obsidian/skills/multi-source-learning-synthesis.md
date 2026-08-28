@@ -47,7 +47,8 @@ Konsolidiert mehrere evidenzgebundene Learning-Modelle zu einem deduplizierten g
 
 ### `multi-source-learning-model.json`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/course-concept-graph|course-concept-graph]]
+- [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ## Evaluation
 

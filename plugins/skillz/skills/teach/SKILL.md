@@ -18,6 +18,16 @@ Der Skill wird **nur explizit gestartet**. Eine normale Bitte wie „erkläre mi
 /teach review
 ```
 
+## Artifact Ownership
+
+`teach` orchestriert, besitzt aber nicht die Zustandsartefakte seiner Worker. Die kanonischen Producer bleiben:
+
+- `learning-mission` -> `learning-mission.json`;
+- `learning-state` -> `learning-state.json`;
+- `learning-next-step` -> `learning-next-step.json`.
+
+`teach` referenziert diese Artefakte im Lernworkspace und erzeugt als eigenen portablen Übergabevertrag `learning-practice-request.json`. Dadurch bleibt der Zustand eindeutig einem Producer zugeordnet und kann unabhängig vom Orchestrator geprüft oder wiederverwendet werden.
+
 ## Normative Eigentumsgrenzen
 
 - Fachliche Wahrheit bleibt bei spezialisierten Skillz-Skills und belastbaren Quellen.
@@ -184,4 +194,4 @@ Ebenso ist ein `shared-release-candidate` keine organisatorische oder technische
 
 ## Abschlusskriterien
 
-Ein Teach-Zyklus ist abgeschlossen, wenn die aktive Mission dokumentiert ist, verwendete fachliche Claims nachvollziehbar sind, der aktuelle Kompetenzzustand nur nachgewiesene Fähigkeiten enthält, der nächste Schritt begründet ist und jede Runtime-Übergabe einen expliziten portablen Vertrag besitzt. Bei gewünschter gemeinsamer Wiederverwendung darf ein approval-pflichtiger Hosted-Release-Kandidat vorbereitet sein; ein tatsächliches Shared Release gilt erst nach expliziter ETF-/Maintainer-Freigabe und technischer Registry-Validierung als veröffentlicht.
+Ein Teach-Zyklus ist abgeschlossen, wenn die aktive Mission dokumentiert ist, verwendete fachliche Claims nachvollziehbar sind, der aktuelle Kompetenzzustand nur nachgewiesene Fähigkeiten enthält, der nächste Schritt begründet ist und jede Runtime-Übergabe einen expliziten portablen Vertrag besitzt. Die von `learning-mission`, `learning-state` und `learning-next-step` erzeugten Zustandsartefakte bleiben deren kanonische Outputs und werden von Teach nur orchestriert/referenziert. Bei gewünschter gemeinsamer Wiederverwendung darf ein approval-pflichtiger Hosted-Release-Kandidat vorbereitet sein; ein tatsächliches Shared Release gilt erst nach expliziter ETF-/Maintainer-Freigabe und technischer Registry-Validierung als veröffentlicht.

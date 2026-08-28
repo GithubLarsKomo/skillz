@@ -41,28 +41,13 @@ Orchestriert auf ausdrücklichen Wunsch einen zustandsbehafteten Lernprozess mit
 
 ## Outputs
 
-- `learning-mission.json`
-- `learning-next-step.json`
 - `learning-practice-request.json`
-- `learning-state.json`
 
 ## Output consumers
-
-### `learning-mission.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
-
-### `learning-next-step.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
 
 ### `learning-practice-request.json`
 
 - Terminal or currently unconsumed output.
-
-### `learning-state.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
 
 ## Evaluation
 

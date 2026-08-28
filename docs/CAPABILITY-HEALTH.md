@@ -5,12 +5,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 ## Summary
 
 - Skills: **270**
-- User-facing entrypoints: **229**
+- User-facing entrypoints: **228**
 - Evaluation suites: **245**
+- Executed evaluation suites: **PASS**
+- Evaluation coverage: **incomplete**
+- Skills with evaluation suite: **245/270**
+- User-facing entrypoints with evaluation suite: **213/228**
 - Skills without evaluation suite: **25**
 - User-facing entrypoints without evaluation suite: **15**
-- Ambiguous outputs (multiple producers): **6**
+- Ambiguous outputs (multiple producers): **0**
 - Outputs without inferred hard-requires consumers: **261**
+
+Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
 ## Evaluation gaps
 
@@ -60,12 +66,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Ambiguous outputs
 
-- `learning-mission.json` — producers: `learning-mission`, `teach`
-- `learning-next-step.json` — producers: `learning-next-step`, `teach`
-- `learning-state.json` — producers: `learning-state`, `teach`
-- `multi-source-learning-model.json` — producers: `multi-source-learning-synthesis`, `youtube-playlist-learning-workflow`
-- `presentation-qa.md` — producers: `euroimmun-presentation-workflow`, `template-presentation-workflow`
-- `presentation-template-profile.json` — producers: `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow`
+None.
 
 ## Outputs without inferred consumers
 

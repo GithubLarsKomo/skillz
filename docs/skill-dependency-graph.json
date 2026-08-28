@@ -605,9 +605,7 @@
       "consumes": [],
       "outputs": [
         "euroimmun-presentation.pdf",
-        "euroimmun-presentation.pptx",
-        "presentation-qa.md",
-        "presentation-template-profile.json"
+        "euroimmun-presentation.pptx"
       ]
     },
     {
@@ -3214,10 +3212,7 @@
       ],
       "consumes": [],
       "outputs": [
-        "learning-mission.json",
-        "learning-next-step.json",
-        "learning-practice-request.json",
-        "learning-state.json"
+        "learning-practice-request.json"
       ]
     },
     {
@@ -3257,7 +3252,6 @@
       "consumes": [],
       "outputs": [
         "presentation-qa.md",
-        "presentation-template-profile.json",
         "presentation.pdf",
         "presentation.pptx"
       ]
@@ -3444,7 +3438,6 @@
       ],
       "consumes": [],
       "outputs": [
-        "multi-source-learning-model.json",
         "youtube-playlist-learning-run.json"
       ]
     },
@@ -10089,22 +10082,27 @@
     {
       "output": "learning-mission.json",
       "producers": [
-        "learning-mission",
+        "learning-mission"
+      ],
+      "consumerSkills": [
+        "exam-trainer-catalog-builder",
+        "learning-assessment-spec",
+        "learning-next-step",
         "teach"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "learning-next-step.json",
       "producers": [
-        "learning-next-step",
+        "learning-next-step"
+      ],
+      "consumerSkills": [
         "teach"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "learning-path.json",
@@ -10166,12 +10164,15 @@
     {
       "output": "learning-state.json",
       "producers": [
-        "learning-state",
+        "learning-state"
+      ],
+      "consumerSkills": [
+        "learning-assessment-spec",
+        "learning-next-step",
         "teach"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "learning-summary.json",
@@ -11041,12 +11042,14 @@
     {
       "output": "multi-source-learning-model.json",
       "producers": [
-        "multi-source-learning-synthesis",
+        "multi-source-learning-synthesis"
+      ],
+      "consumerSkills": [
+        "course-concept-graph",
         "youtube-playlist-learning-workflow"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "negotiation-playbook.md",
@@ -11668,12 +11671,16 @@
     {
       "output": "presentation-qa.md",
       "producers": [
-        "euroimmun-presentation-workflow",
         "template-presentation-workflow"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "consumerSkills": [
+        "euroimmun-presentation-workflow",
+        "youtube-course-builder-workflow",
+        "youtube-learning-workflow",
+        "youtube-playlist-learning-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "presentation-render-qa.json",
@@ -11711,13 +11718,14 @@
     {
       "output": "presentation-template-profile.json",
       "producers": [
-        "euroimmun-presentation-workflow",
-        "presentation-template-profiler",
+        "presentation-template-profiler"
+      ],
+      "consumerSkills": [
+        "presentation-layout-qa",
         "template-presentation-workflow"
       ],
-      "consumerSkills": [],
-      "ambiguous": true,
-      "consumptionStatus": "ambiguous"
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "presentation-template-profile.md",

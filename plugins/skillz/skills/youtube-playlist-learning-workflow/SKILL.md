@@ -64,8 +64,9 @@ Kein Mehrheitsvotum als Wahrheitsersatz.
 
 ## 4. Multi-Source-Synthese
 
-`multi-source-learning-synthesis` erzeugt:
+`multi-source-learning-synthesis` erzeugt und besitzt:
 
+- `multi-source-learning-model.json`;
 - deduplizierte Claim-Cluster;
 - Consensus Core;
 - qualifizierte Aussagen;
@@ -74,9 +75,11 @@ Kein Mehrheitsvotum als Wahrheitsersatz.
 - optionale Prozess-/SOP-Varianten;
 - lernlogische Kapitelstruktur.
 
+Der Playlist-Orchestrator referenziert dieses Modell im Run-Manifest, beansprucht aber nicht selbst dessen Artifact-Ownership.
+
 ## 5. Canonical Model Lock
 
-`multi-source-learning-model.json` wird zur einzigen Source of Truth für alle finalen Renderer. Es referenziert die Einzelmodell-Fingerprints und Arbitration-Artefakte.
+Das von `multi-source-learning-synthesis` erzeugte `multi-source-learning-model.json` wird zur einzigen Source of Truth für alle finalen Renderer. Es referenziert die Einzelmodell-Fingerprints und Arbitration-Artefakte.
 
 ## 6. Visuals und DESIGN.md
 
@@ -133,7 +136,7 @@ Zusätzlich zur bestehenden `learning-artifact-qa` prüfen:
 
 ## Output-Manifest
 
-`youtube-playlist-learning-run.json` dokumentiert Source Set, Einzelmodell-Fingerprints, Arbitration, Synthese-Fingerprint, Sampling/Exclusions, Design Authority, Render Coverage, Konflikte/Warnings und finalen QA-Status.
+`youtube-playlist-learning-run.json` dokumentiert Source Set, Einzelmodell-Fingerprints, Referenz auf das kanonische `multi-source-learning-model.json`, Arbitration, Synthese-Fingerprint, Sampling/Exclusions, Design Authority, Render Coverage, Konflikte/Warnings und finalen QA-Status.
 
 ## Abschluss
 

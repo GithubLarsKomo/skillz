@@ -43,7 +43,10 @@ Definiert oder revidiert ein einzelnes kohärentes Lernziel als portablen Vertra
 
 ### `learning-mission.json`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
+- [[skills/learning-assessment-spec|learning-assessment-spec]]
+- [[skills/learning-next-step|learning-next-step]]
+- [[skills/teach|teach]]
 
 ## Evaluation
 

@@ -41,7 +41,7 @@ Wählt aus Lernmission, aktuellem Kompetenzzustand, offenen Lücken und verfügb
 
 ### `learning-next-step.json`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/teach|teach]]
 
 ## Evaluation
 

@@ -42,7 +42,8 @@ Analysiert eine vorhandene PowerPoint-Referenz oder ein Corporate-Template und e
 
 ### `presentation-template-profile.json`
 
-- Ambiguous producer contract; no inferred consumer edge.
+- [[skills/presentation-layout-qa|presentation-layout-qa]]
+- [[skills/template-presentation-workflow|template-presentation-workflow]]
 
 ### `presentation-template-profile.md`
 

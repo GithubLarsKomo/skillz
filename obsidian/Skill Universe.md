@@ -25,13 +25,13 @@ tags:
 - [[categories/analysis|analysis]] (8)
 - [[categories/communication-memory|communication-memory]] (2)
 - [[categories/engineering|engineering]] (17)
-- [[categories/internal|internal]] (41)
+- [[categories/internal|internal]] (42)
 - [[categories/legal-specialist|legal-specialist]] (26)
 - [[categories/productivity|productivity]] (8)
 - [[categories/regulated-engineering|regulated-engineering]] (74)
 - [[categories/research-knowledge|research-knowledge]] (15)
 - [[categories/skill-system|skill-system]] (3)
-- [[categories/workflow|workflow]] (76)
+- [[categories/workflow|workflow]] (75)
 
 ## Workflows
 

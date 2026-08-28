@@ -1026,14 +1026,14 @@ graph TD
 | `learning-image-manifest.json` | `learning-image-generator` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `learning-landingpage` | `learning-landingpage-renderer` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `learning-landingpage-qa.json` | `learning-landingpage-renderer` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-mission.json` | `learning-mission`, `teach` | — | ambiguous |
-| `learning-next-step.json` | `learning-next-step`, `teach` | — | ambiguous |
+| `learning-mission.json` | `learning-mission` | `exam-trainer-catalog-builder`, `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
+| `learning-next-step.json` | `learning-next-step` | `teach` | inferred |
 | `learning-path.json` | `learning-path-planner` | `learning-activity-generator`, `youtube-course-builder-workflow` | inferred |
 | `learning-practice-request.json` | `teach` | — | unconsumed |
 | `learning-record.md` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-runtime-evidence.json` | `exam-trainer-result-import` | `teach` | inferred |
 | `learning-source-arbitration.json` | `learning-source-arbitration` | `multi-source-learning-synthesis`, `youtube-playlist-learning-workflow` | inferred |
-| `learning-state.json` | `learning-state`, `teach` | — | ambiguous |
+| `learning-state.json` | `learning-state` | `learning-assessment-spec`, `learning-next-step`, `teach` | inferred |
 | `learning-summary.json` | `learning-summary-synthesis` | `youtube-learning-workflow` | inferred |
 | `learning-summary.md` | `learning-summary-synthesis` | `youtube-learning-workflow` | inferred |
 | `learning-svg-assets` | `learning-svg-generator` | `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
@@ -1096,7 +1096,7 @@ graph TD
 | `merger-control-route-map.json` | `competition-antitrust-law-specialist` | — | unconsumed |
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `multi-source-conflict-map.json` | `multi-source-learning-synthesis` | `course-concept-graph`, `youtube-playlist-learning-workflow` | inferred |
-| `multi-source-learning-model.json` | `multi-source-learning-synthesis`, `youtube-playlist-learning-workflow` | — | ambiguous |
+| `multi-source-learning-model.json` | `multi-source-learning-synthesis` | `course-concept-graph`, `youtube-playlist-learning-workflow` | inferred |
 | `negotiation-playbook.md` | `legal-negotiation-strategy` | `contract-matter-workflow`, `legal-redline-review-loop` | inferred |
 | `negotiation-positions.json` | `legal-negotiation-strategy` | `contract-matter-workflow`, `legal-redline-review-loop` | inferred |
 | `negotiation-state.json` | `legal-redline-review-loop` | `contract-matter-workflow` | inferred |
@@ -1154,11 +1154,11 @@ graph TD
 | `presentation-layout-qa.json` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | inferred |
 | `presentation-layout-qa.md` | `presentation-layout-qa` | `presentation-render-verifier`, `template-presentation-workflow` | inferred |
 | `presentation-preview.pdf` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
-| `presentation-qa.md` | `euroimmun-presentation-workflow`, `template-presentation-workflow` | — | ambiguous |
+| `presentation-qa.md` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `presentation-render-qa.json` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
 | `presentation-render-qa.md` | `presentation-render-verifier` | `template-presentation-workflow` | inferred |
 | `presentation-revised-text` | `presentation-language-rewriter` | `template-presentation-workflow` | inferred |
-| `presentation-template-profile.json` | `euroimmun-presentation-workflow`, `presentation-template-profiler`, `template-presentation-workflow` | — | ambiguous |
+| `presentation-template-profile.json` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
 | `presentation-template-profile.md` | `presentation-template-profiler` | `presentation-layout-qa`, `template-presentation-workflow` | inferred |
 | `presentation.pdf` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |
 | `presentation.pptx` | `template-presentation-workflow` | `euroimmun-presentation-workflow`, `youtube-course-builder-workflow`, `youtube-learning-workflow`, `youtube-playlist-learning-workflow` | inferred |

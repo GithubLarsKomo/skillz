@@ -44,14 +44,9 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ## Outputs
 
-- `multi-source-learning-model.json`
 - `youtube-playlist-learning-run.json`
 
 ## Output consumers
-
-### `multi-source-learning-model.json`
-
-- Ambiguous producer contract; no inferred consumer edge.
 
 ### `youtube-playlist-learning-run.json`
 

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **76**
+Skills: **75**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -23,7 +23,6 @@ Skills: **76**
 - [[skills/decision-record|decision-record]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
 - [[skills/dr-komorowski-sport-pdf-report-renderer|dr-komorowski-sport-pdf-report-renderer]]
-- [[skills/dr-komorowski-sport-report-renderer|dr-komorowski-sport-report-renderer]]
 - [[skills/euroimmun-docx-report-renderer|euroimmun-docx-report-renderer]]
 - [[skills/euroimmun-pdf-report-renderer|euroimmun-pdf-report-renderer]]
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
