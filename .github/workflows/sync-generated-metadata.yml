@@ -18,6 +18,7 @@ on:
       - "scripts/apply_architecture_consolidation_p1_learning_delivery.py"
       - "scripts/apply_architecture_consolidation_p1_presentation_evaluations.py"
       - "scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py"
+      - "scripts/fix_architecture_consolidation_p1_evaluation_anchors.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -63,6 +64,9 @@ jobs:
       - name: Backfill P1 user-facing learning evaluations
         if: github.ref_name == 'feat/skillz-architecture-consolidation'
         run: python scripts/apply_architecture_consolidation_p1_user_learning_evaluations.py
+      - name: Correct P1 evaluation anchors
+        if: github.ref_name == 'feat/skillz-architecture-consolidation'
+        run: python scripts/fix_architecture_consolidation_p1_evaluation_anchors.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
       - name: Evaluate backfilled suites
