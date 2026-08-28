@@ -1,0 +1,5 @@
+interface:
+  display_name: "Real Estate Law"
+  short_description: "Prüft Immobilienkauf, Miete, Grundstücksrechte, DD und Vollzugsgates."
+policy:
+  allow_implicit_invocation: true
