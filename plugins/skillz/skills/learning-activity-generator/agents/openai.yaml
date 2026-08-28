@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Activity Generator"
+  short_description: "Erzeugt evidenzgebundene Lernaktivitäten, Übungen und Wissenchecks aus Lernzielen und Course-Concept-Graph, mit Antwo..."
+policy:
+  allow_implicit_invocation: true

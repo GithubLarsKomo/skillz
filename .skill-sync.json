@@ -101,6 +101,12 @@
         "agents/openai.yaml": "6b39d1a47df6050566162437178f9ff3c204144d59cb7735520e725ab8c13de9"
       }
     },
+    "course-concept-graph": {
+      "files": {
+        "SKILL.md": "e38a4e9ede9f06ef041997c835bcee83940a3b48c5827a837cf11c2149da9deb",
+        "agents/openai.yaml": "57c375e86dd626df2a69e9072738b7e4f4d35d2f8ac95ac65f0e639a5253caaf"
+      }
+    },
     "daily-and-weekly-review": {
       "files": {
         "SKILL.md": "40fb631894763e4b3e8a45e671159082a6acaed678bd1b143483b9c36c0304bd",
@@ -576,6 +582,12 @@
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
+    "learning-activity-generator": {
+      "files": {
+        "SKILL.md": "dc2e764b52f7e87f966d2e083e9590a61d0f6505e34c40c73dceb642f57fcac3",
+        "agents/openai.yaml": "cc2d242f3d6569af3760f4d7dcaec9aa717314eda6480a30fd135855a16b46ad"
+      }
+    },
     "learning-artifact-qa": {
       "files": {
         "SKILL.md": "69130b6de4b5cb3fd915dd74299cae0ec24d7dded95838f72ed5cbdc301191eb",
@@ -628,6 +640,12 @@
       "files": {
         "SKILL.md": "628e0be1ed9e0a3aa86c5fe684a0f906bc939c0c991e99a056bc43de1c91d349",
         "agents/openai.yaml": "68238b1da9372ec31773882616e856e1d6e9c2b6e4797442f1b163526271dfa6"
+      }
+    },
+    "learning-path-planner": {
+      "files": {
+        "SKILL.md": "7eeae8c1807c7a92a839762abc6024877cf16862bac54910ae09e0ca75463eee",
+        "agents/openai.yaml": "ea6645b4883ebc53607b1eba1749861f90510d6ec83eca09c96b040fdf7b853b"
       }
     },
     "learning-source-arbitration": {
@@ -1339,6 +1357,12 @@
       "files": {
         "SKILL.md": "1000bc2fffab7b0748417f31d2fa198f642ce66548c7b25ce034ed4fa53e5650",
         "agents/openai.yaml": "f0194f39aa6592eaa6bd93c324ac60c89c9b835bd9b56d5872e056855174036b"
+      }
+    },
+    "youtube-course-builder-workflow": {
+      "files": {
+        "SKILL.md": "917bfc19e09dbcea3116bf976286b9da7ebfac46f0acff8a40647765a7acd5ef",
+        "agents/openai.yaml": "15633870db6bf72d60a074c35c00d1488fadec4585547668caa768aad11421e8"
       }
     },
     "youtube-learning-workflow": {

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **57**
+Skills: **58**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/contract-drafting|contract-drafting]]
@@ -67,5 +67,6 @@ Skills: **57**
 - [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]

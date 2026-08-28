@@ -31,6 +31,7 @@ Erzeugt aus einem evidenzgebundenen Visual-Plan und dem aktiven DESIGN.md skalie
 
 ## Required by
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
@@ -43,11 +44,13 @@ Erzeugt aus einem evidenzgebundenen Visual-Plan und dem aktiven DESIGN.md skalie
 
 ### `learning-svg-assets`
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 
 ### `learning-svg-manifest.json`
 
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]
 

@@ -40,7 +40,7 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ## Required by
 
-- —
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 
 ## Outputs
 
@@ -55,7 +55,7 @@ Orchestriert mehrere YouTube-Videos oder eine Playlist zu einem gemeinsamen evid
 
 ### `youtube-playlist-learning-run.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 
 ## Evaluation
 

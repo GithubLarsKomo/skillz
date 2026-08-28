@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learning Path Planner"
+  short_description: "Plant aus einem Course-Concept-Graph eine didaktisch begründete Modul- und Lektionenreihenfolge mit Voraussetzungen,..."
+policy:
+  allow_implicit_invocation: true
