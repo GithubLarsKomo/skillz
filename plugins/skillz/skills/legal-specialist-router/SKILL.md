@@ -17,7 +17,10 @@ Unterstütze insbesondere:
 - deutsches Individual-/Kollektivarbeitsrecht → `german-employment-labor-law-specialist`
 - Corporate Governance/Organrecht → `corporate-governance-law-specialist`
 - Corporate Transactions/M&A → `corporate-transactions-ma-specialist`
+- Finance/Insolvency/Restructuring → `finance-insolvency-restructuring-law-specialist`
 - Corporate Compliance/Integrity/Anti-Corruption → `corporate-compliance-law-specialist` plus Obligation/Control/Investigation-Systeme
+- ESG/Supply Chain/Environmental → `esg-supply-chain-environmental-law-specialist` plus Supplier-/Control-Systeme
+- Public Procurement/Healthcare → `public-procurement-healthcare-law-specialist` plus Contract/Antitrust/Compliance/Regulatory
 - Digital/AI/Cyber/Data → `digital-ai-cyber-law-specialist`; technische Cybersecurity/ISMS und Medical-Device-Cybersecurity bleiben bei den vorhandenen Fach-Skills
 - allgemeines Privacy/Data Law → `privacy-data-law-specialist`; Medical-Device-/IVD-Privacy zusätzlich zum vorhandenen `medical-device-privacy-gdpr-bdsg`
 - IP/Licensing → `ip-licensing-law-specialist`; Patentlandschaft/Biopatent/FTO bleiben bei den vorhandenen Fach-Skills
@@ -36,7 +39,10 @@ Unterstütze insbesondere:
 
 ## Cross-Domain Examples
 
-- M&A mit Betriebsübergang, IP und Fusionskontrolle erzeugt getrennte Work Orders an M&A, Employment, IP und Antitrust.
+- M&A mit Finanzierung, Betriebsübergang, IP und Fusionskontrolle erzeugt getrennte Work Orders an M&A, Finance/Insolvency, Employment, IP und Antitrust.
+- Distress bei reguliertem Hersteller erzeugt Finance/Insolvency-, Governance-, Employment-, Supplier-, Regulatory- und ggf. Litigation/Counsel-Work Orders.
+- Öffentliche IVD-Ausschreibung erzeugt Procurement/Healthcare-, Contract-, Competition-, Corporate-Compliance- und Regulatory-Work Orders.
+- Lieferkettenvorwurf bei kritischem Reagenzlieferanten erzeugt ESG/Supply-Chain-, Supplier-Quality-, Contract-, Investigation- und Governance-Work Orders.
 - IP-Lizenz mit Exklusivität erzeugt getrennte Work Orders an IP/Licensing und Antitrust; Patent-/FTO-Analyse bleibt technisch/rechtlich separat.
 - Investigation mit möglicher Kündigung und Beschäftigtendaten erzeugt getrennte Work Orders an Investigation, Employment und Privacy sowie bei Bedarf Whistleblowing/Counsel.
 - Board-Entscheidung über material risk erzeugt Governance/Risk/Decision Work Orders; eine AI-Empfehlung wird nicht als Organbeschluss behandelt.
@@ -69,6 +75,9 @@ Unterstütze insbesondere:
 - Eine Work Order enthält genau eine fachlich kohärente Frage.
 - Bestehende Regulatory-/IP-/QMS-/Complaint-/CAPA-Skills werden wiederverwendet, nicht neu implementiert.
 - Corporate Compliance definiert materielle Integrity-/Organisationsfragen; Obligation Register, Controls und Investigation bleiben getrennte Systeme.
+- ESG/Supply-Chain Legal definiert materielle Scope-/Due-Diligence-Pflichten; Supplier Quality, technische Umweltbewertung und Reporting bleiben eigene Layer.
+- Procurement/Healthcare trennt Vergabe, Integrity, Competition, Contract und Regulatory statt eines monolithischen Tender-Checks.
+- Finance/Insolvency verarbeitet bestätigte Finance-Facts; Accounting, Tax und Valuation bleiben bei ihren Fach-Owners.
 - Digital/AI/Cyber Legal klassifiziert Rechtsregime/Rollen; technische Security-, Privacy- und Regulatory-Ownership bleibt bei den Fach-Specialists.
 - Whistleblowing-Rechtsanalyse und Investigation Fact-Finding sind getrennte Work Orders, können aber denselben Matter State nutzen.
 - Tax wird als Specialist Interface geroutet; eine Legal-Analyse wird nicht zur behaupteten Steuerberatermeinung hochgestuft.

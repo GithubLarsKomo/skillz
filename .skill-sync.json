@@ -861,7 +861,7 @@
     },
     "legal-specialist-router": {
       "files": {
-        "SKILL.md": "60a1f1fa9836ea1fc741d299f8f40611eda225b8fbedb2bfa755a937de7e2a42",
+        "SKILL.md": "e09c198c5ecc1e6fb02c47e17350b8b0a3ee23a018a764d4f4412a2bd0247d79",
         "agents/openai.yaml": "ff6a8072537f63d5328ec41f062206c255b7efebf021b3aba3b25f2e7d247573"
       }
     },
