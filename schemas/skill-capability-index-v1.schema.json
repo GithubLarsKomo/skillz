@@ -9,6 +9,9 @@
     "entrypointCount": {"type": "integer"},
     "entrypointCategories": {"type": "array", "items": {"type": "string"}},
     "evaluationSuiteCount": {"type": "integer"},
+    "evaluatedSkillCount": {"type": "integer"},
+    "evaluatedEntrypointCount": {"type": "integer"},
+    "evaluationCoverageComplete": {"type": "boolean"},
     "evaluationPassed": {"type": "boolean"},
     "evaluationErrorCount": {"type": "integer"},
     "skills": {
