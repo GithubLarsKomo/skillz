@@ -16,7 +16,7 @@ tags:
 
 # presentation-layout-qa
 
-Prüft PowerPoint-Folien strukturell auf Text- und Box-Overflow, Objektüberlagerungen, Slide-Grenzen, Font-Ausreißer, inkonsistente Ausrichtung, Platzhaltermissbrauch, Bildverzerrung, Chart-/Tabellen-Clipping und Footer-Kollisionen. Verwenden als technische QA vor finalem Rendering; nicht als visuelle Geschmacksprüfung.
+Prüft PowerPoint-Folien strukturell und kompositorisch auf Text-/Box-Overflow, Objektüberlagerungen, Slide-Grenzen, Footer-/Quellenkollisionen, Font-Ausreißer, Bild-/Chart-/Tabellenfehler sowie objektivierbare visuelle Qualitätsmängel wie überdimensionierte Container, schlechte Information-to-Space-Ratio, schwache Leserichtung und untergewichtete Schlussfolgerungen. Verwenden als Layout-QA vor finalem Rendering; ergänzt, aber ersetzt nicht den vollständigen visuellen Render-Review.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
