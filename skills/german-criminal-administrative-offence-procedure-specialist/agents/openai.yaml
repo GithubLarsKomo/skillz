@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Criminal Administrative Offence Procedure Specialist"
+  short_description: "Analysiert deutsche private und unternehmensnahe Straf-/OWi-/Ermittlungsverfahrensmatters aus Verteidigungs- und Verf..."
+policy:
+  allow_implicit_invocation: true

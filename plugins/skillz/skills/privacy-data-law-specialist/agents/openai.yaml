@@ -1,0 +1,5 @@
+interface:
+  display_name: "Privacy Data Law Specialist"
+  short_description: "Analysiert allgemeine Datenschutz- und Datenrechtsfragen mit EU/Deutschland-Baseline von Data Inventory und Rollen üb..."
+policy:
+  allow_implicit_invocation: true

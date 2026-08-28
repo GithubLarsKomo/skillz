@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Employment Labor Law Specialist"
+  short_description: "Analysiert deutsches Individual- und Kollektivarbeitsrecht einschließlich Arbeitnehmerstatus, Vertrag, Vergütung, Arb..."
+policy:
+  allow_implicit_invocation: true

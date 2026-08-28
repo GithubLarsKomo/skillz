@@ -1,0 +1,5 @@
+interface:
+  display_name: "Corporate Compliance Law Specialist"
+  short_description: "Analysiert unternehmensbezogene Integrity-/Compliance-Pflichten und Risiken insbesondere Anti-Korruption, Vorteilsgew..."
+policy:
+  allow_implicit_invocation: true

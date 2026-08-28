@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dispute Litigation Strategy Specialist"
+  short_description: "Entwickelt evidenzbasierte Streit-, Claim-, Abwehr-, Vergleichs- und Litigation-Strategien für Deutschland mit Zustän..."
+policy:
+  allow_implicit_invocation: true

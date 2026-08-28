@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Rowing Sport Law Specialist"
+  short_description: "Analysiert sportartspezifische Rechts- und Verbandsfragen im deutschen Rudersport mit Fokus auf den Deutschen Ruderve..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Private Legal Matter Router"
+  short_description: "Routet private deutsche/europäische Rechtsangelegenheiten getrennt vom Unternehmens-/Konzernkontext nach Rechtsgebiet..."
+policy:
+  allow_implicit_invocation: true

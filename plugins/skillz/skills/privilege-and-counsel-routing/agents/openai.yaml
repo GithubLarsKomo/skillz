@@ -1,0 +1,5 @@
+interface:
+  display_name: "Privilege And Counsel Routing"
+  short_description: "Bewertet für einen Legal Matter Schutz-, Vertraulichkeits- und Eskalationsbedarf, ohne pauschal anwaltliches Privileg..."
+policy:
+  allow_implicit_invocation: true

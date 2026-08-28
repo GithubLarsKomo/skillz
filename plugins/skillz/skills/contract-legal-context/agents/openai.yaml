@@ -1,5 +1,5 @@
 interface:
   display_name: "Contract Legal Context"
-  short_description: "Bestimmt für einen privaten oder beruflichen Vertragsfall die relevanten Parteirollen, Vertragsart, Rechtswahl, poten..."
+  short_description: "Projiziert den allgemeinen aktuellen Rechtskontext auf einen privaten oder beruflichen Vertragsfall und bestimmt Part..."
 policy:
   allow_implicit_invocation: false

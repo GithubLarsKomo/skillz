@@ -1,0 +1,5 @@
+interface:
+  display_name: "Internal Investigation Workflow"
+  short_description: "Orchestriert interne Untersuchungen von Allegation-Triage, Independence/Privilege und rechtmäßiger Beweissicherung üb..."
+policy:
+  allow_implicit_invocation: true

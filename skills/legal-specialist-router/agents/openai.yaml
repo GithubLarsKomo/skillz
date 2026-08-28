@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Specialist Router"
+  short_description: "Routet präzise Legal-Work-Orders an passende Rechtsgebiets-, Compliance-, Regulatory-, IP- oder Sports-Law-Specialist..."
+policy:
+  allow_implicit_invocation: true

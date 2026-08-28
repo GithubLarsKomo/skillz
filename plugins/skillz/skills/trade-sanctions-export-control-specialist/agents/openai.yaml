@@ -1,0 +1,5 @@
+interface:
+  display_name: "Trade Sanctions Export Control Specialist"
+  short_description: "Analysiert Exportkontrolle, Sanktionen und Außenwirtschaftsrecht für Deutschland/EU einschließlich Güter/Software/Tec..."
+policy:
+  allow_implicit_invocation: true

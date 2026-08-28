@@ -1,0 +1,5 @@
+interface:
+  display_name: "Digital Ai Cyber Law Specialist"
+  short_description: "Analysiert Digital-, AI-, Daten- und Cyber-Rechtsfragen für Deutschland/EU einschließlich AI Act, Data Act, NIS2/BSIG..."
+policy:
+  allow_implicit_invocation: true

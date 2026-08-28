@@ -1,0 +1,5 @@
+interface:
+  display_name: "Executive Legal Compliance Governance"
+  short_description: "Konsolidiert Legal-/Compliance-Matters, Rechtsänderungen, Control Gaps, Investigations, Verträge, Litigation, Special..."
+policy:
+  allow_implicit_invocation: true

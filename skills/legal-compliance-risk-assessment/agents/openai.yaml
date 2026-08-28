@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Compliance Risk Assessment"
+  short_description: "Konsolidiert Legal-, Compliance-, Regulatory- und Specialist-Findings in ein priorisiertes Risiko- und Exposure-Model..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Redline Review Loop"
+  short_description: "Vergleicht neue Vertrags- oder Legal-Redline-Versionen mit dem letzten bewerteten Stand, hält Issue-Lineage und Verha..."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Corporate Governance Law Specialist"
+  short_description: "Analysiert deutsches Gesellschafts- und Organrecht für AG/GmbH mit Zuständigkeiten, Vertretungsmacht, Geschäftsleitun..."
+policy:
+  allow_implicit_invocation: true

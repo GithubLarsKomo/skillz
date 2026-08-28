@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Legal Interface Specialist"
+  short_description: "Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Pr..."
+policy:
+  allow_implicit_invocation: true

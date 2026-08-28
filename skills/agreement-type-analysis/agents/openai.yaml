@@ -1,0 +1,5 @@
+interface:
+  display_name: "Agreement Type Analysis"
+  short_description: "Zerlegt einen Vertragsfall nach seiner tatsächlichen Deal-Funktion in Vertragstypen, Leistungs-/Rechteflüsse, erforde..."
+policy:
+  allow_implicit_invocation: false

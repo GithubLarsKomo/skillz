@@ -1,0 +1,5 @@
+interface:
+  display_name: "Competition Antitrust Law Specialist"
+  short_description: "Analysiert deutsches/EU-Kartellrecht für Vereinbarungen, Wettbewerberkontakte, Vertrieb, Exklusivität, IP-Lizenzen, M..."
+policy:
+  allow_implicit_invocation: true

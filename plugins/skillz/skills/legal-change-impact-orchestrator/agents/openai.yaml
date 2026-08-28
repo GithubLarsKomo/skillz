@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Change Impact Orchestrator"
+  short_description: "Übersetzt verifizierte Legal-Change-Events in strukturierte Impact-Work-Orders für betroffene Rechtsträger, Prozesse,..."
+policy:
+  allow_implicit_invocation: true

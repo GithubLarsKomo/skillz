@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Negotiation Strategy"
+  short_description: "Übersetzt Mandantenstrategie, Legal-/Commercial-Risiken und Vertrags-Findings in priorisierte Verhandlungspositionen..."
+policy:
+  allow_implicit_invocation: false

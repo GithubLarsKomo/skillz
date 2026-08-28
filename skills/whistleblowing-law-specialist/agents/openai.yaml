@@ -1,0 +1,5 @@
+interface:
+  display_name: "Whistleblowing Law Specialist"
+  short_description: "Analysiert Hinweisgeber- und Meldestellenrecht mit Schwerpunkt Deutschland/EU, insbesondere HinSchG, Vertraulichkeit,..."
+policy:
+  allow_implicit_invocation: true

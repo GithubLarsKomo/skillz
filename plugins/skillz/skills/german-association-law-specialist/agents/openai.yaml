@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Association Law Specialist"
+  short_description: "Analysiert deutsches Vereinsrecht für eingetragene und nicht eingetragene Vereine sowie Verbandsstrukturen, insbesond..."
+policy:
+  allow_implicit_invocation: true

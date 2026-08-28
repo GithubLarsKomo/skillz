@@ -1,0 +1,5 @@
+interface:
+  display_name: "Product Liability Safety Law Specialist"
+  short_description: "Analysiert deutsches/EU-Produkthaftungs- und Produktsicherheitsrecht für Schäden, Defekte, Warnungen, Rückrufe, Vertr..."
+policy:
+  allow_implicit_invocation: true

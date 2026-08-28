@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compliance Control Mapping"
+  short_description: "Übersetzt verifizierte Compliance-Pflichten in prüfbare Control Objectives, präventive/detektive/korrigierende Kontro..."
+policy:
+  allow_implicit_invocation: true

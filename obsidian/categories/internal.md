@@ -10,10 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **42**
+Skills: **41**
 
 - [[skills/course-concept-graph|course-concept-graph]]
-- [[skills/decision-record|decision-record]]
 - [[skills/deferred-external-action-verification|deferred-external-action-verification]]
 - [[skills/document-generation-forensics|document-generation-forensics]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]

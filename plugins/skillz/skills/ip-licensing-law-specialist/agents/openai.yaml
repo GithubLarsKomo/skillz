@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ip Licensing Law Specialist"
+  short_description: "Analysiert IP-Ownership, Lizenzierung und Technology-Transfer für Patente, Know-how, Software, Urheberrechte, Marken,..."
+policy:
+  allow_implicit_invocation: true

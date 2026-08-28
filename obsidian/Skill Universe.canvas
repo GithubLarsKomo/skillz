@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n221 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n270 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -16,15 +16,60 @@
       "x": 0,
       "y": 0,
       "width": 1120,
-      "height": 240,
+      "height": 520,
       "color": "1"
+    },
+    {
+      "id": "skill-agreement-type-analysis",
+      "type": "file",
+      "file": "skills/agreement-type-analysis.md",
+      "x": 40,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-client-strategy",
+      "type": "file",
+      "file": "skills/legal-client-strategy.md",
+      "x": 370,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-compliance-risk-assessment",
+      "type": "file",
+      "file": "skills/legal-compliance-risk-assessment.md",
+      "x": 700,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-matter-wayfinder",
+      "type": "file",
+      "file": "skills/legal-matter-wayfinder.md",
+      "x": 40,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-negotiation-strategy",
+      "type": "file",
+      "file": "skills/legal-negotiation-strategy.md",
+      "x": 370,
+      "y": 210,
+      "width": 300,
+      "height": 110
     },
     {
       "id": "skill-llm-generation-review-workflow",
       "type": "file",
       "file": "skills/llm-generation-review-workflow.md",
-      "x": 40,
-      "y": 70,
+      "x": 700,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -32,8 +77,8 @@
       "id": "skill-sport-adaptation-analysis",
       "type": "file",
       "file": "skills/sport-adaptation-analysis.md",
-      "x": 370,
-      "y": 70,
+      "x": 40,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -41,8 +86,8 @@
       "id": "skill-sport-recovery-sleep",
       "type": "file",
       "file": "skills/sport-recovery-sleep.md",
-      "x": 700,
-      "y": 70,
+      "x": 370,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -257,19 +302,10 @@
       "height": 110
     },
     {
-      "id": "skill-decision-record",
-      "type": "file",
-      "file": "skills/decision-record.md",
-      "x": 4030,
-      "y": 70,
-      "width": 300,
-      "height": 110
-    },
-    {
       "id": "skill-deferred-external-action-verification",
       "type": "file",
       "file": "skills/deferred-external-action-verification.md",
-      "x": 4360,
+      "x": 4030,
       "y": 70,
       "width": 300,
       "height": 110
@@ -278,8 +314,8 @@
       "id": "skill-document-generation-forensics",
       "type": "file",
       "file": "skills/document-generation-forensics.md",
-      "x": 3700,
-      "y": 210,
+      "x": 4360,
+      "y": 70,
       "width": 300,
       "height": 110
     },
@@ -287,7 +323,7 @@
       "id": "skill-domain-model-maintenance",
       "type": "file",
       "file": "skills/domain-model-maintenance.md",
-      "x": 4030,
+      "x": 3700,
       "y": 210,
       "width": 300,
       "height": 110
@@ -296,7 +332,7 @@
       "id": "skill-evidence-based-causal-investigation",
       "type": "file",
       "file": "skills/evidence-based-causal-investigation.md",
-      "x": 4360,
+      "x": 4030,
       "y": 210,
       "width": 300,
       "height": 110
@@ -305,8 +341,8 @@
       "id": "skill-exam-trainer-catalog-builder",
       "type": "file",
       "file": "skills/exam-trainer-catalog-builder.md",
-      "x": 3700,
-      "y": 350,
+      "x": 4360,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -314,7 +350,7 @@
       "id": "skill-exam-trainer-result-import",
       "type": "file",
       "file": "skills/exam-trainer-result-import.md",
-      "x": 4030,
+      "x": 3700,
       "y": 350,
       "width": 300,
       "height": 110
@@ -323,7 +359,7 @@
       "id": "skill-frontend-design-review",
       "type": "file",
       "file": "skills/frontend-design-review.md",
-      "x": 4360,
+      "x": 4030,
       "y": 350,
       "width": 300,
       "height": 110
@@ -332,8 +368,8 @@
       "id": "skill-frontend-design-shaping",
       "type": "file",
       "file": "skills/frontend-design-shaping.md",
-      "x": 3700,
-      "y": 490,
+      "x": 4360,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -341,7 +377,7 @@
       "id": "skill-frontend-design-system-context",
       "type": "file",
       "file": "skills/frontend-design-system-context.md",
-      "x": 4030,
+      "x": 3700,
       "y": 490,
       "width": 300,
       "height": 110
@@ -350,7 +386,7 @@
       "id": "skill-frontend-product-context",
       "type": "file",
       "file": "skills/frontend-product-context.md",
-      "x": 4360,
+      "x": 4030,
       "y": 490,
       "width": 300,
       "height": 110
@@ -359,8 +395,8 @@
       "id": "skill-knowledge-map-generator",
       "type": "file",
       "file": "skills/knowledge-map-generator.md",
-      "x": 3700,
-      "y": 630,
+      "x": 4360,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -368,7 +404,7 @@
       "id": "skill-knowledge-view",
       "type": "file",
       "file": "skills/knowledge-view.md",
-      "x": 4030,
+      "x": 3700,
       "y": 630,
       "width": 300,
       "height": 110
@@ -377,7 +413,7 @@
       "id": "skill-learning-activity-generator",
       "type": "file",
       "file": "skills/learning-activity-generator.md",
-      "x": 4360,
+      "x": 4030,
       "y": 630,
       "width": 300,
       "height": 110
@@ -386,8 +422,8 @@
       "id": "skill-learning-artifact-qa",
       "type": "file",
       "file": "skills/learning-artifact-qa.md",
-      "x": 3700,
-      "y": 770,
+      "x": 4360,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -395,7 +431,7 @@
       "id": "skill-learning-assessment",
       "type": "file",
       "file": "skills/learning-assessment.md",
-      "x": 4030,
+      "x": 3700,
       "y": 770,
       "width": 300,
       "height": 110
@@ -404,7 +440,7 @@
       "id": "skill-learning-assessment-spec",
       "type": "file",
       "file": "skills/learning-assessment-spec.md",
-      "x": 4360,
+      "x": 4030,
       "y": 770,
       "width": 300,
       "height": 110
@@ -413,8 +449,8 @@
       "id": "skill-learning-content-design-system",
       "type": "file",
       "file": "skills/learning-content-design-system.md",
-      "x": 3700,
-      "y": 910,
+      "x": 4360,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -422,7 +458,7 @@
       "id": "skill-learning-mission",
       "type": "file",
       "file": "skills/learning-mission.md",
-      "x": 4030,
+      "x": 3700,
       "y": 910,
       "width": 300,
       "height": 110
@@ -431,7 +467,7 @@
       "id": "skill-learning-next-step",
       "type": "file",
       "file": "skills/learning-next-step.md",
-      "x": 4360,
+      "x": 4030,
       "y": 910,
       "width": 300,
       "height": 110
@@ -440,8 +476,8 @@
       "id": "skill-learning-path-planner",
       "type": "file",
       "file": "skills/learning-path-planner.md",
-      "x": 3700,
-      "y": 1050,
+      "x": 4360,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -449,7 +485,7 @@
       "id": "skill-learning-source-arbitration",
       "type": "file",
       "file": "skills/learning-source-arbitration.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -458,7 +494,7 @@
       "id": "skill-learning-state",
       "type": "file",
       "file": "skills/learning-state.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -467,8 +503,8 @@
       "id": "skill-learning-visual-planner",
       "type": "file",
       "file": "skills/learning-visual-planner.md",
-      "x": 3700,
-      "y": 1190,
+      "x": 4360,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -476,7 +512,7 @@
       "id": "skill-llm-generation-evidence-assessment",
       "type": "file",
       "file": "skills/llm-generation-evidence-assessment.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -485,7 +521,7 @@
       "id": "skill-memory-sync-reconciliation",
       "type": "file",
       "file": "skills/memory-sync-reconciliation.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -494,8 +530,8 @@
       "id": "skill-merge-conflict-resolution",
       "type": "file",
       "file": "skills/merge-conflict-resolution.md",
-      "x": 3700,
-      "y": 1330,
+      "x": 4360,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -503,7 +539,7 @@
       "id": "skill-multi-source-learning-synthesis",
       "type": "file",
       "file": "skills/multi-source-learning-synthesis.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -512,7 +548,7 @@
       "id": "skill-multimodal-learning-analysis",
       "type": "file",
       "file": "skills/multimodal-learning-analysis.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -521,8 +557,8 @@
       "id": "skill-obsidian-adapter",
       "type": "file",
       "file": "skills/obsidian-adapter.md",
-      "x": 3700,
-      "y": 1470,
+      "x": 4360,
+      "y": 1330,
       "width": 300,
       "height": 110
     },
@@ -530,7 +566,7 @@
       "id": "skill-opaque-system-analysis",
       "type": "file",
       "file": "skills/opaque-system-analysis.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -539,7 +575,7 @@
       "id": "skill-openasr-offline-model-import",
       "type": "file",
       "file": "skills/openasr-offline-model-import.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -548,8 +584,8 @@
       "id": "skill-product-comparison-ranking",
       "type": "file",
       "file": "skills/product-comparison-ranking.md",
-      "x": 3700,
-      "y": 1610,
+      "x": 4360,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -557,7 +593,7 @@
       "id": "skill-regulated-product-context",
       "type": "file",
       "file": "skills/regulated-product-context.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -566,7 +602,7 @@
       "id": "skill-regulatory-evidence-traceability",
       "type": "file",
       "file": "skills/regulatory-evidence-traceability.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -575,8 +611,8 @@
       "id": "skill-round-based-requirements-grilling",
       "type": "file",
       "file": "skills/round-based-requirements-grilling.md",
-      "x": 3700,
-      "y": 1750,
+      "x": 4360,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -584,7 +620,7 @@
       "id": "skill-source-to-context",
       "type": "file",
       "file": "skills/source-to-context.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -593,7 +629,7 @@
       "id": "skill-synapse-orchestrator",
       "type": "file",
       "file": "skills/synapse-orchestrator.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -602,8 +638,8 @@
       "id": "skill-test-driven-vertical-slice",
       "type": "file",
       "file": "skills/test-driven-vertical-slice.md",
-      "x": 3700,
-      "y": 1890,
+      "x": 4360,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -611,7 +647,7 @@
       "id": "skill-two-axis-compliance-review",
       "type": "file",
       "file": "skills/two-axis-compliance-review.md",
-      "x": 4030,
+      "x": 3700,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -620,8 +656,252 @@
       "id": "skill-youtube-video-ingestion",
       "type": "file",
       "file": "skills/youtube-video-ingestion.md",
-      "x": 4360,
+      "x": 4030,
       "y": 1890,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "category-legal-specialist",
+      "type": "group",
+      "label": "legal-specialist",
+      "x": 4880,
+      "y": 0,
+      "width": 1120,
+      "height": 1360,
+      "color": "5"
+    },
+    {
+      "id": "skill-competition-antitrust-law-specialist",
+      "type": "file",
+      "file": "skills/competition-antitrust-law-specialist.md",
+      "x": 4920,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-compliance-obligation-register",
+      "type": "file",
+      "file": "skills/compliance-obligation-register.md",
+      "x": 5250,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-corporate-compliance-law-specialist",
+      "type": "file",
+      "file": "skills/corporate-compliance-law-specialist.md",
+      "x": 5580,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-corporate-governance-law-specialist",
+      "type": "file",
+      "file": "skills/corporate-governance-law-specialist.md",
+      "x": 4920,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-corporate-transactions-ma-specialist",
+      "type": "file",
+      "file": "skills/corporate-transactions-ma-specialist.md",
+      "x": 5250,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-digital-ai-cyber-law-specialist",
+      "type": "file",
+      "file": "skills/digital-ai-cyber-law-specialist.md",
+      "x": 5580,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-dispute-litigation-strategy-specialist",
+      "type": "file",
+      "file": "skills/dispute-litigation-strategy-specialist.md",
+      "x": 4920,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-esg-supply-chain-environmental-law-specialist",
+      "type": "file",
+      "file": "skills/esg-supply-chain-environmental-law-specialist.md",
+      "x": 5250,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-finance-insolvency-restructuring-law-specialist",
+      "type": "file",
+      "file": "skills/finance-insolvency-restructuring-law-specialist.md",
+      "x": 5580,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-administrative-social-traffic-law-specialist",
+      "type": "file",
+      "file": "skills/german-administrative-social-traffic-law-specialist.md",
+      "x": 4920,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-association-law-specialist",
+      "type": "file",
+      "file": "skills/german-association-law-specialist.md",
+      "x": 5250,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "type": "file",
+      "file": "skills/german-consumer-insurance-private-contract-law-specialist.md",
+      "x": 5580,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "type": "file",
+      "file": "skills/german-criminal-administrative-offence-procedure-specialist.md",
+      "x": 4920,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-employment-labor-law-specialist",
+      "type": "file",
+      "file": "skills/german-employment-labor-law-specialist.md",
+      "x": 5250,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-family-law-specialist",
+      "type": "file",
+      "file": "skills/german-family-law-specialist.md",
+      "x": 5580,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-inheritance-succession-law-specialist",
+      "type": "file",
+      "file": "skills/german-inheritance-succession-law-specialist.md",
+      "x": 4920,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-rowing-sport-law-specialist",
+      "type": "file",
+      "file": "skills/german-rowing-sport-law-specialist.md",
+      "x": 5250,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-german-sports-law-specialist",
+      "type": "file",
+      "file": "skills/german-sports-law-specialist.md",
+      "x": 5580,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-ip-licensing-law-specialist",
+      "type": "file",
+      "file": "skills/ip-licensing-law-specialist.md",
+      "x": 4920,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-privacy-data-law-specialist",
+      "type": "file",
+      "file": "skills/privacy-data-law-specialist.md",
+      "x": 5250,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-product-liability-safety-law-specialist",
+      "type": "file",
+      "file": "skills/product-liability-safety-law-specialist.md",
+      "x": 5580,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-public-procurement-healthcare-law-specialist",
+      "type": "file",
+      "file": "skills/public-procurement-healthcare-law-specialist.md",
+      "x": 4920,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-real-estate-law-specialist",
+      "type": "file",
+      "file": "skills/real-estate-law-specialist.md",
+      "x": 5250,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-tax-legal-interface-specialist",
+      "type": "file",
+      "file": "skills/tax-legal-interface-specialist.md",
+      "x": 5580,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-trade-sanctions-export-control-specialist",
+      "type": "file",
+      "file": "skills/trade-sanctions-export-control-specialist.md",
+      "x": 4920,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-whistleblowing-law-specialist",
+      "type": "file",
+      "file": "skills/whistleblowing-law-specialist.md",
+      "x": 5250,
+      "y": 1190,
       "width": 300,
       "height": 110
     },
@@ -629,17 +909,17 @@
       "id": "category-productivity",
       "type": "group",
       "label": "productivity",
-      "x": 4880,
+      "x": 6100,
       "y": 0,
       "width": 1120,
       "height": 520,
-      "color": "5"
+      "color": "6"
     },
     {
       "id": "skill-daily-and-weekly-review",
       "type": "file",
       "file": "skills/daily-and-weekly-review.md",
-      "x": 4920,
+      "x": 6140,
       "y": 70,
       "width": 300,
       "height": 110
@@ -648,7 +928,7 @@
       "id": "skill-decision-and-follow-up-tracker",
       "type": "file",
       "file": "skills/decision-and-follow-up-tracker.md",
-      "x": 5250,
+      "x": 6470,
       "y": 70,
       "width": 300,
       "height": 110
@@ -657,7 +937,7 @@
       "id": "skill-external-stakeholder-questionnaire",
       "type": "file",
       "file": "skills/external-stakeholder-questionnaire.md",
-      "x": 5580,
+      "x": 6800,
       "y": 70,
       "width": 300,
       "height": 110
@@ -666,7 +946,7 @@
       "id": "skill-inbox-action-triage",
       "type": "file",
       "file": "skills/inbox-action-triage.md",
-      "x": 4920,
+      "x": 6140,
       "y": 210,
       "width": 300,
       "height": 110
@@ -675,7 +955,7 @@
       "id": "skill-meeting-preparation",
       "type": "file",
       "file": "skills/meeting-preparation.md",
-      "x": 5250,
+      "x": 6470,
       "y": 210,
       "width": 300,
       "height": 110
@@ -684,7 +964,7 @@
       "id": "skill-project-status-brief",
       "type": "file",
       "file": "skills/project-status-brief.md",
-      "x": 5580,
+      "x": 6800,
       "y": 210,
       "width": 300,
       "height": 110
@@ -693,7 +973,7 @@
       "id": "skill-teach",
       "type": "file",
       "file": "skills/teach.md",
-      "x": 4920,
+      "x": 6140,
       "y": 350,
       "width": 300,
       "height": 110
@@ -702,7 +982,7 @@
       "id": "skill-thought-capture-journal",
       "type": "file",
       "file": "skills/thought-capture-journal.md",
-      "x": 5250,
+      "x": 6470,
       "y": 350,
       "width": 300,
       "height": 110
@@ -711,17 +991,17 @@
       "id": "category-regulated-engineering",
       "type": "group",
       "label": "regulated-engineering",
-      "x": 6100,
+      "x": 7320,
       "y": 0,
       "width": 1120,
       "height": 3600,
-      "color": "6"
+      "color": "1"
     },
     {
       "id": "skill-audit-inspection-finding-response",
       "type": "file",
       "file": "skills/audit-inspection-finding-response.md",
-      "x": 6140,
+      "x": 7360,
       "y": 70,
       "width": 300,
       "height": 110
@@ -730,7 +1010,7 @@
       "id": "skill-clinical-evidence-update-impact",
       "type": "file",
       "file": "skills/clinical-evidence-update-impact.md",
-      "x": 6470,
+      "x": 7690,
       "y": 70,
       "width": 300,
       "height": 110
@@ -739,7 +1019,7 @@
       "id": "skill-controlled-quality-documentation",
       "type": "file",
       "file": "skills/controlled-quality-documentation.md",
-      "x": 6800,
+      "x": 8020,
       "y": 70,
       "width": 300,
       "height": 110
@@ -748,7 +1028,7 @@
       "id": "skill-design-change-regulatory-impact",
       "type": "file",
       "file": "skills/design-change-regulatory-impact.md",
-      "x": 6140,
+      "x": 7360,
       "y": 210,
       "width": 300,
       "height": 110
@@ -757,7 +1037,7 @@
       "id": "skill-design-control-traceability",
       "type": "file",
       "file": "skills/design-control-traceability.md",
-      "x": 6470,
+      "x": 7690,
       "y": 210,
       "width": 300,
       "height": 110
@@ -766,7 +1046,7 @@
       "id": "skill-eu-mdr-ivdr-regulatory-specialist",
       "type": "file",
       "file": "skills/eu-mdr-ivdr-regulatory-specialist.md",
-      "x": 6800,
+      "x": 8020,
       "y": 210,
       "width": 300,
       "height": 110
@@ -775,7 +1055,7 @@
       "id": "skill-eudamed-udi-ivd",
       "type": "file",
       "file": "skills/eudamed-udi-ivd.md",
-      "x": 6140,
+      "x": 7360,
       "y": 350,
       "width": 300,
       "height": 110
@@ -784,7 +1064,7 @@
       "id": "skill-fda-510k-predicate-strategy",
       "type": "file",
       "file": "skills/fda-510k-predicate-strategy.md",
-      "x": 6470,
+      "x": 7690,
       "y": 350,
       "width": 300,
       "height": 110
@@ -793,7 +1073,7 @@
       "id": "skill-fda-510k-substantial-equivalence",
       "type": "file",
       "file": "skills/fda-510k-substantial-equivalence.md",
-      "x": 6800,
+      "x": 8020,
       "y": 350,
       "width": 300,
       "height": 110
@@ -802,7 +1082,7 @@
       "id": "skill-fda-acceptance-readiness",
       "type": "file",
       "file": "skills/fda-acceptance-readiness.md",
-      "x": 6140,
+      "x": 7360,
       "y": 490,
       "width": 300,
       "height": 110
@@ -811,7 +1091,7 @@
       "id": "skill-fda-additional-information-response",
       "type": "file",
       "file": "skills/fda-additional-information-response.md",
-      "x": 6470,
+      "x": 7690,
       "y": 490,
       "width": 300,
       "height": 110
@@ -820,7 +1100,7 @@
       "id": "skill-fda-complaint-mdr-reportability",
       "type": "file",
       "file": "skills/fda-complaint-mdr-reportability.md",
-      "x": 6800,
+      "x": 8020,
       "y": 490,
       "width": 300,
       "height": 110
@@ -829,7 +1109,7 @@
       "id": "skill-fda-corrections-removals",
       "type": "file",
       "file": "skills/fda-corrections-removals.md",
-      "x": 6140,
+      "x": 7360,
       "y": 630,
       "width": 300,
       "height": 110
@@ -838,7 +1118,7 @@
       "id": "skill-fda-de-novo-special-controls",
       "type": "file",
       "file": "skills/fda-de-novo-special-controls.md",
-      "x": 6470,
+      "x": 7690,
       "y": 630,
       "width": 300,
       "height": 110
@@ -847,7 +1127,7 @@
       "id": "skill-fda-de-novo-strategy",
       "type": "file",
       "file": "skills/fda-de-novo-strategy.md",
-      "x": 6800,
+      "x": 8020,
       "y": 630,
       "width": 300,
       "height": 110
@@ -856,7 +1136,7 @@
       "id": "skill-fda-device-classification-product-code",
       "type": "file",
       "file": "skills/fda-device-classification-product-code.md",
-      "x": 6140,
+      "x": 7360,
       "y": 770,
       "width": 300,
       "height": 110
@@ -865,7 +1145,7 @@
       "id": "skill-fda-dual-510k-clia-waiver",
       "type": "file",
       "file": "skills/fda-dual-510k-clia-waiver.md",
-      "x": 6470,
+      "x": 7690,
       "y": 770,
       "width": 300,
       "height": 110
@@ -874,7 +1154,7 @@
       "id": "skill-fda-estar-submission-builder",
       "type": "file",
       "file": "skills/fda-estar-submission-builder.md",
-      "x": 6800,
+      "x": 8020,
       "y": 770,
       "width": 300,
       "height": 110
@@ -883,7 +1163,7 @@
       "id": "skill-fda-ivd-clia-waiver",
       "type": "file",
       "file": "skills/fda-ivd-clia-waiver.md",
-      "x": 6140,
+      "x": 7360,
       "y": 910,
       "width": 300,
       "height": 110
@@ -892,7 +1172,7 @@
       "id": "skill-fda-medical-device-ivd-regulatory-specialist",
       "type": "file",
       "file": "skills/fda-medical-device-ivd-regulatory-specialist.md",
-      "x": 6470,
+      "x": 7690,
       "y": 910,
       "width": 300,
       "height": 110
@@ -901,7 +1181,7 @@
       "id": "skill-fda-pccp-change-control",
       "type": "file",
       "file": "skills/fda-pccp-change-control.md",
-      "x": 6800,
+      "x": 8020,
       "y": 910,
       "width": 300,
       "height": 110
@@ -910,7 +1190,7 @@
       "id": "skill-fda-qmsr-inspection-readiness",
       "type": "file",
       "file": "skills/fda-qmsr-inspection-readiness.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -919,7 +1199,7 @@
       "id": "skill-fda-qmsr-iso13485-gap",
       "type": "file",
       "file": "skills/fda-qmsr-iso13485-gap.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -928,7 +1208,7 @@
       "id": "skill-fda-qsub-strategy",
       "type": "file",
       "file": "skills/fda-qsub-strategy.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1050,
       "width": 300,
       "height": 110
@@ -937,7 +1217,7 @@
       "id": "skill-fda-recall-status-termination",
       "type": "file",
       "file": "skills/fda-recall-status-termination.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -946,7 +1226,7 @@
       "id": "skill-fda-registration-listing-udi",
       "type": "file",
       "file": "skills/fda-registration-listing-udi.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -955,7 +1235,7 @@
       "id": "skill-iec62304-software-lifecycle",
       "type": "file",
       "file": "skills/iec62304-software-lifecycle.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1190,
       "width": 300,
       "height": 110
@@ -964,7 +1244,7 @@
       "id": "skill-iec62366-usability-engineering",
       "type": "file",
       "file": "skills/iec62366-usability-engineering.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -973,7 +1253,7 @@
       "id": "skill-iso13485-qms-audit",
       "type": "file",
       "file": "skills/iso13485-qms-audit.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -982,7 +1262,7 @@
       "id": "skill-iso27001-isms-audit",
       "type": "file",
       "file": "skills/iso27001-isms-audit.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1330,
       "width": 300,
       "height": 110
@@ -991,7 +1271,7 @@
       "id": "skill-ivdr-analytical-performance",
       "type": "file",
       "file": "skills/ivdr-analytical-performance.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -1000,7 +1280,7 @@
       "id": "skill-ivdr-class-d-conformity",
       "type": "file",
       "file": "skills/ivdr-class-d-conformity.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -1009,7 +1289,7 @@
       "id": "skill-ivdr-clinical-performance-study",
       "type": "file",
       "file": "skills/ivdr-clinical-performance-study.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1470,
       "width": 300,
       "height": 110
@@ -1018,7 +1298,7 @@
       "id": "skill-ivdr-companion-diagnostic-consultation",
       "type": "file",
       "file": "skills/ivdr-companion-diagnostic-consultation.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -1027,7 +1307,7 @@
       "id": "skill-ivdr-device-classification",
       "type": "file",
       "file": "skills/ivdr-device-classification.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -1036,7 +1316,7 @@
       "id": "skill-ivdr-economic-operator-postmarket-propagation",
       "type": "file",
       "file": "skills/ivdr-economic-operator-postmarket-propagation.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1610,
       "width": 300,
       "height": 110
@@ -1045,7 +1325,7 @@
       "id": "skill-ivdr-field-safety-corrective-action",
       "type": "file",
       "file": "skills/ivdr-field-safety-corrective-action.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -1054,7 +1334,7 @@
       "id": "skill-ivdr-fsca-status-final-reporting",
       "type": "file",
       "file": "skills/ivdr-fsca-status-final-reporting.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -1063,7 +1343,7 @@
       "id": "skill-ivdr-inhouse-health-institution",
       "type": "file",
       "file": "skills/ivdr-inhouse-health-institution.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1750,
       "width": 300,
       "height": 110
@@ -1072,7 +1352,7 @@
       "id": "skill-ivdr-performance-evaluation",
       "type": "file",
       "file": "skills/ivdr-performance-evaluation.md",
-      "x": 6140,
+      "x": 7360,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -1081,7 +1361,7 @@
       "id": "skill-ivdr-performance-evaluation-report",
       "type": "file",
       "file": "skills/ivdr-performance-evaluation-report.md",
-      "x": 6470,
+      "x": 7690,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -1090,7 +1370,7 @@
       "id": "skill-ivdr-pmpf",
       "type": "file",
       "file": "skills/ivdr-pmpf.md",
-      "x": 6800,
+      "x": 8020,
       "y": 1890,
       "width": 300,
       "height": 110
@@ -1099,7 +1379,7 @@
       "id": "skill-ivdr-pms-vigilance",
       "type": "file",
       "file": "skills/ivdr-pms-vigilance.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -1108,7 +1388,7 @@
       "id": "skill-ivdr-scientific-validity",
       "type": "file",
       "file": "skills/ivdr-scientific-validity.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -1117,7 +1397,7 @@
       "id": "skill-mdcg-guidance-navigator",
       "type": "file",
       "file": "skills/mdcg-guidance-navigator.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2030,
       "width": 300,
       "height": 110
@@ -1126,7 +1406,7 @@
       "id": "skill-mdsap-audit-readiness",
       "type": "file",
       "file": "skills/mdsap-audit-readiness.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -1135,7 +1415,7 @@
       "id": "skill-measurement-system-validation",
       "type": "file",
       "file": "skills/measurement-system-validation.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -1144,7 +1424,7 @@
       "id": "skill-medical-device-adverse-event-coding",
       "type": "file",
       "file": "skills/medical-device-adverse-event-coding.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -1153,7 +1433,7 @@
       "id": "skill-medical-device-capa",
       "type": "file",
       "file": "skills/medical-device-capa.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -1162,7 +1442,7 @@
       "id": "skill-medical-device-complaint-customer-followup",
       "type": "file",
       "file": "skills/medical-device-complaint-customer-followup.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -1171,7 +1451,7 @@
       "id": "skill-medical-device-complaint-handling",
       "type": "file",
       "file": "skills/medical-device-complaint-handling.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -1180,7 +1460,7 @@
       "id": "skill-medical-device-complaint-regulatory-routing",
       "type": "file",
       "file": "skills/medical-device-complaint-regulatory-routing.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -1189,7 +1469,7 @@
       "id": "skill-medical-device-customer-contact-intake",
       "type": "file",
       "file": "skills/medical-device-customer-contact-intake.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -1198,7 +1478,7 @@
       "id": "skill-medical-device-cybersecurity-lifecycle",
       "type": "file",
       "file": "skills/medical-device-cybersecurity-lifecycle.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -1207,7 +1487,7 @@
       "id": "skill-medical-device-field-action-communication",
       "type": "file",
       "file": "skills/medical-device-field-action-communication.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -1216,7 +1496,7 @@
       "id": "skill-medical-device-field-action-effectiveness",
       "type": "file",
       "file": "skills/medical-device-field-action-effectiveness.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -1225,7 +1505,7 @@
       "id": "skill-medical-device-field-action-physical-execution",
       "type": "file",
       "file": "skills/medical-device-field-action-physical-execution.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -1234,7 +1514,7 @@
       "id": "skill-medical-device-isms-governance",
       "type": "file",
       "file": "skills/medical-device-isms-governance.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -1243,7 +1523,7 @@
       "id": "skill-medical-device-labeling-ifu",
       "type": "file",
       "file": "skills/medical-device-labeling-ifu.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -1252,7 +1532,7 @@
       "id": "skill-medical-device-pms-system",
       "type": "file",
       "file": "skills/medical-device-pms-system.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -1261,7 +1541,7 @@
       "id": "skill-medical-device-privacy-gdpr-bdsg",
       "type": "file",
       "file": "skills/medical-device-privacy-gdpr-bdsg.md",
-      "x": 6140,
+      "x": 7360,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -1270,7 +1550,7 @@
       "id": "skill-medical-device-qms-iso13485",
       "type": "file",
       "file": "skills/medical-device-qms-iso13485.md",
-      "x": 6470,
+      "x": 7690,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -1279,7 +1559,7 @@
       "id": "skill-medical-device-regulatory-strategy",
       "type": "file",
       "file": "skills/medical-device-regulatory-strategy.md",
-      "x": 6800,
+      "x": 8020,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -1288,7 +1568,7 @@
       "id": "skill-medical-device-risk-management-iso14971",
       "type": "file",
       "file": "skills/medical-device-risk-management-iso14971.md",
-      "x": 6140,
+      "x": 7360,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -1297,7 +1577,7 @@
       "id": "skill-medical-device-service-report-quality-routing",
       "type": "file",
       "file": "skills/medical-device-service-report-quality-routing.md",
-      "x": 6470,
+      "x": 7690,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -1306,7 +1586,7 @@
       "id": "skill-nonconformance-mrb-disposition",
       "type": "file",
       "file": "skills/nonconformance-mrb-disposition.md",
-      "x": 6800,
+      "x": 8020,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -1315,7 +1595,7 @@
       "id": "skill-process-validation-iq-oq-pq",
       "type": "file",
       "file": "skills/process-validation-iq-oq-pq.md",
-      "x": 6140,
+      "x": 7360,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -1324,7 +1604,7 @@
       "id": "skill-qms-management-review-action-followup",
       "type": "file",
       "file": "skills/qms-management-review-action-followup.md",
-      "x": 6470,
+      "x": 7690,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -1333,7 +1613,7 @@
       "id": "skill-qms-management-review-governance",
       "type": "file",
       "file": "skills/qms-management-review-governance.md",
-      "x": 6800,
+      "x": 8020,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -1342,7 +1622,7 @@
       "id": "skill-quality-record-integrity",
       "type": "file",
       "file": "skills/quality-record-integrity.md",
-      "x": 6140,
+      "x": 7360,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -1351,7 +1631,7 @@
       "id": "skill-regulatory-change-impact-orchestrator",
       "type": "file",
       "file": "skills/regulatory-change-impact-orchestrator.md",
-      "x": 6470,
+      "x": 7690,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -1360,7 +1640,7 @@
       "id": "skill-regulatory-change-monitoring",
       "type": "file",
       "file": "skills/regulatory-change-monitoring.md",
-      "x": 6800,
+      "x": 8020,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -1369,7 +1649,7 @@
       "id": "skill-regulatory-claims-consistency",
       "type": "file",
       "file": "skills/regulatory-claims-consistency.md",
-      "x": 6140,
+      "x": 7360,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -1378,7 +1658,7 @@
       "id": "skill-supplier-quality-medical-device",
       "type": "file",
       "file": "skills/supplier-quality-medical-device.md",
-      "x": 6470,
+      "x": 7690,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -1387,17 +1667,17 @@
       "id": "category-research-knowledge",
       "type": "group",
       "label": "research-knowledge",
-      "x": 7320,
+      "x": 8540,
       "y": 0,
       "width": 1120,
       "height": 800,
-      "color": "1"
+      "color": "2"
     },
     {
       "id": "skill-biopatent-deep-analysis",
       "type": "file",
       "file": "skills/biopatent-deep-analysis.md",
-      "x": 7360,
+      "x": 8580,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1406,7 +1686,16 @@
       "id": "skill-contract-legal-context",
       "type": "file",
       "file": "skills/contract-legal-context.md",
-      "x": 7690,
+      "x": 8910,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-current-law-context",
+      "type": "file",
+      "file": "skills/current-law-context.md",
+      "x": 9240,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1415,8 +1704,8 @@
       "id": "skill-freedom-to-operate-assessment",
       "type": "file",
       "file": "skills/freedom-to-operate-assessment.md",
-      "x": 8020,
-      "y": 70,
+      "x": 8580,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1424,7 +1713,7 @@
       "id": "skill-learning-summary-synthesis",
       "type": "file",
       "file": "skills/learning-summary-synthesis.md",
-      "x": 7360,
+      "x": 8910,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1433,7 +1722,7 @@
       "id": "skill-mermaid-knowledge-map-renderer",
       "type": "file",
       "file": "skills/mermaid-knowledge-map-renderer.md",
-      "x": 7690,
+      "x": 9240,
       "y": 210,
       "width": 300,
       "height": 110
@@ -1442,8 +1731,8 @@
       "id": "skill-patent-landscape-analysis",
       "type": "file",
       "file": "skills/patent-landscape-analysis.md",
-      "x": 8020,
-      "y": 210,
+      "x": 8580,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1451,7 +1740,7 @@
       "id": "skill-person-research-dossier",
       "type": "file",
       "file": "skills/person-research-dossier.md",
-      "x": 7360,
+      "x": 8910,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1460,7 +1749,7 @@
       "id": "skill-price-availability-snapshot",
       "type": "file",
       "file": "skills/price-availability-snapshot.md",
-      "x": 7690,
+      "x": 9240,
       "y": 350,
       "width": 300,
       "height": 110
@@ -1469,8 +1758,8 @@
       "id": "skill-product-evidence-research",
       "type": "file",
       "file": "skills/product-evidence-research.md",
-      "x": 8020,
-      "y": 350,
+      "x": 8580,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1478,7 +1767,7 @@
       "id": "skill-research-to-evidence-note",
       "type": "file",
       "file": "skills/research-to-evidence-note.md",
-      "x": 7360,
+      "x": 8910,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1487,7 +1776,7 @@
       "id": "skill-sport-performance-diagnostics",
       "type": "file",
       "file": "skills/sport-performance-diagnostics.md",
-      "x": 7690,
+      "x": 9240,
       "y": 490,
       "width": 300,
       "height": 110
@@ -1496,8 +1785,8 @@
       "id": "skill-structured-knowledge-artifact",
       "type": "file",
       "file": "skills/structured-knowledge-artifact.md",
-      "x": 8020,
-      "y": 490,
+      "x": 8580,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1505,7 +1794,7 @@
       "id": "skill-technology-offer-assessment",
       "type": "file",
       "file": "skills/technology-offer-assessment.md",
-      "x": 7360,
+      "x": 8910,
       "y": 630,
       "width": 300,
       "height": 110
@@ -1514,7 +1803,7 @@
       "id": "skill-thought-graph-extractor",
       "type": "file",
       "file": "skills/thought-graph-extractor.md",
-      "x": 7690,
+      "x": 9240,
       "y": 630,
       "width": 300,
       "height": 110
@@ -1523,17 +1812,17 @@
       "id": "category-skill-system",
       "type": "group",
       "label": "skill-system",
-      "x": 8540,
+      "x": 9760,
       "y": 0,
       "width": 1120,
       "height": 240,
-      "color": "2"
+      "color": "3"
     },
     {
       "id": "skill-central-skill-repository-curation",
       "type": "file",
       "file": "skills/central-skill-repository-curation.md",
-      "x": 8580,
+      "x": 9800,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1542,7 +1831,7 @@
       "id": "skill-composable-skill-factory",
       "type": "file",
       "file": "skills/composable-skill-factory.md",
-      "x": 8910,
+      "x": 10130,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1551,7 +1840,7 @@
       "id": "skill-repository-skill-bootstrap",
       "type": "file",
       "file": "skills/repository-skill-bootstrap.md",
-      "x": 9240,
+      "x": 10460,
       "y": 70,
       "width": 300,
       "height": 110
@@ -1560,18 +1849,45 @@
       "id": "category-workflow",
       "type": "group",
       "label": "workflow",
-      "x": 9760,
+      "x": 10980,
       "y": 0,
       "width": 1120,
-      "height": 2900,
-      "color": "3"
+      "height": 3740,
+      "color": "4"
     },
     {
       "id": "skill-candidate-role-fit-assessment",
       "type": "file",
       "file": "skills/candidate-role-fit-assessment.md",
-      "x": 9800,
+      "x": 11020,
       "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-compliance-control-assurance",
+      "type": "file",
+      "file": "skills/compliance-control-assurance.md",
+      "x": 11350,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-compliance-control-mapping",
+      "type": "file",
+      "file": "skills/compliance-control-mapping.md",
+      "x": 11680,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-compliance-management-workflow",
+      "type": "file",
+      "file": "skills/compliance-management-workflow.md",
+      "x": 11020,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1579,8 +1895,17 @@
       "id": "skill-contract-drafting",
       "type": "file",
       "file": "skills/contract-drafting.md",
-      "x": 10130,
-      "y": 70,
+      "x": 11350,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-contract-matter-workflow",
+      "type": "file",
+      "file": "skills/contract-matter-workflow.md",
+      "x": 11680,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -1588,8 +1913,8 @@
       "id": "skill-contract-review",
       "type": "file",
       "file": "skills/contract-review.md",
-      "x": 10460,
-      "y": 70,
+      "x": 11020,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1597,8 +1922,17 @@
       "id": "skill-contract-workflow",
       "type": "file",
       "file": "skills/contract-workflow.md",
-      "x": 9800,
-      "y": 210,
+      "x": 11350,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-decision-record",
+      "type": "file",
+      "file": "skills/decision-record.md",
+      "x": 11680,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -1606,8 +1940,8 @@
       "id": "skill-dr-komorowski-sport-docx-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-docx-report-renderer.md",
-      "x": 10130,
-      "y": 210,
+      "x": 11020,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1615,8 +1949,8 @@
       "id": "skill-dr-komorowski-sport-pdf-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-pdf-report-renderer.md",
-      "x": 10460,
-      "y": 210,
+      "x": 11350,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1624,8 +1958,8 @@
       "id": "skill-dr-komorowski-sport-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-report-renderer.md",
-      "x": 9800,
-      "y": 350,
+      "x": 11680,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -1633,8 +1967,8 @@
       "id": "skill-euroimmun-docx-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-docx-report-renderer.md",
-      "x": 10130,
-      "y": 350,
+      "x": 11020,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1642,8 +1976,8 @@
       "id": "skill-euroimmun-pdf-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-pdf-report-renderer.md",
-      "x": 10460,
-      "y": 350,
+      "x": 11350,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -1651,8 +1985,17 @@
       "id": "skill-euroimmun-presentation-workflow",
       "type": "file",
       "file": "skills/euroimmun-presentation-workflow.md",
-      "x": 9800,
-      "y": 490,
+      "x": 11680,
+      "y": 630,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-executive-legal-compliance-governance",
+      "type": "file",
+      "file": "skills/executive-legal-compliance-governance.md",
+      "x": 11020,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -1660,8 +2003,35 @@
       "id": "skill-human-procedure-wizard",
       "type": "file",
       "file": "skills/human-procedure-wizard.md",
-      "x": 10130,
-      "y": 490,
+      "x": 11350,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-internal-investigation-workflow",
+      "type": "file",
+      "file": "skills/internal-investigation-workflow.md",
+      "x": 11680,
+      "y": 770,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-investigation-evidence-preservation",
+      "type": "file",
+      "file": "skills/investigation-evidence-preservation.md",
+      "x": 11020,
+      "y": 910,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-investigation-findings-remediation",
+      "type": "file",
+      "file": "skills/investigation-findings-remediation.md",
+      "x": 11350,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -1669,8 +2039,8 @@
       "id": "skill-job-description-authoring",
       "type": "file",
       "file": "skills/job-description-authoring.md",
-      "x": 10460,
-      "y": 490,
+      "x": 11680,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -1678,8 +2048,8 @@
       "id": "skill-learning-document-delivery",
       "type": "file",
       "file": "skills/learning-document-delivery.md",
-      "x": 9800,
-      "y": 630,
+      "x": 11020,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1687,8 +2057,8 @@
       "id": "skill-learning-image-generator",
       "type": "file",
       "file": "skills/learning-image-generator.md",
-      "x": 10130,
-      "y": 630,
+      "x": 11350,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1696,8 +2066,8 @@
       "id": "skill-learning-landingpage-renderer",
       "type": "file",
       "file": "skills/learning-landingpage-renderer.md",
-      "x": 10460,
-      "y": 630,
+      "x": 11680,
+      "y": 1050,
       "width": 300,
       "height": 110
     },
@@ -1705,8 +2075,71 @@
       "id": "skill-learning-svg-generator",
       "type": "file",
       "file": "skills/learning-svg-generator.md",
-      "x": 9800,
-      "y": 770,
+      "x": 11020,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-change-impact-orchestrator",
+      "type": "file",
+      "file": "skills/legal-change-impact-orchestrator.md",
+      "x": 11350,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-change-monitoring",
+      "type": "file",
+      "file": "skills/legal-change-monitoring.md",
+      "x": 11680,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-compliance-office",
+      "type": "file",
+      "file": "skills/legal-compliance-office.md",
+      "x": 11020,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-matter-final-gate",
+      "type": "file",
+      "file": "skills/legal-matter-final-gate.md",
+      "x": 11350,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-matter-intake",
+      "type": "file",
+      "file": "skills/legal-matter-intake.md",
+      "x": 11680,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-redline-review-loop",
+      "type": "file",
+      "file": "skills/legal-redline-review-loop.md",
+      "x": 11020,
+      "y": 1470,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-legal-specialist-router",
+      "type": "file",
+      "file": "skills/legal-specialist-router.md",
+      "x": 11350,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1714,8 +2147,8 @@
       "id": "skill-llm-prose-pattern-audit",
       "type": "file",
       "file": "skills/llm-prose-pattern-audit.md",
-      "x": 10130,
-      "y": 770,
+      "x": 11680,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -1723,8 +2156,8 @@
       "id": "skill-optimize-software-performance",
       "type": "file",
       "file": "skills/optimize-software-performance.md",
-      "x": 10460,
-      "y": 770,
+      "x": 11020,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1732,8 +2165,8 @@
       "id": "skill-person-profile-document-delivery",
       "type": "file",
       "file": "skills/person-profile-document-delivery.md",
-      "x": 9800,
-      "y": 910,
+      "x": 11350,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1741,8 +2174,8 @@
       "id": "skill-person-profile-report",
       "type": "file",
       "file": "skills/person-profile-report.md",
-      "x": 10130,
-      "y": 910,
+      "x": 11680,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -1750,8 +2183,8 @@
       "id": "skill-person-research-report-workflow",
       "type": "file",
       "file": "skills/person-research-report-workflow.md",
-      "x": 10460,
-      "y": 910,
+      "x": 11020,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -1759,8 +2192,8 @@
       "id": "skill-precision-language-rewriter",
       "type": "file",
       "file": "skills/precision-language-rewriter.md",
-      "x": 9800,
-      "y": 1050,
+      "x": 11350,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -1768,8 +2201,8 @@
       "id": "skill-precision-writing-revision",
       "type": "file",
       "file": "skills/precision-writing-revision.md",
-      "x": 10130,
-      "y": 1050,
+      "x": 11680,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -1777,8 +2210,8 @@
       "id": "skill-presentation-language-rewriter",
       "type": "file",
       "file": "skills/presentation-language-rewriter.md",
-      "x": 10460,
-      "y": 1050,
+      "x": 11020,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -1786,8 +2219,8 @@
       "id": "skill-presentation-layout-qa",
       "type": "file",
       "file": "skills/presentation-layout-qa.md",
-      "x": 9800,
-      "y": 1190,
+      "x": 11350,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -1795,8 +2228,8 @@
       "id": "skill-presentation-render-verifier",
       "type": "file",
       "file": "skills/presentation-render-verifier.md",
-      "x": 10130,
-      "y": 1190,
+      "x": 11680,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -1804,8 +2237,26 @@
       "id": "skill-presentation-template-profiler",
       "type": "file",
       "file": "skills/presentation-template-profiler.md",
-      "x": 10460,
-      "y": 1190,
+      "x": 11020,
+      "y": 2030,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-private-legal-matter-router",
+      "type": "file",
+      "file": "skills/private-legal-matter-router.md",
+      "x": 11350,
+      "y": 2030,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-privilege-and-counsel-routing",
+      "type": "file",
+      "file": "skills/privilege-and-counsel-routing.md",
+      "x": 11680,
+      "y": 2030,
       "width": 300,
       "height": 110
     },
@@ -1813,8 +2264,8 @@
       "id": "skill-procedure-sop-extractor",
       "type": "file",
       "file": "skills/procedure-sop-extractor.md",
-      "x": 9800,
-      "y": 1330,
+      "x": 11020,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -1822,8 +2273,8 @@
       "id": "skill-purchase-decision-planner",
       "type": "file",
       "file": "skills/purchase-decision-planner.md",
-      "x": 10130,
-      "y": 1330,
+      "x": 11350,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -1831,8 +2282,8 @@
       "id": "skill-rewrite-fidelity-verifier",
       "type": "file",
       "file": "skills/rewrite-fidelity-verifier.md",
-      "x": 10460,
-      "y": 1330,
+      "x": 11680,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -1840,8 +2291,8 @@
       "id": "skill-role-architecture",
       "type": "file",
       "file": "skills/role-architecture.md",
-      "x": 9800,
-      "y": 1470,
+      "x": 11020,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -1849,8 +2300,8 @@
       "id": "skill-role-requirements-grilling",
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
-      "x": 10130,
-      "y": 1470,
+      "x": 11350,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -1858,8 +2309,8 @@
       "id": "skill-sport-athlete-management",
       "type": "file",
       "file": "skills/sport-athlete-management.md",
-      "x": 10460,
-      "y": 1470,
+      "x": 11680,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -1867,8 +2318,8 @@
       "id": "skill-sport-athlete-profile",
       "type": "file",
       "file": "skills/sport-athlete-profile.md",
-      "x": 9800,
-      "y": 1610,
+      "x": 11020,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -1876,8 +2327,8 @@
       "id": "skill-sport-daily-athlete-monitoring",
       "type": "file",
       "file": "skills/sport-daily-athlete-monitoring.md",
-      "x": 10130,
-      "y": 1610,
+      "x": 11350,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -1885,8 +2336,8 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 10460,
-      "y": 1610,
+      "x": 11680,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -1894,8 +2345,8 @@
       "id": "skill-sport-endurance-programming",
       "type": "file",
       "file": "skills/sport-endurance-programming.md",
-      "x": 9800,
-      "y": 1750,
+      "x": 11020,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -1903,8 +2354,8 @@
       "id": "skill-sport-environment-travel",
       "type": "file",
       "file": "skills/sport-environment-travel.md",
-      "x": 10130,
-      "y": 1750,
+      "x": 11350,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -1912,8 +2363,8 @@
       "id": "skill-sport-goal-performance-model",
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
-      "x": 10460,
-      "y": 1750,
+      "x": 11680,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -1921,8 +2372,8 @@
       "id": "skill-sport-injury-rehabilitation",
       "type": "file",
       "file": "skills/sport-injury-rehabilitation.md",
-      "x": 9800,
-      "y": 1890,
+      "x": 11020,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -1930,8 +2381,8 @@
       "id": "skill-sport-mental-health-routing",
       "type": "file",
       "file": "skills/sport-mental-health-routing.md",
-      "x": 10130,
-      "y": 1890,
+      "x": 11350,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -1939,8 +2390,8 @@
       "id": "skill-sport-mesocycle-planning",
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
-      "x": 10460,
-      "y": 1890,
+      "x": 11680,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -1948,8 +2399,8 @@
       "id": "skill-sport-microcycle-planning",
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
-      "x": 9800,
-      "y": 2030,
+      "x": 11020,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -1957,8 +2408,8 @@
       "id": "skill-sport-nutrition-fueling",
       "type": "file",
       "file": "skills/sport-nutrition-fueling.md",
-      "x": 10130,
-      "y": 2030,
+      "x": 11350,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -1966,8 +2417,8 @@
       "id": "skill-sport-performance-psychology",
       "type": "file",
       "file": "skills/sport-performance-psychology.md",
-      "x": 10460,
-      "y": 2030,
+      "x": 11680,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -1975,8 +2426,8 @@
       "id": "skill-sport-return-after-illness",
       "type": "file",
       "file": "skills/sport-return-after-illness.md",
-      "x": 9800,
-      "y": 2170,
+      "x": 11020,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -1984,8 +2435,8 @@
       "id": "skill-sport-season-periodization",
       "type": "file",
       "file": "skills/sport-season-periodization.md",
-      "x": 10130,
-      "y": 2170,
+      "x": 11350,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -1993,8 +2444,8 @@
       "id": "skill-sport-strength-power-programming",
       "type": "file",
       "file": "skills/sport-strength-power-programming.md",
-      "x": 10460,
-      "y": 2170,
+      "x": 11680,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -2002,8 +2453,8 @@
       "id": "skill-sport-testing-battery",
       "type": "file",
       "file": "skills/sport-testing-battery.md",
-      "x": 9800,
-      "y": 2310,
+      "x": 11020,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2011,8 +2462,8 @@
       "id": "skill-sport-training-adaptation-engine",
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
-      "x": 10130,
-      "y": 2310,
+      "x": 11350,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2020,8 +2471,8 @@
       "id": "skill-sport-training-music",
       "type": "file",
       "file": "skills/sport-training-music.md",
-      "x": 10460,
-      "y": 2310,
+      "x": 11680,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2029,8 +2480,8 @@
       "id": "skill-sport-training-programming",
       "type": "file",
       "file": "skills/sport-training-programming.md",
-      "x": 9800,
-      "y": 2450,
+      "x": 11020,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2038,8 +2489,8 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 10130,
-      "y": 2450,
+      "x": 11350,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2047,8 +2498,8 @@
       "id": "skill-template-presentation-workflow",
       "type": "file",
       "file": "skills/template-presentation-workflow.md",
-      "x": 10460,
-      "y": 2450,
+      "x": 11680,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2056,8 +2507,8 @@
       "id": "skill-thought-to-concept-flow",
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
-      "x": 9800,
-      "y": 2590,
+      "x": 11020,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2065,8 +2516,8 @@
       "id": "skill-youtube-course-builder-workflow",
       "type": "file",
       "file": "skills/youtube-course-builder-workflow.md",
-      "x": 10130,
-      "y": 2590,
+      "x": 11350,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2074,8 +2525,8 @@
       "id": "skill-youtube-learning-workflow",
       "type": "file",
       "file": "skills/youtube-learning-workflow.md",
-      "x": 10460,
-      "y": 2590,
+      "x": 11680,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2083,8 +2534,8 @@
       "id": "skill-youtube-playlist-learning-workflow",
       "type": "file",
       "file": "skills/youtube-playlist-learning-workflow.md",
-      "x": 9800,
-      "y": 2730,
+      "x": 11020,
+      "y": 3570,
       "width": 300,
       "height": 110
     }
@@ -2095,6 +2546,24 @@
       "fromNode": "skill-agent-handoff",
       "fromSide": "right",
       "toNode": "skill-iterate-software-projects",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e85b352dbd71",
+      "fromNode": "skill-agreement-type-analysis",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c426e6f95cc0",
+      "fromNode": "skill-agreement-type-analysis",
+      "fromSide": "right",
+      "toNode": "skill-legal-client-strategy",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -2120,9 +2589,9 @@
     {
       "id": "requires-6745b2e27294",
       "fromNode": "skill-audit-inspection-finding-response",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2174,9 +2643,9 @@
     {
       "id": "requires-a7e17cbd1f3b",
       "fromNode": "skill-clinical-evidence-update-impact",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2208,38 +2677,200 @@
       "label": "requires"
     },
     {
-      "id": "requires-e75a5a894db9",
+      "id": "requires-3d8bc97104fc",
+      "fromNode": "skill-competition-antitrust-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e1fc85c40e5e",
+      "fromNode": "skill-competition-antitrust-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4041c7bb6510",
+      "fromNode": "skill-competition-antitrust-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5968454adbb8",
+      "fromNode": "skill-compliance-control-assurance",
+      "fromSide": "right",
+      "toNode": "skill-compliance-control-mapping",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c92ad55ff4c3",
+      "fromNode": "skill-compliance-control-mapping",
+      "fromSide": "left",
+      "toNode": "skill-compliance-obligation-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dca134139a35",
+      "fromNode": "skill-compliance-control-mapping",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-dde6f4de3a39",
+      "fromNode": "skill-compliance-management-workflow",
+      "fromSide": "right",
+      "toNode": "skill-compliance-control-assurance",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1e7178d2b9fd",
+      "fromNode": "skill-compliance-management-workflow",
+      "fromSide": "right",
+      "toNode": "skill-compliance-control-mapping",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-21224c61161c",
+      "fromNode": "skill-compliance-management-workflow",
+      "fromSide": "left",
+      "toNode": "skill-compliance-obligation-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-afc812e480a6",
+      "fromNode": "skill-compliance-management-workflow",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-final-gate",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-751286367d13",
+      "fromNode": "skill-compliance-obligation-register",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-887d2f189fe0",
       "fromNode": "skill-contract-drafting",
       "fromSide": "left",
-      "toNode": "skill-contract-legal-context",
+      "toNode": "skill-agreement-type-analysis",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
-      "id": "requires-350b8aa3ab4d",
-      "fromNode": "skill-contract-legal-context",
+      "id": "requires-b91a6a511168",
+      "fromNode": "skill-contract-drafting",
       "fromSide": "left",
-      "toNode": "skill-research-to-evidence-note",
+      "toNode": "skill-current-law-context",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
-      "id": "requires-a7baae7a46a1",
+      "id": "requires-0edff326cb8b",
+      "fromNode": "skill-contract-legal-context",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5cd9b3b76d84",
+      "fromNode": "skill-contract-matter-workflow",
+      "fromSide": "left",
+      "toNode": "skill-agreement-type-analysis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b14952dca5b5",
+      "fromNode": "skill-contract-matter-workflow",
+      "fromSide": "left",
+      "toNode": "skill-contract-drafting",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5d069ec362c3",
+      "fromNode": "skill-contract-matter-workflow",
+      "fromSide": "left",
+      "toNode": "skill-contract-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b7d0f3cb6d45",
+      "fromNode": "skill-contract-matter-workflow",
+      "fromSide": "left",
+      "toNode": "skill-legal-matter-final-gate",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-931f21f481ca",
+      "fromNode": "skill-contract-matter-workflow",
+      "fromSide": "left",
+      "toNode": "skill-legal-negotiation-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-46a659c11ec0",
+      "fromNode": "skill-contract-matter-workflow",
+      "fromSide": "left",
+      "toNode": "skill-legal-redline-review-loop",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b9296f9057f4",
       "fromNode": "skill-contract-review",
       "fromSide": "left",
-      "toNode": "skill-contract-legal-context",
+      "toNode": "skill-agreement-type-analysis",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
-      "id": "requires-edcfd3021d02",
-      "fromNode": "skill-contract-workflow",
-      "fromSide": "right",
-      "toNode": "skill-contract-drafting",
-      "toSide": "left",
+      "id": "requires-33e7944119ce",
+      "fromNode": "skill-contract-review",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2253,10 +2884,10 @@
       "label": "requires"
     },
     {
-      "id": "requires-8d44fafd56eb",
+      "id": "requires-26d59629e60f",
       "fromNode": "skill-contract-workflow",
       "fromSide": "right",
-      "toNode": "skill-contract-review",
+      "toNode": "skill-contract-matter-workflow",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -2289,11 +2920,119 @@
       "label": "requires"
     },
     {
+      "id": "requires-0dda2240715f",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-compliance-obligation-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-224add28339d",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b4b941ae31a8",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1009e69ce31c",
+      "fromNode": "skill-corporate-compliance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cbcc7ca06ae3",
+      "fromNode": "skill-corporate-governance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8db4a1565e9b",
+      "fromNode": "skill-corporate-governance-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5a7ecf268ac3",
+      "fromNode": "skill-corporate-governance-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bdaa42aa5c82",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "left",
+      "toNode": "skill-corporate-governance-law-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f66b3fea75df",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4f3643b6f990",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f49a34644dac",
+      "fromNode": "skill-corporate-transactions-ma-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-641d3548c764",
       "fromNode": "skill-course-concept-graph",
       "fromSide": "right",
       "toNode": "skill-multi-source-learning-synthesis",
       "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-65b5a378ad07",
+      "fromNode": "skill-current-law-context",
+      "fromSide": "left",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2334,47 +3073,11 @@
       "label": "requires"
     },
     {
-      "id": "requires-f9498be270a7",
-      "fromNode": "skill-decision-record",
-      "fromSide": "left",
-      "toNode": "skill-agent-handoff",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-8bc77c762fa9",
-      "fromNode": "skill-decision-record",
-      "fromSide": "left",
-      "toNode": "skill-large-work-wayfinder",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-2203468b4ce2",
-      "fromNode": "skill-decision-record",
-      "fromSide": "left",
-      "toNode": "skill-throwaway-prototype",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
-      "id": "requires-cf10fa2b488e",
-      "fromNode": "skill-decision-record",
-      "fromSide": "left",
-      "toNode": "skill-two-axis-code-review",
-      "toSide": "right",
-      "toEnd": "arrow",
-      "label": "requires"
-    },
-    {
       "id": "requires-4608cf83e1b5",
       "fromNode": "skill-design-change-regulatory-impact",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2433,10 +3136,73 @@
       "label": "requires"
     },
     {
+      "id": "requires-669ccb203077",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ccb23e3201e0",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2bdfbd721db7",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-privacy-data-law-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e2ad5de946cd",
+      "fromNode": "skill-digital-ai-cyber-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-e28911b4f199",
       "fromNode": "skill-disciplined-diagnosis",
       "fromSide": "right",
       "toNode": "skill-iterate-software-projects",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2f268816878b",
+      "fromNode": "skill-dispute-litigation-strategy-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a539beb8bbee",
+      "fromNode": "skill-dispute-litigation-strategy-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3c3619007df8",
+      "fromNode": "skill-dispute-litigation-strategy-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -2471,9 +3237,9 @@
     {
       "id": "requires-17832d64e64b",
       "fromNode": "skill-domain-model-maintenance",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-test-driven-vertical-slice",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2510,6 +3276,33 @@
       "fromSide": "right",
       "toNode": "skill-two-axis-code-review",
       "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-29b291e9f730",
+      "fromNode": "skill-esg-supply-chain-environmental-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-compliance-obligation-register",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f23ccdfe6f18",
+      "fromNode": "skill-esg-supply-chain-environmental-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f182032a3ef9",
+      "fromNode": "skill-esg-supply-chain-environmental-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2606,18 +3399,63 @@
     {
       "id": "requires-9da430f128a8",
       "fromNode": "skill-exam-trainer-catalog-builder",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-learning-assessment-spec",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-9f756a100a18",
       "fromNode": "skill-exam-trainer-catalog-builder",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-learning-mission",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-386f04b82a15",
+      "fromNode": "skill-executive-legal-compliance-governance",
+      "fromSide": "right",
+      "toNode": "skill-compliance-management-workflow",
       "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5410865ed0d7",
+      "fromNode": "skill-executive-legal-compliance-governance",
+      "fromSide": "right",
+      "toNode": "skill-decision-record",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2c4d95b4b46d",
+      "fromNode": "skill-executive-legal-compliance-governance",
+      "fromSide": "right",
+      "toNode": "skill-internal-investigation-workflow",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fe30565c161b",
+      "fromNode": "skill-executive-legal-compliance-governance",
+      "fromSide": "right",
+      "toNode": "skill-legal-change-impact-orchestrator",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-34908e81176b",
+      "fromNode": "skill-executive-legal-compliance-governance",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2714,9 +3552,9 @@
     {
       "id": "requires-d9d81de1e5f8",
       "fromNode": "skill-fda-additional-information-response",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -2777,9 +3615,9 @@
     {
       "id": "requires-00b3f16b03dc",
       "fromNode": "skill-fda-corrections-removals",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3011,9 +3849,9 @@
     {
       "id": "requires-dd903c89967b",
       "fromNode": "skill-fda-pccp-change-control",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3101,9 +3939,9 @@
     {
       "id": "requires-a42a2428b3b2",
       "fromNode": "skill-fda-qsub-strategy",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3164,9 +4002,9 @@
     {
       "id": "requires-190b4464b27f",
       "fromNode": "skill-fda-registration-listing-udi",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3198,11 +4036,47 @@
       "label": "requires"
     },
     {
+      "id": "requires-643dd505e256",
+      "fromNode": "skill-finance-insolvency-restructuring-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-corporate-governance-law-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b90c0c8dd65f",
+      "fromNode": "skill-finance-insolvency-restructuring-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5df91921ea2e",
+      "fromNode": "skill-finance-insolvency-restructuring-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a83906db2f01",
+      "fromNode": "skill-finance-insolvency-restructuring-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-d86c520480f8",
       "fromNode": "skill-freedom-to-operate-assessment",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3272,18 +4146,18 @@
     {
       "id": "requires-2b616176f73e",
       "fromNode": "skill-frontend-design-shaping",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-frontend-design-system-context",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-d4e846f49667",
       "fromNode": "skill-frontend-design-shaping",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-frontend-product-context",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3317,17 +4191,224 @@
     {
       "id": "requires-e548d6e2f919",
       "fromNode": "skill-frontend-design-system-context",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-round-based-requirements-grilling",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-8b7b2af245f8",
       "fromNode": "skill-frontend-product-context",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-round-based-requirements-grilling",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6c17a73420fd",
+      "fromNode": "skill-german-administrative-social-traffic-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1b13d5e29368",
+      "fromNode": "skill-german-administrative-social-traffic-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-dispute-litigation-strategy-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-98f7804c9679",
+      "fromNode": "skill-german-administrative-social-traffic-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-405b6bb044b5",
+      "fromNode": "skill-german-association-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-79cf12012d76",
+      "fromNode": "skill-german-association-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7cce71cb023a",
+      "fromNode": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-73f37d6317d3",
+      "fromNode": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-dispute-litigation-strategy-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a318f4f80a2e",
+      "fromNode": "skill-german-consumer-insurance-private-contract-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-eeaacfed47fd",
+      "fromNode": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c7fad87e6062",
+      "fromNode": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "fromSide": "right",
+      "toNode": "skill-investigation-evidence-preservation",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1ebc55ccc59c",
+      "fromNode": "skill-german-criminal-administrative-offence-procedure-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7ad776911239",
+      "fromNode": "skill-german-employment-labor-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-04c2c597d79e",
+      "fromNode": "skill-german-employment-labor-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2c497d4ec11f",
+      "fromNode": "skill-german-employment-labor-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5124ac1db954",
+      "fromNode": "skill-german-family-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b7d48e91c2fd",
+      "fromNode": "skill-german-family-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-21ccb54d21d9",
+      "fromNode": "skill-german-family-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-565f51dffbd5",
+      "fromNode": "skill-german-inheritance-succession-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-571d0c3bec33",
+      "fromNode": "skill-german-inheritance-succession-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-739ff8788724",
+      "fromNode": "skill-german-inheritance-succession-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-tax-legal-interface-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9a35f7a737eb",
+      "fromNode": "skill-german-rowing-sport-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-german-sports-law-specialist",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ce21739a27e9",
+      "fromNode": "skill-german-sports-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-51e844d168d9",
+      "fromNode": "skill-german-sports-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
       "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
@@ -3436,6 +4517,105 @@
       "fromNode": "skill-implement-from-issue",
       "fromSide": "right",
       "toNode": "skill-test-driven-vertical-slice",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-651237df4f8b",
+      "fromNode": "skill-internal-investigation-workflow",
+      "fromSide": "left",
+      "toNode": "skill-investigation-evidence-preservation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1637cff46c42",
+      "fromNode": "skill-internal-investigation-workflow",
+      "fromSide": "left",
+      "toNode": "skill-investigation-findings-remediation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b1f084a1a1cb",
+      "fromNode": "skill-internal-investigation-workflow",
+      "fromSide": "left",
+      "toNode": "skill-legal-matter-final-gate",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4082b64208c7",
+      "fromNode": "skill-internal-investigation-workflow",
+      "fromSide": "left",
+      "toNode": "skill-whistleblowing-law-specialist",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-58eb9cb19d02",
+      "fromNode": "skill-investigation-evidence-preservation",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-84a4623404ef",
+      "fromNode": "skill-investigation-evidence-preservation",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4040e8d1dff9",
+      "fromNode": "skill-investigation-findings-remediation",
+      "fromSide": "right",
+      "toNode": "skill-compliance-control-mapping",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3bba1a4712ef",
+      "fromNode": "skill-investigation-findings-remediation",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2b3a840404bc",
+      "fromNode": "skill-ip-licensing-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ff468a491799",
+      "fromNode": "skill-ip-licensing-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-47e8da64e189",
+      "fromNode": "skill-ip-licensing-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -3578,9 +4758,9 @@
     {
       "id": "requires-e88a17a16ff3",
       "fromNode": "skill-ivdr-companion-diagnostic-consultation",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3767,9 +4947,9 @@
     {
       "id": "requires-af233ca342f8",
       "fromNode": "skill-ivdr-inhouse-health-institution",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4046,9 +5226,9 @@
     {
       "id": "requires-7c0f4aa4160e",
       "fromNode": "skill-learning-activity-generator",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-learning-path-planner",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4145,9 +5325,9 @@
     {
       "id": "requires-b7e755e5d121",
       "fromNode": "skill-learning-path-planner",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-course-concept-graph",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4190,9 +5370,252 @@
     {
       "id": "requires-8ab72ff49159",
       "fromNode": "skill-learning-visual-planner",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-multimodal-learning-analysis",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3ad7215e8824",
+      "fromNode": "skill-legal-change-impact-orchestrator",
+      "fromSide": "left",
+      "toNode": "skill-compliance-obligation-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c441b41ac613",
+      "fromNode": "skill-legal-change-impact-orchestrator",
+      "fromSide": "right",
+      "toNode": "skill-legal-change-monitoring",
       "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-57ce1c7a3122",
+      "fromNode": "skill-legal-change-impact-orchestrator",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-33ef5cbd8524",
+      "fromNode": "skill-legal-change-impact-orchestrator",
+      "fromSide": "right",
+      "toNode": "skill-legal-specialist-router",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1ebd027d2fc9",
+      "fromNode": "skill-legal-change-monitoring",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3312eef182d3",
+      "fromNode": "skill-legal-change-monitoring",
+      "fromSide": "left",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3c60d3d90f39",
+      "fromNode": "skill-legal-client-strategy",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-intake",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fbc7ef482161",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8203b56c78ee",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-7ef0def8dadb",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-1fbba66ff77c",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-final-gate",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3c8f9c8e552b",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-intake",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-eb32d7113461",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "left",
+      "toNode": "skill-legal-matter-wayfinder",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2f54dcacc87c",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "right",
+      "toNode": "skill-legal-specialist-router",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-ae0dc03a1c39",
+      "fromNode": "skill-legal-compliance-office",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-313d6932fa02",
+      "fromNode": "skill-legal-compliance-risk-assessment",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fca571ab680e",
+      "fromNode": "skill-legal-compliance-risk-assessment",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cb9f10bed8d8",
+      "fromNode": "skill-legal-matter-final-gate",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-49b9353dbb9d",
+      "fromNode": "skill-legal-matter-final-gate",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3bba2316a0ce",
+      "fromNode": "skill-legal-matter-wayfinder",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-679d17af3364",
+      "fromNode": "skill-legal-matter-wayfinder",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-188cabaa4dbb",
+      "fromNode": "skill-legal-negotiation-strategy",
+      "fromSide": "right",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4c1190bb777f",
+      "fromNode": "skill-legal-negotiation-strategy",
+      "fromSide": "right",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a0b982093f43",
+      "fromNode": "skill-legal-redline-review-loop",
+      "fromSide": "right",
+      "toNode": "skill-contract-review",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d85cc4878f5f",
+      "fromNode": "skill-legal-redline-review-loop",
+      "fromSide": "left",
+      "toNode": "skill-legal-negotiation-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2d357c84d49d",
+      "fromNode": "skill-legal-specialist-router",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-543e48f204db",
+      "fromNode": "skill-legal-specialist-router",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4208,9 +5631,9 @@
     {
       "id": "requires-104ce6dcf31c",
       "fromNode": "skill-llm-generation-evidence-assessment",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-document-generation-forensics",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4694,9 +6117,9 @@
     {
       "id": "requires-01f2cea4b978",
       "fromNode": "skill-medical-device-pms-system",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4883,9 +6306,9 @@
     {
       "id": "requires-ebbf5f44655d",
       "fromNode": "skill-merge-conflict-resolution",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-deferred-external-action-verification",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4973,9 +6396,9 @@
     {
       "id": "requires-a27a7fd7bc9c",
       "fromNode": "skill-obsidian-adapter",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-knowledge-view",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5063,9 +6486,9 @@
     {
       "id": "requires-6a2e517cd81c",
       "fromNode": "skill-patent-landscape-analysis",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5162,18 +6585,18 @@
     {
       "id": "requires-02b1cdb69f2a",
       "fromNode": "skill-person-research-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-person-profile-document-delivery",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-253a6a169ef9",
       "fromNode": "skill-person-research-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-person-profile-report",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5189,9 +6612,9 @@
     {
       "id": "requires-1299a7c89ab0",
       "fromNode": "skill-person-research-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-precision-writing-revision",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5243,9 +6666,9 @@
     {
       "id": "requires-5bd480cbc0da",
       "fromNode": "skill-presentation-layout-qa",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-presentation-template-profiler",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5255,6 +6678,69 @@
       "fromSide": "left",
       "toNode": "skill-presentation-layout-qa",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-050c4f5a91cd",
+      "fromNode": "skill-privacy-data-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a974277b7750",
+      "fromNode": "skill-privacy-data-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-197d12df1789",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "left",
+      "toNode": "skill-current-law-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-acc8aa477a3d",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-57be249ff0d1",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-intake",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c4fabd9f9192",
+      "fromNode": "skill-private-legal-matter-router",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f2eddd080bf0",
+      "fromNode": "skill-privilege-and-counsel-routing",
+      "fromSide": "right",
+      "toNode": "skill-legal-matter-intake",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5297,9 +6783,36 @@
     {
       "id": "requires-fcd770172ce8",
       "fromNode": "skill-product-evidence-research",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-bcb09ae51bfb",
+      "fromNode": "skill-product-liability-safety-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3204170855c5",
+      "fromNode": "skill-product-liability-safety-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-41af8a865363",
+      "fromNode": "skill-product-liability-safety-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5308,6 +6821,33 @@
       "fromNode": "skill-project-beta-readiness",
       "fromSide": "right",
       "toNode": "skill-iterate-software-projects",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6db65b189642",
+      "fromNode": "skill-public-procurement-healthcare-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-44d03520fc03",
+      "fromNode": "skill-public-procurement-healthcare-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-compliance-risk-assessment",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f6e9b27baf87",
+      "fromNode": "skill-public-procurement-healthcare-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -5439,11 +6979,38 @@
       "label": "requires"
     },
     {
+      "id": "requires-3929fb4c7a41",
+      "fromNode": "skill-real-estate-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f51a8e76271f",
+      "fromNode": "skill-real-estate-law-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-984374bb8e52",
+      "fromNode": "skill-real-estate-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-a40e6416faa2",
       "fromNode": "skill-regulatory-change-impact-orchestrator",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-decision-record",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5774,9 +7341,9 @@
     {
       "id": "requires-d8fff5f8fd1e",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-dr-komorowski-sport-pdf-report-renderer",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6177,6 +7744,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-a0ffe1683cfa",
+      "fromNode": "skill-tax-legal-interface-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-81fe980dd010",
+      "fromNode": "skill-tax-legal-interface-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-81c074cbb76f",
+      "fromNode": "skill-tax-legal-interface-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-50711c1add45",
       "fromNode": "skill-teach",
       "fromSide": "left",
@@ -6269,9 +7863,9 @@
     {
       "id": "requires-88423c645621",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-presentation-language-rewriter",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6287,18 +7881,18 @@
     {
       "id": "requires-c4ac1ab1560c",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-presentation-render-verifier",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-b5935b4bda8d",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-presentation-template-profiler",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6323,9 +7917,9 @@
     {
       "id": "requires-2b29a64cc2e1",
       "fromNode": "skill-thought-graph-extractor",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-structured-knowledge-artifact",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6411,6 +8005,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-5cd70e12cba4",
+      "fromNode": "skill-trade-sanctions-export-control-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5f353ac61d35",
+      "fromNode": "skill-trade-sanctions-export-control-specialist",
+      "fromSide": "left",
+      "toNode": "skill-legal-client-strategy",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8c5375dea3c2",
+      "fromNode": "skill-trade-sanctions-export-control-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-6bd189d17753",
       "fromNode": "skill-two-axis-code-review",
       "fromSide": "left",
@@ -6451,6 +8072,24 @@
       "fromNode": "skill-two-axis-compliance-review",
       "fromSide": "right",
       "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-2afa089f4deb",
+      "fromNode": "skill-whistleblowing-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-current-law-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-246c014111d8",
+      "fromNode": "skill-whistleblowing-law-specialist",
+      "fromSide": "right",
+      "toNode": "skill-privilege-and-counsel-routing",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"

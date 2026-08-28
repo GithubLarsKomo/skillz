@@ -1,0 +1,5 @@
+interface:
+  display_name: "Investigation Findings Remediation"
+  short_description: "Übersetzt Untersuchungsevidenz in nachvollziehbare Findings, trennt Fakt, Inferenz und Rechtsbewertung und entwickelt..."
+policy:
+  allow_implicit_invocation: true

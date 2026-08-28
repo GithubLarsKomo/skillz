@@ -1,0 +1,5 @@
+interface:
+  display_name: "Public Procurement Healthcare Law Specialist"
+  short_description: "Analysiert deutsche/EU-Vergabe- und Healthcare-Legal-Matters für IVD/MedTech einschließlich öffentlicher Ausschreibun..."
+policy:
+  allow_implicit_invocation: true

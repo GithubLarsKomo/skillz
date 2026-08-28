@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compliance Control Assurance"
+  short_description: "Prüft Design und tatsächliche operative Wirksamkeit von Compliance-Kontrollen evidenzbasiert, dokumentiert Population..."
+policy:
+  allow_implicit_invocation: true

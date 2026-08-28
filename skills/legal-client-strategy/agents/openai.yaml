@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Client Strategy"
+  short_description: "Übersetzt einen bestätigten Legal-Matter-Kontext in eine explizite Mandantenstrategie mit Zielbild, Must-haves, Red L..."
+policy:
+  allow_implicit_invocation: true

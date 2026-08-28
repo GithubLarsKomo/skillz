@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Compliance Office"
+  short_description: "Orchestriert unternehmerische und private Legal-/Compliance-Matters von Intake und Mandantenstrategie über aktuelle R..."
+policy:
+  allow_implicit_invocation: true

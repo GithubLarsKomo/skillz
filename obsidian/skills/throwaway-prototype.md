@@ -33,7 +33,7 @@ Prüft unsichere technische oder fachliche Annahmen mit bewusst kurzlebigen, iso
 
 ## Required by
 
-- [[skills/decision-record|decision-record]]
+- —
 
 ## Outputs
 
@@ -45,15 +45,15 @@ Prüft unsichere technische oder fachliche Annahmen mit bewusst kurzlebigen, iso
 
 ### `disposal-record.json`
 
-- [[skills/decision-record|decision-record]]
+- Terminal or currently unconsumed output.
 
 ### `prototype-brief.md`
 
-- [[skills/decision-record|decision-record]]
+- Terminal or currently unconsumed output.
 
 ### `prototype-evidence.json`
 
-- [[skills/decision-record|decision-record]]
+- Terminal or currently unconsumed output.
 
 ## Evaluation
 

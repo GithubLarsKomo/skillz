@@ -2,8 +2,8 @@
 type: skill
 generated: true
 name: "decision-record"
-category: "internal"
-userFacing: false
+category: "workflow"
+userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
@@ -11,25 +11,22 @@ recordedResultCount: 3
 sourcePath: "skills/decision-record/SKILL.md"
 tags:
   - skill
-  - skill-category/internal
+  - skill-category/workflow
 ---
 
 # decision-record
 
-Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.
+Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governance-Entscheidungen als unveränderliche, nachvollziehbare Records mit Kontext, Alternativen, Evidenz, Autorität, Folgen, Risiken und Ablösungspfad.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
 ## Category
 
-[[categories/internal|internal]]
+[[categories/workflow|workflow]]
 
 ## Requires
 
-- [[skills/agent-handoff|agent-handoff]]
-- [[skills/large-work-wayfinder|large-work-wayfinder]]
-- [[skills/throwaway-prototype|throwaway-prototype]]
-- [[skills/two-axis-code-review|two-axis-code-review]]
+- —
 
 ## Required by
 
@@ -37,6 +34,7 @@ Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
 - [[skills/design-change-regulatory-impact|design-change-regulatory-impact]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/fda-additional-information-response|fda-additional-information-response]]
 - [[skills/fda-corrections-removals|fda-corrections-removals]]
 - [[skills/fda-pccp-change-control|fda-pccp-change-control]]
@@ -60,6 +58,7 @@ Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
 - [[skills/design-change-regulatory-impact|design-change-regulatory-impact]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/fda-additional-information-response|fda-additional-information-response]]
 - [[skills/fda-corrections-removals|fda-corrections-removals]]
 - [[skills/fda-pccp-change-control|fda-pccp-change-control]]
@@ -76,6 +75,7 @@ Erfasst wesentliche technische und fachliche Entscheidungen als unveränderliche
 - [[skills/clinical-evidence-update-impact|clinical-evidence-update-impact]]
 - [[skills/design-change-regulatory-impact|design-change-regulatory-impact]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
+- [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/fda-additional-information-response|fda-additional-information-response]]
 - [[skills/fda-corrections-removals|fda-corrections-removals]]
 - [[skills/fda-pccp-change-control|fda-pccp-change-control]]

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Current Law Context"
+  short_description: "Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogenen Rechts- und Regelwerkskontext aus au..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Administrative Social Traffic Law Specialist"
+  short_description: "Analysiert private deutsche Verwaltungs-, Sozial- und Verkehrsrechtsmatters einschließlich Bescheide, Behördenverfahr..."
+policy:
+  allow_implicit_invocation: true

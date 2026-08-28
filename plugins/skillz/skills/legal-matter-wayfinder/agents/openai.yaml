@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Matter Wayfinder"
+  short_description: "Zerlegt komplexe Legal- und Compliance-Matters in priorisierte tatsächliche, rechtliche, wirtschaftliche und regulato..."
+policy:
+  allow_implicit_invocation: true

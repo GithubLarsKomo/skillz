@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compliance Obligation Register"
+  short_description: "Baut für einen konkreten Unternehmens-, Prozess- oder Produktkontext ein quellenbelegtes Register bindender und nicht..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Finance Insolvency Restructuring Law Specialist"
+  short_description: "Analysiert unternehmerische Finanzierungs-, Sicherheiten-, Covenant-, Distress-, Restrukturierungs- und Insolvenzrech..."
+policy:
+  allow_implicit_invocation: true

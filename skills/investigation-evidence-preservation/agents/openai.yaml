@@ -1,0 +1,5 @@
+interface:
+  display_name: "Investigation Evidence Preservation"
+  short_description: "Plant und dokumentiert rechtmäßige Beweissicherung für interne Untersuchungen einschließlich Originalerhalt, Collecti..."
+policy:
+  allow_implicit_invocation: true

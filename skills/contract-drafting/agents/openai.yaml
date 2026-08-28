@@ -1,5 +1,5 @@
 interface:
   display_name: "Contract Drafting"
-  short_description: "Erzeugt aus bestätigten Requirements und einem geprüften Legal Context einen privaten oder beruflichen Vertragsentwur..."
+  short_description: "Erzeugt aus bestätigten Requirements, Client Strategy, aktuellem Rechtskontext und funktionalem Deal Model einen priv..."
 policy:
   allow_implicit_invocation: false

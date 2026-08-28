@@ -1,0 +1,5 @@
+interface:
+  display_name: "Contract Matter Workflow"
+  short_description: "Führt den kanonischen Vertrags-Matter-State von Deal-Type-Analyse über Review oder Drafting, Risiko, Negotiation und..."
+policy:
+  allow_implicit_invocation: false

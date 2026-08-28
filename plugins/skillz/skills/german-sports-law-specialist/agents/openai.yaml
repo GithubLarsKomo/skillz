@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Sports Law Specialist"
+  short_description: "Analysiert deutsches Sportrecht an der Schnittstelle von staatlichem Recht und autonomem Verbandsrecht, insbesondere..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Legal Change Monitoring"
+  short_description: "Überwacht Rechtsänderungen außerhalb des spezialisierten Medical-Device-Regulatory-Monitorings über versionierte Prim..."
+policy:
+  allow_implicit_invocation: true

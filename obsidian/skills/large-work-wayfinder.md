@@ -32,7 +32,6 @@ Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch
 
 ## Required by
 
-- [[skills/decision-record|decision-record]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
@@ -47,21 +46,18 @@ Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch
 
 ### `dependency-graph.json`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ### `investigation-backlog.json`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
 
 ### `wayfinding-brief.md`
 
-- [[skills/decision-record|decision-record]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/medical-device-regulatory-strategy|medical-device-regulatory-strategy]]
 - [[skills/throwaway-prototype|throwaway-prototype]]
