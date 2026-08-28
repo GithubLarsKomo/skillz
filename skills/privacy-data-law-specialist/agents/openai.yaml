@@ -1,0 +1,5 @@
+interface:
+  display_name: "Privacy & Data Law Specialist"
+  short_description: "Prüft DSGVO/BDSG, Rollen, Zwecke, Transfers, DPIA und Retention."
+policy:
+  allow_implicit_invocation: true

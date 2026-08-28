@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Employment & Labor Law"
+  short_description: "Prüft deutsches Individual-/Kollektivarbeitsrecht und Mitbestimmung."
+policy:
+  allow_implicit_invocation: true
