@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/skillz-architecture-p2]
     paths:
       - "skills/**"
       - "benchmarks/**"
@@ -13,6 +13,7 @@ on:
       - "scripts/generate_capability_health.py"
       - "scripts/generate_obsidian_skill_universe.py"
       - "scripts/build_openai_plugin.py"
+      - "scripts/apply_architecture_p2_governance.py"
       - "distribution/openai-plugin/**"
       - "VERSION"
       - ".github/workflows/sync-generated-metadata.yml"
@@ -23,7 +24,7 @@ permissions:
 
 concurrency:
   group: sync-generated-metadata-${{ github.ref_name }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -36,6 +37,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Materialize P2 governance fixtures
+        run: python scripts/apply_architecture_p2_governance.py
       - name: Test dependency graph contracts
         run: python -m unittest tests.test_generate_dependency_graph
       - name: Test metadata schema validator
@@ -48,6 +51,10 @@ jobs:
         run: python scripts/materialize_openai_agent_metadata.py
       - name: Generate repository metadata
         run: python scripts/generate_repository_metadata.py
+      - name: Test P2 architecture consolidation
+        run: python -m unittest tests.test_architecture_consolidation_p2
+      - name: Test capability index generator
+        run: python -m unittest tests.test_generate_capability_index
       - name: Build committed OpenAI plugin bundle
         run: python scripts/build_openai_plugin.py --output plugins/skillz --source-commit "$GITHUB_SHA"
       - name: Verify OpenAI agent metadata is reproducible
@@ -75,7 +82,8 @@ jobs:
             obsidian \
             plugins/skillz \
             skills/*/SKILL.md \
-            skills/*/agents/openai.yaml
+            skills/*/agents/openai.yaml \
+            skills/*/tests
           git commit -m "Regenerate skill repository artifacts"
           git push origin HEAD:"$GITHUB_REF_NAME"
       - name: Validate repository contracts
