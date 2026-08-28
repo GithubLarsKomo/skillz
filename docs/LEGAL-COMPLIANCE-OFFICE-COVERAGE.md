@@ -5,12 +5,13 @@ Branch: `feat/legal-compliance-office-foundation`
 
 ## Repository health at this checkpoint
 
-- Canonical skills: **251**
-- User-facing entrypoints: **220**
+- Canonical skills: **270**
+- User-facing entrypoints: **229**
 - Evaluation suites: **245**
+- Skills without evaluation suite: **25**
 - Legal/Compliance skills added or materially migrated in this branch: all have evaluation suites and recorded Happy/Edge/Failure baselines.
-- The six remaining repository-wide evaluation gaps are presentation-workflow capabilities and are outside the Legal/Compliance scope.
-- Final Legal/Compliance validation passed dependency-contract tests, metadata-schema tests, OpenAI metadata materialisation, repository metadata generation, OpenAI plugin build, reproducibility checks, Obsidian generation, repository validation and all skill evaluation suites.
+- The remaining repository-wide evaluation gaps are Learning/YouTube/Presentation/SOP capabilities merged from the parallel `main` stream; none is a Legal/Compliance coverage gap.
+- Post-reconcile Legal/Compliance validation passed bootstrap and clean-room installation, reproducible release checks, dependency-contract tests, metadata-schema tests, OpenAI metadata materialisation, repository metadata generation, OpenAI plugin build/provenance checks, capability/index/Obsidian generators, provider/runtime tests, regulated-engineering end-to-end tests, repository validation and all configured skill evaluation suites.
 
 ## Migration policy
 
@@ -166,14 +167,16 @@ No legal specialist treats remembered law, old checklists or static thresholds a
 
 ## Remaining non-Legal repository gaps
 
-The generated repository health report currently identifies six evaluation-suite gaps, all in presentation/template presentation capabilities. They are not Legal/Compliance coverage gaps and are intentionally not repaired in this Legal branch.
+The generated repository health report currently identifies **25** skills without evaluation suites. They belong to the parallel Learning/YouTube/Presentation/SOP stream that was merged from `main`; **none of the Legal/Compliance skills introduced or materially migrated by this branch appears in the evaluation-gap list**. These gaps are therefore tracked as repository-wide follow-up work rather than Legal/Compliance merge blockers.
 
 ## Merge gate
 
-Before merge into `main`:
+Completed on the reconciled branch:
 
-1. reconcile branch with current `main`,
-2. resolve generated-artifact conflicts by regenerating from canonical skills rather than hand-merging generated files,
-3. rerun the complete metadata/plugin/Obsidian/repository/evaluation pipeline,
-4. confirm no Legal/Compliance evaluation gaps,
-5. update PR scope/status and only then mark ready for merge.
+1. current `main` history reconciled through a true two-parent merge,
+2. generated artifacts regenerated from the combined canonical skill set rather than hand-merged,
+3. complete metadata/plugin/Obsidian/repository/evaluation pipeline passed,
+4. no Legal/Compliance evaluation gaps remain,
+5. temporary feature-branch metadata-sync trigger restored to `main` only.
+
+The remaining release action is to obtain a green CI result for this documentation-only final head, update PR #252 from draft to ready, and merge only after the repository's normal protection/check policy is satisfied.
