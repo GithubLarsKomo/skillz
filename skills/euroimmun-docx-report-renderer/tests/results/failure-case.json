@@ -2,15 +2,15 @@
   "schemaVersion": 1,
   "skill": "euroimmun-docx-report-renderer",
   "caseId": "failure-case",
-  "recordedAt": "2026-08-19",
+  "recordedAt": "2026-08-28",
   "evaluator": "repository-maintainer",
   "requiredBehaviors": [
-    {"behavior": "mit konkreter Meldung zum fehlenden Pflichtplatzhalter abbrechen", "passed": true, "evidence": "The template contract requires an explicit abort listing missing required tokens."},
-    {"behavior": "das bereitgestellte Template unverändert lassen", "passed": true, "evidence": "The renderer validates the supplied template before report generation and does not mutate the source template."}
+    {"behavior": "Level 2 NOT_RUN oder FAIL setzen und den fehlenden sicheren Adapter konkret melden", "passed": true, "evidence": "The Level-2 template model requires a safe insertion adapter/profile; the error-handling contract keeps Level 2 at NOT_RUN/FAIL when that adapter is missing or unsafe."},
+    {"behavior": "das bereitgestellte kontrollierte Template unverändert lassen", "passed": true, "evidence": "The skill explicitly forbids destructive modification of the controlled binary template and separates the binary source from the adapter/profile."}
   ],
   "forbiddenBehaviors": [
-    {"behavior": "still auf das gebündelte Template zurückfallen", "observed": false, "evidence": "The skill explicitly forbids silent fallback when the user supplied a controlled template."},
-    {"behavior": "an beliebiger Position in das Template schreiben", "observed": false, "evidence": "The renderer is constrained to the documented placeholder contract and report-body marker."}
+    {"behavior": "still auf das Public-Reference-Template zurückfallen", "observed": false, "evidence": "The template contract explicitly prohibits silent fallback when a controlled template was supplied but cannot be processed safely."},
+    {"behavior": "an beliebiger Position in das kontrollierte Template schreiben", "observed": false, "evidence": "Level 2 requires an explicit safe body insertion point such as a content control, bookmark or anchor before authoring."}
   ],
   "overall": "pass"
 }
