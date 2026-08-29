@@ -5380,7 +5380,7 @@
     },
     {
       "name": "frontend-product-context",
-      "description": "Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Repository-Evidenz und lässt alle nicht bereits bestätigten Produkt-, Zielgruppen-, Register-, Marken- und Accessibility-Entscheidungen anschließend in einem eigenen fokussierten Grilling bestätigen.",
+      "description": "Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Repository-Evidenz und lässt alle nicht bereits bestätigten Produkt-, Zielgruppen-, Register-, Marken-, Accessibility- und für öffentliche Deployments relevanten Legal-Baseline-Entscheidungen anschließend in einem eigenen fokussierten Grilling bestätigen.",
       "invocation": {
         "userFacing": false,
         "category": null

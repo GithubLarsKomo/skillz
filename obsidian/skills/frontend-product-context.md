@@ -16,7 +16,7 @@ tags:
 
 # frontend-product-context
 
-Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Repository-Evidenz und lässt alle nicht bereits bestätigten Produkt-, Zielgruppen-, Register-, Marken- und Accessibility-Entscheidungen anschließend in einem eigenen fokussierten Grilling bestätigen.
+Erzeugt oder aktualisiert den autoritativen strategischen Frontend-Projektkontext in PRODUCT.md. Analysiert zuerst Repository-Evidenz und lässt alle nicht bereits bestätigten Produkt-, Zielgruppen-, Register-, Marken-, Accessibility- und für öffentliche Deployments relevanten Legal-Baseline-Entscheidungen anschließend in einem eigenen fokussierten Grilling bestätigen.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

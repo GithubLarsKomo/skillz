@@ -550,7 +550,7 @@
     },
     "frontend-product-context": {
       "files": {
-        "SKILL.md": "72781eb83a9697e1a773cb6b720154a4f0d0b6d2f3caf9501cdfe1f72e0dd19d",
+        "SKILL.md": "1ade7edc56d2010aae8d7ba3b9d357921c2a5522b944bcbac899fad537ed21f3",
         "agents/openai.yaml": "3e29131a317a316a645a3e4d93c909dbb0fd9ebec22c68ade910a931e8cceb87"
       }
     },
