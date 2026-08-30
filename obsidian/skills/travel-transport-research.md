@@ -4,10 +4,10 @@ generated: true
 name: "travel-transport-research"
 category: "internal"
 userFacing: false
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/travel-transport-research/SKILL.md"
 tags:
   - skill
@@ -53,9 +53,9 @@ Recherchiert plausible Flug-, Bahn-, Auto-, Fähr- und andere Transportoptionen 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

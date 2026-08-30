@@ -4,10 +4,10 @@ generated: true
 name: "travel-option-ranking"
 category: "internal"
 userFacing: false
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/travel-option-ranking/SKILL.md"
 tags:
   - skill
@@ -52,9 +52,9 @@ Bewertet Reiseoptionen deterministisch gegen bestätigte harte Constraints und E
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

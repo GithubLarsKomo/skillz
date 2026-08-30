@@ -4,10 +4,10 @@ generated: true
 name: "travel-availability-snapshot"
 category: "internal"
 userFacing: false
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/travel-availability-snapshot/SKILL.md"
 tags:
   - skill
@@ -52,9 +52,9 @@ Erfasst zeitgestempelte aktuelle Transport-, Unterkunfts-, Mietwagen- und Aktivi
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

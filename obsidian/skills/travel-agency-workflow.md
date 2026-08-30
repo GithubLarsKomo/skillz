@@ -4,10 +4,10 @@ generated: true
 name: "travel-agency-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/travel-agency-workflow/SKILL.md"
 tags:
   - skill
@@ -61,9 +61,9 @@ Orchestriert private Reisen von geklärten Anforderungen über Ziel-, Transport-
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

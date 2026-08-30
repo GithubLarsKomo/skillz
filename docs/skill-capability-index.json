@@ -23,8 +23,8 @@
   "evaluatedSkillCount": 289,
   "evaluatedEntrypointCount": 232,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": false,
-  "evaluationErrorCount": 24,
+  "evaluationPassed": true,
+  "evaluationErrorCount": 0,
   "skills": [
     {
       "name": "agent-handoff",
@@ -17652,8 +17652,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -17707,8 +17707,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -17755,8 +17755,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -17812,8 +17812,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -17867,8 +17867,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -17922,8 +17922,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -17980,8 +17980,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -18038,8 +18038,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {

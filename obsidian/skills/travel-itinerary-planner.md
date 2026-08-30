@@ -4,10 +4,10 @@ generated: true
 name: "travel-itinerary-planner"
 category: "internal"
 userFacing: false
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/travel-itinerary-planner/SKILL.md"
 tags:
   - skill
@@ -50,9 +50,9 @@ Verwandelt ausgewählte oder gerankte Reiseoptionen in einen zeitlich und räuml
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

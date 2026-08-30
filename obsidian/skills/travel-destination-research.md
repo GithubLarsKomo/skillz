@@ -4,10 +4,10 @@ generated: true
 name: "travel-destination-research"
 category: "internal"
 userFacing: false
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/travel-destination-research/SKILL.md"
 tags:
   - skill
@@ -52,9 +52,9 @@ Recherchiert und bewertet Reiseziele gegen einen bestätigten Travel Context und
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 
