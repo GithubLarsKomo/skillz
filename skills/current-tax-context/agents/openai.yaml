@@ -1,0 +1,5 @@
+interface:
+  display_name: "Current Tax Context"
+  short_description: "Binds tax analysis to current authority, evidence tiers and freshness."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "International Tax Specialist"
+  short_description: "Analyzes cross-border tax across national law, treaties, EU law and local interfaces."
+policy:
+  allow_implicit_invocation: true

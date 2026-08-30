@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Structure Pattern Library"
+  short_description: "Models tax structures with requirements, risks, costs and alternatives."
+policy:
+  allow_implicit_invocation: true

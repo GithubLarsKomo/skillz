@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Procedure Matter Workflow"
+  short_description: "Orchestrates return, assessment, audit, objection and escalation with deadlines and evidence."
+policy:
+  allow_implicit_invocation: true

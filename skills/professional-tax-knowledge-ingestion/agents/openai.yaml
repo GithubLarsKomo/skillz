@@ -1,0 +1,5 @@
+interface:
+  display_name: "Professional Tax Knowledge Ingestion"
+  short_description: "Converts practitioner tax content into typed, verifiable knowledge records."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Matter Intake"
+  short_description: "Structures taxpayer, periods, facts, deadlines and dependencies before tax analysis."
+policy:
+  allow_implicit_invocation: true

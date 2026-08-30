@@ -1,0 +1,5 @@
+interface:
+  display_name: "Inheritance Gift Tax Specialist"
+  short_description: "Analyzes German inheritance and gift tax with Legal and valuation interfaces."
+policy:
+  allow_implicit_invocation: true

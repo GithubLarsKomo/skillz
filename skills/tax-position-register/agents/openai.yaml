@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Position Register"
+  short_description: "Maintains versioned material tax positions with evidence and review status."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Matter Final Gate"
+  short_description: "Checks tax matter readiness before filing, implementation or closure."
+policy:
+  allow_implicit_invocation: true

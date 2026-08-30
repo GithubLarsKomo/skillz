@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Professional Routing"
+  short_description: "Routes professional tax validation and reserved actions without blocking preparation."
+policy:
+  allow_implicit_invocation: true

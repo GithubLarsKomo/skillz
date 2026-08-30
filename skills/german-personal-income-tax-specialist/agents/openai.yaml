@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Personal Income Tax Specialist"
+  short_description: "Analyzes German personal income tax with period-specific facts and routed interfaces."
+policy:
+  allow_implicit_invocation: true

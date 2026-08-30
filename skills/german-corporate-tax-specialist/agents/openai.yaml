@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Corporate Tax Specialist"
+  short_description: "Analyzes German corporate tax while preserving VAT, international and Legal interfaces."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Advisory Office"
+  short_description: "Orchestrates tax matters across evidence, specialists and professional gates."
+policy:
+  allow_implicit_invocation: true

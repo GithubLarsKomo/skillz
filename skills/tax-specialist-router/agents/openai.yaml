@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Specialist Router"
+  short_description: "Routes coherent tax work orders while keeping domain ownership explicit."
+policy:
+  allow_implicit_invocation: true

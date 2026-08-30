@@ -1,0 +1,5 @@
+interface:
+  display_name: "VAT Indirect Tax Specialist"
+  short_description: "Analyzes VAT through transaction, place, exemption, rate, reverse charge and input tax."
+policy:
+  allow_implicit_invocation: true
