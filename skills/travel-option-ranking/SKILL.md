@@ -3,7 +3,6 @@ name: travel-option-ranking
 description: Bewertet Reiseoptionen deterministisch gegen bestätigte harte Constraints und Entscheidungskriterien und trennt Reisefit, Kosten, Evidenzabdeckung und Ranking-Confidence.
 userFacing: false
 implicitInvocation: true
-category: analysis
 version: 0.1.0
 status: candidate
 discoverability: internal
