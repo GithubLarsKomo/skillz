@@ -3,7 +3,6 @@ name: travel-destination-research
 description: Recherchiert und bewertet Reiseziele gegen einen bestätigten Travel Context und trennt belegte Zielmerkmale, Saisonalität, praktische Eignung und Evidenzlücken.
 userFacing: false
 implicitInvocation: true
-category: research-knowledge
 version: 0.1.0
 status: candidate
 discoverability: internal
