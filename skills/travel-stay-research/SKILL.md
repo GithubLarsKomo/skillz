@@ -3,7 +3,6 @@ name: travel-stay-research
 description: Recherchiert geeignete Unterkünfte und bewertet Lage, Eigenschaften, Qualitäts- und Review-Signale gegen den Travel Context ohne aktuelle Zimmerangebote als dauerhafte Produktevidenz zu behandeln.
 userFacing: false
 implicitInvocation: true
-category: research-knowledge
 version: 0.1.0
 status: candidate
 discoverability: internal
