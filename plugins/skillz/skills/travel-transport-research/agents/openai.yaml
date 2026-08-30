@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Transport Research"
+  short_description: "Recherchiert plausible Flug-, Bahn-, Auto-, Fähr- und andere Transportoptionen für einen Travel Context und normalisi..."
+policy:
+  allow_implicit_invocation: true

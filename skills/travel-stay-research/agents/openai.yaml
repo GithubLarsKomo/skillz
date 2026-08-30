@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Stay Research"
+  short_description: "Recherchiert geeignete Unterkünfte und bewertet Lage, Eigenschaften, Qualitäts- und Review-Signale gegen den Travel C..."
+policy:
+  allow_implicit_invocation: true

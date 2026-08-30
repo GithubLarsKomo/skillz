@@ -1,0 +1,62 @@
+---
+type: skill
+generated: true
+name: "travel-transport-research"
+category: "internal"
+userFacing: false
+evaluationPassed: true
+evaluationMode: "compatibility"
+caseCount: 3
+recordedResultCount: 3
+sourcePath: "skills/travel-transport-research/SKILL.md"
+tags:
+  - skill
+  - skill-category/internal
+---
+
+# travel-transport-research
+
+Recherchiert plausible Flug-, Bahn-, Auto-, Fähr- und andere Transportoptionen für einen Travel Context und normalisiert Reisezeit, Umstiege und operationelle Eigenschaften ohne finales Ranking.
+
+> Generated from canonical repository metadata. Do not edit this note manually.
+
+## Category
+
+[[categories/internal|internal]]
+
+## Requires
+
+- [[skills/research-to-evidence-note|research-to-evidence-note]]
+- [[skills/source-to-context|source-to-context]]
+
+## Required by
+
+- [[skills/travel-agency-workflow|travel-agency-workflow]]
+
+## Outputs
+
+- `travel-transport-options.json`
+- `travel-transport-options.md`
+
+## Output consumers
+
+### `travel-transport-options.json`
+
+- [[skills/travel-agency-workflow|travel-agency-workflow]]
+- [[skills/travel-availability-snapshot|travel-availability-snapshot]]
+- [[skills/travel-option-ranking|travel-option-ranking]]
+
+### `travel-transport-options.md`
+
+- [[skills/travel-agency-workflow|travel-agency-workflow]]
+
+## Evaluation
+
+- Mode: `compatibility`
+- Passed: `True`
+- Cases: `3`
+- Recorded results: `3`
+
+## Canonical source
+
+`skills/travel-transport-research/SKILL.md`

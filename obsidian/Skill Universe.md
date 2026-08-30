@@ -9,9 +9,9 @@ tags:
 
 > Generated from `docs/skill-capability-index.json`, `docs/skill-dependency-graph.json` and executable E2E benchmark sequences. Do not edit generated files manually.
 
-- Skills: **281**
+- Skills: **289**
 - Categories: **10**
-- Workflow views: **24**
+- Workflow views: **25**
 - Repository evaluation passed: **True**
 
 ## Views
@@ -25,13 +25,13 @@ tags:
 - [[categories/analysis|analysis]] (8)
 - [[categories/communication-memory|communication-memory]] (2)
 - [[categories/engineering|engineering]] (17)
-- [[categories/internal|internal]] (50)
+- [[categories/internal|internal]] (57)
 - [[categories/legal-specialist|legal-specialist]] (26)
 - [[categories/productivity|productivity]] (8)
 - [[categories/regulated-engineering|regulated-engineering]] (74)
 - [[categories/research-knowledge|research-knowledge]] (15)
 - [[categories/skill-system|skill-system]] (3)
-- [[categories/workflow|workflow]] (78)
+- [[categories/workflow|workflow]] (79)
 
 ## Workflows
 
@@ -55,6 +55,7 @@ tags:
 - [[workflows/sport-longitudinal-adaptation-loop|sport-longitudinal-adaptation-loop]]
 - [[workflows/template-presentation-production|template-presentation-production]]
 - [[workflows/thought-capture-to-concept|thought-capture-to-concept]]
+- [[workflows/travel-planning-with-current-availability|travel-planning-with-current-availability]]
 - [[workflows/us-eu-dual-market|us-eu-dual-market]]
 - [[workflows/youtube-course-builder|youtube-course-builder]]
 - [[workflows/youtube-playlist-arbitrated-learning|youtube-playlist-arbitrated-learning]]

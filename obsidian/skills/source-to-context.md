@@ -30,7 +30,9 @@ Normalisiert bereits geladene Quelleninhalte in einen provider-neutralen, proven
 
 ## Required by
 
-- —
+- [[skills/travel-destination-research|travel-destination-research]]
+- [[skills/travel-stay-research|travel-stay-research]]
+- [[skills/travel-transport-research|travel-transport-research]]
 
 ## Outputs
 

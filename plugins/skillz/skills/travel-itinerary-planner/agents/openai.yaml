@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Itinerary Planner"
+  short_description: "Verwandelt ausgewählte oder gerankte Reiseoptionen in einen zeitlich und räumlich konsistenten Reiseplan mit Transfer..."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Option Ranking"
+  short_description: "Bewertet Reiseoptionen deterministisch gegen bestätigte harte Constraints und Entscheidungskriterien und trennt Reise..."
+policy:
+  allow_implicit_invocation: true
