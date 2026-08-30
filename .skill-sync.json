@@ -183,6 +183,12 @@
         "agents/openai.yaml": "ac08f218bec85291501f676b901808de0f905181a2b072911ae325eb3ad063be"
       }
     },
+    "current-tax-context": {
+      "files": {
+        "SKILL.md": "8367185d2d73b016e72c9c169f6bd77c679105c1c5978d8e5f0a95adcc234b60",
+        "agents/openai.yaml": "f1428afc15c647c1a2f8a3032120bf360052ae65e098066260680dbd66dbce2d"
+      }
+    },
     "daily-and-weekly-review": {
       "files": {
         "SKILL.md": "40fb631894763e4b3e8a45e671159082a6acaed678bd1b143483b9c36c0304bd",
@@ -575,6 +581,12 @@
         "references/authoritative-sources.md": "d492b94479b209c1f0f70f127118df763436f474ee24c2eade6866938894422a"
       }
     },
+    "german-corporate-tax-specialist": {
+      "files": {
+        "SKILL.md": "e724061e3c501bb9d03412d3f13e6f34958436ce67bde6ba10150d705ffbb723",
+        "agents/openai.yaml": "39c56fe05a9f27735bf0fbcf3dbbe6e94f6fe92e48c3b62b9c5e9001133461e5"
+      }
+    },
     "german-criminal-administrative-offence-procedure-specialist": {
       "files": {
         "SKILL.md": "5c6b829e48c4b77a7a4ba3387deaaaea9f3efe2f36d67e3ddb8e8605efe29bd8",
@@ -601,6 +613,12 @@
         "SKILL.md": "6fb8574a588668f2b5c421ecf73c275ca32ca0d0cdc90a31f3bc94686dc38939",
         "agents/openai.yaml": "3cce7818cd77c67831fdd5ecf9468d7da02ef065760a4976023117b506be20d7",
         "references/authoritative-sources.md": "ff22febb2a9f1ac3c497e4edb85a8e94f7c078a03746b2d67208b234864c4387"
+      }
+    },
+    "german-personal-income-tax-specialist": {
+      "files": {
+        "SKILL.md": "f6626257f53e0bec6f57bdc9deb9b0496f7b9552682013e56b42672dd60b66f1",
+        "agents/openai.yaml": "3f59c463019ac9539773b51a66a716b6fd522a9edf8513926693589bc15a6681"
       }
     },
     "german-rowing-sport-law-specialist": {
@@ -647,10 +665,22 @@
         "agents/openai.yaml": "139b37ade8a89922d4e9917980ad357d93fcd26c51fb5a13d7afa351b338eb05"
       }
     },
+    "inheritance-gift-tax-specialist": {
+      "files": {
+        "SKILL.md": "4f6c54d1a892a9949ed0454da58f9274e6e482b2d916dfc3e7ec168ccc119f9a",
+        "agents/openai.yaml": "7fc700e77e3c1fb66476951111ed09470b203dd4b0ee617f091bf12817933a4c"
+      }
+    },
     "internal-investigation-workflow": {
       "files": {
         "SKILL.md": "3a044857619a96a3f77f9afc97532c69360b4f26ecf1a85aa69bdf589f0f4cf8",
         "agents/openai.yaml": "a6ed18cff27090249f199c97a7af292b64a28173ec9cb2a9e19b254a54dbbc68"
+      }
+    },
+    "international-tax-specialist": {
+      "files": {
+        "SKILL.md": "cf53566b776bfc5ed28f0b8c677711e3a2032f6a37204a65eb92574b699914fb",
+        "agents/openai.yaml": "f2108704b491c99ba22f560a1ca25043ecc7b4eca19696c4f81463d42b80ffdd"
       }
     },
     "investigation-evidence-preservation": {
@@ -1335,6 +1365,12 @@
         "references/authoritative-sources.md": "523cd14747e45bab78dc5783045133cc6b83dde379f10279c3142e947f14589b"
       }
     },
+    "professional-tax-knowledge-ingestion": {
+      "files": {
+        "SKILL.md": "3c3976ef3441ea8a3348df66607c7bc5a96d7ce9cc5f917cd6bca7cd9f3bea19",
+        "agents/openai.yaml": "b72b42a7ebd73edcd71e7717f659d4129018ac49c24a72881fdccce1373e81b9"
+      }
+    },
     "project-beta-readiness": {
       "files": {
         "SKILL.md": "d4e4d9c950df62cd7836b9afd4b8bae212812b19bc9ad79ebfa6cc2c487050d5",
@@ -1647,11 +1683,59 @@
         "references/commands.md": "38bc0fbf8332458c5cadc4bd31bea96289cc3e4333ba517a94dbc7657dc4d598"
       }
     },
+    "tax-advisory-office": {
+      "files": {
+        "SKILL.md": "eb731ec682f559f25ef8a64c57c06ec995d53439193177fdb9e4d4416545cc3c",
+        "agents/openai.yaml": "409e355e559ac64ea3a430315c22daf369443a018cde0ed5574ae119ae9c736c"
+      }
+    },
     "tax-legal-interface-specialist": {
       "files": {
-        "SKILL.md": "c046a7c59892654a3ffda5dee1f2beccd0be9dab81f18d5ae8d9463c9e34f4c5",
+        "SKILL.md": "87c136fbef6eabe50cbd09f997b234c26b45e22bcda495080446acdf353453cb",
         "agents/openai.yaml": "41ebc42c635480117b99d5ab448d5f352ac3bd00217ad22f2e9b0f754ffe717f",
         "references/authoritative-sources.md": "713939642cfbe4aa450b860986a9f724e430ff07168e32706b48b8c6917a0393"
+      }
+    },
+    "tax-matter-final-gate": {
+      "files": {
+        "SKILL.md": "d538f95e38b1c508301a9194827f65dd8bed5d22c0f2ffb60212a910e48a1b47",
+        "agents/openai.yaml": "ff264e9e365aed861b39f9d2f7e3dc1a0d03ab4f78bc584171f2c6a7d6c37767"
+      }
+    },
+    "tax-matter-intake": {
+      "files": {
+        "SKILL.md": "a05f63cfce1316ee7030275407dcfd3fe715901c8ac2e8bfc44bf751d21ec05c",
+        "agents/openai.yaml": "0dc37af5f7b3edb97c415084843ee9c4a912f399ac84b9781f0c076e1788d113"
+      }
+    },
+    "tax-position-register": {
+      "files": {
+        "SKILL.md": "2c9a065315bf93918c7c6a5e2ac63ae18249292030cada8806387deed78018bd",
+        "agents/openai.yaml": "cabaef38c9eccbca12720f061d8ba544ab5c94996e59375d353a9d677c9e34c0"
+      }
+    },
+    "tax-procedure-matter-workflow": {
+      "files": {
+        "SKILL.md": "111a6a680f3a97a94942201fc4f667bfcd1cfe55e95d8a1bad69d9b3d01da274",
+        "agents/openai.yaml": "3f03a8ede33ee271f8058aaa68eedd46ee486d226022170dc0614c57432c088d"
+      }
+    },
+    "tax-professional-routing": {
+      "files": {
+        "SKILL.md": "32e5c39390b8d043236ef8a1ec16ac0e0bc3574e9f8ff1b413bc71e205e546b6",
+        "agents/openai.yaml": "1b1b926fd0fa03a721a1ded73e16d8dab9520339ead0c1ac4d7867b3bba33809"
+      }
+    },
+    "tax-specialist-router": {
+      "files": {
+        "SKILL.md": "fdc782499e948c45fd31e98023a34337013680aaac7ba9ce9bc5739bfe8d39cc",
+        "agents/openai.yaml": "c5b85d19fc7b688d0befaf87a53cfcbb795f62a7851e76fcfc18569c0749db39"
+      }
+    },
+    "tax-structure-pattern-library": {
+      "files": {
+        "SKILL.md": "ddcce473000e31b7b4a05148376a63a5c308745dcef097f8bda764a1a747699c",
+        "agents/openai.yaml": "ee01cdbafe809fa39618ddc5210167def4804706594f11cd94454c3fe2442007"
       }
     },
     "teach": {
@@ -1779,6 +1863,12 @@
       "files": {
         "SKILL.md": "1000bc2fffab7b0748417f31d2fa198f642ce66548c7b25ce034ed4fa53e5650",
         "agents/openai.yaml": "f0194f39aa6592eaa6bd93c324ac60c89c9b835bd9b56d5872e056855174036b"
+      }
+    },
+    "vat-indirect-tax-specialist": {
+      "files": {
+        "SKILL.md": "ce9317f807d4822f248f1b1ec18158fe7e8569bf69acaf825f4f5ebc7193e33b",
+        "agents/openai.yaml": "ae9797e088431f2456ff013172950d283d4383bfa08b4b8edbb9118d8210bb4a"
       }
     },
     "whistleblowing-law-specialist": {

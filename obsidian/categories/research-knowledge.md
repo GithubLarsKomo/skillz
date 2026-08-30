@@ -10,11 +10,12 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **15**
+Skills: **17**
 
 - [[skills/biopatent-deep-analysis|biopatent-deep-analysis]]
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/current-law-context|current-law-context]]
+- [[skills/current-tax-context|current-tax-context]]
 - [[skills/freedom-to-operate-assessment|freedom-to-operate-assessment]]
 - [[skills/learning-summary-synthesis|learning-summary-synthesis]]
 - [[skills/mermaid-knowledge-map-renderer|mermaid-knowledge-map-renderer]]
@@ -22,6 +23,7 @@ Skills: **15**
 - [[skills/person-research-dossier|person-research-dossier]]
 - [[skills/price-availability-snapshot|price-availability-snapshot]]
 - [[skills/product-evidence-research|product-evidence-research]]
+- [[skills/professional-tax-knowledge-ingestion|professional-tax-knowledge-ingestion]]
 - [[skills/research-to-evidence-note|research-to-evidence-note]]
 - [[skills/sport-performance-diagnostics|sport-performance-diagnostics]]
 - [[skills/structured-knowledge-artifact|structured-knowledge-artifact]]
