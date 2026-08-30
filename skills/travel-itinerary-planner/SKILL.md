@@ -3,7 +3,6 @@ name: travel-itinerary-planner
 description: Verwandelt ausgewählte oder gerankte Reiseoptionen in einen zeitlich und räumlich konsistenten Reiseplan mit Transfers, Öffnungszeiten, Reservierungsfenstern, Puffern und expliziten Unsicherheiten.
 userFacing: false
 implicitInvocation: true
-category: workflow
 version: 0.1.0
 status: candidate
 discoverability: internal
