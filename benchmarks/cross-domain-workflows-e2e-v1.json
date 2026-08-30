@@ -262,6 +262,33 @@
         "rank products from price alone when decision criteria are broader",
         "present stale availability as a current purchasing fact"
       ]
+    },
+    {
+      "id": "travel-planning-with-current-availability",
+      "domain": "travel-planning",
+      "entrypoint": "travel-agency-workflow",
+      "intent": "Plan a private trip from explicit travel requirements through evidence-backed destination, transport and stay research, current market availability, transparent ranking and a spatially and temporally feasible itinerary.",
+      "sequence": [
+        "travel-context-builder",
+        "travel-destination-research",
+        "travel-transport-research",
+        "travel-stay-research",
+        "travel-availability-snapshot",
+        "travel-option-ranking",
+        "travel-itinerary-planner"
+      ],
+      "mustPreserve": [
+        "confirmed travel requirements and hard constraints across all downstream workers",
+        "separation of relatively stable travel evidence from time-stamped current availability and prices",
+        "hard feasibility gates before weighted option ranking",
+        "spatial and temporal feasibility including transfers and required buffers before itinerary completion"
+      ],
+      "mustNotDo": [
+        "invent missing travel preferences or weights to force a recommendation",
+        "present stale prices or availability as current booking facts",
+        "treat the cheapest itinerary as the best itinerary without applying confirmed decision criteria",
+        "perform a financially committing booking action without explicit user authorization"
+      ]
     }
   ]
 }
