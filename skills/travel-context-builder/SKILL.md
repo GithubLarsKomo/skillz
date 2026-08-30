@@ -3,7 +3,6 @@ name: travel-context-builder
 description: Normalisiert bestätigte Reiseanforderungen, Präferenzen, Zeitfenster, Reisende, Budget und harte Constraints in einen kanonischen Travel Context ohne fehlende Entscheidungen zu erfinden.
 userFacing: false
 implicitInvocation: true
-category: workflow
 version: 0.1.0
 status: candidate
 discoverability: internal
