@@ -3,7 +3,6 @@ name: travel-availability-snapshot
 description: Erfasst zeitgestempelte aktuelle Transport-, Unterkunfts-, Mietwagen- und Aktivitätsangebote für bekannte Travel-Kandidaten einschließlich Preis, Verfügbarkeit und buchungsrelevanter Konditionen.
 userFacing: false
 implicitInvocation: true
-category: research-knowledge
 version: 0.1.0
 status: candidate
 discoverability: internal
