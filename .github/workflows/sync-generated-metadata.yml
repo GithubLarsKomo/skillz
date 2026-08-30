@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/tax-advisory-office-foundation]
     paths:
       - "skills/**"
       - "benchmarks/**"
