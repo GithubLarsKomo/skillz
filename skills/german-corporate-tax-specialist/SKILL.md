@@ -1,10 +1,10 @@
 ---
 name: german-corporate-tax-specialist
-description: Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet Umwandlung, International Tax, VAT, Transfer Pricing und Legal Dependencies separat.
+description: Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet M&A, Umwandlung, Transfer Pricing, International Tax, VAT und Legal Dependencies separat.
 userFacing: true
 implicitInvocation: true
 category: tax-specialist
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -16,7 +16,7 @@ outputs:
   - corporate-tax-assessment.json
   - corporate-tax-scenario-map.json
   - corporate-tax-open-issues.json
-lastEvaluated: 2026-08-30
+lastEvaluated: 2026-08-31
 ---
 
 # German Corporate Tax Specialist
@@ -29,8 +29,14 @@ KSt, GewSt, Beteiligungserträge/-veräußerungen, Ausschüttungen, verdeckte Ge
 
 - VAT -> `vat-indirect-tax-specialist`.
 - Cross-border -> `international-tax-specialist`.
-- M&A/Umwandlung/Transfer Pricing -> explizite Work Order; bis zur eigenen Specialist-Abdeckung nicht improvisieren.
+- M&A/Tax DD/Deal Tax -> `ma-tax-specialist`.
+- Umwandlung/Einbringung/Spaltung/Formwechsel -> `reorganization-tax-specialist`.
+- Verrechnungspreise/Intercompany Pricing -> `transfer-pricing-specialist`.
 - Gesellschaftsrecht/Vertrag/Governance -> `tax-legal-interface-specialist` und Legal Office.
+
+## Strukturvergleich
+
+Holding-, Finanzierungs- und Beteiligungsstrukturen nicht aus einer einzelnen Steuerquote ableiten. Status quo und einfachere Alternative über `tax-structure-pattern-library` mit Liquidität, Compliance, Exit, Transaktionskosten und Legal Constraints vergleichen.
 
 ## Qualitätsgate
 

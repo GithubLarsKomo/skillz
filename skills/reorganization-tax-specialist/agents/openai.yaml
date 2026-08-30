@@ -1,0 +1,5 @@
+interface:
+  display_name: "Reorganization Tax Specialist"
+  short_description: "Analysiert Umwandlungen, Einbringungen, Wertansätze, Sperrfristen und Reorganization-Tax-Abhängigkeiten."
+policy:
+  allow_implicit_invocation: true

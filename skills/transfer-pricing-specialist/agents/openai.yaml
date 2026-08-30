@@ -1,0 +1,5 @@
+interface:
+  display_name: "Transfer Pricing Specialist"
+  short_description: "Analysiert Fremdvergleich, Funktionen/Risiken, DEMPE, Methoden, Benchmarks und TP-Dokumentation ohne Daten zu erfinden."
+policy:
+  allow_implicit_invocation: true

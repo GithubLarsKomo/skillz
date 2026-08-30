@@ -1,0 +1,5 @@
+interface:
+  display_name: "M&A Tax Specialist"
+  short_description: "Analysiert Deal Tax, Tax DD, Share-vs-Asset, Finanzierung, Tax Basis und steuerabhängige SPA-Constraints."
+policy:
+  allow_implicit_invocation: true
