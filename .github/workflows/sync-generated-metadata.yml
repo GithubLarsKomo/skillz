@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/travel-agency-workflow]
+    branches: [main]
     paths:
       - "skills/**"
       - "benchmarks/**"
@@ -23,7 +23,7 @@ permissions:
 
 concurrency:
   group: sync-generated-metadata-${{ github.ref_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   sync:
