@@ -1,0 +1,5 @@
+interface:
+  display_name: "Vat Indirect Tax Specialist"
+  short_description: "Analysiert Umsatzsteuer-/VAT-Matters entlang Steuerbarkeit, Leistungsart, Leistungsort, Steuerbefreiung, Steuersatz,..."
+policy:
+  allow_implicit_invocation: true

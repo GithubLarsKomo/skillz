@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **289**
-- User-facing entrypoints: **232**
-- Discoverability — public: **223**, advanced: **9**, internal: **55**, compatibility: **2**
-- Evaluation suites: **289**
+- Skills: **304**
+- User-facing entrypoints: **247**
+- Discoverability — public: **238**, advanced: **9**, internal: **55**, compatibility: **2**
+- Evaluation suites: **304**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **289/289**
-- User-facing entrypoints with evaluation suite: **232/232**
+- Skills with evaluation suite: **304/304**
+- User-facing entrypoints with evaluation suite: **247/247**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **277**
+- Outputs without inferred hard-requires consumers: **300**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -85,6 +85,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `contract-plan.md` — producer: `contract-workflow`
 - `contract-review.md` — producer: `contract-review`
 - `corporate-compliance-law-assessment.json` — producer: `corporate-compliance-law-specialist`
+- `corporate-tax-assessment.json` — producer: `german-corporate-tax-specialist`
+- `corporate-tax-open-issues.json` — producer: `german-corporate-tax-specialist`
+- `corporate-tax-scenario-map.json` — producer: `german-corporate-tax-specialist`
 - `criminal-counsel-brief.md` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `criminal-procedure-assessment.json` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
@@ -162,6 +165,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
 - `import verification` — producer: `openasr-offline-model-import`
+- `inheritance-gift-tax-assessment.json` — producer: `inheritance-gift-tax-specialist`
+- `inheritance-gift-tax-open-issues.json` — producer: `inheritance-gift-tax-specialist`
+- `inheritance-gift-tax-scenarios.json` — producer: `inheritance-gift-tax-specialist`
 - `inheritance-succession-assessment.json` — producer: `german-inheritance-succession-law-specialist`
 - `inhouse-ivd-condition-map.json` — producer: `ivdr-inhouse-health-institution`
 - `inhouse-ivd-eligibility.json` — producer: `ivdr-inhouse-health-institution`
@@ -170,6 +176,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `installed OpenASR model` — producer: `openasr-offline-model-import`
 - `insurance-coverage-issue-map.json` — producer: `german-consumer-insurance-private-contract-law-specialist`
 - `integrity-risk-route-map.json` — producer: `corporate-compliance-law-specialist`
+- `international-tax-assessment.json` — producer: `international-tax-specialist`
+- `international-tax-jurisdiction-map.json` — producer: `international-tax-specialist`
+- `international-tax-open-issues.json` — producer: `international-tax-specialist`
 - `ip-legal-assessment.json` — producer: `ip-licensing-law-specialist`
 - `ip-license-deal-model.json` — producer: `ip-licensing-law-specialist`
 - `ip-rights-chain-map.json` — producer: `ip-licensing-law-specialist`
@@ -224,6 +233,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `per-traceability.json` — producer: `ivdr-performance-evaluation-report`
 - `performance-evaluation-report.md` — producer: `ivdr-performance-evaluation-report`
 - `person-research-workflow-result.json` — producer: `person-research-report-workflow`
+- `personal-income-tax-assessment.json` — producer: `german-personal-income-tax-specialist`
+- `personal-income-tax-calculation.json` — producer: `german-personal-income-tax-specialist`
+- `personal-income-tax-open-issues.json` — producer: `german-personal-income-tax-specialist`
 - `plan-revision.json` — producer: `sport-athlete-management`
 - `pmpf-evaluation-report.md` — producer: `ivdr-pmpf`
 - `pmpf-plan.json` — producer: `ivdr-pmpf`
@@ -293,6 +305,14 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`
 - `sustainability-obligation-route-map.json` — producer: `esg-supply-chain-environmental-law-specialist`
 - `synchronization manifest` — producer: `central-skill-repository-curation`
+- `tax-assessment-reconciliation.json` — producer: `tax-procedure-matter-workflow`
+- `tax-failure-patterns.json` — producer: `professional-tax-knowledge-ingestion`
+- `tax-knowledge-records.json` — producer: `professional-tax-knowledge-ingestion`
+- `tax-practitioner-heuristics.json` — producer: `professional-tax-knowledge-ingestion`
+- `tax-procedure-action-plan.json` — producer: `tax-procedure-matter-workflow`
+- `tax-procedure-deadlines.json` — producer: `tax-procedure-matter-workflow`
+- `tax-procedure-status.json` — producer: `tax-procedure-matter-workflow`
+- `tax-source-verification-queue.json` — producer: `professional-tax-knowledge-ingestion`
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
 - `tender-legal-gate-map.json` — producer: `public-procurement-healthcare-law-specialist`
@@ -308,6 +328,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `usability-engineering-assessment.json` — producer: `iec62366-usability-engineering`
 - `usability-evidence-gaps.json` — producer: `iec62366-usability-engineering`
 - `use-related-risk-evidence.json` — producer: `iec62366-usability-engineering`
+- `vat-assessment.json` — producer: `vat-indirect-tax-specialist`
+- `vat-open-issues.json` — producer: `vat-indirect-tax-specialist`
+- `vat-transaction-map.json` — producer: `vat-indirect-tax-specialist`
 - `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
 - `workflow-benchmark-authoring-report.md` — producer: `workflow-benchmark-authoring`
 - `workflow-benchmark-regression.py` — producer: `workflow-benchmark-authoring`

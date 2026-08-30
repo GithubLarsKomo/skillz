@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Position Register"
+  short_description: "Führt materielle Steuerpositionen mit Facts, Rechtsgrundlage, Evidenz, Berechnung, Alternativen, Unsicherheit, Profes..."
+policy:
+  allow_implicit_invocation: true

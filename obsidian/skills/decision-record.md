@@ -44,6 +44,7 @@ Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governanc
 - [[skills/ivdr-inhouse-health-institution|ivdr-inhouse-health-institution]]
 - [[skills/medical-device-pms-system|medical-device-pms-system]]
 - [[skills/regulatory-change-impact-orchestrator|regulatory-change-impact-orchestrator]]
+- [[skills/tax-position-register|tax-position-register]]
 
 ## Outputs
 
@@ -68,6 +69,7 @@ Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governanc
 - [[skills/ivdr-inhouse-health-institution|ivdr-inhouse-health-institution]]
 - [[skills/medical-device-pms-system|medical-device-pms-system]]
 - [[skills/regulatory-change-impact-orchestrator|regulatory-change-impact-orchestrator]]
+- [[skills/tax-position-register|tax-position-register]]
 
 ### `decision-record.md`
 
@@ -85,6 +87,7 @@ Erfasst wesentliche technische, fachliche, rechtliche, Compliance- und Governanc
 - [[skills/ivdr-inhouse-health-institution|ivdr-inhouse-health-institution]]
 - [[skills/medical-device-pms-system|medical-device-pms-system]]
 - [[skills/regulatory-change-impact-orchestrator|regulatory-change-impact-orchestrator]]
+- [[skills/tax-position-register|tax-position-register]]
 
 ## Evaluation
 

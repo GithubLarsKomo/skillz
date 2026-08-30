@@ -1,0 +1,5 @@
+interface:
+  display_name: "Inheritance Gift Tax Specialist"
+  short_description: "Analysiert deutsche Erbschaft- und Schenkungsteuer-Matters aus Erwerb, Bewertung, persönlichen Freibeträgen, Steuerkl..."
+policy:
+  allow_implicit_invocation: true

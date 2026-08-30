@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Professional Routing"
+  short_description: "Prüft für Tax Matters, Positionen, Erklärungen, Einsprüche und Vertretung, ob und an welcher Stelle eine nach Berufsr..."
+policy:
+  allow_implicit_invocation: true

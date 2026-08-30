@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Personal Income Tax Specialist"
+  short_description: "Analysiert deutsche Einkommensteuer-Matters natürlicher Personen nach Einkunftsarten, persönlichen Abzugspositionen,..."
+policy:
+  allow_implicit_invocation: true

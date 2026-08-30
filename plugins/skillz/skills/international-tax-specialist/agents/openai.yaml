@@ -1,0 +1,5 @@
+interface:
+  display_name: "International Tax Specialist"
+  short_description: "Analysiert grenzüberschreitende Steuer-Matters zu Ansässigkeit, Betriebsstätten, DBA, Quellensteuer, Hinzurechnungsbe..."
+policy:
+  allow_implicit_invocation: true

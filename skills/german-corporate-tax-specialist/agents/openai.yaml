@@ -1,0 +1,5 @@
+interface:
+  display_name: "German Corporate Tax Specialist"
+  short_description: "Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen ei..."
+policy:
+  allow_implicit_invocation: true

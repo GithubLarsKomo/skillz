@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **79**
+Skills: **84**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -83,6 +83,11 @@ Skills: **79**
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
 - [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
+- [[skills/tax-advisory-office|tax-advisory-office]]
+- [[skills/tax-matter-final-gate|tax-matter-final-gate]]
+- [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]
+- [[skills/tax-professional-routing|tax-professional-routing]]
+- [[skills/tax-specialist-router|tax-specialist-router]]
 - [[skills/technology-due-diligence|technology-due-diligence]]
 - [[skills/template-document-workflow|template-document-workflow]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Specialist Router"
+  short_description: "Zerlegt Tax Matters in fachlich kohärente Work Orders für passende Tax Specialists und integriert deren Ergebnisse, o..."
+policy:
+  allow_implicit_invocation: true

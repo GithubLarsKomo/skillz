@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Structure Pattern Library"
+  short_description: "Modelliert wiederkehrende steuerliche Gestaltungs- und Strukturmuster wie Holding, Einbringung, Umwandlung, Nachfolge..."
+policy:
+  allow_implicit_invocation: true

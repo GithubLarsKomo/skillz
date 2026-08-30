@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Matter Intake"
+  short_description: "Strukturiert steuerliche Matters auf Steuerpflichtigen-/Entity-, Zeitraum-, Jurisdiktions-, Steuerarten-, Fristen-, F..."
+policy:
+  allow_implicit_invocation: true

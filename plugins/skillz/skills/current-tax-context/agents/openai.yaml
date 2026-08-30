@@ -1,0 +1,5 @@
+interface:
+  display_name: "Current Tax Context"
+  short_description: "Ermittelt für ein Tax Matter den aktuellen, perioden- und jurisdiktionsbezogenen Steuerrechtskontext aus Primärquelle..."
+policy:
+  allow_implicit_invocation: true

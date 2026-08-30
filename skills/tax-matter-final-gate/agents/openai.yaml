@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Matter Final Gate"
+  short_description: "Prüft vor Abschluss, Filing, Änderung, Einspruch, Umsetzung oder Übergabe eines Tax Matters, ob Facts, aktuelle Recht..."
+policy:
+  allow_implicit_invocation: true

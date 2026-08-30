@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 289,
-  "entrypointCount": 232,
+  "skillCount": 304,
+  "entrypointCount": 247,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -11,17 +11,18 @@
     "regulated-engineering",
     "research-knowledge",
     "skill-system",
+    "tax-specialist",
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 223,
+    "public": 238,
     "advanced": 9,
     "internal": 55,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 289,
-  "evaluatedSkillCount": 289,
-  "evaluatedEntrypointCount": 232,
+  "evaluationSuiteCount": 304,
+  "evaluatedSkillCount": 304,
+  "evaluatedEntrypointCount": 247,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -1884,6 +1885,7 @@
         "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "current-tax-context",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
@@ -1935,6 +1937,7 @@
             "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "current-tax-context",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
@@ -1980,6 +1983,7 @@
             "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "current-tax-context",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
@@ -2025,6 +2029,7 @@
             "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "current-tax-context",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
@@ -2070,6 +2075,7 @@
             "corporate-compliance-law-specialist",
             "corporate-governance-law-specialist",
             "corporate-transactions-ma-specialist",
+            "current-tax-context",
             "digital-ai-cyber-law-specialist",
             "dispute-litigation-strategy-specialist",
             "esg-supply-chain-environmental-law-specialist",
@@ -2097,6 +2103,139 @@
             "tax-legal-interface-specialist",
             "trade-sanctions-export-control-specialist",
             "whistleblowing-law-specialist"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "current-tax-context",
+      "description": "Ermittelt für ein Tax Matter den aktuellen, perioden- und jurisdiktionsbezogenen Steuerrechtskontext aus Primärquellen, Verwaltung, Rechtsprechung und gekennzeichneter Fachinterpretation; Practitioner-Quellen wie JUHN dienen nur als Discovery-/Interpretationslayer und bestätigen keine materielle Steuerposition.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-law-context",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "professional-tax-knowledge-ingestion",
+        "tax-advisory-office",
+        "tax-position-register",
+        "tax-procedure-matter-workflow",
+        "tax-professional-routing",
+        "tax-specialist-router",
+        "tax-structure-pattern-library",
+        "vat-indirect-tax-specialist"
+      ],
+      "outputs": [
+        "tax-authority-evidence.json",
+        "tax-context.md",
+        "tax-research-open-questions.json",
+        "tax-source-freshness.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-authority-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "current-tax-context"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "professional-tax-knowledge-ingestion",
+            "tax-advisory-office",
+            "tax-position-register",
+            "tax-procedure-matter-workflow",
+            "tax-professional-routing",
+            "tax-specialist-router",
+            "tax-structure-pattern-library",
+            "vat-indirect-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-context.md",
+          "ambiguous": false,
+          "producers": [
+            "current-tax-context"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "professional-tax-knowledge-ingestion",
+            "tax-advisory-office",
+            "tax-position-register",
+            "tax-procedure-matter-workflow",
+            "tax-professional-routing",
+            "tax-specialist-router",
+            "tax-structure-pattern-library",
+            "vat-indirect-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-research-open-questions.json",
+          "ambiguous": false,
+          "producers": [
+            "current-tax-context"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "professional-tax-knowledge-ingestion",
+            "tax-advisory-office",
+            "tax-position-register",
+            "tax-procedure-matter-workflow",
+            "tax-professional-routing",
+            "tax-specialist-router",
+            "tax-structure-pattern-library",
+            "vat-indirect-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-source-freshness.json",
+          "ambiguous": false,
+          "producers": [
+            "current-tax-context"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "professional-tax-knowledge-ingestion",
+            "tax-advisory-office",
+            "tax-position-register",
+            "tax-procedure-matter-workflow",
+            "tax-professional-routing",
+            "tax-specialist-router",
+            "tax-structure-pattern-library",
+            "vat-indirect-tax-specialist"
           ]
         }
       ],
@@ -2250,7 +2389,8 @@
         "ivdr-companion-diagnostic-consultation",
         "ivdr-inhouse-health-institution",
         "medical-device-pms-system",
-        "regulatory-change-impact-orchestrator"
+        "regulatory-change-impact-orchestrator",
+        "tax-position-register"
       ],
       "outputs": [
         "decision-record.json",
@@ -2277,7 +2417,8 @@
             "ivdr-companion-diagnostic-consultation",
             "ivdr-inhouse-health-institution",
             "medical-device-pms-system",
-            "regulatory-change-impact-orchestrator"
+            "regulatory-change-impact-orchestrator",
+            "tax-position-register"
           ]
         },
         {
@@ -2300,7 +2441,8 @@
             "ivdr-companion-diagnostic-consultation",
             "ivdr-inhouse-health-institution",
             "medical-device-pms-system",
-            "regulatory-change-impact-orchestrator"
+            "regulatory-change-impact-orchestrator",
+            "tax-position-register"
           ]
         }
       ],
@@ -5625,6 +5767,66 @@
       }
     },
     {
+      "name": "german-corporate-tax-specialist",
+      "description": "Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet Umwandlung, International Tax, VAT, Transfer Pricing und Legal Dependencies separat.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-structure-pattern-library"
+      ],
+      "dependents": [],
+      "outputs": [
+        "corporate-tax-assessment.json",
+        "corporate-tax-open-issues.json",
+        "corporate-tax-scenario-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "corporate-tax-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-corporate-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "corporate-tax-open-issues.json",
+          "ambiguous": false,
+          "producers": [
+            "german-corporate-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "corporate-tax-scenario-map.json",
+          "ambiguous": false,
+          "producers": [
+            "german-corporate-tax-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "german-criminal-administrative-offence-procedure-specialist",
       "description": "Analysiert deutsche private und unternehmensnahe Straf-/OWi-/Ermittlungsverfahrensmatters aus Verteidigungs- und Verfahrenssicht, strukturiert Rechte, Fristen, Beweissicherung, Aussage-/Kooperationsentscheidungen und Counsel-/Authority-Handoffs, ohne Strafverteidigung oder Prozessvertretung zu simulieren.",
       "invocation": {
@@ -5860,6 +6062,65 @@
       "portableFiles": [
         "agents/openai.yaml",
         "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "german-personal-income-tax-specialist",
+      "description": "Analysiert deutsche Einkommensteuer-Matters natürlicher Personen nach Einkunftsarten, persönlichen Abzugspositionen, Kapital-/Immobilien-/unternehmerischen Sachverhalten, Auslandselementen und Verfahrensstand und trennt Rechtsregel, Berechnung, Gestaltung und erforderlichen Professional Review.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "dependents": [],
+      "outputs": [
+        "personal-income-tax-assessment.json",
+        "personal-income-tax-calculation.json",
+        "personal-income-tax-open-issues.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "personal-income-tax-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "german-personal-income-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "personal-income-tax-calculation.json",
+          "ambiguous": false,
+          "producers": [
+            "german-personal-income-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "personal-income-tax-open-issues.json",
+          "ambiguous": false,
+          "producers": [
+            "german-personal-income-tax-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -6299,6 +6560,66 @@
       }
     },
     {
+      "name": "inheritance-gift-tax-specialist",
+      "description": "Analysiert deutsche Erbschaft- und Schenkungsteuer-Matters aus Erwerb, Bewertung, persönlichen Freibeträgen, Steuerklassen, Begünstigungen, Vorerwerben, Unternehmens-/Immobilienvermögen, Erklärung und Gestaltungsoptionen und hält zivilrechtliche Nachfolge-, Gesellschafts-, Bewertungs- und Notarfragen als eigene Interfaces.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-structure-pattern-library"
+      ],
+      "dependents": [],
+      "outputs": [
+        "inheritance-gift-tax-assessment.json",
+        "inheritance-gift-tax-open-issues.json",
+        "inheritance-gift-tax-scenarios.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "inheritance-gift-tax-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "inheritance-gift-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "inheritance-gift-tax-open-issues.json",
+          "ambiguous": false,
+          "producers": [
+            "inheritance-gift-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "inheritance-gift-tax-scenarios.json",
+          "ambiguous": false,
+          "producers": [
+            "inheritance-gift-tax-specialist"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "internal-investigation-workflow",
       "description": "Orchestriert interne Untersuchungen von Allegation-Triage, Independence/Privilege und rechtmäßiger Beweissicherung über Interview-/Fact-Finding bis Findings, Reporting, Remediation, Repressalienschutz und Final Gate. Verwenden für Whistleblowing-, Compliance-, Audit-, Safe-Sport- oder Management-Untersuchungen.",
       "invocation": {
@@ -6366,6 +6687,65 @@
           "consumerSkills": [
             "executive-legal-compliance-governance"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "international-tax-specialist",
+      "description": "Analysiert grenzüberschreitende Steuer-Matters zu Ansässigkeit, Betriebsstätten, DBA, Quellensteuer, Hinzurechnungsbesteuerung, Wegzug, grenzüberschreitenden Umstrukturierungen, Entity Classification, EU-Steuerrecht und Transfer-Pricing-Schnittstellen und trennt nationale Tax-, Legal- und Professional-Authority-Fragen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "dependents": [],
+      "outputs": [
+        "international-tax-assessment.json",
+        "international-tax-jurisdiction-map.json",
+        "international-tax-open-issues.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "international-tax-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "international-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "international-tax-jurisdiction-map.json",
+          "ambiguous": false,
+          "producers": [
+            "international-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "international-tax-open-issues.json",
+          "ambiguous": false,
+          "producers": [
+            "international-tax-specialist"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -13608,6 +13988,74 @@
       }
     },
     {
+      "name": "professional-tax-knowledge-ingestion",
+      "description": "Extrahiert aus professionellen Tax-Quellen strukturierte Konzepte, Regeln, Strukturmuster, Practitioner-Heuristiken, Failure Patterns und Fallbeispiele, klassifiziert Evidenzqualität und Freshness und routet materielle Regeln zur Primärquellenverifikation, statt Kanzlei-, Video- oder Marketingcontent ungeprüft als Tax Authority zu speichern.",
+      "invocation": {
+        "userFacing": true,
+        "category": "research-knowledge"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "research-to-evidence-note"
+      ],
+      "dependents": [],
+      "outputs": [
+        "tax-failure-patterns.json",
+        "tax-knowledge-records.json",
+        "tax-practitioner-heuristics.json",
+        "tax-source-verification-queue.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-failure-patterns.json",
+          "ambiguous": false,
+          "producers": [
+            "professional-tax-knowledge-ingestion"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-knowledge-records.json",
+          "ambiguous": false,
+          "producers": [
+            "professional-tax-knowledge-ingestion"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-practitioner-heuristics.json",
+          "ambiguous": false,
+          "producers": [
+            "professional-tax-knowledge-ingestion"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-source-verification-queue.json",
+          "ambiguous": false,
+          "producers": [
+            "professional-tax-knowledge-ingestion"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "project-beta-readiness",
       "description": "Bewertet genau ein Softwareprojekt evidenzbasiert auf den Weg zur ersten nutzbaren Beta, quantifiziert den Reifegrad, benennt Beta-Blocker und erzeugt bei erreichter Beta einen Betriebsleitfaden beziehungsweise bei ungeklärter Bedienbarkeit eine gezielte UI-Prototyp-Empfehlung. Verwenden, wenn ein einzelnes Repository anhand von Commits, PRs, Issues, CI/Actions, Tests, Roadmap und ausführbaren Nutzerpfaden auf Beta-Reife geprüft werden soll; für Portfolios den Skill pro Projekt wiederholt ausführen und Ergebnisse erst danach aggregieren.",
       "invocation": {
@@ -14748,6 +15196,7 @@
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "current-law-context",
+        "current-tax-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -14764,6 +15213,7 @@
         "patent-landscape-analysis",
         "person-research-dossier",
         "product-evidence-research",
+        "professional-tax-knowledge-ingestion",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "teach",
@@ -14788,6 +15238,7 @@
             "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
             "current-law-context",
+            "current-tax-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -14804,6 +15255,7 @@
             "patent-landscape-analysis",
             "person-research-dossier",
             "product-evidence-research",
+            "professional-tax-knowledge-ingestion",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
             "teach",
@@ -14821,6 +15273,7 @@
             "biopatent-deep-analysis",
             "clinical-evidence-update-impact",
             "current-law-context",
+            "current-tax-context",
             "eu-mdr-ivdr-regulatory-specialist",
             "evidence-based-causal-investigation",
             "fda-510k-predicate-strategy",
@@ -14837,6 +15290,7 @@
             "patent-landscape-analysis",
             "person-research-dossier",
             "product-evidence-research",
+            "professional-tax-knowledge-ingestion",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
             "teach",
@@ -16791,8 +17245,79 @@
       }
     },
     {
+      "name": "tax-advisory-office",
+      "description": "Orchestriert steuerliche Matters als Schwesterorganisation der Legal & Compliance Office von Intake, Current Tax Context und Specialist Routing über Tax Position, Szenarien und Professional Review bis zu Filing, Bescheid, Einspruch und Follow-up, ohne Fachlogik der Tax Specialists zu duplizieren oder eine Steuerberaterzulassung zu simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-matter-final-gate",
+        "tax-matter-intake",
+        "tax-position-register",
+        "tax-professional-routing",
+        "tax-specialist-router"
+      ],
+      "dependents": [
+        "tax-legal-interface-specialist"
+      ],
+      "outputs": [
+        "tax-matter-handoff.json",
+        "tax-matter-plan.md",
+        "tax-matter-status.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-matter-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-advisory-office"
+          ],
+          "consumerSkills": [
+            "tax-legal-interface-specialist"
+          ]
+        },
+        {
+          "output": "tax-matter-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "tax-advisory-office"
+          ],
+          "consumerSkills": [
+            "tax-legal-interface-specialist"
+          ]
+        },
+        {
+          "output": "tax-matter-status.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-advisory-office"
+          ],
+          "consumerSkills": [
+            "tax-legal-interface-specialist"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "tax-legal-interface-specialist",
-      "description": "Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts, modelliert offene Steuerfragen und routet materielle Steueraussagen an befugte Tax Specialists, ohne eigenständig eine Steuerberaterfunktion oder verbindliche Steuermeinung zu simulieren.",
+      "description": "Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts und routet materielle Steuerfragen als Work Orders in die Tax Advisory Office, ohne Legal- und Tax-Ownership zu vermischen oder eine Steuerberaterfunktion zu simulieren.",
       "invocation": {
         "userFacing": true,
         "category": "legal-specialist"
@@ -16806,7 +17331,8 @@
       "requires": [
         "current-law-context",
         "legal-client-strategy",
-        "privilege-and-counsel-routing"
+        "privilege-and-counsel-routing",
+        "tax-advisory-office"
       ],
       "dependents": [
         "german-inheritance-succession-law-specialist"
@@ -16851,6 +17377,511 @@
       "portableFiles": [
         "agents/openai.yaml",
         "references/authoritative-sources.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-matter-final-gate",
+      "description": "Prüft vor Abschluss, Filing, Änderung, Einspruch, Umsetzung oder Übergabe eines Tax Matters, ob Facts, aktuelle Rechtsgrundlage, Berechnung, Positionen, Professional Review, Legal-/Accounting-/Valuation-Dependencies, Fristen und Autorität konsistent geschlossen oder ausdrücklich offen dokumentiert sind.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "tax-position-register",
+        "tax-professional-routing"
+      ],
+      "dependents": [
+        "tax-advisory-office"
+      ],
+      "outputs": [
+        "tax-final-gate-status.json",
+        "tax-next-safe-action.json",
+        "tax-open-items.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-final-gate-status.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-matter-final-gate"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        },
+        {
+          "output": "tax-next-safe-action.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-matter-final-gate"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        },
+        {
+          "output": "tax-open-items.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-matter-final-gate"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-matter-intake",
+      "description": "Strukturiert steuerliche Matters auf Steuerpflichtigen-/Entity-, Zeitraum-, Jurisdiktions-, Steuerarten-, Fristen-, Facts- und Dokumentebene und trennt bestätigte Tatsachen, Annahmen, fehlende Belege und Legal-/Accounting-/Valuation-Abhängigkeiten vor materieller Tax-Analyse.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "tax-advisory-office"
+      ],
+      "outputs": [
+        "tax-dependency-map.json",
+        "tax-fact-gaps.json",
+        "tax-matter.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-dependency-map.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-matter-intake"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        },
+        {
+          "output": "tax-fact-gaps.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-matter-intake"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        },
+        {
+          "output": "tax-matter.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-matter-intake"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-position-register",
+      "description": "Führt materielle Steuerpositionen mit Facts, Rechtsgrundlage, Evidenz, Berechnung, Alternativen, Unsicherheit, Professional Review und Lifecycle-Status als versionierbare Records und ermöglicht Change-Impact, Bescheidabgleich und konsistente Wiederverwendung ohne ungeprüfte Altpositionen fortzuschreiben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "decision-record"
+      ],
+      "dependents": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow",
+        "vat-indirect-tax-specialist"
+      ],
+      "outputs": [
+        "tax-position-change-impact.json",
+        "tax-position-register.json",
+        "tax-position.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-position-change-impact.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-position-register"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "tax-advisory-office",
+            "tax-matter-final-gate",
+            "tax-procedure-matter-workflow",
+            "vat-indirect-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-position-register.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-position-register"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "tax-advisory-office",
+            "tax-matter-final-gate",
+            "tax-procedure-matter-workflow",
+            "vat-indirect-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-position.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-position-register"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "german-personal-income-tax-specialist",
+            "inheritance-gift-tax-specialist",
+            "international-tax-specialist",
+            "tax-advisory-office",
+            "tax-matter-final-gate",
+            "tax-procedure-matter-workflow",
+            "vat-indirect-tax-specialist"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-procedure-matter-workflow",
+      "description": "Orchestriert steuerliche Verfahrens-Matters von Erklärung und Bescheidabgleich über Betriebsprüfung, Korrektur, Einspruch und gerichtliche Eskalation, hält Fristen, Verfahrensstand, Evidence und materielle Tax Positions zusammen und routet Vertretung oder Steuerstraf-/Counsel-Fragen an befugte Professionals.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-professional-routing"
+      ],
+      "dependents": [],
+      "outputs": [
+        "tax-assessment-reconciliation.json",
+        "tax-procedure-action-plan.json",
+        "tax-procedure-deadlines.json",
+        "tax-procedure-status.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-assessment-reconciliation.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-procedure-matter-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-procedure-action-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-procedure-matter-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-procedure-deadlines.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-procedure-matter-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "tax-procedure-status.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-procedure-matter-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-professional-routing",
+      "description": "Prüft für Tax Matters, Positionen, Erklärungen, Einsprüche und Vertretung, ob und an welcher Stelle eine nach Berufsrecht befugte Tax Professional Validation oder externe Authority erforderlich ist, erzeugt dafür ein eng umrissenes Work Package und verhindert die Simulation einer Steuerberaterzulassung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context"
+      ],
+      "dependents": [
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow"
+      ],
+      "outputs": [
+        "tax-authority-boundaries.json",
+        "tax-professional-gate.json",
+        "tax-professional-work-order.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-authority-boundaries.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-professional-routing"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office",
+            "tax-matter-final-gate",
+            "tax-procedure-matter-workflow"
+          ]
+        },
+        {
+          "output": "tax-professional-gate.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-professional-routing"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office",
+            "tax-matter-final-gate",
+            "tax-procedure-matter-workflow"
+          ]
+        },
+        {
+          "output": "tax-professional-work-order.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-professional-routing"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office",
+            "tax-matter-final-gate",
+            "tax-procedure-matter-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-specialist-router",
+      "description": "Zerlegt Tax Matters in fachlich kohärente Work Orders für passende Tax Specialists und integriert deren Ergebnisse, ohne deren Fachlogik zu duplizieren; Legal, Accounting, Valuation und Counsel bleiben eigene Ownership-Layer.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context"
+      ],
+      "dependents": [
+        "tax-advisory-office"
+      ],
+      "outputs": [
+        "tax-specialist-integration-status.json",
+        "tax-specialist-route-map.json",
+        "tax-specialist-work-orders.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-specialist-integration-status.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-specialist-router"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        },
+        {
+          "output": "tax-specialist-route-map.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-specialist-router"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        },
+        {
+          "output": "tax-specialist-work-orders.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-specialist-router"
+          ],
+          "consumerSkills": [
+            "tax-advisory-office"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "tax-structure-pattern-library",
+      "description": "Modelliert wiederkehrende steuerliche Gestaltungs- und Strukturmuster wie Holding, Einbringung, Umwandlung, Nachfolge oder Cross-Border-Struktur als vergleichbare Patterns mit Voraussetzungen, Steuerwirkungen, Sperrfristen, Kosten, Risiken, Legal Dependencies und einfacheren Alternativen, ohne Pattern automatisch als Empfehlung auszugeben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context"
+      ],
+      "dependents": [
+        "german-corporate-tax-specialist",
+        "inheritance-gift-tax-specialist"
+      ],
+      "outputs": [
+        "tax-structure-options.json",
+        "tax-structure-pattern.json",
+        "tax-structure-risk-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "tax-structure-options.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-structure-pattern-library"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "inheritance-gift-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-structure-pattern.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-structure-pattern-library"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "inheritance-gift-tax-specialist"
+          ]
+        },
+        {
+          "output": "tax-structure-risk-map.json",
+          "ambiguous": false,
+          "producers": [
+            "tax-structure-pattern-library"
+          ],
+          "consumerSkills": [
+            "german-corporate-tax-specialist",
+            "inheritance-gift-tax-specialist"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -18252,6 +19283,65 @@
             "quality-record-integrity",
             "supplier-quality-medical-device"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "vat-indirect-tax-specialist",
+      "description": "Analysiert Umsatzsteuer-/VAT-Matters entlang Steuerbarkeit, Leistungsart, Leistungsort, Steuerbefreiung, Steuersatz, Bemessungsgrundlage, Reverse Charge, Rechnung, Vorsteuer und grenzüberschreitender Behandlung und hält Contract-, Customs- und International-Tax-Abhängigkeiten getrennt.",
+      "invocation": {
+        "userFacing": true,
+        "category": "tax-specialist"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "dependents": [],
+      "outputs": [
+        "vat-assessment.json",
+        "vat-open-issues.json",
+        "vat-transaction-map.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "vat-assessment.json",
+          "ambiguous": false,
+          "producers": [
+            "vat-indirect-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "vat-open-issues.json",
+          "ambiguous": false,
+          "producers": [
+            "vat-indirect-tax-specialist"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "vat-transaction-map.json",
+          "ambiguous": false,
+          "producers": [
+            "vat-indirect-tax-specialist"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [

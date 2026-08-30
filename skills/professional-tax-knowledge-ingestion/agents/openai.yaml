@@ -1,0 +1,5 @@
+interface:
+  display_name: "Professional Tax Knowledge Ingestion"
+  short_description: "Extrahiert aus professionellen Tax-Quellen strukturierte Konzepte, Regeln, Strukturmuster, Practitioner-Heuristiken,..."
+policy:
+  allow_implicit_invocation: true

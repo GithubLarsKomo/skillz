@@ -1,17 +1,31 @@
 ---
 name: tax-legal-interface-specialist
-description: Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts, modelliert offene Steuerfragen und routet materielle Steueraussagen an befugte Tax Specialists, ohne eigenständig eine Steuerberaterfunktion oder verbindliche Steuermeinung zu simulieren.
+description: Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts und routet materielle Steuerfragen als Work Orders in die Tax Advisory Office, ohne Legal- und Tax-Ownership zu vermischen oder eine Steuerberaterfunktion zu simulieren.
 ---
 
 # Tax Legal Interface Specialist
 
 ## Zweck
 
-Tax wird als **Specialist Interface** behandelt: erkenne steuerrelevante Trigger früh, verhindere inkonsistente Legal-/Deal-Strukturen und liefere dem zuständigen Tax Professional eine präzise Work Order. Dieser Skill erteilt keine verbindliche Steuerberatung und ersetzt keine nach StBerG befugte Person.
+Offizieller Adapter zwischen `legal-compliance-office` und `tax-advisory-office`. Erkenne Tax Trigger früh, verhindere inkonsistente Legal-/Deal-Strukturen und übergebe steuerliche Fachfragen an das Tax Office. Dieser Skill entscheidet weder die materielle Steuerposition noch den Legal Mechanism.
+
+## Routing Contract
+
+Legal -> Tax:
+
+- `tax-specialist-work-order.json` mit Matter, Entities/Personen, Jurisdiktionen, Tax Types, Zeitbezug, Cashflows, Consideration, relevanten Legal Structure Options, Facts, Annahmen, Accounting-/Valuation-Facts, Dokumenten und exakten Steuerfragen.
+- `tax-decision-dependencies.json` mit Legal Terms, die von ungelösten Steuerwirkungen abhängen.
+
+Tax -> Legal:
+
+- bestätigte oder offene Tax Position References,
+- `tax-structure-options.json` soweit einschlägig,
+- steuerliche Constraints/Consequences für den Legal Mechanism,
+- unresolved Professional-/Authority Gates.
 
 ## Current-Law / Professional Boundary Gate
 
-Aktuelle steuerrechtliche Quellen können zur Issue-Erkennung und zur Strukturierung des Kontextes recherchiert werden. Sobald eine fremde konkrete Steuersache eine individuelle steuerrechtliche Prüfung/Empfehlung erfordert oder eine Erklärung/Vertretung gegenüber Finanzbehörden betroffen ist, `requiresAuthorizedTaxProfessional=true` setzen. Berufsrechtliche Befugnis nicht aus Konzernrolle, Jobtitel oder AI-Fähigkeit ableiten.
+Current Law im Legal Layer ersetzt keinen `current-tax-context`. Sobald eine materielle Tax-Frage ausgelöst ist, wird sie in die Tax Advisory Office geroutet. Erforderliche Befugnis/Sign-off wird dort durch `tax-professional-routing` gesteuert.
 
 ## Trigger Domains
 
@@ -24,24 +38,19 @@ Aktuelle steuerrechtliche Quellen können zur Issue-Erkennung und zur Strukturie
 - Litigation/Settlement/Damages,
 - private Vermögens-, Erb-/Schenkungs-, Immobilien- oder grenzüberschreitende Matters.
 
-## Work Order
-
-Erfasse `client/entity`, transaction/matter, jurisdictions, tax types potentially triggered, timeline, counterparties, ownership, cash flows, consideration, asset/right classification, accounting facts where relevant, existing tax positions/rulings, assumptions, open documents, legal structure options and exact questions for Tax.
-
 ## Dependency Gate
 
-Legal Terms nicht finalisieren, wenn ihre wirtschaftliche Wirkung von ungelösten Tax Questions materiell abhängt. Beispiel: Kaufpreisstruktur, IP-Royalty, Settlement, Mitarbeiterleistung oder Immobilienstruktur kann juristisch zulässig, aber wirtschaftlich ungeeignet sein. Tax Specialist liefert die Steuerwirkung; Legal entscheidet danach den Legal Mechanism innerhalb der bestätigten Tax Constraints.
+Legal Terms nicht finalisieren, wenn ihre wirtschaftliche Wirkung von ungelösten Tax Questions materiell abhängt. Tax liefert die Steuerwirkung und Tax Constraints; Legal entscheidet danach den Legal Mechanism innerhalb dieser bestätigten oder ausdrücklich offenen Constraints.
 
 ## Output Labels
 
 - `tax-issue-detected`
 - `tax-fact-gap`
-- `tax-specialist-required`
-- `tax-position-confirmed-by-specialist`
+- `tax-office-routed`
+- `tax-professional-review-required`
+- `tax-position-confirmed`
 - `tax-dependency-resolved`
-
-Nur der letzte Status erlaubt, dass ein materialer Tax-Dependency-Gate als geschlossen gilt; Quellenrecherche allein ist keine bestätigte Steuerposition.
 
 ## Qualitätsgate
 
-Pass nur, wenn Tax Trigger, relevante Facts, offene Steuerfrage, materielle Legal-Abhängigkeit, zuständiger Tax Professional und bestätigte/ungeklärte Position getrennt dokumentiert sind.
+Pass nur, wenn Tax Trigger, relevante Facts, offene Steuerfrage, Legal Dependency, Tax Office Route und bestätigte/ungeklärte Position getrennt dokumentiert sind.

@@ -387,6 +387,20 @@
       ]
     },
     {
+      "name": "current-tax-context",
+      "requires": [
+        "current-law-context",
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-authority-evidence.json",
+        "tax-context.md",
+        "tax-research-open-questions.json",
+        "tax-source-freshness.json"
+      ]
+    },
+    {
       "name": "daily-and-weekly-review",
       "requires": [
         "inbox-action-triage"
@@ -1129,6 +1143,20 @@
       ]
     },
     {
+      "name": "german-corporate-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-structure-pattern-library"
+      ],
+      "consumes": [],
+      "outputs": [
+        "corporate-tax-assessment.json",
+        "corporate-tax-open-issues.json",
+        "corporate-tax-scenario-map.json"
+      ]
+    },
+    {
       "name": "german-criminal-administrative-offence-procedure-specialist",
       "requires": [
         "current-law-context",
@@ -1182,6 +1210,19 @@
         "estate-structure-map.json",
         "inheritance-succession-assessment.json",
         "succession-professional-work-orders.json"
+      ]
+    },
+    {
+      "name": "german-personal-income-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "consumes": [],
+      "outputs": [
+        "personal-income-tax-assessment.json",
+        "personal-income-tax-calculation.json",
+        "personal-income-tax-open-issues.json"
       ]
     },
     {
@@ -1273,6 +1314,20 @@
       ]
     },
     {
+      "name": "inheritance-gift-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-structure-pattern-library"
+      ],
+      "consumes": [],
+      "outputs": [
+        "inheritance-gift-tax-assessment.json",
+        "inheritance-gift-tax-open-issues.json",
+        "inheritance-gift-tax-scenarios.json"
+      ]
+    },
+    {
       "name": "internal-investigation-workflow",
       "requires": [
         "investigation-evidence-preservation",
@@ -1286,6 +1341,19 @@
         "investigation-handoff.json",
         "investigation-status.json",
         "investigation-workplan.json"
+      ]
+    },
+    {
+      "name": "international-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "consumes": [],
+      "outputs": [
+        "international-tax-assessment.json",
+        "international-tax-jurisdiction-map.json",
+        "international-tax-open-issues.json"
       ]
     },
     {
@@ -2753,6 +2821,20 @@
       ]
     },
     {
+      "name": "professional-tax-knowledge-ingestion",
+      "requires": [
+        "current-tax-context",
+        "research-to-evidence-note"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-failure-patterns.json",
+        "tax-knowledge-records.json",
+        "tax-practitioner-heuristics.json",
+        "tax-source-verification-queue.json"
+      ]
+    },
+    {
       "name": "project-beta-readiness",
       "requires": [
         "iterate-software-projects"
@@ -3394,17 +3476,122 @@
       ]
     },
     {
+      "name": "tax-advisory-office",
+      "requires": [
+        "current-tax-context",
+        "tax-matter-final-gate",
+        "tax-matter-intake",
+        "tax-position-register",
+        "tax-professional-routing",
+        "tax-specialist-router"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-matter-handoff.json",
+        "tax-matter-plan.md",
+        "tax-matter-status.json"
+      ]
+    },
+    {
       "name": "tax-legal-interface-specialist",
       "requires": [
         "current-law-context",
         "legal-client-strategy",
-        "privilege-and-counsel-routing"
+        "privilege-and-counsel-routing",
+        "tax-advisory-office"
       ],
       "consumes": [],
       "outputs": [
         "tax-decision-dependencies.json",
         "tax-legal-interface-assessment.json",
         "tax-specialist-work-order.json"
+      ]
+    },
+    {
+      "name": "tax-matter-final-gate",
+      "requires": [
+        "tax-position-register",
+        "tax-professional-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-final-gate-status.json",
+        "tax-next-safe-action.json",
+        "tax-open-items.json"
+      ]
+    },
+    {
+      "name": "tax-matter-intake",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "tax-dependency-map.json",
+        "tax-fact-gaps.json",
+        "tax-matter.json"
+      ]
+    },
+    {
+      "name": "tax-position-register",
+      "requires": [
+        "current-tax-context",
+        "decision-record"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-position-change-impact.json",
+        "tax-position-register.json",
+        "tax-position.json"
+      ]
+    },
+    {
+      "name": "tax-procedure-matter-workflow",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-professional-routing"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-assessment-reconciliation.json",
+        "tax-procedure-action-plan.json",
+        "tax-procedure-deadlines.json",
+        "tax-procedure-status.json"
+      ]
+    },
+    {
+      "name": "tax-professional-routing",
+      "requires": [
+        "current-tax-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-authority-boundaries.json",
+        "tax-professional-gate.json",
+        "tax-professional-work-order.json"
+      ]
+    },
+    {
+      "name": "tax-specialist-router",
+      "requires": [
+        "current-tax-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-specialist-integration-status.json",
+        "tax-specialist-route-map.json",
+        "tax-specialist-work-orders.json"
+      ]
+    },
+    {
+      "name": "tax-structure-pattern-library",
+      "requires": [
+        "current-tax-context"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tax-structure-options.json",
+        "tax-structure-pattern.json",
+        "tax-structure-risk-map.json"
       ]
     },
     {
@@ -3716,6 +3903,19 @@
       ]
     },
     {
+      "name": "vat-indirect-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "consumes": [],
+      "outputs": [
+        "vat-assessment.json",
+        "vat-open-issues.json",
+        "vat-transaction-map.json"
+      ]
+    },
+    {
       "name": "whistleblowing-law-specialist",
       "requires": [
         "current-law-context",
@@ -4018,6 +4218,14 @@
     },
     {
       "from": "current-law-context",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "current-tax-context",
+      "to": "current-law-context"
+    },
+    {
+      "from": "current-tax-context",
       "to": "research-to-evidence-note"
     },
     {
@@ -4581,6 +4789,18 @@
       "to": "privilege-and-counsel-routing"
     },
     {
+      "from": "german-corporate-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "german-corporate-tax-specialist",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "german-corporate-tax-specialist",
+      "to": "tax-structure-pattern-library"
+    },
+    {
       "from": "german-criminal-administrative-offence-procedure-specialist",
       "to": "current-law-context"
     },
@@ -4627,6 +4847,14 @@
     {
       "from": "german-inheritance-succession-law-specialist",
       "to": "tax-legal-interface-specialist"
+    },
+    {
+      "from": "german-personal-income-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "german-personal-income-tax-specialist",
+      "to": "tax-position-register"
     },
     {
       "from": "german-rowing-sport-law-specialist",
@@ -4689,6 +4917,18 @@
       "to": "test-driven-vertical-slice"
     },
     {
+      "from": "inheritance-gift-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "inheritance-gift-tax-specialist",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "inheritance-gift-tax-specialist",
+      "to": "tax-structure-pattern-library"
+    },
+    {
       "from": "internal-investigation-workflow",
       "to": "investigation-evidence-preservation"
     },
@@ -4703,6 +4943,14 @@
     {
       "from": "internal-investigation-workflow",
       "to": "whistleblowing-law-specialist"
+    },
+    {
+      "from": "international-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "international-tax-specialist",
+      "to": "tax-position-register"
     },
     {
       "from": "investigation-evidence-preservation",
@@ -5741,6 +5989,14 @@
       "to": "privilege-and-counsel-routing"
     },
     {
+      "from": "professional-tax-knowledge-ingestion",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "professional-tax-knowledge-ingestion",
+      "to": "research-to-evidence-note"
+    },
+    {
       "from": "project-beta-readiness",
       "to": "iterate-software-projects"
     },
@@ -6193,6 +6449,30 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "tax-advisory-office",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "tax-advisory-office",
+      "to": "tax-matter-final-gate"
+    },
+    {
+      "from": "tax-advisory-office",
+      "to": "tax-matter-intake"
+    },
+    {
+      "from": "tax-advisory-office",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "tax-advisory-office",
+      "to": "tax-professional-routing"
+    },
+    {
+      "from": "tax-advisory-office",
+      "to": "tax-specialist-router"
+    },
+    {
       "from": "tax-legal-interface-specialist",
       "to": "current-law-context"
     },
@@ -6203,6 +6483,50 @@
     {
       "from": "tax-legal-interface-specialist",
       "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "tax-legal-interface-specialist",
+      "to": "tax-advisory-office"
+    },
+    {
+      "from": "tax-matter-final-gate",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "tax-matter-final-gate",
+      "to": "tax-professional-routing"
+    },
+    {
+      "from": "tax-position-register",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "tax-position-register",
+      "to": "decision-record"
+    },
+    {
+      "from": "tax-procedure-matter-workflow",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "tax-procedure-matter-workflow",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "tax-procedure-matter-workflow",
+      "to": "tax-professional-routing"
+    },
+    {
+      "from": "tax-professional-routing",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "tax-specialist-router",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "tax-structure-pattern-library",
+      "to": "current-tax-context"
     },
     {
       "from": "teach",
@@ -6407,6 +6731,14 @@
     {
       "from": "two-axis-compliance-review",
       "to": "research-to-evidence-note"
+    },
+    {
+      "from": "vat-indirect-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "vat-indirect-tax-specialist",
+      "to": "tax-position-register"
     },
     {
       "from": "whistleblowing-law-specialist",
@@ -8511,6 +8843,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "corporate-tax-assessment.json",
+      "producers": [
+        "german-corporate-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "corporate-tax-open-issues.json",
+      "producers": [
+        "german-corporate-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "corporate-tax-scenario-map.json",
+      "producers": [
+        "german-corporate-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "correction-removal-action-plan.json",
       "producers": [
         "fda-corrections-removals"
@@ -8836,7 +9195,8 @@
         "ivdr-companion-diagnostic-consultation",
         "ivdr-inhouse-health-institution",
         "medical-device-pms-system",
-        "regulatory-change-impact-orchestrator"
+        "regulatory-change-impact-orchestrator",
+        "tax-position-register"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -8860,7 +9220,8 @@
         "ivdr-companion-diagnostic-consultation",
         "ivdr-inhouse-health-institution",
         "medical-device-pms-system",
-        "regulatory-change-impact-orchestrator"
+        "regulatory-change-impact-orchestrator",
+        "tax-position-register"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -9608,6 +9969,7 @@
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "current-law-context",
+        "current-tax-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -9624,6 +9986,7 @@
         "patent-landscape-analysis",
         "person-research-dossier",
         "product-evidence-research",
+        "professional-tax-knowledge-ingestion",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "teach",
@@ -9642,6 +10005,7 @@
         "biopatent-deep-analysis",
         "clinical-evidence-update-impact",
         "current-law-context",
+        "current-tax-context",
         "eu-mdr-ivdr-regulatory-specialist",
         "evidence-based-causal-investigation",
         "fda-510k-predicate-strategy",
@@ -9658,6 +10022,7 @@
         "patent-landscape-analysis",
         "person-research-dossier",
         "product-evidence-research",
+        "professional-tax-knowledge-ingestion",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
         "teach",
@@ -10418,6 +10783,33 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "inheritance-gift-tax-assessment.json",
+      "producers": [
+        "inheritance-gift-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "inheritance-gift-tax-open-issues.json",
+      "producers": [
+        "inheritance-gift-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "inheritance-gift-tax-scenarios.json",
+      "producers": [
+        "inheritance-gift-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "inheritance-succession-assessment.json",
       "producers": [
         "german-inheritance-succession-law-specialist"
@@ -10484,6 +10876,33 @@
       "output": "integrity-risk-route-map.json",
       "producers": [
         "corporate-compliance-law-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "international-tax-assessment.json",
+      "producers": [
+        "international-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "international-tax-jurisdiction-map.json",
+      "producers": [
+        "international-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "international-tax-open-issues.json",
+      "producers": [
+        "international-tax-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -11334,6 +11753,7 @@
         "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "current-tax-context",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
@@ -11435,6 +11855,7 @@
         "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "current-tax-context",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
@@ -11560,6 +11981,7 @@
         "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "current-tax-context",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
@@ -11661,6 +12083,7 @@
         "corporate-compliance-law-specialist",
         "corporate-governance-law-specialist",
         "corporate-transactions-ma-specialist",
+        "current-tax-context",
         "digital-ai-cyber-law-specialist",
         "dispute-litigation-strategy-specialist",
         "esg-supply-chain-environmental-law-specialist",
@@ -12579,6 +13002,33 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "mixed"
+    },
+    {
+      "output": "personal-income-tax-assessment.json",
+      "producers": [
+        "german-personal-income-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "personal-income-tax-calculation.json",
+      "producers": [
+        "german-personal-income-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "personal-income-tax-open-issues.json",
+      "producers": [
+        "german-personal-income-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "plan-revision.json",
@@ -14679,6 +15129,72 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "tax-assessment-reconciliation.json",
+      "producers": [
+        "tax-procedure-matter-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-authority-boundaries.json",
+      "producers": [
+        "tax-professional-routing"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-authority-evidence.json",
+      "producers": [
+        "current-tax-context"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "professional-tax-knowledge-ingestion",
+        "tax-advisory-office",
+        "tax-position-register",
+        "tax-procedure-matter-workflow",
+        "tax-professional-routing",
+        "tax-specialist-router",
+        "tax-structure-pattern-library",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-context.md",
+      "producers": [
+        "current-tax-context"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "professional-tax-knowledge-ingestion",
+        "tax-advisory-office",
+        "tax-position-register",
+        "tax-procedure-matter-workflow",
+        "tax-professional-routing",
+        "tax-specialist-router",
+        "tax-structure-pattern-library",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "tax-decision-dependencies.json",
       "producers": [
         "tax-legal-interface-specialist"
@@ -14688,6 +15204,57 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-dependency-map.json",
+      "producers": [
+        "tax-matter-intake"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-fact-gaps.json",
+      "producers": [
+        "tax-matter-intake"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-failure-patterns.json",
+      "producers": [
+        "professional-tax-knowledge-ingestion"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-final-gate-status.json",
+      "producers": [
+        "tax-matter-final-gate"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-knowledge-records.json",
+      "producers": [
+        "professional-tax-knowledge-ingestion"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "tax-legal-interface-assessment.json",
@@ -14701,12 +15268,316 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "tax-matter-handoff.json",
+      "producers": [
+        "tax-advisory-office"
+      ],
+      "consumerSkills": [
+        "tax-legal-interface-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-matter-plan.md",
+      "producers": [
+        "tax-advisory-office"
+      ],
+      "consumerSkills": [
+        "tax-legal-interface-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-matter-status.json",
+      "producers": [
+        "tax-advisory-office"
+      ],
+      "consumerSkills": [
+        "tax-legal-interface-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-matter.json",
+      "producers": [
+        "tax-matter-intake"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-next-safe-action.json",
+      "producers": [
+        "tax-matter-final-gate"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-open-items.json",
+      "producers": [
+        "tax-matter-final-gate"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-position-change-impact.json",
+      "producers": [
+        "tax-position-register"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-position-register.json",
+      "producers": [
+        "tax-position-register"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-position.json",
+      "producers": [
+        "tax-position-register"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-practitioner-heuristics.json",
+      "producers": [
+        "professional-tax-knowledge-ingestion"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-procedure-action-plan.json",
+      "producers": [
+        "tax-procedure-matter-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-procedure-deadlines.json",
+      "producers": [
+        "tax-procedure-matter-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-procedure-status.json",
+      "producers": [
+        "tax-procedure-matter-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-professional-gate.json",
+      "producers": [
+        "tax-professional-routing"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-professional-work-order.json",
+      "producers": [
+        "tax-professional-routing"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office",
+        "tax-matter-final-gate",
+        "tax-procedure-matter-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-research-open-questions.json",
+      "producers": [
+        "current-tax-context"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "professional-tax-knowledge-ingestion",
+        "tax-advisory-office",
+        "tax-position-register",
+        "tax-procedure-matter-workflow",
+        "tax-professional-routing",
+        "tax-specialist-router",
+        "tax-structure-pattern-library",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-source-freshness.json",
+      "producers": [
+        "current-tax-context"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "german-personal-income-tax-specialist",
+        "inheritance-gift-tax-specialist",
+        "international-tax-specialist",
+        "professional-tax-knowledge-ingestion",
+        "tax-advisory-office",
+        "tax-position-register",
+        "tax-procedure-matter-workflow",
+        "tax-professional-routing",
+        "tax-specialist-router",
+        "tax-structure-pattern-library",
+        "vat-indirect-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-source-verification-queue.json",
+      "producers": [
+        "professional-tax-knowledge-ingestion"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tax-specialist-integration-status.json",
+      "producers": [
+        "tax-specialist-router"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-specialist-route-map.json",
+      "producers": [
+        "tax-specialist-router"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "tax-specialist-work-order.json",
       "producers": [
         "tax-legal-interface-specialist"
       ],
       "consumerSkills": [
         "german-inheritance-succession-law-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-specialist-work-orders.json",
+      "producers": [
+        "tax-specialist-router"
+      ],
+      "consumerSkills": [
+        "tax-advisory-office"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-structure-options.json",
+      "producers": [
+        "tax-structure-pattern-library"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "inheritance-gift-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-structure-pattern.json",
+      "producers": [
+        "tax-structure-pattern-library"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "inheritance-gift-tax-specialist"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "tax-structure-risk-map.json",
+      "producers": [
+        "tax-structure-pattern-library"
+      ],
+      "consumerSkills": [
+        "german-corporate-tax-specialist",
+        "inheritance-gift-tax-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15139,6 +16010,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "vat-assessment.json",
+      "producers": [
+        "vat-indirect-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "vat-open-issues.json",
+      "producers": [
+        "vat-indirect-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "vat-transaction-map.json",
+      "producers": [
+        "vat-indirect-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "verification evidence",
       "producers": [
         "iterate-software-projects"
@@ -15474,6 +16372,9 @@
     "contract-plan.md",
     "contract-review.md",
     "corporate-compliance-law-assessment.json",
+    "corporate-tax-assessment.json",
+    "corporate-tax-open-issues.json",
+    "corporate-tax-scenario-map.json",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
@@ -15551,6 +16452,9 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inheritance-gift-tax-assessment.json",
+    "inheritance-gift-tax-open-issues.json",
+    "inheritance-gift-tax-scenarios.json",
     "inheritance-succession-assessment.json",
     "inhouse-ivd-condition-map.json",
     "inhouse-ivd-eligibility.json",
@@ -15559,6 +16463,9 @@
     "installed OpenASR model",
     "insurance-coverage-issue-map.json",
     "integrity-risk-route-map.json",
+    "international-tax-assessment.json",
+    "international-tax-jurisdiction-map.json",
+    "international-tax-open-issues.json",
     "ip-legal-assessment.json",
     "ip-license-deal-model.json",
     "ip-rights-chain-map.json",
@@ -15613,6 +16520,9 @@
     "per-traceability.json",
     "performance-evaluation-report.md",
     "person-research-workflow-result.json",
+    "personal-income-tax-assessment.json",
+    "personal-income-tax-calculation.json",
+    "personal-income-tax-open-issues.json",
     "plan-revision.json",
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
@@ -15682,6 +16592,14 @@
     "supplier-signal-set.json",
     "sustainability-obligation-route-map.json",
     "synchronization manifest",
+    "tax-assessment-reconciliation.json",
+    "tax-failure-patterns.json",
+    "tax-knowledge-records.json",
+    "tax-practitioner-heuristics.json",
+    "tax-procedure-action-plan.json",
+    "tax-procedure-deadlines.json",
+    "tax-procedure-status.json",
+    "tax-source-verification-queue.json",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "tender-legal-gate-map.json",
@@ -15697,6 +16615,9 @@
     "usability-engineering-assessment.json",
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
+    "vat-assessment.json",
+    "vat-open-issues.json",
+    "vat-transaction-map.json",
     "vigilance-entry-handoff.json",
     "workflow-benchmark-authoring-report.md",
     "workflow-benchmark-regression.py",
@@ -15753,6 +16674,9 @@
     "contract-plan.md",
     "contract-review.md",
     "corporate-compliance-law-assessment.json",
+    "corporate-tax-assessment.json",
+    "corporate-tax-open-issues.json",
+    "corporate-tax-scenario-map.json",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
@@ -15830,6 +16754,9 @@
     "human-procedure-plan.md",
     "human-procedure-result.json",
     "import verification",
+    "inheritance-gift-tax-assessment.json",
+    "inheritance-gift-tax-open-issues.json",
+    "inheritance-gift-tax-scenarios.json",
     "inheritance-succession-assessment.json",
     "inhouse-ivd-condition-map.json",
     "inhouse-ivd-eligibility.json",
@@ -15838,6 +16765,9 @@
     "installed OpenASR model",
     "insurance-coverage-issue-map.json",
     "integrity-risk-route-map.json",
+    "international-tax-assessment.json",
+    "international-tax-jurisdiction-map.json",
+    "international-tax-open-issues.json",
     "ip-legal-assessment.json",
     "ip-license-deal-model.json",
     "ip-rights-chain-map.json",
@@ -15892,6 +16822,9 @@
     "per-traceability.json",
     "performance-evaluation-report.md",
     "person-research-workflow-result.json",
+    "personal-income-tax-assessment.json",
+    "personal-income-tax-calculation.json",
+    "personal-income-tax-open-issues.json",
     "plan-revision.json",
     "pmpf-evaluation-report.md",
     "pmpf-plan.json",
@@ -15961,6 +16894,14 @@
     "supplier-signal-set.json",
     "sustainability-obligation-route-map.json",
     "synchronization manifest",
+    "tax-assessment-reconciliation.json",
+    "tax-failure-patterns.json",
+    "tax-knowledge-records.json",
+    "tax-practitioner-heuristics.json",
+    "tax-procedure-action-plan.json",
+    "tax-procedure-deadlines.json",
+    "tax-procedure-status.json",
+    "tax-source-verification-queue.json",
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "tender-legal-gate-map.json",
@@ -15976,6 +16917,9 @@
     "usability-engineering-assessment.json",
     "usability-evidence-gaps.json",
     "use-related-risk-evidence.json",
+    "vat-assessment.json",
+    "vat-open-issues.json",
+    "vat-transaction-map.json",
     "vigilance-entry-handoff.json",
     "workflow-benchmark-authoring-report.md",
     "workflow-benchmark-regression.py",

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Advisory Office"
+  short_description: "Orchestriert steuerliche Matters als Schwesterorganisation der Legal & Compliance Office von Intake, Current Tax Cont..."
+policy:
+  allow_implicit_invocation: true

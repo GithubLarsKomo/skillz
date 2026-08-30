@@ -16,7 +16,7 @@ tags:
 
 # tax-legal-interface-specialist
 
-Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts, modelliert offene Steuerfragen und routet materielle Steueraussagen an befugte Tax Specialists, ohne eigenständig eine Steuerberaterfunktion oder verbindliche Steuermeinung zu simulieren.
+Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corporate-/Contract-/Employment-/M&A-/IP-/Private-Matters, sammelt entscheidungsrelevante Facts und routet materielle Steuerfragen als Work Orders in die Tax Advisory Office, ohne Legal- und Tax-Ownership zu vermischen oder eine Steuerberaterfunktion zu simulieren.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -29,6 +29,7 @@ Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corpora
 - [[skills/current-law-context|current-law-context]]
 - [[skills/legal-client-strategy|legal-client-strategy]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
+- [[skills/tax-advisory-office|tax-advisory-office]]
 
 ## Required by
 

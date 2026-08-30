@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tax Procedure Matter Workflow"
+  short_description: "Orchestriert steuerliche Verfahrens-Matters von Erklärung und Bescheidabgleich über Betriebsprüfung, Korrektur, Einsp..."
+policy:
+  allow_implicit_invocation: true
