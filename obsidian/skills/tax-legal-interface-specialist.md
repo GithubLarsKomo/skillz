@@ -4,7 +4,7 @@ generated: true
 name: "tax-legal-interface-specialist"
 category: "legal-specialist"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -58,7 +58,7 @@ Identifiziert und strukturiert steuerrechtliche Schnittstellen in Legal-/Corpora
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 

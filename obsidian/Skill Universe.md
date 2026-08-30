@@ -12,7 +12,7 @@ tags:
 - Skills: **304**
 - Categories: **11**
 - Workflow views: **25**
-- Repository evaluation passed: **False**
+- Repository evaluation passed: **True**
 
 ## Views
 
