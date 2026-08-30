@@ -1,0 +1,5 @@
+interface:
+  display_name: "Transfer Pricing Specialist"
+  short_description: "Analysiert deutsche und grenzüberschreitende Verrechnungspreis-Matters nach Fremdvergleichsgrundsatz mit Funktions-/R..."
+policy:
+  allow_implicit_invocation: true

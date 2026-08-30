@@ -16,7 +16,7 @@ tags:
 
 # german-corporate-tax-specialist
 
-Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet Umwandlung, International Tax, VAT, Transfer Pricing und Legal Dependencies separat.
+Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet M&A, Umwandlung, Transfer Pricing, International Tax, VAT und Legal Dependencies separat.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

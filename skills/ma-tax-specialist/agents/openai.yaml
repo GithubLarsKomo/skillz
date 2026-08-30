@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ma Tax Specialist"
+  short_description: "Analysiert Tax Workstreams bei Unternehmenskäufen und -verkäufen einschließlich Share-vs-Asset-Deal, Tax Due Diligenc..."
+policy:
+  allow_implicit_invocation: true

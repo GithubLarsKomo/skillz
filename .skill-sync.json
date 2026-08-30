@@ -583,7 +583,7 @@
     },
     "german-corporate-tax-specialist": {
       "files": {
-        "SKILL.md": "e724061e3c501bb9d03412d3f13e6f34958436ce67bde6ba10150d705ffbb723",
+        "SKILL.md": "6cf821f3e880abb8ed31144ee3d1d8a87bac44546a64f86a7186aee0ef399013",
         "agents/openai.yaml": "39c56fe05a9f27735bf0fbcf3dbbe6e94f6fe92e48c3b62b9c5e9001133461e5"
       }
     },
@@ -679,7 +679,7 @@
     },
     "international-tax-specialist": {
       "files": {
-        "SKILL.md": "cf53566b776bfc5ed28f0b8c677711e3a2032f6a37204a65eb92574b699914fb",
+        "SKILL.md": "bfb7aafa0954aba7bc1b833e7d820e6cb61c997e5861a4e5d37776d3be88a546",
         "agents/openai.yaml": "f2108704b491c99ba22f560a1ca25043ecc7b4eca19696c4f81463d42b80ffdd"
       }
     },
@@ -1017,6 +1017,12 @@
         "agents/openai.yaml": "b5ec611d063040080f92959aebae5d2b3e06f793fb9ae57457c2cd3b430d57f8",
         "references/pattern-taxonomy.md": "9db1b3b0145d2dbbd3daadc434268969e4272ab292d4c45b9ea1be91bd39ca6d",
         "scripts/style_metrics.py": "ed12b866a8c25b7315455a1dd3b4b3dc20dd0106c24923364614a0024e8bf5ef"
+      }
+    },
+    "ma-tax-specialist": {
+      "files": {
+        "SKILL.md": "c196d1017b1b76604719fa069c48d723c579800a26681e508273c76bb9d16f22",
+        "agents/openai.yaml": "791b7955cd4b67a4d412a13bbbf53f9a5289340a59400750fb839bb985155bda"
       }
     },
     "mdcg-guidance-navigator": {
@@ -1452,6 +1458,12 @@
         "agents/openai.yaml": "19e9a60be41cc46beaf3890296b733dcf416c6233d4d9a1c81fdfccabd6be6f9"
       }
     },
+    "reorganization-tax-specialist": {
+      "files": {
+        "SKILL.md": "090daa666cac7993677874c3001d01a68e042b6f97b15ba1e4d6a682148cee86",
+        "agents/openai.yaml": "a458dd884412bad421edd79b84a6087fcdceb50bbb643431ff9132f308394821"
+      }
+    },
     "repository-skill-bootstrap": {
       "files": {
         "SKILL.md": "b319c83d5eeba638a3edfbe9869de5aa231985db085fdad5c1ebb7a68f1d48d0",
@@ -1728,7 +1740,7 @@
     },
     "tax-specialist-router": {
       "files": {
-        "SKILL.md": "fdc782499e948c45fd31e98023a34337013680aaac7ba9ce9bc5739bfe8d39cc",
+        "SKILL.md": "5841f1a6696b1e8311b55970446600e07525800deb13d644c3757b49c342aef0",
         "agents/openai.yaml": "c5b85d19fc7b688d0befaf87a53cfcbb795f62a7851e76fcfc18569c0749db39"
       }
     },
@@ -1803,6 +1815,12 @@
         "SKILL.md": "a9ab94900436390ffed1fa4b9593a6c69a7438cc30e4552df795196ab3215324",
         "agents/openai.yaml": "0635a2b0ff13dcfc23c9b3e9f4ea2102ad18c708fdc00019048fc6d6fffe85e2",
         "references/authoritative-sources.md": "722b089a615de46b90bdd4608ad324bd555197df35b4753de739e5472d618cfb"
+      }
+    },
+    "transfer-pricing-specialist": {
+      "files": {
+        "SKILL.md": "f0fdcb502c5d41e09a8c4f267a7783b5a7e2c228ea8c985d152022b237b855db",
+        "agents/openai.yaml": "4e8f3dee715a49b72e9d95e742bef92191ae1d919094bd8645b4706042487b0c"
       }
     },
     "travel-agency-workflow": {

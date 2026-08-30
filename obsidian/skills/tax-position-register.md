@@ -35,9 +35,12 @@ Führt materielle Steuerpositionen mit Facts, Rechtsgrundlage, Evidenz, Berechnu
 - [[skills/german-personal-income-tax-specialist|german-personal-income-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
 - [[skills/international-tax-specialist|international-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 - [[skills/tax-advisory-office|tax-advisory-office]]
 - [[skills/tax-matter-final-gate|tax-matter-final-gate]]
 - [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]
+- [[skills/transfer-pricing-specialist|transfer-pricing-specialist]]
 - [[skills/vat-indirect-tax-specialist|vat-indirect-tax-specialist]]
 
 ## Outputs
@@ -54,9 +57,12 @@ Führt materielle Steuerpositionen mit Facts, Rechtsgrundlage, Evidenz, Berechnu
 - [[skills/german-personal-income-tax-specialist|german-personal-income-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
 - [[skills/international-tax-specialist|international-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 - [[skills/tax-advisory-office|tax-advisory-office]]
 - [[skills/tax-matter-final-gate|tax-matter-final-gate]]
 - [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]
+- [[skills/transfer-pricing-specialist|transfer-pricing-specialist]]
 - [[skills/vat-indirect-tax-specialist|vat-indirect-tax-specialist]]
 
 ### `tax-position-register.json`
@@ -65,9 +71,12 @@ Führt materielle Steuerpositionen mit Facts, Rechtsgrundlage, Evidenz, Berechnu
 - [[skills/german-personal-income-tax-specialist|german-personal-income-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
 - [[skills/international-tax-specialist|international-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 - [[skills/tax-advisory-office|tax-advisory-office]]
 - [[skills/tax-matter-final-gate|tax-matter-final-gate]]
 - [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]
+- [[skills/transfer-pricing-specialist|transfer-pricing-specialist]]
 - [[skills/vat-indirect-tax-specialist|vat-indirect-tax-specialist]]
 
 ### `tax-position.json`
@@ -76,9 +85,12 @@ Führt materielle Steuerpositionen mit Facts, Rechtsgrundlage, Evidenz, Berechnu
 - [[skills/german-personal-income-tax-specialist|german-personal-income-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
 - [[skills/international-tax-specialist|international-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 - [[skills/tax-advisory-office|tax-advisory-office]]
 - [[skills/tax-matter-final-gate|tax-matter-final-gate]]
 - [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]
+- [[skills/transfer-pricing-specialist|transfer-pricing-specialist]]
 - [[skills/vat-indirect-tax-specialist|vat-indirect-tax-specialist]]
 
 ## Evaluation

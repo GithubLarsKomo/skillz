@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n304 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n307 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -2023,7 +2023,7 @@
       "x": 10980,
       "y": 0,
       "width": 1120,
-      "height": 520,
+      "height": 660,
       "color": "4"
     },
     {
@@ -2063,11 +2063,29 @@
       "height": 110
     },
     {
+      "id": "skill-ma-tax-specialist",
+      "type": "file",
+      "file": "skills/ma-tax-specialist.md",
+      "x": 11350,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-reorganization-tax-specialist",
+      "type": "file",
+      "file": "skills/reorganization-tax-specialist.md",
+      "x": 11680,
+      "y": 210,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-tax-position-register",
       "type": "file",
       "file": "skills/tax-position-register.md",
-      "x": 11350,
-      "y": 210,
+      "x": 11020,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -2075,8 +2093,17 @@
       "id": "skill-tax-structure-pattern-library",
       "type": "file",
       "file": "skills/tax-structure-pattern-library.md",
+      "x": 11350,
+      "y": 350,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-transfer-pricing-specialist",
+      "type": "file",
+      "file": "skills/transfer-pricing-specialist.md",
       "x": 11680,
-      "y": 210,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -2085,7 +2112,7 @@
       "type": "file",
       "file": "skills/vat-indirect-tax-specialist.md",
       "x": 11020,
-      "y": 350,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -4786,9 +4813,9 @@
     {
       "id": "requires-2a05365e176d",
       "fromNode": "skill-german-personal-income-tax-specialist",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-tax-position-register",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -4948,9 +4975,9 @@
     {
       "id": "requires-c10a900ecae0",
       "fromNode": "skill-inheritance-gift-tax-specialist",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-tax-structure-pattern-library",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6201,6 +6228,33 @@
       "fromNode": "skill-llm-generation-review-workflow",
       "fromSide": "right",
       "toNode": "skill-llm-prose-pattern-audit",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0cf54ef0c72a",
+      "fromNode": "skill-ma-tax-specialist",
+      "fromSide": "left",
+      "toNode": "skill-current-tax-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f68417637066",
+      "fromNode": "skill-ma-tax-specialist",
+      "fromSide": "left",
+      "toNode": "skill-tax-position-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c4cc8f8031e2",
+      "fromNode": "skill-ma-tax-specialist",
+      "fromSide": "right",
+      "toNode": "skill-tax-structure-pattern-library",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -7646,6 +7700,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-bddf56a290b8",
+      "fromNode": "skill-reorganization-tax-specialist",
+      "fromSide": "left",
+      "toNode": "skill-current-tax-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-c218c7e86cd3",
+      "fromNode": "skill-reorganization-tax-specialist",
+      "fromSide": "left",
+      "toNode": "skill-tax-position-register",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d6f47b23b88b",
+      "fromNode": "skill-reorganization-tax-specialist",
+      "fromSide": "left",
+      "toNode": "skill-tax-structure-pattern-library",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-2bf26b635521",
       "fromNode": "skill-role-requirements-grilling",
       "fromSide": "left",
@@ -8839,6 +8920,24 @@
       "fromSide": "right",
       "toNode": "skill-privilege-and-counsel-routing",
       "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-46af577892b6",
+      "fromNode": "skill-transfer-pricing-specialist",
+      "fromSide": "left",
+      "toNode": "skill-current-tax-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-186d0b392e75",
+      "fromNode": "skill-transfer-pricing-specialist",
+      "fromSide": "left",
+      "toNode": "skill-tax-position-register",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },

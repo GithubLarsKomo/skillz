@@ -16,7 +16,7 @@ tags:
 
 # international-tax-specialist
 
-Analysiert grenzüberschreitende Steuer-Matters zu Ansässigkeit, Betriebsstätten, DBA, Quellensteuer, Hinzurechnungsbesteuerung, Wegzug, grenzüberschreitenden Umstrukturierungen, Entity Classification, EU-Steuerrecht und Transfer-Pricing-Schnittstellen und trennt nationale Tax-, Legal- und Professional-Authority-Fragen.
+Analysiert grenzüberschreitende Steuer-Matters zu Ansässigkeit, Betriebsstätten, DBA, Quellensteuer, Hinzurechnungsbesteuerung, Wegzug, grenzüberschreitenden Umstrukturierungen, Entity Classification und EU-Steuerrecht und routet Reorganization und Transfer Pricing an eigene Specialists.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 

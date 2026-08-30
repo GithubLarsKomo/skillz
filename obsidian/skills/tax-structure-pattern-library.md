@@ -32,6 +32,8 @@ Modelliert wiederkehrende steuerliche Gestaltungs- und Strukturmuster wie Holdin
 
 - [[skills/german-corporate-tax-specialist|german-corporate-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 
 ## Outputs
 
@@ -45,16 +47,22 @@ Modelliert wiederkehrende steuerliche Gestaltungs- und Strukturmuster wie Holdin
 
 - [[skills/german-corporate-tax-specialist|german-corporate-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 
 ### `tax-structure-pattern.json`
 
 - [[skills/german-corporate-tax-specialist|german-corporate-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 
 ### `tax-structure-risk-map.json`
 
 - [[skills/german-corporate-tax-specialist|german-corporate-tax-specialist]]
 - [[skills/inheritance-gift-tax-specialist|inheritance-gift-tax-specialist]]
+- [[skills/ma-tax-specialist|ma-tax-specialist]]
+- [[skills/reorganization-tax-specialist|reorganization-tax-specialist]]
 
 ## Evaluation
 

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Reorganization Tax Specialist"
+  short_description: "Analysiert deutsche Umwandlungs- und Einbringungssteuer-Matters einschließlich Verschmelzung, Spaltung, Formwechsel,..."
+policy:
+  allow_implicit_invocation: true

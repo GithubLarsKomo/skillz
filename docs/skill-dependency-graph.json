@@ -2088,6 +2088,21 @@
       ]
     },
     {
+      "name": "ma-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-structure-pattern-library"
+      ],
+      "consumes": [],
+      "outputs": [
+        "ma-tax-assessment.json",
+        "ma-tax-dd-findings.json",
+        "ma-tax-legal-constraints.json",
+        "ma-tax-scenario-map.json"
+      ]
+    },
+    {
       "name": "mdcg-guidance-navigator",
       "requires": [
         "regulated-product-context",
@@ -3006,6 +3021,21 @@
       ]
     },
     {
+      "name": "reorganization-tax-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register",
+        "tax-structure-pattern-library"
+      ],
+      "consumes": [],
+      "outputs": [
+        "reorganization-tax-assessment.json",
+        "reorganization-tax-open-issues.json",
+        "reorganization-tax-step-plan.json",
+        "reorganization-tax-structure-options.json"
+      ]
+    },
+    {
       "name": "repository-skill-bootstrap",
       "requires": [],
       "consumes": [],
@@ -3761,6 +3791,21 @@
         "export-license-gates.json",
         "sanctions-screening-route-map.json",
         "trade-control-assessment.json"
+      ]
+    },
+    {
+      "name": "transfer-pricing-specialist",
+      "requires": [
+        "current-tax-context",
+        "tax-position-register"
+      ],
+      "consumes": [],
+      "outputs": [
+        "tp-documentation-work-order.json",
+        "tp-functional-risk-analysis.json",
+        "tp-legal-constraints.json",
+        "tp-method-selection.json",
+        "transfer-pricing-assessment.json"
       ]
     },
     {
@@ -5485,6 +5530,18 @@
       "to": "llm-prose-pattern-audit"
     },
     {
+      "from": "ma-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "ma-tax-specialist",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "ma-tax-specialist",
+      "to": "tax-structure-pattern-library"
+    },
+    {
       "from": "mdcg-guidance-navigator",
       "to": "regulated-product-context"
     },
@@ -6125,6 +6182,18 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "reorganization-tax-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "reorganization-tax-specialist",
+      "to": "tax-position-register"
+    },
+    {
+      "from": "reorganization-tax-specialist",
+      "to": "tax-structure-pattern-library"
+    },
+    {
       "from": "role-requirements-grilling",
       "to": "round-based-requirements-grilling"
     },
@@ -6655,6 +6724,14 @@
     {
       "from": "trade-sanctions-export-control-specialist",
       "to": "privilege-and-counsel-routing"
+    },
+    {
+      "from": "transfer-pricing-specialist",
+      "to": "current-tax-context"
+    },
+    {
+      "from": "transfer-pricing-specialist",
+      "to": "tax-position-register"
     },
     {
       "from": "travel-agency-workflow",
@@ -12290,6 +12367,42 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "ma-tax-assessment.json",
+      "producers": [
+        "ma-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "ma-tax-dd-findings.json",
+      "producers": [
+        "ma-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "ma-tax-legal-constraints.json",
+      "producers": [
+        "ma-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "ma-tax-scenario-map.json",
+      "producers": [
+        "ma-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "management-review-actions.json",
       "producers": [
         "qms-management-review-governance"
@@ -14292,6 +14405,42 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "reorganization-tax-assessment.json",
+      "producers": [
+        "reorganization-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reorganization-tax-open-issues.json",
+      "producers": [
+        "reorganization-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reorganization-tax-step-plan.json",
+      "producers": [
+        "reorganization-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reorganization-tax-structure-options.json",
+      "producers": [
+        "reorganization-tax-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "reporting-office-obligations.json",
       "producers": [
         "whistleblowing-law-specialist"
@@ -15160,13 +15309,16 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
         "professional-tax-knowledge-ingestion",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-position-register",
         "tax-procedure-matter-workflow",
         "tax-professional-routing",
         "tax-specialist-router",
         "tax-structure-pattern-library",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15182,13 +15334,16 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
         "professional-tax-knowledge-ingestion",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-position-register",
         "tax-procedure-matter-workflow",
         "tax-professional-routing",
         "tax-specialist-router",
         "tax-structure-pattern-library",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15343,9 +15498,12 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-matter-final-gate",
         "tax-procedure-matter-workflow",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15361,9 +15519,12 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-matter-final-gate",
         "tax-procedure-matter-workflow",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15379,9 +15540,12 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-matter-final-gate",
         "tax-procedure-matter-workflow",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15459,13 +15623,16 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
         "professional-tax-knowledge-ingestion",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-position-register",
         "tax-procedure-matter-workflow",
         "tax-professional-routing",
         "tax-specialist-router",
         "tax-structure-pattern-library",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15481,13 +15648,16 @@
         "german-personal-income-tax-specialist",
         "inheritance-gift-tax-specialist",
         "international-tax-specialist",
+        "ma-tax-specialist",
         "professional-tax-knowledge-ingestion",
+        "reorganization-tax-specialist",
         "tax-advisory-office",
         "tax-position-register",
         "tax-procedure-matter-workflow",
         "tax-professional-routing",
         "tax-specialist-router",
         "tax-structure-pattern-library",
+        "transfer-pricing-specialist",
         "vat-indirect-tax-specialist"
       ],
       "ambiguous": false,
@@ -15553,7 +15723,9 @@
       ],
       "consumerSkills": [
         "german-corporate-tax-specialist",
-        "inheritance-gift-tax-specialist"
+        "inheritance-gift-tax-specialist",
+        "ma-tax-specialist",
+        "reorganization-tax-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15565,7 +15737,9 @@
       ],
       "consumerSkills": [
         "german-corporate-tax-specialist",
-        "inheritance-gift-tax-specialist"
+        "inheritance-gift-tax-specialist",
+        "ma-tax-specialist",
+        "reorganization-tax-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15577,7 +15751,9 @@
       ],
       "consumerSkills": [
         "german-corporate-tax-specialist",
-        "inheritance-gift-tax-specialist"
+        "inheritance-gift-tax-specialist",
+        "ma-tax-specialist",
+        "reorganization-tax-specialist"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15711,6 +15887,42 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "tp-documentation-work-order.json",
+      "producers": [
+        "transfer-pricing-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tp-functional-risk-analysis.json",
+      "producers": [
+        "transfer-pricing-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tp-legal-constraints.json",
+      "producers": [
+        "transfer-pricing-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "tp-method-selection.json",
+      "producers": [
+        "transfer-pricing-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "trade-control-assessment.json",
       "producers": [
         "trade-sanctions-export-control-specialist"
@@ -15763,6 +15975,15 @@
       "output": "transaction-specialist-work-orders.json",
       "producers": [
         "corporate-transactions-ma-specialist"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "transfer-pricing-assessment.json",
+      "producers": [
+        "transfer-pricing-specialist"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -16490,6 +16711,10 @@
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
     "llm-generation-review.md",
+    "ma-tax-assessment.json",
+    "ma-tax-dd-findings.json",
+    "ma-tax-legal-constraints.json",
+    "ma-tax-scenario-map.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
     "management-review-return-input.json",
@@ -16569,6 +16794,10 @@
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
+    "reorganization-tax-assessment.json",
+    "reorganization-tax-open-issues.json",
+    "reorganization-tax-step-plan.json",
+    "reorganization-tax-structure-options.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
     "role-architecture.md",
@@ -16603,10 +16832,15 @@
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "tender-legal-gate-map.json",
+    "tp-documentation-work-order.json",
+    "tp-functional-risk-analysis.json",
+    "tp-legal-constraints.json",
+    "tp-method-selection.json",
     "trade-control-assessment.json",
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
     "transaction-specialist-work-orders.json",
+    "transfer-pricing-assessment.json",
     "travel-plan.json",
     "travel-plan.md",
     "travel-shortlist.json",
@@ -16792,6 +17026,10 @@
     "lifecycle-impact-gates.json",
     "llm-generation-review.json",
     "llm-generation-review.md",
+    "ma-tax-assessment.json",
+    "ma-tax-dd-findings.json",
+    "ma-tax-legal-constraints.json",
+    "ma-tax-scenario-map.json",
     "management-review-effectiveness-gaps.json",
     "management-review-follow-up-status.json",
     "management-review-return-input.json",
@@ -16871,6 +17109,10 @@
     "regulatory-strategy.md",
     "regulatory-wayfinding-handoff.json",
     "remaining-unknowns.json",
+    "reorganization-tax-assessment.json",
+    "reorganization-tax-open-issues.json",
+    "reorganization-tax-step-plan.json",
+    "reorganization-tax-structure-options.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
     "role-architecture.md",
@@ -16905,10 +17147,15 @@
     "technology-due-diligence.json",
     "technology-due-diligence.md",
     "tender-legal-gate-map.json",
+    "tp-documentation-work-order.json",
+    "tp-functional-risk-analysis.json",
+    "tp-legal-constraints.json",
+    "tp-method-selection.json",
     "trade-control-assessment.json",
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
     "transaction-specialist-work-orders.json",
+    "transfer-pricing-assessment.json",
     "travel-plan.json",
     "travel-plan.md",
     "travel-shortlist.json",

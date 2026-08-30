@@ -19,7 +19,10 @@ Unterstütze insbesondere:
 - Erbschaft-/Schenkungsteuer -> `inheritance-gift-tax-specialist`
 - internationales Steuerrecht -> `international-tax-specialist`
 - Betriebsprüfung/Bescheid/Einspruch/Verfahren -> `tax-procedure-matter-workflow`
-- Umwandlung/M&A/Transfer Pricing/Real Estate/Payroll bis zur späteren eigenen Specialist-Abdeckung als explizite Capability Gaps bzw. strukturierte Work Orders.
+- Umwandlung/Einbringung/Spaltung/Formwechsel -> `reorganization-tax-specialist`
+- M&A/Tax Due Diligence/Share-vs-Asset/Deal Tax -> `ma-tax-specialist`
+- Verrechnungspreise/Intercompany Pricing/Funktions- und Risikoanalyse/DEMPE -> `transfer-pricing-specialist`
+- Real Estate/RETT, Payroll/Employment Tax, Partnership Tax und Nonprofit/Association Tax bis zur späteren eigenen Specialist-Abdeckung als explizite Capability Gaps bzw. strukturierte Work Orders.
 
 ## Interfaces
 
@@ -46,6 +49,10 @@ Unterstütze insbesondere:
   "expectedOutput": "specialist-specific artifact"
 }
 ```
+
+## Integration Gate
+
+Cross-domain Tax Matters dürfen mehrere Specialists parallel erhalten. Ergebnisse nur integrieren, wenn gemeinsame Facts/Periods konsistent sind; Konflikte als offene Dependency dokumentieren und nicht stillschweigend harmonisieren.
 
 ## Qualitätsgate
 
