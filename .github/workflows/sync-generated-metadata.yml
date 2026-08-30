@@ -2,7 +2,7 @@ name: Sync generated metadata
 
 on:
   push:
-    branches: [main, feat/tax-transaction-cluster]
+    branches: [main]
     paths:
       - "skills/**"
       - "benchmarks/**"
