@@ -638,6 +638,20 @@ graph TD
   trade_sanctions_export_control_specialist --> current_law_context
   trade_sanctions_export_control_specialist --> legal_client_strategy
   trade_sanctions_export_control_specialist --> privilege_and_counsel_routing
+  travel_agency_workflow --> travel_availability_snapshot
+  travel_agency_workflow --> travel_context_builder
+  travel_agency_workflow --> travel_destination_research
+  travel_agency_workflow --> travel_itinerary_planner
+  travel_agency_workflow --> travel_option_ranking
+  travel_agency_workflow --> travel_stay_research
+  travel_agency_workflow --> travel_transport_research
+  travel_destination_research --> research_to_evidence_note
+  travel_destination_research --> source_to_context
+  travel_itinerary_planner --> travel_option_ranking
+  travel_stay_research --> research_to_evidence_note
+  travel_stay_research --> source_to_context
+  travel_transport_research --> research_to_evidence_note
+  travel_transport_research --> source_to_context
   two_axis_code_review --> agent_handoff
   two_axis_code_review --> architecture_deepening_review
   two_axis_code_review --> disciplined_diagnosis
@@ -772,6 +786,20 @@ graph TD
 | `template-presentation-workflow` | `presentation-render-qa.md` | `presentation-render-verifier` |
 | `template-presentation-workflow` | `presentation-revised-text` | `presentation-language-rewriter` |
 | `template-presentation-workflow` | `presentation-template-profile.json` | `presentation-template-profiler` |
+| `travel-availability-snapshot` | `travel-context.json` | `travel-context-builder` |
+| `travel-availability-snapshot` | `travel-stay-options.json` | `travel-stay-research` |
+| `travel-availability-snapshot` | `travel-transport-options.json` | `travel-transport-research` |
+| `travel-destination-research` | `travel-context.json` | `travel-context-builder` |
+| `travel-itinerary-planner` | `travel-availability-snapshot.json` | `travel-availability-snapshot` |
+| `travel-itinerary-planner` | `travel-context.json` | `travel-context-builder` |
+| `travel-itinerary-planner` | `travel-ranking.json` | `travel-option-ranking` |
+| `travel-option-ranking` | `travel-availability-snapshot.json` | `travel-availability-snapshot` |
+| `travel-option-ranking` | `travel-context.json` | `travel-context-builder` |
+| `travel-option-ranking` | `travel-destination-evidence.json` | `travel-destination-research` |
+| `travel-option-ranking` | `travel-stay-options.json` | `travel-stay-research` |
+| `travel-option-ranking` | `travel-transport-options.json` | `travel-transport-research` |
+| `travel-stay-research` | `travel-context.json` | `travel-context-builder` |
+| `travel-transport-research` | `travel-context.json` | `travel-context-builder` |
 
 ## Output contracts
 
@@ -1439,6 +1467,22 @@ graph TD
 | `transaction-gate-map.json` | `corporate-transactions-ma-specialist` | — | unconsumed |
 | `transaction-legal-assessment.json` | `corporate-transactions-ma-specialist` | — | unconsumed |
 | `transaction-specialist-work-orders.json` | `corporate-transactions-ma-specialist` | — | unconsumed |
+| `travel-availability-snapshot.json` | `travel-availability-snapshot` | `travel-agency-workflow`, `travel-itinerary-planner`, `travel-option-ranking` | mixed |
+| `travel-availability-snapshot.md` | `travel-availability-snapshot` | `travel-agency-workflow` | inferred |
+| `travel-context.json` | `travel-context-builder` | `travel-agency-workflow`, `travel-availability-snapshot`, `travel-destination-research`, `travel-itinerary-planner`, `travel-option-ranking`, `travel-stay-research`, `travel-transport-research` | mixed |
+| `travel-destination-evidence.json` | `travel-destination-research` | `travel-agency-workflow`, `travel-option-ranking` | mixed |
+| `travel-destination-evidence.md` | `travel-destination-research` | `travel-agency-workflow` | inferred |
+| `travel-itinerary.json` | `travel-itinerary-planner` | `travel-agency-workflow` | inferred |
+| `travel-itinerary.md` | `travel-itinerary-planner` | `travel-agency-workflow` | inferred |
+| `travel-plan.json` | `travel-agency-workflow` | — | unconsumed |
+| `travel-plan.md` | `travel-agency-workflow` | — | unconsumed |
+| `travel-ranking.json` | `travel-option-ranking` | `travel-agency-workflow`, `travel-itinerary-planner` | mixed |
+| `travel-ranking.md` | `travel-option-ranking` | `travel-agency-workflow` | inferred |
+| `travel-shortlist.json` | `travel-agency-workflow` | — | unconsumed |
+| `travel-stay-options.json` | `travel-stay-research` | `travel-agency-workflow`, `travel-availability-snapshot`, `travel-option-ranking` | mixed |
+| `travel-stay-options.md` | `travel-stay-research` | `travel-agency-workflow` | inferred |
+| `travel-transport-options.json` | `travel-transport-research` | `travel-agency-workflow`, `travel-availability-snapshot`, `travel-option-ranking` | mixed |
+| `travel-transport-options.md` | `travel-transport-research` | `travel-agency-workflow` | inferred |
 | `trend-signal-set.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ui-prototype-plan.md` | `project-beta-readiness` | — | unconsumed |
 | `updated skill repository` | `central-skill-repository-curation` | — | unconsumed |

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Agency Workflow"
+  short_description: "Orchestriert private Reisen von geklärten Anforderungen über Ziel-, Transport- und Unterkunftsrecherche sowie aktuell..."
+policy:
+  allow_implicit_invocation: true

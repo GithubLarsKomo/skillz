@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Destination Research"
+  short_description: "Recherchiert und bewertet Reiseziele gegen einen bestätigten Travel Context und trennt belegte Zielmerkmale, Saisonal..."
+policy:
+  allow_implicit_invocation: true

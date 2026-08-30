@@ -53,6 +53,9 @@ Verdichtet eine klar abgegrenzte Recherchefrage und zugängliche Quellen zu eine
 - [[skills/regulatory-evidence-traceability|regulatory-evidence-traceability]]
 - [[skills/teach|teach]]
 - [[skills/technology-offer-assessment|technology-offer-assessment]]
+- [[skills/travel-destination-research|travel-destination-research]]
+- [[skills/travel-stay-research|travel-stay-research]]
+- [[skills/travel-transport-research|travel-transport-research]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
 
 ## Outputs

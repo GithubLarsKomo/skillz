@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Availability Snapshot"
+  short_description: "Erfasst zeitgestempelte aktuelle Transport-, Unterkunfts-, Mietwagen- und Aktivitätsangebote für bekannte Travel-Kand..."
+policy:
+  allow_implicit_invocation: true

@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n281 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n289 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -289,7 +289,7 @@
       "x": 3660,
       "y": 0,
       "width": 1120,
-      "height": 2480,
+      "height": 2760,
       "color": "4"
     },
     {
@@ -716,11 +716,74 @@
       "height": 110
     },
     {
+      "id": "skill-travel-availability-snapshot",
+      "type": "file",
+      "file": "skills/travel-availability-snapshot.md",
+      "x": 4360,
+      "y": 2170,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-travel-context-builder",
+      "type": "file",
+      "file": "skills/travel-context-builder.md",
+      "x": 3700,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-travel-destination-research",
+      "type": "file",
+      "file": "skills/travel-destination-research.md",
+      "x": 4030,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-travel-itinerary-planner",
+      "type": "file",
+      "file": "skills/travel-itinerary-planner.md",
+      "x": 4360,
+      "y": 2310,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-travel-option-ranking",
+      "type": "file",
+      "file": "skills/travel-option-ranking.md",
+      "x": 3700,
+      "y": 2450,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-travel-stay-research",
+      "type": "file",
+      "file": "skills/travel-stay-research.md",
+      "x": 4030,
+      "y": 2450,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-travel-transport-research",
+      "type": "file",
+      "file": "skills/travel-transport-research.md",
+      "x": 4360,
+      "y": 2450,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-two-axis-compliance-review",
       "type": "file",
       "file": "skills/two-axis-compliance-review.md",
-      "x": 4360,
-      "y": 2170,
+      "x": 3700,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -728,8 +791,8 @@
       "id": "skill-workflow-benchmark-authoring",
       "type": "file",
       "file": "skills/workflow-benchmark-authoring.md",
-      "x": 3700,
-      "y": 2310,
+      "x": 4030,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -737,8 +800,8 @@
       "id": "skill-youtube-video-ingestion",
       "type": "file",
       "file": "skills/youtube-video-ingestion.md",
-      "x": 4030,
-      "y": 2310,
+      "x": 4360,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -1933,7 +1996,7 @@
       "x": 10980,
       "y": 0,
       "width": 1120,
-      "height": 3740,
+      "height": 3880,
       "color": "4"
     },
     {
@@ -2612,10 +2675,19 @@
       "height": 110
     },
     {
+      "id": "skill-travel-agency-workflow",
+      "type": "file",
+      "file": "skills/travel-agency-workflow.md",
+      "x": 11020,
+      "y": 3570,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-youtube-course-builder-workflow",
       "type": "file",
       "file": "skills/youtube-course-builder-workflow.md",
-      "x": 11020,
+      "x": 11350,
       "y": 3570,
       "width": 300,
       "height": 110
@@ -2624,7 +2696,7 @@
       "id": "skill-youtube-learning-workflow",
       "type": "file",
       "file": "skills/youtube-learning-workflow.md",
-      "x": 11350,
+      "x": 11680,
       "y": 3570,
       "width": 300,
       "height": 110
@@ -2633,8 +2705,8 @@
       "id": "skill-youtube-playlist-learning-workflow",
       "type": "file",
       "file": "skills/youtube-playlist-learning-workflow.md",
-      "x": 11680,
-      "y": 3570,
+      "x": 11020,
+      "y": 3710,
       "width": 300,
       "height": 110
     }
@@ -8347,6 +8419,132 @@
       "label": "requires"
     },
     {
+      "id": "requires-fb36525b4372",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-availability-snapshot",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-13c15b3882a0",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-context-builder",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-be8d42c11794",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-destination-research",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6b768d2087fe",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-itinerary-planner",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-eb42beaa3112",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-option-ranking",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0b5a8f118b4d",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-stay-research",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-61cdbffbbaf8",
+      "fromNode": "skill-travel-agency-workflow",
+      "fromSide": "left",
+      "toNode": "skill-travel-transport-research",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a038d3e8efed",
+      "fromNode": "skill-travel-destination-research",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-b324929c3f4e",
+      "fromNode": "skill-travel-destination-research",
+      "fromSide": "right",
+      "toNode": "skill-source-to-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5129294416a2",
+      "fromNode": "skill-travel-itinerary-planner",
+      "fromSide": "left",
+      "toNode": "skill-travel-option-ranking",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-55d3ea1ef028",
+      "fromNode": "skill-travel-stay-research",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-0c8d0c7b44d9",
+      "fromNode": "skill-travel-stay-research",
+      "fromSide": "right",
+      "toNode": "skill-source-to-context",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-f3eccb787727",
+      "fromNode": "skill-travel-transport-research",
+      "fromSide": "right",
+      "toNode": "skill-research-to-evidence-note",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-4e4b854a8929",
+      "fromNode": "skill-travel-transport-research",
+      "fromSide": "left",
+      "toNode": "skill-source-to-context",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-6bd189d17753",
       "fromNode": "skill-two-axis-code-review",
       "fromSide": "left",
@@ -8412,18 +8610,18 @@
     {
       "id": "requires-4ba96a53920d",
       "fromNode": "skill-workflow-benchmark-authoring",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-artifact-contract-normalizer",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-758db2d879b9",
       "fromNode": "skill-workflow-benchmark-authoring",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-skill-evaluation-suite-authoring",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8466,9 +8664,9 @@
     {
       "id": "requires-249ced83a1a9",
       "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-youtube-playlist-learning-workflow",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8547,9 +8745,9 @@
     {
       "id": "requires-403cc09758d6",
       "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-youtube-learning-workflow",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     }

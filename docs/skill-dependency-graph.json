@@ -3577,6 +3577,117 @@
       ]
     },
     {
+      "name": "travel-agency-workflow",
+      "requires": [
+        "travel-availability-snapshot",
+        "travel-context-builder",
+        "travel-destination-research",
+        "travel-itinerary-planner",
+        "travel-option-ranking",
+        "travel-stay-research",
+        "travel-transport-research"
+      ],
+      "consumes": [],
+      "outputs": [
+        "travel-plan.json",
+        "travel-plan.md",
+        "travel-shortlist.json"
+      ]
+    },
+    {
+      "name": "travel-availability-snapshot",
+      "requires": [],
+      "consumes": [
+        "travel-context.json",
+        "travel-stay-options.json",
+        "travel-transport-options.json"
+      ],
+      "outputs": [
+        "travel-availability-snapshot.json",
+        "travel-availability-snapshot.md"
+      ]
+    },
+    {
+      "name": "travel-context-builder",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "travel-context.json"
+      ]
+    },
+    {
+      "name": "travel-destination-research",
+      "requires": [
+        "research-to-evidence-note",
+        "source-to-context"
+      ],
+      "consumes": [
+        "travel-context.json"
+      ],
+      "outputs": [
+        "travel-destination-evidence.json",
+        "travel-destination-evidence.md"
+      ]
+    },
+    {
+      "name": "travel-itinerary-planner",
+      "requires": [
+        "travel-option-ranking"
+      ],
+      "consumes": [
+        "travel-availability-snapshot.json",
+        "travel-context.json",
+        "travel-ranking.json"
+      ],
+      "outputs": [
+        "travel-itinerary.json",
+        "travel-itinerary.md"
+      ]
+    },
+    {
+      "name": "travel-option-ranking",
+      "requires": [],
+      "consumes": [
+        "travel-availability-snapshot.json",
+        "travel-context.json",
+        "travel-destination-evidence.json",
+        "travel-stay-options.json",
+        "travel-transport-options.json"
+      ],
+      "outputs": [
+        "travel-ranking.json",
+        "travel-ranking.md"
+      ]
+    },
+    {
+      "name": "travel-stay-research",
+      "requires": [
+        "research-to-evidence-note",
+        "source-to-context"
+      ],
+      "consumes": [
+        "travel-context.json"
+      ],
+      "outputs": [
+        "travel-stay-options.json",
+        "travel-stay-options.md"
+      ]
+    },
+    {
+      "name": "travel-transport-research",
+      "requires": [
+        "research-to-evidence-note",
+        "source-to-context"
+      ],
+      "consumes": [
+        "travel-context.json"
+      ],
+      "outputs": [
+        "travel-transport-options.json",
+        "travel-transport-options.md"
+      ]
+    },
+    {
       "name": "two-axis-code-review",
       "requires": [
         "agent-handoff",
@@ -6222,6 +6333,62 @@
       "to": "privilege-and-counsel-routing"
     },
     {
+      "from": "travel-agency-workflow",
+      "to": "travel-availability-snapshot"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "travel-context-builder"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "travel-destination-research"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "travel-itinerary-planner"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "travel-option-ranking"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "travel-stay-research"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "travel-transport-research"
+    },
+    {
+      "from": "travel-destination-research",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "travel-destination-research",
+      "to": "source-to-context"
+    },
+    {
+      "from": "travel-itinerary-planner",
+      "to": "travel-option-ranking"
+    },
+    {
+      "from": "travel-stay-research",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "travel-stay-research",
+      "to": "source-to-context"
+    },
+    {
+      "from": "travel-transport-research",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "travel-transport-research",
+      "to": "source-to-context"
+    },
+    {
       "from": "two-axis-code-review",
       "to": "agent-handoff"
     },
@@ -6829,6 +6996,76 @@
       "consumer": "template-presentation-workflow",
       "artifact": "presentation-template-profile.json",
       "producer": "presentation-template-profiler"
+    },
+    {
+      "consumer": "travel-availability-snapshot",
+      "artifact": "travel-context.json",
+      "producer": "travel-context-builder"
+    },
+    {
+      "consumer": "travel-availability-snapshot",
+      "artifact": "travel-stay-options.json",
+      "producer": "travel-stay-research"
+    },
+    {
+      "consumer": "travel-availability-snapshot",
+      "artifact": "travel-transport-options.json",
+      "producer": "travel-transport-research"
+    },
+    {
+      "consumer": "travel-destination-research",
+      "artifact": "travel-context.json",
+      "producer": "travel-context-builder"
+    },
+    {
+      "consumer": "travel-itinerary-planner",
+      "artifact": "travel-availability-snapshot.json",
+      "producer": "travel-availability-snapshot"
+    },
+    {
+      "consumer": "travel-itinerary-planner",
+      "artifact": "travel-context.json",
+      "producer": "travel-context-builder"
+    },
+    {
+      "consumer": "travel-itinerary-planner",
+      "artifact": "travel-ranking.json",
+      "producer": "travel-option-ranking"
+    },
+    {
+      "consumer": "travel-option-ranking",
+      "artifact": "travel-availability-snapshot.json",
+      "producer": "travel-availability-snapshot"
+    },
+    {
+      "consumer": "travel-option-ranking",
+      "artifact": "travel-context.json",
+      "producer": "travel-context-builder"
+    },
+    {
+      "consumer": "travel-option-ranking",
+      "artifact": "travel-destination-evidence.json",
+      "producer": "travel-destination-research"
+    },
+    {
+      "consumer": "travel-option-ranking",
+      "artifact": "travel-stay-options.json",
+      "producer": "travel-stay-research"
+    },
+    {
+      "consumer": "travel-option-ranking",
+      "artifact": "travel-transport-options.json",
+      "producer": "travel-transport-research"
+    },
+    {
+      "consumer": "travel-stay-research",
+      "artifact": "travel-context.json",
+      "producer": "travel-context-builder"
+    },
+    {
+      "consumer": "travel-transport-research",
+      "artifact": "travel-context.json",
+      "producer": "travel-context-builder"
     }
   ],
   "outputContracts": [
@@ -14661,6 +14898,190 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "travel-availability-snapshot.json",
+      "producers": [
+        "travel-availability-snapshot"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow",
+        "travel-itinerary-planner",
+        "travel-option-ranking"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "travel-availability-snapshot.md",
+      "producers": [
+        "travel-availability-snapshot"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "travel-context.json",
+      "producers": [
+        "travel-context-builder"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow",
+        "travel-availability-snapshot",
+        "travel-destination-research",
+        "travel-itinerary-planner",
+        "travel-option-ranking",
+        "travel-stay-research",
+        "travel-transport-research"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "travel-destination-evidence.json",
+      "producers": [
+        "travel-destination-research"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow",
+        "travel-option-ranking"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "travel-destination-evidence.md",
+      "producers": [
+        "travel-destination-research"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "travel-itinerary.json",
+      "producers": [
+        "travel-itinerary-planner"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "travel-itinerary.md",
+      "producers": [
+        "travel-itinerary-planner"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "travel-plan.json",
+      "producers": [
+        "travel-agency-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "travel-plan.md",
+      "producers": [
+        "travel-agency-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "travel-ranking.json",
+      "producers": [
+        "travel-option-ranking"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow",
+        "travel-itinerary-planner"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "travel-ranking.md",
+      "producers": [
+        "travel-option-ranking"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "travel-shortlist.json",
+      "producers": [
+        "travel-agency-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "travel-stay-options.json",
+      "producers": [
+        "travel-stay-research"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow",
+        "travel-availability-snapshot",
+        "travel-option-ranking"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "travel-stay-options.md",
+      "producers": [
+        "travel-stay-research"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "travel-transport-options.json",
+      "producers": [
+        "travel-transport-research"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow",
+        "travel-availability-snapshot",
+        "travel-option-ranking"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "travel-transport-options.md",
+      "producers": [
+        "travel-transport-research"
+      ],
+      "consumerSkills": [
+        "travel-agency-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "trend-signal-set.json",
       "producers": [
         "ivdr-pms-vigilance"
@@ -15268,6 +15689,9 @@
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
     "transaction-specialist-work-orders.json",
+    "travel-plan.json",
+    "travel-plan.md",
+    "travel-shortlist.json",
     "ui-prototype-plan.md",
     "updated skill repository",
     "usability-engineering-assessment.json",
@@ -15544,6 +15968,9 @@
     "transaction-gate-map.json",
     "transaction-legal-assessment.json",
     "transaction-specialist-work-orders.json",
+    "travel-plan.json",
+    "travel-plan.md",
+    "travel-shortlist.json",
     "ui-prototype-plan.md",
     "updated skill repository",
     "usability-engineering-assessment.json",

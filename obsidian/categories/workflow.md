@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **78**
+Skills: **79**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -87,6 +87,7 @@ Skills: **78**
 - [[skills/template-document-workflow|template-document-workflow]]
 - [[skills/template-presentation-workflow|template-presentation-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
+- [[skills/travel-agency-workflow|travel-agency-workflow]]
 - [[skills/youtube-course-builder-workflow|youtube-course-builder-workflow]]
 - [[skills/youtube-learning-workflow|youtube-learning-workflow]]
 - [[skills/youtube-playlist-learning-workflow|youtube-playlist-learning-workflow]]

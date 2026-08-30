@@ -1721,6 +1721,54 @@
         "references/authoritative-sources.md": "722b089a615de46b90bdd4608ad324bd555197df35b4753de739e5472d618cfb"
       }
     },
+    "travel-agency-workflow": {
+      "files": {
+        "SKILL.md": "5a9701a0e1af502611c6414bfcb655071a85333056d689a971b2c4f8ef823cb4",
+        "agents/openai.yaml": "ce18effc6d1e11730b2a2a0ebb835ff20288c7115f9a6bb8c663b6c80e2fa5ee"
+      }
+    },
+    "travel-availability-snapshot": {
+      "files": {
+        "SKILL.md": "5282fe2da340ed4e73a25eb9188fc72ccd1142089b52202f98ebf6915d300259",
+        "agents/openai.yaml": "4e62f17fb5bb29f629ec9c587b1b2060629847fbb0239a58290a329628967333"
+      }
+    },
+    "travel-context-builder": {
+      "files": {
+        "SKILL.md": "3078be399fac96aa27099045e433dffb5a29b2b877e3260fccf86b6527b9b6e4",
+        "agents/openai.yaml": "f689595214867a5c18891a3f6e9b3c2b988b5ac6cdee909cb148b838a8d92fac"
+      }
+    },
+    "travel-destination-research": {
+      "files": {
+        "SKILL.md": "c712841691513babce912084ff7a7e630c01a78a82a0a77d4e605523124ccfda",
+        "agents/openai.yaml": "7518b8f3e6742df7ac65b40ac296d392efe18ed0150b0ba03d51636b01ef68bd"
+      }
+    },
+    "travel-itinerary-planner": {
+      "files": {
+        "SKILL.md": "33a454a5ffdf7f044fbed9c522755c4d3f985ea0d9df5e7eedcdcbd5f597b56a",
+        "agents/openai.yaml": "f1f276e7e11463b6553957c4801c80c1a6149b786a69960de6a837d325ff9094"
+      }
+    },
+    "travel-option-ranking": {
+      "files": {
+        "SKILL.md": "e30609bacc03e4abe435628f7a4d005e782501493b24b8364ebf4de436c05413",
+        "agents/openai.yaml": "fa74b45415ad4a2860c5dda8c66dc8490ab085b64166254e571a3d08324fb648"
+      }
+    },
+    "travel-stay-research": {
+      "files": {
+        "SKILL.md": "13d77a1b50c72c66e1be0e1ac17e6c7857d4fed7bbb41299aa48d5d6f9167cd3",
+        "agents/openai.yaml": "3b119474c57b234a785f1555eca08562985224fffa64da59cf707ebf1bda6054"
+      }
+    },
+    "travel-transport-research": {
+      "files": {
+        "SKILL.md": "d2a9f07aad5ff81696d2904a13ccac272fe2b779aef77d15a15f149feac83b25",
+        "agents/openai.yaml": "2becb65e69a87e4cb7908d8146a05ca71f018c396922af62984c10862fe66eeb"
+      }
+    },
     "two-axis-code-review": {
       "files": {
         "SKILL.md": "2ce2d2b8df67038a82e9b682cb6dae8d780ea653dd783428d162798f8d7b4ac2",

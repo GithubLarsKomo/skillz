@@ -1,0 +1,5 @@
+interface:
+  display_name: "Travel Context Builder"
+  short_description: "Normalisiert bestätigte Reiseanforderungen, Präferenzen, Zeitfenster, Reisende, Budget und harte Constraints in einen..."
+policy:
+  allow_implicit_invocation: true

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **50**
+Skills: **57**
 
 - [[skills/artifact-contract-normalizer|artifact-contract-normalizer]]
 - [[skills/course-concept-graph|course-concept-graph]]
@@ -59,6 +59,13 @@ Skills: **50**
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/synapse-orchestrator|synapse-orchestrator]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]
+- [[skills/travel-availability-snapshot|travel-availability-snapshot]]
+- [[skills/travel-context-builder|travel-context-builder]]
+- [[skills/travel-destination-research|travel-destination-research]]
+- [[skills/travel-itinerary-planner|travel-itinerary-planner]]
+- [[skills/travel-option-ranking|travel-option-ranking]]
+- [[skills/travel-stay-research|travel-stay-research]]
+- [[skills/travel-transport-research|travel-transport-research]]
 - [[skills/two-axis-compliance-review|two-axis-compliance-review]]
 - [[skills/workflow-benchmark-authoring|workflow-benchmark-authoring]]
 - [[skills/youtube-video-ingestion|youtube-video-ingestion]]

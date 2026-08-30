@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **281**
-- User-facing entrypoints: **231**
-- Discoverability — public: **222**, advanced: **9**, internal: **48**, compatibility: **2**
-- Evaluation suites: **281**
-- Executed evaluation suites: **PASS**
+- Skills: **289**
+- User-facing entrypoints: **232**
+- Discoverability — public: **223**, advanced: **9**, internal: **55**, compatibility: **2**
+- Evaluation suites: **289**
+- Executed evaluation suites: **FAIL**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **281/281**
-- User-facing entrypoints with evaluation suite: **231/231**
+- Skills with evaluation suite: **289/289**
+- User-facing entrypoints with evaluation suite: **232/232**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **274**
+- Outputs without inferred hard-requires consumers: **277**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -300,6 +300,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `transaction-gate-map.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-legal-assessment.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-specialist-work-orders.json` — producer: `corporate-transactions-ma-specialist`
+- `travel-plan.json` — producer: `travel-agency-workflow`
+- `travel-plan.md` — producer: `travel-agency-workflow`
+- `travel-shortlist.json` — producer: `travel-agency-workflow`
 - `ui-prototype-plan.md` — producer: `project-beta-readiness`
 - `updated skill repository` — producer: `central-skill-repository-curation`
 - `usability-engineering-assessment.json` — producer: `iec62366-usability-engineering`

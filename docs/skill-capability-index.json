@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 281,
-  "entrypointCount": 231,
+  "skillCount": 289,
+  "entrypointCount": 232,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -14,17 +14,17 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 222,
+    "public": 223,
     "advanced": 9,
-    "internal": 48,
+    "internal": 55,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 281,
-  "evaluatedSkillCount": 281,
-  "evaluatedEntrypointCount": 231,
+  "evaluationSuiteCount": 289,
+  "evaluatedSkillCount": 289,
+  "evaluatedEntrypointCount": 232,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 24,
   "skills": [
     {
       "name": "agent-handoff",
@@ -14768,6 +14768,9 @@
         "regulatory-evidence-traceability",
         "teach",
         "technology-offer-assessment",
+        "travel-destination-research",
+        "travel-stay-research",
+        "travel-transport-research",
         "two-axis-compliance-review"
       ],
       "outputs": [
@@ -15254,7 +15257,11 @@
         "deprecatedSince": null
       },
       "requires": [],
-      "dependents": [],
+      "dependents": [
+        "travel-destination-research",
+        "travel-stay-research",
+        "travel-transport-research"
+      ],
       "outputs": [
         "source-context.json",
         "source-context.md"
@@ -17583,6 +17590,456 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "travel-agency-workflow",
+      "description": "Orchestriert private Reisen von geklärten Anforderungen über Ziel-, Transport- und Unterkunftsrecherche sowie aktuelle Verfügbarkeit bis zu Ranking und zeitlich-räumlich geprüftem Reiseplan.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "travel-availability-snapshot",
+        "travel-context-builder",
+        "travel-destination-research",
+        "travel-itinerary-planner",
+        "travel-option-ranking",
+        "travel-stay-research",
+        "travel-transport-research"
+      ],
+      "dependents": [],
+      "outputs": [
+        "travel-plan.json",
+        "travel-plan.md",
+        "travel-shortlist.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-agency-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "travel-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-agency-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "travel-shortlist.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-agency-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-availability-snapshot",
+      "description": "Erfasst zeitgestempelte aktuelle Transport-, Unterkunfts-, Mietwagen- und Aktivitätsangebote für bekannte Travel-Kandidaten einschließlich Preis, Verfügbarkeit und buchungsrelevanter Konditionen.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "travel-agency-workflow"
+      ],
+      "outputs": [
+        "travel-availability-snapshot.json",
+        "travel-availability-snapshot.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-availability-snapshot.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-availability-snapshot"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow",
+            "travel-itinerary-planner",
+            "travel-option-ranking"
+          ]
+        },
+        {
+          "output": "travel-availability-snapshot.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-availability-snapshot"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-context-builder",
+      "description": "Normalisiert bestätigte Reiseanforderungen, Präferenzen, Zeitfenster, Reisende, Budget und harte Constraints in einen kanonischen Travel Context ohne fehlende Entscheidungen zu erfinden.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "travel-agency-workflow"
+      ],
+      "outputs": [
+        "travel-context.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-context.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-context-builder"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow",
+            "travel-availability-snapshot",
+            "travel-destination-research",
+            "travel-itinerary-planner",
+            "travel-option-ranking",
+            "travel-stay-research",
+            "travel-transport-research"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-destination-research",
+      "description": "Recherchiert und bewertet Reiseziele gegen einen bestätigten Travel Context und trennt belegte Zielmerkmale, Saisonalität, praktische Eignung und Evidenzlücken.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "research-to-evidence-note",
+        "source-to-context"
+      ],
+      "dependents": [
+        "travel-agency-workflow"
+      ],
+      "outputs": [
+        "travel-destination-evidence.json",
+        "travel-destination-evidence.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-destination-evidence.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-destination-research"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow",
+            "travel-option-ranking"
+          ]
+        },
+        {
+          "output": "travel-destination-evidence.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-destination-research"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-itinerary-planner",
+      "description": "Verwandelt ausgewählte oder gerankte Reiseoptionen in einen zeitlich und räumlich konsistenten Reiseplan mit Transfers, Öffnungszeiten, Reservierungsfenstern, Puffern und expliziten Unsicherheiten.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "travel-option-ranking"
+      ],
+      "dependents": [
+        "travel-agency-workflow"
+      ],
+      "outputs": [
+        "travel-itinerary.json",
+        "travel-itinerary.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-itinerary.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-itinerary-planner"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        },
+        {
+          "output": "travel-itinerary.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-itinerary-planner"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-option-ranking",
+      "description": "Bewertet Reiseoptionen deterministisch gegen bestätigte harte Constraints und Entscheidungskriterien und trennt Reisefit, Kosten, Evidenzabdeckung und Ranking-Confidence.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "travel-agency-workflow",
+        "travel-itinerary-planner"
+      ],
+      "outputs": [
+        "travel-ranking.json",
+        "travel-ranking.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-ranking.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-option-ranking"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow",
+            "travel-itinerary-planner"
+          ]
+        },
+        {
+          "output": "travel-ranking.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-option-ranking"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-stay-research",
+      "description": "Recherchiert geeignete Unterkünfte und bewertet Lage, Eigenschaften, Qualitäts- und Review-Signale gegen den Travel Context ohne aktuelle Zimmerangebote als dauerhafte Produktevidenz zu behandeln.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "research-to-evidence-note",
+        "source-to-context"
+      ],
+      "dependents": [
+        "travel-agency-workflow"
+      ],
+      "outputs": [
+        "travel-stay-options.json",
+        "travel-stay-options.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-stay-options.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-stay-research"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow",
+            "travel-availability-snapshot",
+            "travel-option-ranking"
+          ]
+        },
+        {
+          "output": "travel-stay-options.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-stay-research"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "travel-transport-research",
+      "description": "Recherchiert plausible Flug-, Bahn-, Auto-, Fähr- und andere Transportoptionen für einen Travel Context und normalisiert Reisezeit, Umstiege und operationelle Eigenschaften ohne finales Ranking.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "research-to-evidence-note",
+        "source-to-context"
+      ],
+      "dependents": [
+        "travel-agency-workflow"
+      ],
+      "outputs": [
+        "travel-transport-options.json",
+        "travel-transport-options.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "travel-transport-options.json",
+          "ambiguous": false,
+          "producers": [
+            "travel-transport-research"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow",
+            "travel-availability-snapshot",
+            "travel-option-ranking"
+          ]
+        },
+        {
+          "output": "travel-transport-options.md",
+          "ambiguous": false,
+          "producers": [
+            "travel-transport-research"
+          ],
+          "consumerSkills": [
+            "travel-agency-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
       }
     },
     {
