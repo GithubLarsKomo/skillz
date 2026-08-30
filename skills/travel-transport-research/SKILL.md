@@ -3,7 +3,6 @@ name: travel-transport-research
 description: Recherchiert plausible Flug-, Bahn-, Auto-, Fähr- und andere Transportoptionen für einen Travel Context und normalisiert Reisezeit, Umstiege und operationelle Eigenschaften ohne finales Ranking.
 userFacing: false
 implicitInvocation: true
-category: research-knowledge
 version: 0.1.0
 status: candidate
 discoverability: internal
