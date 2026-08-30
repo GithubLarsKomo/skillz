@@ -1,6 +1,6 @@
 ---
 name: german-corporate-tax-specialist
-description: Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet Umwandlung, International Tax, VAT, Transfer Pricing und Legal Dependencies separat.
+description: Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet M&A, Umwandlung, Transfer Pricing, International Tax, VAT und Legal Dependencies separat.
 ---
 
 # German Corporate Tax Specialist
@@ -13,8 +13,14 @@ KSt, GewSt, Beteiligungserträge/-veräußerungen, Ausschüttungen, verdeckte Ge
 
 - VAT -> `vat-indirect-tax-specialist`.
 - Cross-border -> `international-tax-specialist`.
-- M&A/Umwandlung/Transfer Pricing -> explizite Work Order; bis zur eigenen Specialist-Abdeckung nicht improvisieren.
+- M&A/Tax DD/Deal Tax -> `ma-tax-specialist`.
+- Umwandlung/Einbringung/Spaltung/Formwechsel -> `reorganization-tax-specialist`.
+- Verrechnungspreise/Intercompany Pricing -> `transfer-pricing-specialist`.
 - Gesellschaftsrecht/Vertrag/Governance -> `tax-legal-interface-specialist` und Legal Office.
+
+## Strukturvergleich
+
+Holding-, Finanzierungs- und Beteiligungsstrukturen nicht aus einer einzelnen Steuerquote ableiten. Status quo und einfachere Alternative über `tax-structure-pattern-library` mit Liquidität, Compliance, Exit, Transaktionskosten und Legal Constraints vergleichen.
 
 ## Qualitätsgate
 

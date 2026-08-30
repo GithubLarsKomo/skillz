@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **304**
-- User-facing entrypoints: **247**
-- Discoverability — public: **238**, advanced: **9**, internal: **55**, compatibility: **2**
-- Evaluation suites: **304**
+- Skills: **307**
+- User-facing entrypoints: **250**
+- Discoverability — public: **241**, advanced: **9**, internal: **55**, compatibility: **2**
+- Evaluation suites: **307**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **304/304**
-- User-facing entrypoints with evaluation suite: **247/247**
+- Skills with evaluation suite: **307/307**
+- User-facing entrypoints with evaluation suite: **250/250**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **300**
+- Outputs without inferred hard-requires consumers: **313**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -203,6 +203,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `lifecycle-impact-gates.json` — producer: `regulatory-change-impact-orchestrator`
 - `llm-generation-review.json` — producer: `llm-generation-review-workflow`
 - `llm-generation-review.md` — producer: `llm-generation-review-workflow`
+- `ma-tax-assessment.json` — producer: `ma-tax-specialist`
+- `ma-tax-dd-findings.json` — producer: `ma-tax-specialist`
+- `ma-tax-legal-constraints.json` — producer: `ma-tax-specialist`
+- `ma-tax-scenario-map.json` — producer: `ma-tax-specialist`
 - `management-review-effectiveness-gaps.json` — producer: `qms-management-review-action-followup`
 - `management-review-follow-up-status.json` — producer: `qms-management-review-action-followup`
 - `management-review-return-input.json` — producer: `qms-management-review-action-followup`
@@ -282,6 +286,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
+- `reorganization-tax-assessment.json` — producer: `reorganization-tax-specialist`
+- `reorganization-tax-open-issues.json` — producer: `reorganization-tax-specialist`
+- `reorganization-tax-step-plan.json` — producer: `reorganization-tax-specialist`
+- `reorganization-tax-structure-options.json` — producer: `reorganization-tax-specialist`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
 - `role-architecture.md` — producer: `role-architecture`
@@ -316,10 +324,15 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `technology-due-diligence.json` — producer: `technology-due-diligence`
 - `technology-due-diligence.md` — producer: `technology-due-diligence`
 - `tender-legal-gate-map.json` — producer: `public-procurement-healthcare-law-specialist`
+- `tp-documentation-work-order.json` — producer: `transfer-pricing-specialist`
+- `tp-functional-risk-analysis.json` — producer: `transfer-pricing-specialist`
+- `tp-legal-constraints.json` — producer: `transfer-pricing-specialist`
+- `tp-method-selection.json` — producer: `transfer-pricing-specialist`
 - `trade-control-assessment.json` — producer: `trade-sanctions-export-control-specialist`
 - `transaction-gate-map.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-legal-assessment.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-specialist-work-orders.json` — producer: `corporate-transactions-ma-specialist`
+- `transfer-pricing-assessment.json` — producer: `transfer-pricing-specialist`
 - `travel-plan.json` — producer: `travel-agency-workflow`
 - `travel-plan.md` — producer: `travel-agency-workflow`
 - `travel-shortlist.json` — producer: `travel-agency-workflow`

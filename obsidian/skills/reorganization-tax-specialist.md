@@ -1,22 +1,22 @@
 ---
 type: skill
 generated: true
-name: "german-corporate-tax-specialist"
+name: "reorganization-tax-specialist"
 category: "tax-specialist"
 userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
-sourcePath: "skills/german-corporate-tax-specialist/SKILL.md"
+sourcePath: "skills/reorganization-tax-specialist/SKILL.md"
 tags:
   - skill
   - skill-category/tax-specialist
 ---
 
-# german-corporate-tax-specialist
+# reorganization-tax-specialist
 
-Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet M&A, Umwandlung, Transfer Pricing, International Tax, VAT und Legal Dependencies separat.
+Analysiert deutsche Umwandlungs- und Einbringungssteuer-Matters einschließlich Verschmelzung, Spaltung, Formwechsel, Einbringung, Anteilstausch, Wertansätzen, Sperrfristen und Nachversteuerungsrisiken und hält Legal-, VAT-, RETT-, Verlust-, Organschafts- und internationale Abhängigkeiten getrennt.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -36,21 +36,26 @@ Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalge
 
 ## Outputs
 
-- `corporate-tax-assessment.json`
-- `corporate-tax-open-issues.json`
-- `corporate-tax-scenario-map.json`
+- `reorganization-tax-assessment.json`
+- `reorganization-tax-open-issues.json`
+- `reorganization-tax-step-plan.json`
+- `reorganization-tax-structure-options.json`
 
 ## Output consumers
 
-### `corporate-tax-assessment.json`
+### `reorganization-tax-assessment.json`
 
 - Terminal or currently unconsumed output.
 
-### `corporate-tax-open-issues.json`
+### `reorganization-tax-open-issues.json`
 
 - Terminal or currently unconsumed output.
 
-### `corporate-tax-scenario-map.json`
+### `reorganization-tax-step-plan.json`
+
+- Terminal or currently unconsumed output.
+
+### `reorganization-tax-structure-options.json`
 
 - Terminal or currently unconsumed output.
 
@@ -63,4 +68,4 @@ Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalge
 
 ## Canonical source
 
-`skills/german-corporate-tax-specialist/SKILL.md`
+`skills/reorganization-tax-specialist/SKILL.md`

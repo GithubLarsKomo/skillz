@@ -1,22 +1,22 @@
 ---
 type: skill
 generated: true
-name: "german-corporate-tax-specialist"
+name: "ma-tax-specialist"
 category: "tax-specialist"
 userFacing: true
 evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
-sourcePath: "skills/german-corporate-tax-specialist/SKILL.md"
+sourcePath: "skills/ma-tax-specialist/SKILL.md"
 tags:
   - skill
   - skill-category/tax-specialist
 ---
 
-# german-corporate-tax-specialist
+# ma-tax-specialist
 
-Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalgesellschaften und Unternehmensgruppen einschließlich KSt, GewSt, Ausschüttungen, Finanzierung, Verlustnutzung, Organschaft, Beteiligungserträgen und Strukturfragen und routet M&A, Umwandlung, Transfer Pricing, International Tax, VAT und Legal Dependencies separat.
+Analysiert Tax Workstreams bei Unternehmenskäufen und -verkäufen einschließlich Share-vs-Asset-Deal, Tax Due Diligence, Tax Basis und Kaufpreisallokation, Verlustpositionen, Finanzierung, Quellensteuer, VAT/RETT-Interfaces und steuerabhängigen SPA-Klauseln, ohne Legal-, Accounting- oder Valuation-Ownership zu übernehmen.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -36,21 +36,26 @@ Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalge
 
 ## Outputs
 
-- `corporate-tax-assessment.json`
-- `corporate-tax-open-issues.json`
-- `corporate-tax-scenario-map.json`
+- `ma-tax-assessment.json`
+- `ma-tax-dd-findings.json`
+- `ma-tax-legal-constraints.json`
+- `ma-tax-scenario-map.json`
 
 ## Output consumers
 
-### `corporate-tax-assessment.json`
+### `ma-tax-assessment.json`
 
 - Terminal or currently unconsumed output.
 
-### `corporate-tax-open-issues.json`
+### `ma-tax-dd-findings.json`
 
 - Terminal or currently unconsumed output.
 
-### `corporate-tax-scenario-map.json`
+### `ma-tax-legal-constraints.json`
+
+- Terminal or currently unconsumed output.
+
+### `ma-tax-scenario-map.json`
 
 - Terminal or currently unconsumed output.
 
@@ -63,4 +68,4 @@ Analysiert deutsche Unternehmens- und Körperschaftsteuer-Matters für Kapitalge
 
 ## Canonical source
 
-`skills/german-corporate-tax-specialist/SKILL.md`
+`skills/ma-tax-specialist/SKILL.md`

@@ -376,6 +376,9 @@ graph TD
   llm_generation_review_workflow --> document_generation_forensics
   llm_generation_review_workflow --> llm_generation_evidence_assessment
   llm_generation_review_workflow --> llm_prose_pattern_audit
+  ma_tax_specialist --> current_tax_context
+  ma_tax_specialist --> tax_position_register
+  ma_tax_specialist --> tax_structure_pattern_library
   mdcg_guidance_navigator --> regulated_product_context
   mdcg_guidance_navigator --> regulatory_evidence_traceability
   mdcg_guidance_navigator --> research_to_evidence_note
@@ -536,6 +539,9 @@ graph TD
   regulatory_claims_consistency --> regulatory_evidence_traceability
   regulatory_evidence_traceability --> regulated_product_context
   regulatory_evidence_traceability --> research_to_evidence_note
+  reorganization_tax_specialist --> current_tax_context
+  reorganization_tax_specialist --> tax_position_register
+  reorganization_tax_specialist --> tax_structure_pattern_library
   role_requirements_grilling --> round_based_requirements_grilling
   skill_lifecycle_migration --> skill_portfolio_audit
   spec_to_vertical_issues --> conversation_to_spec
@@ -669,6 +675,8 @@ graph TD
   trade_sanctions_export_control_specialist --> current_law_context
   trade_sanctions_export_control_specialist --> legal_client_strategy
   trade_sanctions_export_control_specialist --> privilege_and_counsel_routing
+  transfer_pricing_specialist --> current_tax_context
+  transfer_pricing_specialist --> tax_position_register
   travel_agency_workflow --> travel_availability_snapshot
   travel_agency_workflow --> travel_context_builder
   travel_agency_workflow --> travel_destination_research
@@ -1255,6 +1263,10 @@ graph TD
 | `llm-generation-assessment.md` | `llm-generation-evidence-assessment` | `llm-generation-review-workflow` | inferred |
 | `llm-generation-review.json` | `llm-generation-review-workflow` | — | unconsumed |
 | `llm-generation-review.md` | `llm-generation-review-workflow` | — | unconsumed |
+| `ma-tax-assessment.json` | `ma-tax-specialist` | — | unconsumed |
+| `ma-tax-dd-findings.json` | `ma-tax-specialist` | — | unconsumed |
+| `ma-tax-legal-constraints.json` | `ma-tax-specialist` | — | unconsumed |
+| `ma-tax-scenario-map.json` | `ma-tax-specialist` | — | unconsumed |
 | `management-review-actions.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
 | `management-review-brief.json` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
 | `management-review-brief.md` | `qms-management-review-governance` | `qms-management-review-action-followup` | inferred |
@@ -1423,6 +1435,10 @@ graph TD
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `rehab-progression.json` | `sport-injury-rehabilitation` | `sport-athlete-management` | inferred |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
+| `reorganization-tax-assessment.json` | `reorganization-tax-specialist` | — | unconsumed |
+| `reorganization-tax-open-issues.json` | `reorganization-tax-specialist` | — | unconsumed |
+| `reorganization-tax-step-plan.json` | `reorganization-tax-specialist` | — | unconsumed |
+| `reorganization-tax-structure-options.json` | `reorganization-tax-specialist` | — | unconsumed |
 | `reporting-office-obligations.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
@@ -1493,8 +1509,8 @@ graph TD
 | `synchronization manifest` | `central-skill-repository-curation` | — | unconsumed |
 | `tax-assessment-reconciliation.json` | `tax-procedure-matter-workflow` | — | unconsumed |
 | `tax-authority-boundaries.json` | `tax-professional-routing` | `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow` | inferred |
-| `tax-authority-evidence.json` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `professional-tax-knowledge-ingestion`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `vat-indirect-tax-specialist` | inferred |
-| `tax-context.md` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `professional-tax-knowledge-ingestion`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `vat-indirect-tax-specialist` | inferred |
+| `tax-authority-evidence.json` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `professional-tax-knowledge-ingestion`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
+| `tax-context.md` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `professional-tax-knowledge-ingestion`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
 | `tax-decision-dependencies.json` | `tax-legal-interface-specialist` | `german-inheritance-succession-law-specialist` | inferred |
 | `tax-dependency-map.json` | `tax-matter-intake` | `tax-advisory-office` | inferred |
 | `tax-fact-gaps.json` | `tax-matter-intake` | `tax-advisory-office` | inferred |
@@ -1508,25 +1524,25 @@ graph TD
 | `tax-matter.json` | `tax-matter-intake` | `tax-advisory-office` | inferred |
 | `tax-next-safe-action.json` | `tax-matter-final-gate` | `tax-advisory-office` | inferred |
 | `tax-open-items.json` | `tax-matter-final-gate` | `tax-advisory-office` | inferred |
-| `tax-position-change-impact.json` | `tax-position-register` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow`, `vat-indirect-tax-specialist` | inferred |
-| `tax-position-register.json` | `tax-position-register` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow`, `vat-indirect-tax-specialist` | inferred |
-| `tax-position.json` | `tax-position-register` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow`, `vat-indirect-tax-specialist` | inferred |
+| `tax-position-change-impact.json` | `tax-position-register` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
+| `tax-position-register.json` | `tax-position-register` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
+| `tax-position.json` | `tax-position-register` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
 | `tax-practitioner-heuristics.json` | `professional-tax-knowledge-ingestion` | — | unconsumed |
 | `tax-procedure-action-plan.json` | `tax-procedure-matter-workflow` | — | unconsumed |
 | `tax-procedure-deadlines.json` | `tax-procedure-matter-workflow` | — | unconsumed |
 | `tax-procedure-status.json` | `tax-procedure-matter-workflow` | — | unconsumed |
 | `tax-professional-gate.json` | `tax-professional-routing` | `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow` | inferred |
 | `tax-professional-work-order.json` | `tax-professional-routing` | `tax-advisory-office`, `tax-matter-final-gate`, `tax-procedure-matter-workflow` | inferred |
-| `tax-research-open-questions.json` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `professional-tax-knowledge-ingestion`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `vat-indirect-tax-specialist` | inferred |
-| `tax-source-freshness.json` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `professional-tax-knowledge-ingestion`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `vat-indirect-tax-specialist` | inferred |
+| `tax-research-open-questions.json` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `professional-tax-knowledge-ingestion`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
+| `tax-source-freshness.json` | `current-tax-context` | `german-corporate-tax-specialist`, `german-personal-income-tax-specialist`, `inheritance-gift-tax-specialist`, `international-tax-specialist`, `ma-tax-specialist`, `professional-tax-knowledge-ingestion`, `reorganization-tax-specialist`, `tax-advisory-office`, `tax-position-register`, `tax-procedure-matter-workflow`, `tax-professional-routing`, `tax-specialist-router`, `tax-structure-pattern-library`, `transfer-pricing-specialist`, `vat-indirect-tax-specialist` | inferred |
 | `tax-source-verification-queue.json` | `professional-tax-knowledge-ingestion` | — | unconsumed |
 | `tax-specialist-integration-status.json` | `tax-specialist-router` | `tax-advisory-office` | inferred |
 | `tax-specialist-route-map.json` | `tax-specialist-router` | `tax-advisory-office` | inferred |
 | `tax-specialist-work-order.json` | `tax-legal-interface-specialist` | `german-inheritance-succession-law-specialist` | inferred |
 | `tax-specialist-work-orders.json` | `tax-specialist-router` | `tax-advisory-office` | inferred |
-| `tax-structure-options.json` | `tax-structure-pattern-library` | `german-corporate-tax-specialist`, `inheritance-gift-tax-specialist` | inferred |
-| `tax-structure-pattern.json` | `tax-structure-pattern-library` | `german-corporate-tax-specialist`, `inheritance-gift-tax-specialist` | inferred |
-| `tax-structure-risk-map.json` | `tax-structure-pattern-library` | `german-corporate-tax-specialist`, `inheritance-gift-tax-specialist` | inferred |
+| `tax-structure-options.json` | `tax-structure-pattern-library` | `german-corporate-tax-specialist`, `inheritance-gift-tax-specialist`, `ma-tax-specialist`, `reorganization-tax-specialist` | inferred |
+| `tax-structure-pattern.json` | `tax-structure-pattern-library` | `german-corporate-tax-specialist`, `inheritance-gift-tax-specialist`, `ma-tax-specialist`, `reorganization-tax-specialist` | inferred |
+| `tax-structure-risk-map.json` | `tax-structure-pattern-library` | `german-corporate-tax-specialist`, `inheritance-gift-tax-specialist`, `ma-tax-specialist`, `reorganization-tax-specialist` | inferred |
 | `technology-due-diligence.json` | `technology-due-diligence` | — | unconsumed |
 | `technology-due-diligence.md` | `technology-due-diligence` | — | unconsumed |
 | `technology-offer-assessment.json` | `technology-offer-assessment` | `technology-due-diligence` | inferred |
@@ -1539,12 +1555,17 @@ graph TD
 | `thought-graph.json` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
 | `thought-journal.json` | `thought-capture-journal` | `thought-graph-extractor`, `thought-to-concept-flow` | inferred |
 | `thought-journal.md` | `thought-capture-journal` | `thought-graph-extractor`, `thought-to-concept-flow` | inferred |
+| `tp-documentation-work-order.json` | `transfer-pricing-specialist` | — | unconsumed |
+| `tp-functional-risk-analysis.json` | `transfer-pricing-specialist` | — | unconsumed |
+| `tp-legal-constraints.json` | `transfer-pricing-specialist` | — | unconsumed |
+| `tp-method-selection.json` | `transfer-pricing-specialist` | — | unconsumed |
 | `trade-control-assessment.json` | `trade-sanctions-export-control-specialist` | — | unconsumed |
 | `training-adaptation-decision.json` | `sport-training-adaptation-engine` | `sport-athlete-management` | inferred |
 | `training-music-profile.json` | `sport-training-music` | `sport-athlete-management` | inferred |
 | `transaction-gate-map.json` | `corporate-transactions-ma-specialist` | — | unconsumed |
 | `transaction-legal-assessment.json` | `corporate-transactions-ma-specialist` | — | unconsumed |
 | `transaction-specialist-work-orders.json` | `corporate-transactions-ma-specialist` | — | unconsumed |
+| `transfer-pricing-assessment.json` | `transfer-pricing-specialist` | — | unconsumed |
 | `travel-availability-snapshot.json` | `travel-availability-snapshot` | `travel-agency-workflow`, `travel-itinerary-planner`, `travel-option-ranking` | mixed |
 | `travel-availability-snapshot.md` | `travel-availability-snapshot` | `travel-agency-workflow` | inferred |
 | `travel-context.json` | `travel-context-builder` | `travel-agency-workflow`, `travel-availability-snapshot`, `travel-destination-research`, `travel-itinerary-planner`, `travel-option-ranking`, `travel-stay-research`, `travel-transport-research` | mixed |
