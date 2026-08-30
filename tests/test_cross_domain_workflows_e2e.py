@@ -109,6 +109,20 @@ class CrossDomainWorkflowE2ETest(unittest.TestCase):
         self.assertIn("contract-matter-workflow", scenario["sequence"])
         self.assertIn("contract-matter-workflow", self.skills["contract-workflow"]["requires"])
 
+    def test_travel_benchmark_preserves_evidence_availability_and_ranking_boundaries(self):
+        scenario = next(item for item in self.benchmark["scenarios"] if item["id"] == "travel-planning-with-current-availability")
+        sequence = scenario["sequence"]
+
+        self.assertEqual(scenario["entrypoint"], "travel-agency-workflow")
+        self.assertIn("travel-availability-snapshot", sequence)
+        self.assertIn("travel-option-ranking", sequence)
+        self.assertIn("travel-itinerary-planner", sequence)
+        self.assertLess(sequence.index("travel-availability-snapshot"), sequence.index("travel-option-ranking"))
+        self.assertLess(sequence.index("travel-option-ranking"), sequence.index("travel-itinerary-planner"))
+        self.assertEqual(self.skills["travel-agency-workflow"]["governance"]["discoverability"], "public")
+        for worker in sequence:
+            self.assertNotEqual(self.skills[worker]["governance"]["discoverability"], "public", worker)
+
 
 if __name__ == "__main__":
     unittest.main()
