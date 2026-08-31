@@ -1,0 +1,5 @@
+interface:
+  display_name: "Speech Review"
+  short_description: "Prüft Reden auf Wirkung, Sprechbarkeit, Timing, Speaker Fit und sachliche Fidelity."
+policy:
+  allow_implicit_invocation: true

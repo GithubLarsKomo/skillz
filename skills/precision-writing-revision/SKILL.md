@@ -1,10 +1,10 @@
 ---
 name: precision-writing-revision
-description: Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, Memos und Sachtexte durch Muster-Audit, optionales Author-Voice-Profil, Precision Rewrite und anschließende Fidelity-Prüfung. Verwenden, wenn ein vollständiger wiederholbarer Editierworkflow statt einer isolierten Umformulierung gewünscht ist.
+description: Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, Memos, Sachtexte, Reden, Sprechertexte und Folientexte durch Muster-Audit, optionales Author-/Speaker-Voice-Profil, Precision Rewrite und anschließende Fidelity-Prüfung.
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -16,35 +16,52 @@ requires:
 outputs:
   - final-revised-text
   - precision-writing-report.json
-lastEvaluated: 2026-08-20
+lastEvaluated: 2026-08-23
 ---
 
 # Precision Writing Revision
 
 ## Rolle
 
-Dieser Skill ist ein **dünner Orchestrator**. Er koordiniert vier Fach-Skills und dupliziert deren Stil-, Profil- oder Fidelity-Logik nicht.
+Dieser Skill ist ein **dünner Orchestrator**. Er koordiniert vier Fach-Skills und dupliziert deren Stil-, Profil- oder Fidelity-Logik nicht. Er ist die gemeinsame Sprachoptimierungsstufe für dokumentbasierte und gesprochene Kommunikation.
+
+## Genres
+
+Unterstützt werden `report|memo|general|speech|speaker-notes|slide-copy` in `de|en`.
 
 ## Ablauf
 
 1. **Kontext fixieren:** Sprache, Genre, Zielgruppe, Modus und bei Englisch Zielvariante bestimmen.
-2. **Audit:** `llm-prose-pattern-audit` ausführen.
-3. **Author Voice:** Nur bei `mode=author` ein vorhandenes belastbares `author-voice-profile.json` verwenden oder bei explizitem Auftrag `author-voice-profiler` ausführen. Fehlt ein Profil, dokumentiert auf Genre-/Sprachregeln zurückfallen.
-4. **Fidelity Lock:** Claims, Zahlen, Quellen, Negationen, Bedingungen, Zeitbezug, Modalität und geschützte Terminologie aus Quelle beziehungsweise vorhandener Evidence Note fixieren.
-5. **Rewrite:** `precision-language-rewriter` mit Audit, Profil und Fidelity Lock ausführen.
+2. **Audit:** `llm-prose-pattern-audit` ausführen; bei gesprochener Sprache Muster als Editing-Signale, nicht als starre Report-Regeln interpretieren.
+3. **Voice:** Bei `mode=author` ein belastbares `author-voice-profile.json` beziehungsweise bei Speaking-Workflows ein kompatibles `speaker-profile.json` verwenden. Fehlt ein Profil, dokumentiert auf Genre-/Sprachregeln zurückfallen.
+4. **Fidelity Lock:** Claims, Zahlen, Quellen, Negationen, Bedingungen, Zeitbezug, Modalität und geschützte Terminologie fixieren.
+5. **Rewrite:** `precision-language-rewriter` mit Sprache, Genre, Audit, Profil und Fidelity Lock ausführen.
 6. **Verification:** `rewrite-fidelity-verifier` ausführen.
-7. **Korrekturschleife:** Bei `review` nur markierte Stellen nacharbeiten und erneut prüfen. Bei Hard Fail die betroffene Änderung zurücknehmen oder fachlich autorisieren lassen.
+7. **Korrekturschleife:** Nur markierte Stellen nacharbeiten und erneut prüfen. Bei Hard Fail Änderung zurücknehmen oder fachlich autorisieren lassen.
 8. **Ausgabe:** finalen Text plus kompakten Revisionsbericht liefern.
 
-## Integrationen
+## Speaking-Integration
 
-Wenn eine Recherche bereits durch `research-to-evidence-note` strukturiert wurde, deren Claims und Confidence als bevorzugte Fidelity-Basis verwenden. Bei Dokumentproduktion wird nur der sprachlich verifizierte Endtext an DOCX/PDF-Renderer weitergereicht.
+### Rede
+
+`speech-writer → precision-writing-revision(genre=speech) → speech-review`
+
+Die Optimierung darf die Dramaturgie und bewusst gesetzte rhetorische Wiederholungen nicht versehentlich als Redundanz entfernen.
+
+### Vortrag
+
+Zwei getrennte Sprachpfade verwenden:
+
+- On-Slide-Text: `slide-architect → precision-writing-revision(genre=slide-copy)`
+- gesprochener Vortrag/Speaker Notes: `presentation-writer → precision-writing-revision(genre=speaker-notes)`
+
+Danach führt `presentation-review` beide Ebenen wieder zusammen. Eine Kürzung auf der Folie darf keine fachliche Information verlieren; ausführliche Inhalte werden bei Bedarf in Speaker Notes verschoben.
 
 ## Modusgrenzen
 
 - `light`: lokale Entglättung und Präzisierung
-- `author`: zusätzlich bestätigte persönliche Voice
-- `editorial`: stärkere Absatzredaktion, aber unveränderte Fakten- und Claim-Grenze
+- `author`: zusätzlich bestätigte persönliche Voice beziehungsweise Speaker Voice
+- `editorial`: stärkere Absatz-/Passagenredaktion, aber unveränderte Fakten- und Claim-Grenze
 
 ## Output
 
@@ -53,9 +70,9 @@ Wenn eine Recherche bereits durch `research-to-evidence-note` strukturiert wurde
   "schemaVersion": 1,
   "mode": "author",
   "language": "en",
-  "genre": "report",
+  "genre": "speaker-notes",
   "audit": "prose-audit.json",
-  "authorProfile": "author-voice-profile.json",
+  "voiceProfile": "speaker-profile.json",
   "fidelityStatus": "pass",
   "correctionPasses": 0,
   "warnings": []
@@ -68,6 +85,7 @@ Wenn eine Recherche bereits durch `research-to-evidence-note` strukturiert wurde
 - Kein finaler Text bei ungeklärtem Hard Fail.
 - Kein persönlicher Stil ohne belastbare Profilbasis behaupten.
 - Kein Detector-Evasion-Ziel einführen.
+- Gesprochene Sprache wird nicht auf Report-Prosa normalisiert.
 - Orchestrator bleibt dünn und verändert nicht selbst Fachlogik.
 
 ## Abschluss
