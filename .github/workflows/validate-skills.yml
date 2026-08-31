@@ -16,6 +16,30 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install MCP package
+        run: python -m pip install .
+      - name: Test MCP initial slice
+        run: python -m unittest tests.test_mcp_initial_slice
+      - name: Test MCP protocol error paths
+        run: python -m unittest tests.test_mcp_error_paths
+      - name: Test MCP stdio transport
+        run: python -m unittest tests.test_mcp_stdio
+      - name: Test MCP Streamable HTTP transport
+        run: python -m unittest tests.test_mcp_http
+      - name: Test MCP OAuth resource-server auth
+        run: python -m unittest tests.test_mcp_auth
+      - name: Test catalog-driven MCP extensibility
+        run: python -m unittest tests.test_mcp_catalog_extensibility
+      - name: Build MCP production Docker image
+        run: docker build --tag skillz-mcp:ci .
+      - name: Test Core CLI MCP parity
+        run: python -m unittest tests.test_cli_mcp_parity
+      - name: Test graph and catalog identity core
+        run: python -m unittest tests.test_graph_identity
+      - name: Test safe catalog validation core
+        run: python -m unittest tests.test_catalog_validation
+      - name: Test MCP resource path policy
+        run: python -m unittest tests.test_mcp_resource_policy
       - name: Test skillz bootstrap installer
         run: python -m unittest tests.test_bootstrap_skillz
       - name: Test clean-room beta installation path

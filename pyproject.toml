@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skillz-mcp"
+version = "0.1.0a1"
+description = "Read-only MCP discovery and capability interface for GithubLarsKomo/skillz"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28,<1",
+  "mcp>=2,<3",
+  "PyJWT[crypto]>=2.10,<3",
+]
+
+[project.scripts]
+skillz-mcp = "skillz_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillz_core", "src/skillz_mcp"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "scripts"]
+testpaths = ["tests"]
