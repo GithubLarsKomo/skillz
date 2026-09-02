@@ -1392,7 +1392,7 @@
     },
     "project-second-brain": {
       "files": {
-        "SKILL.md": "53262f4f9388da0f0e3d088965f2880d24f4af298ad651622e9843baaaeac9dd",
+        "SKILL.md": "a20c00476d7271d742888061f0021a25e07a7d7700da52ddc8dcab348214cfc6",
         "agents/openai.yaml": "5ee5032c4653e97297e8ec108d0c63b555998e124eda5d2819c3a2d266f41b6d"
       }
     },
