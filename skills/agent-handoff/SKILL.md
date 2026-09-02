@@ -4,7 +4,7 @@ description: Erzeugt einen kompakten, verifizierbaren Übergabestand für neue S
 userFacing: true
 implicitInvocation: true
 category: engineering
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -13,7 +13,7 @@ requires:
 outputs:
   - agent-handoff.json
   - agent-handoff.md
-lastEvaluated: 2026-07-31
+lastEvaluated: 2026-09-02
 ---
 
 # Agent Handoff
@@ -35,7 +35,7 @@ Erfasse vor der Übergabe mindestens:
 - offene Risiken, Blocker und unbestätigte Annahmen,
 - genau eine nächste ausführbare Aktion.
 
-Zugangsdaten, personenbezogene Inhalte, vollständige Logs und unnötige Repositoryinhalte werden nicht in die Übergabe kopiert.
+Wenn ein Project Second Brain aktiv ist, zusätzlich `docs/project-memory/state.json`, `INDEX.md` und den letzten relevanten Event lesen und den `projectMemory`-Verweis übernehmen. Zugangsdaten, personenbezogene Inhalte, vollständige Logs und unnötige Repositoryinhalte werden nicht in die Übergabe kopiert.
 
 ## Grundsätze
 
@@ -47,7 +47,7 @@ Trenne konsequent:
 - **abgeschlossene Arbeit:** bereits erledigte Schritte, die nicht wiederholt werden dürfen,
 - **nächste Aktion:** kleinster ausführbarer Schritt, der den Workflow fortsetzt.
 
-Eine Übergabe ist kein Ort für neue Produkt- oder Architekturentscheidungen.
+Eine Übergabe ist kein Ort für neue Produkt- oder Architekturentscheidungen. Bei aktivem Project Memory ist sie außerdem keine zweite Projektchronik: sie verweist auf den persistenten Zustand und enthält nur den für die Fortsetzung notwendigen Ausschnitt.
 
 ## Ablauf
 
@@ -59,11 +59,22 @@ Formuliere das bestätigte Ziel in einem Satz. Ergänze In-Scope, Nicht-Ziele un
 
 Dokumentiere Repository, Branch, unveränderlichen Head-SHA, Basisbranch, Arbeitsbaumstatus sowie relevante Datei- und Pfadangaben. Ist der Head-SHA unbekannt oder veraltet, darf die Übergabe keine schreibende Folgeaktion freigeben.
 
-### 3. Entscheidungen und erledigte Arbeit erfassen
+### 3. Project Memory verifizieren
+
+Wenn `docs/project-memory/state.json` vorhanden oder ein `projectMemory`-Verweis übergeben wurde:
+
+1. prüfen, dass Root, State und `latestEvent` erreichbar und zum Projekt passend sind,
+2. den letzten Event gegen Repository-/Delivery-Evidenz auf Freshness prüfen,
+3. fehlende wesentliche Zustandsänderungen vor dem Handoff über `project-second-brain` dokumentieren,
+4. nur den Verweis und den handoff-relevanten Ausschnitt in die Übergabe übernehmen.
+
+Keinen neuen parallelen Projekt-Memory-Baum anlegen.
+
+### 4. Entscheidungen und erledigte Arbeit erfassen
 
 Liste nur Entscheidungen auf, die belegt oder ausdrücklich bestätigt sind. Erfasse anschließend abgeschlossene Schritte, zugehörige Commits, Befehle und Resultate. Kennzeichne Versuche, die fehlgeschlagen oder verworfen wurden, damit sie nicht blind wiederholt werden.
 
-### 4. Evidenz und Freshness bewerten
+### 5. Evidenz und Freshness bewerten
 
 Jeder Verifikationspunkt enthält Quelle, Ergebnis, Zeitpunkt und Freshness-Status:
 
@@ -74,15 +85,15 @@ Jeder Verifikationspunkt enthält Quelle, Ergebnis, Zeitpunkt und Freshness-Stat
 
 CI, Deployments, Reviews, Mergefähigkeit, Dienststatus und externe Integrationen gelten als volatil. Ihre Übergabe benötigt einen Prüfzeitpunkt, eine Watch-Bedingung und bei schreibenden Aktionen einen erwarteten Head-SHA.
 
-### 5. Risiken und Blocker trennen
+### 6. Risiken und Blocker trennen
 
 Ein **Risiko** erlaubt Fortsetzung mit dokumentierter Vorsicht. Ein **Blocker** verhindert die nächste Aktion bis zu einer klar benannten Auflösung. Annahmen dürfen weder als Risiken noch als Fakten getarnt werden.
 
-### 6. Genau eine nächste Aktion bestimmen
+### 7. Genau eine nächste Aktion bestimmen
 
 Definiere einen konkreten Befehl, Toolaufruf oder Review-Schritt mit Vorbedingungen und erwarteter Evidenz. Mehrere unabhängige nächste Schritte werden priorisiert; nur der erste wird als ausführbar markiert.
 
-### 7. Übergabe prüfen
+### 8. Übergabe prüfen
 
 Verifiziere vor Abschluss:
 
@@ -90,6 +101,7 @@ Verifiziere vor Abschluss:
 - Fakten, Annahmen und offene Prüfungen sind getrennt,
 - erledigte Arbeit und Nicht-Wiederholen-Hinweise sind enthalten,
 - volatile Zustände besitzen Freshness und Prüfregel,
+- bei aktivem Project Memory stimmen Root, State und letzter Event mit dem Handoff überein,
 - genau eine nächste Aktion ist ausführbar,
 - keine Geheimnisse oder unnötigen Logs enthalten sind.
 
@@ -104,9 +116,11 @@ Bei laufender CI oder ausstehendem Deployment:
 5. an `deferred-external-action-verification` übergeben,
 6. keine Erfolgsaussage vor verifiziertem Abschluss treffen.
 
+Bei aktivem Project Memory muss der pending Zustand als offene Schleife sichtbar bleiben; wiederholte unveränderte Polls erzeugen keinen neuen Event.
+
 ## Fehlerbehandlung
 
-Lehne die Übergabe ab und rekonstruiere sie, wenn sie nur eine vage Zusammenfassung enthält, Commit- oder Branchzustand fehlt, Annahmen mit Fakten vermischt werden, bereits erledigte Arbeit erneut beauftragt wird, mehrere konkurrierende nächste Aktionen offenbleiben oder externer Erfolg ohne Evidenz behauptet wird.
+Lehne die Übergabe ab und rekonstruiere sie, wenn sie nur eine vage Zusammenfassung enthält, Commit- oder Branchzustand fehlt, Annahmen mit Fakten vermischt werden, bereits erledigte Arbeit erneut beauftragt wird, mehrere konkurrierende nächste Aktionen offenbleiben, externer Erfolg ohne Evidenz behauptet wird oder ein vorhandener Project-Memory-Zustand ignoriert beziehungsweise durch eine parallele Chronik ersetzt wird.
 
 Fehlt entscheidende Evidenz, übergib an `disciplined-diagnosis` oder `iterate-software-projects`. Ist ein klar begrenztes Issue als Nächstes umzusetzen, verwende `test-driven-vertical-slice`.
 
@@ -123,6 +137,11 @@ Fehlt entscheidende Evidenz, übergib an `disciplined-diagnosis` oder `iterate-s
     "headSha": "...",
     "workingTree": "clean|dirty|unknown"
   },
+  "projectMemory": {
+    "root": "docs/project-memory/INDEX.md",
+    "state": "docs/project-memory/state.json",
+    "latestEvent": "docs/project-memory/events/EVT-....md"
+  },
   "references": {"issues": ["#..."], "pullRequests": ["#..."], "externalRuns": ["..."]},
   "facts": [{"statement": "...", "evidence": "..."}],
   "assumptions": [{"statement": "...", "verification": "..."}],
@@ -137,8 +156,10 @@ Fehlt entscheidende Evidenz, übergib an `disciplined-diagnosis` oder `iterate-s
 }
 ```
 
-Der menschlich lesbare Brief fasst Ziel, Repositoryzustand, bestätigte Entscheidungen, erledigte Arbeit, offene Risiken und die nächste Aktion kompakt zusammen, ohne die maschinenlesbaren Details zu ersetzen.
+`projectMemory` ist optional, wenn für den Kontext kein Project Second Brain existiert. Für Projekte, die ab Grilling unter diesem Contract laufen, ist der Verweis verpflichtend.
+
+Der menschlich lesbare Brief fasst Ziel, Repositoryzustand, bestätigte Entscheidungen, erledigte Arbeit, offene Risiken und die nächste Aktion kompakt zusammen, ohne die maschinenlesbaren Details oder die persistente Projektdokumentation zu ersetzen.
 
 ## Abschlusskriterien
 
-Die Übergabe ist abgeschlossen, wenn ein neuer Agent ohne erneute Vollanalyse den verifizierten Zustand versteht, nichts bereits Erledigtes wiederholt, volatile externe Zustände korrekt nachprüft und genau die nächste sichere Aktion ausführen kann.
+Die Übergabe ist abgeschlossen, wenn ein neuer Agent ohne erneute Vollanalyse den verifizierten Zustand versteht, nichts bereits Erledigtes wiederholt, volatile externe Zustände korrekt nachprüft, bei aktivem Project Memory den persistenten Projektgraphen korrekt fortsetzt und genau die nächste sichere Aktion ausführen kann.
