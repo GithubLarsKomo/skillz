@@ -71,18 +71,16 @@ Atomare Ereignisnotizen mit YAML-Frontmatter und normalen relativen Markdown-Lin
 
 Project Memory kopiert keine `SPEC.md`, Wayfinding-Artefakte, Review-Evidenz oder Delivery-Daten. Es verweist auf die kanonischen Artefakte und dokumentiert ihren Status.
 
-Beispiel:
+Die folgende Darstellung zeigt nur die beabsichtigten relativen Ziele; in einer realen Project-Memory-Datei werden daraus normale Markdown-Links, sobald die referenzierten Dateien existieren:
 
-```markdown
-## Inputs
+```text
+Inputs:
+- Requirements Handoff -> ../../requirements-handoff.json
+- Wayfinding Brief -> ../../wayfinding-brief.md
 
-- [Requirements Handoff](../../requirements-handoff.json)
-- [Wayfinding Brief](../../wayfinding-brief.md)
-
-## Outputs
-
-- [SPEC v1](../../SPEC.md)
-- [DEC-004](../decisions/DEC-004.md)
+Outputs:
+- SPEC v1 -> ../../SPEC.md
+- DEC-004 -> ../decisions/DEC-004.md
 ```
 
 Relative Markdown-Links sind bewusst die Standardform, weil sie sowohl GitHub als auch Obsidian verstehen.
