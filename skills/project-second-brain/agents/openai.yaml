@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Second Brain"
+  short_description: "Dokumentiert Projekte ab dem Grilling als GitHub-versionierten, Obsidian-kompatiblen verlinkten Second Brain."
+policy:
+  allow_implicit_invocation: true
