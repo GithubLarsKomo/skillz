@@ -4,16 +4,17 @@ description: Verdichtet bestätigten Gesprächs-, Grilling-, Wayfinding- und Rep
 userFacing: true
 implicitInvocation: true
 category: engineering
-version: 0.2.0
+version: 0.3.0
 status: candidate
 owners:
   - GithubLarsKomo
-requires: []
+requires:
+  - project-second-brain
 outputs:
   - SPEC.md
   - decision register
   - consistency report
-lastEvaluated: 2026-08-20
+lastEvaluated: 2026-09-02
 ---
 
 # Conversation to Spec
@@ -41,13 +42,14 @@ Wenn Wayfinder-Evidenz eine bereits normative Architektur-, Sicherheits-, Daten-
 
 Nutze in dieser Reihenfolge:
 
-1. ausdrücklich bestätigte Nutzerentscheidungen, freigegebene Grilling-Reports und `requirements-handoff.json`,
-2. Wayfinder-Evidenz wie `wayfinding-brief.md`, `investigation-backlog.json` und `dependency-graph.json`,
-3. vorhandene `SPEC.md`, `README.md`, Architektur- und Agent-Dokumente,
-4. ADRs, Aufgabenlisten, Issues und bestehende Implementierung,
-5. begründete Annahmen nur für nicht entscheidungskritische Lücken.
+1. vorhandenes `docs/project-memory/state.json` und den letzten relevanten Project-Memory-Event, sofern der Projekt-Memory-Root bereits initialisiert ist,
+2. ausdrücklich bestätigte Nutzerentscheidungen, freigegebene Grilling-Reports und `requirements-handoff.json`,
+3. Wayfinder-Evidenz wie `wayfinding-brief.md`, `investigation-backlog.json` und `dependency-graph.json`,
+4. vorhandene `SPEC.md`, `README.md`, Architektur- und Agent-Dokumente,
+5. ADRs, Aufgabenlisten, Issues und bestehende Implementierung,
+6. begründete Annahmen nur für nicht entscheidungskritische Lücken.
 
-Kennzeichne Widersprüche und Unsicherheiten. Überschreibe keine bestätigte Festlegung durch eine spätere bloße Vermutung.
+Kennzeichne Widersprüche und Unsicherheiten. Überschreibe keine bestätigte Festlegung durch eine spätere bloße Vermutung. Der Project-Memory-State ist eine Navigations- und Kontinuitätsprojektion; die verlinkten kanonischen Artefakte bleiben die fachliche Quelle.
 
 ## Kernregeln
 
@@ -59,6 +61,7 @@ Kennzeichne Widersprüche und Unsicherheiten. Überschreibe keine bestätigte Fe
 - Halte das MVP ohne unvalidierte KI sicher nutzbar; dokumentiere KI-/ML-Vorbereitung separat.
 - Verweise auf ADR-pflichtige Entscheidungen, statt sie unbemerkt in der Spezifikation zu treffen.
 - Route echte fachliche Unsicherheit zu Grilling und echte technische Unsicherheit zu Wayfinder, statt beide innerhalb der SPEC zu kaschieren.
+- Nutze Project Memory zur Rückverfolgbarkeit, aber dupliziere keine normative SPEC oder Decision Records in Event-Notizen.
 
 ## Workflow
 
@@ -73,7 +76,7 @@ Erfasse je Quelle:
 - erkennbare Widersprüche,
 - offenen Geltungsbereich.
 
-Bei Repository-Arbeit zuerst `docs/agents/CONFIG.md`, `CONTEXT.md` und `DECISIONS.md` lesen, sofern vorhanden.
+Bei Repository-Arbeit zuerst `docs/project-memory/state.json` und den letzten relevanten Event lesen, sofern vorhanden; danach `docs/agents/CONFIG.md`, `CONTEXT.md` und `DECISIONS.md`, sofern vorhanden.
 
 ### 2. Entscheidungsregister bilden
 
@@ -151,11 +154,27 @@ Liefere:
 
 Nach ausdrücklicher Freigabe geht die SPEC an `spec-to-vertical-issues`. Speichere oder veröffentliche die Spezifikation nur im ausdrücklich bestimmten Produkt-Repository. Der Grilling- oder Skill-Katalog ist kein Ablageort für projektspezifische Spezifikationen.
 
+### 8. Project Memory fortschreiben
+
+Vor der Übergabe an `spec-to-vertical-issues` beziehungsweise vor einem Rücksprung zu Grilling oder Wayfinder `project-second-brain` aktualisieren.
+
+Der Event mit `stage: specification` verlinkt mindestens:
+
+- verwendete Grilling-/Wayfinding-Quellen,
+- aktuelle `SPEC.md` mit Commit- oder unveränderlicher Referenz,
+- Entscheidungsregister und relevante `decision-record`-Artefakte,
+- Konsistenzbericht,
+- Freigabestatus der SPEC,
+- verbleibende Blocker und Routingziel,
+- genau die nächste Aktion.
+
+Bei einer späteren SPEC-Änderung den alten Event nicht überschreiben. Einen neuen Event erzeugen, der die vorherige Spezifikationsfassung und den Änderungsgrund verlinkt.
+
 ## Qualitätsfälle
 
 ### Happy Path
 
-Mehrere freigegebene Grilling-Reports, Wayfinder-Evidenz und Repository-Dokumente sind konsistent. Ergebnis ist eine vollständige Spezifikation ohne erneutes Interview oder technische Re-Exploration.
+Mehrere freigegebene Grilling-Reports, Wayfinder-Evidenz und Repository-Dokumente sind konsistent. Ergebnis ist eine vollständige Spezifikation ohne erneutes Interview oder technische Re-Exploration; der Spezifikationsstand ist im Project Second Brain mit seinen Quellen verankert.
 
 ### Grenzfall
 
@@ -163,7 +182,7 @@ Eine Detailfrage ist offen, aber durch eine austauschbare Schnittstelle vertagba
 
 ### Fehlerfall
 
-Eine bindende fachliche Entscheidung fehlt oder technische Evidenz reicht für eine normative Aussage nicht aus. Stoppe nur die betroffene Festlegung, route sie zu Grilling beziehungsweise Wayfinder und liefere den übrigen konsistenten Teil weiter.
+Eine bindende fachliche Entscheidung fehlt oder technische Evidenz reicht für eine normative Aussage nicht aus. Stoppe nur die betroffene Festlegung, route sie zu Grilling beziehungsweise Wayfinder und liefere den übrigen konsistenten Teil weiter. Der Project-Memory-Event dokumentiert den Blocker, ohne ihn als abgeschlossene Entscheidung darzustellen.
 
 ## Abschlusskriterien
 
@@ -176,4 +195,5 @@ Der Skill ist abgeschlossen, wenn:
 - Annahmen und offene Punkte sichtbar getrennt sind,
 - Architektur- und Sicherheitsinvarianten konsistent bleiben,
 - jeder Blocker das korrekte Routingziel besitzt,
-- die SPEC freigabefähig ist und nach Freigabe eindeutig an `spec-to-vertical-issues` übergeben werden kann.
+- die SPEC freigabefähig ist und nach Freigabe eindeutig an `spec-to-vertical-issues` übergeben werden kann,
+- der aktuelle Spezifikationszustand mit Quellen, Entscheidungen und nächster Aktion im Project Second Brain verankert ist.
