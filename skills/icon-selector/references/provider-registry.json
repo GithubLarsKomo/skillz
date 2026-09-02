@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "providers": {
+    "euroimmun-corporate": {
+      "brandAliases": [
+        "EUROIMMUN",
+        "EUROIMMUN from Revvity",
+        "Revvity EUROIMMUN"
+      ],
+      "systemContract": "docs/corporate/euroimmun/ICON_SYSTEM.md",
+      "semanticCatalog": "docs/corporate/euroimmun/icon-semantic-catalog.json",
+      "humanCatalog": "docs/corporate/euroimmun/ICON_CATALOG.md",
+      "runtimeAssetSource": "Icons.zip",
+      "runtimeAssetSha256": "533f9adda32bb5746ab061a95b8e392be7511071a18d23e2c56e819b89ae8fde",
+      "assetPersistence": "runtime-only",
+      "supports": [
+        "essential",
+        "portfolio",
+        "technique",
+        "project",
+        "variant-routing"
+      ]
+    }
+  }
+}
