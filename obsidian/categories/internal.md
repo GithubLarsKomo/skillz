@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **57**
+Skills: **58**
 
 - [[skills/artifact-contract-normalizer|artifact-contract-normalizer]]
 - [[skills/course-concept-graph|course-concept-graph]]
@@ -28,6 +28,7 @@ Skills: **57**
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
 - [[skills/frontend-product-context|frontend-product-context]]
+- [[skills/icon-selector|icon-selector]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/learning-activity-generator|learning-activity-generator]]

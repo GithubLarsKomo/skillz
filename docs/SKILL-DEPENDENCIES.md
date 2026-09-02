@@ -1137,6 +1137,7 @@ graph TD
 | `hotspot-map.json` | `performance-hotspot-analysis` | `optimize-software-performance`, `performance-optimization-plan` | inferred |
 | `human-procedure-plan.md` | `human-procedure-wizard` | — | unconsumed |
 | `human-procedure-result.json` | `human-procedure-wizard` | — | unconsumed |
+| `icon-selection.json` | `icon-selector` | — | unconsumed |
 | `ifu-content-structure.md` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `implementation-evidence.json` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |
 | `implementation-residual-risk-handoff.json` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |

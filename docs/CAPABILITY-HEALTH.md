@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **307**
+- Skills: **308**
 - User-facing entrypoints: **250**
-- Discoverability — public: **241**, advanced: **9**, internal: **55**, compatibility: **2**
-- Evaluation suites: **307**
+- Discoverability — public: **241**, advanced: **9**, internal: **56**, compatibility: **2**
+- Evaluation suites: **308**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **307/307**
+- Skills with evaluation suite: **308/308**
 - User-facing entrypoints with evaluation suite: **250/250**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **313**
+- Outputs without inferred hard-requires consumers: **314**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -164,6 +164,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `gudid-udi-readiness.json` — producer: `fda-registration-listing-udi`
 - `human-procedure-plan.md` — producer: `human-procedure-wizard`
 - `human-procedure-result.json` — producer: `human-procedure-wizard`
+- `icon-selection.json` — producer: `icon-selector`
 - `import verification` — producer: `openasr-offline-model-import`
 - `inheritance-gift-tax-assessment.json` — producer: `inheritance-gift-tax-specialist`
 - `inheritance-gift-tax-open-issues.json` — producer: `inheritance-gift-tax-specialist`

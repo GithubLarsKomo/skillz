@@ -1260,6 +1260,14 @@
       ]
     },
     {
+      "name": "icon-selector",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "icon-selection.json"
+      ]
+    },
+    {
       "name": "iec62304-software-lifecycle",
       "requires": [
         "design-control-traceability",
@@ -10791,6 +10799,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "icon-selection.json",
+      "producers": [
+        "icon-selector"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "ifu-content-structure.md",
       "producers": [
         "medical-device-labeling-ifu"
@@ -16672,6 +16689,7 @@
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
+    "icon-selection.json",
     "import verification",
     "inheritance-gift-tax-assessment.json",
     "inheritance-gift-tax-open-issues.json",
@@ -16987,6 +17005,7 @@
     "gudid-udi-readiness.json",
     "human-procedure-plan.md",
     "human-procedure-result.json",
+    "icon-selection.json",
     "import verification",
     "inheritance-gift-tax-assessment.json",
     "inheritance-gift-tax-open-issues.json",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "skillCount": 307,
+  "skillCount": 308,
   "entrypointCount": 250,
   "entrypointCategories": [
     "analysis",
@@ -17,11 +17,11 @@
   "discoverabilityCounts": {
     "public": 241,
     "advanced": 9,
-    "internal": 55,
+    "internal": 56,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 307,
-  "evaluatedSkillCount": 307,
+  "evaluationSuiteCount": 308,
+  "evaluatedSkillCount": 308,
   "evaluatedEntrypointCount": 250,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
@@ -6310,6 +6310,45 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "icon-selector",
+      "description": "Wählt aus einer registrierten Icon-Bibliothek das semantisch passendste vorhandene Icon und eine zulässige Farb-/Kontrastvariante anhand von Intent, Kontext, Domain, Zielmedium und Hintergrund. Verwenden intern vor dem Platzieren von Icons in Präsentationen, Dokumenten oder anderen gebrandeten Artefakten; keine Icons erfinden, umzeichnen oder regulatorische/klinische Bedeutung aus einem Symbol ableiten.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [],
+      "outputs": [
+        "icon-selection.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "icon-selection.json",
+          "ambiguous": false,
+          "producers": [
+            "icon-selector"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/provider-registry.json"
       ],
       "evaluation": {
         "mode": "compatibility",

@@ -641,6 +641,13 @@
         "agents/openai.yaml": "99124c09d6e8d0b142e9339489e6fe659283eef8bfbc19344f767a0cb88d21ef"
       }
     },
+    "icon-selector": {
+      "files": {
+        "SKILL.md": "9b0d98a432e20c647ac1c0eeecf6f065256279c8c33c3ce9f5839321190dca09",
+        "agents/openai.yaml": "d04db0a262a999c6ed41d4a82219a6a1cffaa1087e5cd9ea384645f2952b34bf",
+        "references/provider-registry.json": "e2cba436369a15aac2c470d7eff1ef8c1941a5a723cd7c9e077a731e85c0e547"
+      }
+    },
     "iec62304-software-lifecycle": {
       "files": {
         "SKILL.md": "4d9bcede99f94c1198c4a0badf4b1fa535c16a43ff1a4ae3a49ba5f637a88cf5",
