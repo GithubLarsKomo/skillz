@@ -17,7 +17,8 @@
         "domain": {"type": ["string", "null"]},
         "medium": {"type": ["string", "null"]},
         "background": {"enum": ["light", "dark", "photo", null]},
-        "criticalMeaning": {"type": "boolean"}
+        "criticalMeaning": {"type": "boolean"},
+        "designSystem": {"type": ["string", "object", "null"]}
       },
       "additionalProperties": true
     },
@@ -29,6 +30,10 @@
         "family": {"type": "string", "minLength": 1},
         "variant": {"type": ["string", "null"]},
         "assetStem": {"type": ["string", "null"]},
+        "colorToken": {"type": ["string", "null"]},
+        "strokeWidth": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "runtimeVersion": {"type": ["string", "null"]},
+        "sourceLicense": {"type": ["string", "null"]},
         "rationale": {"type": "string", "minLength": 1},
         "confidence": {"enum": ["high", "medium", "low"]},
         "requiresTextLabel": {"type": "boolean"}
