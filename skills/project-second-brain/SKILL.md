@@ -35,6 +35,13 @@ Verwenden:
 
 Nicht für jedes Shell-Kommando, jede Toolabfrage oder jede Zwischenüberlegung einen Event erzeugen. Dokumentiert werden **semantische Zustandsänderungen und abgeschlossene Arbeitsabschnitte**.
 
+## Voraussetzungen
+
+- Ein projektbezogener Kontext oder ein abgeschlossener Grilling-Schritt ist vorhanden.
+- Das Ziel-Repository ist bekannt oder kann als Bootstrap später eindeutig bestimmt werden.
+- Kanonische Producer-Artefakte bleiben an ihren bestehenden Ablageorten und werden nicht in den Project Memory kopiert.
+- Bei Repository-Arbeit wird der relevante Branch-/Commit-Zustand verifiziert, bevor er als Evidenz festgeschrieben wird.
+
 ## Kanonischer Ablageort
 
 Die Projektdokumentation liegt im **Ziel-Repository des Projekts**, standardmäßig unter:
@@ -62,12 +69,12 @@ Besteht bereits eine gleichwertige Projektdokumentationsstruktur, wird sie weite
 
 ## GitHub- und Obsidian-Kompatibilität
 
-Verwende normales Markdown mit relativen Links wie:
+Verwende in realen Project-Memory-Dateien normales Markdown mit relativen Links. Die folgenden Beispielziele sind nur Schema-Platzhalter und deshalb hier bewusst als Pfade statt als auflösbare Links dargestellt:
 
-```markdown
-[DEC-004](../decisions/DEC-004.md)
-[SPEC](../../SPEC.md)
-[EVT-20260902-101500-spec-created](events/EVT-20260902-101500-spec-created.md)
+```text
+DEC-004 -> ../decisions/DEC-004.md
+SPEC -> ../../SPEC.md
+EVT-20260902-101500-spec-created -> events/EVT-20260902-101500-spec-created.md
 ```
 
 Normale Markdown-Links funktionieren in GitHub und Obsidian. Wikilinks `[[...]]` dürfen ergänzend nur verwendet werden, wenn das Repository dies bereits verbindlich nutzt; sie sind nicht die alleinige Navigation.
@@ -106,6 +113,16 @@ Grilling
 ```
 
 Wenn ein Schritt keine Zustandsänderung erzeugt, darf auf einen neuen Event verzichtet werden. Der Grund muss aus bestehender Event- oder Handoff-Evidenz erkennbar sein.
+
+## Ablauf
+
+1. Bestehenden Project-Memory-Root, `state.json` und letzten relevanten Event lesen oder nach dem ersten Grilling initialisieren.
+2. Den kanonischen Input und den verifizierten Repository-/External-State des abgeschlossenen Arbeitsschritts bestimmen.
+3. Nur bei einer semantischen Zustandsänderung einen neuen Event erzeugen.
+4. Wesentliche Entscheidungen über `decision-record` referenzieren, statt sie als zweite Wahrheit in Event-Text zu verstecken.
+5. `INDEX.md`, `TIMELINE.md` und `state.json` konsistent aktualisieren.
+6. Genau eine nächste Aktion und das Routingziel festhalten.
+7. Den `projectMemory`-Verweis an den nächsten Skill übergeben.
 
 ## Event-Modell
 
@@ -216,12 +233,14 @@ Sie ist eine **aktuelle Projektion**, keine unveränderliche Historie.
 
 ## `TIMELINE.md`
 
-Chronologisch, append-orientiert:
+Chronologisch, append-orientiert. Beispielhafte Darstellung ohne auflösbare Repo-Links:
 
-```markdown
-- 2026-09-02 09:45 — [EVT-...-grilling-closed](events/EVT-...md) — Requirements bestätigt; Routing zu Wayfinding.
-- 2026-09-02 10:15 — [EVT-...-spec-created](events/EVT-...md) — SPEC v1 erstellt; DEC-004 akzeptiert.
+```text
+- 2026-09-02 09:45 — EVT-...-grilling-closed -> events/EVT-...md — Requirements bestätigt; Routing zu Wayfinding.
+- 2026-09-02 10:15 — EVT-...-spec-created -> events/EVT-...md — SPEC v1 erstellt; DEC-004 akzeptiert.
 ```
+
+In der tatsächlichen `TIMELINE.md` werden die vorhandenen Event-Dateien als relative Markdown-Links gesetzt.
 
 Keine alten Ereignisse löschen, nur weil sie überholt sind. Stattdessen Folgeevent beziehungsweise Supersession verlinken.
 
@@ -285,6 +304,22 @@ Nach Initialisierung wird der Project-Memory-Verweis in nachgelagerten Handoffs 
 ```
 
 Nachgelagerte Skills lesen zuerst `state.json` und den letzten relevanten Event, bevor sie bereits dokumentierte Fakten erneut ermitteln oder Entscheidungen erneut abfragen.
+
+## Übergabe
+
+Die Übergabe besteht mindestens aus dem `projectMemory`-Verweis, dem aktuellen Routingziel, den offenen Schleifen und genau einer nächsten Aktion. Der nachgelagerte Skill liest zuerst `state.json` und den letzten relevanten Event und folgt anschließend den verlinkten kanonischen Artefakten.
+
+## Prüfungen
+
+Vor jedem Handoff prüfen:
+
+- Project-Memory-Root und `latestEvent` sind eindeutig und erreichbar,
+- der neue Event beschreibt eine echte semantische Zustandsänderung,
+- alle referenzierten kanonischen Artefakte und SHAs existieren beziehungsweise pending Zustände sind ausdrücklich als pending markiert,
+- `INDEX.md`, `TIMELINE.md` und `state.json` widersprechen dem Event nicht,
+- historische Events wurden nicht still umgeschrieben,
+- genau eine nächste Aktion ist benannt,
+- keine private Chain-of-Thought, Secrets oder unnötige sensible Inhalte wurden persistiert.
 
 ## Fehlerbehandlung
 
