@@ -24,6 +24,16 @@ When semantic icon selection is required, this contract MUST be used together wi
 
 The machine index currently enumerates 176 Essential names, while the original profile below estimated approximately 177 Essential semantic motifs. Preserve the machine index as the canonical named inventory until the proprietary source bundle is re-profiled; do not silently invent or rename a missing motif.
 
+### Skillz selector integration
+
+Whenever a Skillz presentation, DOCX/report, web/design or other artifact workflow decides to use an icon from this Corporate library, semantic selection and supplied-variant routing MUST be delegated to the internal `icon-selector` skill with provider `euroimmun-corporate` before the asset is placed.
+
+The selector receives at least the intended meaning and provider; where relevant also pass message context, domain, medium, background and whether the meaning is critical. Its `icon-selection.json` is the selection decision record for that icon use.
+
+This is an **on-demand soft dependency**, not a mandatory hard `requires` edge for every EUROIMMUN renderer: workflows that do not use icons do not invoke the selector. PDF derivatives inherit icon selection from the canonical PPTX/DOCX and MUST NOT independently re-select or restyle icons during PDF post-processing.
+
+If `icon-selector` returns `ambiguous`, `unresolved-provider` or `no-approved-match`, the calling workflow MUST NOT silently choose a different icon. Resolve the missing context, omit the icon, or document a justified non-icon alternative. The runtime asset is still resolved only from the authorized proprietary bundle; `icon-selection.json` does not authorize copying the binary into Skillz.
+
 ## 2. Inventory
 
 The supplied bundle contains four functional families:
@@ -162,6 +172,7 @@ For any artifact using the corporate icon system, QA must verify:
 
 - asset provenance/source bundle recorded;
 - correct semantic icon selected, using the catalog/semantic routing when selection is non-trivial;
+- when Skillz performs the selection, a successful `icon-selector` decision exists for provider `euroimmun-corporate`;
 - supplied color variant used where available;
 - no distortion or clipping;
 - optical peer sizing is consistent;
