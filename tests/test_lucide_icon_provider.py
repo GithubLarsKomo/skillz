@@ -52,9 +52,11 @@ class LucideIconProviderContractTests(unittest.TestCase):
     def test_snapshot_uses_immutable_full_git_ids(self):
         snapshot, _ = MODULE.validate_offline()
         self.assertEqual(len(snapshot["commit"]), 40)
-        self.assertEqual(len(snapshot["tree"]), 40)
+        self.assertEqual(len(snapshot["sourceTree"]), 40)
+        self.assertEqual(len(snapshot["inventoryTree"]), 40)
         self.assertEqual(snapshot["commit"], "4aec3f892fd6c23063bc2fead83c899b5d412b1c")
-        self.assertEqual(snapshot["tree"], "595ccdd85394acb59eac77042444a2ad2a2fcc88")
+        self.assertEqual(snapshot["sourceTree"], "595ccdd85394acb59eac77042444a2ad2a2fcc88")
+        self.assertEqual(snapshot["inventoryTree"], "468ecb61d104ef0374943b29112e1611d5cec12d")
 
 
 if __name__ == "__main__":
