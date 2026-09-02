@@ -2,9 +2,10 @@
 """Validate the Skillz Lucide provider against its pinned upstream snapshot.
 
 Offline checks are deterministic and run without network access. With
-``--check-upstream`` the validator fetches the immutable Git tree pinned in
-``docs/icons/lucide/upstream-snapshot.json`` and proves that every icon name
-referenced by the semantic overlay exists in that exact Lucide revision.
+``--check-upstream`` the validator fetches the immutable ``icons`` Git subtree
+pinned in ``docs/icons/lucide/upstream-snapshot.json`` and proves that every
+icon name referenced by the semantic overlay exists in that exact Lucide
+revision.
 """
 
 from __future__ import annotations
@@ -87,13 +88,17 @@ def validate_offline() -> tuple[dict[str, Any], list[str]]:
     profile = catalog.get("profile", {})
     release = snapshot.get("release")
     commit = snapshot.get("commit")
-    tree = snapshot.get("tree")
+    source_tree = snapshot.get("sourceTree")
+    inventory_tree = snapshot.get("inventoryTree")
     repository = snapshot.get("sourceRepository")
 
-    if not all(isinstance(value, str) and value for value in (release, commit, tree, repository)):
-        raise ValidationError("Snapshot must pin non-empty repository, release, commit and tree values")
-    if len(commit) != 40 or len(tree) != 40:
-        raise ValidationError("Snapshot commit and tree must use full 40-character Git SHAs")
+    pinned_values = (release, commit, source_tree, inventory_tree, repository)
+    if not all(isinstance(value, str) and value for value in pinned_values):
+        raise ValidationError(
+            "Snapshot must pin non-empty repository, release, commit, sourceTree and inventoryTree values"
+        )
+    if any(len(value) != 40 for value in (commit, source_tree, inventory_tree)):
+        raise ValidationError("Snapshot commit/sourceTree/inventoryTree must use full 40-character Git SHAs")
 
     if profile.get("sourceRepository") != repository:
         raise ValidationError("Catalog sourceRepository differs from pinned snapshot")
@@ -154,8 +159,8 @@ def validate_offline() -> tuple[dict[str, Any], list[str]]:
 
 def fetch_upstream_paths(snapshot: dict[str, Any]) -> set[str]:
     repository = snapshot["sourceRepository"]
-    tree = snapshot["tree"]
-    url = f"https://api.github.com/repos/{repository}/git/trees/{tree}?recursive=1"
+    inventory_tree = snapshot["inventoryTree"]
+    url = f"https://api.github.com/repos/{repository}/git/trees/{inventory_tree}?recursive=1"
     headers = {
         "Accept": "application/vnd.github+json",
         "User-Agent": "skillz-lucide-integrity-validator",
@@ -170,26 +175,32 @@ def fetch_upstream_paths(snapshot: dict[str, Any]) -> set[str]:
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-        raise ValidationError(f"Cannot fetch pinned Lucide tree {tree}: {exc}") from exc
+        raise ValidationError(f"Cannot fetch pinned Lucide icon tree {inventory_tree}: {exc}") from exc
 
-    if payload.get("sha") != tree:
-        raise ValidationError(f"GitHub returned tree {payload.get('sha')!r}, expected {tree!r}")
+    if payload.get("sha") != inventory_tree:
+        raise ValidationError(
+            f"GitHub returned icon tree {payload.get('sha')!r}, expected {inventory_tree!r}"
+        )
     if payload.get("truncated") is True:
-        raise ValidationError("Pinned Lucide recursive tree response is truncated")
+        raise ValidationError("Pinned Lucide icons subtree response is truncated")
 
     entries = payload.get("tree")
     if not isinstance(entries, list):
-        raise ValidationError("Pinned Lucide tree response has no tree entries")
-    return {entry.get("path") for entry in entries if isinstance(entry, dict) and isinstance(entry.get("path"), str)}
+        raise ValidationError("Pinned Lucide icon tree response has no tree entries")
+    return {
+        entry.get("path")
+        for entry in entries
+        if isinstance(entry, dict) and isinstance(entry.get("path"), str)
+    }
 
 
 def validate_upstream(snapshot: dict[str, Any], refs: list[str]) -> None:
     paths = fetch_upstream_paths(snapshot)
-    pattern = snapshot.get("inventoryPathPattern", "icons/{name}.json")
+    pattern = snapshot.get("inventoryPathPattern", "{name}.json")
     missing = [name for name in refs if pattern.format(name=name) not in paths]
     if missing:
         raise ValidationError(
-            "Semantic catalog references Lucide icons absent from the pinned upstream tree: "
+            "Semantic catalog references Lucide icons absent from the pinned upstream icon tree: "
             + ", ".join(missing)
         )
 
@@ -199,7 +210,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--check-upstream",
         action="store_true",
-        help="Also fetch the immutable pinned Lucide Git tree and verify every referenced icon name.",
+        help="Also fetch the immutable pinned Lucide icons Git subtree and verify every referenced icon name.",
     )
     args = parser.parse_args(argv)
 
@@ -214,7 +225,7 @@ def main(argv: list[str] | None = None) -> int:
     mode = "offline + pinned upstream" if args.check_upstream else "offline"
     print(
         "Lucide provider validation PASS "
-        f"({mode}; release={snapshot['release']}; icons={len(refs)}; tree={snapshot['tree']})"
+        f"({mode}; release={snapshot['release']}; icons={len(refs)}; inventoryTree={snapshot['inventoryTree']})"
     )
     return 0
 
