@@ -47,6 +47,7 @@ graph TD
   contract_workflow --> round_based_requirements_grilling
   controlled_quality_documentation --> regulated_product_context
   controlled_quality_documentation --> two_axis_compliance_review
+  conversation_to_spec --> project_second_brain
   corporate_compliance_law_specialist --> compliance_obligation_register
   corporate_compliance_law_specialist --> current_law_context
   corporate_compliance_law_specialist --> legal_compliance_risk_assessment
@@ -254,6 +255,7 @@ graph TD
   iso13485_qms_audit --> two_axis_compliance_review
   iso27001_isms_audit --> medical_device_isms_governance
   iso27001_isms_audit --> two_axis_compliance_review
+  iterate_software_projects --> project_second_brain
   ivdr_analytical_performance --> medical_device_risk_management_iso14971
   ivdr_analytical_performance --> regulated_product_context
   ivdr_analytical_performance --> regulatory_evidence_traceability
@@ -317,6 +319,7 @@ graph TD
   large_work_wayfinder --> agent_handoff
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
+  large_work_wayfinder --> project_second_brain
   learning_activity_generator --> learning_path_planner
   learning_artifact_qa --> learning_content_design_system
   learning_assessment --> learning_assessment_spec
@@ -545,6 +548,7 @@ graph TD
   role_requirements_grilling --> round_based_requirements_grilling
   skill_lifecycle_migration --> skill_portfolio_audit
   spec_to_vertical_issues --> conversation_to_spec
+  spec_to_vertical_issues --> project_second_brain
   sport_adaptation_analysis --> sport_daily_athlete_monitoring
   sport_adaptation_analysis --> sport_microcycle_planning
   sport_adaptation_analysis --> sport_performance_diagnostics
@@ -1385,6 +1389,9 @@ graph TD
 | `product-ranking.md` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
 | `product-safety-legal-gates.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
+| `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `spec-to-vertical-issues` | inferred |
+| `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `spec-to-vertical-issues` | inferred |
+| `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `spec-to-vertical-issues` | inferred |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `prose-audit.json` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |

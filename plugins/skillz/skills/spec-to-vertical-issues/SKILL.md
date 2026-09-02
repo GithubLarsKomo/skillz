@@ -32,6 +32,8 @@ Erforderlich sind:
 - Konsistenzbericht ohne ungelöste Widersprüche,
 - bekannte Sicherheits-, Compliance-, Datenmigrations- und Betriebsgrenzen.
 
+Bei aktivem Project Memory zusätzlich zuerst `docs/project-memory/state.json` und den letzten Spezifikations-Event lesen, um die exakt freigegebene SPEC-Fassung, Decision-Referenzen und offene Schleifen zu übernehmen.
+
 Fehlt die Freigabe oder besteht ein normativer Widerspruch, keine Issues erzeugen. Den Blocker mit betroffenen Requirement-IDs und Routingziel ausgeben.
 
 ## Vertikale Slice-Regel
@@ -123,12 +125,29 @@ Vor Übergabe prüfen:
 - die Reihenfolge ermöglicht schrittweise Demonstration,
 - JSON- und Markdown-Fassung stimmen überein.
 
+## Project Memory fortschreiben
+
+Vor Übergabe des ersten freigegebenen Issues an `iterate-software-projects` `project-second-brain` aktualisieren.
+
+Der Event mit `stage: backlog` verlinkt mindestens:
+
+- die exakt verwendete SPEC-Fassung,
+- `vertical-issues.json`, `vertical-issues.md` und `dependency-order.json`,
+- Requirement-IDs und Decision-Referenzen,
+- blockierte oder zurückgeroutete Slices,
+- das nächste freigegebene Issue,
+- genau die nächste Aktion.
+
+Wird der Backlog nach neuem Grilling, Wayfinding oder SPEC-Update neu geschnitten, alten Event und alte Backlog-Fassung nicht still überschreiben. Einen neuen Event erzeugen, der die ersetzte Fassung verlinkt und den Änderungsgrund nennt.
+
 ## Übergabe
 
 Das nächste freigegebene Issue an `iterate-software-projects` übergeben. Der spätere Skill `implement-from-issue` darf nur ein freigegebenes Issue umsetzen und muss dessen Requirement-IDs, Scope, Nicht-Ziele und Abnahmeevidenz unverändert als Prüfbasis verwenden.
+
+Der Handoff führt zusätzlich den `projectMemory`-Verweis mit `root`, `state` und `latestEvent` mit, damit die Engineering-Schleife den Projektkontext ohne erneute Vollanalyse fortsetzen kann.
 
 Issues nicht automatisch in einem Produkt-Repository anlegen, solange der Nutzer dies nicht ausdrücklich autorisiert hat.
 
 ## Abschluss
 
-Abgeschlossen ist die Zerlegung, wenn alle Anforderungen eindeutig in unabhängigen vertikalen Issues oder transparenten Blockern mit korrektem Routingziel abgebildet sind, die Reihenfolge zyklenfrei ist und jedes freigegebene Issue durch beobachtbare Evidenz separat abgenommen werden kann.
+Abgeschlossen ist die Zerlegung, wenn alle Anforderungen eindeutig in unabhängigen vertikalen Issues oder transparenten Blockern mit korrektem Routingziel abgebildet sind, die Reihenfolge zyklenfrei ist, jedes freigegebene Issue durch beobachtbare Evidenz separat abgenommen werden kann und der aktuelle Backlog-Zustand im Project Second Brain verankert ist.

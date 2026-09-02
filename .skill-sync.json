@@ -6,7 +6,7 @@
   "skills": {
     "agent-handoff": {
       "files": {
-        "SKILL.md": "8a76d600452ea044babbd2700938939292714242bd0766a254aaa6f0bd7dd1b6",
+        "SKILL.md": "26c7912ff1f1dd8a14263a8f3a3839de11ceb0de7f54663002f1708117efae71",
         "agents/openai.yaml": "47482384b7303d42592a8e95519ee434fb89ee185a197ec96c1ae452264a370f"
       }
     },
@@ -146,7 +146,7 @@
     },
     "conversation-to-spec": {
       "files": {
-        "SKILL.md": "42252f241b94d707b34675bca1147256f696a5be072990becca87f6b3c86617f",
+        "SKILL.md": "032dd6454821a3798773f40ab4e56a41469ec042f6e7eda889ab6f9603a86fda",
         "agents/openai.yaml": "6b39d1a47df6050566162437178f9ff3c204144d59cb7735520e725ab8c13de9"
       }
     },
@@ -723,7 +723,7 @@
     },
     "iterate-software-projects": {
       "files": {
-        "SKILL.md": "81c470273abdbf5a31688e37a1f3d614226acbec0cc138c8d80cc0f5b24b0b1c",
+        "SKILL.md": "b8944c2ad3a8a0ac3bc09abe6232debf045ff1bc31bf491d3bc8e9139d6fa4e7",
         "agents/openai.yaml": "5bb58cdc250b3c43d7e2028c89deb8eaf29430535fb80e39e3bec5c2d173d11f",
         "references/copilot-prompt.md": "e9b1bd7ea90a2257c5f52c3859924b1927cbeeaceec0088d4a302f0a9ec78768"
       }
@@ -832,7 +832,7 @@
     },
     "large-work-wayfinder": {
       "files": {
-        "SKILL.md": "65125e208589285211701f66a79d221f43f4023b73126484953a0532b91d6b2c",
+        "SKILL.md": "dc061a2b9344d791169b33983c9164c74b7fec8dc292f21e2d0a824bd9c3c2dc",
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
@@ -1390,6 +1390,12 @@
         "agents/openai.yaml": "62d3aa2160ccbc1fd4e212b872959167de098b2996ae4e9cde385cda6a084870"
       }
     },
+    "project-second-brain": {
+      "files": {
+        "SKILL.md": "53262f4f9388da0f0e3d088965f2880d24f4af298ad651622e9843baaaeac9dd",
+        "agents/openai.yaml": "5ee5032c4653e97297e8ec108d0c63b555998e124eda5d2819c3a2d266f41b6d"
+      }
+    },
     "project-status-brief": {
       "files": {
         "SKILL.md": "38a072c11da82a64e20de34229f1a31b29252d7bd39c157403d8ab5e5fd16a11",
@@ -1505,7 +1511,7 @@
     },
     "round-based-requirements-grilling": {
       "files": {
-        "SKILL.md": "68f454c3f6731b3e5c94257fa1a9fa822b1712cf78a50c9f39ff2d801a17a6f4",
+        "SKILL.md": "c0715f5b666db3388b06d110beef4260ce4aef5b2d184815bbc77c12228413a5",
         "agents/openai.yaml": "dd83c237fe3023e9d5acb23ab1f500b0b2fd2fa438c2011738dce1b5dff71b72"
       }
     },
@@ -1535,7 +1541,7 @@
     },
     "spec-to-vertical-issues": {
       "files": {
-        "SKILL.md": "060342dbb4330806cecd1d2e57a660b242fbc7c2d34b09348699458ead929b2f",
+        "SKILL.md": "52784f7bc568bb9cc0909dce2b931d749c621f621832fc007ce15314e94e913e",
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
       }
     },

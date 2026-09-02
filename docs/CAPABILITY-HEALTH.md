@@ -4,14 +4,14 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **308**
-- User-facing entrypoints: **250**
-- Discoverability — public: **241**, advanced: **9**, internal: **56**, compatibility: **2**
-- Evaluation suites: **308**
+- Skills: **309**
+- User-facing entrypoints: **251**
+- Discoverability — public: **242**, advanced: **9**, internal: **56**, compatibility: **2**
+- Evaluation suites: **309**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **308/308**
-- User-facing entrypoints with evaluation suite: **250/250**
+- Skills with evaluation suite: **309/309**
+- User-facing entrypoints with evaluation suite: **251/251**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**

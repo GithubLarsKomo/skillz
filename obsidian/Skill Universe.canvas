@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n308 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n309 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -2132,7 +2132,7 @@
       "x": 12200,
       "y": 0,
       "width": 1120,
-      "height": 4020,
+      "height": 4160,
       "color": "5"
     },
     {
@@ -2541,10 +2541,19 @@
       "height": 110
     },
     {
+      "id": "skill-project-second-brain",
+      "type": "file",
+      "file": "skills/project-second-brain.md",
+      "x": 12240,
+      "y": 2170,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-purchase-decision-planner",
       "type": "file",
       "file": "skills/purchase-decision-planner.md",
-      "x": 12240,
+      "x": 12570,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -2553,7 +2562,7 @@
       "id": "skill-rewrite-fidelity-verifier",
       "type": "file",
       "file": "skills/rewrite-fidelity-verifier.md",
-      "x": 12570,
+      "x": 12900,
       "y": 2170,
       "width": 300,
       "height": 110
@@ -2562,8 +2571,8 @@
       "id": "skill-role-architecture",
       "type": "file",
       "file": "skills/role-architecture.md",
-      "x": 12900,
-      "y": 2170,
+      "x": 12240,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -2571,7 +2580,7 @@
       "id": "skill-role-requirements-grilling",
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
-      "x": 12240,
+      "x": 12570,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -2580,7 +2589,7 @@
       "id": "skill-skill-lifecycle-migration",
       "type": "file",
       "file": "skills/skill-lifecycle-migration.md",
-      "x": 12570,
+      "x": 12900,
       "y": 2310,
       "width": 300,
       "height": 110
@@ -2589,8 +2598,8 @@
       "id": "skill-skill-portfolio-audit",
       "type": "file",
       "file": "skills/skill-portfolio-audit.md",
-      "x": 12900,
-      "y": 2310,
+      "x": 12240,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -2598,7 +2607,7 @@
       "id": "skill-sport-athlete-management",
       "type": "file",
       "file": "skills/sport-athlete-management.md",
-      "x": 12240,
+      "x": 12570,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -2607,7 +2616,7 @@
       "id": "skill-sport-athlete-profile",
       "type": "file",
       "file": "skills/sport-athlete-profile.md",
-      "x": 12570,
+      "x": 12900,
       "y": 2450,
       "width": 300,
       "height": 110
@@ -2616,8 +2625,8 @@
       "id": "skill-sport-daily-athlete-monitoring",
       "type": "file",
       "file": "skills/sport-daily-athlete-monitoring.md",
-      "x": 12900,
-      "y": 2450,
+      "x": 12240,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -2625,7 +2634,7 @@
       "id": "skill-sport-diagnostics-training-report-workflow",
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -2634,7 +2643,7 @@
       "id": "skill-sport-endurance-programming",
       "type": "file",
       "file": "skills/sport-endurance-programming.md",
-      "x": 12570,
+      "x": 12900,
       "y": 2590,
       "width": 300,
       "height": 110
@@ -2643,8 +2652,8 @@
       "id": "skill-sport-environment-travel",
       "type": "file",
       "file": "skills/sport-environment-travel.md",
-      "x": 12900,
-      "y": 2590,
+      "x": 12240,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -2652,7 +2661,7 @@
       "id": "skill-sport-goal-performance-model",
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
-      "x": 12240,
+      "x": 12570,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -2661,7 +2670,7 @@
       "id": "skill-sport-injury-rehabilitation",
       "type": "file",
       "file": "skills/sport-injury-rehabilitation.md",
-      "x": 12570,
+      "x": 12900,
       "y": 2730,
       "width": 300,
       "height": 110
@@ -2670,8 +2679,8 @@
       "id": "skill-sport-mental-health-routing",
       "type": "file",
       "file": "skills/sport-mental-health-routing.md",
-      "x": 12900,
-      "y": 2730,
+      "x": 12240,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -2679,7 +2688,7 @@
       "id": "skill-sport-mesocycle-planning",
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
-      "x": 12240,
+      "x": 12570,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -2688,7 +2697,7 @@
       "id": "skill-sport-microcycle-planning",
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
-      "x": 12570,
+      "x": 12900,
       "y": 2870,
       "width": 300,
       "height": 110
@@ -2697,8 +2706,8 @@
       "id": "skill-sport-nutrition-fueling",
       "type": "file",
       "file": "skills/sport-nutrition-fueling.md",
-      "x": 12900,
-      "y": 2870,
+      "x": 12240,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -2706,7 +2715,7 @@
       "id": "skill-sport-performance-psychology",
       "type": "file",
       "file": "skills/sport-performance-psychology.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -2715,7 +2724,7 @@
       "id": "skill-sport-return-after-illness",
       "type": "file",
       "file": "skills/sport-return-after-illness.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3010,
       "width": 300,
       "height": 110
@@ -2724,8 +2733,8 @@
       "id": "skill-sport-season-periodization",
       "type": "file",
       "file": "skills/sport-season-periodization.md",
-      "x": 12900,
-      "y": 3010,
+      "x": 12240,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2733,7 +2742,7 @@
       "id": "skill-sport-strength-power-programming",
       "type": "file",
       "file": "skills/sport-strength-power-programming.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -2742,7 +2751,7 @@
       "id": "skill-sport-testing-battery",
       "type": "file",
       "file": "skills/sport-testing-battery.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3150,
       "width": 300,
       "height": 110
@@ -2751,8 +2760,8 @@
       "id": "skill-sport-training-adaptation-engine",
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
-      "x": 12900,
-      "y": 3150,
+      "x": 12240,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2760,7 +2769,7 @@
       "id": "skill-sport-training-music",
       "type": "file",
       "file": "skills/sport-training-music.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -2769,7 +2778,7 @@
       "id": "skill-sport-training-plan-workflow",
       "type": "file",
       "file": "skills/sport-training-plan-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3290,
       "width": 300,
       "height": 110
@@ -2778,8 +2787,8 @@
       "id": "skill-tax-advisory-office",
       "type": "file",
       "file": "skills/tax-advisory-office.md",
-      "x": 12900,
-      "y": 3290,
+      "x": 12240,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2787,7 +2796,7 @@
       "id": "skill-tax-matter-final-gate",
       "type": "file",
       "file": "skills/tax-matter-final-gate.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -2796,7 +2805,7 @@
       "id": "skill-tax-procedure-matter-workflow",
       "type": "file",
       "file": "skills/tax-procedure-matter-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3430,
       "width": 300,
       "height": 110
@@ -2805,8 +2814,8 @@
       "id": "skill-tax-professional-routing",
       "type": "file",
       "file": "skills/tax-professional-routing.md",
-      "x": 12900,
-      "y": 3430,
+      "x": 12240,
+      "y": 3570,
       "width": 300,
       "height": 110
     },
@@ -2814,7 +2823,7 @@
       "id": "skill-tax-specialist-router",
       "type": "file",
       "file": "skills/tax-specialist-router.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3570,
       "width": 300,
       "height": 110
@@ -2823,7 +2832,7 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3570,
       "width": 300,
       "height": 110
@@ -2832,8 +2841,8 @@
       "id": "skill-template-document-workflow",
       "type": "file",
       "file": "skills/template-document-workflow.md",
-      "x": 12900,
-      "y": 3570,
+      "x": 12240,
+      "y": 3710,
       "width": 300,
       "height": 110
     },
@@ -2841,7 +2850,7 @@
       "id": "skill-template-presentation-workflow",
       "type": "file",
       "file": "skills/template-presentation-workflow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3710,
       "width": 300,
       "height": 110
@@ -2850,7 +2859,7 @@
       "id": "skill-thought-to-concept-flow",
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3710,
       "width": 300,
       "height": 110
@@ -2859,8 +2868,8 @@
       "id": "skill-travel-agency-workflow",
       "type": "file",
       "file": "skills/travel-agency-workflow.md",
-      "x": 12900,
-      "y": 3710,
+      "x": 12240,
+      "y": 3850,
       "width": 300,
       "height": 110
     },
@@ -2868,7 +2877,7 @@
       "id": "skill-youtube-course-builder-workflow",
       "type": "file",
       "file": "skills/youtube-course-builder-workflow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 3850,
       "width": 300,
       "height": 110
@@ -2877,7 +2886,7 @@
       "id": "skill-youtube-learning-workflow",
       "type": "file",
       "file": "skills/youtube-learning-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 3850,
       "width": 300,
       "height": 110
@@ -2886,8 +2895,8 @@
       "id": "skill-youtube-playlist-learning-workflow",
       "type": "file",
       "file": "skills/youtube-playlist-learning-workflow.md",
-      "x": 12900,
-      "y": 3850,
+      "x": 12240,
+      "y": 3990,
       "width": 300,
       "height": 110
     }
@@ -3277,6 +3286,15 @@
       "fromSide": "left",
       "toNode": "skill-two-axis-compliance-review",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-cb59bd1fee92",
+      "fromNode": "skill-conversation-to-spec",
+      "fromSide": "right",
+      "toNode": "skill-project-second-brain",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3778,9 +3796,9 @@
     {
       "id": "requires-1886e9ed367f",
       "fromNode": "skill-euroimmun-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-template-presentation-workflow",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5144,6 +5162,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-a73d68050826",
+      "fromNode": "skill-iterate-software-projects",
+      "fromSide": "right",
+      "toNode": "skill-project-second-brain",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-5beed4cca6f3",
       "fromNode": "skill-ivdr-analytical-performance",
       "fromSide": "right",
@@ -5659,9 +5686,9 @@
     {
       "id": "requires-60cb2dad71cf",
       "fromNode": "skill-job-description-authoring",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-role-architecture",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5707,6 +5734,15 @@
       "fromSide": "left",
       "toNode": "skill-disciplined-diagnosis",
       "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e213a990d2b6",
+      "fromNode": "skill-large-work-wayfinder",
+      "fromSide": "right",
+      "toNode": "skill-project-second-brain",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7243,9 +7279,9 @@
     {
       "id": "requires-e83dbb41729a",
       "fromNode": "skill-presentation-language-rewriter",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-rewrite-fidelity-verifier",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7747,9 +7783,9 @@
     {
       "id": "requires-142443ecc3b6",
       "fromNode": "skill-skill-lifecycle-migration",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-skill-portfolio-audit",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7758,6 +7794,15 @@
       "fromNode": "skill-spec-to-vertical-issues",
       "fromSide": "right",
       "toNode": "skill-conversation-to-spec",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-225f4bf6aaa1",
+      "fromNode": "skill-spec-to-vertical-issues",
+      "fromSide": "right",
+      "toNode": "skill-project-second-brain",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -7810,9 +7855,9 @@
     {
       "id": "requires-416ad1b343db",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-daily-athlete-monitoring",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7828,9 +7873,9 @@
     {
       "id": "requires-0eb793f844f7",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-environment-travel",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7855,9 +7900,9 @@
     {
       "id": "requires-1e5b02d56b79",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-mental-health-routing",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7882,9 +7927,9 @@
     {
       "id": "requires-34eceee6e438",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-nutrition-fueling",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7918,9 +7963,9 @@
     {
       "id": "requires-0edd948a3911",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7945,9 +7990,9 @@
     {
       "id": "requires-34b8340a024f",
       "fromNode": "skill-sport-athlete-management",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-training-adaptation-engine",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7963,18 +8008,18 @@
     {
       "id": "requires-aba0230fc3a9",
       "fromNode": "skill-sport-daily-athlete-monitoring",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-f9f360d89e41",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8053,18 +8098,18 @@
     {
       "id": "requires-8a7bd33668f0",
       "fromNode": "skill-sport-environment-travel",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-9c37383b62d9",
       "fromNode": "skill-sport-environment-travel",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8098,18 +8143,18 @@
     {
       "id": "requires-b5e96afb58af",
       "fromNode": "skill-sport-injury-rehabilitation",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-daily-athlete-monitoring",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-3dba2ae8679b",
       "fromNode": "skill-sport-mental-health-routing",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8125,9 +8170,9 @@
     {
       "id": "requires-bc3012bacae7",
       "fromNode": "skill-sport-mesocycle-planning",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8143,9 +8188,9 @@
     {
       "id": "requires-7ec05c4514bd",
       "fromNode": "skill-sport-nutrition-fueling",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8161,18 +8206,18 @@
     {
       "id": "requires-72a43b0dee86",
       "fromNode": "skill-sport-nutrition-fueling",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-mesocycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-ffeff02cd7fb",
       "fromNode": "skill-sport-nutrition-fueling",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8233,18 +8278,18 @@
     {
       "id": "requires-50b5912cb8c6",
       "fromNode": "skill-sport-return-after-illness",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-daily-athlete-monitoring",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-969dd884ed88",
       "fromNode": "skill-sport-season-periodization",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-goal-performance-model",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8305,18 +8350,18 @@
     {
       "id": "requires-f8a93a331ee0",
       "fromNode": "skill-sport-testing-battery",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-63d5f19b82b6",
       "fromNode": "skill-sport-training-adaptation-engine",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-athlete-profile",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8332,9 +8377,9 @@
     {
       "id": "requires-6e06ed021efe",
       "fromNode": "skill-sport-training-adaptation-engine",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-sport-microcycle-planning",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8413,9 +8458,9 @@
     {
       "id": "requires-0b6fd29ea8e3",
       "fromNode": "skill-sport-training-plan-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-sport-season-periodization",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8476,9 +8521,9 @@
     {
       "id": "requires-9e986a233e0b",
       "fromNode": "skill-tax-advisory-office",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-tax-matter-final-gate",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8512,9 +8557,9 @@
     {
       "id": "requires-6719297490bd",
       "fromNode": "skill-tax-advisory-office",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-tax-specialist-router",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8566,9 +8611,9 @@
     {
       "id": "requires-31590c6e779a",
       "fromNode": "skill-tax-matter-final-gate",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-tax-professional-routing",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8611,9 +8656,9 @@
     {
       "id": "requires-e7fa3a08f6d9",
       "fromNode": "skill-tax-procedure-matter-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-tax-professional-routing",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8773,9 +8818,9 @@
     {
       "id": "requires-3bb301ebab48",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-presentation-layout-qa",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9214,9 +9259,9 @@
     {
       "id": "requires-249ced83a1a9",
       "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-youtube-playlist-learning-workflow",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9295,9 +9340,9 @@
     {
       "id": "requires-403cc09758d6",
       "fromNode": "skill-youtube-playlist-learning-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-youtube-learning-workflow",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     }

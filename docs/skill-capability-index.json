@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 308,
-  "entrypointCount": 250,
+  "skillCount": 309,
+  "entrypointCount": 251,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,14 +15,14 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 241,
+    "public": 242,
     "advanced": 9,
     "internal": 56,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 308,
-  "evaluatedSkillCount": 308,
-  "evaluatedEntrypointCount": 250,
+  "evaluationSuiteCount": 309,
+  "evaluatedSkillCount": 309,
+  "evaluatedEntrypointCount": 251,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -1565,7 +1565,9 @@
         "replacedBy": null,
         "deprecatedSince": null
       },
-      "requires": [],
+      "requires": [
+        "project-second-brain"
+      ],
       "dependents": [
         "spec-to-vertical-issues"
       ],
@@ -7158,7 +7160,9 @@
         "replacedBy": null,
         "deprecatedSince": null
       },
-      "requires": [],
+      "requires": [
+        "project-second-brain"
+      ],
       "dependents": [
         "agent-handoff",
         "architecture-deepening-review",
@@ -8291,7 +8295,8 @@
       "requires": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis"
+        "disciplined-diagnosis",
+        "project-second-brain"
       ],
       "dependents": [
         "frontend-design-shaping",
@@ -14246,6 +14251,82 @@
       }
     },
     {
+      "name": "project-second-brain",
+      "description": "Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als verlinkten Second Brain ab dem Requirements-Grilling. Erfasst jeden wesentlichen Workflow-Übergang mit Inputs, Outputs, Entscheidungen, Evidenz, Repositoryzustand, offenen Schleifen und nächster Aktion, ohne kanonische Artefakte zu duplizieren oder private Chain-of-Thought zu speichern.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "conversation-to-spec",
+        "iterate-software-projects",
+        "large-work-wayfinder",
+        "spec-to-vertical-issues"
+      ],
+      "outputs": [
+        "project-memory-event.md",
+        "project-memory-index.md",
+        "project-memory-state.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "project-memory-event.md",
+          "ambiguous": false,
+          "producers": [
+            "project-second-brain"
+          ],
+          "consumerSkills": [
+            "conversation-to-spec",
+            "iterate-software-projects",
+            "large-work-wayfinder",
+            "spec-to-vertical-issues"
+          ]
+        },
+        {
+          "output": "project-memory-index.md",
+          "ambiguous": false,
+          "producers": [
+            "project-second-brain"
+          ],
+          "consumerSkills": [
+            "conversation-to-spec",
+            "iterate-software-projects",
+            "large-work-wayfinder",
+            "spec-to-vertical-issues"
+          ]
+        },
+        {
+          "output": "project-memory-state.json",
+          "ambiguous": false,
+          "producers": [
+            "project-second-brain"
+          ],
+          "consumerSkills": [
+            "conversation-to-spec",
+            "iterate-software-projects",
+            "large-work-wayfinder",
+            "spec-to-vertical-issues"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "project-status-brief",
       "description": "Verdichtet bereits erhobene Repository- und Projekt-Evidenz zu einem zeitpunktbezogenen Statusbrief mit Fortschritt, Blockern, Risiken, Entscheidungen und nächsten ausführbaren Schritten. Verwenden, wenn Projektzustand belastbar an Reviews, Meetings oder weitere Skills übergeben werden soll, ohne GitHub-, GitLab-, Jira-, CI- oder Deployment-Logik zu duplizieren.",
       "invocation": {
@@ -15957,7 +16038,8 @@
         "deprecatedSince": null
       },
       "requires": [
-        "conversation-to-spec"
+        "conversation-to-spec",
+        "project-second-brain"
       ],
       "dependents": [
         "test-driven-vertical-slice",

@@ -26,7 +26,7 @@ Verdichtet bestätigten Gesprächs-, Grilling-, Wayfinding- und Repository-Konte
 
 ## Requires
 
-- —
+- [[skills/project-second-brain|project-second-brain]]
 
 ## Required by
 

@@ -42,6 +42,8 @@ Wenn die technische Untersuchung nur den Slice klärt, geht die Evidenz zurück 
 
 Benötigt werden ein ausreichend abgegrenzter Produkt-, Repository-, Spezifikations- oder Issue-Kontext, ein unveränderlicher Head-SHA bei Repository-Arbeit, bekannte Randbedingungen, vorhandene Architektur- und Testevidenz sowie bekannte externe Systeme und irreversible Entscheidungen. Eine fertige `SPEC.md` oder bereits erzeugte vertikale Issues sind **keine Voraussetzung** für Pre-Spec Wayfinding.
 
+Wenn ein `projectMemory`-Verweis vorliegt, vor der Exploration zuerst `state.json` und den letzten relevanten Event lesen. Bereits verifizierte Fakten und frühere Untersuchungen nicht ohne neue Freshness- oder Widerspruchsgründe wiederholen.
+
 ## Ablauf
 
 ### 1. Ausgangslage fixieren
@@ -68,9 +70,22 @@ Priorisiere nach Risikoreduktion, Abhängigkeitsordnung, Reversibilität, Nutzer
 
 Dokumentiere Faktenlage, Unsicherheiten, Untersuchungsbacklog, Graph, Risiken, Rangfolge und genau eine ausführbare nächste Aktion mit unveränderlichem Repositoryzustand. Der Handoff benennt zusätzlich explizit das Ziel: `round-based-requirements-grilling`, `conversation-to-spec`, `spec-to-vertical-issues` oder einen nachgelagerten Engineering-Schritt.
 
+### 7. Project Memory fortschreiben
+
+Vor dem Routing an den nächsten Skill `project-second-brain` aktualisieren:
+
+- Event mit `stage: wayfinding` erzeugen,
+- `wayfinding-brief.md`, `investigation-backlog.json` und `dependency-graph.json` verlinken,
+- relevante Repository-/Commit-/Source-Evidenz verankern,
+- neu bestätigte Fakten von verbleibenden Hypothesen trennen,
+- Decision Records verlinken, wenn eine wesentliche Entscheidung getroffen oder supersediert wurde,
+- offene Untersuchungen und genau die nächste Aktion in `state.json` fortschreiben.
+
+Ein einzelner Statuscheck ohne neue Evidenz erzeugt keinen neuen Event. Ein abgeschlossener Spike, eine geänderte technische Annahme oder ein Routingwechsel dagegen schon.
+
 ## Prüfungen
 
-Vor Abschluss müssen Fakten und Annahmen getrennt, Untersuchungen dedupliziert und begrenzt, Stop-Bedingungen explizit, Abhängigkeiten konsistent, das Routingziel begründet und die nächste Aktion ohne weitere Interpretation ausführbar sein.
+Vor Abschluss müssen Fakten und Annahmen getrennt, Untersuchungen dedupliziert und begrenzt, Stop-Bedingungen explizit, Abhängigkeiten konsistent, das Routingziel begründet und die nächste Aktion ohne weitere Interpretation ausführbar sein. Bei aktivem Project Memory muss der letzte wesentliche Wayfinding-Zustand vor dem Handoff verlinkt sein.
 
 ## Fehlerbehandlung
 
@@ -93,10 +108,11 @@ Stoppe und begrenze neu, wenn ein Framework voreilig gewählt, eine breite Neusc
   "routingTarget": "round-based-requirements-grilling|conversation-to-spec|spec-to-vertical-issues|engineering",
   "routingReason": "...",
   "risks": ["..."],
+  "projectMemory": {"root": "docs/project-memory/INDEX.md", "state": "docs/project-memory/state.json", "latestEvent": "docs/project-memory/events/EVT-....md"},
   "nextAction": "exactly one executable action"
 }
 ```
 
 ## Abschlusskriterien
 
-Abgeschlossen ist das Wayfinding, wenn kritische technische Unsicherheit auf eine kleine, begründete Untersuchungsmenge reduziert, eine belastbare Abhängigkeits- und Umsetzungsreihenfolge erzeugt, das korrekte Routingziel festgelegt und genau eine sichere nächste Aktion übergeben wurde.
+Abgeschlossen ist das Wayfinding, wenn kritische technische Unsicherheit auf eine kleine, begründete Untersuchungsmenge reduziert, eine belastbare Abhängigkeits- und Umsetzungsreihenfolge erzeugt, das korrekte Routingziel festgelegt, der Zustand im Project Second Brain verankert und genau eine sichere nächste Aktion übergeben wurde.

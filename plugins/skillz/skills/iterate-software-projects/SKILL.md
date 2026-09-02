@@ -18,6 +18,8 @@ Ermittle zuerst, welche Phase der Nutzer verlangt:
 
 Bei Formulierungen wie „wie bisher“, „prüfe und mache weiter“ oder „nächster Prompt“ den letzten **verifizierten Delivery-Zustand** rekonstruieren. Keine vermeintliche Projektkontinuität erfinden und eine reviewte, aber noch nicht gemergte beziehungsweise extern verifizierte Änderung nicht als bereits erledigte Iteration behandeln.
 
+Wenn ein `projectMemory`-Verweis vorhanden ist, zuerst `docs/project-memory/state.json` und die letzten relevanten Events lesen. Diese ersetzen nicht Repository- oder Delivery-Evidenz, verhindern aber unnötige Wiederholung bereits dokumentierter Entscheidungen, erledigter Arbeit und verworfener Ansätze.
+
 ## Temporal Feedback Contract
 
 Wenn für die vorherige Iteration `engineering-iteration-return-input.json` aus `engineering-delivery-followup` vorliegt, ist er ein expliziter Eingang der nächsten Iteration. Ein technischer Hard-Dependency-Zyklus wird bewusst vermieden.
@@ -47,12 +49,13 @@ Bei einer noch offenen, irreversiblen oder weitreichenden Entscheidung weder Imp
 
 ## 1. Projektzustand rekonstruieren
 
-1. Projektregeln und vorhandene Spezifikationen lesen.
-2. Branch, Status, letzte relevante Commits und aktuelle Änderungen prüfen.
-3. Architektur, Services, Schnittstellen, Datenhaltung und Deployment erfassen.
-4. Offene TODOs, fehlgeschlagene Tests, Logs, Review-Kommentare und provisorische Fixes sammeln.
-5. Vorherigen Iterations-/Delivery-Status rekonstruieren: Issue/Requirement, Implementierungs-Head, `reviewedHeadSha`, aktuelle PR-/Branch-SHA, Required Checks, Merge State, Deployment/Release soweit Done-relevant, Tracker-/Requirement-Closure und undispositionierte Follow-ups.
-6. Behauptungen in drei Klassen trennen: durch Quelltext belegt, durch Laufzeit-/Delivery-Evidenz belegt, noch unbestätigt.
+1. Project-Memory-State und letzte relevante Events lesen, sofern vorhanden.
+2. Projektregeln und vorhandene Spezifikationen lesen.
+3. Branch, Status, letzte relevante Commits und aktuelle Änderungen prüfen.
+4. Architektur, Services, Schnittstellen, Datenhaltung und Deployment erfassen.
+5. Offene TODOs, fehlgeschlagene Tests, Logs, Review-Kommentare und provisorische Fixes sammeln.
+6. Vorherigen Iterations-/Delivery-Status rekonstruieren: Issue/Requirement, Implementierungs-Head, `reviewedHeadSha`, aktuelle PR-/Branch-SHA, Required Checks, Merge State, Deployment/Release soweit Done-relevant, Tracker-/Requirement-Closure und undispositionierte Follow-ups.
+7. Behauptungen in drei Klassen trennen: durch Quelltext belegt, durch Laufzeit-/Delivery-Evidenz belegt, noch unbestätigt.
 
 Bei Docker-/KI-Projekten zuerst den realen Fehlerweg verfolgen: Servicezustand, Logs, Ports, Health-Endpunkt, interne und externe URLs, Abhängigkeiten und Netzwerkgrenzen. Lokale Proxy-Sonderfälle berücksichtigen; für lokale Tests bei Bedarf `--noproxy "*"` verwenden.
 
@@ -135,7 +138,22 @@ Zusätzlich ein schlankes Entscheidungsprotokoll fortschreiben:
 - **Angenommen:** reversible Vorgabe, die bei neuen Fakten geändert werden darf
 - **Offen:** nur Entscheidungen, die eine spätere Iteration tatsächlich blockieren
 
-`engineering-iteration-state.json` enthält mindestens Repository/Head, letzte Issue-/Requirement-IDs, Review/Delivery State, Return-Input-Referenz sofern vorhanden, `doNotRepeat`, offene Gaps/Risks und genau das nächste Inkrement beziehungsweise die früheste Closure-Aktion.
+`engineering-iteration-state.json` enthält mindestens Repository/Head, letzte Issue-/Requirement-IDs, Review/Delivery State, Return-Input-Referenz sofern vorhanden, `doNotRepeat`, offene Gaps/Risks, `projectMemory`-Referenz und genau das nächste Inkrement beziehungsweise die früheste Closure-Aktion.
+
+## Project-Memory-Contract
+
+Die Engineering-Schleife ist kein einzelner undurchsichtiger Event. `project-second-brain` wird an **semantischen Phasengrenzen** fortgeschrieben:
+
+- `stage: implementation` nach einem abgegrenzten Implementierungsstand oder verworfenen Implementierungsversuch mit neuer Evidenz,
+- `stage: review` nach einer Review-Entscheidung für einen fixierten `reviewedHeadSha`,
+- `stage: delivery` nach verifiziertem Merge, Deployment/Release oder Issue-/Requirement-Closure beziehungsweise wenn ein externer Zustand bewusst pending bleibt,
+- `stage: implementation` oder `handoff` bei einer Korrekturschleife oder Übergabe an einen neuen Agenten.
+
+Jeder Event verlinkt statt dupliziert die kanonischen Artefakte des jeweiligen Skills, insbesondere Issue/Requirement, Commit/PR, Test- und Review-Evidenz, Delivery-Status und relevante Decision Records.
+
+Ein Low-Level-Kommando, ein unveränderter CI-Poll oder ein reiner Lesezugriff erzeugt keinen Event. Ein neuer überprüfbarer Projektzustand, eine neue Entscheidung, ein gescheiterter Ansatz mit relevantem `doNotRepeat` oder ein Routingwechsel dagegen schon.
+
+Vor dem Start eines unabhängigen neuen Inkrements muss der vorherige wesentliche Zustand im Project Memory verankert sein. `state.json` wird mit `currentStage`, `latestEvent`, offenen Schleifen und genau der nächsten Aktion aktualisiert.
 
 ## Qualitätsprinzipien
 
@@ -149,10 +167,11 @@ Zusätzlich ein schlankes Entscheidungsprotokoll fortschreiben:
 - Bei Rückfragen eine konkrete Empfehlung geben, statt lediglich Optionen aufzuzählen.
 - Nicht um Bestätigung bereits belegter Fakten bitten.
 - Weder PR-Closed noch Merge noch Tracker-Done allein als vollständige Engineering-Closure behandeln.
+- Project Memory hält Rationale, Evidenz und Links fest, aber keine private Chain-of-Thought oder Secrets.
 
 ## Memory Path
 
-Persistenzwürdig sind abstrahierte Iterations-, Priorisierungs-, Verification- und Delivery-Governance-Muster. Konkrete Repository-/PR-/Issue-Namen, SHAs, aktuelle CI-/Deployment-Zustände, unveröffentlichte Implementierungsdetails und offene Findings bleiben Run-/Project-State. Übergib nur validierte `memory-candidate-handoff-v1`-Kandidaten an `communication-memory-governance`; dieser Skill persistiert nichts selbst.
+Persistenzwürdig sind abstrahierte Iterations-, Priorisierungs-, Verification- und Delivery-Governance-Muster. Konkrete Repository-/PR-/Issue-Namen, SHAs, aktuelle CI-/Deployment-Zustände, unveröffentlichte Implementierungsdetails und offene Findings bleiben Run-/Project-State und werden bei aktivem Project Memory dort verlinkt dokumentiert. Übergib nur validierte `memory-candidate-handoff-v1`-Kandidaten an `communication-memory-governance`; dieser Skill persistiert keine globalen Nutzererinnerungen selbst.
 
 ## Ausgabeformate
 

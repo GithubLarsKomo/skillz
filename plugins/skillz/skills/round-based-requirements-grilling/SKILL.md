@@ -58,6 +58,20 @@ Der Abschluss eines Grillings erzeugt deshalb einen bestätigten `requirements-h
 - `requirements-handoff.json` mit bestätigten Entscheidungen, offenen Punkten, Quellen, Nicht-Zielen, Risiken und Routinghinweisen.
 - Aktualisierte Grilling-/Rundenmetadaten ausschließlich in `GithubLarsKomo/grilling`, wenn der Prozess dies verlangt.
 
+## Project-Memory-Hook
+
+Ein abgeschlossenes projektbezogenes Grilling ist der **Startpunkt der persistenten Projektdokumentation**.
+
+Bevor der Handoff an `large-work-wayfinder` oder `conversation-to-spec` erfolgt:
+
+1. `project-second-brain` aufrufen.
+2. Im Ziel-Repository einen bestehenden Project-Memory-Root wiederverwenden oder `docs/project-memory/` initialisieren.
+3. Einen Event mit `stage: grilling` erzeugen, der `GRILL-REPORT.md`, `requirements-handoff.json`, bestätigte Ziele, Nicht-Ziele, Entscheidungen, offene Punkte und Routingziel verlinkt.
+4. `INDEX.md`, `TIMELINE.md` und `state.json` aktualisieren.
+5. Den resultierenden `projectMemory`-Verweis (`root`, `state`, `latestEvent`) im nachgelagerten Handoff mitführen.
+
+Wenn beim Grilling-Abschluss noch kein Ziel-Repository feststeht, darf die Initialisierung als Bootstrap vorbereitet werden; sie muss beim ersten bestätigten Projekt-Repository nachgeholt werden. Die Grilling-Evidenz bleibt dabei über ID, URL oder unveränderliche Repository-Referenz verlinkt und wird nicht als divergierende Kopie dupliziert.
+
 ## Abschluss
 
-Der Skillz-Eintrag ist erfüllt, wenn er zuverlässig in die aktuelle autoritative Grilling-Engine delegiert, fachliche von technischer Unsicherheit korrekt trennt und einen bestätigten Requirements-Handoff an `conversation-to-spec` erzeugt, ohne einen lokalen Parallelstrang oder eine zweite SPEC-Erzeugung einzuführen.
+Der Skillz-Eintrag ist erfüllt, wenn er zuverlässig in die aktuelle autoritative Grilling-Engine delegiert, fachliche von technischer Unsicherheit korrekt trennt, einen bestätigten Requirements-Handoff an `conversation-to-spec` erzeugt und den ersten projektbezogenen Zustand über `project-second-brain` verankert, ohne einen lokalen Parallelstrang oder eine zweite SPEC-Erzeugung einzuführen.

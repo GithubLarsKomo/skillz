@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **84**
+Skills: **85**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
@@ -57,6 +57,7 @@ Skills: **84**
 - [[skills/private-legal-matter-router|private-legal-matter-router]]
 - [[skills/privilege-and-counsel-routing|privilege-and-counsel-routing]]
 - [[skills/procedure-sop-extractor|procedure-sop-extractor]]
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/purchase-decision-planner|purchase-decision-planner]]
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]

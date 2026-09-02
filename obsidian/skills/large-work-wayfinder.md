@@ -29,6 +29,7 @@ Erschließt große, unklare oder schlecht abgegrenzte Engineering-Vorhaben durch
 - [[skills/agent-handoff|agent-handoff]]
 - [[skills/architecture-deepening-review|architecture-deepening-review]]
 - [[skills/disciplined-diagnosis|disciplined-diagnosis]]
+- [[skills/project-second-brain|project-second-brain]]
 
 ## Required by
 

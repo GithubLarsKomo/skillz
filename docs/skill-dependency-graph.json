@@ -311,7 +311,9 @@
     },
     {
       "name": "conversation-to-spec",
-      "requires": [],
+      "requires": [
+        "project-second-brain"
+      ],
       "consumes": [],
       "outputs": [
         "SPEC.md",
@@ -1432,7 +1434,9 @@
     },
     {
       "name": "iterate-software-projects",
-      "requires": [],
+      "requires": [
+        "project-second-brain"
+      ],
       "consumes": [],
       "outputs": [
         "engineering-iteration-state.json",
@@ -1687,7 +1691,8 @@
       "requires": [
         "agent-handoff",
         "architecture-deepening-review",
-        "disciplined-diagnosis"
+        "disciplined-diagnosis",
+        "project-second-brain"
       ],
       "consumes": [],
       "outputs": [
@@ -2871,6 +2876,16 @@
       ]
     },
     {
+      "name": "project-second-brain",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "project-memory-event.md",
+        "project-memory-index.md",
+        "project-memory-state.json"
+      ]
+    },
+    {
       "name": "project-status-brief",
       "requires": [],
       "consumes": [],
@@ -3145,7 +3160,8 @@
     {
       "name": "spec-to-vertical-issues",
       "requires": [
-        "conversation-to-spec"
+        "conversation-to-spec",
+        "project-second-brain"
       ],
       "consumes": [],
       "outputs": [
@@ -4222,6 +4238,10 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "conversation-to-spec",
+      "to": "project-second-brain"
+    },
+    {
       "from": "corporate-compliance-law-specialist",
       "to": "compliance-obligation-register"
     },
@@ -5050,6 +5070,10 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "iterate-software-projects",
+      "to": "project-second-brain"
+    },
+    {
       "from": "ivdr-analytical-performance",
       "to": "medical-device-risk-management-iso14971"
     },
@@ -5300,6 +5324,10 @@
     {
       "from": "large-work-wayfinder",
       "to": "disciplined-diagnosis"
+    },
+    {
+      "from": "large-work-wayfinder",
+      "to": "project-second-brain"
     },
     {
       "from": "learning-activity-generator",
@@ -6212,6 +6240,10 @@
     {
       "from": "spec-to-vertical-issues",
       "to": "conversation-to-spec"
+    },
+    {
+      "from": "spec-to-vertical-issues",
+      "to": "project-second-brain"
     },
     {
       "from": "sport-adaptation-analysis",
@@ -13673,6 +13705,48 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "project-memory-event.md",
+      "producers": [
+        "project-second-brain"
+      ],
+      "consumerSkills": [
+        "conversation-to-spec",
+        "iterate-software-projects",
+        "large-work-wayfinder",
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "project-memory-index.md",
+      "producers": [
+        "project-second-brain"
+      ],
+      "consumerSkills": [
+        "conversation-to-spec",
+        "iterate-software-projects",
+        "large-work-wayfinder",
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "project-memory-state.json",
+      "producers": [
+        "project-second-brain"
+      ],
+      "consumerSkills": [
+        "conversation-to-spec",
+        "iterate-software-projects",
+        "large-work-wayfinder",
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "project-status.json",

@@ -26,7 +26,7 @@ Iterative Weiterentwicklung bestehender Softwareprojekte durch den wiederkehrend
 
 ## Requires
 
-- —
+- [[skills/project-second-brain|project-second-brain]]
 
 ## Required by
 

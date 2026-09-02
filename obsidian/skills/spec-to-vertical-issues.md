@@ -27,6 +27,7 @@ Zerlegt eine freigegebene, konsistente Spezifikation in kleine, unabhängig abne
 ## Requires
 
 - [[skills/conversation-to-spec|conversation-to-spec]]
+- [[skills/project-second-brain|project-second-brain]]
 
 ## Required by
 
