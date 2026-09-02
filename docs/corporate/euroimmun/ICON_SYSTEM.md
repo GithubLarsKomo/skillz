@@ -14,6 +14,16 @@ Approved runtime source analyzed on 2026-08-28:
 
 A future bundle with a different SHA-256 is a new asset revision and must be re-profiled before it inherits this contract.
 
+### Catalog companions
+
+When semantic icon selection is required, this contract MUST be used together with:
+
+- `ICON_CATALOG.md` — human-readable complete semantic catalog, ambiguity rules, aliases and selection guidance;
+- `icon-semantic-catalog.json` — machine-readable Skillz routing taxonomy;
+- `icon-capability-index.json` — canonical inventory of named stems exposed by the approved bundle.
+
+The machine index currently enumerates 176 Essential names, while the original profile below estimated approximately 177 Essential semantic motifs. Preserve the machine index as the canonical named inventory until the proprietary source bundle is re-profiled; do not silently invent or rename a missing motif.
+
 ## 2. Inventory
 
 The supplied bundle contains four functional families:
@@ -64,7 +74,7 @@ Do not add ad-hoc colored circles behind transparent icons when a supplied circu
 
 ## 5. Semantic routing
 
-Choose the most specific available icon. Recommended routing examples:
+Choose the most specific available icon. For complete selection and query normalization, use `ICON_CATALOG.md` and `icon-semantic-catalog.json`. Recommended routing examples:
 
 ### Executive / business / governance
 
@@ -151,7 +161,7 @@ MAY:
 For any artifact using the corporate icon system, QA must verify:
 
 - asset provenance/source bundle recorded;
-- correct semantic icon selected;
+- correct semantic icon selected, using the catalog/semantic routing when selection is non-trivial;
 - supplied color variant used where available;
 - no distortion or clipping;
 - optical peer sizing is consistent;
