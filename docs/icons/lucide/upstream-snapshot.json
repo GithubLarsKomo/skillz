@@ -4,8 +4,9 @@
   "sourceRepository": "lucide-icons/lucide",
   "release": "1.27.0",
   "commit": "4aec3f892fd6c23063bc2fead83c899b5d412b1c",
-  "tree": "595ccdd85394acb59eac77042444a2ad2a2fcc88",
-  "inventoryPathPattern": "icons/{name}.json",
+  "sourceTree": "595ccdd85394acb59eac77042444a2ad2a2fcc88",
+  "inventoryTree": "468ecb61d104ef0374943b29112e1611d5cec12d",
+  "inventoryPathPattern": "{name}.json",
   "referencedIconCount": 145,
   "referencedIcons": [
     "activity",
