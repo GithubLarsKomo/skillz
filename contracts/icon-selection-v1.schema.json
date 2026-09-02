@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skillz.local/contracts/icon-selection-v1.schema.json",
+  "title": "Icon Selection v1",
+  "type": "object",
+  "required": ["schemaVersion", "provider", "status", "request", "alternatives", "warnings"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "provider": {"type": "string", "minLength": 1},
+    "status": {"enum": ["selected", "ambiguous", "unresolved-provider", "no-approved-match"]},
+    "request": {
+      "type": "object",
+      "required": ["intent"],
+      "properties": {
+        "intent": {"type": "string", "minLength": 1},
+        "context": {"type": ["string", "null"]},
+        "domain": {"type": ["string", "null"]},
+        "medium": {"type": ["string", "null"]},
+        "background": {"enum": ["light", "dark", "photo", null]},
+        "criticalMeaning": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "selection": {
+      "type": ["object", "null"],
+      "required": ["canonicalName", "family", "variant", "rationale", "confidence", "requiresTextLabel"],
+      "properties": {
+        "canonicalName": {"type": "string", "minLength": 1},
+        "family": {"type": "string", "minLength": 1},
+        "variant": {"type": ["string", "null"]},
+        "assetStem": {"type": ["string", "null"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "requiresTextLabel": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "alternatives": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["canonicalName", "reason"],
+        "properties": {
+          "canonicalName": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "selected"}}},
+      "then": {"required": ["selection"], "properties": {"selection": {"type": "object"}}}
+    }
+  ],
+  "additionalProperties": true
+}
