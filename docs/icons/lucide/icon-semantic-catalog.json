@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "provider": "lucide-generic",
+  "profile": {
+    "sourceRepository": "lucide-icons/lucide",
+    "profiledRelease": "1.27.0",
+    "profiledCommit": "4aec3f8",
+    "reviewedAt": "2026-09-02",
+    "license": "ISC",
+    "inventoryMode": "upstream-release-metadata",
+    "brandLogosSupported": false
+  },
+  "renderModel": {
+    "viewBox": "0 0 24 24",
+    "fill": "none",
+    "stroke": "currentColor",
+    "strokeWidth": 2,
+    "linecap": "round",
+    "linejoin": "round",
+    "colorPolicy": "inherit active design-system foreground/accent/status token; do not invent a new palette",
+    "strokePolicy": "default 2; change only when the active design system explicitly standardizes another Lucide stroke width"
+  },
+  "upstreamCategories": [
+    "accessibility", "account", "animals", "arrows", "buildings", "charts", "communication", "connectivity", "cursors", "design", "development", "devices", "emoji", "files", "finance", "food-beverage", "gaming", "home", "layout", "mail", "math", "medical", "multimedia", "nature", "navigation", "notifications", "people", "photography", "science", "seasons", "security", "shapes", "shopping", "social", "sports", "sustainability", "text", "time", "tools", "transportation", "travel", "weather"
+  ],
+  "semanticDomains": {
+    "navigation": {
+      "keywords": ["navigation", "home", "menu", "search", "back", "forward", "external", "download", "upload", "refresh", "Navigation", "Start", "Menü", "Suche", "zurück", "weiter", "extern", "herunterladen", "hochladen", "aktualisieren"],
+      "preferredIcons": ["house", "menu", "search", "arrow-left", "arrow-right", "chevron-right", "external-link", "download", "upload", "refresh-cw"]
+    },
+    "status-feedback": {
+      "keywords": ["success", "complete", "approved", "error", "failure", "warning", "information", "help", "pending", "loading", "Erfolg", "fertig", "bestätigt", "Fehler", "Warnung", "Information", "Hilfe", "ausstehend", "lädt"],
+      "preferredIcons": ["circle-check", "circle-x", "triangle-alert", "info", "circle-help", "clock", "loader-circle"]
+    },
+    "actions-editing": {
+      "keywords": ["add", "remove", "edit", "delete", "copy", "save", "share", "send", "filter", "sort", "hinzufügen", "entfernen", "bearbeiten", "löschen", "kopieren", "speichern", "teilen", "senden", "filtern", "sortieren"],
+      "preferredIcons": ["plus", "minus", "pencil", "trash-2", "copy", "save", "share-2", "send", "filter", "list-filter"]
+    },
+    "people-organization": {
+      "keywords": ["person", "user", "team", "group", "employee", "member", "organization", "company", "partner", "collaboration", "Person", "Nutzer", "Team", "Gruppe", "Mitarbeiter", "Mitglied", "Organisation", "Unternehmen", "Partner", "Zusammenarbeit"],
+      "preferredIcons": ["user", "users", "user-plus", "user-check", "building-2", "briefcase", "handshake"]
+    },
+    "business-finance": {
+      "keywords": ["business", "finance", "revenue", "cost", "budget", "growth", "trend", "target", "KPI", "decision", "Geschäft", "Finanzen", "Umsatz", "Kosten", "Budget", "Wachstum", "Trend", "Ziel", "Kennzahl", "Entscheidung"],
+      "preferredIcons": ["briefcase", "landmark", "wallet", "credit-card", "chart-line", "chart-bar", "chart-pie", "trending-up", "target"]
+    },
+    "data-it": {
+      "keywords": ["software", "data", "database", "server", "cloud", "network", "code", "terminal", "AI", "automation", "compute", "Software", "Daten", "Datenbank", "Server", "Cloud", "Netzwerk", "Code", "Terminal", "KI", "Automatisierung", "Rechenleistung"],
+      "preferredIcons": ["monitor", "laptop", "database", "server", "cloud", "network", "code", "terminal", "cpu", "bot"]
+    },
+    "security-privacy": {
+      "keywords": ["security", "privacy", "protected", "lock", "access", "key", "identity", "authentication", "risk", "vulnerability", "Sicherheit", "Datenschutz", "geschützt", "Sperre", "Zugang", "Schlüssel", "Identität", "Authentifizierung", "Risiko", "Schwachstelle"],
+      "preferredIcons": ["shield", "shield-check", "shield-alert", "shield-keyhole", "lock", "key-round", "fingerprint"]
+    },
+    "science-lab-medical": {
+      "keywords": ["science", "laboratory", "experiment", "sample", "test", "DNA", "biology", "medical", "diagnostic", "assay", "Wissenschaft", "Labor", "Experiment", "Probe", "Test", "DNA", "Biologie", "medizinisch", "Diagnostik", "Assay"],
+      "preferredIcons": ["microscope", "flask-conical", "test-tube", "test-tubes", "dna", "atom", "stethoscope", "syringe", "brain", "heart-pulse"]
+    },
+    "documents-knowledge": {
+      "keywords": ["document", "file", "folder", "archive", "attachment", "knowledge", "book", "library", "note", "report", "Dokument", "Datei", "Ordner", "Archiv", "Anhang", "Wissen", "Buch", "Bibliothek", "Notiz", "Bericht"],
+      "preferredIcons": ["file", "file-text", "folder", "folder-open", "archive", "paperclip", "book-open", "library", "notebook"]
+    },
+    "communication": {
+      "keywords": ["email", "message", "chat", "phone", "meeting", "video", "notification", "announce", "broadcast", "E-Mail", "Nachricht", "Chat", "Telefon", "Meeting", "Video", "Benachrichtigung", "Ankündigung", "Kommunikation"],
+      "preferredIcons": ["mail", "message-circle", "message-square", "phone", "video", "bell", "megaphone"]
+    },
+    "time-planning": {
+      "keywords": ["calendar", "date", "time", "deadline", "schedule", "timer", "history", "roadmap", "milestone", "Kalender", "Datum", "Zeit", "Frist", "Terminplan", "Timer", "Historie", "Roadmap", "Meilenstein"],
+      "preferredIcons": ["calendar", "calendar-days", "calendar-check", "clock", "timer", "alarm-clock", "history", "milestone"]
+    },
+    "travel-location": {
+      "keywords": ["travel", "trip", "route", "map", "location", "destination", "flight", "train", "car", "ship", "hotel", "luggage", "Reise", "Trip", "Route", "Karte", "Ort", "Zielort", "Flug", "Zug", "Auto", "Schiff", "Hotel", "Gepäck"],
+      "preferredIcons": ["map", "map-pin", "route", "navigation", "compass", "plane", "train", "car", "ship", "luggage", "bed-double"]
+    },
+    "sports-performance": {
+      "keywords": ["sport", "training", "strength", "competition", "race", "winner", "performance", "heart rate", "cycling", "swimming", "Sport", "Training", "Kraft", "Wettkampf", "Rennen", "Sieger", "Leistung", "Herzfrequenz", "Radfahren", "Schwimmen"],
+      "preferredIcons": ["dumbbell", "trophy", "medal", "activity", "heart-pulse", "bike", "waves", "timer", "gauge"]
+    },
+    "learning-education": {
+      "keywords": ["learning", "education", "course", "training", "school", "study", "idea", "knowledge", "presentation", "Lernen", "Bildung", "Kurs", "Schulung", "Schule", "Studium", "Idee", "Wissen", "Präsentation"],
+      "preferredIcons": ["book-open", "graduation-cap", "school", "library", "lightbulb", "brain", "presentation"]
+    },
+    "design-media": {
+      "keywords": ["design", "image", "photo", "color", "layout", "crop", "shape", "visual", "media", "Design", "Bild", "Foto", "Farbe", "Layout", "Zuschneiden", "Form", "visuell", "Medien"],
+      "preferredIcons": ["image", "camera", "palette", "layout-template", "crop", "shapes", "scan"]
+    },
+    "commerce-logistics": {
+      "keywords": ["shopping", "cart", "package", "delivery", "price", "tag", "receipt", "payment", "inventory", "Einkauf", "Warenkorb", "Paket", "Lieferung", "Preis", "Tag", "Beleg", "Zahlung", "Bestand"],
+      "preferredIcons": ["shopping-cart", "shopping-bag", "package", "truck", "tag", "receipt", "credit-card", "boxes"]
+    },
+    "sustainability-energy": {
+      "keywords": ["sustainability", "environment", "recycle", "energy", "renewable", "nature", "climate", "electric", "Nachhaltigkeit", "Umwelt", "Recycling", "Energie", "erneuerbar", "Natur", "Klima", "elektrisch"],
+      "preferredIcons": ["leaf", "recycle", "tree-pine", "sun", "battery-charging", "plug-zap"]
+    },
+    "workflow-process": {
+      "keywords": ["workflow", "process", "branch", "merge", "route", "sequence", "checklist", "pipeline", "handoff", "Workflow", "Prozess", "Abzweig", "Zusammenführen", "Route", "Sequenz", "Checkliste", "Pipeline", "Übergabe"],
+      "preferredIcons": ["workflow", "git-branch", "git-merge", "route", "list-checks", "waypoints"]
+    }
+  },
+  "preferredRouting": {
+    "strategic-target": {"icon": "target", "aliases": ["goal", "objective", "aim", "Ziel", "strategisches Ziel"]},
+    "analytical-search": {"icon": "search", "aliases": ["search", "find", "research search", "Suche", "finden", "Recherche"]},
+    "laboratory-science": {"icon": "microscope", "aliases": ["microscopy", "lab science", "Mikroskop", "Laborwissenschaft"]},
+    "laboratory-sample": {"icon": "test-tube", "aliases": ["sample", "tube", "specimen", "Probe", "Röhrchen"]},
+    "experiment": {"icon": "flask-conical", "aliases": ["experiment", "chemistry", "Versuch", "Chemie"]},
+    "genetics": {"icon": "dna", "aliases": ["DNA", "genetics", "genomics", "Genetik", "Genomik"]},
+    "artificial-intelligence": {"icon": "bot", "aliases": ["AI", "artificial intelligence", "KI", "künstliche Intelligenz"]},
+    "database": {"icon": "database", "aliases": ["database", "data store", "Datenbank", "Datenspeicher"]},
+    "cyber-security": {"icon": "shield", "aliases": ["security", "cybersecurity", "Sicherheit", "Cybersicherheit"]},
+    "protected-access": {"icon": "lock", "aliases": ["locked", "protected access", "Zugangsschutz", "gesperrt"]},
+    "authentication": {"icon": "fingerprint", "aliases": ["identity", "authentication", "MFA", "Identität", "Authentifizierung"]},
+    "risk-warning": {"icon": "triangle-alert", "aliases": ["risk", "warning", "hazard", "Risiko", "Warnung", "Gefahr"]},
+    "confirmed-success": {"icon": "circle-check", "aliases": ["success", "done", "confirmed", "Erfolg", "erledigt", "bestätigt"]},
+    "failure-error": {"icon": "circle-x", "aliases": ["error", "failed", "rejected", "Fehler", "fehlgeschlagen", "abgelehnt"]},
+    "information": {"icon": "info", "aliases": ["info", "information", "Hinweis", "Information"]},
+    "help": {"icon": "circle-help", "aliases": ["help", "question", "support", "Hilfe", "Frage", "Support"]},
+    "team": {"icon": "users", "aliases": ["team", "people", "members", "Team", "Menschen", "Mitglieder"]},
+    "partnership": {"icon": "handshake", "aliases": ["partner", "partnership", "collaboration", "Partnerschaft", "Kooperation"]},
+    "organization": {"icon": "building-2", "aliases": ["organization", "company", "institution", "Organisation", "Unternehmen", "Institution"]},
+    "business-case": {"icon": "briefcase", "aliases": ["business", "business case", "commercial", "Geschäft", "Business Case", "kommerziell"]},
+    "growth": {"icon": "trending-up", "aliases": ["growth", "increase", "uptrend", "Wachstum", "Anstieg"]},
+    "analytics": {"icon": "chart-line", "aliases": ["analytics", "metrics", "trend chart", "Analyse", "Kennzahlen", "Trend"]},
+    "calendar-date": {"icon": "calendar-days", "aliases": ["calendar", "date", "schedule", "Kalender", "Datum", "Termin"]},
+    "deadline": {"icon": "alarm-clock", "aliases": ["deadline", "due date", "Frist", "Fälligkeit"]},
+    "history": {"icon": "history", "aliases": ["history", "past", "version history", "Historie", "Vergangenheit", "Versionshistorie"]},
+    "document": {"icon": "file-text", "aliases": ["document", "report", "text file", "Dokument", "Bericht", "Textdatei"]},
+    "folder": {"icon": "folder", "aliases": ["folder", "directory", "Ordner", "Verzeichnis"]},
+    "attachment": {"icon": "paperclip", "aliases": ["attachment", "attach", "Anhang", "anhängen"]},
+    "email": {"icon": "mail", "aliases": ["mail", "email", "E-Mail"]},
+    "message-chat": {"icon": "message-circle", "aliases": ["message", "chat", "conversation", "Nachricht", "Chat", "Gespräch"]},
+    "announcement": {"icon": "megaphone", "aliases": ["announcement", "broadcast", "Ankündigung", "Bekanntmachung"]},
+    "location": {"icon": "map-pin", "aliases": ["location", "place", "position", "Ort", "Standort", "Position"]},
+    "route": {"icon": "route", "aliases": ["route", "path", "itinerary", "Route", "Weg", "Reiseroute"]},
+    "travel": {"icon": "plane", "aliases": ["travel", "flight", "trip", "Reise", "Flug", "Trip"]},
+    "rowing-water": {"icon": "waves", "aliases": ["water", "rowing context", "lake", "Wasser", "Rudern", "See"]},
+    "sport-training": {"icon": "dumbbell", "aliases": ["training", "strength", "gym", "Training", "Kraft", "Fitness"]},
+    "competition": {"icon": "trophy", "aliases": ["competition", "winner", "championship", "Wettkampf", "Sieger", "Meisterschaft"]},
+    "performance": {"icon": "gauge", "aliases": ["performance", "speed", "capacity", "Leistung", "Geschwindigkeit", "Kapazität"]},
+    "learning": {"icon": "book-open", "aliases": ["learning", "study", "knowledge", "Lernen", "Studium", "Wissen"]},
+    "education": {"icon": "graduation-cap", "aliases": ["education", "qualification", "degree", "Bildung", "Qualifikation", "Abschluss"]},
+    "idea": {"icon": "lightbulb", "aliases": ["idea", "innovation", "insight", "Idee", "Innovation", "Erkenntnis"]},
+    "download": {"icon": "download", "aliases": ["download", "export", "herunterladen", "Export"]},
+    "upload": {"icon": "upload", "aliases": ["upload", "import", "hochladen", "Import"]},
+    "external-link": {"icon": "external-link", "aliases": ["external link", "open externally", "externer Link", "extern öffnen"]},
+    "settings": {"icon": "settings", "aliases": ["settings", "configuration", "Einstellungen", "Konfiguration"]},
+    "process": {"icon": "workflow", "aliases": ["workflow", "process", "flow", "Workflow", "Prozess", "Ablauf"]},
+    "handoff": {"icon": "waypoints", "aliases": ["handoff", "transfer", "handover", "Übergabe", "Transfer"]},
+    "sustainability": {"icon": "leaf", "aliases": ["sustainability", "green", "environment", "Nachhaltigkeit", "Umwelt"]},
+    "recycling": {"icon": "recycle", "aliases": ["recycle", "circular", "Recycling", "Kreislauf"]},
+    "shopping": {"icon": "shopping-cart", "aliases": ["shopping", "purchase", "cart", "Einkauf", "Kauf", "Warenkorb"]},
+    "delivery": {"icon": "truck", "aliases": ["delivery", "shipping", "transport", "Lieferung", "Versand", "Transport"]}
+  },
+  "ambiguityRules": [
+    {"concepts": ["search", "microscope"], "rule": "Use search for finding/research retrieval; use microscope for laboratory/scientific observation."},
+    {"concepts": ["target", "gauge"], "rule": "Use target for goals/objectives; use gauge for measured performance/capacity."},
+    {"concepts": ["shield", "lock", "fingerprint"], "rule": "Use shield for broad security/risk protection, lock for access control, fingerprint for identity/authentication."},
+    {"concepts": ["plane", "route", "map-pin"], "rule": "Use plane for travel/flight framing, route for itinerary/path, map-pin for a location."},
+    {"concepts": ["trophy", "medal", "dumbbell"], "rule": "Use trophy for competition/winning, medal for award/result, dumbbell for training/strength."},
+    {"concepts": ["file-text", "book-open"], "rule": "Use file-text for a document/report; use book-open for learning/knowledge."},
+    {"concepts": ["circle-check", "badge-check"], "rule": "Do not use positive-status icons to imply approval/certification unless the status is explicitly established."}
+  ],
+  "statusSafety": {
+    "criticalMeaningRequiresTextLabel": true,
+    "positiveStatusRequiresEvidence": true,
+    "regulatoryApprovalMayNotBeInferredFromIcon": true,
+    "medicalIconMayNotImplyDiagnosisOrPerformance": true
+  },
+  "fallbackPolicy": {
+    "allowed": true,
+    "fallbackIcons": ["circle", "square", "diamond", "dot"],
+    "rule": "Use only as a neutral marker when no narrower semantic icon is justified; never simulate missing regulated, branded or project-specific semantics."
+  }
+}
