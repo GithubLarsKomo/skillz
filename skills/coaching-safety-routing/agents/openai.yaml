@@ -1,0 +1,5 @@
+interface:
+  display_name: "Coaching Safety Routing"
+  short_description: "Trennt legitime Coaching-Unterstützung von Situationen, die HR-, Legal-/Compliance-, arbeitsmedizinische, psychologis..."
+policy:
+  allow_implicit_invocation: true
