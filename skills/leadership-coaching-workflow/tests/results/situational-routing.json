@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-coaching-workflow",
+  "caseId": "situational-routing",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "zum leadership-feedback Worker routen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-workflow/situational-routing; relevant contract anchors: konkretes Feedback geben oder empfangen; leadership-feedback; Situative P1-Artefakte."
+    },
+    {
+      "behavior": "bei Bedarf meeting-preparation ergänzend verwenden",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-workflow/situational-routing; relevant contract anchors: konkretes Feedback geben oder empfangen; leadership-feedback; Situative P1-Artefakte."
+    },
+    {
+      "behavior": "keinen zweiten Coaching State für die Situation erzeugen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-workflow/situational-routing; relevant contract anchors: konkretes Feedback geben oder empfangen; leadership-feedback; Situative P1-Artefakte."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "direkt performance-management oder Employment Law erzwingen ohne Trigger",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-workflow/situational-routing excludes this behavior; relevant contract anchors: konkretes Feedback geben oder empfangen; leadership-feedback; Situative P1-Artefakte."
+    },
+    {
+      "behavior": "Feedback-Logik vollständig im Orchestrator duplizieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-workflow/situational-routing excludes this behavior; relevant contract anchors: konkretes Feedback geben oder empfangen; leadership-feedback; Situative P1-Artefakte."
+    }
+  ],
+  "overall": "pass"
+}

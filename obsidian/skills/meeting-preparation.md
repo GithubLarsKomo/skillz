@@ -31,6 +31,8 @@ Verdichtet einen bestätigten Termin, Teilnehmerkontext und verfügbare Evidence
 ## Required by
 
 - [[skills/decision-and-follow-up-tracker|decision-and-follow-up-tracker]]
+- [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
 
 ## Outputs
 
@@ -42,6 +44,8 @@ Verdichtet einen bestätigten Termin, Teilnehmerkontext und verfügbare Evidence
 ### `meeting-prep.json`
 
 - [[skills/decision-and-follow-up-tracker|decision-and-follow-up-tracker]]
+- [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
 
 ### `meeting-prep.md`
 

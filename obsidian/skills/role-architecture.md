@@ -45,6 +45,10 @@ tags:
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/leadership-coaching-intake|leadership-coaching-intake]]
+- [[skills/leadership-delegation|leadership-delegation]]
+- [[skills/leadership-development-model|leadership-development-model]]
+- [[skills/performance-management-workflow|performance-management-workflow]]
 
 ### `role-architecture.md`
 

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Feedback"
+  short_description: "Strukturiert Führungsfeedback aus beobachtbarem Verhalten, Wirkung, Perspektivklärung, Erwartung und Follow-up. Verwe..."
+policy:
+  allow_implicit_invocation: true

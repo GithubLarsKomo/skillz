@@ -128,6 +128,14 @@
       ]
     },
     {
+      "name": "coaching-safety-routing",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "coaching-safety-routing.json"
+      ]
+    },
+    {
       "name": "communication-memory-governance",
       "requires": [],
       "consumes": [],
@@ -471,6 +479,22 @@
       "outputs": [
         "design-control-traceability.json",
         "design-evidence-gaps.json"
+      ]
+    },
+    {
+      "name": "difficult-conversation-workflow",
+      "requires": [
+        "coaching-safety-routing",
+        "leadership-feedback",
+        "meeting-preparation"
+      ],
+      "consumes": [
+        "leadership-feedback-plan.json",
+        "leadership-reflection.json",
+        "meeting-prep.json"
+      ],
+      "outputs": [
+        "difficult-conversation-plan.json"
       ]
     },
     {
@@ -1702,6 +1726,121 @@
       ]
     },
     {
+      "name": "leadership-1on1-workflow",
+      "requires": [
+        "decision-and-follow-up-tracker",
+        "leadership-feedback",
+        "meeting-preparation"
+      ],
+      "consumes": [
+        "decision-follow-up-register.json",
+        "leadership-development-model.json",
+        "meeting-prep.json"
+      ],
+      "outputs": [
+        "leadership-1on1-plan.json"
+      ]
+    },
+    {
+      "name": "leadership-behavior-experiment",
+      "requires": [],
+      "consumes": [
+        "leadership-development-model.json",
+        "leadership-reflection.json"
+      ],
+      "outputs": [
+        "leadership-behavior-experiment.json"
+      ]
+    },
+    {
+      "name": "leadership-coaching-intake",
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [
+        "role-architecture.json"
+      ],
+      "outputs": [
+        "leadership-coaching-contract.json",
+        "leadership-coaching-intake-report.md"
+      ]
+    },
+    {
+      "name": "leadership-coaching-review",
+      "requires": [],
+      "consumes": [
+        "leadership-behavior-experiment.json",
+        "leadership-development-model.json"
+      ],
+      "outputs": [
+        "leadership-coaching-review.json"
+      ]
+    },
+    {
+      "name": "leadership-coaching-workflow",
+      "requires": [
+        "coaching-safety-routing",
+        "difficult-conversation-workflow",
+        "leadership-1on1-workflow",
+        "leadership-behavior-experiment",
+        "leadership-coaching-intake",
+        "leadership-coaching-review",
+        "leadership-delegation",
+        "leadership-development-model",
+        "leadership-feedback",
+        "leadership-reflection",
+        "performance-management-workflow"
+      ],
+      "consumes": [],
+      "outputs": [
+        "leadership-coaching-state.json"
+      ]
+    },
+    {
+      "name": "leadership-delegation",
+      "requires": [],
+      "consumes": [
+        "leadership-development-model.json",
+        "role-architecture.json"
+      ],
+      "outputs": [
+        "leadership-delegation-plan.json"
+      ]
+    },
+    {
+      "name": "leadership-development-model",
+      "requires": [],
+      "consumes": [
+        "leadership-coaching-contract.json",
+        "role-architecture.json"
+      ],
+      "outputs": [
+        "leadership-development-model.json"
+      ]
+    },
+    {
+      "name": "leadership-feedback",
+      "requires": [],
+      "consumes": [
+        "leadership-development-model.json",
+        "leadership-reflection.json"
+      ],
+      "outputs": [
+        "leadership-feedback-plan.json"
+      ]
+    },
+    {
+      "name": "leadership-reflection",
+      "requires": [],
+      "consumes": [
+        "leadership-coaching-contract.json",
+        "leadership-development-model.json"
+      ],
+      "outputs": [
+        "leadership-reflection.json"
+      ]
+    },
+    {
       "name": "learning-activity-generator",
       "requires": [
         "learning-path-planner"
@@ -2584,6 +2723,21 @@
         "hotspot-analysis.md",
         "hotspot-map.json",
         "optimization-candidates.json"
+      ]
+    },
+    {
+      "name": "performance-management-workflow",
+      "requires": [
+        "coaching-safety-routing",
+        "decision-and-follow-up-tracker",
+        "leadership-feedback"
+      ],
+      "consumes": [
+        "leadership-feedback-plan.json",
+        "role-architecture.json"
+      ],
+      "outputs": [
+        "performance-management-plan.json"
       ]
     },
     {
@@ -4346,6 +4500,18 @@
       "to": "two-axis-compliance-review"
     },
     {
+      "from": "difficult-conversation-workflow",
+      "to": "coaching-safety-routing"
+    },
+    {
+      "from": "difficult-conversation-workflow",
+      "to": "leadership-feedback"
+    },
+    {
+      "from": "difficult-conversation-workflow",
+      "to": "meeting-preparation"
+    },
+    {
       "from": "digital-ai-cyber-law-specialist",
       "to": "current-law-context"
     },
@@ -5330,6 +5496,66 @@
       "to": "project-second-brain"
     },
     {
+      "from": "leadership-1on1-workflow",
+      "to": "decision-and-follow-up-tracker"
+    },
+    {
+      "from": "leadership-1on1-workflow",
+      "to": "leadership-feedback"
+    },
+    {
+      "from": "leadership-1on1-workflow",
+      "to": "meeting-preparation"
+    },
+    {
+      "from": "leadership-coaching-intake",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "coaching-safety-routing"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "difficult-conversation-workflow"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-1on1-workflow"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-behavior-experiment"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-coaching-intake"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-coaching-review"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-delegation"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-development-model"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-feedback"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-reflection"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "performance-management-workflow"
+    },
+    {
       "from": "learning-activity-generator",
       "to": "learning-path-planner"
     },
@@ -5944,6 +6170,18 @@
     {
       "from": "performance-hotspot-analysis",
       "to": "performance-baseline"
+    },
+    {
+      "from": "performance-management-workflow",
+      "to": "coaching-safety-routing"
+    },
+    {
+      "from": "performance-management-workflow",
+      "to": "decision-and-follow-up-tracker"
+    },
+    {
+      "from": "performance-management-workflow",
+      "to": "leadership-feedback"
     },
     {
       "from": "performance-optimization-plan",
@@ -7012,6 +7250,21 @@
       "producer": "legal-redline-review-loop"
     },
     {
+      "consumer": "difficult-conversation-workflow",
+      "artifact": "leadership-feedback-plan.json",
+      "producer": "leadership-feedback"
+    },
+    {
+      "consumer": "difficult-conversation-workflow",
+      "artifact": "leadership-reflection.json",
+      "producer": "leadership-reflection"
+    },
+    {
+      "consumer": "difficult-conversation-workflow",
+      "artifact": "meeting-prep.json",
+      "producer": "meeting-preparation"
+    },
+    {
       "consumer": "document-layout-qa",
       "artifact": "document-template-profile.json",
       "producer": "document-template-profiler"
@@ -7040,6 +7293,86 @@
       "consumer": "job-description-authoring",
       "artifact": "role-scorecard.json",
       "producer": "role-architecture"
+    },
+    {
+      "consumer": "leadership-1on1-workflow",
+      "artifact": "decision-follow-up-register.json",
+      "producer": "decision-and-follow-up-tracker"
+    },
+    {
+      "consumer": "leadership-1on1-workflow",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-1on1-workflow",
+      "artifact": "meeting-prep.json",
+      "producer": "meeting-preparation"
+    },
+    {
+      "consumer": "leadership-behavior-experiment",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-behavior-experiment",
+      "artifact": "leadership-reflection.json",
+      "producer": "leadership-reflection"
+    },
+    {
+      "consumer": "leadership-coaching-intake",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "leadership-coaching-review",
+      "artifact": "leadership-behavior-experiment.json",
+      "producer": "leadership-behavior-experiment"
+    },
+    {
+      "consumer": "leadership-coaching-review",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-delegation",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-delegation",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "leadership-development-model",
+      "artifact": "leadership-coaching-contract.json",
+      "producer": "leadership-coaching-intake"
+    },
+    {
+      "consumer": "leadership-development-model",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "leadership-feedback",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-feedback",
+      "artifact": "leadership-reflection.json",
+      "producer": "leadership-reflection"
+    },
+    {
+      "consumer": "leadership-reflection",
+      "artifact": "leadership-coaching-contract.json",
+      "producer": "leadership-coaching-intake"
+    },
+    {
+      "consumer": "leadership-reflection",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
     },
     {
       "consumer": "learning-delivery-workflow",
@@ -7200,6 +7533,16 @@
       "consumer": "multimodal-learning-analysis",
       "artifact": "source-context.json",
       "producer": "source-to-context"
+    },
+    {
+      "consumer": "performance-management-workflow",
+      "artifact": "leadership-feedback-plan.json",
+      "producer": "leadership-feedback"
+    },
+    {
+      "consumer": "performance-management-workflow",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
     },
     {
       "consumer": "person-profile-document-delivery",
@@ -8295,6 +8638,17 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "coaching-safety-routing.json",
+      "producers": [
+        "coaching-safety-routing"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
       "output": "commercial-exposure-analysis.json",
       "producers": [
         "legal-compliance-risk-assessment"
@@ -9277,10 +9631,11 @@
         "decision-and-follow-up-tracker"
       ],
       "consumerSkills": [
+        "leadership-1on1-workflow",
         "qms-management-review-action-followup"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "decision-follow-up-register.md",
@@ -9487,6 +9842,17 @@
         "test-driven-vertical-slice",
         "throwaway-prototype",
         "two-axis-code-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "difficult-conversation-plan.json",
+      "producers": [
+        "difficult-conversation-workflow"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -11506,6 +11872,128 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "leadership-1on1-plan.json",
+      "producers": [
+        "leadership-1on1-workflow"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-behavior-experiment.json",
+      "producers": [
+        "leadership-behavior-experiment"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-review",
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-coaching-contract.json",
+      "producers": [
+        "leadership-coaching-intake"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow",
+        "leadership-development-model",
+        "leadership-reflection"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-coaching-intake-report.md",
+      "producers": [
+        "leadership-coaching-intake"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-coaching-review.json",
+      "producers": [
+        "leadership-coaching-review"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-coaching-state.json",
+      "producers": [
+        "leadership-coaching-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "leadership-delegation-plan.json",
+      "producers": [
+        "leadership-delegation"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-development-model.json",
+      "producers": [
+        "leadership-development-model"
+      ],
+      "consumerSkills": [
+        "leadership-1on1-workflow",
+        "leadership-behavior-experiment",
+        "leadership-coaching-review",
+        "leadership-coaching-workflow",
+        "leadership-delegation",
+        "leadership-feedback",
+        "leadership-reflection"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-feedback-plan.json",
+      "producers": [
+        "leadership-feedback"
+      ],
+      "consumerSkills": [
+        "difficult-conversation-workflow",
+        "leadership-coaching-workflow",
+        "performance-management-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-reflection.json",
+      "producers": [
+        "leadership-reflection"
+      ],
+      "consumerSkills": [
+        "difficult-conversation-workflow",
+        "leadership-behavior-experiment",
+        "leadership-coaching-workflow",
+        "leadership-feedback"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
       "output": "learning-artifact-qa.json",
       "producers": [
         "learning-artifact-qa"
@@ -12619,10 +13107,12 @@
         "meeting-preparation"
       ],
       "consumerSkills": [
-        "decision-and-follow-up-tracker"
+        "decision-and-follow-up-tracker",
+        "difficult-conversation-workflow",
+        "leadership-1on1-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "meeting-prep.md",
@@ -12997,6 +13487,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "performance-management-plan.json",
+      "producers": [
+        "performance-management-workflow"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "performance-psychology-plan.json",
@@ -14822,7 +15323,11 @@
       ],
       "consumerSkills": [
         "candidate-role-fit-assessment",
-        "job-description-authoring"
+        "job-description-authoring",
+        "leadership-coaching-intake",
+        "leadership-delegation",
+        "leadership-development-model",
+        "performance-management-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
@@ -16795,6 +17300,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "leadership-coaching-state.json",
     "learning-practice-request.json",
     "legal-matter-handoff.json",
     "legal-matter-plan.md",
@@ -17111,6 +17617,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "leadership-coaching-state.json",
     "learning-practice-request.json",
     "legal-matter-handoff.json",
     "legal-matter-plan.md",

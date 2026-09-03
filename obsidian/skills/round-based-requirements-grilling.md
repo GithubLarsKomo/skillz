@@ -16,7 +16,7 @@ tags:
 
 # round-based-requirements-grilling
 
-Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.
+Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, v1-/v2-Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -34,6 +34,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
 - [[skills/frontend-product-context|frontend-product-context]]
+- [[skills/leadership-coaching-intake|leadership-coaching-intake]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 

@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n309 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n321 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -2132,7 +2132,7 @@
       "x": 12200,
       "y": 0,
       "width": 1120,
-      "height": 4160,
+      "height": 4720,
       "color": "5"
     },
     {
@@ -2145,10 +2145,19 @@
       "height": 110
     },
     {
+      "id": "skill-coaching-safety-routing",
+      "type": "file",
+      "file": "skills/coaching-safety-routing.md",
+      "x": 12570,
+      "y": 70,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-compliance-control-assurance",
       "type": "file",
       "file": "skills/compliance-control-assurance.md",
-      "x": 12570,
+      "x": 12900,
       "y": 70,
       "width": 300,
       "height": 110
@@ -2157,8 +2166,8 @@
       "id": "skill-compliance-control-mapping",
       "type": "file",
       "file": "skills/compliance-control-mapping.md",
-      "x": 12900,
-      "y": 70,
+      "x": 12240,
+      "y": 210,
       "width": 300,
       "height": 110
     },
@@ -2166,7 +2175,7 @@
       "id": "skill-compliance-management-workflow",
       "type": "file",
       "file": "skills/compliance-management-workflow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 210,
       "width": 300,
       "height": 110
@@ -2175,7 +2184,7 @@
       "id": "skill-contract-drafting",
       "type": "file",
       "file": "skills/contract-drafting.md",
-      "x": 12570,
+      "x": 12900,
       "y": 210,
       "width": 300,
       "height": 110
@@ -2184,8 +2193,8 @@
       "id": "skill-contract-matter-workflow",
       "type": "file",
       "file": "skills/contract-matter-workflow.md",
-      "x": 12900,
-      "y": 210,
+      "x": 12240,
+      "y": 350,
       "width": 300,
       "height": 110
     },
@@ -2193,7 +2202,7 @@
       "id": "skill-contract-review",
       "type": "file",
       "file": "skills/contract-review.md",
-      "x": 12240,
+      "x": 12570,
       "y": 350,
       "width": 300,
       "height": 110
@@ -2202,7 +2211,7 @@
       "id": "skill-contract-workflow",
       "type": "file",
       "file": "skills/contract-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 350,
       "width": 300,
       "height": 110
@@ -2211,8 +2220,17 @@
       "id": "skill-decision-record",
       "type": "file",
       "file": "skills/decision-record.md",
-      "x": 12900,
-      "y": 350,
+      "x": 12240,
+      "y": 490,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-difficult-conversation-workflow",
+      "type": "file",
+      "file": "skills/difficult-conversation-workflow.md",
+      "x": 12570,
+      "y": 490,
       "width": 300,
       "height": 110
     },
@@ -2220,7 +2238,7 @@
       "id": "skill-dr-komorowski-sport-docx-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-docx-report-renderer.md",
-      "x": 12240,
+      "x": 12900,
       "y": 490,
       "width": 300,
       "height": 110
@@ -2229,8 +2247,8 @@
       "id": "skill-dr-komorowski-sport-pdf-report-renderer",
       "type": "file",
       "file": "skills/dr-komorowski-sport-pdf-report-renderer.md",
-      "x": 12570,
-      "y": 490,
+      "x": 12240,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -2238,8 +2256,8 @@
       "id": "skill-euroimmun-docx-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-docx-report-renderer.md",
-      "x": 12900,
-      "y": 490,
+      "x": 12570,
+      "y": 630,
       "width": 300,
       "height": 110
     },
@@ -2247,7 +2265,7 @@
       "id": "skill-euroimmun-pdf-report-renderer",
       "type": "file",
       "file": "skills/euroimmun-pdf-report-renderer.md",
-      "x": 12240,
+      "x": 12900,
       "y": 630,
       "width": 300,
       "height": 110
@@ -2256,8 +2274,8 @@
       "id": "skill-euroimmun-presentation-workflow",
       "type": "file",
       "file": "skills/euroimmun-presentation-workflow.md",
-      "x": 12570,
-      "y": 630,
+      "x": 12240,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -2265,8 +2283,8 @@
       "id": "skill-executive-legal-compliance-governance",
       "type": "file",
       "file": "skills/executive-legal-compliance-governance.md",
-      "x": 12900,
-      "y": 630,
+      "x": 12570,
+      "y": 770,
       "width": 300,
       "height": 110
     },
@@ -2274,7 +2292,7 @@
       "id": "skill-human-procedure-wizard",
       "type": "file",
       "file": "skills/human-procedure-wizard.md",
-      "x": 12240,
+      "x": 12900,
       "y": 770,
       "width": 300,
       "height": 110
@@ -2283,8 +2301,8 @@
       "id": "skill-internal-investigation-workflow",
       "type": "file",
       "file": "skills/internal-investigation-workflow.md",
-      "x": 12570,
-      "y": 770,
+      "x": 12240,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -2292,8 +2310,8 @@
       "id": "skill-investigation-evidence-preservation",
       "type": "file",
       "file": "skills/investigation-evidence-preservation.md",
-      "x": 12900,
-      "y": 770,
+      "x": 12570,
+      "y": 910,
       "width": 300,
       "height": 110
     },
@@ -2301,7 +2319,7 @@
       "id": "skill-investigation-findings-remediation",
       "type": "file",
       "file": "skills/investigation-findings-remediation.md",
-      "x": 12240,
+      "x": 12900,
       "y": 910,
       "width": 300,
       "height": 110
@@ -2310,8 +2328,89 @@
       "id": "skill-job-description-authoring",
       "type": "file",
       "file": "skills/job-description-authoring.md",
+      "x": 12240,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-1on1-workflow",
+      "type": "file",
+      "file": "skills/leadership-1on1-workflow.md",
       "x": 12570,
-      "y": 910,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-behavior-experiment",
+      "type": "file",
+      "file": "skills/leadership-behavior-experiment.md",
+      "x": 12900,
+      "y": 1050,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-coaching-intake",
+      "type": "file",
+      "file": "skills/leadership-coaching-intake.md",
+      "x": 12240,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-coaching-review",
+      "type": "file",
+      "file": "skills/leadership-coaching-review.md",
+      "x": 12570,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-coaching-workflow",
+      "type": "file",
+      "file": "skills/leadership-coaching-workflow.md",
+      "x": 12900,
+      "y": 1190,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-delegation",
+      "type": "file",
+      "file": "skills/leadership-delegation.md",
+      "x": 12240,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-development-model",
+      "type": "file",
+      "file": "skills/leadership-development-model.md",
+      "x": 12570,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-feedback",
+      "type": "file",
+      "file": "skills/leadership-feedback.md",
+      "x": 12900,
+      "y": 1330,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-leadership-reflection",
+      "type": "file",
+      "file": "skills/leadership-reflection.md",
+      "x": 12240,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -2319,8 +2418,8 @@
       "id": "skill-learning-document-delivery",
       "type": "file",
       "file": "skills/learning-document-delivery.md",
-      "x": 12900,
-      "y": 910,
+      "x": 12570,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -2328,8 +2427,8 @@
       "id": "skill-learning-image-generator",
       "type": "file",
       "file": "skills/learning-image-generator.md",
-      "x": 12240,
-      "y": 1050,
+      "x": 12900,
+      "y": 1470,
       "width": 300,
       "height": 110
     },
@@ -2337,8 +2436,8 @@
       "id": "skill-learning-landingpage-renderer",
       "type": "file",
       "file": "skills/learning-landingpage-renderer.md",
-      "x": 12570,
-      "y": 1050,
+      "x": 12240,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -2346,8 +2445,8 @@
       "id": "skill-learning-svg-generator",
       "type": "file",
       "file": "skills/learning-svg-generator.md",
-      "x": 12900,
-      "y": 1050,
+      "x": 12570,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -2355,8 +2454,8 @@
       "id": "skill-legal-change-impact-orchestrator",
       "type": "file",
       "file": "skills/legal-change-impact-orchestrator.md",
-      "x": 12240,
-      "y": 1190,
+      "x": 12900,
+      "y": 1610,
       "width": 300,
       "height": 110
     },
@@ -2364,8 +2463,8 @@
       "id": "skill-legal-change-monitoring",
       "type": "file",
       "file": "skills/legal-change-monitoring.md",
-      "x": 12570,
-      "y": 1190,
+      "x": 12240,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -2373,8 +2472,8 @@
       "id": "skill-legal-compliance-office",
       "type": "file",
       "file": "skills/legal-compliance-office.md",
-      "x": 12900,
-      "y": 1190,
+      "x": 12570,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -2382,8 +2481,8 @@
       "id": "skill-legal-matter-final-gate",
       "type": "file",
       "file": "skills/legal-matter-final-gate.md",
-      "x": 12240,
-      "y": 1330,
+      "x": 12900,
+      "y": 1750,
       "width": 300,
       "height": 110
     },
@@ -2391,8 +2490,8 @@
       "id": "skill-legal-matter-intake",
       "type": "file",
       "file": "skills/legal-matter-intake.md",
-      "x": 12570,
-      "y": 1330,
+      "x": 12240,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -2400,8 +2499,8 @@
       "id": "skill-legal-redline-review-loop",
       "type": "file",
       "file": "skills/legal-redline-review-loop.md",
-      "x": 12900,
-      "y": 1330,
+      "x": 12570,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -2409,8 +2508,8 @@
       "id": "skill-legal-specialist-router",
       "type": "file",
       "file": "skills/legal-specialist-router.md",
-      "x": 12240,
-      "y": 1470,
+      "x": 12900,
+      "y": 1890,
       "width": 300,
       "height": 110
     },
@@ -2418,8 +2517,8 @@
       "id": "skill-llm-prose-pattern-audit",
       "type": "file",
       "file": "skills/llm-prose-pattern-audit.md",
-      "x": 12570,
-      "y": 1470,
+      "x": 12240,
+      "y": 2030,
       "width": 300,
       "height": 110
     },
@@ -2427,8 +2526,17 @@
       "id": "skill-optimize-software-performance",
       "type": "file",
       "file": "skills/optimize-software-performance.md",
+      "x": 12570,
+      "y": 2030,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "skill-performance-management-workflow",
+      "type": "file",
+      "file": "skills/performance-management-workflow.md",
       "x": 12900,
-      "y": 1470,
+      "y": 2030,
       "width": 300,
       "height": 110
     },
@@ -2437,7 +2545,7 @@
       "type": "file",
       "file": "skills/person-profile-document-delivery.md",
       "x": 12240,
-      "y": 1610,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -2446,7 +2554,7 @@
       "type": "file",
       "file": "skills/person-profile-report.md",
       "x": 12570,
-      "y": 1610,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -2455,7 +2563,7 @@
       "type": "file",
       "file": "skills/person-research-report-workflow.md",
       "x": 12900,
-      "y": 1610,
+      "y": 2170,
       "width": 300,
       "height": 110
     },
@@ -2464,7 +2572,7 @@
       "type": "file",
       "file": "skills/precision-language-rewriter.md",
       "x": 12240,
-      "y": 1750,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -2473,7 +2581,7 @@
       "type": "file",
       "file": "skills/precision-writing-revision.md",
       "x": 12570,
-      "y": 1750,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -2482,7 +2590,7 @@
       "type": "file",
       "file": "skills/presentation-language-rewriter.md",
       "x": 12900,
-      "y": 1750,
+      "y": 2310,
       "width": 300,
       "height": 110
     },
@@ -2491,7 +2599,7 @@
       "type": "file",
       "file": "skills/presentation-layout-qa.md",
       "x": 12240,
-      "y": 1890,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -2500,7 +2608,7 @@
       "type": "file",
       "file": "skills/presentation-render-verifier.md",
       "x": 12570,
-      "y": 1890,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -2509,7 +2617,7 @@
       "type": "file",
       "file": "skills/presentation-template-profiler.md",
       "x": 12900,
-      "y": 1890,
+      "y": 2450,
       "width": 300,
       "height": 110
     },
@@ -2518,7 +2626,7 @@
       "type": "file",
       "file": "skills/private-legal-matter-router.md",
       "x": 12240,
-      "y": 2030,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -2527,7 +2635,7 @@
       "type": "file",
       "file": "skills/privilege-and-counsel-routing.md",
       "x": 12570,
-      "y": 2030,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -2536,7 +2644,7 @@
       "type": "file",
       "file": "skills/procedure-sop-extractor.md",
       "x": 12900,
-      "y": 2030,
+      "y": 2590,
       "width": 300,
       "height": 110
     },
@@ -2545,7 +2653,7 @@
       "type": "file",
       "file": "skills/project-second-brain.md",
       "x": 12240,
-      "y": 2170,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -2554,7 +2662,7 @@
       "type": "file",
       "file": "skills/purchase-decision-planner.md",
       "x": 12570,
-      "y": 2170,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -2563,7 +2671,7 @@
       "type": "file",
       "file": "skills/rewrite-fidelity-verifier.md",
       "x": 12900,
-      "y": 2170,
+      "y": 2730,
       "width": 300,
       "height": 110
     },
@@ -2572,7 +2680,7 @@
       "type": "file",
       "file": "skills/role-architecture.md",
       "x": 12240,
-      "y": 2310,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -2581,7 +2689,7 @@
       "type": "file",
       "file": "skills/role-requirements-grilling.md",
       "x": 12570,
-      "y": 2310,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -2590,7 +2698,7 @@
       "type": "file",
       "file": "skills/skill-lifecycle-migration.md",
       "x": 12900,
-      "y": 2310,
+      "y": 2870,
       "width": 300,
       "height": 110
     },
@@ -2599,7 +2707,7 @@
       "type": "file",
       "file": "skills/skill-portfolio-audit.md",
       "x": 12240,
-      "y": 2450,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -2608,7 +2716,7 @@
       "type": "file",
       "file": "skills/sport-athlete-management.md",
       "x": 12570,
-      "y": 2450,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -2617,7 +2725,7 @@
       "type": "file",
       "file": "skills/sport-athlete-profile.md",
       "x": 12900,
-      "y": 2450,
+      "y": 3010,
       "width": 300,
       "height": 110
     },
@@ -2626,7 +2734,7 @@
       "type": "file",
       "file": "skills/sport-daily-athlete-monitoring.md",
       "x": 12240,
-      "y": 2590,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2635,7 +2743,7 @@
       "type": "file",
       "file": "skills/sport-diagnostics-training-report-workflow.md",
       "x": 12570,
-      "y": 2590,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2644,7 +2752,7 @@
       "type": "file",
       "file": "skills/sport-endurance-programming.md",
       "x": 12900,
-      "y": 2590,
+      "y": 3150,
       "width": 300,
       "height": 110
     },
@@ -2653,7 +2761,7 @@
       "type": "file",
       "file": "skills/sport-environment-travel.md",
       "x": 12240,
-      "y": 2730,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2662,7 +2770,7 @@
       "type": "file",
       "file": "skills/sport-goal-performance-model.md",
       "x": 12570,
-      "y": 2730,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2671,7 +2779,7 @@
       "type": "file",
       "file": "skills/sport-injury-rehabilitation.md",
       "x": 12900,
-      "y": 2730,
+      "y": 3290,
       "width": 300,
       "height": 110
     },
@@ -2680,7 +2788,7 @@
       "type": "file",
       "file": "skills/sport-mental-health-routing.md",
       "x": 12240,
-      "y": 2870,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2689,7 +2797,7 @@
       "type": "file",
       "file": "skills/sport-mesocycle-planning.md",
       "x": 12570,
-      "y": 2870,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2698,7 +2806,7 @@
       "type": "file",
       "file": "skills/sport-microcycle-planning.md",
       "x": 12900,
-      "y": 2870,
+      "y": 3430,
       "width": 300,
       "height": 110
     },
@@ -2707,7 +2815,7 @@
       "type": "file",
       "file": "skills/sport-nutrition-fueling.md",
       "x": 12240,
-      "y": 3010,
+      "y": 3570,
       "width": 300,
       "height": 110
     },
@@ -2716,7 +2824,7 @@
       "type": "file",
       "file": "skills/sport-performance-psychology.md",
       "x": 12570,
-      "y": 3010,
+      "y": 3570,
       "width": 300,
       "height": 110
     },
@@ -2725,7 +2833,7 @@
       "type": "file",
       "file": "skills/sport-return-after-illness.md",
       "x": 12900,
-      "y": 3010,
+      "y": 3570,
       "width": 300,
       "height": 110
     },
@@ -2734,7 +2842,7 @@
       "type": "file",
       "file": "skills/sport-season-periodization.md",
       "x": 12240,
-      "y": 3150,
+      "y": 3710,
       "width": 300,
       "height": 110
     },
@@ -2743,7 +2851,7 @@
       "type": "file",
       "file": "skills/sport-strength-power-programming.md",
       "x": 12570,
-      "y": 3150,
+      "y": 3710,
       "width": 300,
       "height": 110
     },
@@ -2752,7 +2860,7 @@
       "type": "file",
       "file": "skills/sport-testing-battery.md",
       "x": 12900,
-      "y": 3150,
+      "y": 3710,
       "width": 300,
       "height": 110
     },
@@ -2761,7 +2869,7 @@
       "type": "file",
       "file": "skills/sport-training-adaptation-engine.md",
       "x": 12240,
-      "y": 3290,
+      "y": 3850,
       "width": 300,
       "height": 110
     },
@@ -2770,7 +2878,7 @@
       "type": "file",
       "file": "skills/sport-training-music.md",
       "x": 12570,
-      "y": 3290,
+      "y": 3850,
       "width": 300,
       "height": 110
     },
@@ -2779,7 +2887,7 @@
       "type": "file",
       "file": "skills/sport-training-plan-workflow.md",
       "x": 12900,
-      "y": 3290,
+      "y": 3850,
       "width": 300,
       "height": 110
     },
@@ -2788,7 +2896,7 @@
       "type": "file",
       "file": "skills/tax-advisory-office.md",
       "x": 12240,
-      "y": 3430,
+      "y": 3990,
       "width": 300,
       "height": 110
     },
@@ -2797,7 +2905,7 @@
       "type": "file",
       "file": "skills/tax-matter-final-gate.md",
       "x": 12570,
-      "y": 3430,
+      "y": 3990,
       "width": 300,
       "height": 110
     },
@@ -2806,7 +2914,7 @@
       "type": "file",
       "file": "skills/tax-procedure-matter-workflow.md",
       "x": 12900,
-      "y": 3430,
+      "y": 3990,
       "width": 300,
       "height": 110
     },
@@ -2815,7 +2923,7 @@
       "type": "file",
       "file": "skills/tax-professional-routing.md",
       "x": 12240,
-      "y": 3570,
+      "y": 4130,
       "width": 300,
       "height": 110
     },
@@ -2824,7 +2932,7 @@
       "type": "file",
       "file": "skills/tax-specialist-router.md",
       "x": 12570,
-      "y": 3570,
+      "y": 4130,
       "width": 300,
       "height": 110
     },
@@ -2833,7 +2941,7 @@
       "type": "file",
       "file": "skills/technology-due-diligence.md",
       "x": 12900,
-      "y": 3570,
+      "y": 4130,
       "width": 300,
       "height": 110
     },
@@ -2842,7 +2950,7 @@
       "type": "file",
       "file": "skills/template-document-workflow.md",
       "x": 12240,
-      "y": 3710,
+      "y": 4270,
       "width": 300,
       "height": 110
     },
@@ -2851,7 +2959,7 @@
       "type": "file",
       "file": "skills/template-presentation-workflow.md",
       "x": 12570,
-      "y": 3710,
+      "y": 4270,
       "width": 300,
       "height": 110
     },
@@ -2860,7 +2968,7 @@
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
       "x": 12900,
-      "y": 3710,
+      "y": 4270,
       "width": 300,
       "height": 110
     },
@@ -2869,7 +2977,7 @@
       "type": "file",
       "file": "skills/travel-agency-workflow.md",
       "x": 12240,
-      "y": 3850,
+      "y": 4410,
       "width": 300,
       "height": 110
     },
@@ -2878,7 +2986,7 @@
       "type": "file",
       "file": "skills/youtube-course-builder-workflow.md",
       "x": 12570,
-      "y": 3850,
+      "y": 4410,
       "width": 300,
       "height": 110
     },
@@ -2887,7 +2995,7 @@
       "type": "file",
       "file": "skills/youtube-learning-workflow.md",
       "x": 12900,
-      "y": 3850,
+      "y": 4410,
       "width": 300,
       "height": 110
     },
@@ -2896,7 +3004,7 @@
       "type": "file",
       "file": "skills/youtube-playlist-learning-workflow.md",
       "x": 12240,
-      "y": 3990,
+      "y": 4550,
       "width": 300,
       "height": 110
     }
@@ -3076,9 +3184,9 @@
     {
       "id": "requires-5968454adbb8",
       "fromNode": "skill-compliance-control-assurance",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-compliance-control-mapping",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3112,9 +3220,9 @@
     {
       "id": "requires-1e7178d2b9fd",
       "fromNode": "skill-compliance-management-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-compliance-control-mapping",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3184,27 +3292,27 @@
     {
       "id": "requires-b14952dca5b5",
       "fromNode": "skill-contract-matter-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-contract-drafting",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-5d069ec362c3",
       "fromNode": "skill-contract-matter-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-contract-review",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-b7d0f3cb6d45",
       "fromNode": "skill-contract-matter-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-legal-matter-final-gate",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3256,9 +3364,9 @@
     {
       "id": "requires-26d59629e60f",
       "fromNode": "skill-contract-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-contract-matter-workflow",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3533,6 +3641,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-62d105250250",
+      "fromNode": "skill-difficult-conversation-workflow",
+      "fromSide": "right",
+      "toNode": "skill-coaching-safety-routing",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-48b6f6614831",
+      "fromNode": "skill-difficult-conversation-workflow",
+      "fromSide": "right",
+      "toNode": "skill-leadership-feedback",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e660ab54e65a",
+      "fromNode": "skill-difficult-conversation-workflow",
+      "fromSide": "left",
+      "toNode": "skill-meeting-preparation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-669ccb203077",
       "fromNode": "skill-digital-ai-cyber-law-specialist",
       "fromSide": "right",
@@ -3670,9 +3805,9 @@
     {
       "id": "requires-42d5b2f12510",
       "fromNode": "skill-dr-komorowski-sport-pdf-report-renderer",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3787,9 +3922,9 @@
     {
       "id": "requires-f2a981cc1c1d",
       "fromNode": "skill-euroimmun-pdf-report-renderer",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-euroimmun-docx-report-renderer",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3832,18 +3967,18 @@
     {
       "id": "requires-386f04b82a15",
       "fromNode": "skill-executive-legal-compliance-governance",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-compliance-management-workflow",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-5410865ed0d7",
       "fromNode": "skill-executive-legal-compliance-governance",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-decision-record",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -3859,9 +3994,9 @@
     {
       "id": "requires-fe30565c161b",
       "fromNode": "skill-executive-legal-compliance-governance",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-legal-change-impact-orchestrator",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5020,18 +5155,18 @@
     {
       "id": "requires-1637cff46c42",
       "fromNode": "skill-internal-investigation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-investigation-findings-remediation",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-b1f084a1a1cb",
       "fromNode": "skill-internal-investigation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-legal-matter-final-gate",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5074,18 +5209,18 @@
     {
       "id": "requires-84a4623404ef",
       "fromNode": "skill-investigation-evidence-preservation",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-privilege-and-counsel-routing",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-4040e8d1dff9",
       "fromNode": "skill-investigation-findings-remediation",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-compliance-control-mapping",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5686,9 +5821,9 @@
     {
       "id": "requires-60cb2dad71cf",
       "fromNode": "skill-job-description-authoring",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-role-architecture",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -5742,6 +5877,141 @@
       "fromNode": "skill-large-work-wayfinder",
       "fromSide": "right",
       "toNode": "skill-project-second-brain",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-e6f5b8ebd04b",
+      "fromNode": "skill-leadership-1on1-workflow",
+      "fromSide": "left",
+      "toNode": "skill-decision-and-follow-up-tracker",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9d72dba3fdd1",
+      "fromNode": "skill-leadership-1on1-workflow",
+      "fromSide": "right",
+      "toNode": "skill-leadership-feedback",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-d1c77c69b55a",
+      "fromNode": "skill-leadership-1on1-workflow",
+      "fromSide": "left",
+      "toNode": "skill-meeting-preparation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-3ebb948bedc6",
+      "fromNode": "skill-leadership-coaching-intake",
+      "fromSide": "left",
+      "toNode": "skill-round-based-requirements-grilling",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-fe81dad45e02",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-coaching-safety-routing",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8e5420f63eab",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-difficult-conversation-workflow",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-accb0cb7c80c",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-leadership-1on1-workflow",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-5181a34bedf1",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "right",
+      "toNode": "skill-leadership-behavior-experiment",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-8b80b8b70940",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-leadership-coaching-intake",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a2cd7b44f498",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-leadership-coaching-review",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-9953711b6343",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-leadership-delegation",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-06f62ebcea83",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-leadership-development-model",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-a8c4165b924d",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "right",
+      "toNode": "skill-leadership-feedback",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-084e0adf8f43",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "left",
+      "toNode": "skill-leadership-reflection",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-6f8d1660837d",
+      "fromNode": "skill-leadership-coaching-workflow",
+      "fromSide": "right",
+      "toNode": "skill-performance-management-workflow",
       "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
@@ -5983,9 +6253,9 @@
     {
       "id": "requires-c441b41ac613",
       "fromNode": "skill-legal-change-impact-orchestrator",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-legal-change-monitoring",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6064,9 +6334,9 @@
     {
       "id": "requires-1fbba66ff77c",
       "fromNode": "skill-legal-compliance-office",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-legal-matter-final-gate",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6091,18 +6361,18 @@
     {
       "id": "requires-2f54dcacc87c",
       "fromNode": "skill-legal-compliance-office",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-legal-specialist-router",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-ae0dc03a1c39",
       "fromNode": "skill-legal-compliance-office",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-privilege-and-counsel-routing",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6136,9 +6406,9 @@
     {
       "id": "requires-49b9353dbb9d",
       "fromNode": "skill-legal-matter-final-gate",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-privilege-and-counsel-routing",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -6181,9 +6451,9 @@
     {
       "id": "requires-a0b982093f43",
       "fromNode": "skill-legal-redline-review-loop",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-contract-review",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7133,6 +7403,33 @@
       "label": "requires"
     },
     {
+      "id": "requires-becfb73f50ef",
+      "fromNode": "skill-performance-management-workflow",
+      "fromSide": "left",
+      "toNode": "skill-coaching-safety-routing",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-335ddfaafb3b",
+      "fromNode": "skill-performance-management-workflow",
+      "fromSide": "left",
+      "toNode": "skill-decision-and-follow-up-tracker",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
+      "id": "requires-16b03737bc34",
+      "fromNode": "skill-performance-management-workflow",
+      "fromSide": "right",
+      "toNode": "skill-leadership-feedback",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-97ae9cab117f",
       "fromNode": "skill-performance-optimization-plan",
       "fromSide": "left",
@@ -7252,9 +7549,9 @@
     {
       "id": "requires-84a1b7d47c8c",
       "fromNode": "skill-precision-writing-revision",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-llm-prose-pattern-audit",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -7360,9 +7657,9 @@
     {
       "id": "requires-f2eddd080bf0",
       "fromNode": "skill-privilege-and-counsel-routing",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-legal-matter-intake",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -8017,18 +8314,18 @@
     {
       "id": "requires-f9f360d89e41",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-dr-komorowski-sport-docx-report-renderer",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-d8fff5f8fd1e",
       "fromNode": "skill-sport-diagnostics-training-report-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-dr-komorowski-sport-pdf-report-renderer",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },

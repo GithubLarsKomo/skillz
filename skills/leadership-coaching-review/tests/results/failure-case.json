@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-coaching-review",
+  "caseId": "failure-case",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "Persönlichkeitsschluss aus Einzelsituation vermeiden",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/failure-case; relevant contract anchors: nicht zu stabilen Persönlichkeitsschlüssen; Verhaltensevidenz."
+    },
+    {
+      "behavior": "konkrete Verhaltensevidenz prüfen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/failure-case; relevant contract anchors: nicht zu stabilen Persönlichkeitsschlüssen; Verhaltensevidenz."
+    },
+    {
+      "behavior": "Lernentscheidung statt Selbstdiagnose erzeugen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/failure-case; relevant contract anchors: nicht zu stabilen Persönlichkeitsschlüssen; Verhaltensevidenz."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "generelle Führungsunfähigkeit diagnostizieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-review/failure-case excludes this behavior; relevant contract anchors: nicht zu stabilen Persönlichkeitsschlüssen; Verhaltensevidenz."
+    },
+    {
+      "behavior": "Einzelfall überverallgemeinern",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-review/failure-case excludes this behavior; relevant contract anchors: nicht zu stabilen Persönlichkeitsschlüssen; Verhaltensevidenz."
+    }
+  ],
+  "overall": "pass"
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Difficult Conversation Workflow"
+  short_description: "Bereitet schwierige Führungsgespräche evidenzgebunden vor, trennt Fakten von Interpretationen und kombiniert Feedback..."
+policy:
+  allow_implicit_invocation: true

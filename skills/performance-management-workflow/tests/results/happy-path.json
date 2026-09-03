@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "performance-management-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "Erwartung und beobachtbare Evidenz fixieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for performance-management-workflow/happy-path; relevant contract anchors: Performance-Evidenz; konkurrierende Hypothesen; Mitarbeiterperspektive."
+    },
+    {
+      "behavior": "Leistungslücke von Ursachenhypothesen trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for performance-management-workflow/happy-path; relevant contract anchors: Performance-Evidenz; konkurrierende Hypothesen; Mitarbeiterperspektive."
+    },
+    {
+      "behavior": "Mitarbeiterperspektive Unterstützung und Review-Kriterien vorsehen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for performance-management-workflow/happy-path; relevant contract anchors: Performance-Evidenz; konkurrierende Hypothesen; Mitarbeiterperspektive."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Motivationsmangel als Ursache behaupten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for performance-management-workflow/happy-path excludes this behavior; relevant contract anchors: Performance-Evidenz; konkurrierende Hypothesen; Mitarbeiterperspektive."
+    },
+    {
+      "behavior": "Kündigung oder Sanktion empfehlen ohne formelles Routing",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for performance-management-workflow/happy-path excludes this behavior; relevant contract anchors: Performance-Evidenz; konkurrierende Hypothesen; Mitarbeiterperspektive."
+    }
+  ],
+  "overall": "pass"
+}

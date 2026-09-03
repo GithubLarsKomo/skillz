@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership 1on1 Workflow"
+  short_description: "Orchestriert die Vorbereitung eines entwicklungsorientierten 1:1 aus bestätigtem Meeting-Kontext, früheren Commitment..."
+policy:
+  allow_implicit_invocation: true

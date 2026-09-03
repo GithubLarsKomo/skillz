@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Coaching Intake"
+  short_description: "Klärt Auftrag, Rolle, gewünschte Verhaltensänderung, Erfolgsevidenz, Sponsor-/Vertraulichkeitsmodell, Persistenzgrenz..."
+policy:
+  allow_implicit_invocation: false

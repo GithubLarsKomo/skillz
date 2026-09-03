@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-reflection",
+  "caseId": "edge-case",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "defensiv und sabotieren als Interpretation markieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-reflection/edge-case; relevant contract anchors: sind Interpretationen; beobachtete Handlungen; Alternativerklärung."
+    },
+    {
+      "behavior": "beobachtbare Handlungen suchen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-reflection/edge-case; relevant contract anchors: sind Interpretationen; beobachtete Handlungen; Alternativerklärung."
+    },
+    {
+      "behavior": "Alternativerklärungen prüfen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-reflection/edge-case; relevant contract anchors: sind Interpretationen; beobachtete Handlungen; Alternativerklärung."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Motiv Sabotage als Fakt übernehmen",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-reflection/edge-case excludes this behavior; relevant contract anchors: sind Interpretationen; beobachtete Handlungen; Alternativerklärung."
+    },
+    {
+      "behavior": "Persönlichkeitsprofil erzeugen",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-reflection/edge-case excludes this behavior; relevant contract anchors: sind Interpretationen; beobachtete Handlungen; Alternativerklärung."
+    }
+  ],
+  "overall": "pass"
+}

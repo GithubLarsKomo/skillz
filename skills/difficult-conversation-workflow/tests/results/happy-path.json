@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "difficult-conversation-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "bestätigte Fakten und Interpretationen trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for difficult-conversation-workflow/happy-path; relevant contract anchors: Fakten; Interpretationen; gewünschtes Ergebnis."
+    },
+    {
+      "behavior": "legitimes Gesprächsziel und Kernbotschaften formulieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for difficult-conversation-workflow/happy-path; relevant contract anchors: Fakten; Interpretationen; gewünschtes Ergebnis."
+    },
+    {
+      "behavior": "Fragen Grenzen und Follow-up-Kandidaten vorbereiten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for difficult-conversation-workflow/happy-path; relevant contract anchors: Fakten; Interpretationen; gewünschtes Ergebnis."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Unzuverlässigkeit als Charaktereigenschaft diagnostizieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for difficult-conversation-workflow/happy-path excludes this behavior; relevant contract anchors: Fakten; Interpretationen; gewünschtes Ergebnis."
+    },
+    {
+      "behavior": "arbeitsrechtliche Konsequenzen als beschlossen darstellen",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for difficult-conversation-workflow/happy-path excludes this behavior; relevant contract anchors: Fakten; Interpretationen; gewünschtes Ergebnis."
+    }
+  ],
+  "overall": "pass"
+}

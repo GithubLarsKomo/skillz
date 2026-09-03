@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Coaching Review"
+  short_description: "Bewertet ein Leadership-Verhaltensexperiment nach realer Anwendung und trennt Adherence, beobachtete Verhaltensänderu..."
+policy:
+  allow_implicit_invocation: true

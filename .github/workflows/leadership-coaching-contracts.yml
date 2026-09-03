@@ -1,0 +1,36 @@
+name: Leadership coaching contracts
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - "skills/leadership-*/**"
+      - "skills/coaching-safety-routing/**"
+      - "schemas/leadership-*.schema.json"
+      - "schemas/coaching-safety-routing-v1.schema.json"
+      - "schemas/difficult-conversation-plan-v1.schema.json"
+      - "schemas/performance-management-plan-v1.schema.json"
+      - "tests/test_leadership_coaching*_artifact_schemas.py"
+      - ".github/workflows/leadership-coaching-contracts.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test leadership coaching core artifact schemas
+        run: python -m unittest tests.test_leadership_coaching_artifact_schemas
+      - name: Test leadership coaching P1 artifact schemas
+        run: python -m unittest tests.test_leadership_coaching_p1_artifact_schemas
+      - name: Validate leadership skill metadata and evaluations
+        run: |
+          python scripts/materialize_openai_agent_metadata.py --check
+          python scripts/validate_skills.py
+          python scripts/evaluate_skills.py

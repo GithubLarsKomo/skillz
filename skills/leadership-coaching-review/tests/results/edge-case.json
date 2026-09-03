@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-coaching-review",
+  "caseId": "edge-case",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "begrenzte Adherence erkennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/edge-case; relevant contract anchors: gutes Gefühl; insufficient-evidence; fehlende Durchführung."
+    },
+    {
+      "behavior": "subjektive Nützlichkeit von Outcome trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/edge-case; relevant contract anchors: gutes Gefühl; insufficient-evidence; fehlende Durchführung."
+    },
+    {
+      "behavior": "insufficient-evidence erwägen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/edge-case; relevant contract anchors: gutes Gefühl; insufficient-evidence; fehlende Durchführung."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Experiment als bewiesen wirksam erklären",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-review/edge-case excludes this behavior; relevant contract anchors: gutes Gefühl; insufficient-evidence; fehlende Durchführung."
+    },
+    {
+      "behavior": "stabile Verhaltensänderung behaupten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-review/edge-case excludes this behavior; relevant contract anchors: gutes Gefühl; insufficient-evidence; fehlende Durchführung."
+    }
+  ],
+  "overall": "pass"
+}
