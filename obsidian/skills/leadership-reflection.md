@@ -4,10 +4,10 @@ generated: true
 name: "leadership-reflection"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/leadership-reflection/SKILL.md"
 tags:
   - skill
@@ -40,15 +40,17 @@ Analysiert reale Führungssituationen als strukturierte Reflexion und trennt Beo
 
 ### `leadership-reflection.json`
 
+- [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
 - [[skills/leadership-behavior-experiment|leadership-behavior-experiment]]
 - [[skills/leadership-coaching-workflow|leadership-coaching-workflow]]
+- [[skills/leadership-feedback|leadership-feedback]]
 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

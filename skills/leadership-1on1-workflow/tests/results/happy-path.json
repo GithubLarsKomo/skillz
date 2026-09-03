@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-1on1-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "offene Commitments und Entwicklungsthemen getrennt strukturieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-1on1-workflow/happy-path; relevant contract anchors: offene Commitments; Mitarbeiterseite und Themen der Führungskraft; noch zu bestätigende Outcomes."
+    },
+    {
+      "behavior": "Mitarbeiter- und Manageragenda sichtbar trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-1on1-workflow/happy-path; relevant contract anchors: offene Commitments; Mitarbeiterseite und Themen der Führungskraft; noch zu bestätigende Outcomes."
+    },
+    {
+      "behavior": "geplante Outcomes als noch zu bestätigende Entscheidungen oder Follow-ups markieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-1on1-workflow/happy-path; relevant contract anchors: offene Commitments; Mitarbeiterseite und Themen der Führungskraft; noch zu bestätigende Outcomes."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Gesprächsergebnisse erfinden",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-1on1-workflow/happy-path excludes this behavior; relevant contract anchors: offene Commitments; Mitarbeiterseite und Themen der Führungskraft; noch zu bestätigende Outcomes."
+    },
+    {
+      "behavior": "aus dem Entwicklungsthema ein Performance-Rating ableiten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-1on1-workflow/happy-path excludes this behavior; relevant contract anchors: offene Commitments; Mitarbeiterseite und Themen der Führungskraft; noch zu bestätigende Outcomes."
+    }
+  ],
+  "overall": "pass"
+}

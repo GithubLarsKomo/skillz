@@ -32,6 +32,8 @@ Konsolidiert bestätigte Entscheidungen, Commitments, Follow-ups, Waiting- und D
 
 ## Required by
 
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
+- [[skills/performance-management-workflow|performance-management-workflow]]
 - [[skills/qms-management-review-action-followup|qms-management-review-action-followup]]
 
 ## Outputs
@@ -43,6 +45,7 @@ Konsolidiert bestätigte Entscheidungen, Commitments, Follow-ups, Waiting- und D
 
 ### `decision-follow-up-register.json`
 
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
 - [[skills/qms-management-review-action-followup|qms-management-review-action-followup]]
 
 ### `decision-follow-up-register.md`

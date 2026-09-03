@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-delegation",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "Outcome und Entscheidungsraum explizit trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-delegation/happy-path; relevant contract anchors: Outcome; Entscheidungsrechte; retained Accountabilities."
+    },
+    {
+      "behavior": "Ressourcen Checkpoints und Eskalationsbedingungen definieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-delegation/happy-path; relevant contract anchors: Outcome; Entscheidungsrechte; retained Accountabilities."
+    },
+    {
+      "behavior": "retained Accountabilities des Managers sichtbar halten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-delegation/happy-path; relevant contract anchors: Outcome; Entscheidungsrechte; retained Accountabilities."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Delegation als erfolgt behaupten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-delegation/happy-path excludes this behavior; relevant contract anchors: Outcome; Entscheidungsrechte; retained Accountabilities."
+    },
+    {
+      "behavior": "aus Seniorität automatisch volle Entscheidungskompetenz ableiten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-delegation/happy-path excludes this behavior; relevant contract anchors: Outcome; Entscheidungsrechte; retained Accountabilities."
+    }
+  ],
+  "overall": "pass"
+}

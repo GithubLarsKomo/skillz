@@ -4,10 +4,10 @@ generated: true
 name: "leadership-behavior-experiment"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/leadership-behavior-experiment/SKILL.md"
 tags:
   - skill
@@ -46,9 +46,9 @@ tags:
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

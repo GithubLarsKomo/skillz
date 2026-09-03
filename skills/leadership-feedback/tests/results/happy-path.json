@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-feedback",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "konkrete Beobachtungen von Interpretation trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-feedback/happy-path; relevant contract anchors: Beobachtungen von Interpretation; Perspektive der anderen Seite; gewünschte Vereinbarung."
+    },
+    {
+      "behavior": "Wirkung und Erwartung verhaltensbezogen formulieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-feedback/happy-path; relevant contract anchors: Beobachtungen von Interpretation; Perspektive der anderen Seite; gewünschte Vereinbarung."
+    },
+    {
+      "behavior": "Perspektivfragen und gewünschte Vereinbarung vorbereiten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-feedback/happy-path; relevant contract anchors: Beobachtungen von Interpretation; Perspektive der anderen Seite; gewünschte Vereinbarung."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Unzuverlässigkeit als Persönlichkeitseigenschaft diagnostizieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-feedback/happy-path excludes this behavior; relevant contract anchors: Beobachtungen von Interpretation; Perspektive der anderen Seite; gewünschte Vereinbarung."
+    },
+    {
+      "behavior": "behaupten das Feedback sei bereits gegeben oder akzeptiert",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-feedback/happy-path excludes this behavior; relevant contract anchors: Beobachtungen von Interpretation; Perspektive der anderen Seite; gewünschte Vereinbarung."
+    }
+  ],
+  "overall": "pass"
+}

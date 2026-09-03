@@ -4,10 +4,10 @@ generated: true
 name: "leadership-coaching-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
-caseCount: 3
-recordedResultCount: 0
+caseCount: 4
+recordedResultCount: 4
 sourcePath: "skills/leadership-coaching-workflow/SKILL.md"
 tags:
   - skill
@@ -16,7 +16,7 @@ tags:
 
 # leadership-coaching-workflow
 
-Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwicklungsmodell über reale Führungssituationen, Reflexion und Verhaltensexperimente bis zu Review und Re-Kalibrierung. Verwenden als kanonischen Leadership-Coaching-Entry-Point; Safety-, HR-, Legal- und Compliance-Grenzen bleiben explizite Routing-Gates.
+Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwicklungsmodell über reale Führungssituationen, Reflexion und Verhaltensexperimente bis zu situativen Führungsworkflows, Review und Re-Kalibrierung.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -27,11 +27,16 @@ Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwic
 ## Requires
 
 - [[skills/coaching-safety-routing|coaching-safety-routing]]
+- [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
 - [[skills/leadership-behavior-experiment|leadership-behavior-experiment]]
 - [[skills/leadership-coaching-intake|leadership-coaching-intake]]
 - [[skills/leadership-coaching-review|leadership-coaching-review]]
+- [[skills/leadership-delegation|leadership-delegation]]
 - [[skills/leadership-development-model|leadership-development-model]]
+- [[skills/leadership-feedback|leadership-feedback]]
 - [[skills/leadership-reflection|leadership-reflection]]
+- [[skills/performance-management-workflow|performance-management-workflow]]
 
 ## Required by
 
@@ -50,9 +55,9 @@ Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwic
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
-- Cases: `3`
-- Recorded results: `0`
+- Passed: `True`
+- Cases: `4`
+- Recorded results: `4`
 
 ## Canonical source
 

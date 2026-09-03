@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-coaching-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "zur leadership-reflection routen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-workflow/happy-path; relevant contract anchors: Reale relevante Situation; leadership-reflection; routet."
+    },
+    {
+      "behavior": "den longitudinalen Coaching Zustand erhalten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-workflow/happy-path; relevant contract anchors: Reale relevante Situation; leadership-reflection; routet."
+    },
+    {
+      "behavior": "keine Spezialskill Logik im Orchestrator duplizieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-workflow/happy-path; relevant contract anchors: Reale relevante Situation; leadership-reflection; routet."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "direkt eine endgültige Persönlichkeitsbewertung abgeben",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-workflow/happy-path excludes this behavior; relevant contract anchors: Reale relevante Situation; leadership-reflection; routet."
+    },
+    {
+      "behavior": "ohne Reflexion ein Experiment als bewiesen ausgeben",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-workflow/happy-path excludes this behavior; relevant contract anchors: Reale relevante Situation; leadership-reflection; routet."
+    }
+  ],
+  "overall": "pass"
+}

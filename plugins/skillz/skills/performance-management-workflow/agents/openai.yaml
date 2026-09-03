@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Management Workflow"
+  short_description: "Strukturiert Performance Management von Erwartung und beobachtbarer Evidenz über Leistungslücke, Ursachenhypothesen,..."
+policy:
+  allow_implicit_invocation: true

@@ -4,10 +4,10 @@ generated: true
 name: "coaching-safety-routing"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/coaching-safety-routing/SKILL.md"
 tags:
   - skill
@@ -30,7 +30,9 @@ Trennt legitime Coaching-Unterstützung von Situationen, die HR-, Legal-/Complia
 
 ## Required by
 
+- [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
 - [[skills/leadership-coaching-workflow|leadership-coaching-workflow]]
+- [[skills/performance-management-workflow|performance-management-workflow]]
 
 ## Outputs
 
@@ -45,9 +47,9 @@ Trennt legitime Coaching-Unterstützung von Situationen, die HR-, Legal-/Complia
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

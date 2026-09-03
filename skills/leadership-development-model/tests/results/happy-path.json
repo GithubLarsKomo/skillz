@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-development-model",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "Situation und Verhalten operationalisieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-development-model/happy-path; relevant contract anchors: beobachtbare Entwicklungsziele; Observable Signals; erwartete Wirkung getrennt."
+    },
+    {
+      "behavior": "beobachtbares Zielverhalten definieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-development-model/happy-path; relevant contract anchors: beobachtbare Entwicklungsziele; Observable Signals; erwartete Wirkung getrennt."
+    },
+    {
+      "behavior": "Messsignale von erwarteter Wirkung trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-development-model/happy-path; relevant contract anchors: beobachtbare Entwicklungsziele; Observable Signals; erwartete Wirkung getrennt."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Persönlichkeitsetikett vergeben",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-development-model/happy-path excludes this behavior; relevant contract anchors: beobachtbare Entwicklungsziele; Observable Signals; erwartete Wirkung getrennt."
+    },
+    {
+      "behavior": "abstraktes Ziel ohne Beobachtbarkeit akzeptieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-development-model/happy-path excludes this behavior; relevant contract anchors: beobachtbare Entwicklungsziele; Observable Signals; erwartete Wirkung getrennt."
+    }
+  ],
+  "overall": "pass"
+}

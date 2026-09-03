@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 316,
-  "entrypointCount": 258,
+  "skillCount": 321,
+  "entrypointCount": 263,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,17 +15,17 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 249,
+    "public": 254,
     "advanced": 9,
     "internal": 56,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 316,
-  "evaluatedSkillCount": 316,
-  "evaluatedEntrypointCount": 258,
+  "evaluationSuiteCount": 321,
+  "evaluatedSkillCount": 321,
+  "evaluatedEntrypointCount": 263,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": false,
-  "evaluationErrorCount": 28,
+  "evaluationPassed": true,
+  "evaluationErrorCount": 0,
   "skills": [
     {
       "name": "agent-handoff",
@@ -682,7 +682,9 @@
       },
       "requires": [],
       "dependents": [
-        "leadership-coaching-workflow"
+        "difficult-conversation-workflow",
+        "leadership-coaching-workflow",
+        "performance-management-workflow"
       ],
       "outputs": [
         "coaching-safety-routing.json"
@@ -705,8 +707,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -2382,6 +2384,8 @@
         "project-status-brief"
       ],
       "dependents": [
+        "leadership-1on1-workflow",
+        "performance-management-workflow",
         "qms-management-review-action-followup"
       ],
       "outputs": [
@@ -2396,6 +2400,7 @@
             "decision-and-follow-up-tracker"
           ],
           "consumerSkills": [
+            "leadership-1on1-workflow",
             "qms-management-review-action-followup"
           ]
         },
@@ -2719,6 +2724,52 @@
             "medical-device-cybersecurity-lifecycle",
             "process-validation-iq-oq-pq",
             "regulatory-claims-consistency"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "difficult-conversation-workflow",
+      "description": "Bereitet schwierige Führungsgespräche evidenzgebunden vor, trennt Fakten von Interpretationen und kombiniert Feedback, Gesprächsstruktur sowie Safety-, HR-, Legal- und Compliance-Gates.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "coaching-safety-routing",
+        "leadership-feedback",
+        "meeting-preparation"
+      ],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "difficult-conversation-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "difficult-conversation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "difficult-conversation-workflow"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
           ]
         }
       ],
@@ -8399,6 +8450,52 @@
       }
     },
     {
+      "name": "leadership-1on1-workflow",
+      "description": "Orchestriert die Vorbereitung eines entwicklungsorientierten 1:1 aus bestätigtem Meeting-Kontext, früheren Commitments, Feedback- und Entwicklungsthemen sowie konkreten Follow-up-Kandidaten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "decision-and-follow-up-tracker",
+        "leadership-feedback",
+        "meeting-preparation"
+      ],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-1on1-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-1on1-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-1on1-workflow"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "leadership-behavior-experiment",
       "description": "Übersetzt ein Leadership-Entwicklungsziel oder eine Reflexionshypothese in ein kleines reales Verhaltensexperiment mit Zielkontext, Cue, Verhalten, Dosis, Messsignalen, erwarteter Wirkung und Stop-Bedingungen. Verwenden für testbares Führungslernen statt abstrakter Vorsätze.",
       "invocation": {
@@ -8437,8 +8534,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -8494,8 +8591,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -8536,13 +8633,13 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
       "name": "leadership-coaching-workflow",
-      "description": "Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwicklungsmodell über reale Führungssituationen, Reflexion und Verhaltensexperimente bis zu Review und Re-Kalibrierung. Verwenden als kanonischen Leadership-Coaching-Entry-Point; Safety-, HR-, Legal- und Compliance-Grenzen bleiben explizite Routing-Gates.",
+      "description": "Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwicklungsmodell über reale Führungssituationen, Reflexion und Verhaltensexperimente bis zu situativen Führungsworkflows, Review und Re-Kalibrierung.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -8555,11 +8652,16 @@
       },
       "requires": [
         "coaching-safety-routing",
+        "difficult-conversation-workflow",
+        "leadership-1on1-workflow",
         "leadership-behavior-experiment",
         "leadership-coaching-intake",
         "leadership-coaching-review",
+        "leadership-delegation",
         "leadership-development-model",
-        "leadership-reflection"
+        "leadership-feedback",
+        "leadership-reflection",
+        "performance-management-workflow"
       ],
       "dependents": [],
       "outputs": [
@@ -8580,9 +8682,51 @@
       ],
       "evaluation": {
         "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "leadership-delegation",
+      "description": "Plant wirksame Delegation über Outcome, Entscheidungsrechte, Grenzen, Ressourcen, Autonomie, Checkpoints und Eskalationsbedingungen. Verwenden, wenn Verantwortung übertragen werden soll, ohne Ownership oder Status zu erfinden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-delegation-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-delegation-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-delegation"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -8613,9 +8757,12 @@
             "leadership-development-model"
           ],
           "consumerSkills": [
+            "leadership-1on1-workflow",
             "leadership-behavior-experiment",
             "leadership-coaching-review",
             "leadership-coaching-workflow",
+            "leadership-delegation",
+            "leadership-feedback",
             "leadership-reflection"
           ]
         }
@@ -8626,8 +8773,55 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "leadership-feedback",
+      "description": "Strukturiert Führungsfeedback aus beobachtbarem Verhalten, Wirkung, Perspektivklärung, Erwartung und Follow-up. Verwenden für Feedback geben oder empfangen, ohne Motive oder Persönlichkeit zu erfinden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "difficult-conversation-workflow",
+        "leadership-1on1-workflow",
+        "leadership-coaching-workflow",
+        "performance-management-workflow"
+      ],
+      "outputs": [
+        "leadership-feedback-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-feedback-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-feedback"
+          ],
+          "consumerSkills": [
+            "difficult-conversation-workflow",
+            "leadership-coaching-workflow",
+            "performance-management-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -8658,8 +8852,10 @@
             "leadership-reflection"
           ],
           "consumerSkills": [
+            "difficult-conversation-workflow",
             "leadership-behavior-experiment",
-            "leadership-coaching-workflow"
+            "leadership-coaching-workflow",
+            "leadership-feedback"
           ]
         }
       ],
@@ -8669,8 +8865,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 3,
-        "recordedResultCount": 0,
-        "passed": false
+        "recordedResultCount": 3,
+        "passed": true
       }
     },
     {
@@ -12255,7 +12451,9 @@
         "research-to-evidence-note"
       ],
       "dependents": [
-        "decision-and-follow-up-tracker"
+        "decision-and-follow-up-tracker",
+        "difficult-conversation-workflow",
+        "leadership-1on1-workflow"
       ],
       "outputs": [
         "meeting-prep.json",
@@ -12269,7 +12467,9 @@
             "meeting-preparation"
           ],
           "consumerSkills": [
-            "decision-and-follow-up-tracker"
+            "decision-and-follow-up-tracker",
+            "difficult-conversation-workflow",
+            "leadership-1on1-workflow"
           ]
         },
         {
@@ -13062,6 +13262,52 @@
           "consumerSkills": [
             "optimize-software-performance",
             "performance-optimization-plan"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "performance-management-workflow",
+      "description": "Strukturiert Performance Management von Erwartung und beobachtbarer Evidenz über Leistungslücke, Ursachenhypothesen, Mitarbeiterperspektive und Unterstützung bis zu Review und formellem Routing.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "coaching-safety-routing",
+        "decision-and-follow-up-tracker",
+        "leadership-feedback"
+      ],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "performance-management-plan.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "performance-management-plan.json",
+          "ambiguous": false,
+          "producers": [
+            "performance-management-workflow"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
           ]
         }
       ],
@@ -15990,7 +16236,9 @@
             "candidate-role-fit-assessment",
             "job-description-authoring",
             "leadership-coaching-intake",
-            "leadership-development-model"
+            "leadership-delegation",
+            "leadership-development-model",
+            "performance-management-workflow"
           ]
         },
         {
@@ -16140,7 +16388,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": false
+        "passed": true
       }
     },
     {

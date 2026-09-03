@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-reflection",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "beobachtbare Ereignisse von Interpretation trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-reflection/happy-path; relevant contract anchors: Beobachtung und Interpretation; Alternativerklärung; Learning Hypotheses."
+    },
+    {
+      "behavior": "eigenes Verhalten und Wirkung getrennt erfassen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-reflection/happy-path; relevant contract anchors: Beobachtung und Interpretation; Alternativerklärung; Learning Hypotheses."
+    },
+    {
+      "behavior": "testbare Lernhypothese ableiten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-reflection/happy-path; relevant contract anchors: Beobachtung und Interpretation; Alternativerklärung; Learning Hypotheses."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Schweigen automatisch als Zustimmung interpretieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-reflection/happy-path excludes this behavior; relevant contract anchors: Beobachtung und Interpretation; Alternativerklärung; Learning Hypotheses."
+    },
+    {
+      "behavior": "Persönlichkeit anderer diagnostizieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-reflection/happy-path excludes this behavior; relevant contract anchors: Beobachtung und Interpretation; Alternativerklärung; Learning Hypotheses."
+    }
+  ],
+  "overall": "pass"
+}

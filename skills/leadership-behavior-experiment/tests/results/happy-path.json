@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-behavior-experiment",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "Cue Verhalten Dosis und Messung konkretisieren",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-behavior-experiment/happy-path; relevant contract anchors: Cue; Dosis; Verhaltensmaß und erwarteten Outcome getrennt."
+    },
+    {
+      "behavior": "Verhaltensmaß von Outcome trennen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-behavior-experiment/happy-path; relevant contract anchors: Cue; Dosis; Verhaltensmaß und erwarteten Outcome getrennt."
+    },
+    {
+      "behavior": "kleines reales Experiment planen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-behavior-experiment/happy-path; relevant contract anchors: Cue; Dosis; Verhaltensmaß und erwarteten Outcome getrennt."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Wirkung garantieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-behavior-experiment/happy-path excludes this behavior; relevant contract anchors: Cue; Dosis; Verhaltensmaß und erwarteten Outcome getrennt."
+    },
+    {
+      "behavior": "unspezifischen Vorsatz statt Experiment liefern",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-behavior-experiment/happy-path excludes this behavior; relevant contract anchors: Cue; Dosis; Verhaltensmaß und erwarteten Outcome getrennt."
+    }
+  ],
+  "overall": "pass"
+}

@@ -231,6 +231,12 @@
         "agents/openai.yaml": "22195a863855aaf06bc93560042a1df79d818954f2117ef2f8f66835ddc44f93"
       }
     },
+    "difficult-conversation-workflow": {
+      "files": {
+        "SKILL.md": "c63abc17b880d3e4560e476951e7667c97e9669e99717e3cab33e261d303c8af",
+        "agents/openai.yaml": "fd9d50db38b95645d5936537455f5c9df9bc1c590b69180eed7acd2abe3485c1"
+      }
+    },
     "digital-ai-cyber-law-specialist": {
       "files": {
         "SKILL.md": "93d3ba160aea615492d0c0d50db4e15124d5763c49d820172394ac33f36e3cbd",
@@ -842,6 +848,12 @@
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
+    "leadership-1on1-workflow": {
+      "files": {
+        "SKILL.md": "7601ef2396bc9dc2b5bbef45a7e748ffcba0a7429031ba66c9c4658b0ea3a176",
+        "agents/openai.yaml": "1b4e4ef97727a4525a199b3d1bd60960de2311d3b2ddb13149446492a2a4391b"
+      }
+    },
     "leadership-behavior-experiment": {
       "files": {
         "SKILL.md": "13924e837fdecd7c353e842dccc3c17a46233390acd1082281cfd0423de5b4a7",
@@ -862,14 +874,26 @@
     },
     "leadership-coaching-workflow": {
       "files": {
-        "SKILL.md": "8f5ddbccf60836cbf514e2c0ee8b275535fb75c1eabe886afe2d93cb214fb663",
+        "SKILL.md": "0b384cf9f7c31c55f508d0a29a0279df89144e9542bf0c49c20e0db107921034",
         "agents/openai.yaml": "7f99a70f7591fc817aa0f1fd818feeaf7c78481e21a3a2bc226102ce0c4e1e88"
+      }
+    },
+    "leadership-delegation": {
+      "files": {
+        "SKILL.md": "3279c2823e6aedf494fec9c9438f7fcc23d7e26d1e71239f7ca67c2eff59f6af",
+        "agents/openai.yaml": "6757261257da10e27227c50f2ce6681588f10d8cc28670ba248c3fbe39e37c2e"
       }
     },
     "leadership-development-model": {
       "files": {
         "SKILL.md": "607088e71fe53ae9f7fbfc1c6bdc4d9f779d7f413177e3aba6f84d15475b8914",
         "agents/openai.yaml": "fdfe9d5f5085a92829d4e20d5701d49ba899c2252aaad3dfbbf9e87eb458b029"
+      }
+    },
+    "leadership-feedback": {
+      "files": {
+        "SKILL.md": "9795dc7e2f3e6dc95c5a2684df528342fa2c5755965c1ce77498551d4bec7311",
+        "agents/openai.yaml": "530f3585c3d9f6afa78a0adff74fe46480afcfebc9b2641e05977b6c9c2ba9d8"
       }
     },
     "leadership-reflection": {
@@ -1282,6 +1306,12 @@
       "files": {
         "SKILL.md": "8cb44a0b5b9ecba8eddb7764d551d02fbb71a623231cc3787a4080c88ee3a4e6",
         "agents/openai.yaml": "2bcbf75cc2ef6240386e6ec1f2fae096fe40182200495aa22998eae1e1fe2119"
+      }
+    },
+    "performance-management-workflow": {
+      "files": {
+        "SKILL.md": "e88dca0b3b33c57a609e36156309f872d1a501589588653065c2b8d15c171a76",
+        "agents/openai.yaml": "b187e6f38d469878d5954753cd5aa1fe36888ed7a596f1ffb7ac0c59731c74fc"
       }
     },
     "performance-optimization-plan": {

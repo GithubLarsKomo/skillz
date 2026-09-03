@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **92**
+Skills: **97**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/coaching-safety-routing|coaching-safety-routing]]
@@ -22,6 +22,7 @@ Skills: **92**
 - [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
 - [[skills/decision-record|decision-record]]
+- [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
 - [[skills/dr-komorowski-sport-pdf-report-renderer|dr-komorowski-sport-pdf-report-renderer]]
 - [[skills/euroimmun-docx-report-renderer|euroimmun-docx-report-renderer]]
@@ -33,11 +34,14 @@ Skills: **92**
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
 - [[skills/leadership-behavior-experiment|leadership-behavior-experiment]]
 - [[skills/leadership-coaching-intake|leadership-coaching-intake]]
 - [[skills/leadership-coaching-review|leadership-coaching-review]]
 - [[skills/leadership-coaching-workflow|leadership-coaching-workflow]]
+- [[skills/leadership-delegation|leadership-delegation]]
 - [[skills/leadership-development-model|leadership-development-model]]
+- [[skills/leadership-feedback|leadership-feedback]]
 - [[skills/leadership-reflection|leadership-reflection]]
 - [[skills/learning-document-delivery|learning-document-delivery]]
 - [[skills/learning-image-generator|learning-image-generator]]
@@ -52,6 +56,7 @@ Skills: **92**
 - [[skills/legal-specialist-router|legal-specialist-router]]
 - [[skills/llm-prose-pattern-audit|llm-prose-pattern-audit]]
 - [[skills/optimize-software-performance|optimize-software-performance]]
+- [[skills/performance-management-workflow|performance-management-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-profile-report|person-profile-report]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]

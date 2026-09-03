@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-coaching-intake",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "beobachtbare Verhaltensänderung und Erfolgsevidenz klären",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-intake/happy-path; relevant contract anchors: Verhaltensänderung; Vertraulichkeit; Persistenz."
+    },
+    {
+      "behavior": "Confidentiality und Persistenz explizit halten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-intake/happy-path; relevant contract anchors: Verhaltensänderung; Vertraulichkeit; Persistenz."
+    },
+    {
+      "behavior": "einen belastbaren Coaching Contract vorbereiten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-intake/happy-path; relevant contract anchors: Verhaltensänderung; Vertraulichkeit; Persistenz."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "Persönlichkeit diagnostizieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-intake/happy-path excludes this behavior; relevant contract anchors: Verhaltensänderung; Vertraulichkeit; Persistenz."
+    },
+    {
+      "behavior": "Rohgespräch automatisch persistieren",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-intake/happy-path excludes this behavior; relevant contract anchors: Verhaltensänderung; Vertraulichkeit; Persistenz."
+    }
+  ],
+  "overall": "pass"
+}

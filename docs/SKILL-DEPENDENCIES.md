@@ -74,6 +74,9 @@ graph TD
   design_control_traceability --> medical_device_risk_management_iso14971
   design_control_traceability --> regulated_product_context
   design_control_traceability --> two_axis_compliance_review
+  difficult_conversation_workflow --> coaching_safety_routing
+  difficult_conversation_workflow --> leadership_feedback
+  difficult_conversation_workflow --> meeting_preparation
   digital_ai_cyber_law_specialist --> current_law_context
   digital_ai_cyber_law_specialist --> legal_compliance_risk_assessment
   digital_ai_cyber_law_specialist --> privacy_data_law_specialist
@@ -320,13 +323,21 @@ graph TD
   large_work_wayfinder --> architecture_deepening_review
   large_work_wayfinder --> disciplined_diagnosis
   large_work_wayfinder --> project_second_brain
+  leadership_1on1_workflow --> decision_and_follow_up_tracker
+  leadership_1on1_workflow --> leadership_feedback
+  leadership_1on1_workflow --> meeting_preparation
   leadership_coaching_intake --> round_based_requirements_grilling
   leadership_coaching_workflow --> coaching_safety_routing
+  leadership_coaching_workflow --> difficult_conversation_workflow
+  leadership_coaching_workflow --> leadership_1on1_workflow
   leadership_coaching_workflow --> leadership_behavior_experiment
   leadership_coaching_workflow --> leadership_coaching_intake
   leadership_coaching_workflow --> leadership_coaching_review
+  leadership_coaching_workflow --> leadership_delegation
   leadership_coaching_workflow --> leadership_development_model
+  leadership_coaching_workflow --> leadership_feedback
   leadership_coaching_workflow --> leadership_reflection
+  leadership_coaching_workflow --> performance_management_workflow
   learning_activity_generator --> learning_path_planner
   learning_artifact_qa --> learning_content_design_system
   learning_assessment --> learning_assessment_spec
@@ -481,6 +492,9 @@ graph TD
   patent_landscape_analysis --> research_to_evidence_note
   performance_baseline --> iterate_software_projects
   performance_hotspot_analysis --> performance_baseline
+  performance_management_workflow --> coaching_safety_routing
+  performance_management_workflow --> decision_and_follow_up_tracker
+  performance_management_workflow --> leadership_feedback
   performance_optimization_plan --> architecture_deepening_review
   performance_optimization_plan --> performance_hotspot_analysis
   performance_regression_verification --> performance_baseline
@@ -751,19 +765,29 @@ graph TD
 | `contract-matter-workflow` | `negotiation-positions.json` | `legal-negotiation-strategy` |
 | `contract-matter-workflow` | `negotiation-state.json` | `legal-redline-review-loop` |
 | `contract-matter-workflow` | `redline-delta.json` | `legal-redline-review-loop` |
+| `difficult-conversation-workflow` | `leadership-feedback-plan.json` | `leadership-feedback` |
+| `difficult-conversation-workflow` | `leadership-reflection.json` | `leadership-reflection` |
+| `difficult-conversation-workflow` | `meeting-prep.json` | `meeting-preparation` |
 | `document-layout-qa` | `document-template-profile.json` | `document-template-profiler` |
 | `document-render-verifier` | `document-layout-qa.json` | `document-layout-qa` |
 | `dr-komorowski-sport-pdf-report-renderer` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
 | `euroimmun-pdf-report-renderer` | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` |
 | `job-description-authoring` | `role-architecture.json` | `role-architecture` |
 | `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
+| `leadership-1on1-workflow` | `decision-follow-up-register.json` | `decision-and-follow-up-tracker` |
+| `leadership-1on1-workflow` | `leadership-development-model.json` | `leadership-development-model` |
+| `leadership-1on1-workflow` | `meeting-prep.json` | `meeting-preparation` |
 | `leadership-behavior-experiment` | `leadership-development-model.json` | `leadership-development-model` |
 | `leadership-behavior-experiment` | `leadership-reflection.json` | `leadership-reflection` |
 | `leadership-coaching-intake` | `role-architecture.json` | `role-architecture` |
 | `leadership-coaching-review` | `leadership-behavior-experiment.json` | `leadership-behavior-experiment` |
 | `leadership-coaching-review` | `leadership-development-model.json` | `leadership-development-model` |
+| `leadership-delegation` | `leadership-development-model.json` | `leadership-development-model` |
+| `leadership-delegation` | `role-architecture.json` | `role-architecture` |
 | `leadership-development-model` | `leadership-coaching-contract.json` | `leadership-coaching-intake` |
 | `leadership-development-model` | `role-architecture.json` | `role-architecture` |
+| `leadership-feedback` | `leadership-development-model.json` | `leadership-development-model` |
+| `leadership-feedback` | `leadership-reflection.json` | `leadership-reflection` |
 | `leadership-reflection` | `leadership-coaching-contract.json` | `leadership-coaching-intake` |
 | `leadership-reflection` | `leadership-development-model.json` | `leadership-development-model` |
 | `learning-delivery-workflow` | `course-learning-model.json` | `youtube-course-builder-workflow` |
@@ -798,6 +822,8 @@ graph TD
 | `legal-redline-review-loop` | `contract-review.json` | `contract-review` |
 | `legal-redline-review-loop` | `negotiation-positions.json` | `legal-negotiation-strategy` |
 | `multimodal-learning-analysis` | `source-context.json` | `source-to-context` |
+| `performance-management-workflow` | `leadership-feedback-plan.json` | `leadership-feedback` |
+| `performance-management-workflow` | `role-architecture.json` | `role-architecture` |
 | `person-profile-document-delivery` | `final-revised-text` | `precision-writing-revision` |
 | `person-profile-document-delivery` | `precision-writing-report.json` | `precision-writing-revision` |
 | `person-profile-report` | `person-ip-map.json` | `person-research-dossier` |
@@ -1019,7 +1045,7 @@ graph TD
 | `de-novo-risk-control-rationale.md` | `fda-de-novo-special-controls` | — | unconsumed |
 | `de-novo-strategy.json` | `fda-de-novo-strategy` | `fda-de-novo-special-controls` | inferred |
 | `decision register` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
-| `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
+| `decision-follow-up-register.json` | `decision-and-follow-up-tracker` | `leadership-1on1-workflow`, `qms-management-review-action-followup` | mixed |
 | `decision-follow-up-register.md` | `decision-and-follow-up-tracker` | `qms-management-review-action-followup` | inferred |
 | `decision-record.json` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `executive-legal-compliance-governance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator`, `tax-position-register` | inferred |
 | `decision-record.md` | `decision-record` | `audit-inspection-finding-response`, `clinical-evidence-update-impact`, `design-change-regulatory-impact`, `domain-model-maintenance`, `executive-legal-compliance-governance`, `fda-additional-information-response`, `fda-corrections-removals`, `fda-pccp-change-control`, `fda-qsub-strategy`, `fda-registration-listing-udi`, `ivdr-companion-diagnostic-consultation`, `ivdr-inhouse-health-institution`, `medical-device-pms-system`, `regulatory-change-impact-orchestrator`, `tax-position-register` | inferred |
@@ -1034,6 +1060,7 @@ graph TD
 | `design-evidence-gaps.json` | `design-control-traceability` | `design-change-regulatory-impact`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `medical-device-cybersecurity-lifecycle`, `process-validation-iq-oq-pq`, `regulatory-claims-consistency` | inferred |
 | `diagnosis-report.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
 | `diagnosis-residual-risk-handoff.json` | `disciplined-diagnosis` | `architecture-deepening-review`, `implement-from-issue`, `large-work-wayfinder`, `merge-conflict-resolution`, `test-driven-vertical-slice`, `throwaway-prototype`, `two-axis-code-review` | inferred |
+| `difficult-conversation-plan.json` | `difficult-conversation-workflow` | `leadership-coaching-workflow` | inferred |
 | `digital-ai-cyber-law-assessment.json` | `digital-ai-cyber-law-specialist` | — | unconsumed |
 | `digital-legal-work-orders.json` | `digital-ai-cyber-law-specialist` | — | unconsumed |
 | `digital-regime-applicability-map.json` | `digital-ai-cyber-law-specialist` | — | unconsumed |
@@ -1222,13 +1249,16 @@ graph TD
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
+| `leadership-1on1-plan.json` | `leadership-1on1-workflow` | `leadership-coaching-workflow` | inferred |
 | `leadership-behavior-experiment.json` | `leadership-behavior-experiment` | `leadership-coaching-review`, `leadership-coaching-workflow` | mixed |
 | `leadership-coaching-contract.json` | `leadership-coaching-intake` | `leadership-coaching-workflow`, `leadership-development-model`, `leadership-reflection` | mixed |
 | `leadership-coaching-intake-report.md` | `leadership-coaching-intake` | `leadership-coaching-workflow` | inferred |
 | `leadership-coaching-review.json` | `leadership-coaching-review` | `leadership-coaching-workflow` | inferred |
 | `leadership-coaching-state.json` | `leadership-coaching-workflow` | — | unconsumed |
-| `leadership-development-model.json` | `leadership-development-model` | `leadership-behavior-experiment`, `leadership-coaching-review`, `leadership-coaching-workflow`, `leadership-reflection` | mixed |
-| `leadership-reflection.json` | `leadership-reflection` | `leadership-behavior-experiment`, `leadership-coaching-workflow` | mixed |
+| `leadership-delegation-plan.json` | `leadership-delegation` | `leadership-coaching-workflow` | inferred |
+| `leadership-development-model.json` | `leadership-development-model` | `leadership-1on1-workflow`, `leadership-behavior-experiment`, `leadership-coaching-review`, `leadership-coaching-workflow`, `leadership-delegation`, `leadership-feedback`, `leadership-reflection` | mixed |
+| `leadership-feedback-plan.json` | `leadership-feedback` | `difficult-conversation-workflow`, `leadership-coaching-workflow`, `performance-management-workflow` | mixed |
+| `leadership-reflection.json` | `leadership-reflection` | `difficult-conversation-workflow`, `leadership-behavior-experiment`, `leadership-coaching-workflow`, `leadership-feedback` | mixed |
 | `learning-artifact-qa.json` | `learning-artifact-qa` | `learning-delivery-workflow` | explicit |
 | `learning-artifact-qa.md` | `learning-artifact-qa` | `learning-delivery-workflow` | explicit |
 | `learning-assessment-spec.json` | `learning-assessment-spec` | `exam-trainer-catalog-builder`, `learning-assessment`, `teach` | inferred |
@@ -1311,7 +1341,7 @@ graph TD
 | `measurement-capability-study.json` | `measurement-system-validation` | — | unconsumed |
 | `measurement-evidence-gaps.json` | `measurement-system-validation` | — | unconsumed |
 | `measurement-system-assessment.json` | `measurement-system-validation` | — | unconsumed |
-| `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker` | inferred |
+| `meeting-prep.json` | `meeting-preparation` | `decision-and-follow-up-tracker`, `difficult-conversation-workflow`, `leadership-1on1-workflow` | mixed |
 | `meeting-prep.md` | `meeting-preparation` | `decision-and-follow-up-tracker` | inferred |
 | `memory-ledger.json` | `communication-memory-governance` | `frontend-design-director`, `memory-sync-reconciliation` | inferred |
 | `memory-ledger.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
@@ -1348,6 +1378,7 @@ graph TD
 | `performance-baseline.json` | `performance-baseline` | `optimize-software-performance`, `performance-hotspot-analysis`, `performance-regression-verification` | inferred |
 | `performance-baseline.md` | `performance-baseline` | `optimize-software-performance`, `performance-hotspot-analysis`, `performance-regression-verification` | inferred |
 | `performance-evaluation-report.md` | `ivdr-performance-evaluation-report` | — | unconsumed |
+| `performance-management-plan.json` | `performance-management-workflow` | `leadership-coaching-workflow` | inferred |
 | `performance-psychology-plan.json` | `sport-performance-psychology` | `sport-athlete-management` | inferred |
 | `performance-regression-guard.md` | `performance-regression-verification` | `optimize-software-performance` | inferred |
 | `performance-result.json` | `performance-regression-verification` | `optimize-software-performance` | inferred |
@@ -1488,7 +1519,7 @@ graph TD
 | `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-management-analysis.md` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
 | `risk-wayfinding-handoff.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
-| `role-architecture.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring`, `leadership-coaching-intake`, `leadership-development-model` | explicit |
+| `role-architecture.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring`, `leadership-coaching-intake`, `leadership-delegation`, `leadership-development-model`, `performance-management-workflow` | explicit |
 | `role-architecture.md` | `role-architecture` | — | unconsumed |
 | `role-requirements-handoff.json` | `role-requirements-grilling` | `role-architecture` | explicit |
 | `role-requirements-report.md` | `role-requirements-grilling` | — | unconsumed |

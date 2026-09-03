@@ -4,10 +4,10 @@ generated: true
 name: "leadership-development-model"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
-recordedResultCount: 0
+recordedResultCount: 3
 sourcePath: "skills/leadership-development-model/SKILL.md"
 tags:
   - skill
@@ -40,17 +40,20 @@ tags:
 
 ### `leadership-development-model.json`
 
+- [[skills/leadership-1on1-workflow|leadership-1on1-workflow]]
 - [[skills/leadership-behavior-experiment|leadership-behavior-experiment]]
 - [[skills/leadership-coaching-review|leadership-coaching-review]]
 - [[skills/leadership-coaching-workflow|leadership-coaching-workflow]]
+- [[skills/leadership-delegation|leadership-delegation]]
+- [[skills/leadership-feedback|leadership-feedback]]
 - [[skills/leadership-reflection|leadership-reflection]]
 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
-- Recorded results: `0`
+- Recorded results: `3`
 
 ## Canonical source
 

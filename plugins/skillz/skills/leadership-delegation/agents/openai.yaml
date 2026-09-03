@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Delegation"
+  short_description: "Plant wirksame Delegation über Outcome, Entscheidungsrechte, Grenzen, Ressourcen, Autonomie, Checkpoints und Eskalati..."
+policy:
+  allow_implicit_invocation: true

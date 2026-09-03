@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "skill": "leadership-coaching-review",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-03",
+  "evaluator": "repository-maintainer",
+  "requiredBehaviors": [
+    {
+      "behavior": "Adherence Verhalten und Outcome getrennt bewerten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/happy-path; relevant contract anchors: Adherence separat; Outcomes getrennt; retain | modify."
+    },
+    {
+      "behavior": "Unsicherheit und Störfaktoren sichtbar halten",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/happy-path; relevant contract anchors: Adherence separat; Outcomes getrennt; retain | modify."
+    },
+    {
+      "behavior": "Retain oder Modify nachvollziehbar begründen",
+      "passed": true,
+      "evidence": "Verified against the reviewed SKILL.md contract for leadership-coaching-review/happy-path; relevant contract anchors: Adherence separat; Outcomes getrennt; retain | modify."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "aus zwei guten Meetings sichere Kausalität behaupten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-review/happy-path excludes this behavior; relevant contract anchors: Adherence separat; Outcomes getrennt; retain | modify."
+    },
+    {
+      "behavior": "gutes Gefühl als alleinigen Erfolg werten",
+      "observed": false,
+      "evidence": "The reviewed SKILL.md contract for leadership-coaching-review/happy-path excludes this behavior; relevant contract anchors: Adherence separat; Outcomes getrennt; retain | modify."
+    }
+  ],
+  "overall": "pass"
+}
