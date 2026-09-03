@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Behavior Experiment"
+  short_description: "Übersetzt ein Leadership-Entwicklungsziel oder eine Reflexionshypothese in ein kleines reales Verhaltensexperiment mi..."
+policy:
+  allow_implicit_invocation: true
