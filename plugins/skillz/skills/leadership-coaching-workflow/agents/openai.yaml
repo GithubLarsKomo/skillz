@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Coaching Workflow"
+  short_description: "Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwicklungsmodell über reale Führungssituati..."
+policy:
+  allow_implicit_invocation: true

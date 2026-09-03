@@ -64,6 +64,12 @@
         "agents/openai.yaml": "6f1c99cfe2f762bd6c5d8f06b195036c3805fcfcd8e8ea9afdc80fa3f197b66a"
       }
     },
+    "coaching-safety-routing": {
+      "files": {
+        "SKILL.md": "2c581b698fae02bdb8c5873087a9734df99ae3195474866f9492e07fca8ae76e",
+        "agents/openai.yaml": "45d67c3e158e1daebda3ea05f3cf5be4270a1c57b51d235afaa0cdc91420b5c2"
+      }
+    },
     "communication-memory-governance": {
       "files": {
         "SKILL.md": "dd46779a1f4a70232c4a5482334cc68b25a081eb59d005a964e8dcc68739eccd",
@@ -836,6 +842,42 @@
         "agents/openai.yaml": "8d8d557211aacff5f7d7732168b5cf18b61c4211886e0e8f7096654da34e42b2"
       }
     },
+    "leadership-behavior-experiment": {
+      "files": {
+        "SKILL.md": "13924e837fdecd7c353e842dccc3c17a46233390acd1082281cfd0423de5b4a7",
+        "agents/openai.yaml": "4bdc4350670ef067583c211262d146516330723a966bcf1642956db67df7067c"
+      }
+    },
+    "leadership-coaching-intake": {
+      "files": {
+        "SKILL.md": "09c311e426ad22905a2d7cb294518c8bec4d53c034fd889d1374768bb3ac7a15",
+        "agents/openai.yaml": "b95c04cd83f078e2060ad48f684f50ba78c7cbd51dcd9e6d6869805574294bc0"
+      }
+    },
+    "leadership-coaching-review": {
+      "files": {
+        "SKILL.md": "65ce735b3c75ca92ec6cca6842a664217643f5aa2ae0c5f00c01ed3b0096e95c",
+        "agents/openai.yaml": "69bf601ed3bbf294642d4ac63102a2612b6647d06f01cdd522965d15636de47b"
+      }
+    },
+    "leadership-coaching-workflow": {
+      "files": {
+        "SKILL.md": "8f5ddbccf60836cbf514e2c0ee8b275535fb75c1eabe886afe2d93cb214fb663",
+        "agents/openai.yaml": "7f99a70f7591fc817aa0f1fd818feeaf7c78481e21a3a2bc226102ce0c4e1e88"
+      }
+    },
+    "leadership-development-model": {
+      "files": {
+        "SKILL.md": "607088e71fe53ae9f7fbfc1c6bdc4d9f779d7f413177e3aba6f84d15475b8914",
+        "agents/openai.yaml": "fdfe9d5f5085a92829d4e20d5701d49ba899c2252aaad3dfbbf9e87eb458b029"
+      }
+    },
+    "leadership-reflection": {
+      "files": {
+        "SKILL.md": "f7e4adf2df9ac9d3c0b934d541120147f651a3daf055982f107cf1ab5e5a0995",
+        "agents/openai.yaml": "dc81412d393d54f18403c90c2703c8219f7cfef3df113e9896a1d594d0ad90f7"
+      }
+    },
     "learning-activity-generator": {
       "files": {
         "SKILL.md": "dc2e764b52f7e87f966d2e083e9590a61d0f6505e34c40c73dceb642f57fcac3",
@@ -1511,7 +1553,7 @@
     },
     "round-based-requirements-grilling": {
       "files": {
-        "SKILL.md": "c0715f5b666db3388b06d110beef4260ce4aef5b2d184815bbc77c12228413a5",
+        "SKILL.md": "8b9837dbe7639ae0b88b54e5fc0bd57b6c4aaa77b47fded2886555428d7984bb",
         "agents/openai.yaml": "dd83c237fe3023e9d5acb23ab1f500b0b2fd2fa438c2011738dce1b5dff71b72"
       }
     },

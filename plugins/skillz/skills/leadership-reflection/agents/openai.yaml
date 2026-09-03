@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Reflection"
+  short_description: "Analysiert reale Führungssituationen als strukturierte Reflexion und trennt Beobachtung, eigenes Verhalten, Wirkung,..."
+policy:
+  allow_implicit_invocation: true

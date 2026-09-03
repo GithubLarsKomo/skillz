@@ -1,0 +1,5 @@
+interface:
+  display_name: "Leadership Development Model"
+  short_description: "Übersetzt einen bestätigten Leadership-Coaching-Auftrag in wenige beobachtbare Entwicklungsziele mit Situation, aktue..."
+policy:
+  allow_implicit_invocation: true

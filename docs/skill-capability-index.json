@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 309,
-  "entrypointCount": 251,
+  "skillCount": 316,
+  "entrypointCount": 258,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,17 +15,17 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 242,
+    "public": 249,
     "advanced": 9,
     "internal": 56,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 309,
-  "evaluatedSkillCount": 309,
-  "evaluatedEntrypointCount": 251,
+  "evaluationSuiteCount": 316,
+  "evaluatedSkillCount": 316,
+  "evaluatedEntrypointCount": 258,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 28,
   "skills": [
     {
       "name": "agent-handoff",
@@ -665,6 +665,48 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "coaching-safety-routing",
+      "description": "Trennt legitime Coaching-Unterstützung von Situationen, die HR-, Legal-/Compliance-, arbeitsmedizinische, psychologische oder akute professionelle Unterstützung benötigen. Verwenden bei Warnsignalen oder formellen Personal-/Compliance-Sachverhalten; nicht diagnostizieren, therapieren oder rechtliche Freigaben simulieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "coaching-safety-routing.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "coaching-safety-routing.json",
+          "ambiguous": false,
+          "producers": [
+            "coaching-safety-routing"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
       }
     },
     {
@@ -8357,6 +8399,281 @@
       }
     },
     {
+      "name": "leadership-behavior-experiment",
+      "description": "Übersetzt ein Leadership-Entwicklungsziel oder eine Reflexionshypothese in ein kleines reales Verhaltensexperiment mit Zielkontext, Cue, Verhalten, Dosis, Messsignalen, erwarteter Wirkung und Stop-Bedingungen. Verwenden für testbares Führungslernen statt abstrakter Vorsätze.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-behavior-experiment.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-behavior-experiment.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-behavior-experiment"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-review",
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "leadership-coaching-intake",
+      "description": "Klärt Auftrag, Rolle, gewünschte Verhaltensänderung, Erfolgsevidenz, Sponsor-/Vertraulichkeitsmodell, Persistenzgrenzen und Coaching-Scope für longitudinales Führungskräfte-Coaching. Verwenden vor einem neuen Leadership-Coaching-Fall oder bei Re-Contracting.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-coaching-contract.json",
+        "leadership-coaching-intake-report.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-coaching-contract.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-coaching-intake"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow",
+            "leadership-development-model",
+            "leadership-reflection"
+          ]
+        },
+        {
+          "output": "leadership-coaching-intake-report.md",
+          "ambiguous": false,
+          "producers": [
+            "leadership-coaching-intake"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "leadership-coaching-review",
+      "description": "Bewertet ein Leadership-Verhaltensexperiment nach realer Anwendung und trennt Adherence, beobachtete Verhaltensänderung, Outcome, Interpretation und Lernentscheidung. Verwenden für Retain/Modify/Stop-Entscheidungen und Re-Kalibrierung von Entwicklungszielen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-coaching-review.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-coaching-review.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-coaching-review"
+          ],
+          "consumerSkills": [
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "leadership-coaching-workflow",
+      "description": "Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwicklungsmodell über reale Führungssituationen, Reflexion und Verhaltensexperimente bis zu Review und Re-Kalibrierung. Verwenden als kanonischen Leadership-Coaching-Entry-Point; Safety-, HR-, Legal- und Compliance-Grenzen bleiben explizite Routing-Gates.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "coaching-safety-routing",
+        "leadership-behavior-experiment",
+        "leadership-coaching-intake",
+        "leadership-coaching-review",
+        "leadership-development-model",
+        "leadership-reflection"
+      ],
+      "dependents": [],
+      "outputs": [
+        "leadership-coaching-state.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-coaching-state.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-coaching-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "leadership-development-model",
+      "description": "Übersetzt einen bestätigten Leadership-Coaching-Auftrag in wenige beobachtbare Entwicklungsziele mit Situation, aktuellem Verhalten, Zielverhalten, erwarteter Wirkung und Messsignalen. Verwenden, bevor konkrete Verhaltensexperimente geplant werden.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-development-model.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-development-model.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-development-model"
+          ],
+          "consumerSkills": [
+            "leadership-behavior-experiment",
+            "leadership-coaching-review",
+            "leadership-coaching-workflow",
+            "leadership-reflection"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
+      "name": "leadership-reflection",
+      "description": "Analysiert reale Führungssituationen als strukturierte Reflexion und trennt Beobachtung, eigenes Verhalten, Wirkung, Interpretation, Alternativerklärungen und Lernhypothesen. Verwenden nach relevanten Führungsereignissen; nicht zur Persönlichkeitsdiagnose anderer Personen.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "leadership-coaching-workflow"
+      ],
+      "outputs": [
+        "leadership-reflection.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "leadership-reflection.json",
+          "ambiguous": false,
+          "producers": [
+            "leadership-reflection"
+          ],
+          "consumerSkills": [
+            "leadership-behavior-experiment",
+            "leadership-coaching-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 0,
+        "passed": false
+      }
+    },
+    {
       "name": "learning-activity-generator",
       "description": "Erzeugt evidenzgebundene Lernaktivitäten, Übungen und Wissenchecks aus Lernzielen und Course-Concept-Graph, mit Antwortbegründung, Distraktorlogik und klarer Trennung zwischen Recall, Verständnis und Anwendung. Verwenden innerhalb des Course Builders; nicht zur psychometrischen Kalibrierung oder Zertifizierungsprüfung.",
       "invocation": {
@@ -15671,7 +15988,9 @@
           ],
           "consumerSkills": [
             "candidate-role-fit-assessment",
-            "job-description-authoring"
+            "job-description-authoring",
+            "leadership-coaching-intake",
+            "leadership-development-model"
           ]
         },
         {
@@ -15757,7 +16076,7 @@
     },
     {
       "name": "round-based-requirements-grilling",
-      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.",
+      "description": "Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-Prozess durch. Die konkrete Grilling-Engine, v1-/v2-Runtime, Authentifizierung, Statuslogik, Rundensemantik und Deploymentregeln werden ausschließlich aus dem aktuellen main-Stand von GithubLarsKomo/grilling bezogen. Grilling klärt fachliche Entscheidungen; die normative SPEC.md wird anschließend durch conversation-to-spec erzeugt.",
       "invocation": {
         "userFacing": false,
         "category": null
@@ -15774,6 +16093,7 @@
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
+        "leadership-coaching-intake",
         "role-requirements-grilling",
         "thought-to-concept-flow"
       ],
@@ -15820,7 +16140,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {

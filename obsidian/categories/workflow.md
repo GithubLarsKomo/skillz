@@ -10,9 +10,10 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **85**
+Skills: **92**
 
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
+- [[skills/coaching-safety-routing|coaching-safety-routing]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-management-workflow|compliance-management-workflow]]
@@ -32,6 +33,12 @@ Skills: **85**
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/job-description-authoring|job-description-authoring]]
+- [[skills/leadership-behavior-experiment|leadership-behavior-experiment]]
+- [[skills/leadership-coaching-intake|leadership-coaching-intake]]
+- [[skills/leadership-coaching-review|leadership-coaching-review]]
+- [[skills/leadership-coaching-workflow|leadership-coaching-workflow]]
+- [[skills/leadership-development-model|leadership-development-model]]
+- [[skills/leadership-reflection|leadership-reflection]]
 - [[skills/learning-document-delivery|learning-document-delivery]]
 - [[skills/learning-image-generator|learning-image-generator]]
 - [[skills/learning-landingpage-renderer|learning-landingpage-renderer]]

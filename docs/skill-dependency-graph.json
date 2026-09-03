@@ -128,6 +128,14 @@
       ]
     },
     {
+      "name": "coaching-safety-routing",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "coaching-safety-routing.json"
+      ]
+    },
+    {
       "name": "communication-memory-governance",
       "requires": [],
       "consumes": [],
@@ -1699,6 +1707,78 @@
         "dependency-graph.json",
         "investigation-backlog.json",
         "wayfinding-brief.md"
+      ]
+    },
+    {
+      "name": "leadership-behavior-experiment",
+      "requires": [],
+      "consumes": [
+        "leadership-development-model.json",
+        "leadership-reflection.json"
+      ],
+      "outputs": [
+        "leadership-behavior-experiment.json"
+      ]
+    },
+    {
+      "name": "leadership-coaching-intake",
+      "requires": [
+        "round-based-requirements-grilling"
+      ],
+      "consumes": [
+        "role-architecture.json"
+      ],
+      "outputs": [
+        "leadership-coaching-contract.json",
+        "leadership-coaching-intake-report.md"
+      ]
+    },
+    {
+      "name": "leadership-coaching-review",
+      "requires": [],
+      "consumes": [
+        "leadership-behavior-experiment.json",
+        "leadership-development-model.json"
+      ],
+      "outputs": [
+        "leadership-coaching-review.json"
+      ]
+    },
+    {
+      "name": "leadership-coaching-workflow",
+      "requires": [
+        "coaching-safety-routing",
+        "leadership-behavior-experiment",
+        "leadership-coaching-intake",
+        "leadership-coaching-review",
+        "leadership-development-model",
+        "leadership-reflection"
+      ],
+      "consumes": [],
+      "outputs": [
+        "leadership-coaching-state.json"
+      ]
+    },
+    {
+      "name": "leadership-development-model",
+      "requires": [],
+      "consumes": [
+        "leadership-coaching-contract.json",
+        "role-architecture.json"
+      ],
+      "outputs": [
+        "leadership-development-model.json"
+      ]
+    },
+    {
+      "name": "leadership-reflection",
+      "requires": [],
+      "consumes": [
+        "leadership-coaching-contract.json",
+        "leadership-development-model.json"
+      ],
+      "outputs": [
+        "leadership-reflection.json"
       ]
     },
     {
@@ -5330,6 +5410,34 @@
       "to": "project-second-brain"
     },
     {
+      "from": "leadership-coaching-intake",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "coaching-safety-routing"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-behavior-experiment"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-coaching-intake"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-coaching-review"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-development-model"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "leadership-reflection"
+    },
+    {
       "from": "learning-activity-generator",
       "to": "learning-path-planner"
     },
@@ -7042,6 +7150,51 @@
       "producer": "role-architecture"
     },
     {
+      "consumer": "leadership-behavior-experiment",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-behavior-experiment",
+      "artifact": "leadership-reflection.json",
+      "producer": "leadership-reflection"
+    },
+    {
+      "consumer": "leadership-coaching-intake",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "leadership-coaching-review",
+      "artifact": "leadership-behavior-experiment.json",
+      "producer": "leadership-behavior-experiment"
+    },
+    {
+      "consumer": "leadership-coaching-review",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
+      "consumer": "leadership-development-model",
+      "artifact": "leadership-coaching-contract.json",
+      "producer": "leadership-coaching-intake"
+    },
+    {
+      "consumer": "leadership-development-model",
+      "artifact": "role-architecture.json",
+      "producer": "role-architecture"
+    },
+    {
+      "consumer": "leadership-reflection",
+      "artifact": "leadership-coaching-contract.json",
+      "producer": "leadership-coaching-intake"
+    },
+    {
+      "consumer": "leadership-reflection",
+      "artifact": "leadership-development-model.json",
+      "producer": "leadership-development-model"
+    },
+    {
       "consumer": "learning-delivery-workflow",
       "artifact": "course-learning-model.json",
       "producer": "youtube-course-builder-workflow"
@@ -8290,6 +8443,17 @@
       ],
       "consumerSkills": [
         "ivdr-performance-evaluation"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "coaching-safety-routing.json",
+      "producers": [
+        "coaching-safety-routing"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -11504,6 +11668,88 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-behavior-experiment.json",
+      "producers": [
+        "leadership-behavior-experiment"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-review",
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-coaching-contract.json",
+      "producers": [
+        "leadership-coaching-intake"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow",
+        "leadership-development-model",
+        "leadership-reflection"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-coaching-intake-report.md",
+      "producers": [
+        "leadership-coaching-intake"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-coaching-review.json",
+      "producers": [
+        "leadership-coaching-review"
+      ],
+      "consumerSkills": [
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "leadership-coaching-state.json",
+      "producers": [
+        "leadership-coaching-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "leadership-development-model.json",
+      "producers": [
+        "leadership-development-model"
+      ],
+      "consumerSkills": [
+        "leadership-behavior-experiment",
+        "leadership-coaching-review",
+        "leadership-coaching-workflow",
+        "leadership-reflection"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
+    },
+    {
+      "output": "leadership-reflection.json",
+      "producers": [
+        "leadership-reflection"
+      ],
+      "consumerSkills": [
+        "leadership-behavior-experiment",
+        "leadership-coaching-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "mixed"
     },
     {
       "output": "learning-artifact-qa.json",
@@ -14822,7 +15068,9 @@
       ],
       "consumerSkills": [
         "candidate-role-fit-assessment",
-        "job-description-authoring"
+        "job-description-authoring",
+        "leadership-coaching-intake",
+        "leadership-development-model"
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
@@ -16795,6 +17043,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "leadership-coaching-state.json",
     "learning-practice-request.json",
     "legal-matter-handoff.json",
     "legal-matter-plan.md",
@@ -17111,6 +17360,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "leadership-coaching-state.json",
     "learning-practice-request.json",
     "legal-matter-handoff.json",
     "legal-matter-plan.md",

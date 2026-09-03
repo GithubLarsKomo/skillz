@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **309**
-- User-facing entrypoints: **251**
-- Discoverability — public: **242**, advanced: **9**, internal: **56**, compatibility: **2**
-- Evaluation suites: **309**
-- Executed evaluation suites: **PASS**
+- Skills: **316**
+- User-facing entrypoints: **258**
+- Discoverability — public: **249**, advanced: **9**, internal: **56**, compatibility: **2**
+- Evaluation suites: **316**
+- Executed evaluation suites: **FAIL**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **309/309**
-- User-facing entrypoints with evaluation suite: **251/251**
+- Skills with evaluation suite: **316/316**
+- User-facing entrypoints with evaluation suite: **258/258**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **314**
+- Outputs without inferred hard-requires consumers: **315**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -196,6 +196,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `job-description.md` — producer: `job-description-authoring`
 - `knowledge-map.md` — producer: `mermaid-knowledge-map-renderer`
 - `knowledge-map.mmd` — producer: `mermaid-knowledge-map-renderer`
+- `leadership-coaching-state.json` — producer: `leadership-coaching-workflow`
 - `learning-practice-request.json` — producer: `teach`
 - `legal-matter-handoff.json` — producer: `legal-compliance-office`
 - `legal-matter-plan.md` — producer: `legal-compliance-office`
