@@ -127,7 +127,7 @@ Die Kapitelstruktur soll dem Lernweg dienen, nicht nur der ursprünglichen Dokum
 
 ### 5. EPUB rendern
 
-`spoken-tutorial.md` deterministisch als EPUB3 rendern.
+`spoken-tutorial.md` deterministisch mit `scripts/render_epub.py` als EPUB3 rendern. Der Renderer verändert keine Inhalte; er projiziert die bereits geprüfte Kapitelstruktur lediglich in EPUB-Navigation.
 
 Anforderungen:
 
