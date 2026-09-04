@@ -3,7 +3,6 @@ name: spoken-tutorial-listener-review
 description: Prüft eine hörgerecht redigierte Tutorial-Fassung aus der Perspektive eines anspruchsvollen regelmäßigen Hörbuch- und Podcastnutzers, der ohne Bildschirm zuhört. Bewertet Verständlichkeit, Hörermüdung, Rhythmus, Wiederholung, Wiedereinstieg, Aufzählungen, Informationsdichte und natürliche Sprache und gibt ein hartes Freigabe-Gate für Audio-Tutorials aus. Nicht als Fakten- oder Fachreview verwenden.
 userFacing: false
 implicitInvocation: true
-category: quality
 version: 0.1.0
 status: candidate
 owners:
