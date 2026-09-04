@@ -9,18 +9,22 @@
         "require and reuse a completed Grilling handoff",
         "run precision writing before spoken adaptation",
         "minimize unnecessary German anglicisms",
-        "produce chaptered EPUB and voice guidance"
+        "produce chaptered EPUB and voice guidance",
+        "run the critical audiobook-listener gate before final release"
       ],
       "forbiddenBehaviors": [
         "start production before Grilling is sufficiently resolved",
-        "change technical claims during spoken adaptation"
+        "change technical claims during spoken adaptation",
+        "release a final EPUB when the listener gate is not pass"
       ],
       "skillAnchors": [
         "Jeder Audio-Tutorial-Lauf beginnt mit",
         "Precision Writing Revision",
         "unnötige Anglizismen vermeiden",
         "EPUB rendern",
-        "Stimme empfehlen"
+        "Stimme empfehlen",
+        "Kritischer Hörbuchnutzer als Freigabe-Gate",
+        "Nur `gateStatus=pass` erlaubt die finale Freigabe"
       ]
     },
     {
@@ -29,7 +33,8 @@
       "requiredBehaviors": [
         "explain model terminology once and continue primarily in German",
         "preserve genuinely established technical terminology",
-        "provide a Voice-Design-Prompt instead of claiming voice availability"
+        "provide a Voice-Design-Prompt instead of claiming voice availability",
+        "route the revised spoken text through listener review and block final release on listener-fatigue major findings"
       ],
       "forbiddenBehaviors": [
         "mechanically translate established technical terms",
@@ -38,7 +43,8 @@
       "skillAnchors": [
         "englische Originalbegriffe eines Modells beim ersten Auftreten erklären",
         "etablierte Fachbegriffe nicht künstlich eindeutschen",
-        "Stimme nicht verifizierbar"
+        "Stimme nicht verifizierbar",
+        "Hörermüdung"
       ]
     },
     {
