@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "skill": "audio-tutorial-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a German technical tutorial for an already clarified audience and deliver it as a chaptered EPUB for ElevenReader.",
+      "requiredBehaviors": [
+        "require and reuse a completed Grilling handoff",
+        "run precision writing before spoken adaptation",
+        "minimize unnecessary German anglicisms",
+        "produce chaptered EPUB and voice guidance"
+      ],
+      "forbiddenBehaviors": [
+        "start production before Grilling is sufficiently resolved",
+        "change technical claims during spoken adaptation"
+      ],
+      "skillAnchors": [
+        "Jeder Audio-Tutorial-Lauf beginnt mit",
+        "Precision Writing Revision",
+        "unnötige Anglizismen vermeiden",
+        "EPUB rendern",
+        "Stimme empfehlen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A German tutorial contains English model names and established technical terms such as API and Server, and no current ElevenReader voice can be verified.",
+      "requiredBehaviors": [
+        "explain model terminology once and continue primarily in German",
+        "preserve genuinely established technical terminology",
+        "provide a Voice-Design-Prompt instead of claiming voice availability"
+      ],
+      "forbiddenBehaviors": [
+        "mechanically translate established technical terms",
+        "claim that an unverified platform voice is available"
+      ],
+      "skillAnchors": [
+        "englische Originalbegriffe eines Modells beim ersten Auftreten erklären",
+        "etablierte Fachbegriffe nicht künstlich eindeutschen",
+        "Stimme nicht verifizierbar"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The user asks for an EPUB immediately, but target audience, tutorial depth and language style are unresolved.",
+      "requiredBehaviors": [
+        "stop production and route to Grilling first",
+        "preserve the unresolved requirements instead of guessing them"
+      ],
+      "forbiddenBehaviors": [
+        "invent audience or depth",
+        "render a final EPUB before the production contract is clear"
+      ],
+      "skillAnchors": [
+        "Fehlt der Grilling-Handoff",
+        "Kein Grilling-Handoff"
+      ]
+    }
+  ]
+}
