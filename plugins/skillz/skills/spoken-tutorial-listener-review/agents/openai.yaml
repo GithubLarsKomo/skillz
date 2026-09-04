@@ -1,0 +1,5 @@
+interface:
+  display_name: "Spoken Tutorial Listener Review"
+  short_description: "Prüft eine hörgerecht redigierte Tutorial-Fassung aus der Perspektive eines anspruchsvollen regelmäßigen Hörbuch- und..."
+policy:
+  allow_implicit_invocation: true

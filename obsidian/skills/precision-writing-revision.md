@@ -33,6 +33,7 @@ Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, 
 
 ## Required by
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
 
@@ -45,11 +46,13 @@ Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, 
 
 ### `final-revised-text`
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
 
 ### `precision-writing-report.json`
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
 

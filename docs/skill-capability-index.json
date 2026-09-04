@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 321,
-  "entrypointCount": 263,
+  "skillCount": 323,
+  "entrypointCount": 264,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,14 +15,14 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 254,
+    "public": 255,
     "advanced": 9,
-    "internal": 56,
+    "internal": 57,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 321,
-  "evaluatedSkillCount": 321,
-  "evaluatedEntrypointCount": 263,
+  "evaluationSuiteCount": 323,
+  "evaluatedSkillCount": 323,
+  "evaluatedEntrypointCount": 264,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -287,6 +287,77 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "audio-tutorial-workflow",
+      "description": "Überführt einen durch Grilling geklärten Tutorial-Auftrag in eine hörgerechte, kapitelstrukturierte Lernfassung und eine EPUB-Datei für TTS-Reader wie ElevenReader. Verwendet vor dem Rendering den vorhandenen Precision-Writing-Pfad, minimiert in deutschen Fassungen unnötige Anglizismen, verwendet für englische Fassungen amerikanisches Englisch und liefert eine passende Stimmenempfehlung oder einen Voice-Design-Prompt. Nicht verwenden, bevor Ziel, Zielgruppe, Tiefe, Stil und Ausgabeweg durch Grilling ausreichend geklärt sind.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "precision-writing-revision",
+        "round-based-requirements-grilling",
+        "spoken-tutorial-listener-review"
+      ],
+      "dependents": [],
+      "outputs": [
+        "audio-tutorial-run.json",
+        "spoken-tutorial.epub",
+        "spoken-tutorial.md",
+        "voice-guidance.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "audio-tutorial-run.json",
+          "ambiguous": false,
+          "producers": [
+            "audio-tutorial-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "spoken-tutorial.epub",
+          "ambiguous": false,
+          "producers": [
+            "audio-tutorial-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "spoken-tutorial.md",
+          "ambiguous": false,
+          "producers": [
+            "audio-tutorial-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "voice-guidance.md",
+          "ambiguous": false,
+          "producers": [
+            "audio-tutorial-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/spoken-language-profile.md",
+        "scripts/render_epub.py"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -13775,6 +13846,7 @@
         "rewrite-fidelity-verifier"
       ],
       "dependents": [
+        "audio-tutorial-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -13790,6 +13862,7 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
+            "audio-tutorial-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]
@@ -13801,6 +13874,7 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
+            "audio-tutorial-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]
@@ -16337,6 +16411,7 @@
       },
       "requires": [],
       "dependents": [
+        "audio-tutorial-workflow",
         "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
@@ -16357,6 +16432,7 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
+            "audio-tutorial-workflow",
             "contract-workflow",
             "frontend-design-shaping",
             "frontend-design-system-context",
@@ -16372,6 +16448,7 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
+            "audio-tutorial-workflow",
             "contract-workflow",
             "frontend-design-shaping",
             "frontend-design-system-context",
@@ -16650,6 +16727,59 @@
           "consumerSkills": [
             "test-driven-vertical-slice",
             "throwaway-prototype"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "spoken-tutorial-listener-review",
+      "description": "Prüft eine hörgerecht redigierte Tutorial-Fassung aus der Perspektive eines anspruchsvollen regelmäßigen Hörbuch- und Podcastnutzers, der ohne Bildschirm zuhört. Bewertet Verständlichkeit, Hörermüdung, Rhythmus, Wiederholung, Wiedereinstieg, Aufzählungen, Informationsdichte und natürliche Sprache und gibt ein hartes Freigabe-Gate für Audio-Tutorials aus. Nicht als Fakten- oder Fachreview verwenden.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "audio-tutorial-workflow"
+      ],
+      "outputs": [
+        "spoken-tutorial-listener-review.json",
+        "spoken-tutorial-listener-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "spoken-tutorial-listener-review.json",
+          "ambiguous": false,
+          "producers": [
+            "spoken-tutorial-listener-review"
+          ],
+          "consumerSkills": [
+            "audio-tutorial-workflow"
+          ]
+        },
+        {
+          "output": "spoken-tutorial-listener-review.md",
+          "ambiguous": false,
+          "producers": [
+            "spoken-tutorial-listener-review"
+          ],
+          "consumerSkills": [
+            "audio-tutorial-workflow"
           ]
         }
       ],

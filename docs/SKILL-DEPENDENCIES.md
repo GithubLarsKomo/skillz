@@ -10,6 +10,9 @@ graph TD
   architecture_deepening_review --> disciplined_diagnosis
   architecture_deepening_review --> iterate_software_projects
   artifact_contract_normalizer --> skill_portfolio_audit
+  audio_tutorial_workflow --> precision_writing_revision
+  audio_tutorial_workflow --> round_based_requirements_grilling
+  audio_tutorial_workflow --> spoken_tutorial_listener_review
   audit_inspection_finding_response --> decision_record
   audit_inspection_finding_response --> regulatory_evidence_traceability
   biopatent_deep_analysis --> patent_landscape_analysis
@@ -895,7 +898,7 @@ graph TD
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `audio-tutorial-workflow`, `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `PERFORMANCE_PLAN.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
@@ -921,6 +924,7 @@ graph TD
 | `association-law-open-points.json` | `german-association-law-specialist` | — | unconsumed |
 | `athlete-management-state.json` | `sport-athlete-management` | — | unconsumed |
 | `athlete-profile.json` | `sport-athlete-profile` | `sport-athlete-management`, `sport-daily-athlete-monitoring`, `sport-endurance-programming`, `sport-environment-travel`, `sport-goal-performance-model`, `sport-injury-rehabilitation`, `sport-mental-health-routing`, `sport-nutrition-fueling`, `sport-performance-psychology`, `sport-recovery-sleep`, `sport-return-after-illness`, `sport-strength-power-programming`, `sport-testing-battery`, `sport-training-adaptation-engine`, `sport-training-music`, `sport-training-plan-workflow` | mixed |
+| `audio-tutorial-run.json` | `audio-tutorial-workflow` | — | unconsumed |
 | `audit-finding-response-map.json` | `audit-inspection-finding-response` | — | unconsumed |
 | `author-voice-profile.json` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
 | `author-voice-profile.md` | `author-voice-profiler` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
@@ -1157,7 +1161,7 @@ graph TD
 | `field-action-recipient-scope.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-unit-custody-ledger.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
 | `field-safety-notice-content.json` | `ivdr-field-safety-corrective-action` | `ivdr-fsca-status-final-reporting` | inferred |
-| `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
+| `final-revised-text` | `precision-writing-revision` | `audio-tutorial-workflow`, `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
 | `finance-counsel-work-orders.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finance-restructuring-law-assessment.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
@@ -1405,7 +1409,7 @@ graph TD
 | `pms-review-status.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-source-register.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-system-plan.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
-| `precision-writing-report.json` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
+| `precision-writing-report.json` | `precision-writing-revision` | `audio-tutorial-workflow`, `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
 | `predicate-candidate-set.json` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `predicate-strategy.md` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `presentation-language-report.json` | `presentation-language-rewriter` | `template-presentation-workflow` | explicit |
@@ -1504,7 +1508,7 @@ graph TD
 | `reorganization-tax-structure-options.json` | `reorganization-tax-specialist` | — | unconsumed |
 | `reporting-office-obligations.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `audio-tutorial-workflow`, `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `return-after-illness-plan.json` | `sport-return-after-illness` | `sport-athlete-management` | inferred |
@@ -1544,6 +1548,10 @@ graph TD
 | `source-context.json` | `source-to-context` | `multimodal-learning-analysis`, `research-to-evidence-note` | explicit |
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
+| `spoken-tutorial-listener-review.json` | `spoken-tutorial-listener-review` | `audio-tutorial-workflow` | inferred |
+| `spoken-tutorial-listener-review.md` | `spoken-tutorial-listener-review` | `audio-tutorial-workflow` | inferred |
+| `spoken-tutorial.epub` | `audio-tutorial-workflow` | — | unconsumed |
+| `spoken-tutorial.md` | `audio-tutorial-workflow` | — | unconsumed |
 | `sport-adaptation-analysis.json` | `sport-adaptation-analysis` | `sport-athlete-management` | inferred |
 | `sport-diagnostics.json` | `sport-performance-diagnostics` | `sport-adaptation-analysis`, `sport-diagnostics-training-report-workflow`, `sport-endurance-programming`, `sport-training-plan-workflow` | mixed |
 | `sport-fueling-plan.json` | `sport-nutrition-fueling` | `sport-athlete-management` | inferred |
@@ -1664,6 +1672,7 @@ graph TD
 | `vertical-slice-residual-risk-handoff.json` | `test-driven-vertical-slice` | `domain-model-maintenance`, `implement-from-issue`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `vigilance-decision-log.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `vigilance-entry-handoff.json` | `medical-device-complaint-regulatory-routing` | — | unconsumed |
+| `voice-guidance.md` | `audio-tutorial-workflow` | — | unconsumed |
 | `watch record` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
 | `wayfinding-brief.md` | `large-work-wayfinder` | `frontend-design-shaping`, `medical-device-regulatory-strategy`, `throwaway-prototype` | inferred |
 | `whistleblowing-law-assessment.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |

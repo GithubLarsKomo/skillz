@@ -1,0 +1,5 @@
+interface:
+  display_name: "Audio Tutorial Workflow"
+  short_description: "Überführt einen durch Grilling geklärten Tutorial-Auftrag in eine hörgerechte, kapitelstrukturierte Lernfassung und e..."
+policy:
+  allow_implicit_invocation: true

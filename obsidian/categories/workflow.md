@@ -10,8 +10,9 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **97**
+Skills: **98**
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
 - [[skills/coaching-safety-routing|coaching-safety-routing]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]

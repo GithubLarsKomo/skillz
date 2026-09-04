@@ -28,6 +28,14 @@
         "agents/openai.yaml": "6ed8e15b17e063cd089c3bca4829eb34f503e6ae3790328d9e0e49f003fa0908"
       }
     },
+    "audio-tutorial-workflow": {
+      "files": {
+        "SKILL.md": "6b67542790aa26cbe70ff701031d68d0a363cfa70ce9d5ec61f4a58e4d778051",
+        "agents/openai.yaml": "197910256625f00b8e27193f18f73de383661d64ea9e78c417a04876742bc177",
+        "references/spoken-language-profile.md": "d82fa3d233c9560d975426fe0f231e971d5af3aadbe6d346768f01e4e590c8c6",
+        "scripts/render_epub.py": "7c5a3a60517921dbf4e084eee74b9183f5a44c5bf329119f302b7d30ce935250"
+      }
+    },
     "audit-inspection-finding-response": {
       "files": {
         "SKILL.md": "5d7d63f5d7a9e00112b225223c5d7895a9cf379deaae366e440613756f48537e",
@@ -1615,6 +1623,12 @@
       "files": {
         "SKILL.md": "52784f7bc568bb9cc0909dce2b931d749c621f621832fc007ce15314e94e913e",
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
+      }
+    },
+    "spoken-tutorial-listener-review": {
+      "files": {
+        "SKILL.md": "fc0e1bd4c4788b22d46eee23570c7b31f7bb91eedb31da3745bb9f7a16e02791",
+        "agents/openai.yaml": "bc4da0ba0d23302d254fa762c582a79def64d2ad0b429fc53f1a5bf7bb807ad6"
       }
     },
     "sport-adaptation-analysis": {

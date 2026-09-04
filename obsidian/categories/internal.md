@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **58**
+Skills: **59**
 
 - [[skills/artifact-contract-normalizer|artifact-contract-normalizer]]
 - [[skills/course-concept-graph|course-concept-graph]]
@@ -57,6 +57,7 @@ Skills: **58**
 - [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]
 - [[skills/skill-evaluation-suite-authoring|skill-evaluation-suite-authoring]]
 - [[skills/source-to-context|source-to-context]]
+- [[skills/spoken-tutorial-listener-review|spoken-tutorial-listener-review]]
 - [[skills/sport-training-programming|sport-training-programming]]
 - [[skills/synapse-orchestrator|synapse-orchestrator]]
 - [[skills/test-driven-vertical-slice|test-driven-vertical-slice]]

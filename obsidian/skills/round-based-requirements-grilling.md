@@ -30,6 +30,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 
 ## Required by
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/contract-workflow|contract-workflow]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
@@ -47,6 +48,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 
 ### `GRILL-REPORT.md`
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/contract-workflow|contract-workflow]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/frontend-design-system-context|frontend-design-system-context]]
@@ -56,6 +58,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 
 ### `requirements-handoff.json`
 
+- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/contract-workflow|contract-workflow]]
 - [[skills/frontend-design-shaping|frontend-design-shaping]]
 - [[skills/frontend-design-system-context|frontend-design-system-context]]

@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **321**
-- User-facing entrypoints: **263**
-- Discoverability — public: **254**, advanced: **9**, internal: **56**, compatibility: **2**
-- Evaluation suites: **321**
+- Skills: **323**
+- User-facing entrypoints: **264**
+- Discoverability — public: **255**, advanced: **9**, internal: **57**, compatibility: **2**
+- Evaluation suites: **323**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **321/321**
-- User-facing entrypoints with evaluation suite: **263/263**
+- Skills with evaluation suite: **323/323**
+- User-facing entrypoints with evaluation suite: **264/264**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **315**
+- Outputs without inferred hard-requires consumers: **319**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -46,6 +46,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `association-governance-map.json` — producer: `german-association-law-specialist`
 - `association-law-open-points.json` — producer: `german-association-law-specialist`
 - `athlete-management-state.json` — producer: `sport-athlete-management`
+- `audio-tutorial-run.json` — producer: `audio-tutorial-workflow`
 - `audit-finding-response-map.json` — producer: `audit-inspection-finding-response`
 - `beta-readiness.json` — producer: `project-beta-readiness`
 - `beta-readiness.md` — producer: `project-beta-readiness`
@@ -305,6 +306,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `skill-lifecycle-migration-plan.md` — producer: `skill-lifecycle-migration`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
+- `spoken-tutorial.epub` — producer: `audio-tutorial-workflow`
+- `spoken-tutorial.md` — producer: `audio-tutorial-workflow`
 - `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`
 - `sport-training-programming-compatibility-run.json` — producer: `sport-training-programming`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
@@ -347,6 +350,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `vat-open-issues.json` — producer: `vat-indirect-tax-specialist`
 - `vat-transaction-map.json` — producer: `vat-indirect-tax-specialist`
 - `vigilance-entry-handoff.json` — producer: `medical-device-complaint-regulatory-routing`
+- `voice-guidance.md` — producer: `audio-tutorial-workflow`
 - `workflow-benchmark-authoring-report.md` — producer: `workflow-benchmark-authoring`
 - `workflow-benchmark-regression.py` — producer: `workflow-benchmark-authoring`
 - `workflow-benchmark-spec.json` — producer: `workflow-benchmark-authoring`

@@ -49,6 +49,21 @@
       ]
     },
     {
+      "name": "audio-tutorial-workflow",
+      "requires": [
+        "precision-writing-revision",
+        "round-based-requirements-grilling",
+        "spoken-tutorial-listener-review"
+      ],
+      "consumes": [],
+      "outputs": [
+        "audio-tutorial-run.json",
+        "spoken-tutorial.epub",
+        "spoken-tutorial.md",
+        "voice-guidance.md"
+      ]
+    },
+    {
       "name": "audit-inspection-finding-response",
       "requires": [
         "decision-record",
@@ -3325,6 +3340,15 @@
       ]
     },
     {
+      "name": "spoken-tutorial-listener-review",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "spoken-tutorial-listener-review.json",
+        "spoken-tutorial-listener-review.md"
+      ]
+    },
+    {
       "name": "sport-adaptation-analysis",
       "requires": [
         "sport-daily-athlete-monitoring",
@@ -4242,6 +4266,18 @@
     {
       "from": "artifact-contract-normalizer",
       "to": "skill-portfolio-audit"
+    },
+    {
+      "from": "audio-tutorial-workflow",
+      "to": "precision-writing-revision"
+    },
+    {
+      "from": "audio-tutorial-workflow",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "audio-tutorial-workflow",
+      "to": "spoken-tutorial-listener-review"
     },
     {
       "from": "audit-inspection-finding-response",
@@ -7880,6 +7916,7 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
+        "audio-tutorial-workflow",
         "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
@@ -8186,6 +8223,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "mixed"
+    },
+    {
+      "output": "audio-tutorial-run.json",
+      "producers": [
+        "audio-tutorial-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "audit-finding-response-map.json",
@@ -10918,6 +10964,7 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
+        "audio-tutorial-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -13787,6 +13834,7 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
+        "audio-tutorial-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -15064,6 +15112,7 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
+        "audio-tutorial-workflow",
         "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
@@ -15573,6 +15622,46 @@
       "output": "special-controls-matrix.json",
       "producers": [
         "fda-de-novo-special-controls"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "spoken-tutorial-listener-review.json",
+      "producers": [
+        "spoken-tutorial-listener-review"
+      ],
+      "consumerSkills": [
+        "audio-tutorial-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "spoken-tutorial-listener-review.md",
+      "producers": [
+        "spoken-tutorial-listener-review"
+      ],
+      "consumerSkills": [
+        "audio-tutorial-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
+    },
+    {
+      "output": "spoken-tutorial.epub",
+      "producers": [
+        "audio-tutorial-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "spoken-tutorial.md",
+      "producers": [
+        "audio-tutorial-workflow"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -16991,6 +17080,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "voice-guidance.md",
+      "producers": [
+        "audio-tutorial-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "watch record",
       "producers": [
         "deferred-external-action-verification"
@@ -17150,6 +17248,7 @@
     "association-governance-map.json",
     "association-law-open-points.json",
     "athlete-management-state.json",
+    "audio-tutorial-run.json",
     "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -17409,6 +17508,8 @@
     "skill-lifecycle-migration-plan.md",
     "source-context.md",
     "special-controls-matrix.json",
+    "spoken-tutorial.epub",
+    "spoken-tutorial.md",
     "sport-report-package",
     "sport-training-programming-compatibility-run.json",
     "stakeholder-questionnaire.json",
@@ -17451,6 +17552,7 @@
     "vat-open-issues.json",
     "vat-transaction-map.json",
     "vigilance-entry-handoff.json",
+    "voice-guidance.md",
     "workflow-benchmark-authoring-report.md",
     "workflow-benchmark-regression.py",
     "workflow-benchmark-spec.json",
@@ -17467,6 +17569,7 @@
     "association-governance-map.json",
     "association-law-open-points.json",
     "athlete-management-state.json",
+    "audio-tutorial-run.json",
     "audit-finding-response-map.json",
     "beta-readiness.json",
     "beta-readiness.md",
@@ -17726,6 +17829,8 @@
     "skill-lifecycle-migration-plan.md",
     "source-context.md",
     "special-controls-matrix.json",
+    "spoken-tutorial.epub",
+    "spoken-tutorial.md",
     "sport-report-package",
     "sport-training-programming-compatibility-run.json",
     "stakeholder-questionnaire.json",
@@ -17768,6 +17873,7 @@
     "vat-open-issues.json",
     "vat-transaction-map.json",
     "vigilance-entry-handoff.json",
+    "voice-guidance.md",
     "workflow-benchmark-authoring-report.md",
     "workflow-benchmark-regression.py",
     "workflow-benchmark-spec.json",
