@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "skill": "spoken-tutorial-listener-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Review a technically clear chaptered tutorial with natural spoken language, good resume points and no unresolved listener barriers.",
+      "requiredBehaviors": [
+        "review from a screenless critical listener perspective",
+        "distinguish text-listener quality from actual rendered audio quality",
+        "issue pass only without open major or critical findings"
+      ],
+      "forbiddenBehaviors": [
+        "claim actual voice performance from text alone",
+        "use factual correctness as the only quality criterion"
+      ],
+      "skillAnchors": [
+        "kritischen, erfahrenen Hörbuch- und Podcastnutzer",
+        "Hören ohne Bildschirm",
+        "Der Audio-Tutorial-Workflow darf nur bei"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The tutorial is accurate but repeats the same conclusion and self-check formula after every short chapter, causing listener fatigue.",
+      "requiredBehaviors": [
+        "identify recurring template rhythm as a listener-fatigue issue",
+        "preserve useful pedagogical repetition while recommending variation"
+      ],
+      "forbiddenBehaviors": [
+        "remove every recap or self-check mechanically"
+      ],
+      "skillAnchors": [
+        "Wiederholen sich Metasätze",
+        "Nicht jede Wiederholung entfernen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A dense tutorial depends on a table and ambiguous abbreviations that are never spoken out, making key sections unintelligible without the screen.",
+      "requiredBehaviors": [
+        "raise major or critical findings",
+        "block final release until the spoken form is corrected"
+      ],
+      "forbiddenBehaviors": [
+        "approve because the written version is technically correct"
+      ],
+      "skillAnchors": [
+        "ohne visuelle Unterstützung nicht zuverlässig verständlich",
+        "gateStatus=pass"
+      ]
+    }
+  ]
+}
