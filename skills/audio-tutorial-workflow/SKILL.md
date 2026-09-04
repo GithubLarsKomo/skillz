@@ -4,18 +4,20 @@ description: Überführt einen durch Grilling geklärten Tutorial-Auftrag in ein
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
   - round-based-requirements-grilling
   - precision-writing-revision
+  - spoken-tutorial-listener-review
 outputs:
   - spoken-tutorial.md
   - spoken-tutorial.epub
   - audio-tutorial-run.json
   - voice-guidance.md
+  - spoken-tutorial-listener-review.json
 lastEvaluated: 2026-09-04
 ---
 
@@ -158,7 +160,17 @@ Der Prompt beschreibt mindestens:
 - emotionale Grundhaltung;
 - unerwünschte Eigenschaften.
 
-### 7. Qualitätsprüfung
+### 7. Kritischer Hörbuchnutzer als Freigabe-Gate
+
+`spoken-tutorial-listener-review` auf der fertig redigierten Sprechfassung ausführen.
+
+Der Review nimmt standardmäßig die Perspektive eines anspruchsvollen regelmäßigen Hörbuch- und Podcastnutzers ein, der ohne Bildschirm zuhört. Er prüft insbesondere Hörverständlichkeit, Informationsdichte, Rhythmus, mechanische Wiederholungsmuster, Hörermüdung, Aufzählungen, Wiedereinstieg, sprachliche Natürlichkeit und Motivation zum Weiterhören.
+
+Nur `gateStatus=pass` erlaubt die finale Freigabe. Bei `minor_revision`, `major_revision` oder `fail` die markierten Stellen gezielt überarbeiten und den vollständigen Listener Review erneut ausführen.
+
+Ein textbasierter Listener Review darf nicht behaupten, tatsächliche Aussprache oder Stimmleistung in ElevenReader gehört zu haben. Die reale Stimme bleibt ein separater praktischer Hörtest.
+
+### 8. Qualitätsprüfung
 
 Vor PASS prüfen:
 
@@ -170,6 +182,7 @@ Vor PASS prüfen:
 - EPUB besitzt echte Kapitel-Navigation;
 - keine Tabellen- oder Layoutreste erzeugen unverständliche Sprachausgabe;
 - Stimmenempfehlung oder Voice-Design-Prompt liegt vor;
+- `spoken-tutorial-listener-review.json` liegt vor und hat `gateStatus=pass`;
 - Slang, Poesie oder regionale Sprache nur bei explizitem Auftrag.
 
 ## Run Manifest
@@ -188,6 +201,8 @@ Vor PASS prüfen:
   "precisionWritingStatus": "pass|review|fail",
   "epubValidation": "pass|fail",
   "voiceGuidanceRef": "voice-guidance.md",
+  "listenerReviewRef": "spoken-tutorial-listener-review.json",
+  "listenerGateStatus": "pass|minor_revision|major_revision|fail",
   "status": "pass|review|fail",
   "warnings": []
 }
@@ -200,7 +215,8 @@ Vor PASS prüfen:
 - **Unklarer englischer Fachbegriff in deutscher Fassung:** Fachbedeutung erhalten; nicht zwanghaft eindeutschen. Bei Bedarf Originalbegriff einmal erklären.
 - **EPUB-Validierungsfehler:** Datei nicht als fertig ausgeben; Renderer korrigieren und erneut prüfen.
 - **Stimme nicht verifizierbar:** keine Verfügbarkeit behaupten; stattdessen Voice-Design-Prompt liefern.
+- **Listener Gate nicht bestanden:** keine finale Freigabe; nur markierte Hörbarkeitsprobleme korrigieren und den Listener Review vollständig erneut ausführen.
 
 ## Abschluss
 
-Der Workflow ist abgeschlossen, wenn der Auftrag durch Grilling geklärt wurde, die fachlich treue und hörgerechte Lernfassung sprachlich geprüft ist, ein navigierbares EPUB mit sinnvollen Kapiteln vorliegt und die Zielplattform eine belastbare Stimmenempfehlung oder einen passenden Voice-Design-Prompt erhält.
+Der Workflow ist abgeschlossen, wenn der Auftrag durch Grilling geklärt wurde, die fachlich treue und hörgerechte Lernfassung sprachlich geprüft ist, das kritische Hörbuchnutzer-Gate `pass` meldet, ein navigierbares EPUB mit sinnvollen Kapiteln vorliegt und die Zielplattform eine belastbare Stimmenempfehlung oder einen passenden Voice-Design-Prompt erhält.
