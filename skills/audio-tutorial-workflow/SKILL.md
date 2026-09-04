@@ -17,7 +17,6 @@ outputs:
   - spoken-tutorial.epub
   - audio-tutorial-run.json
   - voice-guidance.md
-  - spoken-tutorial-listener-review.json
 lastEvaluated: 2026-09-04
 ---
 
