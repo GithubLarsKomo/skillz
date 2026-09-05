@@ -1,0 +1,38 @@
+name: Validate Lucide icon provider
+
+on:
+  pull_request:
+    paths:
+      - "docs/icons/lucide/**"
+      - "skills/icon-selector/**"
+      - "contracts/icon-selection-v1.schema.json"
+      - "scripts/validate_lucide_icon_provider.py"
+      - "tests/test_lucide_icon_provider.py"
+      - ".github/workflows/validate-lucide-icons.yml"
+  push:
+    branches: [main]
+    paths:
+      - "docs/icons/lucide/**"
+      - "skills/icon-selector/**"
+      - "contracts/icon-selection-v1.schema.json"
+      - "scripts/validate_lucide_icon_provider.py"
+      - "tests/test_lucide_icon_provider.py"
+      - ".github/workflows/validate-lucide-icons.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-lucide-provider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test Lucide provider contract
+        run: python -m unittest tests.test_lucide_icon_provider
+      - name: Validate pinned Lucide upstream inventory
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/validate_lucide_icon_provider.py --check-upstream

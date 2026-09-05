@@ -13,12 +13,39 @@
       "runtimeAssetSource": "Icons.zip",
       "runtimeAssetSha256": "533f9adda32bb5746ab061a95b8e392be7511071a18d23e2c56e819b89ae8fde",
       "assetPersistence": "runtime-only",
+      "providerPriority": "corporate",
       "supports": [
         "essential",
         "portfolio",
         "technique",
         "project",
         "variant-routing"
+      ]
+    },
+    "lucide-generic": {
+      "brandAliases": [
+        "Lucide",
+        "Lucide Icons",
+        "generic",
+        "unbranded",
+        "open icons",
+        "Skillz generic"
+      ],
+      "systemContract": "docs/icons/lucide/ICON_SYSTEM.md",
+      "semanticCatalog": "docs/icons/lucide/icon-semantic-catalog.json",
+      "humanCatalog": "docs/icons/lucide/ICON_SYSTEM.md",
+      "upstreamRepository": "lucide-icons/lucide",
+      "profiledRelease": "1.27.0",
+      "profiledCommit": "4aec3f8",
+      "license": "ISC",
+      "assetPersistence": "dependency-or-runtime",
+      "providerPriority": "generic-fallback",
+      "implicitForUnbranded": true,
+      "supports": [
+        "generic",
+        "semantic-routing",
+        "design-token-color",
+        "upstream-metadata-routing"
       ]
     }
   }
