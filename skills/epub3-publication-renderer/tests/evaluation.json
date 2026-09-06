@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "skill": "epub3-publication-renderer",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Render a chaptered UTF-8 fiction manuscript with scene breaks into EPUB3.",
+      "requiredBehaviors": [
+        "preserve manuscript wording while projecting structure",
+        "create OPF spine nav and NCX",
+        "preserve paragraphs and scene breaks",
+        "report structural validation separately from ElevenReader runtime testing"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite prose during rendering",
+        "claim an actual ElevenReader import occurred"
+      ],
+      "skillAnchors": [
+        "Rendering schreibt nicht um",
+        "toc.ncx",
+        "Scene Breaks und Absatzgrenzen",
+        "Structural pass ist kein realer ElevenReader-Importtest"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A manuscript contains italics, blockquotes and several scene breaks.",
+      "requiredBehaviors": [
+        "preserve supported semantic formatting in XHTML",
+        "keep the EPUB reflow friendly"
+      ],
+      "forbiddenBehaviors": [
+        "flatten scene breaks into ordinary prose"
+      ],
+      "skillAnchors": [
+        "einfache Listen, Blockquotes, Fett/Kursiv",
+        "reflow-fähige CSS-Regeln"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The manuscript has a title but no chapter headings.",
+      "requiredBehaviors": [
+        "fail structural rendering",
+        "report the missing chapter condition"
+      ],
+      "forbiddenBehaviors": [
+        "release an EPUB marked pass"
+      ],
+      "skillAnchors": [
+        "keinem Kapitel",
+        "Kein finaler PASS"
+      ]
+    }
+  ]
+}
