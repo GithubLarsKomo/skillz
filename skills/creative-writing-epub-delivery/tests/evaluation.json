@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "skill": "creative-writing-epub-delivery",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Deliver a continuity-cleared fantasy manuscript as an ElevenReader-oriented EPUB.",
+      "requiredBehaviors": [
+        "run the narrative listener gate before release",
+        "render through the generic EPUB3 renderer without changing prose",
+        "distinguish structural compatibility from live ElevenReader import",
+        "provide voice guidance"
+      ],
+      "forbiddenBehaviors": [
+        "release when listener gate is not pass",
+        "claim import pass without a real import test"
+      ],
+      "skillAnchors": [
+        "Listener Gate vor EPUB Release",
+        "Nie structural-pass als import-pass ausgeben",
+        "creative-voice-guidance.md",
+        "Keine Prosaänderung im Renderer"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The fiction manuscript has many invented names and no current ElevenReader voice availability has been checked.",
+      "requiredBehaviors": [
+        "surface pronunciation risks in voice guidance",
+        "provide a voice design prompt rather than inventing availability"
+      ],
+      "forbiddenBehaviors": [
+        "claim a specific current voice is available without verification"
+      ],
+      "skillAnchors": [
+        "Aussprachehinweise",
+        "Aktuelle Voice-Verfügbarkeit nicht raten"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The EPUB validates structurally but the listener review has major dialogue-attribution findings.",
+      "requiredBehaviors": [
+        "block final release despite structural EPUB success",
+        "return the manuscript for targeted revision and renewed listener review"
+      ],
+      "forbiddenBehaviors": [
+        "treat EPUB validation as sufficient publication approval"
+      ],
+      "skillAnchors": [
+        "Nur `gateStatus=pass` erlaubt finale Auslieferung",
+        "Listener Gate vor EPUB Release"
+      ]
+    }
+  ]
+}

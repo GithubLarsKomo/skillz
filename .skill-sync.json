@@ -30,10 +30,9 @@
     },
     "audio-tutorial-workflow": {
       "files": {
-        "SKILL.md": "6b67542790aa26cbe70ff701031d68d0a363cfa70ce9d5ec61f4a58e4d778051",
+        "SKILL.md": "5aadc57744498b923ad520e5b13bfabdb0431af417d0ec48e2072ebbb6de9e44",
         "agents/openai.yaml": "197910256625f00b8e27193f18f73de383661d64ea9e78c417a04876742bc177",
-        "references/spoken-language-profile.md": "d82fa3d233c9560d975426fe0f231e971d5af3aadbe6d346768f01e4e590c8c6",
-        "scripts/render_epub.py": "7c5a3a60517921dbf4e084eee74b9183f5a44c5bf329119f302b7d30ce935250"
+        "references/spoken-language-profile.md": "d82fa3d233c9560d975426fe0f231e971d5af3aadbe6d346768f01e4e590c8c6"
       }
     },
     "audit-inspection-finding-response": {
@@ -191,6 +190,30 @@
         "agents/openai.yaml": "57c375e86dd626df2a69e9072738b7e4f4d35d2f8ac95ac65f0e639a5253caaf"
       }
     },
+    "creative-prose-revision": {
+      "files": {
+        "SKILL.md": "eb0f524123ecbb7fe66a1d63e1701d74ba6f42f52acaab9efb5f479dbfaf7654",
+        "agents/openai.yaml": "bfe06542a01cc346b2d8bf202ca551eb88284df3b869778248b449bf1878a39e"
+      }
+    },
+    "creative-writing-epub-delivery": {
+      "files": {
+        "SKILL.md": "5ffd23b7fc90aa5a9313f416b004f9c687caabd656cdfc7aa2909e8f51bba627",
+        "agents/openai.yaml": "15ccdf586e6e37594a8762785876edf90df0c9df6c941d9e767a5545d84c03d4"
+      }
+    },
+    "creative-writing-workflow": {
+      "files": {
+        "SKILL.md": "7affd31374c18270366f9b9758bb4be0086992d5a7c0cd25b5309410ec5ad6f6",
+        "agents/openai.yaml": "6ded670b151a8b4496f7ad638e824fcd3db1028cb16bdfa226e0e336d089412d"
+      }
+    },
+    "creative-writing-workshop": {
+      "files": {
+        "SKILL.md": "f91ced15bcb3711eb57912815200a78163b7ae5d6d23048d1ed3260f82719d3a",
+        "agents/openai.yaml": "58d1b8be14abdb4178a6b9a241048c1fb4ff0a50efd2a6e892175243fe79b631"
+      }
+    },
     "current-law-context": {
       "files": {
         "SKILL.md": "030030cc05d7ad9ec746019075e5746c44fe1601915cec287cca08e0c3e1f3dd",
@@ -337,6 +360,19 @@
       "files": {
         "SKILL.md": "2b3e94b2d79dd64c336db12f49ba06590aa2d8dc03830a18e7364ace598fc7b9",
         "agents/openai.yaml": "6c2658e070b4e069db260bce460c4cef23581187fd7355ade8a03f534f27d9b7"
+      }
+    },
+    "ensemble-character-architecture": {
+      "files": {
+        "SKILL.md": "f83e5c10449e545632cf1eb5781a8b81a98ffb6df08d2e6b8545dab56109d587",
+        "agents/openai.yaml": "a34a821e486fd06309b0c9a37ca8bd40725bfd19db305088009fa62fa19917c8"
+      }
+    },
+    "epub3-publication-renderer": {
+      "files": {
+        "SKILL.md": "7a33a2f73f287441f48161a065fce96c0258ccfe5ffc194b5732ddee74a1fd90",
+        "agents/openai.yaml": "ce90cf74fb0df82fa74d816fa61d557bd111656b5792485bb3185a572e870d7b",
+        "scripts/render_epub3.py": "785e6c984dc0f5d0bc63cf3b63a6d3c0d8eb0f7224742ca4a4378080ec6a6466"
       }
     },
     "esg-supply-chain-environmental-law-specialist": {
@@ -528,6 +564,12 @@
       "files": {
         "SKILL.md": "071f15ce4dddcc24311e133470154a42ffd4f53043279c4408ed714294838902",
         "agents/openai.yaml": "dd9beb6ddda6a7128aa7851eb59822d8e45e9ca809397e1b2fe12d4fde4f722c"
+      }
+    },
+    "fiction-series-writing-workflow": {
+      "files": {
+        "SKILL.md": "0eb625511ded445930d1d80286b66c2ea7b7b79107f8e599b9131c16108b6c7f",
+        "agents/openai.yaml": "049fdf20175d91a8add5e5dfd3d514ce1968bcb432862385f046c08b99ba99bf"
       }
     },
     "finance-insolvency-restructuring-law-specialist": {
@@ -1244,6 +1286,12 @@
         "agents/openai.yaml": "5b3bf47f0bd70335b5a448f004a1a2a6af72804ebf619745c052d942fdf55eff"
       }
     },
+    "mentor-text-craft-analysis": {
+      "files": {
+        "SKILL.md": "af631c5d6acbc8942ffec0e72e888ad0328ba6954c4a868bc4c68ef144f719af",
+        "agents/openai.yaml": "9ace9be3d9c3ec14d85c9431f3139076819fbd2a9ce860dc4df5d59d70ff9df6"
+      }
+    },
     "merge-conflict-resolution": {
       "files": {
         "SKILL.md": "32c26cb84f2d14b68dff03771a6a58fed7c4b82f003610af7aef35e120e8da57",
@@ -1266,6 +1314,12 @@
       "files": {
         "SKILL.md": "6d5423c915ac08ccebfdf43b0277f0a9c23a0d35fa2fabfe7349ef1fd7e93c2c",
         "agents/openai.yaml": "f0dca57312feeacb18c7afe353911af390bac5cd97fb28f7fee345b3f66a7c42"
+      }
+    },
+    "narrative-audiobook-listener-review": {
+      "files": {
+        "SKILL.md": "b56aad6ad6b80b39786c0baf0f041567829f30b6277f5313d1e429793f075012",
+        "agents/openai.yaml": "dff46961401b85f36616e749f48905ae23e2e252a3be49618dbc71d24e9a79a4"
       }
     },
     "nonconformance-mrb-disposition": {
@@ -1595,6 +1649,18 @@
         "agents/openai.yaml": "dd83c237fe3023e9d5acb23ab1f500b0b2fd2fa438c2011738dce1b5dff71b72"
       }
     },
+    "science-storytelling-workflow": {
+      "files": {
+        "SKILL.md": "04e55bfbc18739b9665f4c471c386fccf532c1738cea71f9b21de44434848406",
+        "agents/openai.yaml": "a642bce88c8160d21910822a978d562d45e0b8f72dc448da6f91b00b352b0cb5"
+      }
+    },
+    "series-architecture": {
+      "files": {
+        "SKILL.md": "be28401fdce651e53d3ff5e8b8ee4e2ac70f2b055d8d51a0db98698992abb4b9",
+        "agents/openai.yaml": "c52c54405c84e8373be638615af6ac9492b346d9d34c094035af5757d2a6064a"
+      }
+    },
     "skill-evaluation-suite-authoring": {
       "files": {
         "SKILL.md": "3e409190dbd662235a9279879e8efb60f1e76f28efec143beb72e6abe5065e10",
@@ -1623,6 +1689,12 @@
       "files": {
         "SKILL.md": "52784f7bc568bb9cc0909dce2b931d749c621f621832fc007ce15314e94e913e",
         "agents/openai.yaml": "99ff42842ef7d2e469eb55a9073969d3b29e5d67f390a8de33894285bdb37b2c"
+      }
+    },
+    "speculative-worldbuilding": {
+      "files": {
+        "SKILL.md": "711f2b2131e1736834c88b2c617306629444912f8b5cffee7e1796b01d94a1b8",
+        "agents/openai.yaml": "f093d3afa6cfa8eea46aee4060d3531ea2193978a49e3cd97bab6632cfc7c0ea"
       }
     },
     "spoken-tutorial-listener-review": {
@@ -1773,6 +1845,12 @@
       "files": {
         "SKILL.md": "67fd2970319e9f49c240caebf0719be1e22aaf6272a8bdc3a1d23a102c671150",
         "agents/openai.yaml": "f0ffdfed3d4eaa4bc1007190b195a45ca7a3123deff7ea242b7ac5fae20f924e"
+      }
+    },
+    "story-bible-continuity": {
+      "files": {
+        "SKILL.md": "550b6441c2fa9f651e2be1666d2557f4b560788fb974c40bee816066ea97afc7",
+        "agents/openai.yaml": "0dc1e00c2a977dddaeef30f634270870bd1b72f1b437e79b6af525f1402b7fad"
       }
     },
     "structured-knowledge-artifact": {

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Narrative Audiobook Listener Review"
+  short_description: "Prüft finale narrative Prosa aus der Perspektive eines anspruchsvollen Hörbuchnutzers ohne Bildschirm auf Verständlic..."
+policy:
+  allow_implicit_invocation: true

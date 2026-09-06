@@ -1,0 +1,5 @@
+interface:
+  display_name: "Science Storytelling Workflow"
+  short_description: "Überführt belastbare wissenschaftliche Evidenz in eine narrative, für Nichtwissenschaftler verständliche Darstellung..."
+policy:
+  allow_implicit_invocation: true

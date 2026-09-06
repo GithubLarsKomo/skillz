@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **98**
+Skills: **108**
 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
@@ -22,14 +22,20 @@ Skills: **98**
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
 - [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
+- [[skills/creative-prose-revision|creative-prose-revision]]
+- [[skills/creative-writing-epub-delivery|creative-writing-epub-delivery]]
+- [[skills/creative-writing-workflow|creative-writing-workflow]]
+- [[skills/creative-writing-workshop|creative-writing-workshop]]
 - [[skills/decision-record|decision-record]]
 - [[skills/difficult-conversation-workflow|difficult-conversation-workflow]]
 - [[skills/dr-komorowski-sport-docx-report-renderer|dr-komorowski-sport-docx-report-renderer]]
 - [[skills/dr-komorowski-sport-pdf-report-renderer|dr-komorowski-sport-pdf-report-renderer]]
+- [[skills/ensemble-character-architecture|ensemble-character-architecture]]
 - [[skills/euroimmun-docx-report-renderer|euroimmun-docx-report-renderer]]
 - [[skills/euroimmun-pdf-report-renderer|euroimmun-pdf-report-renderer]]
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
+- [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
@@ -75,8 +81,11 @@ Skills: **98**
 - [[skills/rewrite-fidelity-verifier|rewrite-fidelity-verifier]]
 - [[skills/role-architecture|role-architecture]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
+- [[skills/science-storytelling-workflow|science-storytelling-workflow]]
+- [[skills/series-architecture|series-architecture]]
 - [[skills/skill-lifecycle-migration|skill-lifecycle-migration]]
 - [[skills/skill-portfolio-audit|skill-portfolio-audit]]
+- [[skills/speculative-worldbuilding|speculative-worldbuilding]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-athlete-profile|sport-athlete-profile]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]
@@ -97,6 +106,7 @@ Skills: **98**
 - [[skills/sport-training-adaptation-engine|sport-training-adaptation-engine]]
 - [[skills/sport-training-music|sport-training-music]]
 - [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
+- [[skills/story-bible-continuity|story-bible-continuity]]
 - [[skills/tax-advisory-office|tax-advisory-office]]
 - [[skills/tax-matter-final-gate|tax-matter-final-gate]]
 - [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]

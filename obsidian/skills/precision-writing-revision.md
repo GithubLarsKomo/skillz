@@ -36,6 +36,7 @@ Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
+- [[skills/science-storytelling-workflow|science-storytelling-workflow]]
 
 ## Outputs
 
@@ -46,15 +47,14 @@ Orchestriert die sprachgenaue Überarbeitung deutscher oder englischer Reports, 
 
 ### `final-revised-text`
 
-- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
 
 ### `precision-writing-report.json`
 
-- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/person-profile-document-delivery|person-profile-document-delivery]]
 - [[skills/person-research-report-workflow|person-research-report-workflow]]
+- [[skills/science-storytelling-workflow|science-storytelling-workflow]]
 
 ## Evaluation
 

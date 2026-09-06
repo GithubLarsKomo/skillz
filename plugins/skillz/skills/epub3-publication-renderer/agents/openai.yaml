@@ -1,0 +1,5 @@
+interface:
+  display_name: "Epub3 Publication Renderer"
+  short_description: "Rendert einen finalen, kapitelstrukturierten Markdown-Text content-neutral als konservatives EPUB3 mit OPF-Spine, EPU..."
+policy:
+  allow_implicit_invocation: true

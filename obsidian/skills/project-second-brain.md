@@ -31,6 +31,8 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 ## Required by
 
 - [[skills/conversation-to-spec|conversation-to-spec]]
+- [[skills/creative-writing-workflow|creative-writing-workflow]]
+- [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]

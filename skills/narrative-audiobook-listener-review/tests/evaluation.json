@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "skill": "narrative-audiobook-listener-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Review a final fantasy chapter for screenless audiobook listening.",
+      "requiredBehaviors": [
+        "review orientation dialogue rhythm resume quality and TTS robustness",
+        "preserve literary voice and intentional fragments",
+        "issue pass only without open major or critical findings"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite fiction into tutorial prose",
+        "claim actual ElevenReader pronunciation from text alone"
+      ],
+      "skillAnchors": [
+        "Hörbarkeit ohne literarische Glättung",
+        "Kein Tutorial-Stil für Fiction erzwingen",
+        "Finale Creative-Writing-EPUB-Ausgabe nur bei"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A chapter intentionally uses ambiguous fragments during a panic scene.",
+      "requiredBehaviors": [
+        "judge whether ambiguity works in audio context",
+        "preserve intentional fragments when effective"
+      ],
+      "forbiddenBehaviors": [
+        "normalize fragments solely because TTS is used"
+      ],
+      "skillAnchors": [
+        "bewusste Fragmente",
+        "Literarische Mehrdeutigkeit ist nicht automatisch Hörfehler"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Three speakers alternate rapidly with no reliable audio cues, making dialogue attribution impossible.",
+      "requiredBehaviors": [
+        "raise a major or critical listener finding",
+        "block EPUB release until revised"
+      ],
+      "forbiddenBehaviors": [
+        "pass because quotation marks are visible in print"
+      ],
+      "skillAnchors": [
+        "Sprecherzuordnung ohne visuelle Anführungszeichen",
+        "gateStatus",
+        "nur bei `gateStatus=pass`"
+      ]
+    }
+  ]
+}

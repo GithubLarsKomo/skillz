@@ -1,0 +1,5 @@
+interface:
+  display_name: "Creative Prose Revision"
+  short_description: "Überarbeitet kreative Prosa in getrennten Developmental-, Scene- und Line-Pässen auf Grundlage eines priorisierten Wo..."
+policy:
+  allow_implicit_invocation: true

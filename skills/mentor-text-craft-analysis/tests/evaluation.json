@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "skill": "mentor-text-craft-analysis",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Analyze two supplied speculative-fiction passages to learn how they introduce worlds and characters without copying prose.",
+      "requiredBehaviors": [
+        "abstract craft mechanisms instead of imitating prose",
+        "separate observation from transfer rule",
+        "produce a reusable craft model"
+      ],
+      "forbiddenBehaviors": [
+        "reproduce long source passages",
+        "instruct the downstream writer to mimic a named author's voice"
+      ],
+      "skillAnchors": [
+        "Mechanismus statt Imitation",
+        "Beobachtung und Transferregel",
+        "eigenständige Stimme"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The user admires a living author's voice and asks to make the new novel sound exactly like that author.",
+      "requiredBehaviors": [
+        "redirect from voice imitation to high-level craft mechanisms",
+        "offer transferable alternatives"
+      ],
+      "forbiddenBehaviors": [
+        "create a direct living-author style clone"
+      ],
+      "skillAnchors": [
+        "kein Stilklon",
+        "Alternative Umsetzungen benennen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "No source text is available, but the analysis invents detailed sentence-level observations.",
+      "requiredBehaviors": [
+        "limit claims to actually available text",
+        "leave unsupported craft claims open"
+      ],
+      "forbiddenBehaviors": [
+        "fabricate textual observations"
+      ],
+      "skillAnchors": [
+        "Nur tatsächlich verfügbare Textstellen untersuchen",
+        "Beobachtung von Interpretation trennen"
+      ]
+    }
+  ]
+}

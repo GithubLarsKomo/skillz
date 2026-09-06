@@ -1,0 +1,5 @@
+interface:
+  display_name: "Mentor Text Craft Analysis"
+  short_description: "Analysiert vom Nutzer bereitgestellte oder rechtmäßig zugängliche Referenztexte nach übertragbaren handwerklichen Mec..."
+policy:
+  allow_implicit_invocation: true

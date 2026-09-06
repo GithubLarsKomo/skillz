@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "skill": "creative-writing-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a multi-volume fantasy project and ultimately deliver each finished volume as ElevenReader-oriented EPUB.",
+      "requiredBehaviors": [
+        "start from a confirmed Grilling contract",
+        "route fiction work through the fiction series workflow",
+        "preserve separate story bible and project memory",
+        "invoke EPUB delivery only after domain gates"
+      ],
+      "forbiddenBehaviors": [
+        "generate the entire series as an unstructured one-shot draft",
+        "claim ownership of worker canon or EPUB artifacts"
+      ],
+      "skillAnchors": [
+        "Grilling vor Produktion",
+        "Science Claims und Fiction Canon haben getrennte Eigentümer",
+        "besitzt das EPUB nicht",
+        "Project Second Brain und Story Bible nicht vermischen"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A science book uses fictional vignettes to explain real biology.",
+      "requiredBehaviors": [
+        "keep real scientific claims under the science evidence path",
+        "allow clearly fictionalized narrative devices without promoting them to evidence",
+        "route final text through fidelity and listener gates"
+      ],
+      "forbiddenBehaviors": [
+        "merge fictional illustration into scientific evidence"
+      ],
+      "skillAnchors": [
+        "Evidenz muss erhalten bleiben",
+        "Science Evidence bzw. Fiction Story Bible bleiben kanonische Fachartefakte"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Audience, author mode and mission are unresolved but the workflow starts writing a full novel.",
+      "requiredBehaviors": [
+        "stop substantive production and return to Grilling",
+        "preserve unresolved decisions"
+      ],
+      "forbiddenBehaviors": [
+        "guess author mode or mission and continue"
+      ],
+      "skillAnchors": [
+        "Harte Vorbedingung: Grilling",
+        "Mission `science|fiction`",
+        "Autor-Modus `coach|coauthor|writer|editor`"
+      ]
+    }
+  ]
+}

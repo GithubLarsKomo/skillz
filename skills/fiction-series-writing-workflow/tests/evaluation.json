@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "skill": "fiction-series-writing-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Draft and revise a chapter in book two of a planned four-book fantasy series.",
+      "requiredBehaviors": [
+        "create a scene or chapter contract from canon and knowledge state",
+        "respect author mode",
+        "run workshop before revision and continuity after revision",
+        "promote only confirmed facts into canon"
+      ],
+      "forbiddenBehaviors": [
+        "treat manuscript prose as automatic canon",
+        "give a POV character knowledge they do not yet possess"
+      ],
+      "skillAnchors": [
+        "Manuskript ist nicht Story Bible",
+        "Workshop vor Revision; Continuity nach Revision",
+        "Draft Contract",
+        "Canon Promotion"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Discovery writing produces a better direction that conflicts with the planned outline but not published canon.",
+      "requiredBehaviors": [
+        "allow controlled architecture change",
+        "update planning and dependent arcs before continuing",
+        "preserve published hard canon"
+      ],
+      "forbiddenBehaviors": [
+        "force the obsolete outline simply because it was planned",
+        "silently rewrite hard canon"
+      ],
+      "skillAnchors": [
+        "Discovery-Writing darf Architektur verändern",
+        "nicht rückwirkend Hard Canon löschen",
+        "Discovery-Writing darf Architektur verändern"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A revised chapter contains a major continuity contradiction but is promoted into canon anyway.",
+      "requiredBehaviors": [
+        "block canon promotion on major or critical continuity findings",
+        "return to revision or canon impact analysis"
+      ],
+      "forbiddenBehaviors": [
+        "promote contradictory content into canon"
+      ],
+      "skillAnchors": [
+        "Bei Major/Critical Finding keine Canon-Promotion",
+        "offene Major/Critical Continuity Findings"
+      ]
+    }
+  ]
+}

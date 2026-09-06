@@ -30,9 +30,12 @@ Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adr
 
 ## Required by
 
+- [[skills/ensemble-character-architecture|ensemble-character-architecture]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/speculative-worldbuilding|speculative-worldbuilding]]
+- [[skills/story-bible-continuity|story-bible-continuity]]
 - [[skills/thought-graph-extractor|thought-graph-extractor]]
 
 ## Outputs
@@ -44,16 +47,20 @@ Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adr
 
 ### `knowledge-artifact.json`
 
+- [[skills/ensemble-character-architecture|ensemble-character-architecture]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/speculative-worldbuilding|speculative-worldbuilding]]
 - [[skills/thought-graph-extractor|thought-graph-extractor]]
 
 ### `knowledge-artifact.md`
 
+- [[skills/ensemble-character-architecture|ensemble-character-architecture]]
 - [[skills/knowledge-map-generator|knowledge-map-generator]]
 - [[skills/knowledge-view|knowledge-view]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
+- [[skills/speculative-worldbuilding|speculative-worldbuilding]]
 - [[skills/thought-graph-extractor|thought-graph-extractor]]
 
 ## Evaluation

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "skill": "science-storytelling-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Turn a biomarker evidence note into a chapter for educated non-scientists.",
+      "requiredBehaviors": [
+        "build an audience and explanation model before drafting",
+        "document analogy limits",
+        "run lay reader workshop and final fidelity recheck",
+        "preserve uncertainty and causal scope"
+      ],
+      "forbiddenBehaviors": [
+        "invent stronger scientific claims for drama",
+        "approve an easy-to-read explanation that reconstructs the science incorrectly"
+      ],
+      "skillAnchors": [
+        "Jede Analogie braucht eine dokumentierte Bruchkante",
+        "Verständlichkeit ohne Claim Drift",
+        "finalen Fidelity-Recheck",
+        "Lay-Reader Gate"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A memorable analogy is useful but can imply a false one-to-one biological mechanism.",
+      "requiredBehaviors": [
+        "record where the analogy breaks down",
+        "revise or qualify the analogy when misconception risk is material"
+      ],
+      "forbiddenBehaviors": [
+        "keep a misleading analogy solely because it is vivid"
+      ],
+      "skillAnchors": [
+        "analogyBreaksDownAt",
+        "misconceptionRisk",
+        "bei realem Missverständnisrisiko"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The draft turns a correlational study into a causal claim to create a stronger ending.",
+      "requiredBehaviors": [
+        "detect claim drift in the fidelity recheck",
+        "return the text to revision"
+      ],
+      "forbiddenBehaviors": [
+        "strengthen causality beyond the evidence"
+      ],
+      "skillAnchors": [
+        "Bei Claim Drift zurück in Revision",
+        "Kausalitäten bleiben korrekt",
+        "Unsicherheit und Modalität"
+      ]
+    }
+  ]
+}

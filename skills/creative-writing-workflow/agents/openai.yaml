@@ -1,0 +1,5 @@
+interface:
+  display_name: "Creative Writing Workflow"
+  short_description: "Orchestriert Creative Writing nach vorgelagertem Grilling von Ziel, Publikum, Autor-Modus und Format über Craft-Analy..."
+policy:
+  allow_implicit_invocation: true

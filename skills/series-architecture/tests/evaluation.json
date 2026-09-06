@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "skill": "series-architecture",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Plan a four-book science-fantasy series with character, mystery and world-change arcs.",
+      "requiredBehaviors": [
+        "model arcs at series and volume scales",
+        "maintain a setup payoff ledger",
+        "give each volume local reader payoff plus series movement"
+      ],
+      "forbiddenBehaviors": [
+        "treat outline as published canon",
+        "leave emphasized setups untracked"
+      ],
+      "skillAnchors": [
+        "Jeder Band braucht lokale Erfüllung und Serienbewegung",
+        "Setup/Payoff Ledger",
+        "Outline ist Planung, nicht Canon"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The author prefers discovery writing and only wants broad destinations.",
+      "requiredBehaviors": [
+        "respect a discovery planning mode",
+        "keep scene detail open while tracking hard constraints and long-horizon promises"
+      ],
+      "forbiddenBehaviors": [
+        "force a detailed chapter-by-chapter outline"
+      ],
+      "skillAnchors": [
+        "Planungstiefe ist eine Autorenentscheidung",
+        "discovery"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A major setup introduced in book one disappears from planning without status.",
+      "requiredBehaviors": [
+        "keep the setup visible as open advanced paid abandoned or retconned",
+        "distinguish intentionally unresolved from forgotten"
+      ],
+      "forbiddenBehaviors": [
+        "silently drop a prominent setup"
+      ],
+      "skillAnchors": [
+        "Offene Setups werden nicht mit vergessenen Setups verwechselt",
+        "status `open|advanced|paid|abandoned|retconned`"
+      ]
+    }
+  ]
+}

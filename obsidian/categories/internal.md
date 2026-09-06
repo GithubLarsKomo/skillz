@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **59**
+Skills: **61**
 
 - [[skills/artifact-contract-normalizer|artifact-contract-normalizer]]
 - [[skills/course-concept-graph|course-concept-graph]]
@@ -21,6 +21,7 @@ Skills: **59**
 - [[skills/document-template-profiler|document-template-profiler]]
 - [[skills/domain-model-maintenance|domain-model-maintenance]]
 - [[skills/dr-komorowski-sport-report-renderer|dr-komorowski-sport-report-renderer]]
+- [[skills/epub3-publication-renderer|epub3-publication-renderer]]
 - [[skills/evidence-based-causal-investigation|evidence-based-causal-investigation]]
 - [[skills/exam-trainer-catalog-builder|exam-trainer-catalog-builder]]
 - [[skills/exam-trainer-result-import|exam-trainer-result-import]]
@@ -48,6 +49,7 @@ Skills: **59**
 - [[skills/merge-conflict-resolution|merge-conflict-resolution]]
 - [[skills/multi-source-learning-synthesis|multi-source-learning-synthesis]]
 - [[skills/multimodal-learning-analysis|multimodal-learning-analysis]]
+- [[skills/narrative-audiobook-listener-review|narrative-audiobook-listener-review]]
 - [[skills/obsidian-adapter|obsidian-adapter]]
 - [[skills/opaque-system-analysis|opaque-system-analysis]]
 - [[skills/openasr-offline-model-import|openasr-offline-model-import]]

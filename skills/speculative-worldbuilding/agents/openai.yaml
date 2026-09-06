@@ -1,0 +1,5 @@
+interface:
+  display_name: "Speculative Worldbuilding"
+  short_description: "Entwickelt Science-Fiction- oder Fantasy-Welten als kausales System aus Grundannahmen, Natur-/Magie-/Technologieregel..."
+policy:
+  allow_implicit_invocation: true

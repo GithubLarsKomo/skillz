@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fiction Series Writing Workflow"
+  short_description: "Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell, Welt, Ensemble und Serienarchitektu..."
+policy:
+  allow_implicit_invocation: true

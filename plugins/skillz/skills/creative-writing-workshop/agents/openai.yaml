@@ -1,0 +1,5 @@
+interface:
+  display_name: "Creative Writing Workshop"
+  short_description: "Prüft kreative Prosa als strukturierte Schreibwerkstatt mit Cold Read, Craft-Diagnose, Stärken-Schutz, Ursachenpriori..."
+policy:
+  allow_implicit_invocation: true

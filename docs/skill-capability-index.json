@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 323,
-  "entrypointCount": 264,
+  "skillCount": 336,
+  "entrypointCount": 275,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,14 +15,14 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 255,
-    "advanced": 9,
-    "internal": 57,
+    "public": 265,
+    "advanced": 10,
+    "internal": 59,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 323,
-  "evaluatedSkillCount": 323,
-  "evaluatedEntrypointCount": 264,
+  "evaluationSuiteCount": 336,
+  "evaluatedSkillCount": 336,
+  "evaluatedEntrypointCount": 275,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -309,6 +309,7 @@
         "deprecatedSince": null
       },
       "requires": [
+        "epub3-publication-renderer",
         "precision-writing-revision",
         "round-based-requirements-grilling",
         "spoken-tutorial-listener-review"
@@ -356,8 +357,7 @@
       ],
       "portableFiles": [
         "agents/openai.yaml",
-        "references/spoken-language-profile.md",
-        "scripts/render_epub.py"
+        "references/spoken-language-profile.md"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -1977,6 +1977,232 @@
       }
     },
     {
+      "name": "creative-prose-revision",
+      "description": "Überarbeitet kreative Prosa in getrennten Developmental-, Scene- und Line-Pässen auf Grundlage eines priorisierten Workshop-Reviews und schützt dabei bestätigte Stärken, Perspektive, Figurenfunktion, literarische Eigenart und bei Serienprojekten Canon-Anker. Verwenden nach creative-writing-workshop; nicht als Ersatz für wissenschaftliche Fidelity- oder Story-Bible-Continuity-Prüfung.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "creative-writing-workshop"
+      ],
+      "dependents": [
+        "fiction-series-writing-workflow",
+        "science-storytelling-workflow"
+      ],
+      "outputs": [
+        "creative-revision-report.json",
+        "final-creative-text"
+      ],
+      "outputContracts": [
+        {
+          "output": "creative-revision-report.json",
+          "ambiguous": false,
+          "producers": [
+            "creative-prose-revision"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "final-creative-text",
+          "ambiguous": false,
+          "producers": [
+            "creative-prose-revision"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow",
+            "science-storytelling-workflow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "creative-writing-epub-delivery",
+      "description": "Liefert final freigegebene Science-Storytelling- oder Fiction-Manuskripte als ElevenReader-orientiertes EPUB3 aus, nachdem ein narrativer Hörbuchnutzer-Review bestanden wurde, und erzeugt genrespezifische Voice Guidance. Verwendet den generischen EPUB3-Renderer content-neutral; tatsächliche ElevenReader-Import- und Voice-Performance werden ohne realen Plattformtest nicht behauptet.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "epub3-publication-renderer",
+        "narrative-audiobook-listener-review"
+      ],
+      "dependents": [
+        "creative-writing-workflow"
+      ],
+      "outputs": [
+        "creative-epub-delivery.json",
+        "creative-voice-guidance.md",
+        "creative-writing.epub"
+      ],
+      "outputContracts": [
+        {
+          "output": "creative-epub-delivery.json",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-epub-delivery"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "creative-voice-guidance.md",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-epub-delivery"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "creative-writing.epub",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-epub-delivery"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "creative-writing-workflow",
+      "description": "Orchestriert Creative Writing nach vorgelagertem Grilling von Ziel, Publikum, Autor-Modus und Format über Craft-Analyse und den passenden Science-Storytelling- oder Fiction-Series-Pfad bis zur optionalen EPUB3-Ausgabe für TTS-Reader wie ElevenReader. Verwenden als Haupteinstieg für populärwissenschaftliche Langform und Science-/Fantasy-Fiction; Fachlogik der Worker, Evidence Claims, Story Bible und EPUB-Rendering nicht duplizieren.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "creative-writing-epub-delivery",
+        "fiction-series-writing-workflow",
+        "mentor-text-craft-analysis",
+        "project-second-brain",
+        "round-based-requirements-grilling",
+        "science-storytelling-workflow",
+        "thought-to-concept-flow"
+      ],
+      "dependents": [],
+      "outputs": [
+        "creative-writing-handoff.json",
+        "creative-writing-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "creative-writing-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "creative-writing-run.json",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "creative-writing-workshop",
+      "description": "Prüft kreative Prosa als strukturierte Schreibwerkstatt mit Cold Read, Craft-Diagnose, Stärken-Schutz, Ursachenpriorisierung und konkretem Revisionsplan. Verwenden für Fiction und narrative Science Writing, wenn ein Entwurf zuerst verstanden und diagnostiziert werden soll, bevor er überarbeitet wird; nicht als Faktenreview oder automatisches Umschreiben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "creative-prose-revision",
+        "fiction-series-writing-workflow",
+        "science-storytelling-workflow"
+      ],
+      "outputs": [
+        "creative-workshop-review.json",
+        "creative-workshop-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "creative-workshop-review.json",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-workshop"
+          ],
+          "consumerSkills": [
+            "creative-prose-revision",
+            "fiction-series-writing-workflow",
+            "science-storytelling-workflow"
+          ]
+        },
+        {
+          "output": "creative-workshop-review.md",
+          "ambiguous": false,
+          "producers": [
+            "creative-writing-workshop"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "current-law-context",
       "description": "Ermittelt für einen Legal Matter den aktuellen, jurisdiktions- und zeitbezogenen Rechts- und Regelwerkskontext aus autoritativen Quellen und trennt Gesetz, Rechtsprechung, Behördenmaterial, Verbands-/Satzungsrecht, Vertragsregeln und Interpretation. Verwenden vor materiellen Rechtsaussagen oder Specialist Assessments.",
       "invocation": {
@@ -3570,6 +3796,126 @@
       ],
       "portableFiles": [
         "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "ensemble-character-architecture",
+      "description": "Modelliert komplexe Figurenensembles als dynamisches System aus Want, Need, Fear, False Belief, Werten, Kompetenzen, Grenzen, Geheimnissen, Loyalitäten, Beziehungen, Wissensständen und Arc-Zuständen. Verwenden für Romane und Serien mit mehreren tragenden Figuren; keine psychologische Diagnose realer Personen und keine statischen Steckbriefe als Ersatz für dramaturgische Funktion.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "dependents": [
+        "fiction-series-writing-workflow",
+        "series-architecture",
+        "story-bible-continuity"
+      ],
+      "outputs": [
+        "character-bible.md",
+        "character-ensemble.json",
+        "structured character artifacts"
+      ],
+      "outputContracts": [
+        {
+          "output": "character-bible.md",
+          "ambiguous": false,
+          "producers": [
+            "ensemble-character-architecture"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "character-ensemble.json",
+          "ambiguous": false,
+          "producers": [
+            "ensemble-character-architecture"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow",
+            "series-architecture",
+            "story-bible-continuity"
+          ]
+        },
+        {
+          "output": "structured character artifacts",
+          "ambiguous": false,
+          "producers": [
+            "ensemble-character-architecture"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "epub3-publication-renderer",
+      "description": "Rendert einen finalen, kapitelstrukturierten Markdown-Text content-neutral als konservatives EPUB3 mit OPF-Spine, EPUB-Navigation, NCX-Kompatibilitätsnavigation, UTF-8, semantischen Absätzen und Scene Breaks und erzeugt eine strukturelle Validierungsnotiz. Interner Delivery-Worker; verändert keine Prosa und behauptet ohne Plattform-Smoke-Test keine verifizierte ElevenReader-Kompatibilität.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "audio-tutorial-workflow",
+        "creative-writing-epub-delivery"
+      ],
+      "outputs": [
+        "epub3-publication.epub",
+        "epub3-validation.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "epub3-publication.epub",
+          "ambiguous": false,
+          "producers": [
+            "epub3-publication-renderer"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "epub3-validation.json",
+          "ambiguous": false,
+          "producers": [
+            "epub3-publication-renderer"
+          ],
+          "consumerSkills": [
+            "audio-tutorial-workflow",
+            "creative-writing-epub-delivery"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "scripts/render_epub3.py"
       ],
       "evaluation": {
         "mode": "compatibility",
@@ -5311,6 +5657,73 @@
           "ambiguous": false,
           "producers": [
             "fda-registration-listing-udi"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "fiction-series-writing-workflow",
+      "description": "Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell, Welt, Ensemble und Serienarchitektur über Drafting, Schreibwerkstatt und kreative Revision bis zum Canon-/Continuity-Recheck. Verwenden für Romane und mehrbändige Reihen; keine Story-Bible-Logik duplizieren und keinen Entwurf als Canon oder publiziert behandeln, bevor die entsprechenden Gates passiert sind.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "creative-prose-revision",
+        "creative-writing-workshop",
+        "ensemble-character-architecture",
+        "mentor-text-craft-analysis",
+        "project-second-brain",
+        "series-architecture",
+        "speculative-worldbuilding",
+        "story-bible-continuity"
+      ],
+      "dependents": [
+        "creative-writing-workflow"
+      ],
+      "outputs": [
+        "fiction-manuscript.md",
+        "fiction-series-run.json",
+        "story-bible-handoff.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "fiction-manuscript.md",
+          "ambiguous": false,
+          "producers": [
+            "fiction-series-writing-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fiction-series-run.json",
+          "ambiguous": false,
+          "producers": [
+            "fiction-series-writing-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "story-bible-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "fiction-series-writing-workflow"
           ],
           "consumerSkills": []
         }
@@ -12623,6 +13036,57 @@
       }
     },
     {
+      "name": "mentor-text-craft-analysis",
+      "description": "Analysiert vom Nutzer bereitgestellte oder rechtmäßig zugängliche Referenztexte nach übertragbaren handwerklichen Mechanismen wie Perspektive, Szenenbau, Informationsfluss, Dialog, Tempo, Spannung, Exposition und Kapitelarchitektur, ohne die Stimme eines lebenden oder benannten Autors zu imitieren oder längere Textpassagen zu reproduzieren. Verwenden als Reading-like-a-writer-Schritt vor Creative Writing oder gezielter Craft-Revision.",
+      "invocation": {
+        "userFacing": true,
+        "category": "analysis"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "advanced",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "creative-writing-workflow",
+        "fiction-series-writing-workflow",
+        "science-storytelling-workflow"
+      ],
+      "outputs": [
+        "mentor-craft-analysis.md",
+        "mentor-craft-model.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "mentor-craft-analysis.md",
+          "ambiguous": false,
+          "producers": [
+            "mentor-text-craft-analysis"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "mentor-craft-model.json",
+          "ambiguous": false,
+          "producers": [
+            "mentor-text-craft-analysis"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "merge-conflict-resolution",
       "description": "Löst Git-Merge-Konflikte semantisch, rekonstruiert die Änderungsabsichten beider Seiten, bewahrt akzeptiertes Verhalten und Repository-Invarianten und erzeugt einen überprüfbaren Auflösungsstand mit Tests, Rollback und Restrisiken. Verwenden, wenn Konfliktmarker allein nicht zeigen, welche fachliche oder technische Kombination korrekt ist.",
       "invocation": {
@@ -12845,6 +13309,57 @@
             "procedure-sop-extractor",
             "youtube-learning-workflow"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "narrative-audiobook-listener-review",
+      "description": "Prüft finale narrative Prosa aus der Perspektive eines anspruchsvollen Hörbuchnutzers ohne Bildschirm auf Verständlichkeit, Figuren-/POV-Orientierung, Dialogzuordnung, Rhythmus, Hörermüdung, Kapitelwiedereinstieg und TTS-Robustheit, ohne literarische Eigenart in Tutorial-Sprache umzuschreiben. Verwenden als Gate vor Creative-Writing-EPUB-Ausgabe; nicht als Fakten-, Canon- oder Voice-Audio-Performance-Review.",
+      "invocation": {
+        "userFacing": false,
+        "category": null
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "internal",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [],
+      "dependents": [
+        "creative-writing-epub-delivery"
+      ],
+      "outputs": [
+        "narrative-listener-review.json",
+        "narrative-listener-review.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "narrative-listener-review.json",
+          "ambiguous": false,
+          "producers": [
+            "narrative-audiobook-listener-review"
+          ],
+          "consumerSkills": [
+            "creative-writing-epub-delivery"
+          ]
+        },
+        {
+          "output": "narrative-listener-review.md",
+          "ambiguous": false,
+          "producers": [
+            "narrative-audiobook-listener-review"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -13848,7 +14363,8 @@
       "dependents": [
         "audio-tutorial-workflow",
         "person-profile-document-delivery",
-        "person-research-report-workflow"
+        "person-research-report-workflow",
+        "science-storytelling-workflow"
       ],
       "outputs": [
         "final-revised-text",
@@ -13862,7 +14378,6 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
-            "audio-tutorial-workflow",
             "person-profile-document-delivery",
             "person-research-report-workflow"
           ]
@@ -13874,9 +14389,9 @@
             "precision-writing-revision"
           ],
           "consumerSkills": [
-            "audio-tutorial-workflow",
             "person-profile-document-delivery",
-            "person-research-report-workflow"
+            "person-research-report-workflow",
+            "science-storytelling-workflow"
           ]
         }
       ],
@@ -14903,6 +15418,8 @@
       "requires": [],
       "dependents": [
         "conversation-to-spec",
+        "creative-writing-workflow",
+        "fiction-series-writing-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
         "spec-to-vertical-issues"
@@ -16126,6 +16643,7 @@
         "professional-tax-knowledge-ingestion",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "science-storytelling-workflow",
         "teach",
         "technology-offer-assessment",
         "travel-destination-research",
@@ -16168,6 +16686,7 @@
             "professional-tax-knowledge-ingestion",
             "regulatory-change-monitoring",
             "regulatory-evidence-traceability",
+            "science-storytelling-workflow",
             "teach",
             "technology-offer-assessment",
             "two-axis-compliance-review"
@@ -16413,6 +16932,7 @@
       "dependents": [
         "audio-tutorial-workflow",
         "contract-workflow",
+        "creative-writing-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
@@ -16432,7 +16952,6 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
-            "audio-tutorial-workflow",
             "contract-workflow",
             "frontend-design-shaping",
             "frontend-design-system-context",
@@ -16448,13 +16967,144 @@
             "round-based-requirements-grilling"
           ],
           "consumerSkills": [
-            "audio-tutorial-workflow",
             "contract-workflow",
+            "creative-writing-workflow",
             "frontend-design-shaping",
             "frontend-design-system-context",
             "frontend-product-context",
             "role-requirements-grilling",
             "thought-to-concept-flow"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "science-storytelling-workflow",
+      "description": "Überführt belastbare wissenschaftliche Evidenz in eine narrative, für Nichtwissenschaftler verständliche Darstellung mit explizitem Audience Model, Explanation Model, Analogiegrenzen, Creative Workshop, Revision und abschließendem Fidelity-Recheck. Verwenden für populärwissenschaftliche Artikel, Buchkapitel, Essays oder erzählerische Erklärungen; keine wissenschaftlichen Claims zur Dramatisierung erfinden oder stärker darstellen als die Evidenz trägt.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "creative-prose-revision",
+        "creative-writing-workshop",
+        "mentor-text-craft-analysis",
+        "precision-writing-revision",
+        "research-to-evidence-note"
+      ],
+      "dependents": [
+        "creative-writing-workflow"
+      ],
+      "outputs": [
+        "science-narrative-model.json",
+        "science-story.md",
+        "science-storytelling-run.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "science-narrative-model.json",
+          "ambiguous": false,
+          "producers": [
+            "science-storytelling-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "science-story.md",
+          "ambiguous": false,
+          "producers": [
+            "science-storytelling-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "science-storytelling-run.json",
+          "ambiguous": false,
+          "producers": [
+            "science-storytelling-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "series-architecture",
+      "description": "Plant mehrbändige Fiction über mehrere Zeitskalen hinweg als Series-, Volume-, Character-, Relationship-, Mystery- und World-Change-Arcs und führt ein explizites Setup/Payoff-Ledger. Verwenden für Reihen, Zyklen und lange Einzelromane mit vielen Handlungsfäden; nicht als Szenenprosa-Generator oder Canon-Verifier.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "ensemble-character-architecture",
+        "speculative-worldbuilding"
+      ],
+      "dependents": [
+        "fiction-series-writing-workflow",
+        "story-bible-continuity"
+      ],
+      "outputs": [
+        "series-architecture.json",
+        "series-outline.md",
+        "setup-payoff-ledger.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "series-architecture.json",
+          "ambiguous": false,
+          "producers": [
+            "series-architecture"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow",
+            "story-bible-continuity"
+          ]
+        },
+        {
+          "output": "series-outline.md",
+          "ambiguous": false,
+          "producers": [
+            "series-architecture"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "setup-payoff-ledger.json",
+          "ambiguous": false,
+          "producers": [
+            "series-architecture"
+          ],
+          "consumerSkills": [
+            "story-bible-continuity"
           ]
         }
       ],
@@ -16741,6 +17391,72 @@
       }
     },
     {
+      "name": "speculative-worldbuilding",
+      "description": "Entwickelt Science-Fiction- oder Fantasy-Welten als kausales System aus Grundannahmen, Natur-/Magie-/Technologieregeln, Ressourcen, Grenzen, Zugang, Institutionen, Kulturen, Machtfolgen und Konflikten und verpackt bestätigte Weltelemente als adressierbare Knowledge Artifacts. Verwenden für belastbares Worldbuilding; keine Enzyklopädie um ihrer selbst willen erzeugen und Ideen nicht automatisch zu Canon erklären.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "dependents": [
+        "fiction-series-writing-workflow",
+        "series-architecture",
+        "story-bible-continuity"
+      ],
+      "outputs": [
+        "structured world artifacts",
+        "world-bible.md",
+        "world-model.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "structured world artifacts",
+          "ambiguous": false,
+          "producers": [
+            "speculative-worldbuilding"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "world-bible.md",
+          "ambiguous": false,
+          "producers": [
+            "speculative-worldbuilding"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "world-model.json",
+          "ambiguous": false,
+          "producers": [
+            "speculative-worldbuilding"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow",
+            "series-architecture",
+            "story-bible-continuity"
+          ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "spoken-tutorial-listener-review",
       "description": "Prüft eine hörgerecht redigierte Tutorial-Fassung aus der Perspektive eines anspruchsvollen regelmäßigen Hörbuch- und Podcastnutzers, der ohne Bildschirm zuhört. Bewertet Verständlichkeit, Hörermüdung, Rhythmus, Wiederholung, Wiedereinstieg, Aufzählungen, Informationsdichte und natürliche Sprache und gibt ein hartes Freigabe-Gate für Audio-Tutorials aus. Nicht als Fakten- oder Fachreview verwenden.",
       "invocation": {
@@ -16768,9 +17484,7 @@
           "producers": [
             "spoken-tutorial-listener-review"
           ],
-          "consumerSkills": [
-            "audio-tutorial-workflow"
-          ]
+          "consumerSkills": []
         },
         {
           "output": "spoken-tutorial-listener-review.md",
@@ -16778,9 +17492,7 @@
           "producers": [
             "spoken-tutorial-listener-review"
           ],
-          "consumerSkills": [
-            "audio-tutorial-workflow"
-          ]
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
@@ -18038,6 +18750,80 @@
       }
     },
     {
+      "name": "story-bible-continuity",
+      "description": "Verwaltet Fiction-Canon und prüft Szenen, Kapitel und Bände gegen Weltwahrheit, Figurenwissen/-glauben, Leserwissen, Timeline, Beziehungen, Arc-Zustände und Setup/Payoff-Verträge. Verwenden für Serienkontinuität, Canon Freeze und Retcon-Impact-Analyse; Project Second Brain bleibt getrennt und publizierter Hard Canon wird nicht still umgeschrieben.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "ensemble-character-architecture",
+        "series-architecture",
+        "speculative-worldbuilding",
+        "structured-knowledge-artifact"
+      ],
+      "dependents": [
+        "fiction-series-writing-workflow"
+      ],
+      "outputs": [
+        "canon-impact-analysis.json",
+        "continuity-review.json",
+        "knowledge-state.json",
+        "story-bible-index.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "canon-impact-analysis.json",
+          "ambiguous": false,
+          "producers": [
+            "story-bible-continuity"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "continuity-review.json",
+          "ambiguous": false,
+          "producers": [
+            "story-bible-continuity"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow"
+          ]
+        },
+        {
+          "output": "knowledge-state.json",
+          "ambiguous": false,
+          "producers": [
+            "story-bible-continuity"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "story-bible-index.json",
+          "ambiguous": false,
+          "producers": [
+            "story-bible-continuity"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "structured-knowledge-artifact",
       "description": "Verpackt bereits fachlich bestimmte Informationen in ein provider-neutrales, adressierbares Wissensartefakt mit stabiler Identität, Metadaten, typisierten Links und Provenance. Verwenden, wenn Ergebnisse aus Decision Records, Memory Governance, Research, Domain Models oder anderen Skills dauerhaft referenzierbar und zwischen Markdown-, JSON-, Graph- oder Obsidian-Adaptern austauschbar werden sollen; bestimmt selbst weder Memory-Persistenz noch fachliche Wahrheit.",
       "invocation": {
@@ -18052,9 +18838,12 @@
       },
       "requires": [],
       "dependents": [
+        "ensemble-character-architecture",
         "knowledge-map-generator",
         "knowledge-view",
         "obsidian-adapter",
+        "speculative-worldbuilding",
+        "story-bible-continuity",
         "thought-graph-extractor"
       ],
       "outputs": [
@@ -18069,9 +18858,11 @@
             "structured-knowledge-artifact"
           ],
           "consumerSkills": [
+            "ensemble-character-architecture",
             "knowledge-map-generator",
             "knowledge-view",
             "obsidian-adapter",
+            "speculative-worldbuilding",
             "thought-graph-extractor"
           ]
         },
@@ -18082,9 +18873,11 @@
             "structured-knowledge-artifact"
           ],
           "consumerSkills": [
+            "ensemble-character-architecture",
             "knowledge-map-generator",
             "knowledge-view",
             "obsidian-adapter",
+            "speculative-worldbuilding",
             "thought-graph-extractor"
           ]
         }
@@ -19442,7 +20235,9 @@
         "thought-capture-journal",
         "thought-graph-extractor"
       ],
-      "dependents": [],
+      "dependents": [
+        "creative-writing-workflow"
+      ],
       "outputs": [
         "concept-handoff.json",
         "concept.md",
