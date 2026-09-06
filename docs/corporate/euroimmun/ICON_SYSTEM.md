@@ -14,6 +14,18 @@ Approved runtime source analyzed on 2026-08-28:
 
 A future bundle with a different SHA-256 is a new asset revision and must be re-profiled before it inherits this contract.
 
+### Runtime asset resolution
+
+The approved bundle is currently available through the connected ChatGPT File Library / Google Drive mount at:
+
+- canonical library path: `/Google Drive/Skillz/Icons.zip`
+- storage provider: Google Drive
+- expected SHA-256: `533f9adda32bb5746ab061a95b8e392be7511071a18d23e2c56e819b89ae8fde`
+
+This is a **runtime locator**, not a repository path. When an artifact workflow needs the actual SVG binaries, it SHOULD resolve this library item first, materialize the ZIP into the task runtime, verify the SHA-256, and only then extract/select the required supplied SVG variant.
+
+If the library item is unavailable, inaccessible or has a different SHA-256, the workflow MUST treat the approved runtime asset as unavailable. It MUST NOT silently substitute icons from Font Awesome, Material Icons, generated SVGs or another third-party icon family. The proprietary ZIP and extracted SVGs remain runtime-only and MUST NOT be committed to the public Skillz repository.
+
 ### Catalog companions
 
 When semantic icon selection is required, this contract MUST be used together with:
