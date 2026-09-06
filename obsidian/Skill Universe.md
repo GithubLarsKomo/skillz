@@ -11,7 +11,7 @@ tags:
 
 - Skills: **336**
 - Categories: **11**
-- Workflow views: **25**
+- Workflow views: **27**
 - Repository evaluation passed: **True**
 
 ## Views
@@ -48,9 +48,11 @@ tags:
 - [[workflows/ivdr-economic-operator-to-physical-closure|ivdr-economic-operator-to-physical-closure]]
 - [[workflows/ivdr-field-action-through-authority-finalization|ivdr-field-action-through-authority-finalization]]
 - [[workflows/ivdr-vigilance-to-fsca-closure|ivdr-vigilance-to-fsca-closure]]
+- [[workflows/multivolume-fiction-to-elevenreader-epub|multivolume-fiction-to-elevenreader-epub]]
 - [[workflows/new-eu-ivd|new-eu-ivd]]
 - [[workflows/person-research-to-auditable-report|person-research-to-auditable-report]]
 - [[workflows/purchase-decision-with-current-evidence|purchase-decision-with-current-evidence]]
+- [[workflows/science-storytelling-to-elevenreader-epub|science-storytelling-to-elevenreader-epub]]
 - [[workflows/service-and-coding-to-vigilance|service-and-coding-to-vigilance]]
 - [[workflows/software-performance-optimization|software-performance-optimization]]
 - [[workflows/sport-longitudinal-adaptation-loop|sport-longitudinal-adaptation-loop]]
