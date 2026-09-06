@@ -3,14 +3,14 @@ name: icon-selector
 description: Wählt aus einer registrierten Icon-Bibliothek das semantisch passendste vorhandene Icon und eine zulässige Farb-/Kontrastvariante anhand von Intent, Kontext, Domain, Zielmedium und Hintergrund. Verwenden intern vor dem Platzieren von Icons in Präsentationen, Dokumenten oder anderen gebrandeten Artefakten; keine Icons erfinden, umzeichnen oder regulatorische/klinische Bedeutung aus einem Symbol ableiten.
 userFacing: false
 implicitInvocation: true
-version: 0.1.0
+version: 0.1.1
 status: candidate
 owners:
   - GithubLarsKomo
 requires: []
 outputs:
   - icon-selection.json
-lastEvaluated: 2026-09-02
+lastEvaluated: 2026-09-06
 ---
 
 # Icon Selector
@@ -43,6 +43,9 @@ Vor Auswahl `references/provider-registry.json` lesen. Jeder Provider muss auf e
 Aktuell registriert:
 
 - `euroimmun-corporate` -> `docs/corporate/euroimmun/ICON_SYSTEM.md` + `docs/corporate/euroimmun/icon-semantic-catalog.json`.
+  - bevorzugter Runtime-Locator: `/Google Drive/Skillz/Icons.zip`
+  - der Locator verweist auf die verbundene File Library / Google-Drive-Mount und ist kein Repository-Pfad;
+  - vor Binärnutzung muss der Bundle-Hash gegen den Provider-Registry-Eintrag geprüft werden.
 
 Wenn kein registrierter Provider eindeutig passt, keinen Corporate-Fallback erfinden. `status = "unresolved-provider"` ausgeben.
 
@@ -143,7 +146,11 @@ Bei `ambiguous` keine scheinpräzise Primärauswahl erzwingen; Kandidaten und be
 
 ## Übergabe
 
-Downstream-Skills verwenden `selection.canonicalName` und `selection.variant`, lösen daraus aber erst zur Laufzeit das tatsächliche Asset aus der autorisierten Bibliothek auf. Der Selector selbst liefert keinen Dateipfad zu einem proprietären Runtime-Asset, solange dessen Mount-/Task-Pfad nicht explizit bekannt ist.
+Downstream-Skills verwenden `selection.canonicalName` und `selection.variant` und lösen daraus erst zur Laufzeit das tatsächliche Asset aus der autorisierten Bibliothek auf.
+
+Für den Provider `euroimmun-corporate` ist der bevorzugte Runtime-Locator explizit bekannt: `/Google Drive/Skillz/Icons.zip`. Wenn ein Downstream-Workflow die Binärdatei benötigt, soll er dieses Library-Asset materialisieren, den SHA-256 gegen `runtimeAssetSha256` aus `references/provider-registry.json` prüfen und anschließend nur die ausgewählte, im Bundle vorhandene SVG-Variante verwenden. Der Selector selbst kopiert oder persistiert keine proprietären Binärdateien.
+
+Ist der Locator nicht erreichbar oder schlägt die Hash-Prüfung fehl, gilt das Runtime-Asset als nicht verfügbar; es darf kein stiller Ersatz aus einer fremden Icon-Bibliothek verwendet werden.
 
 ## Qualitätsgate
 
