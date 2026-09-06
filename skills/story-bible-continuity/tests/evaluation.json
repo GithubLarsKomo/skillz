@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "skill": "story-bible-continuity",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Check book two where a character refers to a secret before learning it.",
+      "requiredBehaviors": [
+        "compare world truth character knowledge and reader knowledge at the scene point",
+        "flag premature character knowledge as a continuity problem",
+        "link the finding to canon and scene identifiers"
+      ],
+      "forbiddenBehaviors": [
+        "assume a character automatically knows world truth"
+      ],
+      "skillAnchors": [
+        "Drei Wahrheitsschichten bleiben getrennt",
+        "wer was wann weiß",
+        "verweist auf betroffene Canon-/Scene-IDs"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "An unreliable narrator knowingly tells the reader a false version of events.",
+      "requiredBehaviors": [
+        "recognize modeled intentional deception",
+        "preserve the distinction between narrator claim and world truth"
+      ],
+      "forbiddenBehaviors": [
+        "flag every deliberate lie as a continuity error"
+      ],
+      "skillAnchors": [
+        "intentional",
+        "Intentional deception wird nicht als Kontinuitätsfehler gewertet"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A published death is silently changed to survival because a later plot needs the character.",
+      "requiredBehaviors": [
+        "block silent hard-canon mutation",
+        "require canon impact analysis before retcon",
+        "identify downstream knowledge and payoff impacts"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite published hard canon without trace"
+      ],
+      "skillAnchors": [
+        "Kein Retcon ohne Impact Analysis",
+        "published-hard-canon",
+        "nicht still verändert"
+      ]
+    }
+  ]
+}
