@@ -41,11 +41,11 @@ Prüft eine hörgerecht redigierte Tutorial-Fassung aus der Perspektive eines an
 
 ### `spoken-tutorial-listener-review.json`
 
-- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
+- Terminal or currently unconsumed output.
 
 ### `spoken-tutorial-listener-review.md`
 
-- [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
+- Terminal or currently unconsumed output.
 
 ## Evaluation
 

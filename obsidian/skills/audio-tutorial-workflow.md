@@ -26,6 +26,7 @@ tags:
 
 ## Requires
 
+- [[skills/epub3-publication-renderer|epub3-publication-renderer]]
 - [[skills/precision-writing-revision|precision-writing-revision]]
 - [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]
 - [[skills/spoken-tutorial-listener-review|spoken-tutorial-listener-review]]

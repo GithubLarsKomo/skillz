@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ensemble Character Architecture"
+  short_description: "Modelliert komplexe Figurenensembles als dynamisches System aus Want, Need, Fear, False Belief, Werten, Kompetenzen,..."
+policy:
+  allow_implicit_invocation: true

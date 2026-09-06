@@ -1,0 +1,5 @@
+interface:
+  display_name: "Series Architecture"
+  short_description: "Plant mehrbändige Fiction über mehrere Zeitskalen hinweg als Series-, Volume-, Character-, Relationship-, Mystery- un..."
+policy:
+  allow_implicit_invocation: true

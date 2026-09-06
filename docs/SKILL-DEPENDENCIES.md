@@ -10,6 +10,7 @@ graph TD
   architecture_deepening_review --> disciplined_diagnosis
   architecture_deepening_review --> iterate_software_projects
   artifact_contract_normalizer --> skill_portfolio_audit
+  audio_tutorial_workflow --> epub3_publication_renderer
   audio_tutorial_workflow --> precision_writing_revision
   audio_tutorial_workflow --> round_based_requirements_grilling
   audio_tutorial_workflow --> spoken_tutorial_listener_review
@@ -63,6 +64,16 @@ graph TD
   corporate_transactions_ma_specialist --> legal_client_strategy
   corporate_transactions_ma_specialist --> privilege_and_counsel_routing
   course_concept_graph --> multi_source_learning_synthesis
+  creative_prose_revision --> creative_writing_workshop
+  creative_writing_epub_delivery --> epub3_publication_renderer
+  creative_writing_epub_delivery --> narrative_audiobook_listener_review
+  creative_writing_workflow --> creative_writing_epub_delivery
+  creative_writing_workflow --> fiction_series_writing_workflow
+  creative_writing_workflow --> mentor_text_craft_analysis
+  creative_writing_workflow --> project_second_brain
+  creative_writing_workflow --> round_based_requirements_grilling
+  creative_writing_workflow --> science_storytelling_workflow
+  creative_writing_workflow --> thought_to_concept_flow
   current_law_context --> research_to_evidence_note
   current_tax_context --> current_law_context
   current_tax_context --> research_to_evidence_note
@@ -98,6 +109,7 @@ graph TD
   dr_komorowski_sport_pdf_report_renderer --> dr_komorowski_sport_docx_report_renderer
   engineering_delivery_followup --> deferred_external_action_verification
   engineering_delivery_followup --> two_axis_code_review
+  ensemble_character_architecture --> structured_knowledge_artifact
   esg_supply_chain_environmental_law_specialist --> compliance_obligation_register
   esg_supply_chain_environmental_law_specialist --> current_law_context
   esg_supply_chain_environmental_law_specialist --> legal_compliance_risk_assessment
@@ -182,6 +194,14 @@ graph TD
   fda_registration_listing_udi --> medical_device_labeling_ifu
   fda_registration_listing_udi --> regulated_product_context
   fda_registration_listing_udi --> regulatory_evidence_traceability
+  fiction_series_writing_workflow --> creative_prose_revision
+  fiction_series_writing_workflow --> creative_writing_workshop
+  fiction_series_writing_workflow --> ensemble_character_architecture
+  fiction_series_writing_workflow --> mentor_text_craft_analysis
+  fiction_series_writing_workflow --> project_second_brain
+  fiction_series_writing_workflow --> series_architecture
+  fiction_series_writing_workflow --> speculative_worldbuilding
+  fiction_series_writing_workflow --> story_bible_continuity
   finance_insolvency_restructuring_law_specialist --> corporate_governance_law_specialist
   finance_insolvency_restructuring_law_specialist --> current_law_context
   finance_insolvency_restructuring_law_specialist --> legal_compliance_risk_assessment
@@ -570,9 +590,17 @@ graph TD
   reorganization_tax_specialist --> tax_position_register
   reorganization_tax_specialist --> tax_structure_pattern_library
   role_requirements_grilling --> round_based_requirements_grilling
+  science_storytelling_workflow --> creative_prose_revision
+  science_storytelling_workflow --> creative_writing_workshop
+  science_storytelling_workflow --> mentor_text_craft_analysis
+  science_storytelling_workflow --> precision_writing_revision
+  science_storytelling_workflow --> research_to_evidence_note
+  series_architecture --> ensemble_character_architecture
+  series_architecture --> speculative_worldbuilding
   skill_lifecycle_migration --> skill_portfolio_audit
   spec_to_vertical_issues --> conversation_to_spec
   spec_to_vertical_issues --> project_second_brain
+  speculative_worldbuilding --> structured_knowledge_artifact
   sport_adaptation_analysis --> sport_daily_athlete_monitoring
   sport_adaptation_analysis --> sport_microcycle_planning
   sport_adaptation_analysis --> sport_performance_diagnostics
@@ -648,6 +676,10 @@ graph TD
   sport_training_plan_workflow --> sport_season_periodization
   sport_training_plan_workflow --> sport_strength_power_programming
   sport_training_programming --> sport_training_plan_workflow
+  story_bible_continuity --> ensemble_character_architecture
+  story_bible_continuity --> series_architecture
+  story_bible_continuity --> speculative_worldbuilding
+  story_bible_continuity --> structured_knowledge_artifact
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -752,6 +784,7 @@ graph TD
 
 | Consumer | Artifact | Producer |
 |---|---|---|
+| `audio-tutorial-workflow` | `epub3-validation.json` | `epub3-publication-renderer` |
 | `candidate-role-fit-assessment` | `role-architecture.json` | `role-architecture` |
 | `candidate-role-fit-assessment` | `role-scorecard.json` | `role-architecture` |
 | `contract-matter-workflow` | `agreement-clause-coverage.json` | `agreement-type-analysis` |
@@ -768,6 +801,10 @@ graph TD
 | `contract-matter-workflow` | `negotiation-positions.json` | `legal-negotiation-strategy` |
 | `contract-matter-workflow` | `negotiation-state.json` | `legal-redline-review-loop` |
 | `contract-matter-workflow` | `redline-delta.json` | `legal-redline-review-loop` |
+| `creative-prose-revision` | `creative-workshop-review.json` | `creative-writing-workshop` |
+| `creative-writing-epub-delivery` | `epub3-validation.json` | `epub3-publication-renderer` |
+| `creative-writing-epub-delivery` | `narrative-listener-review.json` | `narrative-audiobook-listener-review` |
+| `creative-writing-workflow` | `requirements-handoff.json` | `round-based-requirements-grilling` |
 | `difficult-conversation-workflow` | `leadership-feedback-plan.json` | `leadership-feedback` |
 | `difficult-conversation-workflow` | `leadership-reflection.json` | `leadership-reflection` |
 | `difficult-conversation-workflow` | `meeting-prep.json` | `meeting-preparation` |
@@ -775,6 +812,12 @@ graph TD
 | `document-render-verifier` | `document-layout-qa.json` | `document-layout-qa` |
 | `dr-komorowski-sport-pdf-report-renderer` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
 | `euroimmun-pdf-report-renderer` | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` |
+| `fiction-series-writing-workflow` | `character-ensemble.json` | `ensemble-character-architecture` |
+| `fiction-series-writing-workflow` | `continuity-review.json` | `story-bible-continuity` |
+| `fiction-series-writing-workflow` | `creative-workshop-review.json` | `creative-writing-workshop` |
+| `fiction-series-writing-workflow` | `final-creative-text` | `creative-prose-revision` |
+| `fiction-series-writing-workflow` | `series-architecture.json` | `series-architecture` |
+| `fiction-series-writing-workflow` | `world-model.json` | `speculative-worldbuilding` |
 | `job-description-authoring` | `role-architecture.json` | `role-architecture` |
 | `job-description-authoring` | `role-scorecard.json` | `role-architecture` |
 | `leadership-1on1-workflow` | `decision-follow-up-register.json` | `decision-and-follow-up-tracker` |
@@ -837,6 +880,12 @@ graph TD
 | `presentation-render-verifier` | `presentation-layout-qa.json` | `presentation-layout-qa` |
 | `research-to-evidence-note` | `source-context.json` | `source-to-context` |
 | `role-architecture` | `role-requirements-handoff.json` | `role-requirements-grilling` |
+| `science-storytelling-workflow` | `creative-workshop-review.json` | `creative-writing-workshop` |
+| `science-storytelling-workflow` | `evidence-note.json` | `research-to-evidence-note` |
+| `science-storytelling-workflow` | `final-creative-text` | `creative-prose-revision` |
+| `science-storytelling-workflow` | `precision-writing-report.json` | `precision-writing-revision` |
+| `series-architecture` | `character-ensemble.json` | `ensemble-character-architecture` |
+| `series-architecture` | `world-model.json` | `speculative-worldbuilding` |
 | `sport-diagnostics-training-report-workflow` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
 | `sport-diagnostics-training-report-workflow` | `dr-komorowski-sport-report.pdf` | `dr-komorowski-sport-pdf-report-renderer` |
 | `sport-diagnostics-training-report-workflow` | `sport-diagnostics.json` | `sport-performance-diagnostics` |
@@ -862,6 +911,10 @@ graph TD
 | `sport-training-plan-workflow` | `sport-performance-model.json` | `sport-goal-performance-model` |
 | `sport-training-plan-workflow` | `sport-season-plan.json` | `sport-season-periodization` |
 | `sport-training-plan-workflow` | `strength-power-plan.json` | `sport-strength-power-programming` |
+| `story-bible-continuity` | `character-ensemble.json` | `ensemble-character-architecture` |
+| `story-bible-continuity` | `series-architecture.json` | `series-architecture` |
+| `story-bible-continuity` | `setup-payoff-ledger.json` | `series-architecture` |
+| `story-bible-continuity` | `world-model.json` | `speculative-worldbuilding` |
 | `template-document-workflow` | `document-layout-qa.json` | `document-layout-qa` |
 | `template-document-workflow` | `document-layout-qa.md` | `document-layout-qa` |
 | `template-document-workflow` | `document-preview.pdf` | `document-render-verifier` |
@@ -898,7 +951,7 @@ graph TD
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `audio-tutorial-workflow`, `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
 | `PERFORMANCE_PLAN.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
@@ -942,6 +995,7 @@ graph TD
 | `candidate-interview-question-set.md` | `candidate-role-fit-assessment` | — | unconsumed |
 | `candidate-role-fit.json` | `candidate-role-fit-assessment` | — | unconsumed |
 | `candidate-role-fit.md` | `candidate-role-fit-assessment` | — | unconsumed |
+| `canon-impact-analysis.json` | `story-bible-continuity` | — | unconsumed |
 | `capa-effectiveness-plan.json` | `medical-device-capa` | `fda-corrections-removals`, `ivdr-field-safety-corrective-action`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `capa-plan.json` | `medical-device-capa` | `fda-corrections-removals`, `ivdr-field-safety-corrective-action`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `capa-status.md` | `medical-device-capa` | `fda-corrections-removals`, `ivdr-field-safety-corrective-action`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
@@ -953,6 +1007,8 @@ graph TD
 | `change-impact-assessment.json` | `controlled-quality-documentation` | `ivdr-field-safety-corrective-action`, `medical-device-field-action-communication`, `medical-device-field-action-physical-execution`, `quality-record-integrity` | inferred |
 | `change-integration-status.json` | `regulatory-change-impact-orchestrator` | — | unconsumed |
 | `change-verification-needs.json` | `design-change-regulatory-impact` | `fda-pccp-change-control` | inferred |
+| `character-bible.md` | `ensemble-character-architecture` | — | unconsumed |
+| `character-ensemble.json` | `ensemble-character-architecture` | `fiction-series-writing-workflow`, `series-architecture`, `story-bible-continuity` | explicit |
 | `claim-conflicts.json` | `regulatory-claims-consistency` | — | unconsumed |
 | `claim-defense-matrix.json` | `dispute-litigation-strategy-specialist` | `german-administrative-social-traffic-law-specialist`, `german-consumer-insurance-private-contract-law-specialist` | inferred |
 | `claims-consistency-map.json` | `regulatory-claims-consistency` | — | unconsumed |
@@ -1003,6 +1059,7 @@ graph TD
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `containment-actions.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `continuation result` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
+| `continuity-review.json` | `story-bible-continuity` | `fiction-series-writing-workflow` | explicit |
 | `contract-case.json` | `contract-workflow` | — | unconsumed |
 | `contract-draft.md` | `contract-drafting` | `contract-matter-workflow` | explicit |
 | `contract-drafting-report.json` | `contract-drafting` | `contract-matter-workflow` | explicit |
@@ -1033,6 +1090,14 @@ graph TD
 | `course-concept-graph.json` | `course-concept-graph` | `learning-path-planner`, `youtube-course-builder-workflow` | inferred |
 | `course-knowledge-checks.json` | `learning-activity-generator` | `youtube-course-builder-workflow` | inferred |
 | `course-learning-model.json` | `youtube-course-builder-workflow` | `learning-delivery-workflow` | explicit |
+| `creative-epub-delivery.json` | `creative-writing-epub-delivery` | — | unconsumed |
+| `creative-revision-report.json` | `creative-prose-revision` | — | unconsumed |
+| `creative-voice-guidance.md` | `creative-writing-epub-delivery` | — | unconsumed |
+| `creative-workshop-review.json` | `creative-writing-workshop` | `creative-prose-revision`, `fiction-series-writing-workflow`, `science-storytelling-workflow` | explicit |
+| `creative-workshop-review.md` | `creative-writing-workshop` | — | unconsumed |
+| `creative-writing-handoff.json` | `creative-writing-workflow` | — | unconsumed |
+| `creative-writing-run.json` | `creative-writing-workflow` | — | unconsumed |
+| `creative-writing.epub` | `creative-writing-epub-delivery` | — | unconsumed |
 | `criminal-counsel-brief.md` | `german-criminal-administrative-offence-procedure-specialist` | — | unconsumed |
 | `criminal-procedure-assessment.json` | `german-criminal-administrative-offence-procedure-specialist` | — | unconsumed |
 | `customer-communication-record.json` | `medical-device-complaint-customer-followup` | `medical-device-complaint-regulatory-routing` | inferred |
@@ -1108,6 +1173,8 @@ graph TD
 | `engineering-iteration-return-input.json` | `engineering-delivery-followup` | — | unconsumed |
 | `engineering-iteration-state.json` | `iterate-software-projects` | `agent-handoff`, `architecture-deepening-review`, `disciplined-diagnosis`, `optimize-software-performance`, `performance-baseline`, `project-beta-readiness` | inferred |
 | `environment-adjustment.json` | `sport-environment-travel` | `sport-athlete-management` | inferred |
+| `epub3-publication.epub` | `epub3-publication-renderer` | — | unconsumed |
+| `epub3-validation.json` | `epub3-publication-renderer` | `audio-tutorial-workflow`, `creative-writing-epub-delivery` | explicit |
 | `esg-remediation-work-orders.json` | `esg-supply-chain-environmental-law-specialist` | — | unconsumed |
 | `esg-supply-chain-law-assessment.json` | `esg-supply-chain-environmental-law-specialist` | — | unconsumed |
 | `estar-content-map.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
@@ -1123,7 +1190,7 @@ graph TD
 | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` | `euroimmun-pdf-report-renderer` | explicit |
 | `euroimmun-report.pdf` | `euroimmun-pdf-report-renderer` | — | unconsumed |
 | `evaluation evidence` | `composable-skill-factory` | `central-skill-repository-curation` | inferred |
-| `evidence-note.json` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `current-law-context`, `current-tax-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `legal-change-monitoring`, `legal-matter-wayfinder`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `professional-tax-knowledge-ingestion`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
+| `evidence-note.json` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `current-law-context`, `current-tax-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `legal-change-monitoring`, `legal-matter-wayfinder`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `professional-tax-knowledge-ingestion`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `science-storytelling-workflow`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | mixed |
 | `evidence-note.md` | `research-to-evidence-note` | `biopatent-deep-analysis`, `clinical-evidence-update-impact`, `current-law-context`, `current-tax-context`, `eu-mdr-ivdr-regulatory-specialist`, `evidence-based-causal-investigation`, `fda-510k-predicate-strategy`, `fda-device-classification-product-code`, `fda-medical-device-ivd-regulatory-specialist`, `freedom-to-operate-assessment`, `ivdr-scientific-validity`, `legal-change-monitoring`, `legal-matter-wayfinder`, `mdcg-guidance-navigator`, `medical-device-privacy-gdpr-bdsg`, `medical-device-risk-management-iso14971`, `meeting-preparation`, `patent-landscape-analysis`, `person-research-dossier`, `product-evidence-research`, `professional-tax-knowledge-ingestion`, `regulatory-change-monitoring`, `regulatory-evidence-traceability`, `teach`, `technology-offer-assessment`, `two-axis-compliance-review` | inferred |
 | `execution plan` | `synapse-orchestrator` | — | unconsumed |
 | `executive-legal-compliance-cockpit.json` | `executive-legal-compliance-governance` | — | unconsumed |
@@ -1150,6 +1217,8 @@ graph TD
 | `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `fda-estar-submission-builder`, `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
 | `fda-request-issue-map.json` | `fda-additional-information-response` | — | unconsumed |
 | `fda-response-package.md` | `fda-additional-information-response` | — | unconsumed |
+| `fiction-manuscript.md` | `fiction-series-writing-workflow` | — | unconsumed |
+| `fiction-series-run.json` | `fiction-series-writing-workflow` | — | unconsumed |
 | `fidelity-review.md` | `rewrite-fidelity-verifier` | `precision-writing-revision`, `presentation-language-rewriter` | inferred |
 | `field-action-closure-readiness.json` | `medical-device-field-action-effectiveness` | `fda-recall-status-termination`, `ivdr-fsca-status-final-reporting` | inferred |
 | `field-action-communication-state.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
@@ -1161,7 +1230,8 @@ graph TD
 | `field-action-recipient-scope.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-unit-custody-ledger.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
 | `field-safety-notice-content.json` | `ivdr-field-safety-corrective-action` | `ivdr-fsca-status-final-reporting` | inferred |
-| `final-revised-text` | `precision-writing-revision` | `audio-tutorial-workflow`, `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
+| `final-creative-text` | `creative-prose-revision` | `fiction-series-writing-workflow`, `science-storytelling-workflow` | explicit |
+| `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
 | `finance-counsel-work-orders.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finance-restructuring-law-assessment.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finding-action-plan.json` | `audit-inspection-finding-response` | — | unconsumed |
@@ -1245,11 +1315,12 @@ graph TD
 | `ivdr-pms-assessment.json` | `ivdr-pms-vigilance` | `ivdr-field-safety-corrective-action`, `medical-device-complaint-regulatory-routing` | inferred |
 | `ivdr-vigilance-final-report-package.json` | `ivdr-fsca-status-final-reporting` | — | unconsumed |
 | `job-description.md` | `job-description-authoring` | — | unconsumed |
-| `knowledge-artifact.json` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter`, `thought-graph-extractor` | inferred |
-| `knowledge-artifact.md` | `structured-knowledge-artifact` | `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter`, `thought-graph-extractor` | inferred |
+| `knowledge-artifact.json` | `structured-knowledge-artifact` | `ensemble-character-architecture`, `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter`, `speculative-worldbuilding`, `thought-graph-extractor` | inferred |
+| `knowledge-artifact.md` | `structured-knowledge-artifact` | `ensemble-character-architecture`, `knowledge-map-generator`, `knowledge-view`, `obsidian-adapter`, `speculative-worldbuilding`, `thought-graph-extractor` | inferred |
 | `knowledge-map.json` | `knowledge-map-generator` | `mermaid-knowledge-map-renderer`, `obsidian-adapter`, `thought-to-concept-flow` | inferred |
 | `knowledge-map.md` | `mermaid-knowledge-map-renderer` | — | unconsumed |
 | `knowledge-map.mmd` | `mermaid-knowledge-map-renderer` | — | unconsumed |
+| `knowledge-state.json` | `story-bible-continuity` | — | unconsumed |
 | `knowledge-view.json` | `knowledge-view` | `obsidian-adapter` | inferred |
 | `labeling-content-map.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
 | `labeling-evidence-gaps.json` | `medical-device-labeling-ifu` | `eudamed-udi-ivd`, `fda-registration-listing-udi`, `iec62366-usability-engineering`, `regulatory-claims-consistency` | inferred |
@@ -1351,10 +1422,14 @@ graph TD
 | `memory-ledger.merged.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `memory-reconciliation-plan.json` | `memory-sync-reconciliation` | — | unconsumed |
 | `mental-health-routing.json` | `sport-mental-health-routing` | `sport-athlete-management` | inferred |
+| `mentor-craft-analysis.md` | `mentor-text-craft-analysis` | — | unconsumed |
+| `mentor-craft-model.json` | `mentor-text-craft-analysis` | — | unconsumed |
 | `merger-control-route-map.json` | `competition-antitrust-law-specialist` | — | unconsumed |
 | `mrb-disposition-decision.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `multi-source-conflict-map.json` | `multi-source-learning-synthesis` | `course-concept-graph`, `youtube-playlist-learning-workflow` | inferred |
 | `multi-source-learning-model.json` | `multi-source-learning-synthesis` | `course-concept-graph`, `learning-delivery-workflow`, `youtube-playlist-learning-workflow` | mixed |
+| `narrative-listener-review.json` | `narrative-audiobook-listener-review` | `creative-writing-epub-delivery` | explicit |
+| `narrative-listener-review.md` | `narrative-audiobook-listener-review` | — | unconsumed |
 | `negotiation-playbook.md` | `legal-negotiation-strategy` | — | unconsumed |
 | `negotiation-positions.json` | `legal-negotiation-strategy` | `contract-matter-workflow`, `legal-redline-review-loop` | explicit |
 | `negotiation-state.json` | `legal-redline-review-loop` | `contract-matter-workflow` | explicit |
@@ -1409,7 +1484,7 @@ graph TD
 | `pms-review-status.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-source-register.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
 | `pms-system-plan.json` | `medical-device-pms-system` | `ivdr-pms-vigilance`, `medical-device-field-action-effectiveness`, `qms-management-review-governance` | inferred |
-| `precision-writing-report.json` | `precision-writing-revision` | `audio-tutorial-workflow`, `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
+| `precision-writing-report.json` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow`, `science-storytelling-workflow` | mixed |
 | `predicate-candidate-set.json` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `predicate-strategy.md` | `fda-510k-predicate-strategy` | `fda-510k-substantial-equivalence` | inferred |
 | `presentation-language-report.json` | `presentation-language-rewriter` | `template-presentation-workflow` | explicit |
@@ -1508,7 +1583,7 @@ graph TD
 | `reorganization-tax-structure-options.json` | `reorganization-tax-specialist` | — | unconsumed |
 | `reporting-office-obligations.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | `audio-tutorial-workflow`, `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `creative-writing-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | mixed |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `return-after-illness-plan.json` | `sport-return-after-illness` | `sport-athlete-management` | inferred |
@@ -1530,12 +1605,18 @@ graph TD
 | `role-scorecard.json` | `role-architecture` | `candidate-role-fit-assessment`, `job-description-authoring` | explicit |
 | `rowing-legal-open-points.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
 | `sanctions-screening-route-map.json` | `trade-sanctions-export-control-specialist` | — | unconsumed |
+| `science-narrative-model.json` | `science-storytelling-workflow` | — | unconsumed |
+| `science-story.md` | `science-storytelling-workflow` | — | unconsumed |
+| `science-storytelling-run.json` | `science-storytelling-workflow` | — | unconsumed |
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `se-evidence-gaps.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
+| `series-architecture.json` | `series-architecture` | `fiction-series-writing-workflow`, `story-bible-continuity` | explicit |
+| `series-outline.md` | `series-architecture` | — | unconsumed |
 | `service-complaint-handoff.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
 | `service-event-quality-record.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
 | `service-quality-routing.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
+| `setup-payoff-ledger.json` | `series-architecture` | `story-bible-continuity` | explicit |
 | `skill-evaluation-suite-authoring-report.json` | `skill-evaluation-suite-authoring` | `workflow-benchmark-authoring` | inferred |
 | `skill-lifecycle-migration-plan.json` | `skill-lifecycle-migration` | — | unconsumed |
 | `skill-lifecycle-migration-plan.md` | `skill-lifecycle-migration` | — | unconsumed |
@@ -1548,8 +1629,8 @@ graph TD
 | `source-context.json` | `source-to-context` | `multimodal-learning-analysis`, `research-to-evidence-note` | explicit |
 | `source-context.md` | `source-to-context` | — | unconsumed |
 | `special-controls-matrix.json` | `fda-de-novo-special-controls` | — | unconsumed |
-| `spoken-tutorial-listener-review.json` | `spoken-tutorial-listener-review` | `audio-tutorial-workflow` | inferred |
-| `spoken-tutorial-listener-review.md` | `spoken-tutorial-listener-review` | `audio-tutorial-workflow` | inferred |
+| `spoken-tutorial-listener-review.json` | `spoken-tutorial-listener-review` | — | unconsumed |
+| `spoken-tutorial-listener-review.md` | `spoken-tutorial-listener-review` | — | unconsumed |
 | `spoken-tutorial.epub` | `audio-tutorial-workflow` | — | unconsumed |
 | `spoken-tutorial.md` | `audio-tutorial-workflow` | — | unconsumed |
 | `sport-adaptation-analysis.json` | `sport-adaptation-analysis` | `sport-athlete-management` | inferred |
@@ -1567,8 +1648,12 @@ graph TD
 | `sports-rule-binding-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
+| `story-bible-handoff.json` | `fiction-series-writing-workflow` | — | unconsumed |
+| `story-bible-index.json` | `story-bible-continuity` | — | unconsumed |
 | `strength-power-plan.json` | `sport-strength-power-programming` | `sport-athlete-management`, `sport-training-plan-workflow` | mixed |
+| `structured character artifacts` | `ensemble-character-architecture` | — | unconsumed |
 | `structured thought artifacts` | `thought-graph-extractor` | `thought-to-concept-flow` | inferred |
+| `structured world artifacts` | `speculative-worldbuilding` | — | unconsumed |
 | `submission-readiness.json` | `fda-estar-submission-builder` | `fda-acceptance-readiness`, `fda-additional-information-response` | inferred |
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
 | `substantial-equivalence-matrix.md` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
@@ -1681,6 +1766,8 @@ graph TD
 | `workflow-benchmark-regression.py` | `workflow-benchmark-authoring` | — | unconsumed |
 | `workflow-benchmark-spec.json` | `workflow-benchmark-authoring` | — | unconsumed |
 | `works-council-route-map.json` | `german-employment-labor-law-specialist` | — | unconsumed |
+| `world-bible.md` | `speculative-worldbuilding` | — | unconsumed |
+| `world-model.json` | `speculative-worldbuilding` | `fiction-series-writing-workflow`, `series-architecture`, `story-bible-continuity` | explicit |
 | `youtube-course-builder-run.json` | `youtube-course-builder-workflow` | — | unconsumed |
 | `youtube-frame-index.json` | `youtube-video-ingestion` | `youtube-learning-workflow` | inferred |
 | `youtube-learning-run.json` | `youtube-learning-workflow` | `youtube-playlist-learning-workflow` | inferred |

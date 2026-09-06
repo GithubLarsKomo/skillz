@@ -33,7 +33,7 @@ Orchestriert die Klärung eines Ziels per Grilling, die fortlaufende Sammlung un
 
 ## Required by
 
-- —
+- [[skills/creative-writing-workflow|creative-writing-workflow]]
 
 ## Outputs
 

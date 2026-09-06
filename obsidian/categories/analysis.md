@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **9**
+Skills: **10**
 
 - [[skills/agreement-type-analysis|agreement-type-analysis]]
 - [[skills/legal-client-strategy|legal-client-strategy]]
@@ -18,6 +18,7 @@ Skills: **9**
 - [[skills/legal-matter-wayfinder|legal-matter-wayfinder]]
 - [[skills/legal-negotiation-strategy|legal-negotiation-strategy]]
 - [[skills/llm-generation-review-workflow|llm-generation-review-workflow]]
+- [[skills/mentor-text-craft-analysis|mentor-text-craft-analysis]]
 - [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-recovery-sleep|sport-recovery-sleep]]
 - [[skills/tax-matter-intake|tax-matter-intake]]

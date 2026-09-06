@@ -51,11 +51,14 @@
     {
       "name": "audio-tutorial-workflow",
       "requires": [
+        "epub3-publication-renderer",
         "precision-writing-revision",
         "round-based-requirements-grilling",
         "spoken-tutorial-listener-review"
       ],
-      "consumes": [],
+      "consumes": [
+        "epub3-validation.json"
+      ],
       "outputs": [
         "audio-tutorial-run.json",
         "spoken-tutorial.epub",
@@ -399,6 +402,63 @@
       ]
     },
     {
+      "name": "creative-prose-revision",
+      "requires": [
+        "creative-writing-workshop"
+      ],
+      "consumes": [
+        "creative-workshop-review.json"
+      ],
+      "outputs": [
+        "creative-revision-report.json",
+        "final-creative-text"
+      ]
+    },
+    {
+      "name": "creative-writing-epub-delivery",
+      "requires": [
+        "epub3-publication-renderer",
+        "narrative-audiobook-listener-review"
+      ],
+      "consumes": [
+        "epub3-validation.json",
+        "narrative-listener-review.json"
+      ],
+      "outputs": [
+        "creative-epub-delivery.json",
+        "creative-voice-guidance.md",
+        "creative-writing.epub"
+      ]
+    },
+    {
+      "name": "creative-writing-workflow",
+      "requires": [
+        "creative-writing-epub-delivery",
+        "fiction-series-writing-workflow",
+        "mentor-text-craft-analysis",
+        "project-second-brain",
+        "round-based-requirements-grilling",
+        "science-storytelling-workflow",
+        "thought-to-concept-flow"
+      ],
+      "consumes": [
+        "requirements-handoff.json"
+      ],
+      "outputs": [
+        "creative-writing-handoff.json",
+        "creative-writing-run.json"
+      ]
+    },
+    {
+      "name": "creative-writing-workshop",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "creative-workshop-review.json",
+        "creative-workshop-review.md"
+      ]
+    },
+    {
       "name": "current-law-context",
       "requires": [
         "research-to-evidence-note"
@@ -653,6 +713,27 @@
         "engineering-closure-gaps.json",
         "engineering-delivery-status.json",
         "engineering-iteration-return-input.json"
+      ]
+    },
+    {
+      "name": "ensemble-character-architecture",
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "consumes": [],
+      "outputs": [
+        "character-bible.md",
+        "character-ensemble.json",
+        "structured character artifacts"
+      ]
+    },
+    {
+      "name": "epub3-publication-renderer",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "epub3-publication.epub",
+        "epub3-validation.json"
       ]
     },
     {
@@ -1047,6 +1128,32 @@
         "fda-device-listing-readiness.json",
         "fda-registration-readiness.json",
         "gudid-udi-readiness.json"
+      ]
+    },
+    {
+      "name": "fiction-series-writing-workflow",
+      "requires": [
+        "creative-prose-revision",
+        "creative-writing-workshop",
+        "ensemble-character-architecture",
+        "mentor-text-craft-analysis",
+        "project-second-brain",
+        "series-architecture",
+        "speculative-worldbuilding",
+        "story-bible-continuity"
+      ],
+      "consumes": [
+        "character-ensemble.json",
+        "continuity-review.json",
+        "creative-workshop-review.json",
+        "final-creative-text",
+        "series-architecture.json",
+        "world-model.json"
+      ],
+      "outputs": [
+        "fiction-manuscript.md",
+        "fiction-series-run.json",
+        "story-bible-handoff.json"
       ]
     },
     {
@@ -2591,6 +2698,15 @@
       ]
     },
     {
+      "name": "mentor-text-craft-analysis",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "mentor-craft-analysis.md",
+        "mentor-craft-model.json"
+      ]
+    },
+    {
       "name": "merge-conflict-resolution",
       "requires": [
         "agent-handoff",
@@ -2637,6 +2753,15 @@
       "outputs": [
         "learning-concept-map.json",
         "learning-evidence.json"
+      ]
+    },
+    {
+      "name": "narrative-audiobook-listener-review",
+      "requires": [],
+      "consumes": [],
+      "outputs": [
+        "narrative-listener-review.json",
+        "narrative-listener-review.md"
       ]
     },
     {
@@ -3290,6 +3415,43 @@
       ]
     },
     {
+      "name": "science-storytelling-workflow",
+      "requires": [
+        "creative-prose-revision",
+        "creative-writing-workshop",
+        "mentor-text-craft-analysis",
+        "precision-writing-revision",
+        "research-to-evidence-note"
+      ],
+      "consumes": [
+        "creative-workshop-review.json",
+        "evidence-note.json",
+        "final-creative-text",
+        "precision-writing-report.json"
+      ],
+      "outputs": [
+        "science-narrative-model.json",
+        "science-story.md",
+        "science-storytelling-run.json"
+      ]
+    },
+    {
+      "name": "series-architecture",
+      "requires": [
+        "ensemble-character-architecture",
+        "speculative-worldbuilding"
+      ],
+      "consumes": [
+        "character-ensemble.json",
+        "world-model.json"
+      ],
+      "outputs": [
+        "series-architecture.json",
+        "series-outline.md",
+        "setup-payoff-ledger.json"
+      ]
+    },
+    {
       "name": "skill-evaluation-suite-authoring",
       "requires": [],
       "consumes": [],
@@ -3337,6 +3499,18 @@
         "dependency-order.json",
         "vertical-issues.json",
         "vertical-issues.md"
+      ]
+    },
+    {
+      "name": "speculative-worldbuilding",
+      "requires": [
+        "structured-knowledge-artifact"
+      ],
+      "consumes": [],
+      "outputs": [
+        "structured world artifacts",
+        "world-bible.md",
+        "world-model.json"
       ]
     },
     {
@@ -3672,6 +3846,27 @@
       "consumes": [],
       "outputs": [
         "sport-training-programming-compatibility-run.json"
+      ]
+    },
+    {
+      "name": "story-bible-continuity",
+      "requires": [
+        "ensemble-character-architecture",
+        "series-architecture",
+        "speculative-worldbuilding",
+        "structured-knowledge-artifact"
+      ],
+      "consumes": [
+        "character-ensemble.json",
+        "series-architecture.json",
+        "setup-payoff-ledger.json",
+        "world-model.json"
+      ],
+      "outputs": [
+        "canon-impact-analysis.json",
+        "continuity-review.json",
+        "knowledge-state.json",
+        "story-bible-index.json"
       ]
     },
     {
@@ -4269,6 +4464,10 @@
     },
     {
       "from": "audio-tutorial-workflow",
+      "to": "epub3-publication-renderer"
+    },
+    {
+      "from": "audio-tutorial-workflow",
       "to": "precision-writing-revision"
     },
     {
@@ -4480,6 +4679,46 @@
       "to": "multi-source-learning-synthesis"
     },
     {
+      "from": "creative-prose-revision",
+      "to": "creative-writing-workshop"
+    },
+    {
+      "from": "creative-writing-epub-delivery",
+      "to": "epub3-publication-renderer"
+    },
+    {
+      "from": "creative-writing-epub-delivery",
+      "to": "narrative-audiobook-listener-review"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "creative-writing-epub-delivery"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "fiction-series-writing-workflow"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "mentor-text-craft-analysis"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "project-second-brain"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "round-based-requirements-grilling"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "science-storytelling-workflow"
+    },
+    {
+      "from": "creative-writing-workflow",
+      "to": "thought-to-concept-flow"
+    },
+    {
       "from": "current-law-context",
       "to": "research-to-evidence-note"
     },
@@ -4618,6 +4857,10 @@
     {
       "from": "engineering-delivery-followup",
       "to": "two-axis-code-review"
+    },
+    {
+      "from": "ensemble-character-architecture",
+      "to": "structured-knowledge-artifact"
     },
     {
       "from": "esg-supply-chain-environmental-law-specialist",
@@ -4954,6 +5197,38 @@
     {
       "from": "fda-registration-listing-udi",
       "to": "regulatory-evidence-traceability"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "creative-prose-revision"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "creative-writing-workshop"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "ensemble-character-architecture"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "mentor-text-craft-analysis"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "project-second-brain"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "series-architecture"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "speculative-worldbuilding"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "story-bible-continuity"
     },
     {
       "from": "finance-insolvency-restructuring-law-specialist",
@@ -6508,6 +6783,34 @@
       "to": "round-based-requirements-grilling"
     },
     {
+      "from": "science-storytelling-workflow",
+      "to": "creative-prose-revision"
+    },
+    {
+      "from": "science-storytelling-workflow",
+      "to": "creative-writing-workshop"
+    },
+    {
+      "from": "science-storytelling-workflow",
+      "to": "mentor-text-craft-analysis"
+    },
+    {
+      "from": "science-storytelling-workflow",
+      "to": "precision-writing-revision"
+    },
+    {
+      "from": "science-storytelling-workflow",
+      "to": "research-to-evidence-note"
+    },
+    {
+      "from": "series-architecture",
+      "to": "ensemble-character-architecture"
+    },
+    {
+      "from": "series-architecture",
+      "to": "speculative-worldbuilding"
+    },
+    {
       "from": "skill-lifecycle-migration",
       "to": "skill-portfolio-audit"
     },
@@ -6518,6 +6821,10 @@
     {
       "from": "spec-to-vertical-issues",
       "to": "project-second-brain"
+    },
+    {
+      "from": "speculative-worldbuilding",
+      "to": "structured-knowledge-artifact"
     },
     {
       "from": "sport-adaptation-analysis",
@@ -6818,6 +7125,22 @@
     {
       "from": "sport-training-programming",
       "to": "sport-training-plan-workflow"
+    },
+    {
+      "from": "story-bible-continuity",
+      "to": "ensemble-character-architecture"
+    },
+    {
+      "from": "story-bible-continuity",
+      "to": "series-architecture"
+    },
+    {
+      "from": "story-bible-continuity",
+      "to": "speculative-worldbuilding"
+    },
+    {
+      "from": "story-bible-continuity",
+      "to": "structured-knowledge-artifact"
     },
     {
       "from": "supplier-quality-medical-device",
@@ -7206,6 +7529,11 @@
   ],
   "consumptionEdges": [
     {
+      "consumer": "audio-tutorial-workflow",
+      "artifact": "epub3-validation.json",
+      "producer": "epub3-publication-renderer"
+    },
+    {
       "consumer": "candidate-role-fit-assessment",
       "artifact": "role-architecture.json",
       "producer": "role-architecture"
@@ -7286,6 +7614,26 @@
       "producer": "legal-redline-review-loop"
     },
     {
+      "consumer": "creative-prose-revision",
+      "artifact": "creative-workshop-review.json",
+      "producer": "creative-writing-workshop"
+    },
+    {
+      "consumer": "creative-writing-epub-delivery",
+      "artifact": "epub3-validation.json",
+      "producer": "epub3-publication-renderer"
+    },
+    {
+      "consumer": "creative-writing-epub-delivery",
+      "artifact": "narrative-listener-review.json",
+      "producer": "narrative-audiobook-listener-review"
+    },
+    {
+      "consumer": "creative-writing-workflow",
+      "artifact": "requirements-handoff.json",
+      "producer": "round-based-requirements-grilling"
+    },
+    {
       "consumer": "difficult-conversation-workflow",
       "artifact": "leadership-feedback-plan.json",
       "producer": "leadership-feedback"
@@ -7319,6 +7667,36 @@
       "consumer": "euroimmun-pdf-report-renderer",
       "artifact": "euroimmun-report.docx",
       "producer": "euroimmun-docx-report-renderer"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "character-ensemble.json",
+      "producer": "ensemble-character-architecture"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "continuity-review.json",
+      "producer": "story-bible-continuity"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "creative-workshop-review.json",
+      "producer": "creative-writing-workshop"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "final-creative-text",
+      "producer": "creative-prose-revision"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "series-architecture.json",
+      "producer": "series-architecture"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "world-model.json",
+      "producer": "speculative-worldbuilding"
     },
     {
       "consumer": "job-description-authoring",
@@ -7631,6 +8009,36 @@
       "producer": "role-requirements-grilling"
     },
     {
+      "consumer": "science-storytelling-workflow",
+      "artifact": "creative-workshop-review.json",
+      "producer": "creative-writing-workshop"
+    },
+    {
+      "consumer": "science-storytelling-workflow",
+      "artifact": "evidence-note.json",
+      "producer": "research-to-evidence-note"
+    },
+    {
+      "consumer": "science-storytelling-workflow",
+      "artifact": "final-creative-text",
+      "producer": "creative-prose-revision"
+    },
+    {
+      "consumer": "science-storytelling-workflow",
+      "artifact": "precision-writing-report.json",
+      "producer": "precision-writing-revision"
+    },
+    {
+      "consumer": "series-architecture",
+      "artifact": "character-ensemble.json",
+      "producer": "ensemble-character-architecture"
+    },
+    {
+      "consumer": "series-architecture",
+      "artifact": "world-model.json",
+      "producer": "speculative-worldbuilding"
+    },
+    {
       "consumer": "sport-diagnostics-training-report-workflow",
       "artifact": "dr-komorowski-sport-report.docx",
       "producer": "dr-komorowski-sport-docx-report-renderer"
@@ -7754,6 +8162,26 @@
       "consumer": "sport-training-plan-workflow",
       "artifact": "strength-power-plan.json",
       "producer": "sport-strength-power-programming"
+    },
+    {
+      "consumer": "story-bible-continuity",
+      "artifact": "character-ensemble.json",
+      "producer": "ensemble-character-architecture"
+    },
+    {
+      "consumer": "story-bible-continuity",
+      "artifact": "series-architecture.json",
+      "producer": "series-architecture"
+    },
+    {
+      "consumer": "story-bible-continuity",
+      "artifact": "setup-payoff-ledger.json",
+      "producer": "series-architecture"
+    },
+    {
+      "consumer": "story-bible-continuity",
+      "artifact": "world-model.json",
+      "producer": "speculative-worldbuilding"
     },
     {
       "consumer": "template-document-workflow",
@@ -7916,7 +8344,6 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
-        "audio-tutorial-workflow",
         "contract-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
@@ -8402,6 +8829,15 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "canon-impact-analysis.json",
+      "producers": [
+        "story-bible-continuity"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "capa-effectiveness-plan.json",
       "producers": [
         "medical-device-capa"
@@ -8525,6 +8961,28 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "character-bible.md",
+      "producers": [
+        "ensemble-character-architecture"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "character-ensemble.json",
+      "producers": [
+        "ensemble-character-architecture"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow",
+        "series-architecture",
+        "story-bible-continuity"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
     },
     {
       "output": "claim-conflicts.json",
@@ -9154,6 +9612,17 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "continuity-review.json",
+      "producers": [
+        "story-bible-continuity"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "contract-case.json",
       "producers": [
         "contract-workflow"
@@ -9497,6 +9966,82 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
+    },
+    {
+      "output": "creative-epub-delivery.json",
+      "producers": [
+        "creative-writing-epub-delivery"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "creative-revision-report.json",
+      "producers": [
+        "creative-prose-revision"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "creative-voice-guidance.md",
+      "producers": [
+        "creative-writing-epub-delivery"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "creative-workshop-review.json",
+      "producers": [
+        "creative-writing-workshop"
+      ],
+      "consumerSkills": [
+        "creative-prose-revision",
+        "fiction-series-writing-workflow",
+        "science-storytelling-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "creative-workshop-review.md",
+      "producers": [
+        "creative-writing-workshop"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "creative-writing-handoff.json",
+      "producers": [
+        "creative-writing-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "creative-writing-run.json",
+      "producers": [
+        "creative-writing-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "creative-writing.epub",
+      "producers": [
+        "creative-writing-epub-delivery"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "criminal-counsel-brief.md",
@@ -10338,6 +10883,27 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "epub3-publication.epub",
+      "producers": [
+        "epub3-publication-renderer"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "epub3-validation.json",
+      "producers": [
+        "epub3-publication-renderer"
+      ],
+      "consumerSkills": [
+        "audio-tutorial-workflow",
+        "creative-writing-epub-delivery"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "esg-remediation-work-orders.json",
       "producers": [
         "esg-supply-chain-environmental-law-specialist"
@@ -10518,12 +11084,13 @@
         "professional-tax-knowledge-ingestion",
         "regulatory-change-monitoring",
         "regulatory-evidence-traceability",
+        "science-storytelling-workflow",
         "teach",
         "technology-offer-assessment",
         "two-axis-compliance-review"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "evidence-note.md",
@@ -10831,6 +11398,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "fiction-manuscript.md",
+      "producers": [
+        "fiction-series-writing-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fiction-series-run.json",
+      "producers": [
+        "fiction-series-writing-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "fidelity-review.md",
       "producers": [
         "rewrite-fidelity-verifier"
@@ -10959,12 +11544,23 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "final-creative-text",
+      "producers": [
+        "creative-prose-revision"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow",
+        "science-storytelling-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "final-revised-text",
       "producers": [
         "precision-writing-revision"
       ],
       "consumerSkills": [
-        "audio-tutorial-workflow",
         "person-profile-document-delivery",
         "person-research-report-workflow"
       ],
@@ -11826,9 +12422,11 @@
         "structured-knowledge-artifact"
       ],
       "consumerSkills": [
+        "ensemble-character-architecture",
         "knowledge-map-generator",
         "knowledge-view",
         "obsidian-adapter",
+        "speculative-worldbuilding",
         "thought-graph-extractor"
       ],
       "ambiguous": false,
@@ -11840,9 +12438,11 @@
         "structured-knowledge-artifact"
       ],
       "consumerSkills": [
+        "ensemble-character-architecture",
         "knowledge-map-generator",
         "knowledge-view",
         "obsidian-adapter",
+        "speculative-worldbuilding",
         "thought-graph-extractor"
       ],
       "ambiguous": false,
@@ -11874,6 +12474,15 @@
       "output": "knowledge-map.mmd",
       "producers": [
         "mermaid-knowledge-map-renderer"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "knowledge-state.json",
+      "producers": [
+        "story-bible-continuity"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -13214,6 +13823,24 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "mentor-craft-analysis.md",
+      "producers": [
+        "mentor-text-craft-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "mentor-craft-model.json",
+      "producers": [
+        "mentor-text-craft-analysis"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "merger-control-route-map.json",
       "producers": [
         "competition-antitrust-law-specialist"
@@ -13255,6 +13882,26 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "mixed"
+    },
+    {
+      "output": "narrative-listener-review.json",
+      "producers": [
+        "narrative-audiobook-listener-review"
+      ],
+      "consumerSkills": [
+        "creative-writing-epub-delivery"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "narrative-listener-review.md",
+      "producers": [
+        "narrative-audiobook-listener-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "negotiation-playbook.md",
@@ -13834,9 +14481,9 @@
         "precision-writing-revision"
       ],
       "consumerSkills": [
-        "audio-tutorial-workflow",
         "person-profile-document-delivery",
-        "person-research-report-workflow"
+        "person-research-report-workflow",
+        "science-storytelling-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "mixed"
@@ -15112,8 +15759,8 @@
         "round-based-requirements-grilling"
       ],
       "consumerSkills": [
-        "audio-tutorial-workflow",
         "contract-workflow",
+        "creative-writing-workflow",
         "frontend-design-shaping",
         "frontend-design-system-context",
         "frontend-product-context",
@@ -15121,7 +15768,7 @@
         "thought-to-concept-flow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "resolved-change-brief.md",
@@ -15441,6 +16088,33 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "science-narrative-model.json",
+      "producers": [
+        "science-storytelling-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "science-story.md",
+      "producers": [
+        "science-storytelling-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "science-storytelling-run.json",
+      "producers": [
+        "science-storytelling-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "scientific-validity-assessment.json",
       "producers": [
         "ivdr-scientific-validity"
@@ -15474,6 +16148,27 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "series-architecture.json",
+      "producers": [
+        "series-architecture"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow",
+        "story-bible-continuity"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "series-outline.md",
+      "producers": [
+        "series-architecture"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "service-complaint-handoff.json",
       "producers": [
         "medical-device-service-report-quality-routing"
@@ -15499,6 +16194,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "setup-payoff-ledger.json",
+      "producers": [
+        "series-architecture"
+      ],
+      "consumerSkills": [
+        "story-bible-continuity"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
     },
     {
       "output": "skill-evaluation-suite-authoring-report.json",
@@ -15632,22 +16338,18 @@
       "producers": [
         "spoken-tutorial-listener-review"
       ],
-      "consumerSkills": [
-        "audio-tutorial-workflow"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "spoken-tutorial-listener-review.md",
       "producers": [
         "spoken-tutorial-listener-review"
       ],
-      "consumerSkills": [
-        "audio-tutorial-workflow"
-      ],
+      "consumerSkills": [],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "spoken-tutorial.epub",
@@ -15852,6 +16554,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "story-bible-handoff.json",
+      "producers": [
+        "fiction-series-writing-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "story-bible-index.json",
+      "producers": [
+        "story-bible-continuity"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "strength-power-plan.json",
       "producers": [
         "sport-strength-power-programming"
@@ -15864,6 +16584,15 @@
       "consumptionStatus": "mixed"
     },
     {
+      "output": "structured character artifacts",
+      "producers": [
+        "ensemble-character-architecture"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "structured thought artifacts",
       "producers": [
         "thought-graph-extractor"
@@ -15873,6 +16602,15 @@
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
+    },
+    {
+      "output": "structured world artifacts",
+      "producers": [
+        "speculative-worldbuilding"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
     },
     {
       "output": "submission-readiness.json",
@@ -17174,6 +17912,28 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "world-bible.md",
+      "producers": [
+        "speculative-worldbuilding"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "world-model.json",
+      "producers": [
+        "speculative-worldbuilding"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow",
+        "series-architecture",
+        "story-bible-continuity"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "youtube-course-builder-run.json",
       "producers": [
         "youtube-course-builder-workflow"
@@ -17262,10 +18022,12 @@
     "candidate-interview-question-set.md",
     "candidate-role-fit.json",
     "candidate-role-fit.md",
+    "canon-impact-analysis.json",
     "cdx-consultation-readiness.json",
     "cdx-medicinal-product-linkage.json",
     "cdx-scope-assessment.json",
     "change-integration-status.json",
+    "character-bible.md",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
@@ -17291,6 +18053,13 @@
     "corporate-tax-assessment.json",
     "corporate-tax-open-issues.json",
     "corporate-tax-scenario-map.json",
+    "creative-epub-delivery.json",
+    "creative-revision-report.json",
+    "creative-voice-guidance.md",
+    "creative-workshop-review.md",
+    "creative-writing-handoff.json",
+    "creative-writing-run.json",
+    "creative-writing.epub",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
@@ -17325,6 +18094,7 @@
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
+    "epub3-publication.epub",
     "esg-remediation-work-orders.json",
     "esg-supply-chain-law-assessment.json",
     "estate-structure-map.json",
@@ -17351,6 +18121,8 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "fiction-manuscript.md",
+    "fiction-series-run.json",
     "finance-counsel-work-orders.json",
     "finance-restructuring-law-assessment.json",
     "finding-action-plan.json",
@@ -17399,6 +18171,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "knowledge-state.json",
     "leadership-coaching-state.json",
     "learning-practice-request.json",
     "legal-matter-handoff.json",
@@ -17423,8 +18196,11 @@
     "measurement-system-assessment.json",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
+    "mentor-craft-analysis.md",
+    "mentor-craft-model.json",
     "merger-control-route-map.json",
     "mrb-disposition-decision.json",
+    "narrative-listener-review.md",
     "negotiation-playbook.md",
     "next-training-decision.json",
     "nonconformance-assessment.json",
@@ -17501,6 +18277,10 @@
     "role-requirements-report.md",
     "rowing-legal-open-points.json",
     "sanctions-screening-route-map.json",
+    "science-narrative-model.json",
+    "science-story.md",
+    "science-storytelling-run.json",
+    "series-outline.md",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
@@ -17508,12 +18288,18 @@
     "skill-lifecycle-migration-plan.md",
     "source-context.md",
     "special-controls-matrix.json",
+    "spoken-tutorial-listener-review.json",
+    "spoken-tutorial-listener-review.md",
     "spoken-tutorial.epub",
     "spoken-tutorial.md",
     "sport-report-package",
     "sport-training-programming-compatibility-run.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
+    "story-bible-handoff.json",
+    "story-bible-index.json",
+    "structured character artifacts",
+    "structured world artifacts",
     "succession-professional-work-orders.json",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
@@ -17557,6 +18343,7 @@
     "workflow-benchmark-regression.py",
     "workflow-benchmark-spec.json",
     "works-council-route-map.json",
+    "world-bible.md",
     "youtube-course-builder-run.json"
   ],
   "orphanOutputs": [
@@ -17583,10 +18370,12 @@
     "candidate-interview-question-set.md",
     "candidate-role-fit.json",
     "candidate-role-fit.md",
+    "canon-impact-analysis.json",
     "cdx-consultation-readiness.json",
     "cdx-medicinal-product-linkage.json",
     "cdx-scope-assessment.json",
     "change-integration-status.json",
+    "character-bible.md",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
@@ -17612,6 +18401,13 @@
     "corporate-tax-assessment.json",
     "corporate-tax-open-issues.json",
     "corporate-tax-scenario-map.json",
+    "creative-epub-delivery.json",
+    "creative-revision-report.json",
+    "creative-voice-guidance.md",
+    "creative-workshop-review.md",
+    "creative-writing-handoff.json",
+    "creative-writing-run.json",
+    "creative-writing.epub",
     "criminal-counsel-brief.md",
     "criminal-procedure-assessment.json",
     "cybersecurity-evidence-map.json",
@@ -17646,6 +18442,7 @@
     "engineering-closure-gaps.json",
     "engineering-delivery-status.json",
     "engineering-iteration-return-input.json",
+    "epub3-publication.epub",
     "esg-remediation-work-orders.json",
     "esg-supply-chain-law-assessment.json",
     "estate-structure-map.json",
@@ -17672,6 +18469,8 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
+    "fiction-manuscript.md",
+    "fiction-series-run.json",
     "finance-counsel-work-orders.json",
     "finance-restructuring-law-assessment.json",
     "finding-action-plan.json",
@@ -17720,6 +18519,7 @@
     "job-description.md",
     "knowledge-map.md",
     "knowledge-map.mmd",
+    "knowledge-state.json",
     "leadership-coaching-state.json",
     "learning-practice-request.json",
     "legal-matter-handoff.json",
@@ -17744,8 +18544,11 @@
     "measurement-system-assessment.json",
     "memory-ledger.merged.json",
     "memory-reconciliation-plan.json",
+    "mentor-craft-analysis.md",
+    "mentor-craft-model.json",
     "merger-control-route-map.json",
     "mrb-disposition-decision.json",
+    "narrative-listener-review.md",
     "negotiation-playbook.md",
     "next-training-decision.json",
     "nonconformance-assessment.json",
@@ -17822,6 +18625,10 @@
     "role-requirements-report.md",
     "rowing-legal-open-points.json",
     "sanctions-screening-route-map.json",
+    "science-narrative-model.json",
+    "science-story.md",
+    "science-storytelling-run.json",
+    "series-outline.md",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
     "service-quality-routing.json",
@@ -17829,12 +18636,18 @@
     "skill-lifecycle-migration-plan.md",
     "source-context.md",
     "special-controls-matrix.json",
+    "spoken-tutorial-listener-review.json",
+    "spoken-tutorial-listener-review.md",
     "spoken-tutorial.epub",
     "spoken-tutorial.md",
     "sport-report-package",
     "sport-training-programming-compatibility-run.json",
     "stakeholder-questionnaire.json",
     "stakeholder-questionnaire.md",
+    "story-bible-handoff.json",
+    "story-bible-index.json",
+    "structured character artifacts",
+    "structured world artifacts",
     "succession-professional-work-orders.json",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
@@ -17878,6 +18691,7 @@
     "workflow-benchmark-regression.py",
     "workflow-benchmark-spec.json",
     "works-council-route-map.json",
+    "world-bible.md",
     "youtube-course-builder-run.json"
   ]
 }

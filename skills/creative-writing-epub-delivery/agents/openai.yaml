@@ -1,0 +1,5 @@
+interface:
+  display_name: "Creative Writing Epub Delivery"
+  short_description: "Liefert final freigegebene Science-Storytelling- oder Fiction-Manuskripte als ElevenReader-orientiertes EPUB3 aus, na..."
+policy:
+  allow_implicit_invocation: true

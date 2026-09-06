@@ -1,0 +1,5 @@
+interface:
+  display_name: "Story Bible Continuity"
+  short_description: "Verwaltet Fiction-Canon und prüft Szenen, Kapitel und Bände gegen Weltwahrheit, Figurenwissen/-glauben, Leserwissen,..."
+policy:
+  allow_implicit_invocation: true

@@ -111,7 +111,7 @@ Die Kapitelstruktur soll dem Lernweg dienen, nicht nur der ursprünglichen Dokum
 
 ### 5. EPUB rendern
 
-`spoken-tutorial.md` deterministisch mit `scripts/render_epub.py` als EPUB3 rendern. Der Renderer verändert keine Inhalte; er projiziert die bereits geprüfte Kapitelstruktur lediglich in EPUB-Navigation.
+`spoken-tutorial.md` über den gemeinsamen `epub3-publication-renderer` als EPUB3 rendern. Der Renderer verändert keine Inhalte; er projiziert die bereits geprüfte Kapitelstruktur lediglich in EPUB-Navigation. Der frühere lokale Renderer wird nicht als parallele Implementierung weitergeführt.
 
 Anforderungen:
 
@@ -162,6 +162,8 @@ Vor PASS prüfen:
 - englische Fassung verwendet amerikanisches Englisch;
 - Kapitel sind lernlogisch und für Pause/Fortsetzung geeignet;
 - EPUB besitzt echte Kapitel-Navigation;
+- `epub3-validation.json` meldet `structuralStatus=pass`;
+- ein struktureller EPUB-PASS wird nicht als realer ElevenReader-Importtest ausgegeben;
 - keine Tabellen- oder Layoutreste erzeugen unverständliche Sprachausgabe;
 - Stimmenempfehlung oder Voice-Design-Prompt liegt vor;
 - `spoken-tutorial-listener-review.json` liegt vor und hat `gateStatus=pass`;
@@ -181,6 +183,7 @@ Vor PASS prüfen:
   "style": "technical-scientific",
   "chapterCount": 0,
   "precisionWritingStatus": "pass|review|fail",
+  "epubValidationRef": "epub3-validation.json",
   "epubValidation": "pass|fail",
   "voiceGuidanceRef": "voice-guidance.md",
   "listenerReviewRef": "spoken-tutorial-listener-review.json",

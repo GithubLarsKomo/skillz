@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **323**
-- User-facing entrypoints: **264**
-- Discoverability — public: **255**, advanced: **9**, internal: **57**, compatibility: **2**
-- Evaluation suites: **323**
+- Skills: **336**
+- User-facing entrypoints: **275**
+- Discoverability — public: **265**, advanced: **10**, internal: **59**, compatibility: **2**
+- Evaluation suites: **336**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **323/323**
-- User-facing entrypoints with evaluation suite: **264/264**
+- Skills with evaluation suite: **336/336**
+- User-facing entrypoints with evaluation suite: **275/275**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **319**
+- Outputs without inferred hard-requires consumers: **346**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -60,10 +60,12 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `candidate-interview-question-set.md` — producer: `candidate-role-fit-assessment`
 - `candidate-role-fit.json` — producer: `candidate-role-fit-assessment`
 - `candidate-role-fit.md` — producer: `candidate-role-fit-assessment`
+- `canon-impact-analysis.json` — producer: `story-bible-continuity`
 - `cdx-consultation-readiness.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `cdx-medicinal-product-linkage.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `change-integration-status.json` — producer: `regulatory-change-impact-orchestrator`
+- `character-bible.md` — producer: `ensemble-character-architecture`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
@@ -89,6 +91,13 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `corporate-tax-assessment.json` — producer: `german-corporate-tax-specialist`
 - `corporate-tax-open-issues.json` — producer: `german-corporate-tax-specialist`
 - `corporate-tax-scenario-map.json` — producer: `german-corporate-tax-specialist`
+- `creative-epub-delivery.json` — producer: `creative-writing-epub-delivery`
+- `creative-revision-report.json` — producer: `creative-prose-revision`
+- `creative-voice-guidance.md` — producer: `creative-writing-epub-delivery`
+- `creative-workshop-review.md` — producer: `creative-writing-workshop`
+- `creative-writing-handoff.json` — producer: `creative-writing-workflow`
+- `creative-writing-run.json` — producer: `creative-writing-workflow`
+- `creative-writing.epub` — producer: `creative-writing-epub-delivery`
 - `criminal-counsel-brief.md` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `criminal-procedure-assessment.json` — producer: `german-criminal-administrative-offence-procedure-specialist`
 - `cybersecurity-evidence-map.json` — producer: `medical-device-cybersecurity-lifecycle`
@@ -123,6 +132,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `engineering-closure-gaps.json` — producer: `engineering-delivery-followup`
 - `engineering-delivery-status.json` — producer: `engineering-delivery-followup`
 - `engineering-iteration-return-input.json` — producer: `engineering-delivery-followup`
+- `epub3-publication.epub` — producer: `epub3-publication-renderer`
 - `esg-remediation-work-orders.json` — producer: `esg-supply-chain-environmental-law-specialist`
 - `esg-supply-chain-law-assessment.json` — producer: `esg-supply-chain-environmental-law-specialist`
 - `estate-structure-map.json` — producer: `german-inheritance-succession-law-specialist`
@@ -149,6 +159,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
+- `fiction-manuscript.md` — producer: `fiction-series-writing-workflow`
+- `fiction-series-run.json` — producer: `fiction-series-writing-workflow`
 - `finance-counsel-work-orders.json` — producer: `finance-insolvency-restructuring-law-specialist`
 - `finance-restructuring-law-assessment.json` — producer: `finance-insolvency-restructuring-law-specialist`
 - `finding-action-plan.json` — producer: `audit-inspection-finding-response`
@@ -197,6 +209,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `job-description.md` — producer: `job-description-authoring`
 - `knowledge-map.md` — producer: `mermaid-knowledge-map-renderer`
 - `knowledge-map.mmd` — producer: `mermaid-knowledge-map-renderer`
+- `knowledge-state.json` — producer: `story-bible-continuity`
 - `leadership-coaching-state.json` — producer: `leadership-coaching-workflow`
 - `learning-practice-request.json` — producer: `teach`
 - `legal-matter-handoff.json` — producer: `legal-compliance-office`
@@ -221,8 +234,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `measurement-system-assessment.json` — producer: `measurement-system-validation`
 - `memory-ledger.merged.json` — producer: `memory-sync-reconciliation`
 - `memory-reconciliation-plan.json` — producer: `memory-sync-reconciliation`
+- `mentor-craft-analysis.md` — producer: `mentor-text-craft-analysis`
+- `mentor-craft-model.json` — producer: `mentor-text-craft-analysis`
 - `merger-control-route-map.json` — producer: `competition-antitrust-law-specialist`
 - `mrb-disposition-decision.json` — producer: `nonconformance-mrb-disposition`
+- `narrative-listener-review.md` — producer: `narrative-audiobook-listener-review`
 - `negotiation-playbook.md` — producer: `legal-negotiation-strategy`
 - `next-training-decision.json` — producer: `sport-athlete-management`
 - `nonconformance-assessment.json` — producer: `nonconformance-mrb-disposition`
@@ -299,6 +315,10 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `role-requirements-report.md` — producer: `role-requirements-grilling`
 - `rowing-legal-open-points.json` — producer: `german-rowing-sport-law-specialist`
 - `sanctions-screening-route-map.json` — producer: `trade-sanctions-export-control-specialist`
+- `science-narrative-model.json` — producer: `science-storytelling-workflow`
+- `science-story.md` — producer: `science-storytelling-workflow`
+- `science-storytelling-run.json` — producer: `science-storytelling-workflow`
+- `series-outline.md` — producer: `series-architecture`
 - `service-complaint-handoff.json` — producer: `medical-device-service-report-quality-routing`
 - `service-event-quality-record.json` — producer: `medical-device-service-report-quality-routing`
 - `service-quality-routing.json` — producer: `medical-device-service-report-quality-routing`
@@ -306,12 +326,18 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `skill-lifecycle-migration-plan.md` — producer: `skill-lifecycle-migration`
 - `source-context.md` — producer: `source-to-context`
 - `special-controls-matrix.json` — producer: `fda-de-novo-special-controls`
+- `spoken-tutorial-listener-review.json` — producer: `spoken-tutorial-listener-review`
+- `spoken-tutorial-listener-review.md` — producer: `spoken-tutorial-listener-review`
 - `spoken-tutorial.epub` — producer: `audio-tutorial-workflow`
 - `spoken-tutorial.md` — producer: `audio-tutorial-workflow`
 - `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`
 - `sport-training-programming-compatibility-run.json` — producer: `sport-training-programming`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
+- `story-bible-handoff.json` — producer: `fiction-series-writing-workflow`
+- `story-bible-index.json` — producer: `story-bible-continuity`
+- `structured character artifacts` — producer: `ensemble-character-architecture`
+- `structured world artifacts` — producer: `speculative-worldbuilding`
 - `succession-professional-work-orders.json` — producer: `german-inheritance-succession-law-specialist`
 - `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
@@ -355,6 +381,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `workflow-benchmark-regression.py` — producer: `workflow-benchmark-authoring`
 - `workflow-benchmark-spec.json` — producer: `workflow-benchmark-authoring`
 - `works-council-route-map.json` — producer: `german-employment-labor-law-specialist`
+- `world-bible.md` — producer: `speculative-worldbuilding`
 - `youtube-course-builder-run.json` — producer: `youtube-course-builder-workflow`
 
 ## Interpretation
