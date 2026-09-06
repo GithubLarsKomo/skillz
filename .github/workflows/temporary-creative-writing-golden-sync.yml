@@ -1,0 +1,48 @@
+name: Temporary Creative Writing golden metadata sync
+
+on:
+  push:
+    branches:
+      - test/creative-writing-e2e-golden
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-creative-writing-golden-metadata-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate repository metadata
+        run: python scripts/generate_repository_metadata.py
+      - name: Verify generated state
+        run: python scripts/generate_repository_metadata.py --check
+      - name: Commit generated artifacts
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "Generated artifacts already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            README.md \
+            .skill-sync.json \
+            docs/skill-dependency-graph.json \
+            docs/SKILL-DEPENDENCIES.md \
+            docs/skill-capability-index.json \
+            docs/CAPABILITY-HEALTH.md \
+            obsidian
+          git commit -m "Regenerate Creative Writing golden workflow projections"
+          git push origin HEAD:test/creative-writing-e2e-golden
