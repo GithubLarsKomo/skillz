@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "skill": "creative-prose-revision",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Revise a chapter after a workshop identified a structural scene problem and local prose issues.",
+      "requiredBehaviors": [
+        "revise in developmental then scene then line order",
+        "preserve workshop-identified strengths",
+        "record which findings were applied"
+      ],
+      "forbiddenBehaviors": [
+        "polish sentences before resolving the structural issue",
+        "silently discard protected strengths"
+      ],
+      "skillAnchors": [
+        "Developmental vor Scene vor Line",
+        "Strength-Preservation-Einträge",
+        "angewandte Workshop-Findings"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The workshop recommends changing a memorable idiosyncratic sentence pattern, but it is listed as a protected strength.",
+      "requiredBehaviors": [
+        "treat strength preservation as a hard review anchor",
+        "seek a revision that solves the issue without flattening voice"
+      ],
+      "forbiddenBehaviors": [
+        "normalize the voice for uniformity alone"
+      ],
+      "skillAnchors": [
+        "Keine stilistische Glättung nur zur Gleichförmigkeit",
+        "geschützte Stärken"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A science narrative revision invents a new mechanism to improve drama.",
+      "requiredBehaviors": [
+        "block invention of new scientific facts",
+        "route factual changes to the science evidence path"
+      ],
+      "forbiddenBehaviors": [
+        "introduce unsupported factual claims"
+      ],
+      "skillAnchors": [
+        "Keine neuen Fakten in Science Writing",
+        "Fidelity-/Continuity-Rechecks"
+      ]
+    }
+  ]
+}
