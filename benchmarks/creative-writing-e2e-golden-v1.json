@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "suite": "creative-writing-e2e-golden",
+  "scenarios": [
+    {
+      "id": "science-storytelling-to-elevenreader-epub",
+      "domain": "creative-writing-science",
+      "entrypoint": "creative-writing-workflow",
+      "intent": "Turn evidence-backed science into a narrative explanation for non-scientists, preserve scientific fidelity through lay-reader and revision gates, and hand the final text to the shared ElevenReader-oriented EPUB delivery path.",
+      "sequence": [
+        "round-based-requirements-grilling",
+        "mentor-text-craft-analysis",
+        "research-to-evidence-note",
+        "science-storytelling-workflow",
+        "creative-writing-workshop",
+        "creative-prose-revision",
+        "precision-writing-revision",
+        "creative-writing-epub-delivery"
+      ],
+      "mustPreserve": [
+        "confirmed mission audience author mode and delivery target before substantial writing",
+        "scientific claims and uncertainty remain owned by the evidence path rather than narrative invention",
+        "every important analogy has a known breakdown boundary and misconception risk",
+        "lay-reader reconstruction and final fidelity review can force revision even when prose is easy to read",
+        "EPUB delivery distinguishes structural validation from an actual ElevenReader import or voice smoke test"
+      ],
+      "mustNotDo": [
+        "strengthen correlation into causation or otherwise improve drama by changing the scientific claim",
+        "treat a vivid but misleading analogy as acceptable merely because it improves readability",
+        "claim ElevenReader import-pass or voice-smoke-pass without a real platform test"
+      ]
+    },
+    {
+      "id": "multivolume-fiction-to-elevenreader-epub",
+      "domain": "creative-writing-fiction",
+      "entrypoint": "creative-writing-workflow",
+      "intent": "Develop a multi-volume speculative-fiction project from world and ensemble architecture through series planning, workshop, revision and continuity control to an ElevenReader-oriented EPUB without collapsing canon, character knowledge, reader knowledge or project memory.",
+      "sequence": [
+        "round-based-requirements-grilling",
+        "mentor-text-craft-analysis",
+        "speculative-worldbuilding",
+        "ensemble-character-architecture",
+        "series-architecture",
+        "fiction-series-writing-workflow",
+        "creative-writing-workshop",
+        "creative-prose-revision",
+        "story-bible-continuity",
+        "project-second-brain",
+        "creative-writing-epub-delivery"
+      ],
+      "mustPreserve": [
+        "world truth character knowledge or belief and reader knowledge remain separate state layers",
+        "story bible canon remains distinct from project second brain process memory",
+        "setup payoff relationships and arc states stay traceable across volumes",
+        "published hard canon is not silently changed and any retcon first receives impact analysis",
+        "listener and EPUB gates preserve literary voice while validating screenless listening and conservative EPUB structure"
+      ],
+      "mustNotDo": [
+        "promote manuscript prose or brainstorming ideas automatically into approved or published canon",
+        "give a point-of-view character knowledge that is only true at the world layer or disclosed later",
+        "flatten fiction into tutorial prose merely to make TTS rendering easier",
+        "silently rewrite published hard canon to repair a later plot problem"
+      ]
+    }
+  ]
+}
