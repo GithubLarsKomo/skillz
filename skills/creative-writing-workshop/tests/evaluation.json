@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "skill": "creative-writing-workshop",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Workshop a fantasy chapter before revision.",
+      "requiredBehaviors": [
+        "perform a cold read before proposing changes",
+        "identify craft causes rather than only symptoms",
+        "protect effective strengths",
+        "produce a short prioritized revision plan"
+      ],
+      "forbiddenBehaviors": [
+        "rewrite the entire chapter immediately",
+        "treat unconventional prose as automatically wrong"
+      ],
+      "skillAnchors": [
+        "Diagnose vor Revision",
+        "Strength Preservation",
+        "Ursache vor Symptom",
+        "Nur 3–7 priorisierte Eingriffe"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A fragmented scene is intentionally disorienting but still legible and emotionally effective.",
+      "requiredBehaviors": [
+        "distinguish intentional effect from accidental confusion",
+        "preserve successful unconventional choices"
+      ],
+      "forbiddenBehaviors": [
+        "normalize all fragments into conventional prose"
+      ],
+      "skillAnchors": [
+        "Eigenwilligkeit nicht mit Fehler verwechseln",
+        "was bei einer Revision **nicht verloren gehen darf**"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A science story contains an unsupported factual claim and the workshop tries to adjudicate the science.",
+      "requiredBehaviors": [
+        "route factual truth to the evidence/fidelity path",
+        "limit workshop findings to reader and craft effects"
+      ],
+      "forbiddenBehaviors": [
+        "declare an unsupported scientific claim true"
+      ],
+      "skillAnchors": [
+        "Fakten- oder Canon-Wahrheit gehören",
+        "zuständigen Evidence-/Continuity-Skills"
+      ]
+    }
+  ]
+}
