@@ -705,9 +705,9 @@
     },
     "icon-selector": {
       "files": {
-        "SKILL.md": "9b0d98a432e20c647ac1c0eeecf6f065256279c8c33c3ce9f5839321190dca09",
+        "SKILL.md": "7c67aa9e9c61adda72d8b9b21f65fbba5421d92549ec2cb14d2cbdf8149d857e",
         "agents/openai.yaml": "d04db0a262a999c6ed41d4a82219a6a1cffaa1087e5cd9ea384645f2952b34bf",
-        "references/provider-registry.json": "e2cba436369a15aac2c470d7eff1ef8c1941a5a723cd7c9e077a731e85c0e547"
+        "references/provider-registry.json": "caafdb55a6203e023aa21687a31eeb56d3e6c0f271a80bc5d4d5dcc8b3c49849"
       }
     },
     "iec62304-software-lifecycle": {

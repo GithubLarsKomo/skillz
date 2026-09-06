@@ -19,7 +19,13 @@
         "technique",
         "project",
         "variant-routing"
-      ]
+      ],
+      "runtimeAssetLocator": {
+        "surface": "library",
+        "provider": "google_drive",
+        "path": "/Google Drive/Skillz/Icons.zip",
+        "preferred": true
+      }
     }
   }
 }
