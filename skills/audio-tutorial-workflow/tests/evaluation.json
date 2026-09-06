@@ -10,6 +10,7 @@
         "run precision writing before spoken adaptation",
         "minimize unnecessary German anglicisms",
         "produce chaptered EPUB and voice guidance",
+        "delegate EPUB packaging to the shared epub3 publication renderer",
         "run the critical audiobook-listener gate before final release"
       ],
       "forbiddenBehaviors": [
@@ -22,6 +23,7 @@
         "Precision Writing Revision",
         "unnötige Anglizismen vermeiden",
         "EPUB rendern",
+        "gemeinsamen `epub3-publication-renderer`",
         "Stimme empfehlen",
         "Kritischer Hörbuchnutzer als Freigabe-Gate",
         "Nur `gateStatus=pass` erlaubt die finale Freigabe"
