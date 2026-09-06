@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "skill": "speculative-worldbuilding",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Build a hard-SF colony world around a scarce energy technology.",
+      "requiredBehaviors": [
+        "derive institutions and conflicts from rules resources access and control",
+        "track canon lifecycle explicitly",
+        "produce stable world entities"
+      ],
+      "forbiddenBehaviors": [
+        "generate disconnected lore without story consequences",
+        "treat brainstorming ideas as published canon"
+      ],
+      "skillAnchors": [
+        "Weltlogik vor Lore-Menge",
+        "Idee ist nicht Canon",
+        "stabilen IDs"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The fantasy setting intentionally uses mysterious magic whose exact mechanism should remain unknown.",
+      "requiredBehaviors": [
+        "allow consciously documented uncertainty",
+        "still define observable access costs limits or social effects where known"
+      ],
+      "forbiddenBehaviors": [
+        "force a fully quantified magic system"
+      ],
+      "skillAnchors": [
+        "bewusst dokumentierte Unbestimmtheit",
+        "bewusst mythisch-unklares System"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A speculative technology is described as established real science without evidence.",
+      "requiredBehaviors": [
+        "separate real scientific claims from speculative premises",
+        "mark the speculative boundary"
+      ],
+      "forbiddenBehaviors": [
+        "present speculation as verified science"
+      ],
+      "skillAnchors": [
+        "Reale wissenschaftliche Behauptungen und spekulative Setzungen ausdrücklich unterscheiden",
+        "Übergang aber sichtbar markieren"
+      ]
+    }
+  ]
+}
