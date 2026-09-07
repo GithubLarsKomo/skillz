@@ -4,7 +4,7 @@ description: Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -117,7 +117,54 @@ Mögliche Promotion:
 
 `draft-canon -> approved-canon -> published-hard-canon`.
 
-### 9. Project Memory
+### 9. Act-Level Editorial & Consistency Gate
+
+Nach Abschluss eines Aktes oder einer vergleichbaren größeren Einheit:
+
+- Developmental Lektorat über den gesamten Akt;
+- POV-/Rhythmus-/Wiederholungsprüfung;
+- Cross-Chapter-Continuity;
+- Reveal-Timing gegen Reader Knowledge und Architektur;
+- Setup/Payoff-Fortschritt;
+- Prüfung auf zu frühe Offenlegung;
+- Prüfung von Fakten, die erst in späteren Akten/Bänden Bedeutung erhalten sollen.
+
+**Wichtig:** Eine Aussage kann mit World Truth vereinbar und trotzdem falsch platziert sein, wenn sie dem Leser zu früh zu viel Sicherheit gibt.
+
+Für wichtige Wahrheiten/Mysterien nach Möglichkeit ein Reveal-Budget führen:
+
+- `earliestAllowed`;
+- `targetWindow`;
+- `latestUseful`;
+- `actualFirstDisclosure`;
+- `actualStrength` (`concealed|weakly-implied|strongly-implied|disclosed|confirmed`).
+
+Bei offenen Major/Critical Findings nicht einfach in den nächsten Akt fortschreiben.
+
+### 10. Full-Manuscript Editorial & Series Continuity Gate
+
+Nach vollständigem Manuskript und vor `publication-ready`:
+
+- globales Developmental Lektorat;
+- vollständige Timeline-/Geographie-/Objekt-/Verletzungs-/Ressourcenprüfung;
+- Namen, Titel, Familienbeziehungen, Institutionen und Terminologie;
+- Magie-/Fähigkeits-/Kostenkonsistenz;
+- Character-/Reader-Knowledge über alle Kapitel;
+- Relationship-/Arc-State-Konsistenz;
+- vollständige Setup/Payoff-Schließung;
+- Reveal-/Mystery-Integrität;
+- Voice-/Line-/Audio-Lektorat;
+- **Sequel-Reserve-Audit**.
+
+Jeder offene Setup-Faden muss vor Publikation entweder:
+
+1. im aktuellen Band bezahlt sein;
+2. ausdrücklich `sequel-reserve`/späterer Horizont sein;
+3. bewusst ungelöst sein und als solcher dokumentiert sein.
+
+Fakten, die spätere Romane vorbereiten, müssen stabil referenzierbar sein und dürfen im aktuellen Band weder versehentlich widersprochen noch zu früh erklärt werden.
+
+### 11. Project Memory
 
 Wesentliche Projektentscheidung, Canon Freeze, abgeschlossener Band oder wichtiger Richtungswechsel kann als Project-Second-Brain-Event verankert werden. Story Bible und Project Memory bleiben getrennt.
 
@@ -128,7 +175,10 @@ Wesentliche Projektentscheidung, Canon Freeze, abgeschlossener Band oder wichtig
 - POV-Figur besitzt nur den zulässigen Knowledge State.
 - Neue Weltregeln werden nicht beiläufig ohne Canon-Entscheidung eingeführt.
 - Discovery-Writing darf Architektur verändern, aber nicht rückwirkend Hard Canon löschen.
-- Ein Band kann erst als publication-ready markiert werden, wenn offene Major/Critical Continuity Findings geschlossen sind.
+- Ein Akt darf nicht ohne bewusste Entscheidung über offene Major/Critical Act-Level-Findings verhärtet werden.
+- Ein Band kann erst als publication-ready markiert werden, wenn offene Major/Critical Chapter-, Act- und Full-Manuscript-Continuity Findings geschlossen sind.
+- Publication-ready verlangt zusätzlich eine klassifizierte Setup/Payoff- und Sequel-Reserve-Bilanz.
+- Offenlegungszeitpunkt und -stärke sind Teil der Continuity, nicht nur faktische Widerspruchsfreiheit.
 
 ## Output
 
@@ -138,4 +188,10 @@ Wesentliche Projektentscheidung, Canon Freeze, abgeschlossener Band oder wichtig
 
 ## Abschluss
 
-Ein Schreibinkrement ist abgeschlossen, wenn Manuskript, Workshop, Revision und Continuity Gate konsistent sind und Canon-Kandidaten getrennt übergeben wurden. Ein Gesamtprojekt endet erst nach dem vereinbarten Publikations-/Delivery-Schritt.
+Ein Schreibinkrement ist abgeschlossen, wenn Manuskript, Workshop, Revision und Continuity Gate konsistent sind und Canon-Kandidaten getrennt übergeben wurden.
+
+Ein Akt ist erst abgeschlossen, wenn zusätzlich das Act-Level Editorial & Consistency Gate passiert ist.
+
+Ein Gesamtmanuskript ist erst publication-ready, wenn das Full-Manuscript Editorial & Series Continuity Gate inklusive Reveal- und Sequel-Reserve-Audit bestanden ist.
+
+Ein Gesamtprojekt endet erst nach dem vereinbarten Publikations-/Delivery-Schritt.

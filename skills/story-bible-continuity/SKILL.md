@@ -4,7 +4,7 @@ description: Verwaltet Fiction-Canon und prüft Szenen, Kapitel und Bände gegen
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
@@ -59,6 +59,27 @@ Für Publikations-/Szenenpunkte:
 - contradicted by apparent evidence.
 
 **World Truth, Character State und Reader State dürfen nicht kollabieren.**
+
+## Reveal Timing
+
+Reader Knowledge besitzt nicht nur einen Zustand, sondern auch einen **zulässigen Zeitpunkt und eine Stärke**.
+
+Für wichtige Fakten/Mysterien nach Möglichkeit modellieren:
+
+- `earliestAllowed`;
+- `targetWindow`;
+- `latestUseful`;
+- `actualFirstDisclosure`;
+- `actualStrength`.
+
+Eine wahre Aussage kann ein Continuity-Fehler sein, wenn sie dem Leser zu früh als gesicherte Wahrheit präsentiert wird.
+
+Prüfe insbesondere:
+
+- versehentliche Bestätigung eines späteren Reveals;
+- wiederholte schwache Hinweise, die kumulativ bereits starke Gewissheit erzeugen;
+- Figurenwissen, das indirekt zu viel Leserwissen verrät;
+- Metaphern/Dialoge, die Mystery-Fakten unbeabsichtigt benennen.
 
 ## Zeitmodell
 
@@ -118,6 +139,44 @@ Eine Änderung publizierten Hard Canons erzeugt zuerst `canon-impact-analysis.js
 
 **Kein Retcon ohne Impact Analysis.**
 
+## Sequel Reserves
+
+Fakten, Setups und Mysterien für spätere Bände werden explizit klassifiziert.
+
+Mindestens dokumentieren:
+
+- stabile ID;
+- aktueller Canon State;
+- `openPurpose` oder gleichwertig (`sequel-reserve`, `later-volume`, `intentional-unresolved`);
+- beabsichtigter Horizont;
+- maximale Offenlegungsstärke im aktuellen Band;
+- abhängige spätere Arcs/Fakten, soweit bekannt.
+
+Vor Veröffentlichung eines Bandes prüfen:
+
+- Wurde ein späterer Fakt versehentlich geschlossen oder widersprochen?
+- Erzeugt aktueller Hard Canon unnötige Retcon-Pflicht für einen geplanten Folgeband?
+- Ist die aktuelle Geschichte trotzdem lokal geschlossen?
+- Wird ein zentrales Versprechen fälschlich nur in die Fortsetzung verschoben?
+
+## Whole-Manuscript Continuity Audit
+
+Vor Publication Freeze muss ein vollständiger Audit über den Band laufen:
+
+- Timeline/Alter;
+- Geographie/Reisezeit/Jahreszeit;
+- Verletzungen, Ressourcen, Geld, Objekte;
+- Namen, Titel, Familienbeziehungen;
+- Weltregeln/Magie/Fähigkeiten;
+- Institutionen/Politik/Recht;
+- Character Knowledge/Belief;
+- Reader Knowledge und Reveal Timing;
+- Beziehungen und Arc States;
+- alle Setups/Payoffs;
+- Sequel Reserves.
+
+Major/Critical Findings blockieren Publication Freeze.
+
 ## Story Bible versus Project Second Brain
 
 Story Bible: Wahrheit innerhalb der Fiktion.  
@@ -132,6 +191,8 @@ Beide dürfen aufeinander verweisen, aber nicht dieselben Zustände besitzen.
 - Intentional deception wird nicht als Kontinuitätsfehler gewertet, wenn sie modelliert ist.
 - Jeder Major/Critical Finding verweist auf betroffene Canon-/Scene-IDs.
 - Neue Draft-Ideen überschreiben keinen freigegebenen Canon.
+- Zu frühe oder zu starke Offenlegung gilt als Continuity Finding, selbst wenn die Aussage faktisch wahr ist.
+- Jeder offene Faden vor Publication Freeze ist als aktueller Payoff, bewusste offene Frage oder Sequel Reserve klassifiziert.
 
 ## Abschluss
 
