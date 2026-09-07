@@ -4,7 +4,7 @@ generated: true
 name: "fiction-series-writing-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -62,7 +62,7 @@ Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
+- Passed: `False`
 - Cases: `3`
 - Recorded results: `3`
 

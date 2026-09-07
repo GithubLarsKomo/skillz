@@ -568,7 +568,7 @@
     },
     "fiction-series-writing-workflow": {
       "files": {
-        "SKILL.md": "0eb625511ded445930d1d80286b66c2ea7b7b79107f8e599b9131c16108b6c7f",
+        "SKILL.md": "c3ed3e7a7ff1b57cee81842c37add2ebb8cd50fb4aca78d231773e0824400351",
         "agents/openai.yaml": "049fdf20175d91a8add5e5dfd3d514ce1968bcb432862385f046c08b99ba99bf"
       }
     },
@@ -1849,7 +1849,7 @@
     },
     "story-bible-continuity": {
       "files": {
-        "SKILL.md": "550b6441c2fa9f651e2be1666d2557f4b560788fb974c40bee816066ea97afc7",
+        "SKILL.md": "214f607bb72f3d9d4c52ca0b7448b1927f72b6355d9c1f320e2c0a760c2e59f2",
         "agents/openai.yaml": "0dc1e00c2a977dddaeef30f634270870bd1b72f1b437e79b6af525f1402b7fad"
       }
     },
