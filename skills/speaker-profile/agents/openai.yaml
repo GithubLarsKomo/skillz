@@ -1,0 +1,5 @@
+interface:
+  display_name: "Speaker Profile"
+  short_description: "Erfasst bestätigte sprecherbezogene Stilmerkmale für deutsche und englische Reden und Vorträge."
+policy:
+  allow_implicit_invocation: true

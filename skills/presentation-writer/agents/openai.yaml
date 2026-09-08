@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Writer"
+  short_description: "Entwickelt Narrativ, Übergänge, Speaker Notes und Timing für strukturierte Vorträge."
+policy:
+  allow_implicit_invocation: true

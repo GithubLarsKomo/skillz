@@ -1,0 +1,5 @@
+interface:
+  display_name: "Slide Architect"
+  short_description: "Übersetzt Vortragskonzepte in Folien mit klarer Funktion, Botschaft, Visualisierung und Timing."
+policy:
+  allow_implicit_invocation: true

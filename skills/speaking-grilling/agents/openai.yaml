@@ -1,0 +1,5 @@
+interface:
+  display_name: "Speaking Grilling"
+  short_description: "Erhebt ein belastbares Briefing für Reden und Vorträge durch fokussiertes rundebasiertes Grilling."
+policy:
+  allow_implicit_invocation: true

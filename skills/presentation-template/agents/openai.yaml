@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Template"
+  short_description: "Bereitet PPT-Templates, Referenzdecks oder ein neues Designprofil für den Präsentations-Handoff auf."
+policy:
+  allow_implicit_invocation: true

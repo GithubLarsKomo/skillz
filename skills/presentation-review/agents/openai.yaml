@@ -1,0 +1,5 @@
+interface:
+  display_name: "Presentation Review"
+  short_description: "Prüft Storyline, Folien, Speaker Notes, Design, Timing und Fidelity vor dem PPT-Handoff."
+policy:
+  allow_implicit_invocation: true
