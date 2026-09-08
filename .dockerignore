@@ -1,0 +1,14 @@
+.git
+.github
+.pytest_cache
+**/__pycache__
+**/*.pyc
+benchmarks
+distribution
+obsidian
+plugins
+providers
+scripts
+tests
+SPEC.md
+TASK.md
