@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "skill": "character-voice-fingerprint",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create voice fingerprints for four protagonists from different social and professional backgrounds before drafting ensemble dialogue.",
+      "requiredBehaviors": [
+        "derive voice from character background status relationship and stress rather than from gimmicks",
+        "record syntax vocabulary metaphor conversational strategy and state-dependent changes",
+        "run speaker-swap blind-attribution and collision checks on representative dialogue",
+        "preserve a shared house style while keeping character-owned differences"
+      ],
+      "forbiddenBehaviors": [
+        "use caricatured phonetic accents as the default differentiator",
+        "assign random catchphrases only to make speakers easy to identify",
+        "flatten every character into maximally different prose"
+      ],
+      "skillAnchors": [
+        "Speaker-Swap-Test",
+        "Blind Attribution Test",
+        "Narrator-Contamination-Check",
+        "Keine globale Stilglättung"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "Two officers share institutional jargon but have very different power styles and personal histories.",
+      "requiredBehaviors": [
+        "allow intentional shared institutional register",
+        "differentiate syntax priorities status behavior metaphor and conversational strategy where character evidence supports it",
+        "document intentional shared language separately from harmful collisions"
+      ],
+      "forbiddenBehaviors": [
+        "treat every shared technical term as a voice collision",
+        "remove realistic institutional language solely for differentiation"
+      ],
+      "skillAnchors": [
+        "intentional-shared-register",
+        "Status-/Anrede-Check",
+        "Metaphern-Domain-Check"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "All protagonists now use the narrator's short correction formulas and the same one-word reactions across several chapters.",
+      "requiredBehaviors": [
+        "identify cross-character cadence convergence",
+        "record recurring short-phrase collisions and narrator contamination",
+        "block act hardening when the pattern is major until revised or dispositioned"
+      ],
+      "forbiddenBehaviors": [
+        "pass the voice gate because each character has a different biography on paper",
+        "fix the issue by changing plot or canon without authorization"
+      ],
+      "skillAnchors": [
+        "Kurzphrasen-Kollisionsscan",
+        "Narrator-Contamination-Check",
+        "Bei Major/Critical Finding keine Act-Härtung"
+      ]
+    }
+  ]
+}
