@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fiction Award Jury Review"
+  short_description: "Simuliert getrennte Hugo-, Nebula- und World-Fantasy-Perspektiven und übersetzt Dissens in evidenzgebundene Revisionsloops."
+policy:
+  allow_implicit_invocation: true
