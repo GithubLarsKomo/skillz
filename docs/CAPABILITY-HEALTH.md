@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **336**
-- User-facing entrypoints: **275**
-- Discoverability — public: **265**, advanced: **10**, internal: **59**, compatibility: **2**
-- Evaluation suites: **336**
+- Skills: **337**
+- User-facing entrypoints: **276**
+- Discoverability — public: **266**, advanced: **10**, internal: **59**, compatibility: **2**
+- Evaluation suites: **337**
 - Executed evaluation suites: **FAIL**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **336/336**
-- User-facing entrypoints with evaluation suite: **275/275**
+- Skills with evaluation suite: **337/337**
+- User-facing entrypoints with evaluation suite: **276/276**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **346**
+- Outputs without inferred hard-requires consumers: **348**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -159,7 +159,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `fda-registration-readiness.json` — producer: `fda-registration-listing-udi`
 - `fda-request-issue-map.json` — producer: `fda-additional-information-response`
 - `fda-response-package.md` — producer: `fda-additional-information-response`
-- `fiction-manuscript.md` — producer: `fiction-series-writing-workflow`
+- `fiction-award-jury-review.md` — producer: `fiction-award-jury-review`
+- `fiction-award-regression-review.json` — producer: `fiction-award-jury-review`
+- `fiction-award-revision-plan.md` — producer: `fiction-award-jury-review`
 - `fiction-series-run.json` — producer: `fiction-series-writing-workflow`
 - `finance-counsel-work-orders.json` — producer: `finance-insolvency-restructuring-law-specialist`
 - `finance-restructuring-law-assessment.json` — producer: `finance-insolvency-restructuring-law-specialist`

@@ -29,6 +29,7 @@ Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell
 - [[skills/creative-prose-revision|creative-prose-revision]]
 - [[skills/creative-writing-workshop|creative-writing-workshop]]
 - [[skills/ensemble-character-architecture|ensemble-character-architecture]]
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/mentor-text-craft-analysis|mentor-text-craft-analysis]]
 - [[skills/project-second-brain|project-second-brain]]
 - [[skills/series-architecture|series-architecture]]
@@ -49,7 +50,7 @@ Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell
 
 ### `fiction-manuscript.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 
 ### `fiction-series-run.json`
 

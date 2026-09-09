@@ -1131,11 +1131,31 @@
       ]
     },
     {
+      "name": "fiction-award-jury-review",
+      "requires": [
+        "creative-writing-workshop",
+        "story-bible-continuity"
+      ],
+      "consumes": [
+        "continuity-review.json",
+        "creative-workshop-review.json",
+        "fiction-manuscript.md"
+      ],
+      "outputs": [
+        "fiction-award-critique-ledger.json",
+        "fiction-award-jury-review.json",
+        "fiction-award-jury-review.md",
+        "fiction-award-regression-review.json",
+        "fiction-award-revision-plan.md"
+      ]
+    },
+    {
       "name": "fiction-series-writing-workflow",
       "requires": [
         "creative-prose-revision",
         "creative-writing-workshop",
         "ensemble-character-architecture",
+        "fiction-award-jury-review",
         "mentor-text-craft-analysis",
         "project-second-brain",
         "series-architecture",
@@ -1146,6 +1166,8 @@
         "character-ensemble.json",
         "continuity-review.json",
         "creative-workshop-review.json",
+        "fiction-award-critique-ledger.json",
+        "fiction-award-jury-review.json",
         "final-creative-text",
         "series-architecture.json",
         "world-model.json"
@@ -5199,6 +5221,14 @@
       "to": "regulatory-evidence-traceability"
     },
     {
+      "from": "fiction-award-jury-review",
+      "to": "creative-writing-workshop"
+    },
+    {
+      "from": "fiction-award-jury-review",
+      "to": "story-bible-continuity"
+    },
+    {
       "from": "fiction-series-writing-workflow",
       "to": "creative-prose-revision"
     },
@@ -5209,6 +5239,10 @@
     {
       "from": "fiction-series-writing-workflow",
       "to": "ensemble-character-architecture"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "fiction-award-jury-review"
     },
     {
       "from": "fiction-series-writing-workflow",
@@ -7669,6 +7703,21 @@
       "producer": "euroimmun-docx-report-renderer"
     },
     {
+      "consumer": "fiction-award-jury-review",
+      "artifact": "continuity-review.json",
+      "producer": "story-bible-continuity"
+    },
+    {
+      "consumer": "fiction-award-jury-review",
+      "artifact": "creative-workshop-review.json",
+      "producer": "creative-writing-workshop"
+    },
+    {
+      "consumer": "fiction-award-jury-review",
+      "artifact": "fiction-manuscript.md",
+      "producer": "fiction-series-writing-workflow"
+    },
+    {
       "consumer": "fiction-series-writing-workflow",
       "artifact": "character-ensemble.json",
       "producer": "ensemble-character-architecture"
@@ -7682,6 +7731,16 @@
       "consumer": "fiction-series-writing-workflow",
       "artifact": "creative-workshop-review.json",
       "producer": "creative-writing-workshop"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "fiction-award-critique-ledger.json",
+      "producer": "fiction-award-jury-review"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "fiction-award-jury-review.json",
+      "producer": "fiction-award-jury-review"
     },
     {
       "consumer": "fiction-series-writing-workflow",
@@ -9617,6 +9676,7 @@
         "story-bible-continuity"
       ],
       "consumerSkills": [
+        "fiction-award-jury-review",
         "fiction-series-writing-workflow"
       ],
       "ambiguous": false,
@@ -10001,6 +10061,7 @@
       ],
       "consumerSkills": [
         "creative-prose-revision",
+        "fiction-award-jury-review",
         "fiction-series-writing-workflow",
         "science-storytelling-workflow"
       ],
@@ -11398,13 +11459,64 @@
       "consumptionStatus": "unconsumed"
     },
     {
-      "output": "fiction-manuscript.md",
+      "output": "fiction-award-critique-ledger.json",
       "producers": [
+        "fiction-award-jury-review"
+      ],
+      "consumerSkills": [
         "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "fiction-award-jury-review.json",
+      "producers": [
+        "fiction-award-jury-review"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "fiction-award-jury-review.md",
+      "producers": [
+        "fiction-award-jury-review"
       ],
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fiction-award-regression-review.json",
+      "producers": [
+        "fiction-award-jury-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fiction-award-revision-plan.md",
+      "producers": [
+        "fiction-award-jury-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "fiction-manuscript.md",
+      "producers": [
+        "fiction-series-writing-workflow"
+      ],
+      "consumerSkills": [
+        "fiction-award-jury-review"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
     },
     {
       "output": "fiction-series-run.json",
@@ -18121,7 +18233,9 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
-    "fiction-manuscript.md",
+    "fiction-award-jury-review.md",
+    "fiction-award-regression-review.json",
+    "fiction-award-revision-plan.md",
     "fiction-series-run.json",
     "finance-counsel-work-orders.json",
     "finance-restructuring-law-assessment.json",
@@ -18469,7 +18583,9 @@
     "fda-registration-readiness.json",
     "fda-request-issue-map.json",
     "fda-response-package.md",
-    "fiction-manuscript.md",
+    "fiction-award-jury-review.md",
+    "fiction-award-regression-review.json",
+    "fiction-award-revision-plan.md",
     "fiction-series-run.json",
     "finance-counsel-work-orders.json",
     "finance-restructuring-law-assessment.json",

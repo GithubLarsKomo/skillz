@@ -31,6 +31,7 @@ Prüft kreative Prosa als strukturierte Schreibwerkstatt mit Cold Read, Craft-Di
 ## Required by
 
 - [[skills/creative-prose-revision|creative-prose-revision]]
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
 
@@ -44,6 +45,7 @@ Prüft kreative Prosa als strukturierte Schreibwerkstatt mit Cold Read, Craft-Di
 ### `creative-workshop-review.json`
 
 - [[skills/creative-prose-revision|creative-prose-revision]]
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
 

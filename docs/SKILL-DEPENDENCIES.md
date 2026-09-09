@@ -194,9 +194,12 @@ graph TD
   fda_registration_listing_udi --> medical_device_labeling_ifu
   fda_registration_listing_udi --> regulated_product_context
   fda_registration_listing_udi --> regulatory_evidence_traceability
+  fiction_award_jury_review --> creative_writing_workshop
+  fiction_award_jury_review --> story_bible_continuity
   fiction_series_writing_workflow --> creative_prose_revision
   fiction_series_writing_workflow --> creative_writing_workshop
   fiction_series_writing_workflow --> ensemble_character_architecture
+  fiction_series_writing_workflow --> fiction_award_jury_review
   fiction_series_writing_workflow --> mentor_text_craft_analysis
   fiction_series_writing_workflow --> project_second_brain
   fiction_series_writing_workflow --> series_architecture
@@ -812,9 +815,14 @@ graph TD
 | `document-render-verifier` | `document-layout-qa.json` | `document-layout-qa` |
 | `dr-komorowski-sport-pdf-report-renderer` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
 | `euroimmun-pdf-report-renderer` | `euroimmun-report.docx` | `euroimmun-docx-report-renderer` |
+| `fiction-award-jury-review` | `continuity-review.json` | `story-bible-continuity` |
+| `fiction-award-jury-review` | `creative-workshop-review.json` | `creative-writing-workshop` |
+| `fiction-award-jury-review` | `fiction-manuscript.md` | `fiction-series-writing-workflow` |
 | `fiction-series-writing-workflow` | `character-ensemble.json` | `ensemble-character-architecture` |
 | `fiction-series-writing-workflow` | `continuity-review.json` | `story-bible-continuity` |
 | `fiction-series-writing-workflow` | `creative-workshop-review.json` | `creative-writing-workshop` |
+| `fiction-series-writing-workflow` | `fiction-award-critique-ledger.json` | `fiction-award-jury-review` |
+| `fiction-series-writing-workflow` | `fiction-award-jury-review.json` | `fiction-award-jury-review` |
 | `fiction-series-writing-workflow` | `final-creative-text` | `creative-prose-revision` |
 | `fiction-series-writing-workflow` | `series-architecture.json` | `series-architecture` |
 | `fiction-series-writing-workflow` | `world-model.json` | `speculative-worldbuilding` |
@@ -1059,7 +1067,7 @@ graph TD
 | `consistency report` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
 | `containment-actions.json` | `nonconformance-mrb-disposition` | — | unconsumed |
 | `continuation result` | `deferred-external-action-verification` | `engineering-delivery-followup`, `implement-from-issue`, `merge-conflict-resolution`, `qms-management-review-action-followup` | inferred |
-| `continuity-review.json` | `story-bible-continuity` | `fiction-series-writing-workflow` | explicit |
+| `continuity-review.json` | `story-bible-continuity` | `fiction-award-jury-review`, `fiction-series-writing-workflow` | explicit |
 | `contract-case.json` | `contract-workflow` | — | unconsumed |
 | `contract-draft.md` | `contract-drafting` | `contract-matter-workflow` | explicit |
 | `contract-drafting-report.json` | `contract-drafting` | `contract-matter-workflow` | explicit |
@@ -1093,7 +1101,7 @@ graph TD
 | `creative-epub-delivery.json` | `creative-writing-epub-delivery` | — | unconsumed |
 | `creative-revision-report.json` | `creative-prose-revision` | — | unconsumed |
 | `creative-voice-guidance.md` | `creative-writing-epub-delivery` | — | unconsumed |
-| `creative-workshop-review.json` | `creative-writing-workshop` | `creative-prose-revision`, `fiction-series-writing-workflow`, `science-storytelling-workflow` | explicit |
+| `creative-workshop-review.json` | `creative-writing-workshop` | `creative-prose-revision`, `fiction-award-jury-review`, `fiction-series-writing-workflow`, `science-storytelling-workflow` | explicit |
 | `creative-workshop-review.md` | `creative-writing-workshop` | — | unconsumed |
 | `creative-writing-handoff.json` | `creative-writing-workflow` | — | unconsumed |
 | `creative-writing-run.json` | `creative-writing-workflow` | — | unconsumed |
@@ -1217,7 +1225,12 @@ graph TD
 | `fda-regulatory-investigations.json` | `fda-medical-device-ivd-regulatory-specialist` | `fda-estar-submission-builder`, `fda-qsub-strategy`, `medical-device-regulatory-strategy` | inferred |
 | `fda-request-issue-map.json` | `fda-additional-information-response` | — | unconsumed |
 | `fda-response-package.md` | `fda-additional-information-response` | — | unconsumed |
-| `fiction-manuscript.md` | `fiction-series-writing-workflow` | — | unconsumed |
+| `fiction-award-critique-ledger.json` | `fiction-award-jury-review` | `fiction-series-writing-workflow` | explicit |
+| `fiction-award-jury-review.json` | `fiction-award-jury-review` | `fiction-series-writing-workflow` | explicit |
+| `fiction-award-jury-review.md` | `fiction-award-jury-review` | — | unconsumed |
+| `fiction-award-regression-review.json` | `fiction-award-jury-review` | — | unconsumed |
+| `fiction-award-revision-plan.md` | `fiction-award-jury-review` | — | unconsumed |
+| `fiction-manuscript.md` | `fiction-series-writing-workflow` | `fiction-award-jury-review` | explicit |
 | `fiction-series-run.json` | `fiction-series-writing-workflow` | — | unconsumed |
 | `fidelity-review.md` | `rewrite-fidelity-verifier` | `precision-writing-revision`, `presentation-language-rewriter` | inferred |
 | `field-action-closure-readiness.json` | `medical-device-field-action-effectiveness` | `fda-recall-status-termination`, `ivdr-fsca-status-final-reporting` | inferred |

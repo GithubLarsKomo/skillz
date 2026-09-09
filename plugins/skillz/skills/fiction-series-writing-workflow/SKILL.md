@@ -113,6 +113,21 @@ Für wichtige Wahrheiten/Mysterien nach Möglichkeit ein Reveal-Budget führen:
 
 Bei offenen Major/Critical Findings nicht einfach in den nächsten Akt fortschreiben.
 
+### 9a. Act-Level Award Jury Diagnostic
+
+Für ambitionierte Science-Fiction-/Fantasy-Projekte nach dem Act-Level Editorial & Consistency Gate fiction-award-jury-review mit scope act ausführen.
+
+Dabei:
+
+- Manuskript zuerst blind gegen drei getrennte Perspektiven lesen lassen;
+- Hugo-, Nebula- und World-Fantasy-inspirierte Kammern nicht vorzeitig gegenseitig beeinflussen;
+- Kill Reasons, Protect List, Minority Report und Critique Ledger erzeugen;
+- S3-Award-Blocker vor weiterem Hardening explizit disponieren;
+- maximal 3–7 Revisionshypothesen in den nächsten Loop übernehmen;
+- kein S0-Protect-Element durch eine vermeintliche Glättung beschädigen.
+
+Ein Act-Level Award Diagnostic ersetzt weder Continuity noch normales Developmental Editing. Er prüft, ob der bereits technisch konsistente Text als speculative fiction außergewöhnlich genug wirkt und wo unterschiedliche Leser-/Autor-/Literaturperspektiven miteinander kollidieren.
+
 ### 10. Full-Manuscript Editorial & Series Continuity Gate
 
 Nach vollständigem Manuskript und vor `publication-ready`:
@@ -127,6 +142,14 @@ Nach vollständigem Manuskript und vor `publication-ready`:
 - Reveal-/Mystery-Integrität;
 - Voice-/Line-/Audio-Lektorat;
 - **Sequel-Reserve-Audit**.
+
+Danach fiction-award-jury-review mit scope full-manuscript ausführen. Vor Publication Freeze müssen:
+
+- Cross-Jury Tribunal und Minority Report vorliegen;
+- alle S3-Award-Blocker revidiert, bewusst akzeptiert oder begründet deferred sein;
+- Protect List gegen Line-/Voice-/Audio-Polish gesichert sein;
+- ein priorisierter Award-Revisionsloop abgeschlossen oder explizit als Design-Trade-off geschlossen sein;
+- nach materieller Revision ein Regression Review auf Collateral Damage erfolgen.
 
 Jeder offene Setup-Faden muss vor Publikation entweder:
 
@@ -148,8 +171,10 @@ Wesentliche Projektentscheidung, Canon Freeze, abgeschlossener Band oder wichtig
 - Neue Weltregeln werden nicht beiläufig ohne Canon-Entscheidung eingeführt.
 - Discovery-Writing darf Architektur verändern, aber nicht rückwirkend Hard Canon löschen.
 - Ein Akt darf nicht ohne bewusste Entscheidung über offene Major/Critical Act-Level-Findings verhärtet werden.
+- Für ambitionierte speculative fiction dürfen offene S3-Findings aus dem Act-Level Award Jury Diagnostic nicht stillschweigend in den nächsten Akt fortgeschrieben werden.
 - Ein Band kann erst als publication-ready markiert werden, wenn offene Major/Critical Chapter-, Act- und Full-Manuscript-Continuity Findings geschlossen sind.
 - Publication-ready verlangt zusätzlich eine klassifizierte Setup/Payoff- und Sequel-Reserve-Bilanz.
+- Publication-ready verlangt bei speculative fiction außerdem den Full-Manuscript Award Jury Review inklusive Protect List, Minority Report und Regression-Check nach materiellen Revisionsschritten.
 - Offenlegungszeitpunkt und -stärke sind Teil der Continuity, nicht nur faktische Widerspruchsfreiheit.
 
 ## Output
@@ -162,8 +187,8 @@ Wesentliche Projektentscheidung, Canon Freeze, abgeschlossener Band oder wichtig
 
 Ein Schreibinkrement ist abgeschlossen, wenn Manuskript, Workshop, Revision und Continuity Gate konsistent sind und Canon-Kandidaten getrennt übergeben wurden.
 
-Ein Akt ist erst abgeschlossen, wenn zusätzlich das Act-Level Editorial & Consistency Gate passiert ist.
+Ein Akt ist erst abgeschlossen, wenn zusätzlich das Act-Level Editorial & Consistency Gate passiert ist. Bei einem aktivierten Award-Level-Ziel muss außerdem der Act-Level Award Jury Diagnostic gelaufen und jeder S3-Befund disponiert sein.
 
-Ein Gesamtmanuskript ist erst publication-ready, wenn das Full-Manuscript Editorial & Series Continuity Gate inklusive Reveal- und Sequel-Reserve-Audit bestanden ist.
+Ein Gesamtmanuskript ist erst publication-ready, wenn das Full-Manuscript Editorial & Series Continuity Gate inklusive Reveal- und Sequel-Reserve-Audit bestanden ist und der Full-Manuscript Award Jury Review keine undisponierten S3-Befunde mehr enthält.
 
 Ein Gesamtprojekt endet erst nach dem vereinbarten Publikations-/Delivery-Schritt.

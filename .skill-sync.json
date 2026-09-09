@@ -566,9 +566,16 @@
         "agents/openai.yaml": "dd9beb6ddda6a7128aa7851eb59822d8e45e9ca809397e1b2fe12d4fde4f722c"
       }
     },
+    "fiction-award-jury-review": {
+      "files": {
+        "SKILL.md": "7232858841b2d1ead97e039496bb8a72edb3b8fe545b7d41b6418b465a50e09d",
+        "agents/openai.yaml": "25b605679c0b8ffb4cf0f0b0428b9b7ec666da8de6e72ed26e9e4b63d91cb4e3",
+        "references/award-institution-model.md": "c927fe225eb73ae9f2dd63bb519138504fe4d34028bc5f6efde34ca4501abd24"
+      }
+    },
     "fiction-series-writing-workflow": {
       "files": {
-        "SKILL.md": "c3ed3e7a7ff1b57cee81842c37add2ebb8cd50fb4aca78d231773e0824400351",
+        "SKILL.md": "caea8370a709aaf8c532fa2b7234c792b22a2c1ccc58a96d89f2c5d517e9ecfa",
         "agents/openai.yaml": "049fdf20175d91a8add5e5dfd3d514ce1968bcb432862385f046c08b99ba99bf"
       }
     },

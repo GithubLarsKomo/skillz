@@ -33,6 +33,7 @@ Verwaltet Fiction-Canon und prüft Szenen, Kapitel und Bände gegen Weltwahrheit
 
 ## Required by
 
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 
 ## Outputs
@@ -50,6 +51,7 @@ Verwaltet Fiction-Canon und prüft Szenen, Kapitel und Bände gegen Weltwahrheit
 
 ### `continuity-review.json`
 
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 
 ### `knowledge-state.json`

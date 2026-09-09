@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **108**
+Skills: **109**
 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
@@ -35,6 +35,7 @@ Skills: **108**
 - [[skills/euroimmun-pdf-report-renderer|euroimmun-pdf-report-renderer]]
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
+- [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]

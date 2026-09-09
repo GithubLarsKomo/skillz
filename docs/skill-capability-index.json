@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 336,
-  "entrypointCount": 275,
+  "skillCount": 337,
+  "entrypointCount": 276,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,14 +15,14 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 265,
+    "public": 266,
     "advanced": 10,
     "internal": 59,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 336,
-  "evaluatedSkillCount": 336,
-  "evaluatedEntrypointCount": 275,
+  "evaluationSuiteCount": 337,
+  "evaluatedSkillCount": 337,
+  "evaluatedEntrypointCount": 276,
   "evaluationCoverageComplete": true,
   "evaluationPassed": false,
   "evaluationErrorCount": 1,
@@ -2163,6 +2163,7 @@
       "requires": [],
       "dependents": [
         "creative-prose-revision",
+        "fiction-award-jury-review",
         "fiction-series-writing-workflow",
         "science-storytelling-workflow"
       ],
@@ -2179,6 +2180,7 @@
           ],
           "consumerSkills": [
             "creative-prose-revision",
+            "fiction-award-jury-review",
             "fiction-series-writing-workflow",
             "science-storytelling-workflow"
           ]
@@ -5672,6 +5674,90 @@
       }
     },
     {
+      "name": "fiction-award-jury-review",
+      "description": "Bewertet abgeschlossene Fiction-Einheiten mit getrennten, adversarialen Hugo-, Nebula- und World-Fantasy-inspirierten Kammern, bewahrt Dissens, erzeugt evidenzgebundene Award-Blocker/Protect-Findings und übersetzt sie in einen risiko-kontrollierten Revisionsloop. Verwenden für Acts oder vollständige speculative-fiction-Manuskripte nach normalem Workshop/Continuity-Pass; keine reale Award-Eligibility, offizielle Juryentscheidung oder Gewinnwahrscheinlichkeit behaupten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "creative-writing-workshop",
+        "story-bible-continuity"
+      ],
+      "dependents": [
+        "fiction-series-writing-workflow"
+      ],
+      "outputs": [
+        "fiction-award-critique-ledger.json",
+        "fiction-award-jury-review.json",
+        "fiction-award-jury-review.md",
+        "fiction-award-regression-review.json",
+        "fiction-award-revision-plan.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "fiction-award-critique-ledger.json",
+          "ambiguous": false,
+          "producers": [
+            "fiction-award-jury-review"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow"
+          ]
+        },
+        {
+          "output": "fiction-award-jury-review.json",
+          "ambiguous": false,
+          "producers": [
+            "fiction-award-jury-review"
+          ],
+          "consumerSkills": [
+            "fiction-series-writing-workflow"
+          ]
+        },
+        {
+          "output": "fiction-award-jury-review.md",
+          "ambiguous": false,
+          "producers": [
+            "fiction-award-jury-review"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fiction-award-regression-review.json",
+          "ambiguous": false,
+          "producers": [
+            "fiction-award-jury-review"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "fiction-award-revision-plan.md",
+          "ambiguous": false,
+          "producers": [
+            "fiction-award-jury-review"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/award-institution-model.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
       "name": "fiction-series-writing-workflow",
       "description": "Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell, Welt, Ensemble und Serienarchitektur über Drafting, Schreibwerkstatt und kreative Revision bis zum Canon-/Continuity-Recheck. Verwenden für Romane und mehrbändige Reihen; keine Story-Bible-Logik duplizieren und keinen Entwurf als Canon oder publiziert behandeln, bevor die entsprechenden Gates passiert sind.",
       "invocation": {
@@ -5688,6 +5774,7 @@
         "creative-prose-revision",
         "creative-writing-workshop",
         "ensemble-character-architecture",
+        "fiction-award-jury-review",
         "mentor-text-craft-analysis",
         "project-second-brain",
         "series-architecture",
@@ -5709,7 +5796,9 @@
           "producers": [
             "fiction-series-writing-workflow"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "fiction-award-jury-review"
+          ]
         },
         {
           "output": "fiction-series-run.json",
@@ -18769,6 +18858,7 @@
         "structured-knowledge-artifact"
       ],
       "dependents": [
+        "fiction-award-jury-review",
         "fiction-series-writing-workflow"
       ],
       "outputs": [
@@ -18793,6 +18883,7 @@
             "story-bible-continuity"
           ],
           "consumerSkills": [
+            "fiction-award-jury-review",
             "fiction-series-writing-workflow"
           ]
         },
