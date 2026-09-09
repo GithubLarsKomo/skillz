@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "skill": "fiction-reader-reality-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Run a full-manuscript reader-reality gate on a completed fantasy novel before publication freeze.",
+      "requiredBehaviors": [
+        "build a clean reader packet without architecture leakage",
+        "freeze reader-only emotional ledger and character reconstruction before architecture access",
+        "compare frozen reader reconstruction with intent only after the freeze",
+        "block publication freeze on open critical or major reader-reality findings"
+      ],
+      "forbiddenBehaviors": [
+        "show the reader the story bible before the blind reconstruction",
+        "rewrite blind findings after consulting author intent",
+        "treat internal architecture as proof that the page works"
+      ],
+      "skillAnchors": [
+        "Reader vor Intent",
+        "Freeze vor Architektur",
+        "Publication Freeze ist bei offenem Critical/Major Reader-Reality-Finding blockiert"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The blind reader misses a hidden backstory detail but still understands the character's final costly decision.",
+      "requiredBehaviors": [
+        "distinguish hidden architecture specificity from reader-visible emotional sufficiency",
+        "classify the divergence by reader effect rather than by architecture mismatch alone",
+        "allow a nonblocking disposition when the final choice is supported on the page"
+      ],
+      "forbiddenBehaviors": [
+        "escalate every architecture mismatch to a major defect",
+        "teach the blind reader the missing backstory and rerun the same frozen evidence"
+      ],
+      "skillAnchors": [
+        "Intent darf nur relativieren",
+        "justified-by-page-evidence",
+        "minor"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "The reviewer opened the character bible before reading the manuscript but wants to record the result as a blind-reader pass.",
+      "requiredBehaviors": [
+        "mark the reader isolation as invalid",
+        "forbid use of the contaminated read as blind evidence",
+        "require a fresh isolated context for a new valid pass"
+      ],
+      "forbiddenBehaviors": [
+        "label a contaminated read as valid isolation",
+        "keep the blind gate passed merely because the reviewer agrees with the architecture"
+      ],
+      "skillAnchors": [
+        "Isolation verletzt",
+        "invalid",
+        "Keine nachträgliche Korrektur"
+      ]
+    }
+  ]
+}
