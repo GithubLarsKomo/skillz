@@ -1,0 +1,5 @@
+interface:
+  display_name: "Creative Revision Regression"
+  short_description: "Klassifiziert Revisionswirkung, invalidiert betroffene Gates und prüft Fixes gegen Protect-Constraints und Kollateralschäden."
+policy:
+  allow_implicit_invocation: true
