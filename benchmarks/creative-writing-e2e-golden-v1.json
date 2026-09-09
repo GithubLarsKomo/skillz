@@ -34,30 +34,41 @@
       "id": "multivolume-fiction-to-elevenreader-epub",
       "domain": "creative-writing-fiction",
       "entrypoint": "creative-writing-workflow",
-      "intent": "Develop a multi-volume speculative-fiction project from world and ensemble architecture through series planning, workshop, revision and continuity control to an ElevenReader-oriented EPUB without collapsing canon, character knowledge, reader knowledge or project memory.",
+      "intent": "Develop a multi-volume speculative-fiction project from world, ensemble and voice architecture through governed drafting, isolated reader reality, optional adversarial jury review and revision regression to an ElevenReader-oriented EPUB without collapsing canon, reader evidence or project memory.",
       "sequence": [
         "round-based-requirements-grilling",
         "mentor-text-craft-analysis",
         "speculative-worldbuilding",
         "ensemble-character-architecture",
+        "character-voice-fingerprint",
         "series-architecture",
         "fiction-series-writing-workflow",
         "creative-writing-workshop",
         "creative-prose-revision",
         "story-bible-continuity",
+        "fiction-reader-reality-review",
+        "fiction-award-jury-review",
+        "creative-revision-regression",
         "project-second-brain",
         "creative-writing-epub-delivery"
       ],
       "mustPreserve": [
         "world truth character knowledge or belief and reader knowledge remain separate state layers",
         "story bible canon remains distinct from project second brain process memory",
-        "setup payoff relationships and arc states stay traceable across volumes",
+        "setup payoff relationships reveal timing and sequel reserves stay traceable across volumes",
+        "ensemble character voices are modeled before sustained dialogue and checked for cross-character collisions",
+        "isolated reader reconstruction is frozen before architecture or author intent can reinterpret reader evidence",
+        "award-style multi-chamber review freezes independent reads and blind deliberation before intent reconciliation when that ambition gate is active",
+        "material revisions are classified by changed narrative function and regress against protect constraints before stale gates are reused",
         "published hard canon is not silently changed and any retcon first receives impact analysis",
         "listener and EPUB gates preserve literary voice while validating screenless listening and conservative EPUB structure"
       ],
       "mustNotDo": [
         "promote manuscript prose or brainstorming ideas automatically into approved or published canon",
         "give a point-of-view character knowledge that is only true at the world layer or disclosed later",
+        "show a blind reader story architecture before freezing their independent reconstruction",
+        "treat character voice as interchangeable dialogue merely because biographies differ on paper",
+        "keep an old reader reveal or award pass valid after a material narrative-meaning change without impact classification",
         "flatten fiction into tutorial prose merely to make TTS rendering easier",
         "silently rewrite published hard canon to repair a later plot problem"
       ]
