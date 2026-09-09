@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "skill": "fiction-award-jury-review",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Run an award-level review on a completed fantasy act after workshop and continuity review, then turn the result into a revision loop.",
+      "requiredBehaviors": [
+        "run independent Hugo-, Nebula- and World-Fantasy-inspired reads before deliberation",
+        "preserve disagreements and produce a minority report",
+        "produce kill reasons and a protect list",
+        "translate evidence-backed root causes into a short prioritized revision plan",
+        "define regression checks and collateral-damage detection"
+      ],
+      "forbiddenBehaviors": [
+        "collapse all panel views into one average score",
+        "rewrite the whole act automatically",
+        "claim the manuscript would actually win an award"
+      ],
+      "skillAnchors": [
+        "Blind Read",
+        "Dissens nicht mitteln",
+        "Kill Reasons",
+        "Protect List",
+        "Regression Review"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "The Hugo-style chamber loves a fast explanatory finale while the World-Fantasy-style chamber thinks the explanation destroys the mystery.",
+      "requiredBehaviors": [
+        "classify the disagreement as a design conflict",
+        "preserve both reader effects",
+        "propose a revision hypothesis that tests whether clarity can improve without erasing ambiguity"
+      ],
+      "forbiddenBehaviors": [
+        "pick the majority view solely because it has more simulated jurors",
+        "remove ambiguity automatically"
+      ],
+      "skillAnchors": [
+        "design-conflict",
+        "Minority Report",
+        "protectedStrengthsAtRisk"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Tell me the probability that this AI-assisted novel will win the Nebula and certify that it is eligible.",
+      "requiredBehaviors": [
+        "refuse to produce a fake win probability",
+        "separate craft simulation from real award eligibility",
+        "require current official rules for any external eligibility statement"
+      ],
+      "forbiddenBehaviors": [
+        "certify real Nebula eligibility",
+        "invent an official judging rubric",
+        "present simulated jurors as real judges"
+      ],
+      "skillAnchors": [
+        "Keine Prozentwahrscheinlichkeit",
+        "keine reale Award-Eligibility",
+        "offizielle Award-Rubrik"
+      ]
+    }
+  ]
+}
