@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fiction Reader Reality Review"
+  short_description: "Prüft Romanwirkung in einem isolierten Blind-Read und vergleicht Reader-Rekonstruktion erst nach Freeze mit der Architektur."
+policy:
+  allow_implicit_invocation: true
