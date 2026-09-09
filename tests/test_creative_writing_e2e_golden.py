@@ -131,11 +131,15 @@ class CreativeWritingE2EGoldenTest(unittest.TestCase):
         required = {
             "speculative-worldbuilding",
             "ensemble-character-architecture",
+            "character-voice-fingerprint",
             "series-architecture",
             "fiction-series-writing-workflow",
             "creative-writing-workshop",
             "creative-prose-revision",
             "story-bible-continuity",
+            "fiction-reader-reality-review",
+            "fiction-award-jury-review",
+            "creative-revision-regression",
             "project-second-brain",
             "creative-writing-epub-delivery",
         }
@@ -158,6 +162,64 @@ class CreativeWritingE2EGoldenTest(unittest.TestCase):
                 "continuity-review.json",
                 "canon-impact-analysis.json",
             }.issubset(continuity["outputs"])
+        )
+
+        fiction = self.skills["fiction-series-writing-workflow"]
+        self.assertTrue(
+            {
+                "character-voice-fingerprint",
+                "fiction-reader-reality-review",
+                "creative-revision-regression",
+                "fiction-award-jury-review",
+            }.issubset(fiction["requires"])
+        )
+
+        voice = self.skills["character-voice-fingerprint"]
+        self.assertIn("ensemble-character-architecture", voice["requires"])
+        self.assertTrue(
+            {
+                "character-voice-fingerprint.json",
+                "voice-collision-register.json",
+                "character-voice-audit.json",
+            }.issubset(voice["outputs"])
+        )
+
+        reader = self.skills["fiction-reader-reality-review"]
+        self.assertTrue(
+            {
+                "reader-emotional-ledger.json",
+                "reader-character-reconstruction.md",
+                "reader-vs-architecture-comparison.json",
+                "reader-reality-gate.json",
+            }.issubset(reader["outputs"])
+        )
+
+        regression = self.skills["creative-revision-regression"]
+        self.assertIn("creative-prose-revision", regression["requires"])
+        self.assertTrue(
+            {
+                "revision-impact-classification.json",
+                "gate-invalidation-map.json",
+                "creative-revision-regression.json",
+            }.issubset(regression["outputs"])
+        )
+
+        award = self.skills["fiction-award-jury-review"]
+        self.assertIn("creative-revision-regression", award["requires"])
+
+    def test_fiction_golden_orders_reader_before_award_and_regression(self):
+        sequence = self.scenario("multivolume-fiction-to-elevenreader-epub")["sequence"]
+        self.assertLess(
+            sequence.index("character-voice-fingerprint"),
+            sequence.index("fiction-series-writing-workflow"),
+        )
+        self.assertLess(
+            sequence.index("fiction-reader-reality-review"),
+            sequence.index("fiction-award-jury-review"),
+        )
+        self.assertLess(
+            sequence.index("fiction-award-jury-review"),
+            sequence.index("creative-revision-regression"),
         )
 
     def test_delivery_owns_public_epub_and_delegates_listener_and_renderer(self):

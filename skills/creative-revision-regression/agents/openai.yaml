@@ -1,0 +1,5 @@
+interface:
+  display_name: "Creative Revision Regression"
+  short_description: "Klassifiziert die Auswirkung materieller Creative-Writing-Revisionen, entscheidet welche früheren Gates dadurch ungül..."
+policy:
+  allow_implicit_invocation: true

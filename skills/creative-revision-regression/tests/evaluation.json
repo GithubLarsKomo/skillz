@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "skill": "creative-revision-regression",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "A five-chapter subtractive revision addresses an award blocker without changing events, character decisions, dragon agency or reveal order.",
+      "requiredBehaviors": [
+        "classify the delta by changed narrative function rather than word count alone",
+        "run targeted regression against the blocker and protect constraints",
+        "avoid invalidating unaffected full-manuscript gates",
+        "record residual nonblocking watchpoints separately from blockers"
+      ],
+      "forbiddenBehaviors": [
+        "rerun every gate automatically because five files changed",
+        "close the blocker without checking collateral damage",
+        "treat fewer words as proof that the root cause is fixed"
+      ],
+      "skillAnchors": [
+        "Delta nach Funktion",
+        "Protect vor Optimierung",
+        "Kein Full Rerun ohne funktionalen Grund"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A single paragraph changes the protagonist's reason for the final sacrifice.",
+      "requiredBehaviors": [
+        "classify a small textual delta as high narrative impact",
+        "invalidate affected arc and reader-reality evidence",
+        "require appropriate reader and continuity reruns before publication freeze"
+      ],
+      "forbiddenBehaviors": [
+        "classify the change as R1 merely because it is one paragraph",
+        "keep old reader gates valid when the causal basis of the ending changed"
+      ],
+      "skillAnchors": [
+        "R3 — Narrative Meaning",
+        "Full Reader Reality Gate neu",
+        "Publication Freeze verwendet nur aktuell gültige Gates"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "A revision fixes a pacing complaint but removes the only scene proving a secondary character can leave freely.",
+      "requiredBehaviors": [
+        "detect collateral damage to protected agency",
+        "fail closure of the revision despite pacing improvement",
+        "require a smaller or alternative intervention that preserves the protected function"
+      ],
+      "forbiddenBehaviors": [
+        "mark regression pass solely because the original pacing finding improved",
+        "discard protect constraints as subjective preferences"
+      ],
+      "skillAnchors": [
+        "collateralDamage",
+        "Ein Finding gilt nicht als geschlossen",
+        "Smallest Sufficient Intervention"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Creative Writing Architecture
 
 Status: candidate architecture  
-Date: 2026-09-06  
+Date: 2026-09-10  
 Branch: `feat/creative-writing-universe`
 
 ## Purpose
@@ -23,6 +23,10 @@ The architecture follows recurring teaching patterns from influential creative-w
 6. **Workers own their artifacts.** Orchestrators reference worker outputs instead of duplicating ownership.
 7. **EPUB is a delivery projection.** Rendering does not rewrite the manuscript.
 8. **ElevenReader is a target platform, not a claimed runtime guarantee.** Structural EPUB3 compatibility is validated automatically; actual import and voice performance remain an integration test on the current ElevenReader app.
+9. **Reader reality is independent evidence.** For longform fiction, an isolated reader reconstruction is frozen before architecture or author intent is opened.
+10. **Character voice is architecture.** Ensemble voices are modeled from biography, status, relationship and stress, then checked for cross-character collisions.
+11. **A PASS has a validity scope.** Material revisions are classified by changed narrative function; affected gates are invalidated or regressions-tested before publication.
+12. **Protect before optimize.** Larger revisions preserve explicitly identified strengths and are closed only after collateral-damage regression.
 
 ## Workflow graph
 
@@ -44,8 +48,12 @@ flowchart TD
   MT --> FS
   WB[speculative-worldbuilding] --> FS
   EC[ensemble-character-architecture] --> FS
+  VF[character-voice-fingerprint] --> FS
   SA[series-architecture] --> FS
   CT[story-bible-continuity] --> FS
+  RR[fiction-reader-reality-review] --> FS
+  RG[creative-revision-regression] --> FS
+  AJ[fiction-award-jury-review] --> FS
   WS --> FS
   CR --> FS
 
@@ -64,19 +72,25 @@ goal + audience + author mode
         ->
 mentor-text craft analysis
         ->
-narrative/series architecture
+narrative/series architecture + voice model
         ->
-draft
+draft contract + draft
         ->
 cold-read workshop
         ->
-developmental revision
+developmental / scene / line revision
         ->
-scene revision
+continuity + voice gate
         ->
-line revision
+act gate
         ->
-domain gate
+isolated reader reality freeze
+        ->
+full-manuscript system gates
+        ->
+optional adversarial jury
+        ->
+targeted revision + regression / gate restoration
         ->
 publication delivery
 ```
@@ -160,6 +174,18 @@ READER STATE     what has been disclosed, implied or concealed at a given point
 
 Continuity checks compare all three against the scene timestamp and publication order.
 
+### Three evaluation truths
+
+Longform fiction keeps three review perspectives distinct:
+
+```text
+ARCHITECTURE TRUTH  what the project intends and internally models
+TEXT TRUTH          what is actually present on the page
+READER TRUTH        what an isolated reader reconstructs from the page
+```
+
+A correct Story Bible does not prove that motivation, causality or ambiguity is reader-visible. `fiction-reader-reality-review` freezes Reader Truth before it is compared with Architecture Truth.
+
 ### Canon lifecycle
 
 ```text
@@ -228,12 +254,40 @@ Initial implementation:
 8. `story-bible-continuity`
 9. `creative-writing-workshop`
 10. `creative-prose-revision`
+11. `character-voice-fingerprint`
+12. `fiction-reader-reality-review`
+13. `creative-revision-regression`
+14. `fiction-award-jury-review`
 
 EPUB extension:
 
-11. `narrative-audiobook-listener-review`
-12. `creative-writing-epub-delivery`
-13. `epub3-publication-renderer` (internal infrastructure worker)
+15. `narrative-audiobook-listener-review`
+16. `creative-writing-epub-delivery`
+17. `epub3-publication-renderer` (internal infrastructure worker)
+
+## Longform lessons validated by first-novel
+
+The first full novel run exposed workflow failures that chapter-level correctness alone did not catch:
+
+- a technically consistent manuscript can still communicate its internal architecture too explicitly;
+- blind reader reconstruction must be protected from Story Bible and author-intent contamination;
+- independent review chambers need separate freezes before deliberation and before intent reconciliation;
+- character voice drift accumulates across chapters even when individual scenes pass;
+- small textual revisions can have large narrative impact, while multi-chapter subtractive edits can remain low-impact if causal functions are preserved;
+- revision quality therefore requires both a Protect List and a regression/invalidity decision.
+
+The reusable rule is:
+
+```text
+blind evidence
+ -> freeze
+ -> intent reconciliation
+ -> smallest sufficient revision
+ -> regression
+ -> restore only the gates actually affected
+```
+
+Award-inspired multi-chamber review remains optional by ambition/scope. Reader isolation, voice governance and revision-impact logic are baseline longform controls.
 
 ## Academic design references
 
@@ -241,4 +295,4 @@ Patterns were derived from publicly available current course/programme informati
 
 ## Completion target
 
-The capability is mature when a project can move from Grilling to a persistent evidence/canon model, generate and revise a complete chaptered manuscript, detect cross-volume continuity errors, preserve science fidelity where applicable, pass a critical listener gate and produce a structurally valid EPUB3 suitable for practical ElevenReader import testing.
+The capability is mature when a project can move from Grilling to a persistent evidence/canon model, generate and revise a complete chaptered manuscript, distinguish architecture/text/reader truth, control ensemble voice drift, invalidate stale gates after material revisions, detect cross-volume continuity errors, preserve science fidelity where applicable, pass a critical listener gate and produce a structurally valid EPUB3 suitable for practical ElevenReader import testing.

@@ -10,19 +10,27 @@
         "preserve disagreements and produce a minority report",
         "produce kill reasons and a protect list",
         "translate evidence-backed root causes into a short prioritized revision plan",
-        "define regression checks and collateral-damage detection"
+        "define regression checks and collateral-damage detection",
+        "freeze independent chamber reads before cross-chamber deliberation",
+        "freeze blind deliberation before opening story architecture or author intent",
+        "delegate material revision regression to changed-function and protect-aware regression logic"
       ],
       "forbiddenBehaviors": [
         "collapse all panel views into one average score",
         "rewrite the whole act automatically",
-        "claim the manuscript would actually win an award"
+        "claim the manuscript would actually win an award",
+        "let author intent influence a chamber before its blind report is frozen",
+        "treat a successful targeted fix as closed without checking gate invalidation and collateral damage"
       ],
       "skillAnchors": [
         "Blind Read",
         "Dissens nicht mitteln",
         "Kill Reasons",
         "Protect List",
-        "Regression Review"
+        "Regression Review",
+        "Freeze A",
+        "Freeze B",
+        "smallest sufficient intervention"
       ]
     },
     {

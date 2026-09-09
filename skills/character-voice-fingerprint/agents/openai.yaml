@@ -1,0 +1,5 @@
+interface:
+  display_name: "Character Voice Fingerprint"
+  short_description: "Modelliert und prüft unterscheidbare Figurenstimmen aus Herkunft, sozialem Kontext, Beruf, Beziehung, Status und Stre..."
+policy:
+  allow_implicit_invocation: true
