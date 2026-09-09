@@ -4,24 +4,26 @@ description: Bewertet abgeschlossene Fiction-Einheiten mit getrennten, adversari
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.2.0
 status: candidate
 owners:
   - GithubLarsKomo
 requires:
   - creative-writing-workshop
   - story-bible-continuity
+  - creative-revision-regression
 consumes:
   - fiction-manuscript.md
   - creative-workshop-review.json
   - continuity-review.json
+  - creative-revision-regression.json
 outputs:
   - fiction-award-jury-review.json
   - fiction-award-jury-review.md
   - fiction-award-critique-ledger.json
   - fiction-award-revision-plan.md
   - fiction-award-regression-review.json
-lastEvaluated: 2026-09-09
+lastEvaluated: 2026-09-10
 ---
 
 # Fiction Award Jury Review
@@ -76,6 +78,36 @@ Wenn etwas auf der Seite nicht verständlich, glaubwürdig oder wirksam ist, wir
 - oder Fehlinterpretation der Jury
 
 ist.
+
+## Verbindliches Phasenmodell
+
+Für Full-Manuscript-Reviews und andere Reviews mit Blind-Anspruch gilt strikt:
+
+```text
+Phase A  unabhängige Blind Chambers
+         -> FREEZE A
+Phase B  Blind Deliberation nur aus Manuskript + eingefrorenen Chamber Reads
+         -> FREEZE B
+Phase C  Intent Reconciliation mit Architektur
+Phase D  gezielte kleinste ausreichende Revision
+Phase E  Regression gegen Findings + Protect + Gate-Invalidierung
+```
+
+### Freeze A
+
+Jede Chamber wird in einem isolierten Kontext abgeschlossen und unveränderlich referenziert, bevor sie Ergebnisse anderer Chambers sehen darf.
+
+### Freeze B
+
+Die Blind Deliberation darf ausschließlich erhalten:
+
+- dasselbe Clean-Manuscript-Paket;
+- das Blind-Protokoll;
+- exakt die eingefrorenen Chamber Reports.
+
+Story Bible, Plot-/Series-Architektur, frühere nichtblinde Reviews und Autorintention bleiben bis zum Deliberation-Freeze gesperrt.
+
+Wenn Phase A oder B kontaminiert wurde, darf der Lauf nicht als valider Blind-Jury-Review ausgewiesen werden.
 
 ## Jurymodell
 
@@ -163,7 +195,7 @@ Scores sind nur Diagnosehilfen und dürfen nie die begründete Kritik ersetzen.
 
 ## Ablauf
 
-### 1. Blind Read
+### Phase A — Independent Blind Read
 
 Alle Rollen lesen unabhängig. Keine Rolle sieht Scores oder Kommentare der anderen.
 
@@ -178,7 +210,7 @@ Jeder Juror liefert zwingend:
 
 Findings müssen eine konkrete Stelle, Beobachtung und Leserwirkung enthalten.
 
-### 2. Chamber Deliberation
+### Phase B — Blind Deliberation
 
 Erst nach Abschluss der Einzelreviews werden die Positionen gegenseitig sichtbar.
 
@@ -189,6 +221,8 @@ Jeder wesentliche Dissens wird diskutiert:
 - Welche Revision könnte die Schwäche beheben, ohne die Stärke der Gegenseite zu zerstören?
 
 Kein Mittelwert darf einen relevanten Minderheitenbefund auslöschen.
+
+Nach Abschluss werden Deliberation, Konsens-/Dissensbefunde, Kill Reasons, Protect List und Minority Report **vor jedem Architekturzugriff eingefroren**.
 
 ### 3. Kill Reasons
 
@@ -264,7 +298,7 @@ Simuliere nach inhaltlicher Distanz:
 
 Dies ist keine echte zeitversetzte Messung, sondern eine strukturierte Memorability-Heuristik und muss so gekennzeichnet werden.
 
-### 9. Intent Reconciliation
+### Phase C — Intent Reconciliation
 
 Erst jetzt Story Bible, Reveal Budget und Architektur öffnen.
 
@@ -277,19 +311,19 @@ Für jedes Major-Finding prüfen:
 
 Intent darf kein Leserproblem einfach wegdefinieren.
 
-### 10. Revision Architecture
+### Phase D — Targeted Revision Architecture
 
 Nicht automatisch umschreiben.
 
 Reihenfolge für priorisierte Findings:
 
-finding → root cause → revision hypothesis → affected units → protected strengths at risk → smallest sufficient intervention → targeted reread → regression check
+finding → root cause → revision hypothesis → affected units → protected strengths at risk → **smallest sufficient intervention** → targeted reread → regression check
 
 Maximal 3–7 priorisierte Interventionen pro Loop.
 
-### 11. Regression Review
+### Phase E — Regression Review
 
-Nach Revision liest die Regression-Jury:
+Nach materieller Revision `creative-revision-regression` ausführen. Die Award-Projektion liest:
 
 - Baseline;
 - Candidate;
@@ -306,6 +340,8 @@ Sie bewertet:
 Zusätzlich collateralDamage[].
 
 Ein Problem gilt erst als geschlossen, wenn seine Ursache verbessert wurde **und** keine S0-Stärke oder bereits geschlossene Major-Funktion wesentlich beschädigt wurde.
+
+Zusätzlich muss die Revision nach Funktionswirkung klassifiziert werden. Hat sie Motivation, Reveal, POV, Beziehung, Ereigniskausalität oder Architektur materiell verändert, werden dadurch berührte frühere Gates invalidiert und vor Publication Freeze wiederhergestellt.
 
 ## Verdict-Skala
 
@@ -373,11 +409,15 @@ Vergleicht Baseline und Candidate ausschließlich gegen die zuvor akzeptierten F
 ## Qualitätsregeln
 
 - Blind Read vor Story Bible.
+- Phase A wird vor Cross-Chamber-Zugriff eingefroren.
+- Phase B wird vor Intent/Architektur eingefroren.
 - Einzelurteil vor Deliberation.
 - Dissens nicht mitteln.
 - Evidence vor abstrakter Meinung.
 - Ursache vor Reparatur.
+- Kleinste ausreichende Intervention vor breitem Rewrite.
 - Protect List ist verbindlich.
+- Materielle Revisionen werden über `creative-revision-regression` gegen Collateral Damage und Gate-Invalidierung geprüft.
 - Maximal drei Kill Reasons je Kammer.
 - Keine automatische Vollumschreibung.
 - Keine behauptete offizielle Award-Rubrik.
@@ -396,4 +436,4 @@ Ein Review-Loop ist abgeschlossen, wenn:
 5. 3–7 priorisierte Revisionshypothesen freigegeben sind;
 6. jeder S3-Befund eine explizite Disposition hat.
 
-Ein Regression-Loop endet erst nach Collateral-Damage-Check.
+Ein Regression-Loop endet erst nach Collateral-Damage-Check und Wiederherstellung aller durch die Revision invalidierten blockierenden Gates.
