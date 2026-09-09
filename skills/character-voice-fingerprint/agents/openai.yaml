@@ -1,5 +1,5 @@
 interface:
   display_name: "Character Voice Fingerprint"
-  short_description: "Modelliert unterscheidbare Figurenstimmen und prüft Dialoge mit Collision-, Speaker-Swap- und Blind-Attribution-Tests."
+  short_description: "Modelliert und prüft unterscheidbare Figurenstimmen aus Herkunft, sozialem Kontext, Beruf, Beziehung, Status und Stre..."
 policy:
   allow_implicit_invocation: true
