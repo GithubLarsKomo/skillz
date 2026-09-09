@@ -44,6 +44,7 @@ Plant mehrbändige Fiction über mehrere Zeitskalen hinweg als Series-, Volume-,
 
 ### `series-architecture.json`
 
+- [[skills/fiction-reader-reality-review|fiction-reader-reality-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/story-bible-continuity|story-bible-continuity]]
 

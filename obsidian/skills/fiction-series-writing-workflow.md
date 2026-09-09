@@ -4,7 +4,7 @@ generated: true
 name: "fiction-series-writing-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -26,10 +26,13 @@ Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell
 
 ## Requires
 
+- [[skills/character-voice-fingerprint|character-voice-fingerprint]]
 - [[skills/creative-prose-revision|creative-prose-revision]]
+- [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/creative-writing-workshop|creative-writing-workshop]]
 - [[skills/ensemble-character-architecture|ensemble-character-architecture]]
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
+- [[skills/fiction-reader-reality-review|fiction-reader-reality-review]]
 - [[skills/mentor-text-craft-analysis|mentor-text-craft-analysis]]
 - [[skills/project-second-brain|project-second-brain]]
 - [[skills/series-architecture|series-architecture]]
@@ -50,7 +53,9 @@ Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell
 
 ### `fiction-manuscript.md`
 
+- [[skills/character-voice-fingerprint|character-voice-fingerprint]]
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
+- [[skills/fiction-reader-reality-review|fiction-reader-reality-review]]
 
 ### `fiction-series-run.json`
 
@@ -63,7 +68,7 @@ Orchestriert langfristige Science-Fiction- und Fantasy-Projekte von Craft-Modell
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 

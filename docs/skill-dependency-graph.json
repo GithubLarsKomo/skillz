@@ -131,6 +131,21 @@
       ]
     },
     {
+      "name": "character-voice-fingerprint",
+      "requires": [
+        "ensemble-character-architecture"
+      ],
+      "consumes": [
+        "character-ensemble.json",
+        "fiction-manuscript.md"
+      ],
+      "outputs": [
+        "character-voice-audit.json",
+        "character-voice-fingerprint.json",
+        "voice-collision-register.json"
+      ]
+    },
+    {
       "name": "clinical-evidence-update-impact",
       "requires": [
         "decision-record",
@@ -412,6 +427,21 @@
       "outputs": [
         "creative-revision-report.json",
         "final-creative-text"
+      ]
+    },
+    {
+      "name": "creative-revision-regression",
+      "requires": [
+        "creative-prose-revision"
+      ],
+      "consumes": [
+        "creative-revision-report.json",
+        "final-creative-text"
+      ],
+      "outputs": [
+        "creative-revision-regression.json",
+        "gate-invalidation-map.json",
+        "revision-impact-classification.json"
       ]
     },
     {
@@ -1133,11 +1163,13 @@
     {
       "name": "fiction-award-jury-review",
       "requires": [
+        "creative-revision-regression",
         "creative-writing-workshop",
         "story-bible-continuity"
       ],
       "consumes": [
         "continuity-review.json",
+        "creative-revision-regression.json",
         "creative-workshop-review.json",
         "fiction-manuscript.md"
       ],
@@ -1150,12 +1182,32 @@
       ]
     },
     {
+      "name": "fiction-reader-reality-review",
+      "requires": [],
+      "consumes": [
+        "character-ensemble.json",
+        "fiction-manuscript.md",
+        "series-architecture.json",
+        "world-model.json"
+      ],
+      "outputs": [
+        "reader-character-reconstruction.md",
+        "reader-emotional-ledger.json",
+        "reader-reality-gate.json",
+        "reader-reality-review.json",
+        "reader-vs-architecture-comparison.json"
+      ]
+    },
+    {
       "name": "fiction-series-writing-workflow",
       "requires": [
+        "character-voice-fingerprint",
         "creative-prose-revision",
+        "creative-revision-regression",
         "creative-writing-workshop",
         "ensemble-character-architecture",
         "fiction-award-jury-review",
+        "fiction-reader-reality-review",
         "mentor-text-craft-analysis",
         "project-second-brain",
         "series-architecture",
@@ -1164,12 +1216,18 @@
       ],
       "consumes": [
         "character-ensemble.json",
+        "character-voice-fingerprint.json",
         "continuity-review.json",
+        "creative-revision-regression.json",
         "creative-workshop-review.json",
         "fiction-award-critique-ledger.json",
         "fiction-award-jury-review.json",
         "final-creative-text",
+        "gate-invalidation-map.json",
+        "reader-reality-gate.json",
+        "reader-vs-architecture-comparison.json",
         "series-architecture.json",
+        "voice-collision-register.json",
         "world-model.json"
       ],
       "outputs": [
@@ -4525,6 +4583,10 @@
       "to": "composable-skill-factory"
     },
     {
+      "from": "character-voice-fingerprint",
+      "to": "ensemble-character-architecture"
+    },
+    {
       "from": "clinical-evidence-update-impact",
       "to": "decision-record"
     },
@@ -4703,6 +4765,10 @@
     {
       "from": "creative-prose-revision",
       "to": "creative-writing-workshop"
+    },
+    {
+      "from": "creative-revision-regression",
+      "to": "creative-prose-revision"
     },
     {
       "from": "creative-writing-epub-delivery",
@@ -5222,6 +5288,10 @@
     },
     {
       "from": "fiction-award-jury-review",
+      "to": "creative-revision-regression"
+    },
+    {
+      "from": "fiction-award-jury-review",
       "to": "creative-writing-workshop"
     },
     {
@@ -5230,7 +5300,15 @@
     },
     {
       "from": "fiction-series-writing-workflow",
+      "to": "character-voice-fingerprint"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
       "to": "creative-prose-revision"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "creative-revision-regression"
     },
     {
       "from": "fiction-series-writing-workflow",
@@ -5243,6 +5321,10 @@
     {
       "from": "fiction-series-writing-workflow",
       "to": "fiction-award-jury-review"
+    },
+    {
+      "from": "fiction-series-writing-workflow",
+      "to": "fiction-reader-reality-review"
     },
     {
       "from": "fiction-series-writing-workflow",
@@ -7578,6 +7660,16 @@
       "producer": "role-architecture"
     },
     {
+      "consumer": "character-voice-fingerprint",
+      "artifact": "character-ensemble.json",
+      "producer": "ensemble-character-architecture"
+    },
+    {
+      "consumer": "character-voice-fingerprint",
+      "artifact": "fiction-manuscript.md",
+      "producer": "fiction-series-writing-workflow"
+    },
+    {
       "consumer": "contract-matter-workflow",
       "artifact": "agreement-clause-coverage.json",
       "producer": "agreement-type-analysis"
@@ -7653,6 +7745,16 @@
       "producer": "creative-writing-workshop"
     },
     {
+      "consumer": "creative-revision-regression",
+      "artifact": "creative-revision-report.json",
+      "producer": "creative-prose-revision"
+    },
+    {
+      "consumer": "creative-revision-regression",
+      "artifact": "final-creative-text",
+      "producer": "creative-prose-revision"
+    },
+    {
       "consumer": "creative-writing-epub-delivery",
       "artifact": "epub3-validation.json",
       "producer": "epub3-publication-renderer"
@@ -7709,6 +7811,11 @@
     },
     {
       "consumer": "fiction-award-jury-review",
+      "artifact": "creative-revision-regression.json",
+      "producer": "creative-revision-regression"
+    },
+    {
+      "consumer": "fiction-award-jury-review",
       "artifact": "creative-workshop-review.json",
       "producer": "creative-writing-workshop"
     },
@@ -7718,14 +7825,44 @@
       "producer": "fiction-series-writing-workflow"
     },
     {
+      "consumer": "fiction-reader-reality-review",
+      "artifact": "character-ensemble.json",
+      "producer": "ensemble-character-architecture"
+    },
+    {
+      "consumer": "fiction-reader-reality-review",
+      "artifact": "fiction-manuscript.md",
+      "producer": "fiction-series-writing-workflow"
+    },
+    {
+      "consumer": "fiction-reader-reality-review",
+      "artifact": "series-architecture.json",
+      "producer": "series-architecture"
+    },
+    {
+      "consumer": "fiction-reader-reality-review",
+      "artifact": "world-model.json",
+      "producer": "speculative-worldbuilding"
+    },
+    {
       "consumer": "fiction-series-writing-workflow",
       "artifact": "character-ensemble.json",
       "producer": "ensemble-character-architecture"
     },
     {
       "consumer": "fiction-series-writing-workflow",
+      "artifact": "character-voice-fingerprint.json",
+      "producer": "character-voice-fingerprint"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
       "artifact": "continuity-review.json",
       "producer": "story-bible-continuity"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "creative-revision-regression.json",
+      "producer": "creative-revision-regression"
     },
     {
       "consumer": "fiction-series-writing-workflow",
@@ -7749,8 +7886,28 @@
     },
     {
       "consumer": "fiction-series-writing-workflow",
+      "artifact": "gate-invalidation-map.json",
+      "producer": "creative-revision-regression"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "reader-reality-gate.json",
+      "producer": "fiction-reader-reality-review"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "reader-vs-architecture-comparison.json",
+      "producer": "fiction-reader-reality-review"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
       "artifact": "series-architecture.json",
       "producer": "series-architecture"
+    },
+    {
+      "consumer": "fiction-series-writing-workflow",
+      "artifact": "voice-collision-register.json",
+      "producer": "character-voice-fingerprint"
     },
     {
       "consumer": "fiction-series-writing-workflow",
@@ -9036,9 +9193,31 @@
         "ensemble-character-architecture"
       ],
       "consumerSkills": [
+        "character-voice-fingerprint",
+        "fiction-reader-reality-review",
         "fiction-series-writing-workflow",
         "series-architecture",
         "story-bible-continuity"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "character-voice-audit.json",
+      "producers": [
+        "character-voice-fingerprint"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "character-voice-fingerprint.json",
+      "producers": [
+        "character-voice-fingerprint"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
@@ -10037,13 +10216,27 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "creative-revision-regression.json",
+      "producers": [
+        "creative-revision-regression"
+      ],
+      "consumerSkills": [
+        "fiction-award-jury-review",
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "creative-revision-report.json",
       "producers": [
         "creative-prose-revision"
       ],
-      "consumerSkills": [],
+      "consumerSkills": [
+        "creative-revision-regression"
+      ],
       "ambiguous": false,
-      "consumptionStatus": "unconsumed"
+      "consumptionStatus": "explicit"
     },
     {
       "output": "creative-voice-guidance.md",
@@ -11513,7 +11706,9 @@
         "fiction-series-writing-workflow"
       ],
       "consumerSkills": [
-        "fiction-award-jury-review"
+        "character-voice-fingerprint",
+        "fiction-award-jury-review",
+        "fiction-reader-reality-review"
       ],
       "ambiguous": false,
       "consumptionStatus": "explicit"
@@ -11661,6 +11856,7 @@
         "creative-prose-revision"
       ],
       "consumerSkills": [
+        "creative-revision-regression",
         "fiction-series-writing-workflow",
         "science-storytelling-workflow"
       ],
@@ -11861,6 +12057,17 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "gate-invalidation-map.json",
+      "producers": [
+        "creative-revision-regression"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
     },
     {
       "output": "german-association-law-assessment.json",
@@ -15391,6 +15598,55 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "reader-character-reconstruction.md",
+      "producers": [
+        "fiction-reader-reality-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reader-emotional-ledger.json",
+      "producers": [
+        "fiction-reader-reality-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reader-reality-gate.json",
+      "producers": [
+        "fiction-reader-reality-review"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
+      "output": "reader-reality-review.json",
+      "producers": [
+        "fiction-reader-reality-review"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "reader-vs-architecture-comparison.json",
+      "producers": [
+        "fiction-reader-reality-review"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "real-estate-due-diligence.json",
       "producers": [
         "real-estate-law-specialist"
@@ -15988,6 +16244,15 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "revision-impact-classification.json",
+      "producers": [
+        "creative-revision-regression"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "rewrite-change-map.json",
       "producers": [
         "precision-language-rewriter"
@@ -16265,6 +16530,7 @@
         "series-architecture"
       ],
       "consumerSkills": [
+        "fiction-reader-reality-review",
         "fiction-series-writing-workflow",
         "story-bible-continuity"
       ],
@@ -17930,6 +18196,17 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "voice-collision-register.json",
+      "producers": [
+        "character-voice-fingerprint"
+      ],
+      "consumerSkills": [
+        "fiction-series-writing-workflow"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "explicit"
+    },
+    {
       "output": "voice-guidance.md",
       "producers": [
         "audio-tutorial-workflow"
@@ -18038,6 +18315,7 @@
         "speculative-worldbuilding"
       ],
       "consumerSkills": [
+        "fiction-reader-reality-review",
         "fiction-series-writing-workflow",
         "series-architecture",
         "story-bible-continuity"
@@ -18140,6 +18418,7 @@
     "cdx-scope-assessment.json",
     "change-integration-status.json",
     "character-bible.md",
+    "character-voice-audit.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
@@ -18166,7 +18445,6 @@
     "corporate-tax-open-issues.json",
     "corporate-tax-scenario-map.json",
     "creative-epub-delivery.json",
-    "creative-revision-report.json",
     "creative-voice-guidance.md",
     "creative-workshop-review.md",
     "creative-writing-handoff.json",
@@ -18367,6 +18645,9 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
+    "reader-character-reconstruction.md",
+    "reader-emotional-ledger.json",
+    "reader-reality-review.json",
     "real-estate-due-diligence.json",
     "real-estate-legal-assessment.json",
     "real-estate-transaction-gates.json",
@@ -18387,6 +18668,7 @@
     "reorganization-tax-structure-options.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
+    "revision-impact-classification.json",
     "role-architecture.md",
     "role-requirements-report.md",
     "rowing-legal-open-points.json",
@@ -18490,6 +18772,7 @@
     "cdx-scope-assessment.json",
     "change-integration-status.json",
     "character-bible.md",
+    "character-voice-audit.json",
     "claim-conflicts.json",
     "claims-consistency-map.json",
     "claims-remediation-plan.md",
@@ -18516,7 +18799,6 @@
     "corporate-tax-open-issues.json",
     "corporate-tax-scenario-map.json",
     "creative-epub-delivery.json",
-    "creative-revision-report.json",
     "creative-voice-guidance.md",
     "creative-workshop-review.md",
     "creative-writing-handoff.json",
@@ -18717,6 +18999,9 @@
     "qsub-briefing-package.md",
     "qsub-commitments.json",
     "qsub-question-set.json",
+    "reader-character-reconstruction.md",
+    "reader-emotional-ledger.json",
+    "reader-reality-review.json",
     "real-estate-due-diligence.json",
     "real-estate-legal-assessment.json",
     "real-estate-transaction-gates.json",
@@ -18737,6 +19022,7 @@
     "reorganization-tax-structure-options.json",
     "resolved-change-brief.md",
     "response-evidence-matrix.json",
+    "revision-impact-classification.json",
     "role-architecture.md",
     "role-requirements-report.md",
     "rowing-legal-open-points.json",

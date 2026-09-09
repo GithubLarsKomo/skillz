@@ -30,6 +30,7 @@ tags:
 
 ## Required by
 
+- [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
 
@@ -42,10 +43,11 @@ tags:
 
 ### `creative-revision-report.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/creative-revision-regression|creative-revision-regression]]
 
 ### `final-creative-text`
 
+- [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
 

@@ -10,10 +10,11 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **109**
+Skills: **112**
 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
+- [[skills/character-voice-fingerprint|character-voice-fingerprint]]
 - [[skills/coaching-safety-routing|coaching-safety-routing]]
 - [[skills/compliance-control-assurance|compliance-control-assurance]]
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
@@ -23,6 +24,7 @@ Skills: **109**
 - [[skills/contract-review|contract-review]]
 - [[skills/contract-workflow|contract-workflow]]
 - [[skills/creative-prose-revision|creative-prose-revision]]
+- [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/creative-writing-epub-delivery|creative-writing-epub-delivery]]
 - [[skills/creative-writing-workflow|creative-writing-workflow]]
 - [[skills/creative-writing-workshop|creative-writing-workshop]]
@@ -36,6 +38,7 @@ Skills: **109**
 - [[skills/euroimmun-presentation-workflow|euroimmun-presentation-workflow]]
 - [[skills/executive-legal-compliance-governance|executive-legal-compliance-governance]]
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
+- [[skills/fiction-reader-reality-review|fiction-reader-reality-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/human-procedure-wizard|human-procedure-wizard]]
 - [[skills/internal-investigation-workflow|internal-investigation-workflow]]

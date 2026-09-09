@@ -30,6 +30,7 @@ Modelliert komplexe Figurenensembles als dynamisches System aus Want, Need, Fear
 
 ## Required by
 
+- [[skills/character-voice-fingerprint|character-voice-fingerprint]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/series-architecture|series-architecture]]
 - [[skills/story-bible-continuity|story-bible-continuity]]
@@ -48,6 +49,8 @@ Modelliert komplexe Figurenensembles als dynamisches System aus Want, Need, Fear
 
 ### `character-ensemble.json`
 
+- [[skills/character-voice-fingerprint|character-voice-fingerprint]]
+- [[skills/fiction-reader-reality-review|fiction-reader-reality-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/series-architecture|series-architecture]]
 - [[skills/story-bible-continuity|story-bible-continuity]]

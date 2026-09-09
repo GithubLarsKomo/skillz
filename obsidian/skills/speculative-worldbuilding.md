@@ -52,6 +52,7 @@ Entwickelt Science-Fiction- oder Fantasy-Welten als kausales System aus Grundann
 
 ### `world-model.json`
 
+- [[skills/fiction-reader-reality-review|fiction-reader-reality-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/series-architecture|series-architecture]]
 - [[skills/story-bible-continuity|story-bible-continuity]]

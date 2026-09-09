@@ -26,6 +26,7 @@ Bewertet abgeschlossene Fiction-Einheiten mit getrennten, adversarialen Hugo-, N
 
 ## Requires
 
+- [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/creative-writing-workshop|creative-writing-workshop]]
 - [[skills/story-bible-continuity|story-bible-continuity]]
 

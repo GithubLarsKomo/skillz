@@ -62,14 +62,19 @@ evidence
 `fiction-series-writing-workflow`:
 
 ```text
-world + ensemble + series architecture
- -> story bible
- -> draft contract
+world + ensemble + voice + series architecture
+ -> story bible + reveal/sequel controls
+ -> chapter contract
  -> draft
  -> workshop
  -> revision
- -> continuity
- -> canon promotion
+ -> continuity + voice collision
+ -> act gates
+ -> isolated reader reality freeze
+ -> full-manuscript system gates
+ -> optional adversarial award gate
+ -> targeted revision + regression
+ -> publication freeze
  -> fiction-manuscript.md
 ```
 
@@ -110,6 +115,10 @@ Der Creative-Writing-Orchestrator **besitzt das EPUB nicht**. Er verweist in `cr
 - Autor-Modus wird respektiert.
 - Kein finaler EPUB-Handoff vor Domain-, Listener- und EPUB-Gates.
 - Project Second Brain und Story Bible nicht vermischen.
+- Bei Longform-Fiction Reader-Reality-Evidence vor Architektur-/Intent-Reconciliation einfrieren.
+- Figurenstimme bei Ensemble-Fiction als Charakterarchitektur behandeln; Cross-Character-Collisions nicht erst beim finalen Line Polish suchen.
+- Materielle Revisionen nach Funktionswirkung klassifizieren; betroffene alte Gates invalidieren oder gezielt regressionsprüfen.
+- Protect-/Strength-Constraints überleben jeden größeren Revisionsloop.
 - Alternative Science-/Fiction-Routen werden im Manifest explizit, nicht als statische Doppelpflicht behandelt.
 
 ## Abschluss

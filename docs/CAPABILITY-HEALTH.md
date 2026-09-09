@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **337**
-- User-facing entrypoints: **276**
-- Discoverability — public: **266**, advanced: **10**, internal: **59**, compatibility: **2**
-- Evaluation suites: **337**
-- Executed evaluation suites: **FAIL**
+- Skills: **340**
+- User-facing entrypoints: **279**
+- Discoverability — public: **269**, advanced: **10**, internal: **59**, compatibility: **2**
+- Evaluation suites: **340**
+- Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **337/337**
-- User-facing entrypoints with evaluation suite: **276/276**
+- Skills with evaluation suite: **340/340**
+- User-facing entrypoints with evaluation suite: **279/279**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **348**
+- Outputs without inferred hard-requires consumers: **352**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -66,6 +66,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `cdx-scope-assessment.json` — producer: `ivdr-companion-diagnostic-consultation`
 - `change-integration-status.json` — producer: `regulatory-change-impact-orchestrator`
 - `character-bible.md` — producer: `ensemble-character-architecture`
+- `character-voice-audit.json` — producer: `character-voice-fingerprint`
 - `claim-conflicts.json` — producer: `regulatory-claims-consistency`
 - `claims-consistency-map.json` — producer: `regulatory-claims-consistency`
 - `claims-remediation-plan.md` — producer: `regulatory-claims-consistency`
@@ -92,7 +93,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `corporate-tax-open-issues.json` — producer: `german-corporate-tax-specialist`
 - `corporate-tax-scenario-map.json` — producer: `german-corporate-tax-specialist`
 - `creative-epub-delivery.json` — producer: `creative-writing-epub-delivery`
-- `creative-revision-report.json` — producer: `creative-prose-revision`
 - `creative-voice-guidance.md` — producer: `creative-writing-epub-delivery`
 - `creative-workshop-review.md` — producer: `creative-writing-workshop`
 - `creative-writing-handoff.json` — producer: `creative-writing-workflow`
@@ -293,6 +293,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `qsub-briefing-package.md` — producer: `fda-qsub-strategy`
 - `qsub-commitments.json` — producer: `fda-qsub-strategy`
 - `qsub-question-set.json` — producer: `fda-qsub-strategy`
+- `reader-character-reconstruction.md` — producer: `fiction-reader-reality-review`
+- `reader-emotional-ledger.json` — producer: `fiction-reader-reality-review`
+- `reader-reality-review.json` — producer: `fiction-reader-reality-review`
 - `real-estate-due-diligence.json` — producer: `real-estate-law-specialist`
 - `real-estate-legal-assessment.json` — producer: `real-estate-law-specialist`
 - `real-estate-transaction-gates.json` — producer: `real-estate-law-specialist`
@@ -313,6 +316,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `reorganization-tax-structure-options.json` — producer: `reorganization-tax-specialist`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
+- `revision-impact-classification.json` — producer: `creative-revision-regression`
 - `role-architecture.md` — producer: `role-architecture`
 - `role-requirements-report.md` — producer: `role-requirements-grilling`
 - `rowing-legal-open-points.json` — producer: `german-rowing-sport-law-specialist`

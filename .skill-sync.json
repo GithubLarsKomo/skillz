@@ -65,6 +65,12 @@
         "agents/openai.yaml": "b5be94d0650374e2f4cc2c880cd1cfc6110ec0e21cfe6e1050397f4b4dda30da"
       }
     },
+    "character-voice-fingerprint": {
+      "files": {
+        "SKILL.md": "1d0e6d7aaeb13b000e14b105f1c57bcfd368f1b594a70fccd12bd7c13bf3c265",
+        "agents/openai.yaml": "6e18d19274aa743abf9b532eb41bdc3c11bedb10843086c1a8c280c927d791f5"
+      }
+    },
     "clinical-evidence-update-impact": {
       "files": {
         "SKILL.md": "f54f14be82f4db322582719d63fd1c19d4876c7576cd37708f1c04b5223a8b3d",
@@ -196,6 +202,12 @@
         "agents/openai.yaml": "bfe06542a01cc346b2d8bf202ca551eb88284df3b869778248b449bf1878a39e"
       }
     },
+    "creative-revision-regression": {
+      "files": {
+        "SKILL.md": "c203705ea3a2c8ae22b675c3090aaf325189e6dd1692bd40986f5b13f4f83159",
+        "agents/openai.yaml": "24fe92963c23662f089d4cc17483cb06bd6a93c84558cb085ee6b834b07884b4"
+      }
+    },
     "creative-writing-epub-delivery": {
       "files": {
         "SKILL.md": "5ffd23b7fc90aa5a9313f416b004f9c687caabd656cdfc7aa2909e8f51bba627",
@@ -204,7 +216,7 @@
     },
     "creative-writing-workflow": {
       "files": {
-        "SKILL.md": "7affd31374c18270366f9b9758bb4be0086992d5a7c0cd25b5309410ec5ad6f6",
+        "SKILL.md": "bbdc82771125c7bbb0c1ee30850f15a32f9ef40e6b58939f10536198dfdae0ff",
         "agents/openai.yaml": "6ded670b151a8b4496f7ad638e824fcd3db1028cb16bdfa226e0e336d089412d"
       }
     },
@@ -568,14 +580,20 @@
     },
     "fiction-award-jury-review": {
       "files": {
-        "SKILL.md": "7232858841b2d1ead97e039496bb8a72edb3b8fe545b7d41b6418b465a50e09d",
+        "SKILL.md": "2c05e19d4e44222e38d4a5c104365d3b9e84157c3372f5836278882cb32d3662",
         "agents/openai.yaml": "25b605679c0b8ffb4cf0f0b0428b9b7ec666da8de6e72ed26e9e4b63d91cb4e3",
         "references/award-institution-model.md": "c927fe225eb73ae9f2dd63bb519138504fe4d34028bc5f6efde34ca4501abd24"
       }
     },
+    "fiction-reader-reality-review": {
+      "files": {
+        "SKILL.md": "c22852535260888da27dff3564ed8e8545eb0637f3f0b14e45dab780ce308e35",
+        "agents/openai.yaml": "7467da8a61966567d08b5191ad440bf6dba18d76913270eed48598e2f01ab680"
+      }
+    },
     "fiction-series-writing-workflow": {
       "files": {
-        "SKILL.md": "caea8370a709aaf8c532fa2b7234c792b22a2c1ccc58a96d89f2c5d517e9ecfa",
+        "SKILL.md": "5748335243cd846a71dbe539dee45f5ad58003f9088f48855d48e658e71056af",
         "agents/openai.yaml": "049fdf20175d91a8add5e5dfd3d514ce1968bcb432862385f046c08b99ba99bf"
       }
     },
