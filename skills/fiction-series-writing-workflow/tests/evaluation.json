@@ -9,17 +9,25 @@
         "create a scene or chapter contract from canon and knowledge state",
         "respect author mode",
         "run workshop before revision and continuity after revision",
-        "promote only confirmed facts into canon"
+        "promote only confirmed facts into canon",
+        "establish and audit character voice fingerprints for sustained ensemble dialogue",
+        "freeze isolated reader reconstruction before architecture-aware intent reconciliation on a full manuscript",
+        "classify material revisions by changed narrative function and restore any invalidated gates before publication freeze"
       ],
       "forbiddenBehaviors": [
         "treat manuscript prose as automatic canon",
-        "give a POV character knowledge they do not yet possess"
+        "give a POV character knowledge they do not yet possess",
+        "treat internal architecture as proof that the reader can reconstruct the intended arc",
+        "reuse a stale reader or reveal pass after a material narrative-meaning change"
       ],
       "skillAnchors": [
         "Manuskript ist nicht Story Bible",
         "Workshop vor Revision; Continuity nach Revision",
         "Draft Contract",
-        "Canon Promotion"
+        "Canon Promotion",
+        "Reader vor Intent; Freeze vor Architektur",
+        "Voice ist Charakterarchitektur",
+        "Revision invalidiert Gates nach Funktionswirkung"
       ]
     },
     {
