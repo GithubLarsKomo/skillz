@@ -255,6 +255,7 @@ Wesentliche Projektentscheidung, Canon Freeze, abgeschlossener Band oder wichtig
 - Ein Akt darf nicht ohne bewusste Entscheidung über offene Major/Critical Act-Level-Findings verhärtet werden.
 - Für ambitionierte speculative fiction dürfen offene S3-Findings aus dem Act-Level Award Jury Diagnostic nicht stillschweigend in den nächsten Akt fortgeschrieben werden.
 - Ein Band kann erst als publication-ready markiert werden, wenn offene Major/Critical Chapter-, Act- und Full-Manuscript-Continuity Findings geschlossen sind.
+- Keine Publication-ready-Freigabe bei offenen Major/Critical Continuity Findings.
 - Publication-ready verlangt zusätzlich eine klassifizierte Setup/Payoff- und Sequel-Reserve-Bilanz.
 - Publication-ready verlangt einen validen Reader-Reality-Pass ohne offene Critical/Major Findings.
 - Publication-ready verlangt bei speculative fiction außerdem den Full-Manuscript Award Jury Review inklusive Protect List, Minority Report und Regression-Check nach materiellen Revisionsschritten.
