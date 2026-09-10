@@ -8,7 +8,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - User-facing entrypoints: **280**
 - Discoverability — public: **270**, advanced: **10**, internal: **59**, compatibility: **2**
 - Evaluation suites: **341**
-- Executed evaluation suites: **FAIL**
+- Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
 - Skills with evaluation suite: **341/341**
 - User-facing entrypoints with evaluation suite: **280/280**

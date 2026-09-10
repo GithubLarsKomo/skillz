@@ -24,8 +24,8 @@
   "evaluatedSkillCount": 341,
   "evaluatedEntrypointCount": 280,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": false,
-  "evaluationErrorCount": 21,
+  "evaluationPassed": true,
+  "evaluationErrorCount": 0,
   "skills": [
     {
       "name": "agent-handoff",
@@ -15820,8 +15820,8 @@
       "evaluation": {
         "mode": "compatibility",
         "caseCount": 5,
-        "recordedResultCount": 3,
-        "passed": false
+        "recordedResultCount": 5,
+        "passed": true
       }
     },
     {

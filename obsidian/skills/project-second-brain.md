@@ -4,10 +4,10 @@ generated: true
 name: "project-second-brain"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 5
-recordedResultCount: 3
+recordedResultCount: 5
 sourcePath: "skills/project-second-brain/SKILL.md"
 tags:
   - skill
@@ -82,9 +82,9 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `5`
-- Recorded results: `3`
+- Recorded results: `5`
 
 ## Canonical source
 
