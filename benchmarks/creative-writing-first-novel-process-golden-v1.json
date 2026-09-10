@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "suite": "creative-writing-first-novel-process-golden",
+  "purpose": "Empirical regression fixtures derived from a completed longform fiction project. The fixtures preserve workflow facts, not manuscript prose, and do not create a runtime dependency on the source repository.",
+  "provenance": {
+    "sourceRepository": "GithubLarsKomo/first-novel",
+    "sourceRef": "main",
+    "sourceCommit": "293471885152ff16373e558ea9f65e3fe6ee13dc",
+    "accessMode": "read-only-analysis",
+    "copiedManuscriptText": false,
+    "liveSourceRequiredForCI": false
+  },
+  "fixtures": [
+    {
+      "id": "reader-reality-valid-freeze-with-minor-divergence",
+      "skill": "fiction-reader-reality-review",
+      "sourceArtifacts": [
+        {
+          "path": "docs/reader-isolation/novel-01-blind-reader-protocol-v0.1.md",
+          "blobSha": "bd3a75cc8dbda6a440f12fcf79589ef29fe4e72f",
+          "role": "isolation-protocol"
+        },
+        {
+          "path": "docs/revision/novel-01-naive-reader-emotional-ledger.json",
+          "blobSha": "27eed949578cfbc96f961d3ecbe9f12dbc79b34f",
+          "role": "reader-only-freeze-artifact"
+        },
+        {
+          "path": "docs/revision/novel-01-naive-reader-character-reconstruction.md",
+          "blobSha": "58fdc7cd35d74a1d844b768dc7355fb66e18afa9",
+          "role": "reader-only-freeze-artifact"
+        },
+        {
+          "path": "docs/revision/novel-01-reader-vs-architecture-comparison.json",
+          "blobSha": "05dfd5f69f28d05cc65f9df6094082aa8451e70c",
+          "role": "post-freeze-intent-reconciliation"
+        }
+      ],
+      "observed": {
+        "isolationStatus": "VALID_INTACT",
+        "architectureSeenBeforeReaderFreeze": false,
+        "repositorySearchBeforeReaderFreeze": false,
+        "frozenReaderArtifactCount": 2,
+        "architectureOpenedOnlyAfterFreeze": true,
+        "comparisonResult": "MATCH_WITH_MINOR_DIVERGENCES",
+        "criticalFindings": 0,
+        "majorFindings": 0,
+        "minorFindings": 4,
+        "readerCouldReconstructCostlyChangedChoiceForEachLead": true,
+        "architectureSpecificityCouldRemainLowerSalienceWithoutBecomingMajor": true
+      },
+      "expectedPolicy": {
+        "gate": "pass-with-watchpoints",
+        "mustFreezeBeforeIntent": true,
+        "mustNotUpgradeEveryArchitectureMismatchToMajor": true,
+        "mustInvalidateIfArchitectureSeenBeforeFreeze": true,
+        "mustPreserveFrozenReaderEvidenceAfterIntentAccess": true
+      }
+    },
+    {
+      "id": "voice-collision-versus-intentional-shared-language",
+      "skill": "character-voice-fingerprint",
+      "sourceArtifacts": [
+        {
+          "path": "docs/project-memory/decisions/DEC-007-character-voice-fingerprints.md",
+          "blobSha": "cbd16e8b0d71aa9c0b04ca0f5165d9243ea2a338",
+          "role": "workflow-decision"
+        },
+        {
+          "path": "docs/craft/character-voice-fingerprint-v0.1.json",
+          "blobSha": "7a5bacd5e875ac4520f9bd97b0c51fdf844ffa45",
+          "role": "voice-baseline"
+        },
+        {
+          "path": "docs/continuity/voice-collision-register-v0.1.json",
+          "blobSha": "6a511c0f48af354c287598464f23a89b0f1dcbf8",
+          "role": "collision-register"
+        },
+        {
+          "path": "docs/acceptance/act-01-voice-fingerprint-editorial-gate-v0.1.json",
+          "blobSha": "733241bfb168514d27623b73321132d4692db399",
+          "role": "retrospective-act-gate"
+        }
+      ],
+      "observed": {
+        "fingerprintUsesBiographyStatusProfessionRelationshipAndStress": true,
+        "phoneticDialectIsNotDefault": true,
+        "requiredChecks": [
+          "speaker-swap",
+          "short-phrase-collision",
+          "metaphor-domain",
+          "status-address",
+          "narrator-contamination",
+          "blind-attribution"
+        ],
+        "actGateBeforeRevision": {
+          "blockingMajorCollisionCount": 1,
+          "nonblockingMinorCollisionCount": 3,
+          "intentionalSharedLanguageCount": 2
+        },
+        "actGateAfterTargetedRevision": {
+          "criticalOpen": 0,
+          "majorOpen": 0,
+          "minorOpen": 0,
+          "resolvedMajor": 1,
+          "resolvedMinor": 3,
+          "status": "pass"
+        },
+        "sameSurfacePhraseCanBeEitherLeakOrIntentionalBorrowing": true,
+        "ordinaryFunctionalCrisisLanguageIsNotAutomaticallyACharacterSignature": true,
+        "canonImpactOfVoiceRepair": "none",
+        "revealImpactOfVoiceRepair": "none",
+        "plotImpactOfVoiceRepair": "none"
+      },
+      "expectedPolicy": {
+        "mustDistinguishCollisionFromIntentionalBorrowing": true,
+        "mustBlockOnOpenMajorCollision": true,
+        "mustAllowSharedInstitutionalOrRelationshipLanguageWithReason": true,
+        "mustPreferCharacterSpecificPragmaticsOverRandomCatchphrases": true,
+        "mustNotRequirePlotOrCanonChangeForSurfaceVoiceRepair": true
+      }
+    },
+    {
+      "id": "multi-chapter-subtractive-revision-targeted-regression",
+      "skill": "creative-revision-regression",
+      "sourceArtifacts": [
+        {
+          "path": "docs/revision/novel-pass-07-targeted-revision-report.json",
+          "blobSha": "f903e34a9f4254743b3b214ee902830c9ce73ca1",
+          "role": "revision-delta"
+        },
+        {
+          "path": "docs/reviews/award-jury/final/award-regression-review.json",
+          "blobSha": "d9b6f718d53018d6d8850c0748907fe4971aa007",
+          "role": "targeted-regression"
+        }
+      ],
+      "observed": {
+        "touchedChapterCount": 5,
+        "oldWordCount": 20834,
+        "newWordCount": 20503,
+        "deltaWords": -331,
+        "eventChanges": 0,
+        "leadDecisionChanges": 0,
+        "failedTrialChanges": 0,
+        "nonhumanAgencyChanges": 0,
+        "secondaryAgencyChanges": 0,
+        "politicalConsequenceChanges": 0,
+        "freshBlindThreeChamberRerun": false,
+        "frozenBlindEvidenceWasPreserved": true,
+        "originalS3Resolved": true,
+        "nonblockingS2WatchpointsRemain": true,
+        "protectListRegressionPassed": true
+      },
+      "expectedPolicy": {
+        "impactClass": "R2",
+        "impactReason": "multi-scene presentation changed while causal events, lead decisions, agency and political consequences remained stable",
+        "requiredRerun": "targeted-regression",
+        "fullBlindReaderRerunRequired": false,
+        "mustCheckProtectConstraints": true,
+        "mustCheckCollateralDamage": true,
+        "mustNotClaimResidualWatchpointsResolved": true,
+        "mustNotInferImpactFromWordCountOrFileCountAlone": true
+      }
+    }
+  ]
+}
