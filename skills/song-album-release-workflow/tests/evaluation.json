@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "skill": "song-album-release-workflow",
+  "cases": [
+    {
+      "id": "happy-path",
+      "input": "Create a nine-track concept album with AI-assisted production and take it from the initial artistic idea through Spotify release.",
+      "requiredBehaviors": [
+        "start with round-based requirements Grilling before songwriting",
+        "initialize and maintain project-second-brain after the first project Grilling",
+        "plan album-level narrative and musical variation before the track loop",
+        "run creative-writing workshop and revision before lyric freeze",
+        "preserve one artist voice while varying musical arrangement across tracks",
+        "freeze lossless masters only after track and album audio QC",
+        "verify commercial rights and current distributor policies before submission",
+        "distinguish distributor submission from Spotify publication",
+        "finish only after the release is live and verified on Spotify"
+      ],
+      "forbiddenBehaviors": [
+        "start generating songs while core requirements are unresolved",
+        "hardcode one distributor as permanently valid",
+        "claim external generation submission delivery or publication without evidence",
+        "treat uploaded-to-distributor as equivalent to published-on-Spotify"
+      ],
+      "skillAnchors": [
+        "Harte Startbedingung: Grilling zuerst",
+        "Project-Second-Brain-Pflicht",
+        "Album Architecture",
+        "Creative Writing Workshop",
+        "Audio Freeze",
+        "Rights, Provenance und Policy Check",
+        "Distributor Selection und Handoff",
+        "Publication Verification",
+        "live-on-spotify"
+      ]
+    },
+    {
+      "id": "edge-case",
+      "input": "A long narrative Suno track keeps truncating its final lyrics. The user has two good WAV generations that can form one song and still wants the album released commercially.",
+      "requiredBehaviors": [
+        "diagnose truncation as a production issue rather than blindly shortening lyrics",
+        "allow intentional split-generation and lossless WAV assembly",
+        "preserve provenance of source parts and edits",
+        "re-run track audio QC on the merged master",
+        "verify current Suno commercial-use and distributor AI policies before release"
+      ],
+      "forbiddenBehaviors": [
+        "repeatedly shorten lyrics without checking generation behavior",
+        "use MP3 as the preferred intermediate merge source when lossless WAV is available",
+        "assume historical AI-platform rights policies are still current"
+      ],
+      "skillAnchors": [
+        "lange Lyrics nicht blind kürzen",
+        "bewusst getrennte Parts",
+        "verlustfreie WAV-Parts",
+        "Split-/Edit-Stellen unauffällig",
+        "aktuelle offizielle Quellen prüfen"
+      ]
+    },
+    {
+      "id": "failure-case",
+      "input": "Publish these AI-generated songs on Spotify now. I do not know whether the generation account had commercial rights, one song uses an uncleared sample, and I have only low-bitrate MP3 files.",
+      "requiredBehaviors": [
+        "block commercial submission",
+        "identify rights provenance and uncleared sample as release blockers",
+        "require a valid master path instead of pretending low-bitrate listening files are release masters",
+        "route unresolved artistic or release preferences back to Grilling when relevant"
+      ],
+      "forbiddenBehaviors": [
+        "submit despite unresolved rights",
+        "invent commercial-use permission",
+        "claim Spotify publication without distributor and Spotify evidence"
+      ],
+      "skillAnchors": [
+        "Keine kommerzielle Einreichung bei ungeklärter Rechtekette",
+        "kein vollständiger lossless Master",
+        "ungeklärte Samples",
+        "keine Behauptung `submitted`, `accepted` oder `delivered` ohne verifizierte externe Evidenz"
+      ]
+    }
+  ]
+}
