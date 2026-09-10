@@ -1,0 +1,5 @@
+interface:
+  display_name: "Song Album Release Workflow"
+  short_description: "Führt Musikprojekte von Grilling und Songwriting bis zum verifizierten Spotify-Release."
+policy:
+  allow_implicit_invocation: true
