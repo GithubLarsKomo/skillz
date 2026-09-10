@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **112**
+Skills: **113**
 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
@@ -89,6 +89,7 @@ Skills: **112**
 - [[skills/series-architecture|series-architecture]]
 - [[skills/skill-lifecycle-migration|skill-lifecycle-migration]]
 - [[skills/skill-portfolio-audit|skill-portfolio-audit]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/speculative-worldbuilding|speculative-worldbuilding]]
 - [[skills/sport-athlete-management|sport-athlete-management]]
 - [[skills/sport-athlete-profile|sport-athlete-profile]]

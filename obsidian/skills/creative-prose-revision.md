@@ -33,6 +33,7 @@ tags:
 - [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ## Outputs
 
@@ -44,12 +45,14 @@ tags:
 ### `creative-revision-report.json`
 
 - [[skills/creative-revision-regression|creative-revision-regression]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ### `final-creative-text`
 
 - [[skills/creative-revision-regression|creative-revision-regression]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ## Evaluation
 

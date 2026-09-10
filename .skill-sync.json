@@ -1704,6 +1704,12 @@
         "agents/openai.yaml": "32abf10b46448c2197a000be554a33f5bc325f5ef0b655eaa4349b0eba2e582f"
       }
     },
+    "song-album-release-workflow": {
+      "files": {
+        "SKILL.md": "3cb48a536140b26f9d6c662906622c5e3600a88550280109a64bd3cea858ab60",
+        "agents/openai.yaml": "2d8a958858f5e6793b95fc89ab88bdebeca2dcadb1f5e603b87d18a70d9e3e3b"
+      }
+    },
     "source-to-context": {
       "files": {
         "SKILL.md": "d92be37e6f9ab1b4f2318b05cd95508e23465bbd1f27367f10fc06f898365bff",

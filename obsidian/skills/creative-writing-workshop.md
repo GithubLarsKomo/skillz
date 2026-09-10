@@ -34,6 +34,7 @@ Prüft kreative Prosa als strukturierte Schreibwerkstatt mit Cold Read, Craft-Di
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ## Outputs
 
@@ -48,10 +49,11 @@ Prüft kreative Prosa als strukturierte Schreibwerkstatt mit Cold Read, Craft-Di
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ### `creative-workshop-review.md`
 
-- Terminal or currently unconsumed output.
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ## Evaluation
 

@@ -607,6 +607,11 @@ graph TD
   series_architecture --> ensemble_character_architecture
   series_architecture --> speculative_worldbuilding
   skill_lifecycle_migration --> skill_portfolio_audit
+  song_album_release_workflow --> creative_prose_revision
+  song_album_release_workflow --> creative_revision_regression
+  song_album_release_workflow --> creative_writing_workshop
+  song_album_release_workflow --> project_second_brain
+  song_album_release_workflow --> round_based_requirements_grilling
   spec_to_vertical_issues --> conversation_to_spec
   spec_to_vertical_issues --> project_second_brain
   speculative_worldbuilding --> structured_knowledge_artifact
@@ -980,7 +985,7 @@ graph TD
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | inferred |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `song-album-release-workflow`, `thought-to-concept-flow` | inferred |
 | `PERFORMANCE_PLAN.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
@@ -995,6 +1000,9 @@ graph TD
 | `agreement-clause-coverage.json` | `agreement-type-analysis` | `contract-drafting`, `contract-matter-workflow`, `contract-review` | mixed |
 | `agreement-deal-model.json` | `agreement-type-analysis` | `contract-drafting`, `contract-matter-workflow`, `contract-review` | mixed |
 | `agreement-specialist-routes.json` | `agreement-type-analysis` | `contract-drafting`, `contract-matter-workflow`, `contract-review` | mixed |
+| `album-architecture.md` | `song-album-release-workflow` | — | unconsumed |
+| `album-audio-qc.json` | `song-album-release-workflow` | — | unconsumed |
+| `album-project-contract.json` | `song-album-release-workflow` | — | unconsumed |
 | `analytical-performance-assessment.json` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `analytical-performance-plan.json` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
 | `analytical-performance-report.md` | `ivdr-analytical-performance` | `ivdr-performance-evaluation` | inferred |
@@ -1122,11 +1130,11 @@ graph TD
 | `course-knowledge-checks.json` | `learning-activity-generator` | `youtube-course-builder-workflow` | inferred |
 | `course-learning-model.json` | `youtube-course-builder-workflow` | `learning-delivery-workflow` | explicit |
 | `creative-epub-delivery.json` | `creative-writing-epub-delivery` | — | unconsumed |
-| `creative-revision-regression.json` | `creative-revision-regression` | `fiction-award-jury-review`, `fiction-series-writing-workflow` | explicit |
-| `creative-revision-report.json` | `creative-prose-revision` | `creative-revision-regression` | explicit |
+| `creative-revision-regression.json` | `creative-revision-regression` | `fiction-award-jury-review`, `fiction-series-writing-workflow`, `song-album-release-workflow` | mixed |
+| `creative-revision-report.json` | `creative-prose-revision` | `creative-revision-regression`, `song-album-release-workflow` | mixed |
 | `creative-voice-guidance.md` | `creative-writing-epub-delivery` | — | unconsumed |
-| `creative-workshop-review.json` | `creative-writing-workshop` | `creative-prose-revision`, `fiction-award-jury-review`, `fiction-series-writing-workflow`, `science-storytelling-workflow` | explicit |
-| `creative-workshop-review.md` | `creative-writing-workshop` | — | unconsumed |
+| `creative-workshop-review.json` | `creative-writing-workshop` | `creative-prose-revision`, `fiction-award-jury-review`, `fiction-series-writing-workflow`, `science-storytelling-workflow`, `song-album-release-workflow` | mixed |
+| `creative-workshop-review.md` | `creative-writing-workshop` | `song-album-release-workflow` | inferred |
 | `creative-writing-handoff.json` | `creative-writing-workflow` | — | unconsumed |
 | `creative-writing-run.json` | `creative-writing-workflow` | — | unconsumed |
 | `creative-writing.epub` | `creative-writing-epub-delivery` | — | unconsumed |
@@ -1267,7 +1275,7 @@ graph TD
 | `field-action-recipient-scope.json` | `medical-device-field-action-communication` | `medical-device-field-action-effectiveness`, `medical-device-field-action-physical-execution` | inferred |
 | `field-action-unit-custody-ledger.json` | `medical-device-field-action-physical-execution` | `medical-device-field-action-effectiveness` | inferred |
 | `field-safety-notice-content.json` | `ivdr-field-safety-corrective-action` | `ivdr-fsca-status-final-reporting` | inferred |
-| `final-creative-text` | `creative-prose-revision` | `creative-revision-regression`, `fiction-series-writing-workflow`, `science-storytelling-workflow` | explicit |
+| `final-creative-text` | `creative-prose-revision` | `creative-revision-regression`, `fiction-series-writing-workflow`, `science-storytelling-workflow`, `song-album-release-workflow` | mixed |
 | `final-revised-text` | `precision-writing-revision` | `person-profile-document-delivery`, `person-research-report-workflow` | mixed |
 | `finance-counsel-work-orders.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
 | `finance-restructuring-law-assessment.json` | `finance-insolvency-restructuring-law-specialist` | — | unconsumed |
@@ -1287,7 +1295,7 @@ graph TD
 | `fto-design-around-options.json` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-risk-heatmap.md` | `freedom-to-operate-assessment` | — | unconsumed |
 | `fto-scope.json` | `freedom-to-operate-assessment` | — | unconsumed |
-| `gate-invalidation-map.json` | `creative-revision-regression` | `fiction-series-writing-workflow` | explicit |
+| `gate-invalidation-map.json` | `creative-revision-regression` | `fiction-series-writing-workflow`, `song-album-release-workflow` | mixed |
 | `german-association-law-assessment.json` | `german-association-law-specialist` | — | unconsumed |
 | `german-employment-law-assessment.json` | `german-employment-labor-law-specialist` | — | unconsumed |
 | `german-rowing-law-assessment.json` | `german-rowing-sport-law-specialist` | — | unconsumed |
@@ -1561,9 +1569,9 @@ graph TD
 | `product-ranking.md` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
 | `product-safety-legal-gates.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
-| `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `spec-to-vertical-issues` | inferred |
-| `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `spec-to-vertical-issues` | inferred |
-| `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `spec-to-vertical-issues` | inferred |
+| `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
+| `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
+| `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `prose-audit.json` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
@@ -1619,6 +1627,8 @@ graph TD
 | `regulatory-strategy.md` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `regulatory-wayfinding-handoff.json` | `medical-device-regulatory-strategy` | — | unconsumed |
 | `rehab-progression.json` | `sport-injury-rehabilitation` | `sport-athlete-management` | inferred |
+| `release-metadata.json` | `song-album-release-workflow` | — | unconsumed |
+| `release-readiness.json` | `song-album-release-workflow` | — | unconsumed |
 | `remaining-unknowns.json` | `opaque-system-analysis` | — | unconsumed |
 | `reorganization-tax-assessment.json` | `reorganization-tax-specialist` | — | unconsumed |
 | `reorganization-tax-open-issues.json` | `reorganization-tax-specialist` | — | unconsumed |
@@ -1626,7 +1636,7 @@ graph TD
 | `reorganization-tax-structure-options.json` | `reorganization-tax-specialist` | — | unconsumed |
 | `reporting-office-obligations.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `creative-writing-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `thought-to-concept-flow` | mixed |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `creative-writing-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `song-album-release-workflow`, `thought-to-concept-flow` | mixed |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `return-after-illness-plan.json` | `sport-return-after-illness` | `sport-athlete-management` | inferred |
@@ -1636,7 +1646,7 @@ graph TD
 | `review-decision.md` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
 | `reviewable-change-brief.md` | `implement-from-issue` | `optimize-software-performance`, `two-axis-code-review` | inferred |
 | `revised-text` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
-| `revision-impact-classification.json` | `creative-revision-regression` | — | unconsumed |
+| `revision-impact-classification.json` | `creative-revision-regression` | `song-album-release-workflow` | inferred |
 | `rewrite-change-map.json` | `precision-language-rewriter` | `precision-writing-revision` | inferred |
 | `rewrite-fidelity.json` | `rewrite-fidelity-verifier` | `precision-writing-revision`, `presentation-language-rewriter` | inferred |
 | `risk-management-analysis.json` | `medical-device-risk-management-iso14971` | `design-change-regulatory-impact`, `design-control-traceability`, `eu-mdr-ivdr-regulatory-specialist`, `fda-510k-substantial-equivalence`, `fda-complaint-mdr-reportability`, `fda-corrections-removals`, `fda-de-novo-special-controls`, `fda-de-novo-strategy`, `fda-ivd-clia-waiver`, `fda-pccp-change-control`, `iec62304-software-lifecycle`, `iec62366-usability-engineering`, `ivdr-analytical-performance`, `ivdr-clinical-performance-study`, `ivdr-field-safety-corrective-action`, `ivdr-inhouse-health-institution`, `ivdr-pmpf`, `ivdr-pms-vigilance`, `measurement-system-validation`, `medical-device-capa`, `medical-device-cybersecurity-lifecycle`, `medical-device-field-action-effectiveness`, `medical-device-labeling-ifu`, `medical-device-pms-system`, `medical-device-regulatory-strategy`, `nonconformance-mrb-disposition`, `process-validation-iq-oq-pq`, `supplier-quality-medical-device` | inferred |
@@ -1690,6 +1700,7 @@ graph TD
 | `sport-training-programming-compatibility-run.json` | `sport-training-programming` | — | unconsumed |
 | `sports-law-route-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
 | `sports-rule-binding-map.json` | `german-sports-law-specialist` | `german-rowing-sport-law-specialist` | inferred |
+| `spotify-publication-record.json` | `song-album-release-workflow` | — | unconsumed |
 | `stakeholder-questionnaire.json` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `stakeholder-questionnaire.md` | `external-stakeholder-questionnaire` | — | unconsumed |
 | `story-bible-handoff.json` | `fiction-series-writing-workflow` | — | unconsumed |
@@ -1759,6 +1770,7 @@ graph TD
 | `tp-functional-risk-analysis.json` | `transfer-pricing-specialist` | — | unconsumed |
 | `tp-legal-constraints.json` | `transfer-pricing-specialist` | — | unconsumed |
 | `tp-method-selection.json` | `transfer-pricing-specialist` | — | unconsumed |
+| `track-production-packages/` | `song-album-release-workflow` | — | unconsumed |
 | `trade-control-assessment.json` | `trade-sanctions-export-control-specialist` | — | unconsumed |
 | `training-adaptation-decision.json` | `sport-training-adaptation-engine` | `sport-athlete-management` | inferred |
 | `training-music-profile.json` | `sport-training-music` | `sport-athlete-management` | inferred |

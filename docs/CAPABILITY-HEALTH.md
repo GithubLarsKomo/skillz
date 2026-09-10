@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **340**
-- User-facing entrypoints: **279**
-- Discoverability — public: **269**, advanced: **10**, internal: **59**, compatibility: **2**
-- Evaluation suites: **340**
+- Skills: **341**
+- User-facing entrypoints: **280**
+- Discoverability — public: **270**, advanced: **10**, internal: **59**, compatibility: **2**
+- Evaluation suites: **341**
 - Executed evaluation suites: **PASS**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **340/340**
-- User-facing entrypoints with evaluation suite: **279/279**
+- Skills with evaluation suite: **341/341**
+- User-facing entrypoints with evaluation suite: **280/280**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **352**
+- Outputs without inferred hard-requires consumers: **357**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -42,6 +42,9 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `adverse-event-code-set.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-delta.json` — producer: `medical-device-adverse-event-coding`
 - `adverse-event-coding-rationale.json` — producer: `medical-device-adverse-event-coding`
+- `album-architecture.md` — producer: `song-album-release-workflow`
+- `album-audio-qc.json` — producer: `song-album-release-workflow`
+- `album-project-contract.json` — producer: `song-album-release-workflow`
 - `antitrust-risk-gates.json` — producer: `competition-antitrust-law-specialist`
 - `association-governance-map.json` — producer: `german-association-law-specialist`
 - `association-law-open-points.json` — producer: `german-association-law-specialist`
@@ -94,7 +97,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `corporate-tax-scenario-map.json` — producer: `german-corporate-tax-specialist`
 - `creative-epub-delivery.json` — producer: `creative-writing-epub-delivery`
 - `creative-voice-guidance.md` — producer: `creative-writing-epub-delivery`
-- `creative-workshop-review.md` — producer: `creative-writing-workshop`
 - `creative-writing-handoff.json` — producer: `creative-writing-workflow`
 - `creative-writing-run.json` — producer: `creative-writing-workflow`
 - `creative-writing.epub` — producer: `creative-writing-epub-delivery`
@@ -309,6 +311,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `regulatory-strategy.json` — producer: `medical-device-regulatory-strategy`
 - `regulatory-strategy.md` — producer: `medical-device-regulatory-strategy`
 - `regulatory-wayfinding-handoff.json` — producer: `medical-device-regulatory-strategy`
+- `release-metadata.json` — producer: `song-album-release-workflow`
+- `release-readiness.json` — producer: `song-album-release-workflow`
 - `remaining-unknowns.json` — producer: `opaque-system-analysis`
 - `reorganization-tax-assessment.json` — producer: `reorganization-tax-specialist`
 - `reorganization-tax-open-issues.json` — producer: `reorganization-tax-specialist`
@@ -316,7 +320,6 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `reorganization-tax-structure-options.json` — producer: `reorganization-tax-specialist`
 - `resolved-change-brief.md` — producer: `merge-conflict-resolution`
 - `response-evidence-matrix.json` — producer: `fda-additional-information-response`
-- `revision-impact-classification.json` — producer: `creative-revision-regression`
 - `role-architecture.md` — producer: `role-architecture`
 - `role-requirements-report.md` — producer: `role-requirements-grilling`
 - `rowing-legal-open-points.json` — producer: `german-rowing-sport-law-specialist`
@@ -338,6 +341,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `spoken-tutorial.md` — producer: `audio-tutorial-workflow`
 - `sport-report-package` — producer: `sport-diagnostics-training-report-workflow`
 - `sport-training-programming-compatibility-run.json` — producer: `sport-training-programming`
+- `spotify-publication-record.json` — producer: `song-album-release-workflow`
 - `stakeholder-questionnaire.json` — producer: `external-stakeholder-questionnaire`
 - `stakeholder-questionnaire.md` — producer: `external-stakeholder-questionnaire`
 - `story-bible-handoff.json` — producer: `fiction-series-writing-workflow`
@@ -365,6 +369,7 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `tp-functional-risk-analysis.json` — producer: `transfer-pricing-specialist`
 - `tp-legal-constraints.json` — producer: `transfer-pricing-specialist`
 - `tp-method-selection.json` — producer: `transfer-pricing-specialist`
+- `track-production-packages/` — producer: `song-album-release-workflow`
 - `trade-control-assessment.json` — producer: `trade-sanctions-export-control-specialist`
 - `transaction-gate-map.json` — producer: `corporate-transactions-ma-specialist`
 - `transaction-legal-assessment.json` — producer: `corporate-transactions-ma-specialist`

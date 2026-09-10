@@ -35,6 +35,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
 
 ## Outputs
@@ -50,6 +51,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/conversation-to-spec|conversation-to-spec]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
 
 ### `project-memory-index.md`
@@ -57,6 +59,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/conversation-to-spec|conversation-to-spec]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
 
 ### `project-memory-state.json`
@@ -64,6 +67,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/conversation-to-spec|conversation-to-spec]]
 - [[skills/iterate-software-projects|iterate-software-projects]]
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
 
 ## Evaluation

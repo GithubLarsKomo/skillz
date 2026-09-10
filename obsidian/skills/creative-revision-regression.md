@@ -32,6 +32,7 @@ Klassifiziert die Auswirkung materieller Creative-Writing-Revisionen, entscheide
 
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ## Outputs
 
@@ -45,14 +46,16 @@ Klassifiziert die Auswirkung materieller Creative-Writing-Revisionen, entscheide
 
 - [[skills/fiction-award-jury-review|fiction-award-jury-review]]
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ### `gate-invalidation-map.json`
 
 - [[skills/fiction-series-writing-workflow|fiction-series-writing-workflow]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ### `revision-impact-classification.json`
 
-- Terminal or currently unconsumed output.
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
 
 ## Evaluation
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 340,
-  "entrypointCount": 279,
+  "skillCount": 341,
+  "entrypointCount": 280,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,14 +15,14 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 269,
+    "public": 270,
     "advanced": 10,
     "internal": 59,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 340,
-  "evaluatedSkillCount": 340,
-  "evaluatedEntrypointCount": 279,
+  "evaluationSuiteCount": 341,
+  "evaluatedSkillCount": 341,
+  "evaluatedEntrypointCount": 280,
   "evaluationCoverageComplete": true,
   "evaluationPassed": true,
   "evaluationErrorCount": 0,
@@ -2059,7 +2059,8 @@
       "dependents": [
         "creative-revision-regression",
         "fiction-series-writing-workflow",
-        "science-storytelling-workflow"
+        "science-storytelling-workflow",
+        "song-album-release-workflow"
       ],
       "outputs": [
         "creative-revision-report.json",
@@ -2073,7 +2074,8 @@
             "creative-prose-revision"
           ],
           "consumerSkills": [
-            "creative-revision-regression"
+            "creative-revision-regression",
+            "song-album-release-workflow"
           ]
         },
         {
@@ -2085,7 +2087,8 @@
           "consumerSkills": [
             "creative-revision-regression",
             "fiction-series-writing-workflow",
-            "science-storytelling-workflow"
+            "science-storytelling-workflow",
+            "song-album-release-workflow"
           ]
         }
       ],
@@ -2117,7 +2120,8 @@
       ],
       "dependents": [
         "fiction-award-jury-review",
-        "fiction-series-writing-workflow"
+        "fiction-series-writing-workflow",
+        "song-album-release-workflow"
       ],
       "outputs": [
         "creative-revision-regression.json",
@@ -2133,7 +2137,8 @@
           ],
           "consumerSkills": [
             "fiction-award-jury-review",
-            "fiction-series-writing-workflow"
+            "fiction-series-writing-workflow",
+            "song-album-release-workflow"
           ]
         },
         {
@@ -2143,7 +2148,8 @@
             "creative-revision-regression"
           ],
           "consumerSkills": [
-            "fiction-series-writing-workflow"
+            "fiction-series-writing-workflow",
+            "song-album-release-workflow"
           ]
         },
         {
@@ -2152,7 +2158,9 @@
           "producers": [
             "creative-revision-regression"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "song-album-release-workflow"
+          ]
         }
       ],
       "portableFiles": [
@@ -2299,7 +2307,8 @@
         "creative-prose-revision",
         "fiction-award-jury-review",
         "fiction-series-writing-workflow",
-        "science-storytelling-workflow"
+        "science-storytelling-workflow",
+        "song-album-release-workflow"
       ],
       "outputs": [
         "creative-workshop-review.json",
@@ -2316,7 +2325,8 @@
             "creative-prose-revision",
             "fiction-award-jury-review",
             "fiction-series-writing-workflow",
-            "science-storytelling-workflow"
+            "science-storytelling-workflow",
+            "song-album-release-workflow"
           ]
         },
         {
@@ -2325,7 +2335,9 @@
           "producers": [
             "creative-writing-workshop"
           ],
-          "consumerSkills": []
+          "consumerSkills": [
+            "song-album-release-workflow"
+          ]
         }
       ],
       "portableFiles": [
@@ -15734,6 +15746,7 @@
         "fiction-series-writing-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
+        "song-album-release-workflow",
         "spec-to-vertical-issues"
       ],
       "outputs": [
@@ -15752,6 +15765,7 @@
             "conversation-to-spec",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "song-album-release-workflow",
             "spec-to-vertical-issues"
           ]
         },
@@ -15765,6 +15779,7 @@
             "conversation-to-spec",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "song-album-release-workflow",
             "spec-to-vertical-issues"
           ]
         },
@@ -15778,6 +15793,7 @@
             "conversation-to-spec",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "song-album-release-workflow",
             "spec-to-vertical-issues"
           ]
         }
@@ -17250,6 +17266,7 @@
         "frontend-product-context",
         "leadership-coaching-intake",
         "role-requirements-grilling",
+        "song-album-release-workflow",
         "thought-to-concept-flow"
       ],
       "outputs": [
@@ -17269,6 +17286,7 @@
             "frontend-design-system-context",
             "frontend-product-context",
             "role-requirements-grilling",
+            "song-album-release-workflow",
             "thought-to-concept-flow"
           ]
         },
@@ -17285,6 +17303,7 @@
             "frontend-design-system-context",
             "frontend-product-context",
             "role-requirements-grilling",
+            "song-album-release-workflow",
             "thought-to-concept-flow"
           ]
         }
@@ -17566,6 +17585,104 @@
             "artifact-contract-normalizer",
             "skill-lifecycle-migration"
           ]
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 3,
+        "recordedResultCount": 3,
+        "passed": true
+      }
+    },
+    {
+      "name": "song-album-release-workflow",
+      "description": "Orchestriert Singles, EPs und Alben von einem verpflichtenden Requirements-Grilling über Konzept, Songwriting, Creative-Writing-Revision, generative oder konventionelle Musikproduktion, Audio-QC, Artwork, Rechte-/Metadaten-Freeze und Distributor-Handoff bis zur verifizierten Veröffentlichung auf Spotify. Verwenden, wenn ein Musikprojekt nicht nur textlich entwickelt, sondern reproduzierbar bis zum realen Release geführt werden soll.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "creative-prose-revision",
+        "creative-revision-regression",
+        "creative-writing-workshop",
+        "project-second-brain",
+        "round-based-requirements-grilling"
+      ],
+      "dependents": [],
+      "outputs": [
+        "album-architecture.md",
+        "album-audio-qc.json",
+        "album-project-contract.json",
+        "release-metadata.json",
+        "release-readiness.json",
+        "spotify-publication-record.json",
+        "track-production-packages/"
+      ],
+      "outputContracts": [
+        {
+          "output": "album-architecture.md",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "album-audio-qc.json",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "album-project-contract.json",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "release-metadata.json",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "release-readiness.json",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "spotify-publication-record.json",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "track-production-packages/",
+          "ambiguous": false,
+          "producers": [
+            "song-album-release-workflow"
+          ],
+          "consumerSkills": []
         }
       ],
       "portableFiles": [
