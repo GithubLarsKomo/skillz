@@ -3254,6 +3254,7 @@
       "requires": [],
       "consumes": [],
       "outputs": [
+        "project-memory-assets.md",
         "project-memory-event.md",
         "project-memory-index.md",
         "project-memory-state.json"
@@ -15295,6 +15296,21 @@
       "consumerSkills": [],
       "ambiguous": false,
       "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "project-memory-assets.md",
+      "producers": [
+        "project-second-brain"
+      ],
+      "consumerSkills": [
+        "conversation-to-spec",
+        "iterate-software-projects",
+        "large-work-wayfinder",
+        "song-album-release-workflow",
+        "spec-to-vertical-issues"
+      ],
+      "ambiguous": false,
+      "consumptionStatus": "inferred"
     },
     {
       "output": "project-memory-event.md",

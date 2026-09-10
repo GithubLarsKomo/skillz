@@ -24,8 +24,8 @@
   "evaluatedSkillCount": 341,
   "evaluatedEntrypointCount": 280,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 21,
   "skills": [
     {
       "name": "agent-handoff",
@@ -15728,7 +15728,7 @@
     },
     {
       "name": "project-second-brain",
-      "description": "Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als verlinkten Second Brain ab dem Requirements-Grilling. Erfasst jeden wesentlichen Workflow-Übergang mit Inputs, Outputs, Entscheidungen, Evidenz, Repositoryzustand, offenen Schleifen und nächster Aktion, ohne kanonische Artefakte zu duplizieren oder private Chain-of-Thought zu speichern.",
+      "description": "Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als verlinkten Second Brain ab dem Requirements-Grilling. Erfasst wesentliche Workflow-Übergänge, Entscheidungen und Evidenz und dokumentiert einen kanonischen Google-Drive-Projektordner für nicht-textuelle Projekt- und Delivery-Artefakte, ohne Producer-Artefakte zu duplizieren oder private Chain-of-Thought zu speichern.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -15750,11 +15750,26 @@
         "spec-to-vertical-issues"
       ],
       "outputs": [
+        "project-memory-assets.md",
         "project-memory-event.md",
         "project-memory-index.md",
         "project-memory-state.json"
       ],
       "outputContracts": [
+        {
+          "output": "project-memory-assets.md",
+          "ambiguous": false,
+          "producers": [
+            "project-second-brain"
+          ],
+          "consumerSkills": [
+            "conversation-to-spec",
+            "iterate-software-projects",
+            "large-work-wayfinder",
+            "song-album-release-workflow",
+            "spec-to-vertical-issues"
+          ]
+        },
         {
           "output": "project-memory-event.md",
           "ambiguous": false,
@@ -15799,13 +15814,14 @@
         }
       ],
       "portableFiles": [
-        "agents/openai.yaml"
+        "agents/openai.yaml",
+        "references/drive-artifact-contract.md"
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 3,
+        "caseCount": 5,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {

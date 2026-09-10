@@ -1551,8 +1551,9 @@
     },
     "project-second-brain": {
       "files": {
-        "SKILL.md": "a20c00476d7271d742888061f0021a25e07a7d7700da52ddc8dcab348214cfc6",
-        "agents/openai.yaml": "5ee5032c4653e97297e8ec108d0c63b555998e124eda5d2819c3a2d266f41b6d"
+        "SKILL.md": "97ca307c0e8cd3f7815fc299ec63966ff2c063904f5803935a02bc3ae4b42526",
+        "agents/openai.yaml": "5ee5032c4653e97297e8ec108d0c63b555998e124eda5d2819c3a2d266f41b6d",
+        "references/drive-artifact-contract.md": "0db93eb200436f35c598de44ac49cb26d70dddfb439cd5c3c625bfa0171fe58d"
       }
     },
     "project-status-brief": {

@@ -1569,6 +1569,7 @@ graph TD
 | `product-ranking.md` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
 | `product-safety-legal-gates.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
+| `project-memory-assets.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
 | `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
 | `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
 | `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |

@@ -4,9 +4,9 @@ generated: true
 name: "project-second-brain"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 3
+caseCount: 5
 recordedResultCount: 3
 sourcePath: "skills/project-second-brain/SKILL.md"
 tags:
@@ -16,7 +16,7 @@ tags:
 
 # project-second-brain
 
-Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als verlinkten Second Brain ab dem Requirements-Grilling. Erfasst jeden wesentlichen Workflow-Übergang mit Inputs, Outputs, Entscheidungen, Evidenz, Repositoryzustand, offenen Schleifen und nächster Aktion, ohne kanonische Artefakte zu duplizieren oder private Chain-of-Thought zu speichern.
+Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als verlinkten Second Brain ab dem Requirements-Grilling. Erfasst wesentliche Workflow-Übergänge, Entscheidungen und Evidenz und dokumentiert einen kanonischen Google-Drive-Projektordner für nicht-textuelle Projekt- und Delivery-Artefakte, ohne Producer-Artefakte zu duplizieren oder private Chain-of-Thought zu speichern.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -40,11 +40,20 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 
 ## Outputs
 
+- `project-memory-assets.md`
 - `project-memory-event.md`
 - `project-memory-index.md`
 - `project-memory-state.json`
 
 ## Output consumers
+
+### `project-memory-assets.md`
+
+- [[skills/conversation-to-spec|conversation-to-spec]]
+- [[skills/iterate-software-projects|iterate-software-projects]]
+- [[skills/large-work-wayfinder|large-work-wayfinder]]
+- [[skills/song-album-release-workflow|song-album-release-workflow]]
+- [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
 
 ### `project-memory-event.md`
 
@@ -73,8 +82,8 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `3`
+- Passed: `False`
+- Cases: `5`
 - Recorded results: `3`
 
 ## Canonical source
