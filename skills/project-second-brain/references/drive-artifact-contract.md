@@ -58,7 +58,7 @@ Minimum `ASSETS.md` header:
 # External Assets
 
 - Provider: Google Drive
-- Project folder: [Project assets](observed-drive-folder-url)
+- Project folder URL: `observed-drive-folder-url`
 - Folder ID: `observed-folder-id`
 - Last verified: `2026-09-10T12:00:00+02:00`
 ```
@@ -80,9 +80,9 @@ Each registered asset records at least:
 Example:
 
 ```markdown
-| ID | Role | Artifact | State | Producer | Event | Verified |
-|---|---|---|---|---|---|---|
-| ASSET-004 | final presentation | [NDD Review.pptx](observed-drive-file-url) | released | presentation workflow | EVT-... | 2026-09-10 |
+| ID | Role | Artifact | Drive URL | State | Producer | Event | Verified |
+|---|---|---|---|---|---|---|---|
+| ASSET-004 | final presentation | NDD Review.pptx | `observed-drive-file-url` | released | presentation workflow | EVT-... | 2026-09-10 |
 ```
 
 Do not invent Drive IDs, URLs, revisions, checksums, or verification timestamps. Record only connector-observed or otherwise verified values.
