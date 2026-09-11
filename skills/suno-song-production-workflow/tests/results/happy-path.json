@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "skill": "suno-song-production-workflow",
+  "caseId": "happy-path",
+  "recordedAt": "2026-09-11",
+  "evaluator": "contract-review",
+  "requiredBehaviors": [
+    {
+      "behavior": "verify the current Suno model and capability state before giving model-dependent advice",
+      "passed": true,
+      "evidence": "Phase 0 requires a fresh official Suno capability snapshot and blocks model-dependent production advice when model, duration, edit, or rights information may have changed."
+    },
+    {
+      "behavior": "decompose reference tracks into musical craft dimensions instead of using them as exact-clone prompts",
+      "passed": true,
+      "evidence": "Phase 2 explicitly decomposes references into tempo, groove, harmony, instrumentation, vocals, arrangement, dynamics, and mix characteristics and defines the output as a style-vector rather than an artist clone."
+    },
+    {
+      "behavior": "preserve album identity while assigning each track its own musical role",
+      "passed": true,
+      "evidence": "Track Intent Contract requires track function and neighboring-track differentiation, and Prompt Ready requires each album track to retain a recognizable individual function."
+    },
+    {
+      "behavior": "return Title then Lyrics then Style in that order",
+      "passed": true,
+      "evidence": "Phase 4 defines the canonical user handoff order as Title, Lyrics, Style, then Advanced controls only when relevant."
+    },
+    {
+      "behavior": "put key target length and vocals or melody information inside the Style block",
+      "passed": true,
+      "evidence": "Phase 4 states explicitly that key/mode, Target length, and Vocals / Melody belong in the Style block rather than a loose remainder field."
+    },
+    {
+      "behavior": "use explicit structural repetition when it is idiomatic to the genre rather than adding a generic miscellaneous field",
+      "passed": true,
+      "evidence": "Phase 3 permits explicitly written repetition for Dance, Trance, Hard-Trance, Makina, and Workout tracks when musically idiomatic; Phase 4 removes a Sonstiges/Misc catch-all field."
+    },
+    {
+      "behavior": "generate or compare multiple purposeful candidates instead of automatically selecting take one",
+      "passed": true,
+      "evidence": "Explore -> Select -> Refine calls for purposeful exploration variants, comparative selection, targeted refinement, and explicitly states that Take 1 is not the default winner."
+    },
+    {
+      "behavior": "record the result and reusable learning in the project Second Brain",
+      "passed": true,
+      "evidence": "Phase 9 requires project observations and reusable learnings to be written to the Suno Project Second Brain with evidence class and model-change revalidation rules."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "create a separate Sonstiges or Misc field for key length or vocal information",
+      "observed": false,
+      "evidence": "The prompt contract explicitly forbids a separate Sonstiges/Misc field when the information belongs in Style or verified Advanced controls."
+    },
+    {
+      "behavior": "ask Suno to exactly imitate a living artist",
+      "observed": false,
+      "evidence": "Reference Decomposition explicitly prohibits direct requests to exactly imitate a living artist and requires abstracted craft characteristics instead."
+    },
+    {
+      "behavior": "treat an old Suno duration limit as a timeless fact",
+      "observed": false,
+      "evidence": "The capability gate says historical model limits are not current facts and model-family changes invalidate performance heuristics until revalidated."
+    },
+    {
+      "behavior": "store audio binaries in the GitHub Second Brain just for convenience",
+      "observed": false,
+      "evidence": "The Second-Brain Storage Boundary routes audio, stems, cover, and other non-text files to the documented external artifact store rather than a GitHub binary archive."
+    }
+  ],
+  "overall": "pass"
+}
