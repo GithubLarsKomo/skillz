@@ -4,18 +4,18 @@ Generated from the canonical skill capability index. Do not edit manually.
 
 ## Summary
 
-- Skills: **341**
-- User-facing entrypoints: **280**
-- Discoverability — public: **270**, advanced: **10**, internal: **59**, compatibility: **2**
-- Evaluation suites: **341**
-- Executed evaluation suites: **PASS**
+- Skills: **342**
+- User-facing entrypoints: **281**
+- Discoverability — public: **271**, advanced: **10**, internal: **59**, compatibility: **2**
+- Evaluation suites: **342**
+- Executed evaluation suites: **FAIL**
 - Evaluation coverage: **complete**
-- Skills with evaluation suite: **341/341**
-- User-facing entrypoints with evaluation suite: **280/280**
+- Skills with evaluation suite: **342/342**
+- User-facing entrypoints with evaluation suite: **281/281**
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **357**
+- Outputs without inferred hard-requires consumers: **362**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -349,6 +349,11 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `structured character artifacts` — producer: `ensemble-character-architecture`
 - `structured world artifacts` — producer: `speculative-worldbuilding`
 - `succession-professional-work-orders.json` — producer: `german-inheritance-succession-law-specialist`
+- `suno-capability-snapshot.json` — producer: `suno-song-production-workflow`
+- `suno-generation-review.json` — producer: `suno-song-production-workflow`
+- `suno-model-learning.md` — producer: `suno-song-production-workflow`
+- `suno-production-handoff.json` — producer: `suno-song-production-workflow`
+- `suno-track-package.md` — producer: `suno-song-production-workflow`
 - `supplier-control-plan.json` — producer: `supplier-quality-medical-device`
 - `supplier-quality-assessment.json` — producer: `supplier-quality-medical-device`
 - `supplier-signal-set.json` — producer: `supplier-quality-medical-device`

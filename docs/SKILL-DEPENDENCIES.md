@@ -694,6 +694,7 @@ graph TD
   story_bible_continuity --> series_architecture
   story_bible_continuity --> speculative_worldbuilding
   story_bible_continuity --> structured_knowledge_artifact
+  suno_song_production_workflow --> project_second_brain
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -1569,10 +1570,10 @@ graph TD
 | `product-ranking.md` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
 | `product-safety-legal-gates.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
-| `project-memory-assets.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
-| `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
-| `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
-| `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues` | inferred |
+| `project-memory-assets.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
+| `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
+| `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
+| `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `prose-audit.json` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
@@ -1714,6 +1715,11 @@ graph TD
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
 | `substantial-equivalence-matrix.md` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
 | `succession-professional-work-orders.json` | `german-inheritance-succession-law-specialist` | — | unconsumed |
+| `suno-capability-snapshot.json` | `suno-song-production-workflow` | — | unconsumed |
+| `suno-generation-review.json` | `suno-song-production-workflow` | — | unconsumed |
+| `suno-model-learning.md` | `suno-song-production-workflow` | — | unconsumed |
+| `suno-production-handoff.json` | `suno-song-production-workflow` | — | unconsumed |
+| `suno-track-package.md` | `suno-song-production-workflow` | — | unconsumed |
 | `supplier-control-plan.json` | `supplier-quality-medical-device` | — | unconsumed |
 | `supplier-quality-assessment.json` | `supplier-quality-medical-device` | — | unconsumed |
 | `supplier-signal-set.json` | `supplier-quality-medical-device` | — | unconsumed |

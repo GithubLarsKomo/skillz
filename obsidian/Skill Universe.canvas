@@ -3,7 +3,7 @@
     {
       "id": "universe-title",
       "type": "text",
-      "text": "# Skill Universe\n341 generated skill nodes\nDirected arrows mean **requires**.",
+      "text": "# Skill Universe\n342 generated skill nodes\nDirected arrows mean **requires**.",
       "x": 0,
       "y": -240,
       "width": 620,
@@ -3072,10 +3072,19 @@
       "height": 110
     },
     {
+      "id": "skill-suno-song-production-workflow",
+      "type": "file",
+      "file": "skills/suno-song-production-workflow.md",
+      "x": 12570,
+      "y": 4690,
+      "width": 300,
+      "height": 110
+    },
+    {
       "id": "skill-tax-advisory-office",
       "type": "file",
       "file": "skills/tax-advisory-office.md",
-      "x": 12570,
+      "x": 12900,
       "y": 4690,
       "width": 300,
       "height": 110
@@ -3084,8 +3093,8 @@
       "id": "skill-tax-matter-final-gate",
       "type": "file",
       "file": "skills/tax-matter-final-gate.md",
-      "x": 12900,
-      "y": 4690,
+      "x": 12240,
+      "y": 4830,
       "width": 300,
       "height": 110
     },
@@ -3093,7 +3102,7 @@
       "id": "skill-tax-procedure-matter-workflow",
       "type": "file",
       "file": "skills/tax-procedure-matter-workflow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 4830,
       "width": 300,
       "height": 110
@@ -3102,7 +3111,7 @@
       "id": "skill-tax-professional-routing",
       "type": "file",
       "file": "skills/tax-professional-routing.md",
-      "x": 12570,
+      "x": 12900,
       "y": 4830,
       "width": 300,
       "height": 110
@@ -3111,8 +3120,8 @@
       "id": "skill-tax-specialist-router",
       "type": "file",
       "file": "skills/tax-specialist-router.md",
-      "x": 12900,
-      "y": 4830,
+      "x": 12240,
+      "y": 4970,
       "width": 300,
       "height": 110
     },
@@ -3120,7 +3129,7 @@
       "id": "skill-technology-due-diligence",
       "type": "file",
       "file": "skills/technology-due-diligence.md",
-      "x": 12240,
+      "x": 12570,
       "y": 4970,
       "width": 300,
       "height": 110
@@ -3129,7 +3138,7 @@
       "id": "skill-template-document-workflow",
       "type": "file",
       "file": "skills/template-document-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 4970,
       "width": 300,
       "height": 110
@@ -3138,8 +3147,8 @@
       "id": "skill-template-presentation-workflow",
       "type": "file",
       "file": "skills/template-presentation-workflow.md",
-      "x": 12900,
-      "y": 4970,
+      "x": 12240,
+      "y": 5110,
       "width": 300,
       "height": 110
     },
@@ -3147,7 +3156,7 @@
       "id": "skill-thought-to-concept-flow",
       "type": "file",
       "file": "skills/thought-to-concept-flow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 5110,
       "width": 300,
       "height": 110
@@ -3156,7 +3165,7 @@
       "id": "skill-travel-agency-workflow",
       "type": "file",
       "file": "skills/travel-agency-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 5110,
       "width": 300,
       "height": 110
@@ -3165,8 +3174,8 @@
       "id": "skill-youtube-course-builder-workflow",
       "type": "file",
       "file": "skills/youtube-course-builder-workflow.md",
-      "x": 12900,
-      "y": 5110,
+      "x": 12240,
+      "y": 5250,
       "width": 300,
       "height": 110
     },
@@ -3174,7 +3183,7 @@
       "id": "skill-youtube-learning-workflow",
       "type": "file",
       "file": "skills/youtube-learning-workflow.md",
-      "x": 12240,
+      "x": 12570,
       "y": 5250,
       "width": 300,
       "height": 110
@@ -3183,7 +3192,7 @@
       "id": "skill-youtube-playlist-learning-workflow",
       "type": "file",
       "file": "skills/youtube-playlist-learning-workflow.md",
-      "x": 12570,
+      "x": 12900,
       "y": 5250,
       "width": 300,
       "height": 110
@@ -4264,9 +4273,9 @@
     {
       "id": "requires-1886e9ed367f",
       "fromNode": "skill-euroimmun-presentation-workflow",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-template-presentation-workflow",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9401,6 +9410,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-6e114d8a9ed0",
+      "fromNode": "skill-suno-song-production-workflow",
+      "fromSide": "right",
+      "toNode": "skill-project-second-brain",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-5803030bbdbf",
       "fromNode": "skill-supplier-quality-medical-device",
       "fromSide": "right",
@@ -9439,9 +9457,9 @@
     {
       "id": "requires-9e986a233e0b",
       "fromNode": "skill-tax-advisory-office",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-tax-matter-final-gate",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9475,9 +9493,9 @@
     {
       "id": "requires-6719297490bd",
       "fromNode": "skill-tax-advisory-office",
-      "fromSide": "right",
+      "fromSide": "left",
       "toNode": "skill-tax-specialist-router",
-      "toSide": "left",
+      "toSide": "right",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9529,9 +9547,9 @@
     {
       "id": "requires-31590c6e779a",
       "fromNode": "skill-tax-matter-final-gate",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-tax-professional-routing",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9727,9 +9745,9 @@
     {
       "id": "requires-88423c645621",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-presentation-language-rewriter",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -9745,18 +9763,18 @@
     {
       "id": "requires-c4ac1ab1560c",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-presentation-render-verifier",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
     {
       "id": "requires-b5935b4bda8d",
       "fromNode": "skill-template-presentation-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-presentation-template-profiler",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },
@@ -10177,9 +10195,9 @@
     {
       "id": "requires-249ced83a1a9",
       "fromNode": "skill-youtube-course-builder-workflow",
-      "fromSide": "left",
+      "fromSide": "right",
       "toNode": "skill-youtube-playlist-learning-workflow",
-      "toSide": "right",
+      "toSide": "left",
       "toEnd": "arrow",
       "label": "requires"
     },

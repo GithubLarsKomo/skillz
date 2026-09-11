@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 341,
-  "entrypointCount": 280,
+  "skillCount": 342,
+  "entrypointCount": 281,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,17 +15,17 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 270,
+    "public": 271,
     "advanced": 10,
     "internal": 59,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 341,
-  "evaluatedSkillCount": 341,
-  "evaluatedEntrypointCount": 280,
+  "evaluationSuiteCount": 342,
+  "evaluatedSkillCount": 342,
+  "evaluatedEntrypointCount": 281,
   "evaluationCoverageComplete": true,
-  "evaluationPassed": true,
-  "evaluationErrorCount": 0,
+  "evaluationPassed": false,
+  "evaluationErrorCount": 5,
   "skills": [
     {
       "name": "agent-handoff",
@@ -15747,7 +15747,8 @@
         "iterate-software-projects",
         "large-work-wayfinder",
         "song-album-release-workflow",
-        "spec-to-vertical-issues"
+        "spec-to-vertical-issues",
+        "suno-song-production-workflow"
       ],
       "outputs": [
         "project-memory-assets.md",
@@ -15767,7 +15768,8 @@
             "iterate-software-projects",
             "large-work-wayfinder",
             "song-album-release-workflow",
-            "spec-to-vertical-issues"
+            "spec-to-vertical-issues",
+            "suno-song-production-workflow"
           ]
         },
         {
@@ -15781,7 +15783,8 @@
             "iterate-software-projects",
             "large-work-wayfinder",
             "song-album-release-workflow",
-            "spec-to-vertical-issues"
+            "spec-to-vertical-issues",
+            "suno-song-production-workflow"
           ]
         },
         {
@@ -15795,7 +15798,8 @@
             "iterate-software-projects",
             "large-work-wayfinder",
             "song-album-release-workflow",
-            "spec-to-vertical-issues"
+            "spec-to-vertical-issues",
+            "suno-song-production-workflow"
           ]
         },
         {
@@ -15809,7 +15813,8 @@
             "iterate-software-projects",
             "large-work-wayfinder",
             "song-album-release-workflow",
-            "spec-to-vertical-issues"
+            "spec-to-vertical-issues",
+            "suno-song-production-workflow"
           ]
         }
       ],
@@ -19339,6 +19344,84 @@
         "caseCount": 3,
         "recordedResultCount": 3,
         "passed": true
+      }
+    },
+    {
+      "name": "suno-song-production-workflow",
+      "description": "Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Briefs: Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "project-second-brain"
+      ],
+      "dependents": [],
+      "outputs": [
+        "suno-capability-snapshot.json",
+        "suno-generation-review.json",
+        "suno-model-learning.md",
+        "suno-production-handoff.json",
+        "suno-track-package.md"
+      ],
+      "outputContracts": [
+        {
+          "output": "suno-capability-snapshot.json",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "suno-generation-review.json",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "suno-model-learning.md",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "suno-production-handoff.json",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "suno-track-package.md",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/second-brain-learning-loop.md",
+        "references/suno-prompt-contract.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 0,
+        "passed": false
       }
     },
     {

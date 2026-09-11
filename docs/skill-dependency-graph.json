@@ -3980,6 +3980,20 @@
       ]
     },
     {
+      "name": "suno-song-production-workflow",
+      "requires": [
+        "project-second-brain"
+      ],
+      "consumes": [],
+      "outputs": [
+        "suno-capability-snapshot.json",
+        "suno-generation-review.json",
+        "suno-model-learning.md",
+        "suno-production-handoff.json",
+        "suno-track-package.md"
+      ]
+    },
+    {
       "name": "supplier-quality-medical-device",
       "requires": [
         "medical-device-qms-iso13485",
@@ -7298,6 +7312,10 @@
     {
       "from": "story-bible-continuity",
       "to": "structured-knowledge-artifact"
+    },
+    {
+      "from": "suno-song-production-workflow",
+      "to": "project-second-brain"
     },
     {
       "from": "supplier-quality-medical-device",
@@ -15307,7 +15325,8 @@
         "iterate-software-projects",
         "large-work-wayfinder",
         "song-album-release-workflow",
-        "spec-to-vertical-issues"
+        "spec-to-vertical-issues",
+        "suno-song-production-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15322,7 +15341,8 @@
         "iterate-software-projects",
         "large-work-wayfinder",
         "song-album-release-workflow",
-        "spec-to-vertical-issues"
+        "spec-to-vertical-issues",
+        "suno-song-production-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15337,7 +15357,8 @@
         "iterate-software-projects",
         "large-work-wayfinder",
         "song-album-release-workflow",
-        "spec-to-vertical-issues"
+        "spec-to-vertical-issues",
+        "suno-song-production-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15352,7 +15373,8 @@
         "iterate-software-projects",
         "large-work-wayfinder",
         "song-album-release-workflow",
-        "spec-to-vertical-issues"
+        "spec-to-vertical-issues",
+        "suno-song-production-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -17158,6 +17180,51 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "suno-capability-snapshot.json",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "suno-generation-review.json",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "suno-model-learning.md",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "suno-production-handoff.json",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "suno-track-package.md",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "supplier-control-plan.json",
       "producers": [
         "supplier-quality-medical-device"
@@ -18834,6 +18901,11 @@
     "structured character artifacts",
     "structured world artifacts",
     "succession-professional-work-orders.json",
+    "suno-capability-snapshot.json",
+    "suno-generation-review.json",
+    "suno-model-learning.md",
+    "suno-production-handoff.json",
+    "suno-track-package.md",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
@@ -19193,6 +19265,11 @@
     "structured character artifacts",
     "structured world artifacts",
     "succession-professional-work-orders.json",
+    "suno-capability-snapshot.json",
+    "suno-generation-review.json",
+    "suno-model-learning.md",
+    "suno-production-handoff.json",
+    "suno-track-package.md",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",

@@ -1891,6 +1891,14 @@
         "agents/openai.yaml": "a86661db8335ff368dc4cf02cd63de14d5e549111827e1e4a62535493851bc23"
       }
     },
+    "suno-song-production-workflow": {
+      "files": {
+        "SKILL.md": "ddb852072e2a0b94db42cb2ed4083597bc4a1bf67e66e9fa1005b238ede17a28",
+        "agents/openai.yaml": "6ae8a7400bc0c20daa755fad28462aa7c19b682853e3f27dcb8b2930ed27c09f",
+        "references/second-brain-learning-loop.md": "2f11609548b7998360dcf8c17a961b05d006097b8b6a6d04ce5a99ba434cbfb7",
+        "references/suno-prompt-contract.md": "7c5ffe941490744120033c39ce8a202811046dd5c0a67f9815e5af8cf09cd3b3"
+      }
+    },
     "supplier-quality-medical-device": {
       "files": {
         "SKILL.md": "523775698378209197758dd51790ec5a5351582986e173bf66108aaa0f00a04d",

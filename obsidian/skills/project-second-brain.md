@@ -37,6 +37,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 
 ## Outputs
 
@@ -54,6 +55,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 
 ### `project-memory-event.md`
 
@@ -62,6 +64,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 
 ### `project-memory-index.md`
 
@@ -70,6 +73,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 
 ### `project-memory-state.json`
 
@@ -78,6 +82,7 @@ Führt eine GitHub-versionierte, Obsidian-kompatible Projektdokumentation als ve
 - [[skills/large-work-wayfinder|large-work-wayfinder]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
 - [[skills/spec-to-vertical-issues|spec-to-vertical-issues]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 
 ## Evaluation
 

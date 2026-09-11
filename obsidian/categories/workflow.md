@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **113**
+Skills: **114**
 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
@@ -112,6 +112,7 @@ Skills: **113**
 - [[skills/sport-training-music|sport-training-music]]
 - [[skills/sport-training-plan-workflow|sport-training-plan-workflow]]
 - [[skills/story-bible-continuity|story-bible-continuity]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 - [[skills/tax-advisory-office|tax-advisory-office]]
 - [[skills/tax-matter-final-gate|tax-matter-final-gate]]
 - [[skills/tax-procedure-matter-workflow|tax-procedure-matter-workflow]]
