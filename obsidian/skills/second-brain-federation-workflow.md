@@ -4,10 +4,10 @@ generated: true
 name: "second-brain-federation-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 4
-recordedResultCount: 5
+recordedResultCount: 4
 sourcePath: "skills/second-brain-federation-workflow/SKILL.md"
 tags:
   - skill
@@ -55,9 +55,9 @@ Verbindet mehrere Project Second Brains mit einem privaten Super Second Brain al
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `4`
-- Recorded results: `5`
+- Recorded results: `4`
 
 ## Canonical source
 
