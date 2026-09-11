@@ -110,7 +110,7 @@
     },
     "compliance-management-workflow": {
       "files": {
-        "SKILL.md": "a23793e0a1d5365d76ab37adf286385dce6209c0d89d3010a890ad1847f037f2",
+        "SKILL.md": "398e612b41357c594f5a332c634f56b3b5d96c107f3ee5a45dd6be64995e2114",
         "agents/openai.yaml": "7190cd755ab8f7cb7b61a36189b13c991c1c911f11f83edb680f27f09675324c"
       }
     },
@@ -1952,7 +1952,7 @@
     },
     "tax-procedure-matter-workflow": {
       "files": {
-        "SKILL.md": "bf21d8ade7dd7f8545c8ecb1c4180837bf9b31f125fd6afd57ea69e812eb71bb",
+        "SKILL.md": "6ceef8aa0460f4eaf7a398ddccdfebbbdb0efc034fb87b518793f279d49927bf",
         "agents/openai.yaml": "3f03a8ede33ee271f8058aaa68eedd46ee486d226022170dc0614c57432c088d"
       }
     },

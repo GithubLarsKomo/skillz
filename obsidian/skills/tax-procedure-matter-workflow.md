@@ -4,7 +4,7 @@ generated: true
 name: "tax-procedure-matter-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -63,7 +63,7 @@ Orchestriert steuerliche Verfahrens-Matters von Erklärung und Bescheidabgleich 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 

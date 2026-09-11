@@ -4,7 +4,7 @@ generated: true
 name: "compliance-management-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: false
+evaluationPassed: true
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -59,7 +59,7 @@ Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Reg
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `False`
+- Passed: `True`
 - Cases: `3`
 - Recorded results: `3`
 
