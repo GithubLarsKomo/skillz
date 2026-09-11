@@ -43,3 +43,14 @@ Halte Compliance als geschlossenen, versionierten Kreislauf: **aktuelle Pflicht 
 `compliance-management-status.json` enthält mindestens Scope/AsOf, Obligation Coverage, Control Coverage, Assurance Coverage, Critical Gaps, Overdue Actions, Current-Law Freshness, Specialist Escalations und Next Review Triggers.
 
 Der Workflow verspricht keine Hintergrundüberwachung. Er definiert Monitoring-Trigger und Frequenzen; eine tatsächliche wiederkehrende Ausführung muss separat technisch/s organisatorisch eingerichtet werden.
+
+## Quality Principles
+
+- Keine Compliance-by-Policy: Policies sind Controls/Evidenzquellen, nicht automatisch Wirksamkeitsnachweis.
+- Keine Compliance-by-Audit: ein bestandenes Audit ersetzt nicht alle materiellen Rechts- oder Vertragsanforderungen.
+- Keine grüne Gesamtampel bei kritischen ungeprüften Obligations, offenen L3-Fragen oder überfälligen High-Risk-Remediations.
+- Bestehende Fach-Skills besitzen ihre domänenspezifischen Anforderungen und Testmethoden.
+
+## Qualitätsgate
+
+Pass nur, wenn Obligation-, Risk-, Control-, Evidence-, Exception- und Remediation-Lineage nachvollziehbar ist und der Management-Status Unsicherheit und offene High-Risk-Gaps nicht kaschiert.
