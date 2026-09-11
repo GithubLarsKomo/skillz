@@ -1,0 +1,5 @@
+interface:
+  display_name: "Second Brain Federation"
+  short_description: "Verbindet Project Second Brains über einen privaten Super-Brain-Index."
+policy:
+  allow_implicit_invocation: true
