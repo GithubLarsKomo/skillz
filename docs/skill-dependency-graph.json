@@ -4003,7 +4003,8 @@
     {
       "name": "suno-song-production-workflow",
       "requires": [
-        "project-second-brain"
+        "project-second-brain",
+        "round-based-requirements-grilling"
       ],
       "consumes": [],
       "outputs": [
@@ -7365,6 +7366,10 @@
       "to": "project-second-brain"
     },
     {
+      "from": "suno-song-production-workflow",
+      "to": "round-based-requirements-grilling"
+    },
+    {
       "from": "supplier-quality-medical-device",
       "to": "medical-device-qms-iso13485"
     },
@@ -8695,6 +8700,7 @@
         "frontend-product-context",
         "role-requirements-grilling",
         "song-album-release-workflow",
+        "suno-song-production-workflow",
         "thought-to-concept-flow"
       ],
       "ambiguous": false,
@@ -16369,6 +16375,7 @@
         "frontend-product-context",
         "role-requirements-grilling",
         "song-album-release-workflow",
+        "suno-song-production-workflow",
         "thought-to-concept-flow"
       ],
       "ambiguous": false,

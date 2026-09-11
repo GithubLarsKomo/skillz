@@ -1,5 +1,5 @@
 interface:
   display_name: "Suno Song Production Workflow"
-  short_description: "Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Briefs: Referenzanalyse auf Craft-Ebene, S..."
+  short_description: "Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-I..."
 policy:
   allow_implicit_invocation: true

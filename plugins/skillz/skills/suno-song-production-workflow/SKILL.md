@@ -1,29 +1,80 @@
 ---
 name: suno-song-production-workflow
-description: Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Briefs: Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
+description: Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
 ---
 
 # Suno Song Production Workflow
 
 ## Zweck
 
-Dieser Skill übernimmt den **Suno-spezifischen Produktionsloop** zwischen bestätigter künstlerischer Absicht und einem belastbaren Generations-/Edit-Handoff. Er ersetzt weder das übergeordnete `song-album-release-workflow`, noch Creative-Writing-Revision, Audio-QC, Distribution oder Suno selbst.
+Dieser Skill übernimmt den **Suno-spezifischen Produktionsloop** zwischen bestätigter künstlerischer Absicht und einem belastbaren Generations-/Edit-Handoff. Er ersetzt weder das übergeordnete `song-album-release-workflow`, noch Grilling, Creative-Writing-Revision, Audio-QC, Distribution oder Suno selbst.
 
 Seine Kernfrage lautet:
 
-> Ist aus dem Track-Brief ein präzises, Suno-taugliches Produktionspaket entstanden, das reproduzierbar generiert, bewertet, gezielt verbessert und mit seinen Learnings dokumentiert werden kann?
+> Ist aus einem in Grilling v2 bestätigten Projekt-/Track-Intent ein präzises, Suno-taugliches Produktionspaket entstanden, das reproduzierbar generiert, bewertet, gezielt verbessert und mit seinen Learnings dokumentiert werden kann?
 
 ## Routing und Scope
 
 ### Als Teil eines Album-/Release-Workflows
 
-Wenn `song-album-release-workflow` bereits Albumvertrag, Albumarchitektur, Track-Funktion oder gefrorene Lyrics liefert, werden diese **konsumiert statt erneut erfunden**. Der Suno-Skill ändert keine bestätigte Albumdramaturgie oder Lyrics ohne dokumentierten Revisionsgrund.
+Wenn `song-album-release-workflow` bereits einen gültigen Grilling-v2-Handoff, Albumvertrag, Albumarchitektur, Track-Funktion oder gefrorene Lyrics liefert, werden diese **konsumiert statt erneut erfunden**. Ein gültiger upstream Grilling-v2-Handoff wird wiederverwendet; derselbe Projektvertrag wird nicht noch einmal abgefragt.
+
+Der Suno-Skill ändert keine bestätigte Albumdramaturgie oder Lyrics ohne dokumentierten Revisionsgrund.
 
 ### Als eigenständiger Suno-Lauf
 
-Für einen einzelnen Track oder ein reines Experiment genügt ein bestätigter Track-Brief. Für ein fortlaufendes Projekt, eine EP oder ein Album wird `project-second-brain` verwendet und der Projektzustand im dafür festgelegten Repository fortgeführt.
+Jedes neue Suno-Projekt beginnt mit progressivem **Grilling v2**. Auch für einen einzelnen Track wird der fachliche Intent zuerst bestätigt. Bei Folgeiteration eines bereits gegrillten Projekts wird der bestehende v2-Session-/Handoff-Stand fortgeführt; beantwortete Fragen werden nicht wiederholt.
+
+Für ein fortlaufendes Projekt, eine EP oder ein Album wird anschließend `project-second-brain` verwendet und der Projektzustand im dafür festgelegten Repository fortgeführt.
 
 Nicht stillschweigend aus einem Einzelsong ein Release-Projekt machen.
+
+## Phase -1 — Progressive Grilling v2 Gate
+
+### Harte Startbedingung
+
+Vor Track-Brief, Referenzanalyse, Lyrics-/Style-Paket oder Generationsstrategie muss `round-based-requirements-grilling` mit der **DB-backed progressiven v2-Runtime** verwendet werden.
+
+Vor Ausführung gelten die autoritativen Regeln aus `GithubLarsKomo/grilling` auf aktuellem `main`. Für neue Suno-Projekte ist die portable v2-Definition `examples/suno-song-production-intake-v2.json` der Standard-Intake, sofern kein bereits passender gültiger v2-Handoff existiert.
+
+Das Grilling muss mindestens ausreichend klären:
+
+- Projektform: einzelner Track, EP, Album, Untermalung/Soundtrack oder Experiment;
+- Working Title und künstlerische Kernidee;
+- primärer Hörkontext und gewünschte Wirkung;
+- Sprache, instrumental/vokal und Vocal-Rolle;
+- Ziel-Länge bzw. Längenband;
+- Energie- und Arrangement-Arc;
+- Referenzen auf Craft-Ebene und deren jeweilige Funktion;
+- Lyrics-/Hook-Dichte und gewünschte Wiederholungsstrategie;
+- gemeinsame Identität versus gewünschte Track-Variation;
+- kommerzielle/private Nutzungsabsicht;
+- harte musikalische, rechtliche und workflowbezogene Grenzen;
+- messbare Erfolgskriterien des ersten Produktionsloops.
+
+### Progressive Semantik
+
+- Kleine initiale Runde bevorzugen und nur bei verbleibender fachlicher Unsicherheit weitere v2-Runden erzeugen.
+- Aktuellen `grilling-round-handoff` und `nextRoundContract` respektieren.
+- Bereits beantwortete Fragen nicht wiederholen.
+- Nach Reopen/Truncation keinen invalidierten downstream Handoff weiterverwenden.
+- Technische Suno-Fakten wie aktuelle Modelle, native Maximaldauer oder Edit-Funktionen **nicht** im Grilling erraten; sie werden im Current Suno Capability Gate aktuell verifiziert.
+
+### Wiederverwendung statt Doppel-Grilling
+
+Ein neuer Grilling-Lauf ist **nicht** nötig, wenn ein gültiger projektbezogener v2-Handoff bereits alle für den konkreten Produktionsschritt relevanten Entscheidungen enthält. Dann wird nur offene fachliche Unsicherheit in einer progressiven Folgerunde geklärt.
+
+### Second-Brain-Hook
+
+Nach dem ersten gültigen projektbezogenen Grilling-Handoff:
+
+1. bestehenden Project Second Brain fortführen oder initialisieren;
+2. Grilling-Session-/Handoff-Referenz, bestätigte Entscheidungen, Nicht-Ziele und offene Punkte dokumentieren;
+3. den resultierenden `projectMemory`-Verweis in Track- und Produktionshandoffs mitführen.
+
+### Gate G0 — Intent Confirmed
+
+Kein Suno-Prompt-Paket und keine Generationsstrategie, solange produktionsrelevante fachliche Unsicherheit im Grilling offen ist. Reines Reformatieren eines bereits bestätigten Suno-Pakets darf ohne erneutes Grilling erfolgen, verändert aber keine fachlichen Entscheidungen.
 
 ## Phase 0 — Current Suno Capability Gate
 
@@ -48,7 +99,7 @@ Kein modellabhängiger Produktionsrat ohne aktuellen Snapshot, wenn sich die Emp
 
 ## Phase 1 — Track Intent Contract
 
-Vor dem Prompting mindestens klären oder aus Upstream-Artefakten übernehmen:
+Aus dem bestätigten Grilling-Handoff und ggf. der Albumarchitektur wird pro Track der produktionsnahe Intent konkretisiert:
 
 - Tracktitel oder Working Title;
 - Funktion des Tracks im Album bzw. Hörkontext;
@@ -64,7 +115,7 @@ Vor dem Prompting mindestens klären oder aus Upstream-Artefakten übernehmen:
 - harte Ausschlüsse;
 - Rechte-/Voice-/Sample-Grenzen.
 
-Offene Geschmacksfragen werden nicht als Plattformproblem getarnt. Technische Suno-Fragen werden nicht durch unnötiges Grilling verlängert.
+Offene Geschmacksfragen werden zurück in eine fokussierte progressive Grilling-v2-Folgerunde geroutet. Technische Suno-Fragen werden nicht durch unnötiges Grilling verlängert.
 
 ## Phase 2 — Reference Decomposition statt Artist Imitation
 
@@ -131,6 +182,18 @@ Das Standard-Handoff an den Nutzer folgt dieser Reihenfolge:
 Kein separates Feld `Sonstiges`/`Misc` erzeugen, wenn dessen Inhalt sinnvoll im Style- oder Advanced-Block aufgehoben ist.
 
 Der vollständige normative Prompt-Vertrag liegt in [`references/suno-prompt-contract.md`](references/suno-prompt-contract.md).
+
+### Mobile Copy/Paste Contract
+
+Für mobile Suno-Nutzung gilt zusätzlich:
+
+> **One real Suno input field = one dedicated copyable block.**
+
+- **Complete one track before starting the next.**
+- **Put the field label outside the block.**
+- In jedem Block steht nur der **exact text to paste into Suno**.
+- **Do not make the user manually select a subsection** aus einem größeren Sammelblock.
+- Keine leeren Platzhalterblöcke für nicht verwendete Suno-Felder.
 
 ### Style muss die produktionsrelevanten Angaben bündeln
 
@@ -269,6 +332,8 @@ Der normative Lernvertrag liegt in [`references/second-brain-learning-loop.md`](
 Erzeuge `suno-production-handoff.json` mit:
 
 - project / track ID;
+- Grilling-v2-Handoff-/Session-Referenz;
+- projectMemoryRef;
 - selected prompt version;
 - selected generation / source refs;
 - model + capability snapshot ref;
@@ -291,6 +356,7 @@ Keine Binärsammlung im GitHub-Second-Brain nur der Bequemlichkeit halber.
 
 Blockierend:
 
+- kein gültiger Grilling-v2-Handoff bzw. noch offene produktionsrelevante fachliche Unsicherheit bei einem neuen Suno-Projekt;
 - kein ausreichend definierter Track-Brief;
 - modellabhängige Empfehlung bei veraltetem/fehlendem Capability Snapshot;
 - ungeklärte oder nicht autorisierte Stimme/Samplequelle;
@@ -300,7 +366,8 @@ Blockierend:
 
 Nicht automatisch blockierend:
 
-- der Nutzer möchte nur einen kopierfertigen Suno-Block;
+- ein bereits gegrilltes Projekt wird nur in einer bestätigten Dimension iteriert;
+- der Nutzer möchte nur einen kopierfertigen Suno-Block aus einem bereits bestätigten Paket;
 - noch kein finaler WAV-Export vorhanden;
 - Cover/Distribution sind noch nicht geplant;
 - ein experimenteller Take bleibt als `keep-for-parts` erhalten.
@@ -309,9 +376,10 @@ Nicht automatisch blockierend:
 
 Der Skill endet, wenn:
 
-1. Capability Snapshot aktuell genug ist;
-2. ein Suno-ready Track-Paket vorliegt;
-3. Generations-/Editentscheidungen und Nutzerfeedback nachvollziehbar bewertet sind;
-4. der ausgewählte Kandidat samt Provenienz in `suno-production-handoff.json` festgehalten ist;
-5. relevante Learnings im Project Second Brain stehen;
-6. genau die nächste Aktion oder das nächste Workflow-Ziel benannt ist.
+1. ein gültiger Grilling-v2-Handoff den produktionsrelevanten Intent bestätigt;
+2. Capability Snapshot aktuell genug ist;
+3. ein Suno-ready Track-Paket vorliegt;
+4. Generations-/Editentscheidungen und Nutzerfeedback nachvollziehbar bewertet sind;
+5. der ausgewählte Kandidat samt Provenienz in `suno-production-handoff.json` festgehalten ist;
+6. relevante Learnings im Project Second Brain stehen;
+7. genau die nächste Aktion oder das nächste Workflow-Ziel benannt ist.

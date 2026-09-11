@@ -39,6 +39,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/leadership-coaching-intake|leadership-coaching-intake]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ## Outputs
@@ -56,6 +57,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ### `requirements-handoff.json`
@@ -67,6 +69,7 @@ Führt Requirements Engineering als datengetriebenen, rundenbasierten Grilling-P
 - [[skills/frontend-product-context|frontend-product-context]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
 - [[skills/song-album-release-workflow|song-album-release-workflow]]
+- [[skills/suno-song-production-workflow|suno-song-production-workflow]]
 - [[skills/thought-to-concept-flow|thought-to-concept-flow]]
 
 ## Evaluation

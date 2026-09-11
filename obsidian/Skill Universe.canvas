@@ -9482,6 +9482,15 @@
       "label": "requires"
     },
     {
+      "id": "requires-49d802de6c70",
+      "fromNode": "skill-suno-song-production-workflow",
+      "fromSide": "left",
+      "toNode": "skill-round-based-requirements-grilling",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "label": "requires"
+    },
+    {
       "id": "requires-5803030bbdbf",
       "fromNode": "skill-supplier-quality-medical-device",
       "fromSide": "right",

@@ -701,6 +701,7 @@ graph TD
   story_bible_continuity --> speculative_worldbuilding
   story_bible_continuity --> structured_knowledge_artifact
   suno_song_production_workflow --> project_second_brain
+  suno_song_production_workflow --> round_based_requirements_grilling
   supplier_quality_medical_device --> medical_device_qms_iso13485
   supplier_quality_medical_device --> medical_device_risk_management_iso14971
   supplier_quality_medical_device --> two_axis_compliance_review
@@ -997,7 +998,7 @@ graph TD
 | Output | Producers | Consumer skills | Status |
 |---|---|---|---|
 | `DESIGN.md` | `frontend-design-system-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping` | inferred |
-| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `song-album-release-workflow`, `thought-to-concept-flow` | inferred |
+| `GRILL-REPORT.md` | `round-based-requirements-grilling` | `contract-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `song-album-release-workflow`, `suno-song-production-workflow`, `thought-to-concept-flow` | inferred |
 | `PERFORMANCE_PLAN.md` | `performance-optimization-plan` | `optimize-software-performance` | inferred |
 | `PRODUCT.md` | `frontend-product-context` | `frontend-design-director`, `frontend-design-review`, `frontend-design-shaping`, `frontend-design-system-context` | inferred |
 | `SPEC.md` | `conversation-to-spec` | `spec-to-vertical-issues` | inferred |
@@ -1649,7 +1650,7 @@ graph TD
 | `reorganization-tax-structure-options.json` | `reorganization-tax-specialist` | — | unconsumed |
 | `reporting-office-obligations.json` | `whistleblowing-law-specialist` | `internal-investigation-workflow` | inferred |
 | `requirement-coverage.json` | `two-axis-code-review` | `domain-model-maintenance`, `engineering-delivery-followup`, `merge-conflict-resolution`, `optimize-software-performance`, `performance-regression-verification` | inferred |
-| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `creative-writing-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `song-album-release-workflow`, `thought-to-concept-flow` | mixed |
+| `requirements-handoff.json` | `round-based-requirements-grilling` | `contract-workflow`, `creative-writing-workflow`, `frontend-design-shaping`, `frontend-design-system-context`, `frontend-product-context`, `role-requirements-grilling`, `song-album-release-workflow`, `suno-song-production-workflow`, `thought-to-concept-flow` | mixed |
 | `resolved-change-brief.md` | `merge-conflict-resolution` | — | unconsumed |
 | `response-evidence-matrix.json` | `fda-additional-information-response` | — | unconsumed |
 | `return-after-illness-plan.json` | `sport-return-after-illness` | `sport-athlete-management` | inferred |

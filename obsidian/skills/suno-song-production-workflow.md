@@ -6,8 +6,8 @@ category: "workflow"
 userFacing: true
 evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 5
-recordedResultCount: 4
+caseCount: 6
+recordedResultCount: 5
 sourcePath: "skills/suno-song-production-workflow/SKILL.md"
 tags:
   - skill
@@ -16,7 +16,7 @@ tags:
 
 # suno-song-production-workflow
 
-Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Briefs: Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
+Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -27,6 +27,7 @@ Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Brie
 ## Requires
 
 - [[skills/project-second-brain|project-second-brain]]
+- [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]
 
 ## Required by
 
@@ -66,8 +67,8 @@ Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Brie
 
 - Mode: `compatibility`
 - Passed: `False`
-- Cases: `5`
-- Recorded results: `4`
+- Cases: `6`
+- Recorded results: `5`
 
 ## Canonical source
 

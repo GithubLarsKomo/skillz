@@ -25,7 +25,7 @@
   "evaluatedEntrypointCount": 282,
   "evaluationCoverageComplete": true,
   "evaluationPassed": false,
-  "evaluationErrorCount": 6,
+  "evaluationErrorCount": 1,
   "skills": [
     {
       "name": "agent-handoff",
@@ -17331,6 +17331,7 @@
         "leadership-coaching-intake",
         "role-requirements-grilling",
         "song-album-release-workflow",
+        "suno-song-production-workflow",
         "thought-to-concept-flow"
       ],
       "outputs": [
@@ -17351,6 +17352,7 @@
             "frontend-product-context",
             "role-requirements-grilling",
             "song-album-release-workflow",
+            "suno-song-production-workflow",
             "thought-to-concept-flow"
           ]
         },
@@ -17368,6 +17370,7 @@
             "frontend-product-context",
             "role-requirements-grilling",
             "song-album-release-workflow",
+            "suno-song-production-workflow",
             "thought-to-concept-flow"
           ]
         }
@@ -19451,7 +19454,7 @@
     },
     {
       "name": "suno-song-production-workflow",
-      "description": "Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Briefs: Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.",
+      "description": "Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -19463,7 +19466,8 @@
         "deprecatedSince": null
       },
       "requires": [
-        "project-second-brain"
+        "project-second-brain",
+        "round-based-requirements-grilling"
       ],
       "dependents": [],
       "outputs": [
@@ -19522,8 +19526,8 @@
       ],
       "evaluation": {
         "mode": "compatibility",
-        "caseCount": 5,
-        "recordedResultCount": 4,
+        "caseCount": 6,
+        "recordedResultCount": 5,
         "passed": false
       }
     },
