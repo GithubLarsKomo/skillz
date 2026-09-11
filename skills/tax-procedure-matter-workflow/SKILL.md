@@ -12,6 +12,7 @@ requires:
   - current-tax-context
   - tax-position-register
   - tax-professional-routing
+  - project-second-brain
 outputs:
   - tax-procedure-status.json
   - tax-assessment-reconciliation.json

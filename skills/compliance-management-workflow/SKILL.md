@@ -13,6 +13,7 @@ requires:
   - compliance-control-mapping
   - compliance-control-assurance
   - legal-matter-final-gate
+  - project-second-brain
 outputs:
   - compliance-management-status.json
   - compliance-gap-remediation-plan.json

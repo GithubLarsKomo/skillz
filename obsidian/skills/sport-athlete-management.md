@@ -26,6 +26,7 @@ Orchestriert den geschlossenen Sport-Trainingsregelkreis von Athletenprofil und 
 
 ## Requires
 
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/sport-adaptation-analysis|sport-adaptation-analysis]]
 - [[skills/sport-athlete-profile|sport-athlete-profile]]
 - [[skills/sport-daily-athlete-monitoring|sport-daily-athlete-monitoring]]

@@ -27,6 +27,7 @@ Orchestriert steuerliche Verfahrens-Matters von Erklärung und Bescheidabgleich 
 ## Requires
 
 - [[skills/current-tax-context|current-tax-context]]
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/tax-position-register|tax-position-register]]
 - [[skills/tax-professional-routing|tax-professional-routing]]
 

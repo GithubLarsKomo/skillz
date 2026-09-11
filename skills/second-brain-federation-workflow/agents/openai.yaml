@@ -1,0 +1,5 @@
+interface:
+  display_name: "Second Brain Federation Workflow"
+  short_description: "Verbindet mehrere Project Second Brains mit einem privaten Super Second Brain als verifizierten Registry-, Routing- u..."
+policy:
+  allow_implicit_invocation: true

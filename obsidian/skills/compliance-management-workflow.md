@@ -30,6 +30,7 @@ Orchestriert ein evidenzbasiertes Compliance-System von aktuellem Obligation Reg
 - [[skills/compliance-control-mapping|compliance-control-mapping]]
 - [[skills/compliance-obligation-register|compliance-obligation-register]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/project-second-brain|project-second-brain]]
 
 ## Required by
 

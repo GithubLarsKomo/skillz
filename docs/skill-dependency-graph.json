@@ -222,7 +222,8 @@
         "compliance-control-assurance",
         "compliance-control-mapping",
         "compliance-obligation-register",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "project-second-brain"
       ],
       "consumes": [],
       "outputs": [
@@ -328,6 +329,7 @@
       "requires": [
         "contract-legal-context",
         "contract-matter-workflow",
+        "project-second-brain",
         "round-based-requirements-grilling"
       ],
       "consumes": [],
@@ -1569,6 +1571,7 @@
         "investigation-evidence-preservation",
         "investigation-findings-remediation",
         "legal-matter-final-gate",
+        "project-second-brain",
         "whistleblowing-law-specialist"
       ],
       "consumes": [],
@@ -1991,7 +1994,8 @@
         "leadership-development-model",
         "leadership-feedback",
         "leadership-reflection",
-        "performance-management-workflow"
+        "performance-management-workflow",
+        "project-second-brain"
       ],
       "consumes": [],
       "outputs": [
@@ -3517,6 +3521,22 @@
       ]
     },
     {
+      "name": "second-brain-federation-workflow",
+      "requires": [
+        "project-second-brain"
+      ],
+      "consumes": [
+        "project-memory-event.md",
+        "project-memory-index.md",
+        "project-memory-state.json"
+      ],
+      "outputs": [
+        "second-brain-catalog.md",
+        "second-brain-registration.json",
+        "super-second-brain-registry.json"
+      ]
+    },
+    {
       "name": "series-architecture",
       "requires": [
         "ensemble-character-architecture",
@@ -3638,6 +3658,7 @@
     {
       "name": "sport-athlete-management",
       "requires": [
+        "project-second-brain",
         "sport-adaptation-analysis",
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
@@ -4089,6 +4110,7 @@
       "name": "tax-procedure-matter-workflow",
       "requires": [
         "current-tax-context",
+        "project-second-brain",
         "tax-position-register",
         "tax-professional-routing"
       ],
@@ -4323,6 +4345,7 @@
     {
       "name": "travel-agency-workflow",
       "requires": [
+        "project-second-brain",
         "travel-availability-snapshot",
         "travel-context-builder",
         "travel-destination-research",
@@ -4678,6 +4701,10 @@
       "to": "legal-matter-final-gate"
     },
     {
+      "from": "compliance-management-workflow",
+      "to": "project-second-brain"
+    },
+    {
       "from": "compliance-obligation-register",
       "to": "current-law-context"
     },
@@ -4732,6 +4759,10 @@
     {
       "from": "contract-workflow",
       "to": "contract-matter-workflow"
+    },
+    {
+      "from": "contract-workflow",
+      "to": "project-second-brain"
     },
     {
       "from": "contract-workflow",
@@ -5643,6 +5674,10 @@
     },
     {
       "from": "internal-investigation-workflow",
+      "to": "project-second-brain"
+    },
+    {
+      "from": "internal-investigation-workflow",
       "to": "whistleblowing-law-specialist"
     },
     {
@@ -6016,6 +6051,10 @@
     {
       "from": "leadership-coaching-workflow",
       "to": "performance-management-workflow"
+    },
+    {
+      "from": "leadership-coaching-workflow",
+      "to": "project-second-brain"
     },
     {
       "from": "learning-activity-generator",
@@ -6954,6 +6993,10 @@
       "to": "research-to-evidence-note"
     },
     {
+      "from": "second-brain-federation-workflow",
+      "to": "project-second-brain"
+    },
+    {
       "from": "series-architecture",
       "to": "ensemble-character-architecture"
     },
@@ -7008,6 +7051,10 @@
     {
       "from": "sport-adaptation-analysis",
       "to": "sport-performance-diagnostics"
+    },
+    {
+      "from": "sport-athlete-management",
+      "to": "project-second-brain"
     },
     {
       "from": "sport-athlete-management",
@@ -7391,6 +7438,10 @@
     },
     {
       "from": "tax-procedure-matter-workflow",
+      "to": "project-second-brain"
+    },
+    {
+      "from": "tax-procedure-matter-workflow",
       "to": "tax-position-register"
     },
     {
@@ -7544,6 +7595,10 @@
     {
       "from": "transfer-pricing-specialist",
       "to": "tax-position-register"
+    },
+    {
+      "from": "travel-agency-workflow",
+      "to": "project-second-brain"
     },
     {
       "from": "travel-agency-workflow",
@@ -8302,6 +8357,21 @@
       "consumer": "science-storytelling-workflow",
       "artifact": "precision-writing-report.json",
       "producer": "precision-writing-revision"
+    },
+    {
+      "consumer": "second-brain-federation-workflow",
+      "artifact": "project-memory-event.md",
+      "producer": "project-second-brain"
+    },
+    {
+      "consumer": "second-brain-federation-workflow",
+      "artifact": "project-memory-index.md",
+      "producer": "project-second-brain"
+    },
+    {
+      "consumer": "second-brain-federation-workflow",
+      "artifact": "project-memory-state.json",
+      "producer": "project-second-brain"
     },
     {
       "consumer": "series-architecture",
@@ -15321,12 +15391,19 @@
         "project-second-brain"
       ],
       "consumerSkills": [
+        "compliance-management-workflow",
+        "contract-workflow",
         "conversation-to-spec",
+        "internal-investigation-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
+        "leadership-coaching-workflow",
         "song-album-release-workflow",
         "spec-to-vertical-issues",
-        "suno-song-production-workflow"
+        "sport-athlete-management",
+        "suno-song-production-workflow",
+        "tax-procedure-matter-workflow",
+        "travel-agency-workflow"
       ],
       "ambiguous": false,
       "consumptionStatus": "inferred"
@@ -15337,15 +15414,23 @@
         "project-second-brain"
       ],
       "consumerSkills": [
+        "compliance-management-workflow",
+        "contract-workflow",
         "conversation-to-spec",
+        "internal-investigation-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
+        "leadership-coaching-workflow",
+        "second-brain-federation-workflow",
         "song-album-release-workflow",
         "spec-to-vertical-issues",
-        "suno-song-production-workflow"
+        "sport-athlete-management",
+        "suno-song-production-workflow",
+        "tax-procedure-matter-workflow",
+        "travel-agency-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "project-memory-index.md",
@@ -15353,15 +15438,23 @@
         "project-second-brain"
       ],
       "consumerSkills": [
+        "compliance-management-workflow",
+        "contract-workflow",
         "conversation-to-spec",
+        "internal-investigation-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
+        "leadership-coaching-workflow",
+        "second-brain-federation-workflow",
         "song-album-release-workflow",
         "spec-to-vertical-issues",
-        "suno-song-production-workflow"
+        "sport-athlete-management",
+        "suno-song-production-workflow",
+        "tax-procedure-matter-workflow",
+        "travel-agency-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "project-memory-state.json",
@@ -15369,15 +15462,23 @@
         "project-second-brain"
       ],
       "consumerSkills": [
+        "compliance-management-workflow",
+        "contract-workflow",
         "conversation-to-spec",
+        "internal-investigation-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
+        "leadership-coaching-workflow",
+        "second-brain-federation-workflow",
         "song-album-release-workflow",
         "spec-to-vertical-issues",
-        "suno-song-production-workflow"
+        "sport-athlete-management",
+        "suno-song-production-workflow",
+        "tax-procedure-matter-workflow",
+        "travel-agency-workflow"
       ],
       "ambiguous": false,
-      "consumptionStatus": "inferred"
+      "consumptionStatus": "mixed"
     },
     {
       "output": "project-status.json",
@@ -16662,6 +16763,24 @@
       "consumptionStatus": "inferred"
     },
     {
+      "output": "second-brain-catalog.md",
+      "producers": [
+        "second-brain-federation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "second-brain-registration.json",
+      "producers": [
+        "second-brain-federation-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "series-architecture.json",
       "producers": [
         "series-architecture"
@@ -17219,6 +17338,15 @@
       "output": "suno-track-package.md",
       "producers": [
         "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "super-second-brain-registry.json",
+      "producers": [
+        "second-brain-federation-workflow"
       ],
       "consumerSkills": [],
       "ambiguous": false,
@@ -18879,6 +19007,8 @@
     "science-narrative-model.json",
     "science-story.md",
     "science-storytelling-run.json",
+    "second-brain-catalog.md",
+    "second-brain-registration.json",
     "series-outline.md",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
@@ -18906,6 +19036,7 @@
     "suno-model-learning.md",
     "suno-production-handoff.json",
     "suno-track-package.md",
+    "super-second-brain-registry.json",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",
@@ -19243,6 +19374,8 @@
     "science-narrative-model.json",
     "science-story.md",
     "science-storytelling-run.json",
+    "second-brain-catalog.md",
+    "second-brain-registration.json",
     "series-outline.md",
     "service-complaint-handoff.json",
     "service-event-quality-record.json",
@@ -19270,6 +19403,7 @@
     "suno-model-learning.md",
     "suno-production-handoff.json",
     "suno-track-package.md",
+    "super-second-brain-registry.json",
     "supplier-control-plan.json",
     "supplier-quality-assessment.json",
     "supplier-signal-set.json",

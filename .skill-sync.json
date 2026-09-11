@@ -110,7 +110,7 @@
     },
     "compliance-management-workflow": {
       "files": {
-        "SKILL.md": "3981cfe847a751125766d22f28d2e0cc9baa05fd2287c496a50ab45391d9d1dd",
+        "SKILL.md": "398e612b41357c594f5a332c634f56b3b5d96c107f3ee5a45dd6be64995e2114",
         "agents/openai.yaml": "7190cd755ab8f7cb7b61a36189b13c991c1c911f11f83edb680f27f09675324c"
       }
     },
@@ -153,7 +153,7 @@
     },
     "contract-workflow": {
       "files": {
-        "SKILL.md": "b3ba825741c079f1d727ca15a485963ca989797ded457455aa2f76b92a9d6963",
+        "SKILL.md": "8c17b390d6dba73e0be4034212f46a887f9ffd5a5a8076e2886bb92053b8915f",
         "agents/openai.yaml": "d7e4701f5aaef96267b35331bda2431c3a56168086298ef5b8012cd0a761904b"
       }
     },
@@ -767,7 +767,7 @@
     },
     "internal-investigation-workflow": {
       "files": {
-        "SKILL.md": "3a044857619a96a3f77f9afc97532c69360b4f26ecf1a85aa69bdf589f0f4cf8",
+        "SKILL.md": "da1b74b65e7937f62466679bff70f1c3c52c64c1b7e1eafb093c75c7e9c98a50",
         "agents/openai.yaml": "a6ed18cff27090249f199c97a7af292b64a28173ec9cb2a9e19b254a54dbbc68"
       }
     },
@@ -949,7 +949,7 @@
     },
     "leadership-coaching-workflow": {
       "files": {
-        "SKILL.md": "0b384cf9f7c31c55f508d0a29a0279df89144e9542bf0c49c20e0db107921034",
+        "SKILL.md": "6eeb3c22f600e7c544b57ff9cfc3a5b9b31075e3cbec27e917a722925fe55044",
         "agents/openai.yaml": "7f99a70f7591fc817aa0f1fd818feeaf7c78481e21a3a2bc226102ce0c4e1e88"
       }
     },
@@ -1681,6 +1681,13 @@
         "agents/openai.yaml": "a642bce88c8160d21910822a978d562d45e0b8f72dc448da6f91b00b352b0cb5"
       }
     },
+    "second-brain-federation-workflow": {
+      "files": {
+        "SKILL.md": "f08a6235b1dc679c5f141f9b787e378c35c238512a6ea560951bb316be96256e",
+        "agents/openai.yaml": "0461c90506602180d453610eaec5816da65ae186460bf449481b0c896559ea2e",
+        "references/federation-contract.md": "30ad411b7ad89ed8b1d44a94123e5915dc08cd022b25d6877d277c4226479c1b"
+      }
+    },
     "series-architecture": {
       "files": {
         "SKILL.md": "be28401fdce651e53d3ff5e8b8ee4e2ac70f2b055d8d51a0db98698992abb4b9",
@@ -1743,7 +1750,7 @@
     },
     "sport-athlete-management": {
       "files": {
-        "SKILL.md": "f860fd2481345a7e7ce82f6354c349a1c8bd7dc4e920062a91712223bb338e7b",
+        "SKILL.md": "d3f23517a8d2a4725a095837b536909c64f213a2bee4a30fdbfd10b459d43b76",
         "agents/openai.yaml": "d3b904557a2f39b15deeb35a4fd9590dd68332f8caea162df1ae4a1c48552238"
       }
     },
@@ -1945,7 +1952,7 @@
     },
     "tax-procedure-matter-workflow": {
       "files": {
-        "SKILL.md": "111a6a680f3a97a94942201fc4f667bfcd1cfe55e95d8a1bad69d9b3d01da274",
+        "SKILL.md": "6ceef8aa0460f4eaf7a398ddccdfebbbdb0efc034fb87b518793f279d49927bf",
         "agents/openai.yaml": "3f03a8ede33ee271f8058aaa68eedd46ee486d226022170dc0614c57432c088d"
       }
     },
@@ -2042,7 +2049,7 @@
     },
     "travel-agency-workflow": {
       "files": {
-        "SKILL.md": "5a9701a0e1af502611c6414bfcb655071a85333056d689a971b2c4f8ef823cb4",
+        "SKILL.md": "580751f9be6af9be5fe6e9201efbc2d9b74bd5714c540f9f39ed857dab7eb11c",
         "agents/openai.yaml": "ce18effc6d1e11730b2a2a0ebb835ff20288c7115f9a6bb8c663b6c80e2fa5ee"
       }
     },

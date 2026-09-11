@@ -13,6 +13,7 @@ requires:
   - investigation-evidence-preservation
   - investigation-findings-remediation
   - legal-matter-final-gate
+  - project-second-brain
 outputs:
   - investigation-charter.json
   - investigation-workplan.json

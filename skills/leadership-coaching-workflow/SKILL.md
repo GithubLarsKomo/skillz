@@ -20,6 +20,7 @@ requires:
   - leadership-1on1-workflow
   - difficult-conversation-workflow
   - performance-management-workflow
+  - project-second-brain
 consumes: []
 outputs:
   - leadership-coaching-state.json

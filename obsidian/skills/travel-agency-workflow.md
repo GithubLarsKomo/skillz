@@ -26,6 +26,7 @@ Orchestriert private Reisen von geklärten Anforderungen über Ziel-, Transport-
 
 ## Requires
 
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/travel-availability-snapshot|travel-availability-snapshot]]
 - [[skills/travel-context-builder|travel-context-builder]]
 - [[skills/travel-destination-research|travel-destination-research]]
