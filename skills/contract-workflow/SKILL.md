@@ -12,6 +12,7 @@ requires:
   - round-based-requirements-grilling
   - contract-matter-workflow
   - contract-legal-context
+  - project-second-brain
 outputs:
   - contract-case.json
   - contract-plan.md
