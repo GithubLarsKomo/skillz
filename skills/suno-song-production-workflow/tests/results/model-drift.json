@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "skill": "suno-song-production-workflow",
+  "caseId": "model-drift",
+  "recordedAt": "2026-09-11",
+  "evaluator": "contract-review",
+  "requiredBehaviors": [
+    {
+      "behavior": "verify the new model family and relevant official Suno capability information",
+      "passed": true,
+      "evidence": "Phase 0 requires current official Suno capability verification before model-dependent advice and records models, native duration, editing capabilities, controls, and relevant rights rules."
+    },
+    {
+      "behavior": "mark model-dependent historical heuristics as requiring revalidation",
+      "passed": true,
+      "evidence": "Phase 9 explicitly marks older model-dependent learnings revalidation_required when the Suno model changes."
+    },
+    {
+      "behavior": "preserve user preferences that are independent of the model",
+      "passed": true,
+      "evidence": "The learning loop explicitly separates user preference from model behavior, so workflow preferences such as avoiding cumbersome Extend remain scoped independently from model performance."
+    },
+    {
+      "behavior": "run a limited fresh comparison before promoting the old length or prompt heuristic to the new model",
+      "passed": true,
+      "evidence": "The workflow requires fresh evidence after model-family changes and the Explore -> Select -> Refine loop provides the controlled comparison mechanism before cross-project promotion."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "copy old model limits into the new capability snapshot without verification",
+      "observed": false,
+      "evidence": "Phase 0 states that historical model limits are not current facts and requires official current verification."
+    },
+    {
+      "behavior": "discard historical learning instead of retaining it with scoped validity",
+      "observed": false,
+      "evidence": "The learning contract retains historical observations and marks model-dependent ones for revalidation rather than deleting or rewriting them."
+    },
+    {
+      "behavior": "confuse user taste with model behavior",
+      "observed": false,
+      "evidence": "Phase 9 defines separate classes for user preference, project observation, model behavior, and cross-project learning."
+    }
+  ],
+  "overall": "pass"
+}
