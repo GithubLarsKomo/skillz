@@ -1,0 +1,333 @@
+---
+name: suno-song-production-workflow
+description: Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Briefs: Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
+userFacing: true
+implicitInvocation: true
+category: workflow
+version: 0.1.0
+status: candidate
+owners:
+  - GithubLarsKomo
+requires:
+  - project-second-brain
+outputs:
+  - suno-capability-snapshot.json
+  - suno-track-package.md
+  - suno-generation-review.json
+  - suno-production-handoff.json
+  - suno-model-learning.md
+lastEvaluated: 2026-09-11
+---
+
+# Suno Song Production Workflow
+
+## Zweck
+
+Dieser Skill übernimmt den **Suno-spezifischen Produktionsloop** zwischen bestätigter künstlerischer Absicht und einem belastbaren Generations-/Edit-Handoff. Er ersetzt weder das übergeordnete `song-album-release-workflow`, noch Creative-Writing-Revision, Audio-QC, Distribution oder Suno selbst.
+
+Seine Kernfrage lautet:
+
+> Ist aus dem Track-Brief ein präzises, Suno-taugliches Produktionspaket entstanden, das reproduzierbar generiert, bewertet, gezielt verbessert und mit seinen Learnings dokumentiert werden kann?
+
+## Routing und Scope
+
+### Als Teil eines Album-/Release-Workflows
+
+Wenn `song-album-release-workflow` bereits Albumvertrag, Albumarchitektur, Track-Funktion oder gefrorene Lyrics liefert, werden diese **konsumiert statt erneut erfunden**. Der Suno-Skill ändert keine bestätigte Albumdramaturgie oder Lyrics ohne dokumentierten Revisionsgrund.
+
+### Als eigenständiger Suno-Lauf
+
+Für einen einzelnen Track oder ein reines Experiment genügt ein bestätigter Track-Brief. Für ein fortlaufendes Projekt, eine EP oder ein Album wird `project-second-brain` verwendet und der Projektzustand im dafür festgelegten Repository fortgeführt.
+
+Nicht stillschweigend aus einem Einzelsong ein Release-Projekt machen.
+
+## Phase 0 — Current Suno Capability Gate
+
+Suno ist volatil. Vor einem produktionsrelevanten Lauf aktuelle **offizielle** Suno-Quellen prüfen und `suno-capability-snapshot.json` erzeugen.
+
+Mindestens erfassen:
+
+- Datum der Prüfung;
+- verfügbare Modelle und deren Rollen;
+- maximale native Generationsdauer;
+- relevante Edit-/Extend-/Replace-/Remix-Funktionen;
+- Voice/Persona/Custom-Model-Funktionen, soweit relevant;
+- verfügbare Advanced Controls;
+- Plan-/Download-/Commercial-Use-Regeln, falls eine spätere externe Nutzung geplant ist;
+- Quellen-URLs und Freshness.
+
+Historische Modellgrenzen werden **nicht** als aktuelle Fakten übernommen. Ein Wechsel der Modellfamilie invalidiert alte Performance-Heuristiken bis zur Revalidierung.
+
+### Gate A — Capability Snapshot Fresh
+
+Kein modellabhängiger Produktionsrat ohne aktuellen Snapshot, wenn sich die Empfehlung durch Modellversion, Maximaldauer, Editierfunktionen oder Rechtebedingungen ändern kann.
+
+## Phase 1 — Track Intent Contract
+
+Vor dem Prompting mindestens klären oder aus Upstream-Artefakten übernehmen:
+
+- Tracktitel oder Working Title;
+- Funktion des Tracks im Album bzw. Hörkontext;
+- Zielwirkung und Energieverlauf;
+- Sprache / instrumental;
+- Ziel-Länge;
+- grober BPM-/Tempo-Bereich und Takt, falls relevant;
+- Tonart/Modus, falls gewünscht;
+- Stimme bzw. Vocal-Charakter;
+- zentrale Hook-/Melodie-Funktion;
+- Referenztracks oder Referenzeigenschaften;
+- Nachbartrack-Differenzierung;
+- harte Ausschlüsse;
+- Rechte-/Voice-/Sample-Grenzen.
+
+Offene Geschmacksfragen werden nicht als Plattformproblem getarnt. Technische Suno-Fragen werden nicht durch unnötiges Grilling verlängert.
+
+## Phase 2 — Reference Decomposition statt Artist Imitation
+
+Referenzen sind Analyseinput, nicht Copy-Prompt.
+
+Jeden Referenztrack auf beschreibbare Craft-Dimensionen zerlegen:
+
+- Genre/Subgenre und Produktionsära;
+- Tempo, Meter und Groove;
+- Drum-Architektur;
+- Bassbewegung;
+- Harmonik, Tonart/Modus und Spannungsführung;
+- Lead-/Synth-/Gitarren-/Orchesterfunktion;
+- Hook- und Melodieverhalten;
+- Vocal-Rolle, Register, Dichte und Verarbeitung;
+- Arrangement: Intro, Build, Break, Drop, Chorus, Bridge, Outro;
+- Dynamik/Energieverlauf;
+- Sounddesign, Raum, Mix-Charakter;
+- charakteristische, aber abstrahierbare Merkmale.
+
+Bei mehreren Referenzen jeder Referenz eine Rolle geben, z. B. `rhythm`, `harmonic tension`, `drop architecture`, `vocal attitude`, statt alle Namen unstrukturiert in einen Stilprompt zu kippen.
+
+Nicht übernehmen:
+
+- fremde Lyrics;
+- konkrete Melodien;
+- ungeklärte Samples;
+- nicht autorisierte Stimmen;
+- direkte Aufforderungen, einen lebenden Künstler exakt nachzuahmen.
+
+Ergebnis ist ein eigenständiger `style-vector`, kein Künstler-Klon.
+
+## Phase 3 — Lyrics als musikalische Struktur
+
+Lyrics werden nicht nur semantisch, sondern als **Zeit- und Arrangementmaterial** behandelt.
+
+### Struktur-Tags
+
+Soweit mit der aktuellen Suno-Version sinnvoll, klare Songstruktur verwenden, z. B.:
+
+`[Intro]`, `[Verse]`, `[Pre-Chorus]`, `[Chorus]`, `[Breakdown]`, `[Build]`, `[Drop]`, `[Bridge]`, `[Outro]`.
+
+Produktionsregie nicht überladen in das Lyrics-Feld schreiben. Lyrics bleiben singbar und strukturell lesbar.
+
+### Repetition
+
+Bei repetition-driven Dance-, Trance-, Hard-Trance-, Makina- oder Workout-Tracks darf Wiederholung **explizit ausgeschrieben** werden, wenn sie musikalisch idiomatisch ist. Ein wiederholter Hook-/Chorus-Block ist dann Teil des Arrangements, nicht künstliche Textstreckung.
+
+Bei narrativen Songs dagegen keine Doppelung erzwingen, wenn dadurch Progression, Perspektive oder Punchline geschwächt werden.
+
+### Duration Budget
+
+Ziel-Länge nicht nur aus Wortzahl ableiten. Arrangement-Abschnitte und ungefähr benötigte musikalische Zeit planen. Für lange Dance-Tracks typischerweise Raum für Intro, ersten Aufbau, Hauptteil, Breakdown, zweiten Aufbau/Peak und Outro vorsehen.
+
+## Phase 4 — Suno-Ready Prompt Contract
+
+Das Standard-Handoff an den Nutzer folgt dieser Reihenfolge:
+
+1. **Title**
+2. **Lyrics**
+3. **Style**
+4. **Advanced controls** nur wenn aktuelle, tatsächlich relevante Suno-Regler oder Profile gezielt verwendet werden
+
+Kein separates Feld `Sonstiges`/`Misc` erzeugen, wenn dessen Inhalt sinnvoll im Style- oder Advanced-Block aufgehoben ist.
+
+Der vollständige normative Prompt-Vertrag liegt in [`references/suno-prompt-contract.md`](references/suno-prompt-contract.md).
+
+### Style muss die produktionsrelevanten Angaben bündeln
+
+Mindestens, soweit relevant:
+
+- Genre/Subgenre und Ära;
+- BPM / Meter;
+- Tonart/Modus;
+- **Target length**;
+- Groove/Drums/Bass;
+- Lead-/Instrumentenrollen;
+- Arrangement Arc;
+- **Vocals / Melody**;
+- Production/Mix-Charakter;
+- negative Constraints;
+- Differenzierung zum Nachbartrack.
+
+Tonart, Ziel-Länge sowie Vocals/Melody gehören in den Style-Block und werden nicht in ein loses Restfeld ausgelagert.
+
+### Prompt-Kompaktheit
+
+Bevorzugt einen dichten, widerspruchsfreien Stilvektor statt langer Prosa. Zu viele Genres, Epochen oder gegensätzliche Produktionsanweisungen werden vor Generierung reduziert.
+
+### Gate B — Prompt Ready
+
+PASS nur wenn:
+
+- Referenzen in Craft-Merkmale übersetzt sind;
+- Lyrics/Struktur und Ziel-Länge zusammenpassen;
+- Style keine offensichtlichen Widersprüche enthält;
+- der Track im Album eine erkennbare eigene Funktion behält;
+- keine Rechte-/Voice-/Sample-Grenze verletzt wird.
+
+## Phase 5 — Model Routing
+
+Modellwahl aus dem **aktuellen Capability Snapshot** ableiten.
+
+Typische Rollen:
+
+- schnelles Ideenscreening / große Variantenmenge;
+- explorative, bewusst weniger vorhersehbare Klangsuche;
+- präzise Finalisierung eines klaren Briefs;
+- Custom Model / Voice / Style Persona für wiederkehrende Identität, wenn aktuell verfügbar und rechtlich/provenienzseitig sauber.
+
+Modellnamen und Verfügbarkeiten niemals dauerhaft als unveränderliche Skill-Regel behandeln.
+
+### Explore -> Select -> Refine
+
+Bevorzugter Loop:
+
+1. wenige gezielte Explorationsvarianten statt wahlloser Massengenerierung;
+2. Kandidaten anhand Track-Funktion und Hörwirkung vergleichen;
+3. stärksten Kandidaten auswählen;
+4. nur die schwachen Dimensionen gezielt ändern;
+5. Finalkandidaten erneut gegen Brief und Albumkontext prüfen.
+
+Take 1 ist kein Default-Sieger.
+
+## Phase 6 — Length Recovery Ladder
+
+Wenn Suno deutlich kürzer generiert als beabsichtigt, nicht reflexartig Lyrics kürzen oder blind `Extend` verwenden.
+
+In dieser Reihenfolge entscheiden:
+
+1. **Native long regeneration** — wenn das aktuelle Modell die Ziel-Länge in einer Generation unterstützt: Style + Arrangement + ausgeschriebene Struktur auf Ziel-Länge optimieren und neu generieren.
+2. **Genre-idiomatische Wiederholung** — bei Dance/Trance/Workout die tragenden Lyrics-/Hook-Blöcke bewusst wiederholen, wenn die bisherige Generierung trotz korrekter Ziel-Länge zu kurz bleibt.
+3. **Targeted edit / Replace Section** — wenn nur ein Abschnitt fehlt oder falsch ist und aktuelle Editierfunktionen dies erlauben.
+4. **Extend** — wenn der bestehende Kandidat musikalisch so stark ist, dass Kontinuität wichtiger ist als eine saubere Vollregeneration.
+5. **Studio/DAW assembly** — für bewusst mehrteilige oder komplexe Langformen; Source-Parts verlustfrei halten und nach Assembly erneut Audio-QC durchführen.
+
+Ein Nutzerfeedback wie „Extension ist unverhältnismäßig aufwändig“ wird als Workflow-Präferenz respektiert und verschiebt die Wahl zugunsten nativer Regeneration bzw. struktureller Wiederholung.
+
+## Phase 7 — Candidate Review
+
+Für jede relevante Generationsvariante `suno-generation-review.json` fortschreiben.
+
+Mindestens bewerten:
+
+- Track-Funktion / emotionale Wirkung;
+- Style-Fit;
+- Hook/Melodie;
+- Arrangement Arc;
+- tatsächliche Dauer vs. Ziel-Länge;
+- Vocal-Charakter und Kontinuität;
+- Lyrics-Treue / ausgelassene oder hallucinated Lines;
+- technische Auffälligkeiten;
+- Differenzierung zu Nachbartracks;
+- Nutzerfeedback;
+- Entscheidung: reject / keep-for-parts / candidate / selected.
+
+Numerische Scores dürfen unterstützen, ersetzen aber keine hörbasierte Begründung.
+
+### Targeted Revision Matrix
+
+- **Musik stark, einzelne Lyric-Zeile falsch** -> gezielte Lyric-/Section-Edit-Funktion vor Vollregeneration.
+- **Hook stark, Track zu kurz** -> Length Recovery Ladder.
+- **Stimme driftet** -> aktuelles Voice/Persona/Custom-Model-Setup und Prompt-Konsistenz prüfen.
+- **Track klingt zu ähnlich zum Nachbartrack** -> Arrangement/Instrumentation/Groove ändern, nicht zwangsläufig Persona oder Albumidentität.
+- **Zwei Takes enthalten komplementär starke Teile** -> aktuelle Mashup-/Multi-source-Funktion oder verlustfreie externe Assembly nur mit sauberer Provenienz nutzen.
+
+## Phase 8 — Rights and Provenance Capture
+
+Vor einem kommerziellen Handoff dokumentieren:
+
+- Suno-Modell und Versions-/Snapshot-Bezug;
+- Erstellungsdatum;
+- Plan-/Account-Kontext soweit für Rechte relevant;
+- Download-/Commercial-Use-Status anhand aktueller offizieller Suno-Regeln;
+- Lyrics-Urheberschaft;
+- verwendete Audio-Uploads/Samples und Rechte daran;
+- Voice/Persona/Custom-Model-Provenienz;
+- externe Edits / Assembly;
+- Source-Generation-IDs oder stabile Links, soweit verfügbar.
+
+Keine kommerzielle Freigabe allein auf Basis historischer Suno-Regeln.
+
+## Phase 9 — Project Second Brain Learning Loop
+
+Nach einer sinnvollen Generationsrunde projektbezogene Beobachtungen in den Suno-Second-Brain schreiben.
+
+Trenne strikt:
+
+- **user preference** — was der Nutzer musikalisch/arbeitsmethodisch bevorzugt;
+- **project observation** — was in diesem Song/Album passiert ist;
+- **model behavior** — reproduzierbares Verhalten einer Suno-Modellversion;
+- **cross-project learning** — mehrfach bestätigte, allgemeinere Regel.
+
+Ein einzelner ungewöhnlicher Take wird nicht zur globalen Prompt-Regel erhoben.
+
+Bei Modellwechsel werden ältere Learnings mit `revalidation_required` markiert, soweit sie modellabhängig sind.
+
+Der normative Lernvertrag liegt in [`references/second-brain-learning-loop.md`](references/second-brain-learning-loop.md).
+
+## Phase 10 — Production Handoff
+
+Erzeuge `suno-production-handoff.json` mit:
+
+- project / track ID;
+- selected prompt version;
+- selected generation / source refs;
+- model + capability snapshot ref;
+- observed length;
+- lyric/style deviations accepted or unresolved;
+- rights/provenance status;
+- external asset refs;
+- open audio-QC items;
+- next skill / next action.
+
+Für einen Release-Workflow geht der Handoff zurück an `song-album-release-workflow` für vollständiges Audio-QC, Artwork, Rights/Metadata und Distribution.
+
+## Second-Brain Storage Boundary
+
+Textuelle Projektartefakte und Learnings gehören in das festgelegte Project-Memory-Repository. Audio, Stems, Cover und andere nicht-textuelle Produktionsdateien werden gemäß `project-second-brain` im dokumentierten externen Artifact Store gehalten und in `ASSETS.md` referenziert, sofern sie nicht für Build/Test/Runtime im Repository benötigt werden.
+
+Keine Binärsammlung im GitHub-Second-Brain nur der Bequemlichkeit halber.
+
+## Stop-Regeln
+
+Blockierend:
+
+- kein ausreichend definierter Track-Brief;
+- modellabhängige Empfehlung bei veraltetem/fehlendem Capability Snapshot;
+- ungeklärte oder nicht autorisierte Stimme/Samplequelle;
+- direkter Künstler-Klon statt abstrahierter Craft-Spezifikation;
+- kommerzieller Handoff mit ungeklärtem aktuellen Nutzungsrecht;
+- behauptete externe Generierung ohne Evidenz.
+
+Nicht automatisch blockierend:
+
+- der Nutzer möchte nur einen kopierfertigen Suno-Block;
+- noch kein finaler WAV-Export vorhanden;
+- Cover/Distribution sind noch nicht geplant;
+- ein experimenteller Take bleibt als `keep-for-parts` erhalten.
+
+## Abschluss
+
+Der Skill endet, wenn:
+
+1. Capability Snapshot aktuell genug ist;
+2. ein Suno-ready Track-Paket vorliegt;
+3. Generations-/Editentscheidungen und Nutzerfeedback nachvollziehbar bewertet sind;
+4. der ausgewählte Kandidat samt Provenienz in `suno-production-handoff.json` festgehalten ist;
+5. relevante Learnings im Project Second Brain stehen;
+6. genau die nächste Aktion oder das nächste Workflow-Ziel benannt ist.
