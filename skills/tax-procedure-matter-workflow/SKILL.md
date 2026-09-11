@@ -12,6 +12,7 @@ requires:
   - current-tax-context
   - tax-position-register
   - tax-professional-routing
+  - project-second-brain
 outputs:
   - tax-procedure-status.json
   - tax-assessment-reconciliation.json
@@ -44,4 +45,4 @@ Frist, Zulässigkeit, Beschwer, angegriffene Position, Begründung, Aussetzung/V
 
 ## Qualitätsgate
 
-Pass nur, wenn Verfahrensakt, Zugang/Bekanntgabe soweit relevant, Frist, betroffene Positionen, Beträge, Evidence, nächste Aktion und Professional-/Authority-Grenze nachvollziehbar sind.
+Kein `closed`, solange offene Frist, ungeklärte Authority, fehlender Bescheidabgleich oder notwendige Professional-Eskalation besteht. Keine Frist aus Chat-Kontext erfinden; konkrete Fristquelle und Berechnungsbasis dokumentieren.
