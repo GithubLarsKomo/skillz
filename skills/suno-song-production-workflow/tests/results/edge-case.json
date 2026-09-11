@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "skill": "suno-song-production-workflow",
+  "caseId": "edge-case",
+  "recordedAt": "2026-09-11",
+  "evaluator": "contract-review",
+  "requiredBehaviors": [
+    {
+      "behavior": "treat the short output as an observed production problem and log the actual durations",
+      "passed": true,
+      "evidence": "Candidate Review requires actual duration versus target length to be recorded, and the learning loop separates project observations from broader model behavior."
+    },
+    {
+      "behavior": "check whether the current model supports the target duration natively",
+      "passed": true,
+      "evidence": "The Current Suno Capability Gate requires the current maximum native generation duration, and the first step of the Length Recovery Ladder depends on whether the selected model supports the target length."
+    },
+    {
+      "behavior": "prefer native long regeneration with explicit arrangement structure when supported",
+      "passed": true,
+      "evidence": "Length Recovery Ladder step 1 is Native long regeneration using Style, arrangement, and explicitly written structure when the current model supports the target length."
+    },
+    {
+      "behavior": "allow deliberate repeated hook or lyric blocks for repetition-driven dance genres",
+      "passed": true,
+      "evidence": "Phase 3 Repetition and Length Recovery Ladder step 2 explicitly allow intentional repeated hook/lyric blocks for Dance, Trance, and Workout contexts."
+    },
+    {
+      "behavior": "respect the user's preference against cumbersome Extend workflows",
+      "passed": true,
+      "evidence": "The Length Recovery Ladder explicitly names the feedback that Extension is disproportionately cumbersome and shifts the route toward native regeneration or structural repetition."
+    },
+    {
+      "behavior": "use Extend only when preserving an unusually strong existing candidate justifies it",
+      "passed": true,
+      "evidence": "Extend is step 4 of the ladder and is reserved for cases where the existing candidate is musically strong enough that continuity matters more than clean full regeneration."
+    },
+    {
+      "behavior": "classify the observation as project or model evidence rather than immediately making it a universal rule",
+      "passed": true,
+      "evidence": "Phase 9 distinguishes user preference, project observation, model behavior, and cross-project learning and forbids promoting a single unusual take directly into a global rule."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "blindly shorten the lyrics",
+      "observed": false,
+      "evidence": "The Length Recovery Ladder explicitly says not to reflexively shorten lyrics when the generated song is too short."
+    },
+    {
+      "behavior": "blindly use Extend as the first response",
+      "observed": false,
+      "evidence": "Extend is deliberately placed after native regeneration, genre-idiomatic repetition, and targeted edits."
+    },
+    {
+      "behavior": "assume the historical behavior remains valid after a Suno model-family change",
+      "observed": false,
+      "evidence": "Phase 0 invalidates model-dependent historical heuristics after a model-family change until they are revalidated."
+    },
+    {
+      "behavior": "repeat narrative lyrics mechanically when repetition damages the song",
+      "observed": false,
+      "evidence": "Phase 3 explicitly rejects forced doubling in narrative songs when it weakens progression, perspective, or payoff."
+    }
+  ],
+  "overall": "pass"
+}
