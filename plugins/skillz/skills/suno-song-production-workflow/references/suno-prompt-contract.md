@@ -2,22 +2,52 @@
 
 ## Purpose
 
-This reference defines the canonical copy-ready handoff for Suno generation. It keeps the user-facing block compact while preserving enough structure for reproducible iteration.
+This reference defines the canonical copy-ready handoff for Suno generation. It keeps the user-facing output compact, reproducible, and practical on mobile devices where manually selecting fragments from mixed prose is unnecessarily cumbersome.
 
-## Required order
+The governing UX rule is:
 
-Always present the production block in this order:
+> **One real Suno input field = one dedicated copyable block containing only paste-ready text.**
+
+Field labels and explanations stay outside the copyable block.
+
+## Required order and grouping
+
+For every track, always present the production handoff in this order:
 
 1. `Title`
 2. `Lyrics`
 3. `Style`
 4. `Advanced controls` only when current Suno capabilities make them relevant
 
+Complete one track before starting the next. Do not group all album titles first, then all lyrics, then all styles.
+
 Do not add a catch-all `Other`, `Misc`, or `Sonstiges` section.
+
+## Copy-block contract
+
+Each actual Suno field gets exactly one dedicated copyable block.
+
+Rules:
+
+- Put the field label outside the block.
+- Put only the exact text to paste into Suno inside the block.
+- Do not include `Title`, `Lyrics`, `Style`, commentary, bullets, quotes, or instructions inside a paste block unless they are intentionally part of the field content.
+- Do not make the user manually select a subsection from a larger mixed block.
+- Do not create empty blocks for unused Suno fields.
+- Keep each track self-contained so a mobile user can copy Title -> switch to Suno -> paste -> return -> copy Lyrics -> paste -> return -> copy Style -> paste, without searching elsewhere in the response.
+- When the user asks for `Suno-ready`, `direkt für Suno`, `kopierfertig`, or equivalent wording, this copy-block contract is mandatory.
 
 ## Title
 
-Use the confirmed title. If the title is not frozen, mark it explicitly as `Working title` rather than inventing finality.
+Use the confirmed title. If the title is not frozen, explain outside the block that it is a working title. The block itself still contains only the title text.
+
+Example:
+
+**Title**
+
+```text
+NO BRAKES
+```
 
 ## Lyrics
 
@@ -26,6 +56,28 @@ Use the confirmed title. If the title is not frozen, mark it explicitly as `Work
 - Write intended repetitions explicitly when repetition is part of the genre/arrangement.
 - Avoid verbose production directions in the Lyrics field.
 - Preserve narrative progression where repetition would damage meaning.
+- For long-form repetition-driven dance, trance, hard-trance, makina, rave, or workout tracks, build/drop cycles and intentionally repeated hook blocks may be written directly into the Lyrics field when they are being used to control arrangement and duration.
+
+Example:
+
+**Lyrics**
+
+```text
+[Intro]
+You came this far
+Don't slow down now
+
+[Build]
+Push
+Push
+Push
+
+[Drop]
+NO BRAKES
+Forward
+Forward
+Forward
+```
 
 ## Style
 
@@ -46,12 +98,13 @@ The Style block is the compact production specification. Include only relevant d
 - negative constraints;
 - neighboring-track differentiation for albums.
 
-`Key`, `Target length`, and `Vocals / Melody` belong here rather than in a loose remainder field.
+`Key`, `Target length`, and `Vocals / Melody` belong here rather than in a loose remainder field when Suno does not provide dedicated fields for them.
 
-### Example shape
+Example:
+
+**Style**
 
 ```text
-Style
 Early-90s-inspired hard trance with modern low-end control; 146 BPM, 4/4, F minor; target length 6:00-6:30; rolling offbeat bass, hard 909-style kick, tense minor-key arpeggio, wide rave stabs and a concise rising lead motif; sparse male spoken/processed hook with short melodic answers; long DJ-friendly intro, first build and drop, stripped breakdown, larger second build/peak, functional outro; energetic but not euphoric-pop, no rock guitars, no sentimental ballad chorus.
 ```
 
@@ -67,6 +120,8 @@ Only include controls that are current, verified, and intentional, for example:
 - audio/reference influence;
 - relevant creativity/structure/reference controls;
 - Edit/Replace/Extend instruction after a first generation.
+
+If an Advanced control corresponds to a separate Suno input field, give that field its own copyable block under an external label. If it is a setting the user must choose rather than paste, present it as concise prose outside the Title/Lyrics/Style blocks.
 
 Never invent slider names, ranges, or values from memory. Verify current Suno capabilities first.
 
@@ -91,7 +146,10 @@ Reject or revise a prompt if it contains:
 - a target length unsupported by the current selected model without an explicit extension/assembly strategy;
 - arrangement instructions that cannot plausibly fit the target length;
 - an album track that duplicates the neighboring track's entire sound vector;
-- unauthorized sample, voice, or artist-imitation instructions.
+- unauthorized sample, voice, or artist-imitation instructions;
+- mixed prose and paste text inside the same copy block;
+- a field label inside the paste text;
+- album-wide grouping that forces repeated searching between tracks.
 
 ## Length-specific guidance
 
