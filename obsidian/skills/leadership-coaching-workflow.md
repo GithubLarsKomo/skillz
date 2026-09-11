@@ -37,6 +37,7 @@ Orchestriert longitudinales Führungskräfte-Coaching von Contracting und Entwic
 - [[skills/leadership-feedback|leadership-feedback]]
 - [[skills/leadership-reflection|leadership-reflection]]
 - [[skills/performance-management-workflow|performance-management-workflow]]
+- [[skills/project-second-brain|project-second-brain]]
 
 ## Required by
 

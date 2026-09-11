@@ -28,6 +28,7 @@ Orchestriert private und berufliche Vertragsarbeit als kompatiblen user-facing E
 
 - [[skills/contract-legal-context|contract-legal-context]]
 - [[skills/contract-matter-workflow|contract-matter-workflow]]
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/round-based-requirements-grilling|round-based-requirements-grilling]]
 
 ## Required by

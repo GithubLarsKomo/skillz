@@ -29,6 +29,7 @@ Orchestriert interne Untersuchungen von Allegation-Triage, Independence/Privileg
 - [[skills/investigation-evidence-preservation|investigation-evidence-preservation]]
 - [[skills/investigation-findings-remediation|investigation-findings-remediation]]
 - [[skills/legal-matter-final-gate|legal-matter-final-gate]]
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/whistleblowing-law-specialist|whistleblowing-law-specialist]]
 
 ## Required by

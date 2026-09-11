@@ -35,6 +35,7 @@ graph TD
   compliance_management_workflow --> compliance_control_mapping
   compliance_management_workflow --> compliance_obligation_register
   compliance_management_workflow --> legal_matter_final_gate
+  compliance_management_workflow --> project_second_brain
   compliance_obligation_register --> current_law_context
   contract_drafting --> agreement_type_analysis
   contract_drafting --> current_law_context
@@ -49,6 +50,7 @@ graph TD
   contract_review --> current_law_context
   contract_workflow --> contract_legal_context
   contract_workflow --> contract_matter_workflow
+  contract_workflow --> project_second_brain
   contract_workflow --> round_based_requirements_grilling
   controlled_quality_documentation --> regulated_product_context
   controlled_quality_documentation --> two_axis_compliance_review
@@ -276,6 +278,7 @@ graph TD
   internal_investigation_workflow --> investigation_evidence_preservation
   internal_investigation_workflow --> investigation_findings_remediation
   internal_investigation_workflow --> legal_matter_final_gate
+  internal_investigation_workflow --> project_second_brain
   internal_investigation_workflow --> whistleblowing_law_specialist
   international_tax_specialist --> current_tax_context
   international_tax_specialist --> tax_position_register
@@ -370,6 +373,7 @@ graph TD
   leadership_coaching_workflow --> leadership_feedback
   leadership_coaching_workflow --> leadership_reflection
   leadership_coaching_workflow --> performance_management_workflow
+  leadership_coaching_workflow --> project_second_brain
   learning_activity_generator --> learning_path_planner
   learning_artifact_qa --> learning_content_design_system
   learning_assessment --> learning_assessment_spec
@@ -604,6 +608,7 @@ graph TD
   science_storytelling_workflow --> mentor_text_craft_analysis
   science_storytelling_workflow --> precision_writing_revision
   science_storytelling_workflow --> research_to_evidence_note
+  second_brain_federation_workflow --> project_second_brain
   series_architecture --> ensemble_character_architecture
   series_architecture --> speculative_worldbuilding
   skill_lifecycle_migration --> skill_portfolio_audit
@@ -618,6 +623,7 @@ graph TD
   sport_adaptation_analysis --> sport_daily_athlete_monitoring
   sport_adaptation_analysis --> sport_microcycle_planning
   sport_adaptation_analysis --> sport_performance_diagnostics
+  sport_athlete_management --> project_second_brain
   sport_athlete_management --> sport_adaptation_analysis
   sport_athlete_management --> sport_athlete_profile
   sport_athlete_management --> sport_daily_athlete_monitoring
@@ -713,6 +719,7 @@ graph TD
   tax_position_register --> current_tax_context
   tax_position_register --> decision_record
   tax_procedure_matter_workflow --> current_tax_context
+  tax_procedure_matter_workflow --> project_second_brain
   tax_procedure_matter_workflow --> tax_position_register
   tax_procedure_matter_workflow --> tax_professional_routing
   tax_professional_routing --> current_tax_context
@@ -752,6 +759,7 @@ graph TD
   trade_sanctions_export_control_specialist --> privilege_and_counsel_routing
   transfer_pricing_specialist --> current_tax_context
   transfer_pricing_specialist --> tax_position_register
+  travel_agency_workflow --> project_second_brain
   travel_agency_workflow --> travel_availability_snapshot
   travel_agency_workflow --> travel_context_builder
   travel_agency_workflow --> travel_destination_research
@@ -919,6 +927,9 @@ graph TD
 | `science-storytelling-workflow` | `evidence-note.json` | `research-to-evidence-note` |
 | `science-storytelling-workflow` | `final-creative-text` | `creative-prose-revision` |
 | `science-storytelling-workflow` | `precision-writing-report.json` | `precision-writing-revision` |
+| `second-brain-federation-workflow` | `project-memory-event.md` | `project-second-brain` |
+| `second-brain-federation-workflow` | `project-memory-index.md` | `project-second-brain` |
+| `second-brain-federation-workflow` | `project-memory-state.json` | `project-second-brain` |
 | `series-architecture` | `character-ensemble.json` | `ensemble-character-architecture` |
 | `series-architecture` | `world-model.json` | `speculative-worldbuilding` |
 | `sport-diagnostics-training-report-workflow` | `dr-komorowski-sport-report.docx` | `dr-komorowski-sport-docx-report-renderer` |
@@ -1570,10 +1581,10 @@ graph TD
 | `product-ranking.md` | `product-comparison-ranking` | `purchase-decision-planner` | inferred |
 | `product-safety-legal-gates.json` | `product-liability-safety-law-specialist` | — | unconsumed |
 | `progress summary` | `synapse-orchestrator` | — | unconsumed |
-| `project-memory-assets.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
-| `project-memory-event.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
-| `project-memory-index.md` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
-| `project-memory-state.json` | `project-second-brain` | `conversation-to-spec`, `iterate-software-projects`, `large-work-wayfinder`, `song-album-release-workflow`, `spec-to-vertical-issues`, `suno-song-production-workflow` | inferred |
+| `project-memory-assets.md` | `project-second-brain` | `compliance-management-workflow`, `contract-workflow`, `conversation-to-spec`, `internal-investigation-workflow`, `iterate-software-projects`, `large-work-wayfinder`, `leadership-coaching-workflow`, `song-album-release-workflow`, `spec-to-vertical-issues`, `sport-athlete-management`, `suno-song-production-workflow`, `tax-procedure-matter-workflow`, `travel-agency-workflow` | inferred |
+| `project-memory-event.md` | `project-second-brain` | `compliance-management-workflow`, `contract-workflow`, `conversation-to-spec`, `internal-investigation-workflow`, `iterate-software-projects`, `large-work-wayfinder`, `leadership-coaching-workflow`, `second-brain-federation-workflow`, `song-album-release-workflow`, `spec-to-vertical-issues`, `sport-athlete-management`, `suno-song-production-workflow`, `tax-procedure-matter-workflow`, `travel-agency-workflow` | mixed |
+| `project-memory-index.md` | `project-second-brain` | `compliance-management-workflow`, `contract-workflow`, `conversation-to-spec`, `internal-investigation-workflow`, `iterate-software-projects`, `large-work-wayfinder`, `leadership-coaching-workflow`, `second-brain-federation-workflow`, `song-album-release-workflow`, `spec-to-vertical-issues`, `sport-athlete-management`, `suno-song-production-workflow`, `tax-procedure-matter-workflow`, `travel-agency-workflow` | mixed |
+| `project-memory-state.json` | `project-second-brain` | `compliance-management-workflow`, `contract-workflow`, `conversation-to-spec`, `internal-investigation-workflow`, `iterate-software-projects`, `large-work-wayfinder`, `leadership-coaching-workflow`, `second-brain-federation-workflow`, `song-album-release-workflow`, `spec-to-vertical-issues`, `sport-athlete-management`, `suno-song-production-workflow`, `tax-procedure-matter-workflow`, `travel-agency-workflow` | mixed |
 | `project-status.json` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `project-status.md` | `project-status-brief` | `decision-and-follow-up-tracker`, `qms-management-review-governance` | inferred |
 | `prose-audit.json` | `llm-prose-pattern-audit` | `llm-generation-evidence-assessment`, `llm-generation-review-workflow`, `precision-writing-revision` | inferred |
@@ -1667,6 +1678,8 @@ graph TD
 | `scientific-validity-assessment.json` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `scientific-validity-report.md` | `ivdr-scientific-validity` | `ivdr-performance-evaluation` | inferred |
 | `se-evidence-gaps.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
+| `second-brain-catalog.md` | `second-brain-federation-workflow` | — | unconsumed |
+| `second-brain-registration.json` | `second-brain-federation-workflow` | — | unconsumed |
 | `series-architecture.json` | `series-architecture` | `fiction-reader-reality-review`, `fiction-series-writing-workflow`, `story-bible-continuity` | explicit |
 | `series-outline.md` | `series-architecture` | — | unconsumed |
 | `service-complaint-handoff.json` | `medical-device-service-report-quality-routing` | — | unconsumed |
@@ -1720,6 +1733,7 @@ graph TD
 | `suno-model-learning.md` | `suno-song-production-workflow` | — | unconsumed |
 | `suno-production-handoff.json` | `suno-song-production-workflow` | — | unconsumed |
 | `suno-track-package.md` | `suno-song-production-workflow` | — | unconsumed |
+| `super-second-brain-registry.json` | `second-brain-federation-workflow` | — | unconsumed |
 | `supplier-control-plan.json` | `supplier-quality-medical-device` | — | unconsumed |
 | `supplier-quality-assessment.json` | `supplier-quality-medical-device` | — | unconsumed |
 | `supplier-signal-set.json` | `supplier-quality-medical-device` | — | unconsumed |

@@ -4,7 +4,7 @@ generated: true
 name: "tax-procedure-matter-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 3
 recordedResultCount: 3
@@ -27,6 +27,7 @@ Orchestriert steuerliche Verfahrens-Matters von Erklärung und Bescheidabgleich 
 ## Requires
 
 - [[skills/current-tax-context|current-tax-context]]
+- [[skills/project-second-brain|project-second-brain]]
 - [[skills/tax-position-register|tax-position-register]]
 - [[skills/tax-professional-routing|tax-professional-routing]]
 
@@ -62,7 +63,7 @@ Orchestriert steuerliche Verfahrens-Matters von Erklärung und Bescheidabgleich 
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
+- Passed: `False`
 - Cases: `3`
 - Recorded results: `3`
 

@@ -10,7 +10,7 @@ tags:
 
 > Generated from skill capability metadata. Do not edit manually.
 
-Skills: **114**
+Skills: **115**
 
 - [[skills/audio-tutorial-workflow|audio-tutorial-workflow]]
 - [[skills/candidate-role-fit-assessment|candidate-role-fit-assessment]]
@@ -86,6 +86,7 @@ Skills: **114**
 - [[skills/role-architecture|role-architecture]]
 - [[skills/role-requirements-grilling|role-requirements-grilling]]
 - [[skills/science-storytelling-workflow|science-storytelling-workflow]]
+- [[skills/second-brain-federation-workflow|second-brain-federation-workflow]]
 - [[skills/series-architecture|series-architecture]]
 - [[skills/skill-lifecycle-migration|skill-lifecycle-migration]]
 - [[skills/skill-portfolio-audit|skill-portfolio-audit]]

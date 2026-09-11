@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "skillCount": 342,
-  "entrypointCount": 281,
+  "skillCount": 343,
+  "entrypointCount": 282,
   "entrypointCategories": [
     "analysis",
     "communication-memory",
@@ -15,17 +15,17 @@
     "workflow"
   ],
   "discoverabilityCounts": {
-    "public": 271,
+    "public": 272,
     "advanced": 10,
     "internal": 59,
     "compatibility": 2
   },
-  "evaluationSuiteCount": 342,
-  "evaluatedSkillCount": 342,
-  "evaluatedEntrypointCount": 281,
+  "evaluationSuiteCount": 343,
+  "evaluatedSkillCount": 343,
+  "evaluatedEntrypointCount": 282,
   "evaluationCoverageComplete": true,
   "evaluationPassed": false,
-  "evaluationErrorCount": 6,
+  "evaluationErrorCount": 13,
   "skills": [
     {
       "name": "agent-handoff",
@@ -1121,7 +1121,8 @@
         "compliance-control-assurance",
         "compliance-control-mapping",
         "compliance-obligation-register",
-        "legal-matter-final-gate"
+        "legal-matter-final-gate",
+        "project-second-brain"
       ],
       "dependents": [
         "executive-legal-compliance-governance"
@@ -1170,7 +1171,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {
@@ -1608,6 +1609,7 @@
       "requires": [
         "contract-legal-context",
         "contract-matter-workflow",
+        "project-second-brain",
         "round-based-requirements-grilling"
       ],
       "dependents": [],
@@ -7593,6 +7595,7 @@
         "investigation-evidence-preservation",
         "investigation-findings-remediation",
         "legal-matter-final-gate",
+        "project-second-brain",
         "whistleblowing-law-specialist"
       ],
       "dependents": [
@@ -9469,7 +9472,8 @@
         "leadership-development-model",
         "leadership-feedback",
         "leadership-reflection",
-        "performance-management-workflow"
+        "performance-management-workflow",
+        "project-second-brain"
       ],
       "dependents": [],
       "outputs": [
@@ -15741,14 +15745,22 @@
       },
       "requires": [],
       "dependents": [
+        "compliance-management-workflow",
+        "contract-workflow",
         "conversation-to-spec",
         "creative-writing-workflow",
         "fiction-series-writing-workflow",
+        "internal-investigation-workflow",
         "iterate-software-projects",
         "large-work-wayfinder",
+        "leadership-coaching-workflow",
+        "second-brain-federation-workflow",
         "song-album-release-workflow",
         "spec-to-vertical-issues",
-        "suno-song-production-workflow"
+        "sport-athlete-management",
+        "suno-song-production-workflow",
+        "tax-procedure-matter-workflow",
+        "travel-agency-workflow"
       ],
       "outputs": [
         "project-memory-assets.md",
@@ -15764,12 +15776,19 @@
             "project-second-brain"
           ],
           "consumerSkills": [
+            "compliance-management-workflow",
+            "contract-workflow",
             "conversation-to-spec",
+            "internal-investigation-workflow",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "leadership-coaching-workflow",
             "song-album-release-workflow",
             "spec-to-vertical-issues",
-            "suno-song-production-workflow"
+            "sport-athlete-management",
+            "suno-song-production-workflow",
+            "tax-procedure-matter-workflow",
+            "travel-agency-workflow"
           ]
         },
         {
@@ -15779,12 +15798,20 @@
             "project-second-brain"
           ],
           "consumerSkills": [
+            "compliance-management-workflow",
+            "contract-workflow",
             "conversation-to-spec",
+            "internal-investigation-workflow",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "leadership-coaching-workflow",
+            "second-brain-federation-workflow",
             "song-album-release-workflow",
             "spec-to-vertical-issues",
-            "suno-song-production-workflow"
+            "sport-athlete-management",
+            "suno-song-production-workflow",
+            "tax-procedure-matter-workflow",
+            "travel-agency-workflow"
           ]
         },
         {
@@ -15794,12 +15821,20 @@
             "project-second-brain"
           ],
           "consumerSkills": [
+            "compliance-management-workflow",
+            "contract-workflow",
             "conversation-to-spec",
+            "internal-investigation-workflow",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "leadership-coaching-workflow",
+            "second-brain-federation-workflow",
             "song-album-release-workflow",
             "spec-to-vertical-issues",
-            "suno-song-production-workflow"
+            "sport-athlete-management",
+            "suno-song-production-workflow",
+            "tax-procedure-matter-workflow",
+            "travel-agency-workflow"
           ]
         },
         {
@@ -15809,12 +15844,20 @@
             "project-second-brain"
           ],
           "consumerSkills": [
+            "compliance-management-workflow",
+            "contract-workflow",
             "conversation-to-spec",
+            "internal-investigation-workflow",
             "iterate-software-projects",
             "large-work-wayfinder",
+            "leadership-coaching-workflow",
+            "second-brain-federation-workflow",
             "song-album-release-workflow",
             "spec-to-vertical-issues",
-            "suno-song-production-workflow"
+            "sport-athlete-management",
+            "suno-song-production-workflow",
+            "tax-procedure-matter-workflow",
+            "travel-agency-workflow"
           ]
         }
       ],
@@ -17404,6 +17447,65 @@
       }
     },
     {
+      "name": "second-brain-federation-workflow",
+      "description": "Verbindet mehrere Project Second Brains mit einem privaten Super Second Brain als verifizierten Registry-, Routing- und Discoverability-Layer. Verwendet Project-Memory-Zustände als Quellen, prüft Repository-Verfügbarkeit und Freshness, registriert nur Metadaten und Links statt fachliche Inhalte zu duplizieren und unterstützt sowohl einzelne Projekt-Repositories als auch Collection-Repositories mit mehreren Matters oder Projekten.",
+      "invocation": {
+        "userFacing": true,
+        "category": "workflow"
+      },
+      "governance": {
+        "status": "candidate",
+        "discoverability": "public",
+        "replacedBy": null,
+        "deprecatedSince": null
+      },
+      "requires": [
+        "project-second-brain"
+      ],
+      "dependents": [],
+      "outputs": [
+        "second-brain-catalog.md",
+        "second-brain-registration.json",
+        "super-second-brain-registry.json"
+      ],
+      "outputContracts": [
+        {
+          "output": "second-brain-catalog.md",
+          "ambiguous": false,
+          "producers": [
+            "second-brain-federation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "second-brain-registration.json",
+          "ambiguous": false,
+          "producers": [
+            "second-brain-federation-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "super-second-brain-registry.json",
+          "ambiguous": false,
+          "producers": [
+            "second-brain-federation-workflow"
+          ],
+          "consumerSkills": []
+        }
+      ],
+      "portableFiles": [
+        "agents/openai.yaml",
+        "references/federation-contract.md"
+      ],
+      "evaluation": {
+        "mode": "compatibility",
+        "caseCount": 4,
+        "recordedResultCount": 4,
+        "passed": false
+      }
+    },
+    {
       "name": "series-architecture",
       "description": "Plant mehrbändige Fiction über mehrere Zeitskalen hinweg als Series-, Volume-, Character-, Relationship-, Mystery- und World-Change-Arcs und führt ein explizites Setup/Payoff-Ledger. Verwenden für Reihen, Zyklen und lange Einzelromane mit vielen Handlungsfäden; nicht als Szenenprosa-Generator oder Canon-Verifier.",
       "invocation": {
@@ -18017,6 +18119,7 @@
         "deprecatedSince": null
       },
       "requires": [
+        "project-second-brain",
         "sport-adaptation-analysis",
         "sport-athlete-profile",
         "sport-daily-athlete-monitoring",
@@ -19935,6 +20038,7 @@
       },
       "requires": [
         "current-tax-context",
+        "project-second-brain",
         "tax-position-register",
         "tax-professional-routing"
       ],
@@ -19986,7 +20090,7 @@
         "mode": "compatibility",
         "caseCount": 3,
         "recordedResultCount": 3,
-        "passed": true
+        "passed": false
       }
     },
     {
@@ -21033,6 +21137,7 @@
         "deprecatedSince": null
       },
       "requires": [
+        "project-second-brain",
         "travel-availability-snapshot",
         "travel-context-builder",
         "travel-destination-research",

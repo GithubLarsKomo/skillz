@@ -27,4 +27,4 @@ Frist, Zulässigkeit, Beschwer, angegriffene Position, Begründung, Aussetzung/V
 
 ## Qualitätsgate
 
-Pass nur, wenn Verfahrensakt, Zugang/Bekanntgabe soweit relevant, Frist, betroffene Positionen, Beträge, Evidence, nächste Aktion und Professional-/Authority-Grenze nachvollziehbar sind.
+Kein `closed`, solange offene Frist, ungeklärte Authority, fehlender Bescheidabgleich oder notwendige Professional-Eskalation besteht. Keine Frist aus Chat-Kontext erfinden; konkrete Fristquelle und Berechnungsbasis dokumentieren.
