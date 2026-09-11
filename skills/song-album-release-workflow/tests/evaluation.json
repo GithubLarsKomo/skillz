@@ -58,6 +58,31 @@
       ]
     },
     {
+      "id": "mobile-suno-handoff",
+      "input": "Give me a ten-track workout album directly ready to paste into Suno on my iPhone. I do not want to manually select fragments from mixed prose and metadata.",
+      "requiredBehaviors": [
+        "finish one track before starting the next track",
+        "emit exactly one copyable paste block for each actual Suno field used",
+        "use Title then Lyrics then Style as the default field order",
+        "keep labels and explanations outside the paste blocks",
+        "put BPM key target length and vocal or melody guidance into Style when no dedicated Suno field exists",
+        "avoid extra metadata blocks that create unnecessary mobile copy operations"
+      ],
+      "forbiddenBehaviors": [
+        "mix explanatory prose into text that is meant to be pasted into Suno",
+        "group all titles all lyrics or all styles across the album instead of completing each track",
+        "require the user to manually select a subsection from a larger mixed block",
+        "create empty placeholder blocks for unused Suno fields"
+      ],
+      "skillAnchors": [
+        "Suno Mobile Copy/Paste Contract",
+        "Genau ein kopierbarer Block pro realem Suno-Eingabefeld",
+        "Title` -> `Lyrics` -> `Style",
+        "Einen Track vollständig ausgeben, bevor der nächste beginnt",
+        "feldgenau kopierfertigen Produktions-Handoff"
+      ]
+    },
+    {
       "id": "failure-case",
       "input": "Publish these AI-generated songs on Spotify now. I do not know whether the generation account had commercial rights, one song uses an uncleared sample, and I have only low-bitrate MP3 files.",
       "requiredBehaviors": [
