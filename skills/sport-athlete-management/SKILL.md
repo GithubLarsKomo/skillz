@@ -28,6 +28,7 @@ requires:
   - sport-training-music
   - sport-environment-travel
   - sport-training-adaptation-engine
+  - project-second-brain
 outputs:
   - athlete-management-state.json
   - next-training-decision.json
