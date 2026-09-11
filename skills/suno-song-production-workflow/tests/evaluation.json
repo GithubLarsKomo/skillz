@@ -6,6 +6,7 @@
       "id": "happy-path",
       "input": "Build Suno-ready production packages for a coherent trance album. I gave several reference tracks from different artists and want roughly six-minute tracks with strong drops and a consistent album identity.",
       "requiredBehaviors": [
+        "start a new Suno project with progressive Grilling v2 or reuse a valid existing project-specific v2 handoff before prompt production",
         "verify the current Suno model and capability state before giving model-dependent advice",
         "decompose reference tracks into musical craft dimensions instead of using them as exact-clone prompts",
         "preserve album identity while assigning each track its own musical role",
@@ -13,15 +14,18 @@
         "put key target length and vocals or melody information inside the Style block",
         "use explicit structural repetition when it is idiomatic to the genre rather than adding a generic miscellaneous field",
         "generate or compare multiple purposeful candidates instead of automatically selecting take one",
-        "record the result and reusable learning in the project Second Brain"
+        "record the Grilling handoff result and reusable production learning in the project Second Brain"
       ],
       "forbiddenBehaviors": [
+        "begin Suno prompt production while relevant artistic or scope decisions remain unresolved",
         "create a separate Sonstiges or Misc field for key length or vocal information",
         "ask Suno to exactly imitate a living artist",
         "treat an old Suno duration limit as a timeless fact",
         "store audio binaries in the GitHub Second Brain just for convenience"
       ],
       "skillAnchors": [
+        "Progressive Grilling v2 Gate",
+        "Gate G0 — Intent Confirmed",
         "Current Suno Capability Gate",
         "Reference Decomposition statt Artist Imitation",
         "Title",
@@ -29,6 +33,29 @@
         "Vocals / Melody",
         "Repetition",
         "Project Second Brain Learning Loop"
+      ]
+    },
+    {
+      "id": "grilling-v2-reuse",
+      "input": "The album already went through Grilling v2 in the release workflow. I now want to refine track 4 in Suno without answering the whole intake again.",
+      "requiredBehaviors": [
+        "reuse the valid upstream Grilling v2 handoff instead of starting a duplicate intake",
+        "ask only unresolved production-relevant preference questions through a progressive follow-up round",
+        "preserve already confirmed album and track decisions",
+        "route current Suno model duration and edit facts to the capability gate rather than asking Grilling to guess them",
+        "carry the Grilling and Project Second Brain references into the production handoff"
+      ],
+      "forbiddenBehaviors": [
+        "repeat already answered Grilling questions",
+        "treat the v1 file catalog as the session register for a v2 project",
+        "invent current Suno model capabilities inside the Grilling round",
+        "discard a still-valid project handoff merely because a single track is being revised"
+      ],
+      "skillAnchors": [
+        "Wiederverwendung statt Doppel-Grilling",
+        "Bereits beantwortete Fragen nicht wiederholen",
+        "Technische Suno-Fakten",
+        "Grilling-v2-Handoff-/Session-Referenz"
       ]
     },
     {
