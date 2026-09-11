@@ -7,7 +7,7 @@ userFacing: true
 evaluationPassed: false
 evaluationMode: "compatibility"
 caseCount: 4
-recordedResultCount: 4
+recordedResultCount: 5
 sourcePath: "skills/second-brain-federation-workflow/SKILL.md"
 tags:
   - skill
@@ -57,7 +57,7 @@ Verbindet mehrere Project Second Brains mit einem privaten Super Second Brain al
 - Mode: `compatibility`
 - Passed: `False`
 - Cases: `4`
-- Recorded results: `4`
+- Recorded results: `5`
 
 ## Canonical source
 
