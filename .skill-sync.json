@@ -1685,7 +1685,7 @@
       "files": {
         "SKILL.md": "f08a6235b1dc679c5f141f9b787e378c35c238512a6ea560951bb316be96256e",
         "agents/openai.yaml": "0461c90506602180d453610eaec5816da65ae186460bf449481b0c896559ea2e",
-        "references/federation-contract.md": "30ad411b7ad89ed8b1d44a94123e5915dc08cd022b25d6877d277c4226479c1b"
+        "references/federation-contract.md": "f213f26d9dacb980aabc5a55b92d5fbcb1066b2637aa2018bf70df13d0674ee0"
       }
     },
     "series-architecture": {
