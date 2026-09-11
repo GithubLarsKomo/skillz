@@ -82,15 +82,46 @@ docs/super-memory/
 }
 ```
 
+## Mutable federation state: single-source rule
+
+Availability, freshness and current repository/memory reachability are **mutable federation state**. They MUST have one canonical source in the Super Brain, normally `registry.json`.
+
+- Human tables such as `REGISTRY.md` MAY be derived projections.
+- Stable per-brain routing notes SHOULD point to the canonical registry instead of duplicating `status`, `lastVerifiedAt` or reachability fields.
+- If a consumer generates cached projections, they MUST be refreshed from the canonical registry during the same federation transition.
+- Scope, workflow-family routing and stable `brainId` may live in durable routing notes, but a stale routing note MUST NOT override the canonical registry.
+
+This rule prevents contradictory states such as `available` in the registry and `bootstrap-needed` in a routing note.
+
 ## Collection repositories
 
-A collection repository groups multiple cases, matters or projects in one domain. The repository may maintain a domain-level Project Memory while individual children live under:
+A collection repository groups multiple cases, matters or projects in one domain. The repository SHOULD maintain a domain-level Project Memory at the declared federation root while individual persistent children live under:
 
 ```text
 projects/<id>/docs/project-memory/
 ```
 
+Collection mode is preferred over creating one repository per case when the children share the same domain governance, access boundary, retention model and workflow family.
+
+Create a child Project Memory only when the work is genuinely longitudinal, for example a persistent coaching programme, legal matter, investigation, tax case, course, dossier, trip or athlete/season programme. One-off answers, lookups or transient tasks do not require a child memory.
+
+Create a separate repository for a child only when it has a materially independent lifecycle, access/retention boundary, source-control/runtime need or canonical artifact set that cannot be safely governed by the collection.
+
 The Super Brain registers the collection itself and MAY index active child roots as pointers. It MUST NOT flatten their content into the global registry.
+
+## Consolidation policy
+
+Topic overlap alone is not a reason to merge Second Brains. Prefer **logical consolidation** through domain maps, relations and routing before physical repository consolidation.
+
+A physical merge is appropriate only when candidate brains substantially converge on all of the following:
+
+- lifecycle and closure semantics,
+- access, privacy and retention boundary,
+- canonical artifact ownership,
+- workflow families and transition gates,
+- repository/runtime needs.
+
+If any of these boundaries differ materially, keep the Child Brains separate and connect them through federation domain maps or explicit relations.
 
 ## Synchronization policy
 
