@@ -6,6 +6,11 @@
   "evaluator": "contract-review",
   "requiredBehaviors": [
     {
+      "behavior": "start a new Suno project with progressive Grilling v2 or reuse a valid existing project-specific v2 handoff before prompt production",
+      "passed": true,
+      "evidence": "Phase -1 makes progressive DB-backed Grilling v2 a hard start condition for new Suno projects and explicitly reuses a valid upstream project handoff instead of duplicating the intake."
+    },
+    {
       "behavior": "verify the current Suno model and capability state before giving model-dependent advice",
       "passed": true,
       "evidence": "Phase 0 requires a fresh official Suno capability snapshot and blocks model-dependent production advice when model, duration, edit, or rights information may have changed."
@@ -18,7 +23,7 @@
     {
       "behavior": "preserve album identity while assigning each track its own musical role",
       "passed": true,
-      "evidence": "Track Intent Contract requires track function and neighboring-track differentiation, and Prompt Ready requires each album track to retain a recognizable individual function."
+      "evidence": "The Grilling contract covers common identity versus track variation; Track Intent Contract requires track function and neighboring-track differentiation."
     },
     {
       "behavior": "return Title then Lyrics then Style in that order",
@@ -41,12 +46,17 @@
       "evidence": "Explore -> Select -> Refine calls for purposeful exploration variants, comparative selection, targeted refinement, and explicitly states that Take 1 is not the default winner."
     },
     {
-      "behavior": "record the result and reusable learning in the project Second Brain",
+      "behavior": "record the Grilling handoff result and reusable production learning in the project Second Brain",
       "passed": true,
-      "evidence": "Phase 9 requires project observations and reusable learnings to be written to the Suno Project Second Brain with evidence class and model-change revalidation rules."
+      "evidence": "The Phase -1 Second-Brain hook records the Grilling session/handoff and Phase 9 records project observations and reusable learnings with evidence class and revalidation rules."
     }
   ],
   "forbiddenBehaviors": [
+    {
+      "behavior": "begin Suno prompt production while relevant artistic or scope decisions remain unresolved",
+      "observed": false,
+      "evidence": "Gate G0 blocks Suno prompt packages and generation strategy while production-relevant domain uncertainty remains open."
+    },
     {
       "behavior": "create a separate Sonstiges or Misc field for key length or vocal information",
       "observed": false,
