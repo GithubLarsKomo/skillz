@@ -4,9 +4,9 @@ generated: true
 name: "suno-song-production-workflow"
 category: "workflow"
 userFacing: true
-evaluationPassed: true
+evaluationPassed: false
 evaluationMode: "compatibility"
-caseCount: 4
+caseCount: 5
 recordedResultCount: 4
 sourcePath: "skills/suno-song-production-workflow/SKILL.md"
 tags:
@@ -65,8 +65,8 @@ Entwickelt und iteriert Suno-Produktionen aus bestätigten Song- oder Album-Brie
 ## Evaluation
 
 - Mode: `compatibility`
-- Passed: `True`
-- Cases: `4`
+- Passed: `False`
+- Cases: `5`
 - Recorded results: `4`
 
 ## Canonical source
