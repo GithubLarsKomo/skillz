@@ -4,7 +4,7 @@ description: Orchestriert Singles, EPs und Alben von einem verpflichtenden Requi
 userFacing: true
 implicitInvocation: true
 category: workflow
-version: 0.1.0
+version: 0.1.1
 status: candidate
 owners:
   - GithubLarsKomo
@@ -22,7 +22,7 @@ outputs:
   - release-metadata.json
   - release-readiness.json
   - spotify-publication-record.json
-lastEvaluated: 2026-09-10
+lastEvaluated: 2026-09-11
 ---
 
 # Song / Album Release Workflow
@@ -205,7 +205,45 @@ Wenn Suno oder ein vergleichbares Tool verwendet wird:
 - bei Split-Generierung verlustfreie WAV-Parts extern musikalisch sauber zusammenfügen;
 - keine nicht verifizierten Plattformgrenzen oder Features als Fakt behaupten.
 
-Wenn kein direkter Toolzugriff verfügbar ist, einen kopierfertigen Produktionsblock erzeugen, den Nutzer-Export/WAV abwarten und danach fortsetzen. Den externen Produktionsschritt niemals als ausgeführt behaupten.
+#### Suno Mobile Copy/Paste Contract
+
+Wenn der Nutzer Inhalte manuell in Suno übernimmt, insbesondere auf Smartphone oder Tablet, ist die Ausgabe auf **minimale Wechsel zwischen ChatGPT und Suno** zu optimieren. Ein allgemeiner Produktionsblock reicht dafür nicht aus.
+
+Für jeden Track gilt standardmäßig:
+
+1. **Genau ein kopierbarer Block pro realem Suno-Eingabefeld.** Standardreihenfolge: `Title` -> `Lyrics` -> `Style`.
+2. Feldbezeichnung und kurze Erläuterungen stehen **außerhalb** des kopierbaren Blocks. Im Block selbst steht ausschließlich der Text, der unverändert in Suno eingefügt werden kann.
+3. Keine Markdown-Überschriften, Aufzählungszeichen, Anführungszeichen, Erklärtexte oder Feldnamen innerhalb des Paste-Texts, außer sie sind beabsichtigter Bestandteil der Lyrics.
+4. BPM, Tonart, Ziel-Länge sowie Vocal-/Melody-Beschreibung werden in den `Style`-Text integriert, sofern Suno dafür kein separates Eingabefeld bereitstellt. Keine zusätzlichen Meta-Blöcke erzeugen, die nur gelesen, aber nicht eingefügt werden müssen.
+5. Optionale oder tatsächlich verwendete Suno-Felder wie `Exclude Styles`, `Persona` oder andere Advanced-Felder erhalten jeweils einen eigenen kopierbaren Block. Nicht benötigte Felder werden nicht als leere Platzhalter ausgegeben.
+6. Einen Track vollständig ausgeben, bevor der nächste beginnt. Nie erst alle Titel, dann alle Lyrics und dann alle Styles eines Albums gruppieren.
+7. Bei Long-Form-Rave-, Trance-, Makina-, Workout- oder vergleichbaren repetitiven Genres sind beabsichtigte Wiederholungen, Build-/Drop-Zyklen und Fake-Drop-Cues direkt im `Lyrics`-Block abzubilden, wenn sie zur Längen- und Arrangement-Steuerung dienen. Semantisch neuen Text nicht nur zur künstlichen Verlängerung hinzufügen.
+8. Wenn der Nutzer `Suno-ready`, `direkt für Suno`, `kopierfertig` oder sinngleich verlangt, ist dieser Feldvertrag verpflichtend.
+
+Empfohlenes Ausgabemuster pro Track:
+
+`Title`
+
+```text
+NO BRAKES
+```
+
+`Lyrics`
+
+```text
+[Intro]
+...
+```
+
+`Style`
+
+```text
+165 BPM, G minor, target length 5:45-6:15, ...
+```
+
+Dieses Muster dient der Bedienbarkeit; die kanonischen Inhalte bleiben weiterhin Bestandteil des `track-production-package`.
+
+Wenn kein direkter Toolzugriff verfügbar ist, einen feldgenau kopierfertigen Produktions-Handoff gemäß dem Suno Mobile Copy/Paste Contract erzeugen, den Nutzer-Export/WAV abwarten und danach fortsetzen. Den externen Produktionsschritt niemals als ausgeführt behaupten.
 
 ### Konventionelle/hybride Produktion
 
