@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "skill": "suno-song-production-workflow",
+  "caseId": "grilling-v2-reuse",
+  "recordedAt": "2026-09-11",
+  "evaluator": "contract-review",
+  "requiredBehaviors": [
+    {
+      "behavior": "reuse the valid upstream Grilling v2 handoff instead of starting a duplicate intake",
+      "passed": true,
+      "evidence": "Routing and Phase -1 explicitly state that a valid upstream Grilling-v2 handoff is consumed and that the same project contract is not asked again."
+    },
+    {
+      "behavior": "ask only unresolved production-relevant preference questions through a progressive follow-up round",
+      "passed": true,
+      "evidence": "Progressive semantics and the reuse section require follow-up rounds only for remaining domain uncertainty and forbid repeating resolved questions."
+    },
+    {
+      "behavior": "preserve already confirmed album and track decisions",
+      "passed": true,
+      "evidence": "The album/release routing contract consumes confirmed album architecture, track function and frozen lyrics instead of recreating or silently changing them."
+    },
+    {
+      "behavior": "route current Suno model duration and edit facts to the capability gate rather than asking Grilling to guess them",
+      "passed": true,
+      "evidence": "Phase -1 explicitly says current models, native duration and edit functions are technical Suno facts for Phase 0 verification, not Grilling guesses."
+    },
+    {
+      "behavior": "carry the Grilling and Project Second Brain references into the production handoff",
+      "passed": true,
+      "evidence": "Phase 10 requires both the Grilling-v2 handoff/session reference and projectMemoryRef in suno-production-handoff.json."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "repeat already answered Grilling questions",
+      "observed": false,
+      "evidence": "The progressive contract states that already answered questions are not repeated."
+    },
+    {
+      "behavior": "treat the v1 file catalog as the session register for a v2 project",
+      "observed": false,
+      "evidence": "The workflow requires the DB-backed progressive v2 runtime and current authoritative Grilling rules rather than v1 catalog semantics."
+    },
+    {
+      "behavior": "invent current Suno model capabilities inside the Grilling round",
+      "observed": false,
+      "evidence": "Technical Suno facts are explicitly delegated to the Current Suno Capability Gate."
+    },
+    {
+      "behavior": "discard a still-valid project handoff merely because a single track is being revised",
+      "observed": false,
+      "evidence": "The reuse rule retains a valid handoff and adds only focused progressive follow-up when a real new decision is needed."
+    }
+  ],
+  "overall": "pass"
+}
