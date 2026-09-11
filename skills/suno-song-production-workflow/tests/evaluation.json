@@ -58,6 +58,33 @@
       ]
     },
     {
+      "id": "mobile-copy-paste-handoff",
+      "input": "I am using Suno on my iPhone. Give me the next album tracks in a format I can paste directly. Selecting parts of one large formatted response with my finger and switching back and forth is too cumbersome.",
+      "requiredBehaviors": [
+        "complete one track before beginning the next track",
+        "give Title Lyrics and Style their own dedicated copyable blocks",
+        "keep field labels and explanations outside the copyable blocks",
+        "put only exact paste-ready field content inside each copyable block",
+        "put BPM key target length and vocals or melody guidance inside Style when there is no separate Suno field",
+        "omit unused placeholder fields and catch-all miscellaneous sections",
+        "optimize the handoff for minimal searching and switching on mobile"
+      ],
+      "forbiddenBehaviors": [
+        "put Title Lyrics or Style labels inside the text the user is meant to paste",
+        "mix commentary metadata and paste-ready content in one large block",
+        "group all album titles first then all lyrics then all styles",
+        "force the user to manually select a subsection from a larger block",
+        "create empty blocks for unused Suno fields"
+      ],
+      "skillAnchors": [
+        "One real Suno input field = one dedicated copyable block",
+        "Complete one track before starting the next",
+        "Put the field label outside the block",
+        "exact text to paste into Suno",
+        "Do not make the user manually select a subsection"
+      ]
+    },
+    {
       "id": "model-drift",
       "input": "We found a good prompt and length trick last week. Suno has just released a new model family. Apply the old settings unchanged to the new album.",
       "requiredBehaviors": [
