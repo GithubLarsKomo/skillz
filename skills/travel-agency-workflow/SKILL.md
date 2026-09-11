@@ -17,6 +17,7 @@ requires:
   - travel-availability-snapshot
   - travel-option-ranking
   - travel-itinerary-planner
+  - project-second-brain
 outputs:
   - travel-plan.json
   - travel-plan.md
