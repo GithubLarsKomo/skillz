@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "skill": "suno-song-production-workflow",
+  "caseId": "mobile-copy-paste-handoff",
+  "recordedAt": "2026-09-11",
+  "evaluator": "contract-review",
+  "requiredBehaviors": [
+    {
+      "behavior": "complete one track before beginning the next track",
+      "passed": true,
+      "evidence": "Phase 4 Mobile Copy/Paste Contract explicitly requires completing one track before starting the next."
+    },
+    {
+      "behavior": "give Title Lyrics and Style their own dedicated copyable blocks",
+      "passed": true,
+      "evidence": "The Mobile Copy/Paste Contract states that one real Suno input field receives one dedicated copyable block, while the standard handoff order is Title, Lyrics, Style."
+    },
+    {
+      "behavior": "keep field labels and explanations outside the copyable blocks",
+      "passed": true,
+      "evidence": "Phase 4 explicitly requires the field label to remain outside the copyable block."
+    },
+    {
+      "behavior": "put only exact paste-ready field content inside each copyable block",
+      "passed": true,
+      "evidence": "The contract states that each block contains only the exact text to paste into Suno."
+    },
+    {
+      "behavior": "put BPM key target length and vocals or melody guidance inside Style when there is no separate Suno field",
+      "passed": true,
+      "evidence": "Phase 4 Style requirements place BPM/meter, key/mode, target length and Vocals / Melody inside the Style block."
+    },
+    {
+      "behavior": "omit unused placeholder fields and catch-all miscellaneous sections",
+      "passed": true,
+      "evidence": "The workflow forbids a Sonstiges/Misc catch-all when content belongs in Style or Advanced controls and explicitly disallows empty placeholder blocks for unused Suno fields."
+    },
+    {
+      "behavior": "optimize the handoff for minimal searching and switching on mobile",
+      "passed": true,
+      "evidence": "The dedicated per-field block rule, one-track-at-a-time order, external labels and no-subsection-selection requirement jointly minimize mobile searching, text selection and app switching."
+    }
+  ],
+  "forbiddenBehaviors": [
+    {
+      "behavior": "put Title Lyrics or Style labels inside the text the user is meant to paste",
+      "observed": false,
+      "evidence": "Phase 4 requires labels outside the copyable blocks."
+    },
+    {
+      "behavior": "mix commentary metadata and paste-ready content in one large block",
+      "observed": false,
+      "evidence": "The one-real-field-one-block rule and exact-paste-text-only rule prevent commentary or metadata from being mixed into the paste payload."
+    },
+    {
+      "behavior": "group all album titles first then all lyrics then all styles",
+      "observed": false,
+      "evidence": "The workflow explicitly says to complete one track before starting the next, preserving Title -> Lyrics -> Style per track."
+    },
+    {
+      "behavior": "force the user to manually select a subsection from a larger block",
+      "observed": false,
+      "evidence": "The Mobile Copy/Paste Contract explicitly says not to make the user manually select a subsection from a larger block."
+    },
+    {
+      "behavior": "create empty blocks for unused Suno fields",
+      "observed": false,
+      "evidence": "Phase 4 explicitly forbids empty placeholder blocks for Suno fields that are not used."
+    }
+  ],
+  "overall": "pass"
+}
