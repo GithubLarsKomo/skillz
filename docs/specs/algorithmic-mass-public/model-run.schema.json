@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GithubLarsKomo/skillz/docs/specs/algorithmic-mass-public/model-run.schema.json",
+  "title": "Algorithmic Mass-Public Model Run",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "modelVersion",
+    "runId",
+    "seed",
+    "condition",
+    "population",
+    "network",
+    "mechanisms",
+    "ranking",
+    "hypotheses",
+    "metrics",
+    "verification"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "modelVersion": {"const": "0.1"},
+    "runId": {"type": "string", "minLength": 1},
+    "createdAt": {"type": "string"},
+    "seed": {"type": "integer"},
+    "condition": {
+      "type": "string",
+      "enum": ["chronological", "engagement", "pluralistic"]
+    },
+    "population": {
+      "type": "object",
+      "required": ["n", "privateOpinionFrozen", "opinionInitialization"],
+      "properties": {
+        "n": {"type": "integer", "minimum": 2},
+        "privateOpinionFrozen": {"const": true},
+        "opinionInitialization": {
+          "type": "object",
+          "required": ["distribution"],
+          "properties": {
+            "distribution": {
+              "type": "string",
+              "enum": ["unimodal", "weakly-bimodal", "asymmetric", "custom"]
+            },
+            "parameters": {"type": "object"}
+          },
+          "additionalProperties": false
+        },
+        "agentTraitDistributions": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "network": {
+      "type": "object",
+      "required": ["model", "homophily", "rewiringEnabled"],
+      "properties": {
+        "model": {"type": "string"},
+        "homophily": {"type": "number", "minimum": 0, "maximum": 1},
+        "communityCount": {"type": "integer", "minimum": 1},
+        "rewiringEnabled": {"const": false},
+        "parameters": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "mechanisms": {
+      "type": "object",
+      "required": [
+        "spiralOfSilence",
+        "preferenceFalsification",
+        "negativityResponse",
+        "outgroupResponse",
+        "civicCost",
+        "privateOpinionUpdating"
+      ],
+      "properties": {
+        "spiralOfSilence": {"type": "object"},
+        "preferenceFalsification": {"type": "object"},
+        "negativityResponse": {"type": "object"},
+        "outgroupResponse": {"type": "object"},
+        "outrageOverperception": {"type": "object"},
+        "civicCost": {"type": "object"},
+        "privateOpinionUpdating": {"const": false}
+      },
+      "additionalProperties": true
+    },
+    "ranking": {
+      "type": "object",
+      "required": ["weights", "feedSize", "explorationRate"],
+      "properties": {
+        "weights": {"type": "object"},
+        "feedSize": {"type": "integer", "minimum": 1},
+        "explorationRate": {"type": "number", "minimum": 0, "maximum": 1},
+        "statedPreferenceEnabled": {"type": "boolean"},
+        "constructiveDiversityEnabled": {"type": "boolean"},
+        "bridgingValueEnabled": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "simulation": {
+      "type": "object",
+      "properties": {
+        "timeSteps": {"type": "integer", "minimum": 1},
+        "pairedSeedGroup": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "hypotheses": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10"]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["not-tested", "supported", "not-supported", "inconclusive"]
+          },
+          "effect": {"type": ["number", "null"]},
+          "uncertainty": {"type": ["object", "null"]},
+          "notes": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "privatePolarization",
+        "expressedPolarization",
+        "visibilityDistortion",
+        "perceivedPolarization",
+        "hostilityPerceptionBias",
+        "silenceGap",
+        "preferenceFalsification",
+        "civicRetention",
+        "candidateSelectionBias",
+        "pluralism"
+      ],
+      "additionalProperties": true
+    },
+    "calibration": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["parameter", "evidenceClass"],
+        "properties": {
+          "parameter": {"type": "string"},
+          "evidenceClass": {
+            "type": "string",
+            "enum": ["empirical-direct", "empirical-directional", "theoretical", "exploratory"]
+          },
+          "source": {"type": ["string", "null"]},
+          "notes": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "privateOpinionFreezePassed",
+        "rankingIsolationPassed",
+        "pairedSeedEquivalencePassed",
+        "metricToyTestsPassed"
+      ],
+      "properties": {
+        "privateOpinionFreezePassed": {"type": "boolean"},
+        "rankingIsolationPassed": {"type": "boolean"},
+        "pairedSeedEquivalencePassed": {"type": "boolean"},
+        "feedReconstructionPassed": {"type": "boolean"},
+        "expressionReconstructionPassed": {"type": "boolean"},
+        "metricToyTestsPassed": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
