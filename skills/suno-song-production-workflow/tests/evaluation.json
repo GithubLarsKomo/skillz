@@ -10,28 +10,37 @@
         "verify the current Suno model and capability state before giving model-dependent advice",
         "decompose reference tracks into musical craft dimensions instead of using them as exact-clone prompts",
         "preserve album identity while assigning each track its own musical role",
-        "return Title then Lyrics then Style in that order",
+        "return Title then Lyrics then Style in that order and in separate copyable blocks",
+        "enforce Lyrics <= 5000 characters and Style <= 1000 characters before handoff",
         "put key target length and vocals or melody information inside the Style block",
         "use explicit structural repetition when it is idiomatic to the genre rather than adding a generic miscellaneous field",
         "generate or compare multiple purposeful candidates instead of automatically selecting take one",
+        "after the album title and order are frozen output a final album-title-plus-track-order playlist",
+        "generate an actual square album cover that fits the music lyrics and album arc",
         "record the Grilling handoff result and reusable production learning in the project Second Brain"
       ],
       "forbiddenBehaviors": [
         "begin Suno prompt production while relevant artistic or scope decisions remain unresolved",
         "create a separate Sonstiges or Misc field for key length or vocal information",
+        "combine Title Lyrics and Style into one copy block",
+        "hand off Lyrics above 5000 characters",
+        "hand off Style above 1000 characters",
+        "finish an album with only a cover prompt instead of an actual square image",
         "ask Suno to exactly imitate a living artist",
         "treat an old Suno duration limit as a timeless fact",
-        "store audio binaries in the GitHub Second Brain just for convenience"
+        "store audio or cover binaries in the GitHub Second Brain just for convenience"
       ],
       "skillAnchors": [
         "Progressive Grilling v2 Gate",
         "Gate G0 — Intent Confirmed",
         "Current Suno Capability Gate",
         "Reference Decomposition statt Artist Imitation",
-        "Title",
+        "Harte Feldlimits",
+        "Title, Lyrics und Style stehen immer in drei getrennten Kopierblöcken",
         "Target length",
         "Vocals / Melody",
         "Repetition",
+        "Album Completion Contract",
         "Project Second Brain Learning Loop"
       ]
     },
@@ -92,6 +101,7 @@
         "give Title Lyrics and Style their own dedicated copyable blocks",
         "keep field labels and explanations outside the copyable blocks",
         "put only exact paste-ready field content inside each copyable block",
+        "enforce Lyrics <= 5000 characters and Style <= 1000 characters before showing the blocks",
         "put BPM key target length and vocals or melody guidance inside Style when there is no separate Suno field",
         "omit unused placeholder fields and catch-all miscellaneous sections",
         "optimize the handoff for minimal searching and switching on mobile"
@@ -101,14 +111,44 @@
         "mix commentary metadata and paste-ready content in one large block",
         "group all album titles first then all lyrics then all styles",
         "force the user to manually select a subsection from a larger block",
-        "create empty blocks for unused Suno fields"
+        "create empty blocks for unused Suno fields",
+        "output over-limit Lyrics or Style fields"
       ],
       "skillAnchors": [
         "One real Suno input field = one dedicated copyable block",
+        "Title, Lyrics und Style stehen immer in drei getrennten Kopierblöcken",
+        "Harte Feldlimits",
         "Complete one track before starting the next",
         "Put the field label outside the block",
-        "exact text to paste into Suno",
-        "Do not make the user manually select a subsection"
+        "exact text to paste into Suno"
+      ]
+    },
+    {
+      "id": "album-completion",
+      "input": "All tracks for the album are finished. Close out the Suno project.",
+      "requiredBehaviors": [
+        "output a final playlist containing the frozen album title and numbered final listening order",
+        "ensure playlist track titles exactly match the final Title blocks",
+        "generate an actual 1:1 album cover rather than only describing a possible cover",
+        "derive the cover direction from the album lyrics music emotional arc and confirmed project context",
+        "use a focused Grilling v2 follow-up only if the visual direction is materially unresolved",
+        "reuse an already accepted fitting square cover for the same frozen album version instead of regenerating without reason",
+        "store the cover binary outside GitHub and document its asset reference and provenance in the Project Second Brain"
+      ],
+      "forbiddenBehaviors": [
+        "finish the album without a playlist",
+        "finish the album without an actual cover image",
+        "use a non-square final cover",
+        "generate generic unrelated cover art solely to satisfy the requirement",
+        "repeat the full Grilling intake when only a visual cover decision remains open",
+        "store the cover binary in the GitHub Second Brain just for convenience"
+      ],
+      "skillAnchors": [
+        "Phase 11 — Album Completion Contract",
+        "Finale Playlist",
+        "Quadratisches Albumcover",
+        "Gate C — Album Package Complete",
+        "suno-album-cover-asset.json"
       ]
     },
     {
