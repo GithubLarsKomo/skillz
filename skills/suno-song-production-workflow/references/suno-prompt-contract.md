@@ -2,13 +2,13 @@
 
 ## Purpose
 
-This reference defines the canonical copy-ready handoff for Suno generation. It keeps the user-facing output compact, reproducible, and practical on mobile devices where manually selecting fragments from mixed prose is unnecessarily cumbersome.
+This reference defines the canonical copy-ready handoff for Suno generation. It keeps user-facing output compact, reproducible, and practical on mobile devices.
 
 The governing UX rule is:
 
 > **One real Suno input field = one dedicated copyable block containing only paste-ready text.**
 
-Field labels and explanations stay outside the copyable block.
+This rule is mandatory for every Suno track handoff, not only when the user explicitly asks for a mobile or copy-ready format. Field labels and explanations stay outside the copyable block.
 
 ## Required order and grouping
 
@@ -18,6 +18,8 @@ For every track, always present the production handoff in this order:
 2. `Lyrics`
 3. `Style`
 4. `Advanced controls` only when current Suno capabilities make them relevant
+
+`Title`, `Lyrics`, and `Style` are always three separate copyable blocks. Never combine them into one large block.
 
 Complete one track before starting the next. Do not group all album titles first, then all lyrics, then all styles.
 
@@ -35,7 +37,7 @@ Rules:
 - Do not make the user manually select a subsection from a larger mixed block.
 - Do not create empty blocks for unused Suno fields.
 - Keep each track self-contained so a mobile user can copy Title -> switch to Suno -> paste -> return -> copy Lyrics -> paste -> return -> copy Style -> paste, without searching elsewhere in the response.
-- When the user asks for `Suno-ready`, `direkt für Suno`, `kopierfertig`, or equivalent wording, this copy-block contract is mandatory.
+- This contract is mandatory for all Suno production handoffs.
 
 ## Suno field length limits
 
@@ -135,6 +137,37 @@ If an Advanced control corresponds to a separate Suno input field, give that fie
 
 Never invent slider names, ranges, or values from memory. Verify current Suno capabilities first.
 
+## Album completion contract
+
+For every Suno **album project**, the workflow has two mandatory completion artifacts in addition to the per-track packages.
+
+### Final playlist
+
+After the final album title and track order are frozen, output one compact playlist that contains:
+
+- the final **album title**;
+- the final numbered **track sequence in listening order**;
+- exactly the same track titles used in the final Title blocks.
+
+The playlist is the canonical human-readable album sequence. It must be regenerated whenever the album title or track order changes.
+
+### Album cover
+
+A Suno album project is not complete without an actually generated album cover.
+
+Requirements:
+
+- square **1:1** format;
+- visually derived from the album's lyrics, musical identity, emotional arc, and confirmed artist/project direction;
+- no generic unrelated artwork merely to fill the requirement;
+- use the available image-generation capability to create the image, not only a cover prompt or brief;
+- do not directly imitate a living visual artist or use uncleared copyrighted assets;
+- if the cover direction is materially underdetermined, run a focused Grilling-v2 follow-up for the unresolved visual decisions only; do not repeat already answered project questions;
+- if the existing Grilling/Second Brain already determines a coherent visual direction, proceed without unnecessary re-grilling;
+- store the binary image in the documented external artifact store and keep its reference/provenance in the Project Second Brain.
+
+If the user has already accepted a fitting square cover for the same frozen album version, reuse it rather than generating a replacement without a reason.
+
 ## Reference handling
 
 Artist or track references may appear in the analysis notes, but final generation prompts should primarily express the abstracted musical craft:
@@ -152,6 +185,7 @@ Reject or revise a prompt if it contains:
 
 - Lyrics longer than **5000 characters**;
 - Style longer than **1000 characters**;
+- Title, Lyrics, and Style combined in one copy block;
 - contradictory BPM/tempo descriptions;
 - mutually incompatible vocal instructions;
 - too many genre labels without a clear hierarchy;
@@ -162,6 +196,14 @@ Reject or revise a prompt if it contains:
 - mixed prose and paste text inside the same copy block;
 - a field label inside the paste text;
 - album-wide grouping that forces repeated searching between tracks.
+
+For album completion, fail the final album handoff if:
+
+- the final playlist is missing or does not match the frozen album title/order;
+- the album cover is missing;
+- the cover is not square;
+- the cover is unrelated to the album concept;
+- a cover brief exists but no actual image was generated.
 
 ## Length-specific guidance
 
