@@ -37,6 +37,15 @@ Rules:
 - Keep each track self-contained so a mobile user can copy Title -> switch to Suno -> paste -> return -> copy Lyrics -> paste -> return -> copy Style -> paste, without searching elsewhere in the response.
 - When the user asks for `Suno-ready`, `direkt für Suno`, `kopierfertig`, or equivalent wording, this copy-block contract is mandatory.
 
+## Suno field length limits
+
+Treat these as hard preflight limits for every Suno-ready handoff:
+
+- `Lyrics`: **maximum 5000 characters**.
+- `Style`: **maximum 1000 characters**.
+
+Before presenting a track package, count the final paste-ready content and revise it if either field exceeds its limit. Do not rely on the user to shorten the text manually after handoff. Prefer leaving a small margin below the maximum when the same meaning can be preserved more compactly.
+
 ## Title
 
 Use the confirmed title. If the title is not frozen, explain outside the block that it is a working title. The block itself still contains only the title text.
@@ -52,6 +61,7 @@ NO BRAKES
 ## Lyrics
 
 - Keep complete lyrics inside one copyable block.
+- Never exceed **5000 characters** in the final Lyrics field.
 - Use structural labels when they improve generation control.
 - Write intended repetitions explicitly when repetition is part of the genre/arrangement.
 - Avoid verbose production directions in the Lyrics field.
@@ -81,7 +91,7 @@ Forward
 
 ## Style
 
-The Style block is the compact production specification. Include only relevant dimensions, normally in one dense paragraph or semicolon-separated vector:
+The Style block is the compact production specification. It must never exceed **1000 characters**. Include only relevant dimensions, normally in one dense paragraph or semicolon-separated vector:
 
 - genre/subgenre;
 - production era or sonic period;
@@ -140,6 +150,8 @@ Do not produce an exact-clone prompt for a living artist.
 
 Reject or revise a prompt if it contains:
 
+- Lyrics longer than **5000 characters**;
+- Style longer than **1000 characters**;
 - contradictory BPM/tempo descriptions;
 - mutually incompatible vocal instructions;
 - too many genre labels without a clear hierarchy;
