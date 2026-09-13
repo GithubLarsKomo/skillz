@@ -4008,6 +4008,8 @@
       ],
       "consumes": [],
       "outputs": [
+        "suno-album-cover-asset.json",
+        "suno-album-playlist.md",
         "suno-capability-snapshot.json",
         "suno-generation-review.json",
         "suno-model-learning.md",
@@ -17306,6 +17308,24 @@
       "consumptionStatus": "unconsumed"
     },
     {
+      "output": "suno-album-cover-asset.json",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
+      "output": "suno-album-playlist.md",
+      "producers": [
+        "suno-song-production-workflow"
+      ],
+      "consumerSkills": [],
+      "ambiguous": false,
+      "consumptionStatus": "unconsumed"
+    },
+    {
       "output": "suno-capability-snapshot.json",
       "producers": [
         "suno-song-production-workflow"
@@ -19038,6 +19058,8 @@
     "structured character artifacts",
     "structured world artifacts",
     "succession-professional-work-orders.json",
+    "suno-album-cover-asset.json",
+    "suno-album-playlist.md",
     "suno-capability-snapshot.json",
     "suno-generation-review.json",
     "suno-model-learning.md",
@@ -19405,6 +19427,8 @@
     "structured character artifacts",
     "structured world artifacts",
     "succession-professional-work-orders.json",
+    "suno-album-cover-asset.json",
+    "suno-album-playlist.md",
     "suno-capability-snapshot.json",
     "suno-generation-review.json",
     "suno-model-learning.md",

@@ -15,7 +15,7 @@ Generated from the canonical skill capability index. Do not edit manually.
 - Skills without evaluation suite: **0**
 - User-facing entrypoints without evaluation suite: **0**
 - Ambiguous outputs (multiple producers): **0**
-- Outputs without inferred hard-requires consumers: **365**
+- Outputs without inferred hard-requires consumers: **367**
 
 Passing executed suites does not imply complete evaluation coverage. Coverage is complete only when every indexed skill has an evaluation suite.
 
@@ -351,6 +351,8 @@ These are **not automatically defects**. The dependency graph infers consumers o
 - `structured character artifacts` — producer: `ensemble-character-architecture`
 - `structured world artifacts` — producer: `speculative-worldbuilding`
 - `succession-professional-work-orders.json` — producer: `german-inheritance-succession-law-specialist`
+- `suno-album-cover-asset.json` — producer: `suno-song-production-workflow`
+- `suno-album-playlist.md` — producer: `suno-song-production-workflow`
 - `suno-capability-snapshot.json` — producer: `suno-song-production-workflow`
 - `suno-generation-review.json` — producer: `suno-song-production-workflow`
 - `suno-model-learning.md` — producer: `suno-song-production-workflow`

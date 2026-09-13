@@ -19454,7 +19454,7 @@
     },
     {
       "name": "suno-song-production-workflow",
-      "description": "Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.",
+      "description": "Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete mit harten Feldlimits, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Album-Playlist/Cover-Abschluss, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.",
       "invocation": {
         "userFacing": true,
         "category": "workflow"
@@ -19471,6 +19471,8 @@
       ],
       "dependents": [],
       "outputs": [
+        "suno-album-cover-asset.json",
+        "suno-album-playlist.md",
         "suno-capability-snapshot.json",
         "suno-generation-review.json",
         "suno-model-learning.md",
@@ -19478,6 +19480,22 @@
         "suno-track-package.md"
       ],
       "outputContracts": [
+        {
+          "output": "suno-album-cover-asset.json",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        },
+        {
+          "output": "suno-album-playlist.md",
+          "ambiguous": false,
+          "producers": [
+            "suno-song-production-workflow"
+          ],
+          "consumerSkills": []
+        },
         {
           "output": "suno-capability-snapshot.json",
           "ambiguous": false,

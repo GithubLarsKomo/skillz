@@ -16,7 +16,7 @@ tags:
 
 # suno-song-production-workflow
 
-Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
+Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete mit harten Feldlimits, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Album-Playlist/Cover-Abschluss, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
 
 > Generated from canonical repository metadata. Do not edit this note manually.
 
@@ -35,6 +35,8 @@ Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Gril
 
 ## Outputs
 
+- `suno-album-cover-asset.json`
+- `suno-album-playlist.md`
 - `suno-capability-snapshot.json`
 - `suno-generation-review.json`
 - `suno-model-learning.md`
@@ -42,6 +44,14 @@ Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Gril
 - `suno-track-package.md`
 
 ## Output consumers
+
+### `suno-album-cover-asset.json`
+
+- Terminal or currently unconsumed output.
+
+### `suno-album-playlist.md`
+
+- Terminal or currently unconsumed output.
 
 ### `suno-capability-snapshot.json`
 

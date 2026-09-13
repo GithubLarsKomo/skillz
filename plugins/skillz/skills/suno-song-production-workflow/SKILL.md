@@ -1,6 +1,6 @@
 ---
 name: suno-song-production-workflow
-description: Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
+description: Entwickelt und iteriert Suno-Produktionen nach verpflichtendem progressivem Grilling v2: bestätigter Projekt-/Track-Intent, Referenzanalyse auf Craft-Ebene, Suno-fertige Title/Lyrics/Style-Pakete mit harten Feldlimits, modell- und versionsbewusste Generationsstrategie, Variantenreview, gezielte Revision, Album-Playlist/Cover-Abschluss, Provenienz und Second-Brain-Lernschleife. Verwenden bei Suno-Songs, Suno-Alben, Soundtrack-/Workout-/Trance-Projekten oder wenn ein vorhandener Song-Album-Workflow den generativen Produktionsschritt an Suno übergibt.
 ---
 
 # Suno Song Production Workflow
@@ -12,6 +12,10 @@ Dieser Skill übernimmt den **Suno-spezifischen Produktionsloop** zwischen best�
 Seine Kernfrage lautet:
 
 > Ist aus einem in Grilling v2 bestätigten Projekt-/Track-Intent ein präzises, Suno-taugliches Produktionspaket entstanden, das reproduzierbar generiert, bewertet, gezielt verbessert und mit seinen Learnings dokumentiert werden kann?
+
+Für **Albumprojekte** kommt eine zweite Abschlussfrage hinzu:
+
+> Sind nach dem Track-Loop die finale Playlist und ein tatsächlich erzeugtes quadratisches Albumcover vorhanden und konsistent mit Albumtitel, Titelreihenfolge, Texten und Musik?
 
 ## Routing und Scope
 
@@ -51,6 +55,8 @@ Das Grilling muss mindestens ausreichend klären:
 - kommerzielle/private Nutzungsabsicht;
 - harte musikalische, rechtliche und workflowbezogene Grenzen;
 - messbare Erfolgskriterien des ersten Produktionsloops.
+
+Bei Albumprojekten soll die visuelle Identität nur soweit mitgeklärt werden, wie sie bereits naheliegend ist. Ist die Coverrichtung am Ende des musikalischen Loops noch materiell offen, wird **nur dafür** eine fokussierte progressive Grilling-v2-Folgerunde verwendet.
 
 ### Progressive Semantik
 
@@ -172,28 +178,37 @@ Ziel-Länge nicht nur aus Wortzahl ableiten. Arrangement-Abschnitte und ungefäh
 
 ## Phase 4 — Suno-Ready Prompt Contract
 
-Das Standard-Handoff an den Nutzer folgt dieser Reihenfolge:
+Das Standard-Handoff an den Nutzer folgt für **jeden Track immer** dieser Reihenfolge:
 
 1. **Title**
 2. **Lyrics**
 3. **Style**
 4. **Advanced controls** nur wenn aktuelle, tatsächlich relevante Suno-Regler oder Profile gezielt verwendet werden
 
-Kein separates Feld `Sonstiges`/`Misc` erzeugen, wenn dessen Inhalt sinnvoll im Style- oder Advanced-Block aufgehoben ist.
+### Harte Feldlimits
 
-Der vollständige normative Prompt-Vertrag liegt in [`references/suno-prompt-contract.md`](references/suno-prompt-contract.md).
+Vor jeder Ausgabe wird der finale, tatsächlich zu kopierende Text geprüft:
 
-### Mobile Copy/Paste Contract
+- **Lyrics: maximal 5000 Zeichen**;
+- **Style: maximal 1000 Zeichen**.
 
-Für mobile Suno-Nutzung gilt zusätzlich:
+Überschreitet ein Feld das Limit, wird es **vor der Ausgabe** gekürzt/verdichtet bzw. strukturell überarbeitet. Der Nutzer erhält kein überlanges Feld mit dem Hinweis, es selbst zu kürzen.
+
+### Copy/Paste Contract
 
 > **One real Suno input field = one dedicated copyable block.**
 
+Das gilt für jede Suno-Ausgabe, nicht nur auf ausdrückliche Nachfrage oder auf Mobilgeräten.
+
+- **Title, Lyrics und Style stehen immer in drei getrennten Kopierblöcken.**
 - **Complete one track before starting the next.**
 - **Put the field label outside the block.**
 - In jedem Block steht nur der **exact text to paste into Suno**.
 - **Do not make the user manually select a subsection** aus einem größeren Sammelblock.
 - Keine leeren Platzhalterblöcke für nicht verwendete Suno-Felder.
+- Kein separates Feld `Sonstiges`/`Misc`, wenn dessen Inhalt sinnvoll im Style- oder Advanced-Block aufgehoben ist.
+
+Der vollständige normative Prompt-Vertrag liegt in [`references/suno-prompt-contract.md`](references/suno-prompt-contract.md).
 
 ### Style muss die produktionsrelevanten Angaben bündeln
 
@@ -221,6 +236,9 @@ Bevorzugt einen dichten, widerspruchsfreien Stilvektor statt langer Prosa. Zu vi
 
 PASS nur wenn:
 
+- Title, Lyrics und Style in drei getrennten Kopierblöcken vorliegen;
+- Lyrics <= 5000 Zeichen sind;
+- Style <= 1000 Zeichen ist;
 - Referenzen in Craft-Merkmale übersetzt sind;
 - Lyrics/Struktur und Ziel-Länge zusammenpassen;
 - Style keine offensichtlichen Widersprüche enthält;
@@ -344,7 +362,50 @@ Erzeuge `suno-production-handoff.json` mit:
 - open audio-QC items;
 - next skill / next action.
 
-Für einen Release-Workflow geht der Handoff zurück an `song-album-release-workflow` für vollständiges Audio-QC, Artwork, Rights/Metadata und Distribution.
+Für einen Release-Workflow geht der Handoff zurück an `song-album-release-workflow` für vollständiges Audio-QC, Rights/Metadata und Distribution. Für Albumprojekte bleibt jedoch Phase 11 dieses Suno-Workflows verpflichtend.
+
+## Phase 11 — Album Completion Contract
+
+Diese Phase gilt für jedes Projekt mit `Projektform = Album`.
+
+### 11.1 Finale Playlist
+
+Sobald Albumtitel und Trackreihenfolge gefroren sind, `suno-album-playlist.md` erzeugen. Die Nutzer-Ausgabe enthält kompakt:
+
+- den finalen **Albumtitel**;
+- die **nummerierte Titelreihenfolge** in finaler Hörreihenfolge;
+- exakt dieselben Tracktitel wie in den finalen Title-Kopierfeldern.
+
+Ändert sich Albumtitel oder Reihenfolge, wird die Playlist neu erzeugt. Sie ist die kanonische menschenlesbare Albumsequenz.
+
+### 11.2 Quadratisches Albumcover
+
+Für jedes Album muss ein **tatsächliches Coverbild** erzeugt werden; ein Prompt oder Brief allein genügt nicht.
+
+Harte Anforderungen:
+
+- **1:1 / quadratisch**;
+- Motiv und Atmosphäre müssen aus Texten, musikalischer Identität, emotionalem Album-Arc und bestätigtem Projektkontext ableitbar sein;
+- kein beliebiges generisches Artwork als Lückenfüller;
+- vorhandene Bildgenerierungsfähigkeit zur tatsächlichen Bilderzeugung verwenden;
+- keine direkte Imitation eines lebenden visuellen Künstlers;
+- keine ungeklärten fremden Assets;
+- wenn die visuelle Richtung materiell offen ist: fokussierte Grilling-v2-Folgerunde nur zu diesen offenen Coverentscheidungen;
+- wenn Grilling/Second Brain bereits eine ausreichend klare visuelle Richtung liefern: ohne unnötige Rückfrage erzeugen;
+- ein bereits akzeptiertes, passendes quadratisches Cover derselben gefrorenen Albumversion wiederverwenden statt grundlos neu erzeugen.
+
+Nicht-textuelle Coverdateien werden gemäß `project-second-brain` im dokumentierten externen Artifact Store gehalten. `suno-album-cover-asset.json` bzw. `ASSETS.md` referenziert mindestens Asset-Pfad/Link, Erstellungsdatum, Albumversion, Bildherkunft/Tool und Freigabestatus.
+
+### Gate C — Album Package Complete
+
+Für ein Album PASS nur wenn:
+
+- finale Playlist vorhanden ist;
+- Playlist Albumtitel und finale Reihenfolge korrekt widerspiegelt;
+- alle Tracktitel mit den finalen Title-Blöcken übereinstimmen;
+- ein tatsächlich erzeugtes quadratisches Cover vorhanden ist;
+- das Cover inhaltlich zur Musik/Textwelt passt;
+- Cover-Provenienz und Asset-Referenz dokumentiert sind.
 
 ## Second-Brain Storage Boundary
 
@@ -359,17 +420,22 @@ Blockierend:
 - kein gültiger Grilling-v2-Handoff bzw. noch offene produktionsrelevante fachliche Unsicherheit bei einem neuen Suno-Projekt;
 - kein ausreichend definierter Track-Brief;
 - modellabhängige Empfehlung bei veraltetem/fehlendem Capability Snapshot;
+- Lyrics > 5000 Zeichen im finalen Suno-Feld;
+- Style > 1000 Zeichen im finalen Suno-Feld;
+- Title/Lyrics/Style nicht in getrennten Kopierblöcken;
 - ungeklärte oder nicht autorisierte Stimme/Samplequelle;
 - direkter Künstler-Klon statt abstrahierter Craft-Spezifikation;
 - kommerzieller Handoff mit ungeklärtem aktuellen Nutzungsrecht;
-- behauptete externe Generierung ohne Evidenz.
+- behauptete externe Generierung ohne Evidenz;
+- bei Albumprojekten: fehlende finale Playlist;
+- bei Albumprojekten: fehlendes oder nicht quadratisches tatsächliches Coverbild.
 
 Nicht automatisch blockierend:
 
 - ein bereits gegrilltes Projekt wird nur in einer bestätigten Dimension iteriert;
-- der Nutzer möchte nur einen kopierfertigen Suno-Block aus einem bereits bestätigten Paket;
-- noch kein finaler WAV-Export vorhanden;
-- Cover/Distribution sind noch nicht geplant;
+- noch kein finaler WAV-Export vorhanden, solange nur ein Track-Prompt iteriert wird;
+- Distribution ist noch nicht geplant;
+- bei Nicht-Album-Projekten ist kein Cover vorgesehen;
 - ein experimenteller Take bleibt als `keep-for-parts` erhalten.
 
 ## Abschluss
@@ -378,8 +444,10 @@ Der Skill endet, wenn:
 
 1. ein gültiger Grilling-v2-Handoff den produktionsrelevanten Intent bestätigt;
 2. Capability Snapshot aktuell genug ist;
-3. ein Suno-ready Track-Paket vorliegt;
-4. Generations-/Editentscheidungen und Nutzerfeedback nachvollziehbar bewertet sind;
-5. der ausgewählte Kandidat samt Provenienz in `suno-production-handoff.json` festgehalten ist;
-6. relevante Learnings im Project Second Brain stehen;
-7. genau die nächste Aktion oder das nächste Workflow-Ziel benannt ist.
+3. jedes ausgegebene Suno-Track-Paket Title, Lyrics und Style in getrennten Kopierblöcken enthält;
+4. Lyrics <= 5000 und Style <= 1000 Zeichen sind;
+5. Generations-/Editentscheidungen und Nutzerfeedback nachvollziehbar bewertet sind;
+6. der ausgewählte Kandidat samt Provenienz in `suno-production-handoff.json` festgehalten ist;
+7. relevante Learnings im Project Second Brain stehen;
+8. bei Albumprojekten finale Playlist und quadratisches, inhaltlich passendes erzeugtes Cover vorhanden und dokumentiert sind;
+9. genau die nächste Aktion oder das nächste Workflow-Ziel benannt ist.

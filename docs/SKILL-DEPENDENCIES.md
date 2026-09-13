@@ -1729,6 +1729,8 @@ graph TD
 | `substantial-equivalence-assessment.json` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
 | `substantial-equivalence-matrix.md` | `fda-510k-substantial-equivalence` | `fda-dual-510k-clia-waiver` | inferred |
 | `succession-professional-work-orders.json` | `german-inheritance-succession-law-specialist` | — | unconsumed |
+| `suno-album-cover-asset.json` | `suno-song-production-workflow` | — | unconsumed |
+| `suno-album-playlist.md` | `suno-song-production-workflow` | — | unconsumed |
 | `suno-capability-snapshot.json` | `suno-song-production-workflow` | — | unconsumed |
 | `suno-generation-review.json` | `suno-song-production-workflow` | — | unconsumed |
 | `suno-model-learning.md` | `suno-song-production-workflow` | — | unconsumed |
